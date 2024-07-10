@@ -4,7 +4,7 @@ description: Learn how to securely develop and deploy efficient and scalable cod
 author: dbarkol
 ms.author: dabarkol
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 07/03/2024
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
@@ -14,13 +14,11 @@ categories:
 products:
   - azure-event-hubs
   - azure-functions
-ms.custom:
-  - guide
 ---
 
 # Secure Azure Functions with Event Hubs
 
-When configuring access to resources in Azure, you should apply fine-grained control over permissions to resources. Access to these resources should be based on *need to know* and *least privilege* security principles to make sure that clients can only perform the limited set of actions assigned to them.
+When configuring access to resources in Azure, you should apply fine-grained control over permissions to resources. Access to these resources should be based on *need to know* and *least privilege* security principles to make sure that clients can only perform the limited set of actions granted to them.
 
 ## Authorizing Access to Event Hubs
 
@@ -58,13 +56,11 @@ In all cases, it's important to note that at least one IP firewall rule or virtu
 
 Azure Functions can be configured to consume events from or publish events to event hubs, which are set up with either service endpoints or private endpoints. Regional virtual network integration is needed for your function app to connect to an event hub using a service endpoint or a private endpoint.
 
-When setting up Functions to work with a private endpoint enabled resource, you need to set the `WEBSITE_VNET_ROUTE_ALL` application setting to `1`. If you want to fully lock down your function app, you also need to [restrict your storage account](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
+When you integrate Functions with a virtual network and enable `vnetRouteAllEnabled`, all outbound traffic from the function app is forced through the virtual network. This is particularly important for scenarios where you want to secure your function app by ensuring all traffic, including traffic to Azure services, goes through your virtual network for inspection and control. If you want to fully lock down your function app, you also need to [restrict your storage account](/azure/azure-functions/configure-networking-how-to#restrict-your-storage-account-to-a-virtual-network).
 
 To trigger (consume) events in a virtual network environment, the function app needs to be hosted in a Premium plan, a Dedicated (App Service) plan, or an App Service Environment (ASE).
 
 Additionally, running in an Azure Functions Premium plan and consuming events from a virtual network restricted Event Hub requires virtual network trigger support, also referred to as [runtime scale monitoring](/azure/azure-functions/functions-networking-options#virtual-network-triggers-non-http). Runtime scale monitoring can be configured via the Azure portal, Azure CLI, or other deployment solutions. Runtime scale monitoring isn't available when the function is running in a Dedicated (App Service) plan or an ASE.
-
-To use runtime scale monitoring with Event Hubs, you need to use version 4.1.0 or higher of the Microsoft.Azure.WebJobs.Extensions.EventHubs extension.
 
 ## Contributors
 
@@ -91,4 +87,3 @@ Before continuing, consider reviewing these related articles:
 
 - [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md) provides guidance on monitoring serverless event-driven architectures.
 - [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
-- [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml) describes in more detail how these portions of the reference architecture work.

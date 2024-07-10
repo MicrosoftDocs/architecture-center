@@ -17,12 +17,6 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components like REST APIs.
 - You manage Microsoft Entra Domain Services and Microsoft Entra ID, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
 - GIS analysts, administrators, and editors connect to Azure Virtual Desktop via a Remote Desktop Protocol (RDP) session. From there, ArcGIS Pro is accessed and takes advantage of the GPUs for light, medium, and heavy workflows. *Light* refers to a 2D workflow, *medium* refers to a more demanding 2D workflow, and *heavy* refers to a 2D or 3D workflow that requires GPUs. GIS administrators can also use ArcGIS Pro to publish services and administer the enterprise geodatabase. Finally, GIS editors can maintain the vector and raster layers.
-- The desktop VMs are based on [N-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/#:~:text=The%20N-series%20is%20a%20family%20of%20Azure%20Virtual,has%20three%20different%20offerings%20aimed%20at%20specific%20workloads%3A). Example VM SKUs for ArcGIS Pro: 
-  - Heavy: Standard_NV16as_v4. 16 CPU, 56 GB.
-  - Medium: Standard_NV8as_v4. 8 CPU, 28 GB.
-  - Light: Standard_NV4as_v4. 4 CPU, 14 GB.
-
-  For details on the VMs, see [NV-Series](/azure/virtual-machines/nv-series). The preceding groupings allow administrators to size the VMs based on workflows as opposed to VM capabilities. For example, end users see **GIS-Heavy-pool**, which indicates that the VM is for power users that need 3D-intensive workflows. 
  
   Administrators can also make it possible to publish new versions of ArcGIS Pro by using semantic versioning. For example, as new versions of ArcGIS Pro are available, like ArcGIS Pro 3.0, the new version can be published in the Remote Desktop tool. As a result, users can pick that new version when they're ready to upgrade without having to perform the upgrade themselves. The GPU drivers can be included in the creation of the images that the deployments are based on.
 
@@ -43,7 +37,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
   Security is integrated with Active Directory through sign-in authentication and controlled access to objects in the directory. With a single network sign-in, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network.
 
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and application virtualization service that runs on Azure. This service is free and managed by Microsoft as a platform as a service (PaaS) offering, saving you money on licensing and infrastructure costs. It's a flexible cloud virtual desktop infrastructure (VDI) platform that delivers virtual desktops and remote apps with maximum control and improved security.
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/database)  is a PaaS version of SQL Server. It's an intelligent and scalable relational database service.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/database) is a PaaS version of SQL Server. It's an intelligent and scalable relational database service.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller-as-a-service offering that provides layer-7 load balancing, security, and web application firewall functionality. 
 - [FSLogix](/fslogix) enhances and enables user profile management for Windows remote computing environments. It allows users to roam between remote computing session hosts, minimize sign-in times for virtual desktop environments, and optimize file I/O between the host/client and the remote profile store.  
 
@@ -94,10 +88,10 @@ When you use a remote Windows session, your network's available bandwidth greatl
 
 |Workload type  |Recommended bandwidth  |
 |---------|---------|
-|Light     | 1.5 Mbps         |
+|Light     |1.5 Mbps         |
 |Medium     |3 Mbps         |
-|Heavy     |  5 Mbps        |
-|Power      |  15 Mbps        |
+|Heavy     | 5 Mbps        |
+|Power      | 15 Mbps        |
 
 Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement also rises. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
 
@@ -113,33 +107,77 @@ You can scale this architecture in many ways. You can scale the VMs for the back
 
 You can test your system's latency by using the [Connection Experience Indicator](https://bramwolfs.com/2020/03/11/connection-experience-indicator-for-rds-wvd). You can use [Esri's ArcGIS Pro Performance Assessment Tool](https://pro.arcgis.com/en/pro-app/latest/get-started/pro-performance-tool-overview.htm) to test the performance. Esri also recommends [tools for testing ArcGIS Enterprise](https://community.esri.com/t5/implementing-arcgis-blog/performance-engineering-load-testing-arcgis/ba-p/1070106#:~:text=Performance%20Engineering%20is%20the%20practice%20of%20proactively%20testing%2C,components%20%28e.g.%20map%20service%20composition%29%20of%20a%20Site.). [Azure Load Testing](https://azure.microsoft.com/services/load-testing) can also be helpful.
 
+### ArcGIS Pro virtual machine sizing guidelines for Azure Virtual Desktop and Remote Desktop Services
+
+Whether you're running your session host virtual machines on Remote Desktop Services or Azure Virtual Desktop, different types of workloads require different virtual machine configurations. The examples in this article are generic guidelines, and you should only use them for initial performance estimates. For the best possible experience, optimize and scale your deployment depending on your users' needs.
+
+ArcGIS Pro should use Windows 10 and Windows 11 multisession VMs to provide additional flexibility and greater return on investment. It is necessary to allocate the appropriate VM types to give each user enough resources such as GPU, CPU, and RAM. Always consider the number of connections and limit the simultaneous user access to each VM to avoid oversaturation and hindering performance.
+
+### Workloads
+
+Users can run different types of workloads on the session host virtual machines. The following table shows examples of a range of workload types to help you estimate what size your virtual machines need to be. After you set up your virtual machines, continually monitor their actual usage and adjust their size accordingly. If you end up needing a bigger or smaller virtual machine, scale your existing deployment up or down.
+
+The following table describes each ArcGIS workload. *Example users* are the types of users that might find each workload most helpful.
+
+| Workload type | Example user workflows | Activity |
+| --- | --- | --- |
+| Light | Simple 2-D map display, navigation, and querying. Combining and presenting data prepared by others. | Viewing |
+| Medium |2-D and 3-D map display, navigation, querying, and editing. Moderate use of GP tools. Compilation of presentation of data from multiple sources into a simple map layout. | Editing |
+| Heavy |2-D and 3-D map display, navigation, querying, and editing. Advanced use of symbology including transparency, and dynamic labeling. Heavy 2-D and 3-D analysis involving visibility, and line of sight. | Visualizing |
+
+Review the [ArcGIS Pro 3.3 system requirements](https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-system-requirements.htm) and [ArcGIS Pro on Microsoft Azure Cloud](https://pro.arcgis.com/en/pro-app/latest/get-started/pro-on-azure-cloud.htm) recommendations to complement your sizing effort.
+
+### Single-session recommendations
+
+*Single-session* scenarios are when there's only one user signed in to a session host virtual machine at any one time. For example, if you use personal host pools in Azure Virtual Desktop, you're using a single-session scenario.
+
+The following table provides examples for single-session ArcGIS Pro scenarios:
+
+| Workload type | Example Azure virtual machine SKU | Activity |
+|--|--|--|
+| Light | NV4as_v4, NV8as_v4 | Viewing |
+| Medium | NV16as_v4, NC4as_T4_v3, NC8as_T4_v3, NV6ads_A10_v5 | Editing |
+| Heavy | NC16as_T4_v3, NV12ads_A10_v5, NV18ads_A10_v5 | Visualizing |
+
+### Multi-session recommendations
+
+*Multi-session* scenarios are when there's more than one user signed in to a session host at any one time. For example, when you use pooled host pools in Azure Virtual Desktop with the Windows 11 Enterprise multi-session operating system (OS), that's a multi-session deployment.
+
+The following table provides examples for multi-session ArcGIS Pro scenarios:
+
+| Workload type | Example Azure virtual machine SKU | Maximum users per VM | Activity |
+|--|--|--|--|
+| Light | NV18ads_A10_v5, NC16as_T4_v3, NV32as_v4 | 6 | Viewing |
+| Medium | NV18ads_A10_v5, NC16as_T4_v3, NV32as_v4 | 4 | Editing |
+| Heavy | NV18ads_A10_v5, NC16as_T4_v3, NV32as_v4 | 3 | Visualizing |
+
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
- - [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
- - [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
+- [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
+- [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
 
 Other contributor:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
- 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
- 
-- [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource) 
+
+- [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource)
 - Prepare an Azure Virtual Desktop image with the [Virtual Desktop Optimization Tool (VDOT)](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 - [Download and install FSLogix](/FSLogix/install-ht)
 - [Create a golden image in Azure](/azure/virtual-desktop/set-up-golden-image)
 - [Create an Azure Virtual Desktop host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal)
 - [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql)
 - [Install ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/install/windows/welcome-to-the-arcgis-for-server-install-guide.htm)
-- [Install Portal for ArcGIS](https://enterprise.arcgis.com/en/portal/latest/install/windows/welcome-to-the-portal-for-arcgis-installation-guide.htm) 
+- [Install Portal for ArcGIS](https://enterprise.arcgis.com/en/portal/latest/install/windows/welcome-to-the-portal-for-arcgis-installation-guide.htm)
 - [Install NVIDIA GPU drivers on N-Series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup)
-- [Assess Azure SQL Managed Instance via SSMS](https://www.jamesserra.com/archive/2020/04/accessing-managed-instance-via-ssms) 
+- [Assess Azure SQL Managed Instance via SSMS](https://www.jamesserra.com/archive/2020/04/accessing-managed-instance-via-ssms)
 - [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure?view=azuresql)
 - [Connect to Microsoft SQL Server from ArcGIS](https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/manage-sql-server/connect-sqlserver.htm)
 - [Create Enterprise Geodatabase](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-enterprise-geodatabase.htm)

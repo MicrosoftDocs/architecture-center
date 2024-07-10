@@ -345,4 +345,3 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
-- [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)

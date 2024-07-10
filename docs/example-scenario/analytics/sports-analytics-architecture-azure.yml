@@ -3,8 +3,8 @@ metadata:
   title: Sports analytics on Azure
   titleSuffix: Azure Architecture Center
   description: Build an example workload architecture that uses Azure services to process and maintain data used by sports analytics solutions.
-  author: martinekuan
-  ms.author: pnp
+  author: gallogiulia
+  ms.author: giuliagallo
   ms.date: 03/15/2023
   ms.topic: example-scenario
   ms.service: architecture-center

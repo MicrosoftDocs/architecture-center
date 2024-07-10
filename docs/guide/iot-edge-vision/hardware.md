@@ -11,9 +11,7 @@ ms.subservice: azure-guide
 categories: iot
 products:
   - azure-iot-edge
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 ---
 
 # Hardware acceleration for Azure IoT Edge vision AI

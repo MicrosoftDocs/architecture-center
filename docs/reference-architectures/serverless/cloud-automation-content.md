@@ -107,7 +107,7 @@ Verify the concurrency requirement for your automation function. Concurrency is 
 
 ##### Idempotency
 
-Make sure your automation function is idempotent. Both Azure Monitor and Event Grid may emit alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, *in progress*, etc., your resource is *being provisioned*, *created successfully*, etc., or even send false alerts due to a misconfiguration. Make sure your function acts only on the relevant alerts and events, and ignores all others, so that false or misconfigured events do not cause unwanted results. For more information, see [Designing Azure Functions for identical input](/azure/azure-functions/functions-idempotent).
+Make sure your automation function is idempotent. Both Azure Monitor and Event Grid may emit alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, or *in progress*, and your resource is *being provisioned*, *created successfully*, and so on. or even send false alerts due to a misconfiguration. Make sure your function acts only on the relevant alerts and events, and ignores all others, so that false or misconfigured events do not cause unwanted results. For more information, see [Designing Azure Functions for identical input](/azure/azure-functions/functions-idempotent).
 
 #### Event Grid
 

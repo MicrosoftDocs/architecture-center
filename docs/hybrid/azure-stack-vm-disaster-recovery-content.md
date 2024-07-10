@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL). Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes the architecture and design considerations of a solution that delivers an optimized approach to the disaster recovery of workloads that run on virtual machines (VMs) that are hosted on Azure Stack Hub.
 
@@ -14,7 +14,7 @@ This article describes the architecture and design considerations of a solution 
 The cloud components of the proposed solution include the following services:
 
 - An Azure subscription that hosts all cloud resources that are part of this solution.
-- An [Microsoft Entra ID](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Microsoft Entra security principals to authorize access to Azure resources.
+- A [Microsoft Entra ID](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Microsoft Entra security principals to authorize access to Azure resources.
 - An [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) vault in the Azure region that's closest to an on-premises datacenter that hosts the Azure Stack Hub deployment.
 
   > [!NOTE]

@@ -62,7 +62,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
 ### Components
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Azure Data Explorer for log and time-series analytics, pipelines for data integration and ETL/ELT, and deep integration with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Azure Data Explorer for log and time-series analytics, pipelines for data integration and extract, transform, load (ETL)/extract, load, transform (ELT), and deep integration with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
 - [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables the rapid exchange of data through FHIR APIs. It's backed by a managed platform as a service (PaaS) offering in the cloud. This API makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud.
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud-based data integration service that automates data movement and transformation.
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache for training the machine learning model.
@@ -96,6 +96,8 @@ Or watch this short video:
 <br>
 
 > [!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
+
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
 
 ### Potential use cases
 

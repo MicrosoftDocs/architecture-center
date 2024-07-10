@@ -216,7 +216,7 @@ Of the two ways, managed identities is recommended. With service principals, you
 
 It's recommended that [managed identities is enabled](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. You can enable this setting only during cluster creation. Even if Microsoft Entra ID isn't used immediately, you can incorporate it later.
 
-By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster, the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, etc. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
+By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster, the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, and so on. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
 
 As an example for the inside-out case, let's study the use of managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. One way is to store that information in the form of Kubernetes Secrets object and use `imagePullSecrets` to retrieve the secret. That approach isn't recommended because of security complexities. Not only do you need prior knowledge of the secret but also disclosure of that secret through the DevOps pipeline. Another reason is the operational overhead of managing the rotation of the secret. Instead, grant `acrPull` access to the kubelet managed identity of the cluster to your registry. This approach addresses those concerns.
 
@@ -293,7 +293,7 @@ The ingress controller is a critical component of cluster. Consider these points
 > [!NOTE]
 > The choice for the appropriate ingress controller is driven by the requirements the workload, the skill set of the operator, and the supportability of the technology options. Most importantly, the ability to meet your SLO expectation.
 >
-> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for _illustrative_ purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Azure Key Vault.
+> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for *illustrative* purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Azure Key Vault.
 >
 > Another choice is Azure Application Gateway Ingress Controller, and it's well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because it's integrated with WAF. Also, it provides the opportunity to do TLS termination.
 
@@ -401,7 +401,7 @@ Enable network policy when the cluster is provisioned because it can't be added 
 For more information, see [Differences between Azure Network Policy and Calico policies and their capabilities](/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
 
 > [!NOTE]
-> AKS supports these networking models: kubenet, Azure Container Networking Interface (CNI), and Azure CNI Overlay. The CNI models are the more advanced models and a CNI-based model is required for enabling Azure Network Policy. In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. NAT isn't needed for routing that traffic. Both CNI models are highly performant, with performance between pods on par with virtual machines in a virtual network. Azure CNI also offers enhanced security control because it enables the use Azure Network Policy. It's recommended that Azure CNI Overlay be used for IP address constrained deployments, which only allocates IP addressess from the nodepool subnet(s) for the nodes and uses a highly optimized overlay layer for pod IPs. A CNI-based networking model is recommended.
+> AKS supports these networking models: kubenet, Azure Container Networking Interface (CNI), and Azure CNI Overlay. The CNI models are the more advanced models and a CNI-based model is required for enabling Azure Network Policy. In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. NAT isn't needed for routing that traffic. Both CNI models are highly performant, with performance between pods on par with virtual machines in a virtual network. Azure CNI also offers enhanced security control because it enables the use Azure Network Policy. It's recommended that Azure CNI Overlay be used for IP address constrained deployments, which only allocates IP addresses from the nodepool subnet(s) for the nodes and uses a highly optimized overlay layer for pod IPs. A CNI-based networking model is recommended.
 > 
 > For information about the models, see [Choosing a CNI network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure CNI network models](/azure/aks/concepts-network#compare-network-models).
 
@@ -439,7 +439,7 @@ An effective way to manage an AKS cluster is by enforcing governance through pol
 
 There are two different scenarios that Azure Policy delivers for managing your AKS clusters:
 
-* Preventing or restricting deployment of AKS clusters in a resource group or subscription by evaluating your organizations standards. For example, follow a naming convention, specify a tag, etc.
+* Preventing or restricting deployment of AKS clusters in a resource group or subscription by evaluating your organizations standards. For example, follow a naming convention, specify a tag, and so on.
 * Secure your AKS cluster through Azure Policy for Kubernetes.
 
 When setting policies, apply them based on the requirements of the workload. Consider these factors:
@@ -577,7 +577,7 @@ In case of failure in the primary region, you should be able to quickly create a
 
 #### Cluster backup
 
-For many architectures, provisioning a new cluster and returning it to operating state can be accomplished through GitOps-based [Cluster bootstrapping}(#cluster-bootstrapping) and followed by application deployment. However, if there's critical resource state such as config maps, jobs, and potentially secrets that for some reason can't be captured within your bootstrapping process, then consider your recovery strategy. It's generally recommended to run stateless workloads in Kubernetes, but if your architecture involves disk-based state, you'll also need to consider your recovery strategy for that content.
+For many architectures, provisioning a new cluster and returning it to operating state can be accomplished through GitOps-based [Cluster bootstrapping](#cluster-bootstrapping) and followed by application deployment. However, if there's critical resource state such as config maps, jobs, and potentially secrets that for some reason can't be captured within your bootstrapping process, then consider your recovery strategy. It's generally recommended to run stateless workloads in Kubernetes, but if your architecture involves disk-based state, you'll also need to consider your recovery strategy for that content.
 
 When cluster backup needs to be part of your recovery strategy, you need to install a solution that matches your business requirements within the cluster. This agent will be responsible for pushing cluster resource state out to a destination of your choosing and coordinating Azure Disk-based, persistent volume snapshots.
 
@@ -709,7 +709,7 @@ Another portion could be to integrate the basic workload with Microsoft Entra ID
 
 ### Use Infrastructure as Code (IaC)
 
-Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates. Another is Terraform.
+Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is using [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview). Another is Terraform.
 
 Make sure as you provision resources as per the governing policies. For example, when selecting the right VM sizes, stay within the cost constraints, availability zone options to match the requirements of your application.
 
@@ -820,6 +820,9 @@ Act on recommendations provided by [Azure Advisor](https://portal.azure.com/#bla
 
 - Enable the cluster autoscaler to detect and remove underutilized nodes in the node pool.
 
+  > [!IMPORTANT]
+  > Aggressively changing cluster autoscaler settings (such as min/max node settings for a node pool) for cost reasons might have counterproductive results. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the min/max node settings are modified every five minutes based on workload characteristics, the number of nodes will never go down. This is because the calculation of the unneeded time for each node will be reset due to the cluster autoscaler settings being refreshed.
+
 - Choose a lower SKU for the node pools, if your workload supports it.
 
 - If the application doesn't require burst scaling, consider sizing the cluster to just the right size by analyzing performance metrics over time.
@@ -839,7 +842,7 @@ Continue learning about the AKS baseline architecture:
 
 ### Learn more about AKS
 
-- Review the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+- To review the AKS product roadmap, see the public [Azure Kubernetes Service roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 - If you need a refresher on Kubernetes, complete the [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/) learning paths.
 
 ## Related resources

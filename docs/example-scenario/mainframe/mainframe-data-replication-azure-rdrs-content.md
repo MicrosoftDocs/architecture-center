@@ -11,8 +11,8 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
 1. The RDRS data replication solution supports CDC from many mainframe-based databases, including IBM Db2, IBM Information Management System (IMS) DB, Adabas for Software AG, CA Datacom, and Computer Associates Integrated Data Management System (CA IDMS). RDRS provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases.
 1. RDRS supports CDC from Virtual Storage Access Method (VSAM) files.
 1. A task starts on the mainframe. Started tasks, or STCs, are created on the mainframe as part of RDRS software installation. Two vital STCs are:
-   * Capture agent, which captures changed data from the source.
-   * Apply agent, which uses database management system (DBMS)-specific APIs to efficiently write changed data to the target.
+   - Capture agent, which captures changed data from the source.
+   - Apply agent, which uses database management system (DBMS)-specific APIs to efficiently write changed data to the target.
    > [!NOTE]
    > For Db2 z/OS, RDRS also offers an agentless CDC solution by way of a Db2 user-defined type (UDT) that doesn't need STCs.
 
@@ -67,28 +67,28 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-* Set up RDRS OPM on Azure VMs that are deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated and the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
-* Design Azure database services to support zone redundancy so that they can fail over to a secondary node if there's an outage or a planned maintenance window.
-* Use Azure Monitor Logs and Application Insights to monitor the health of an Azure resource. You can set alerts for proactive management.
+- Set up RDRS OPM on Azure VMs that are deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated and the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
+- Design Azure database services to support zone redundancy so that they can fail over to a secondary node if there's an outage or a planned maintenance window.
+- Use Azure Monitor Logs and Application Insights to monitor the health of an Azure resource. You can set alerts for proactive management.
 
 ### Scalability
 
-* Set up RDRS scaling for CDC processing by running multiple parallel replication streams. First analyze the files included in logical transactions. These files must be processed together in sequence. The RDRS CDC process ensures the integrity of each logical transaction. For instance, sets of tables that don't participate in common transactions might be divided into parallel tasks by creating multiple processing scripts.
-* RDRS can run parallel concurrent bulk-load processing simultaneously on a single Azure VM or on multiple Azure VMs, which provides horizontal scalability. Perform fast bulk load operations for large tables by splitting the process into multiple tasks, either by using arbitrary intervals or row filtering. Row filtering can use a key, partition key, date, and other filters.
-* The SQL Database serverless compute tier provides an automatic scaling option based on the workload. Other Azure databases can be scaled up and scaled down by using automation to meet the workload demands.
-* For more information, see [Autoscaling best practices in Azure](/azure/architecture/best-practices/auto-scaling).
+- Set up RDRS scaling for CDC processing by running multiple parallel replication streams. First analyze the files included in logical transactions. These files must be processed together in sequence. The RDRS CDC process ensures the integrity of each logical transaction. For instance, sets of tables that don't participate in common transactions might be divided into parallel tasks by creating multiple processing scripts.
+- RDRS can run parallel concurrent bulk-load processing simultaneously on a single Azure VM or on multiple Azure VMs, which provides horizontal scalability. Perform fast bulk load operations for large tables by splitting the process into multiple tasks, either by using arbitrary intervals or row filtering. Row filtering can use a key, partition key, date, and other filters.
+- The SQL Database serverless compute tier provides an automatic scaling option based on the workload. Other Azure databases can be scaled up and scaled down by using automation to meet the workload demands.
+- For more information, see [Autoscaling best practices in Azure](/azure/architecture/best-practices/auto-scaling).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-* Control authentication and access for RDRS by using Microsoft Entra ID.
-* Encrypt data transfers between RDRS products (mainframe to Azure) by using Transport Layer Security (TLS).
-* Use ExpressRoute or a site-to-site VPN for a private and efficient connection to Azure from an on-premises environment.
-* Authenticate Azure resources by using Microsoft Entra ID and manage permissions with role-based access control (RBAC).
-* Use the database services in Azure to support various security options like data encryption at rest (TDE), data encryption in transit (TLS), and data encryption while processing, so your data is always encrypted.
-* For guidelines about how to design secure solutions, see [Azure security documentation](/azure/security).
-* To find out your security baseline, see [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview).
+- Control authentication and access for RDRS by using Microsoft Entra ID.
+- Encrypt data transfers between RDRS products (mainframe to Azure) by using Transport Layer Security (TLS).
+- Use ExpressRoute or a site-to-site VPN for a private and efficient connection to Azure from an on-premises environment.
+- Authenticate Azure resources by using Microsoft Entra ID and manage permissions with role-based access control (RBAC).
+- Use the database services in Azure to support various security options like data encryption at rest (TDE), data encryption in transit (TLS), and data encryption while processing, so your data is always encrypted.
+- For guidelines about how to design secure solutions, see [Azure security documentation](/azure/security).
+- To find out your security baseline, see [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview).
 
 ## Scenario details
 
@@ -100,9 +100,9 @@ This scenario integrates an IBM Z (mainframe) data tier with the Azure cloud dat
 
 This solution is ideal for large-scale data migrations to the Azure data platform. Consider this scenario for the following use cases:
 
-* **Full migration of a mainframe data tier**: In this use case, a customer wants to move all their Db2, IMS, IDMS, files, and other data from a mainframe to the Azure data platform.
-* **Coexistence of mainframe and Azure-based applications**: In this use case, a customer requires support for a bidirectional synchronization between a mainframe and the Azure data platform.
-* **Archival**: In this use case, a customer wants to store data for audit and compliance purposes but doesn't want to access this data frequently. Storage provides a low-cost solution to store archive data.
+- **Full migration of a mainframe data tier**: In this use case, a customer wants to move all their Db2, IMS, IDMS, files, and other data from a mainframe to the Azure data platform.
+- **Coexistence of mainframe and Azure-based applications**: In this use case, a customer requires support for a bidirectional synchronization between a mainframe and the Azure data platform.
+- **Archival**: In this use case, a customer wants to store data for audit and compliance purposes but doesn't want to access this data frequently. Storage provides a low-cost solution to store archive data.
 
 ## Contributors
 
@@ -110,23 +110,23 @@ This solution is ideal for large-scale data migrations to the Azure data platfor
 
 Principal authors:
 
- - [Sandip Khandelwal](https://www.linkedin.com/in/sandip-khandelwal-64326a7/) | Senior Engineering Architect
+- [Sandip Khandelwal](https://www.linkedin.com/in/sandip-khandelwal-64326a7/) | Senior Engineering Architect
 
 Other contributors:
 
- - [Liz Casey](https://www.linkedin.com/in/elizabethhlizfloriocasey) | Senior Content Developer
+- [Liz Casey](https://www.linkedin.com/in/elizabethhlizfloriocasey) | Senior Content Developer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* [Training: Architect a data platform in Azure](/training/paths/architect-data-platform/)
-* Contact the [Azure Data Engineering Team](mailto:datasqlninja@microsoft.com).
-* [Azure database migration guides](https://datamigration.microsoft.com/)
-* [Training: Design a SQL Server migration strategy](/training/modules/introduction-data-platform-modernization/)
-* [Migration guide: SQL Server to Azure SQL Database](/training/modules/design-your-migration-to-azure/)
+- [Training: Architect a data platform in Azure](/training/paths/architect-data-platform/)
+- Contact the [Azure Data Engineering Team](mailto:datasqlninja@microsoft.com).
+- [Azure database migration guides](https://datamigration.microsoft.com/)
+- [Training: Design a SQL Server migration strategy](/training/modules/introduction-data-platform-modernization/)
+- [Migration guide: SQL Server to Azure SQL Database](/training/modules/design-your-migration-to-azure/)
 
 ## Related resources
 
-* [Modernize mainframe and midrange data](modernize-mainframe-data-to-azure.yml)
-* [Replicate and synch mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
+- [Modernize mainframe and midrange data](modernize-mainframe-data-to-azure.yml)
+- [Replicate and synch mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)

@@ -3,11 +3,13 @@ A common problem that organizations face is how to gather data from multiple sou
 
 Various tools, services, and processes have been developed over the years to help address these challenges. No matter the process used, there's a common need to coordinate the work and apply some level of data transformation within the data pipeline. The following sections highlight the common methods used to perform these tasks.
 
-## Extract, transform, and load (ETL) process
+<a name='extract-transform-and-load-etl-process'></a>
 
-Extract, transform, and load (ETL) is a data pipeline used to collect data from various sources. It then transforms the data according to business rules, and it loads the data into a destination data store. The transformation work in ETL takes place in a specialized engine, and it often involves using staging tables to temporarily hold data as it is being transformed and ultimately loaded to its destination.
+## Extract, transform, load (ETL) process
 
-![Diagram of the extract-transform-load (ETL) process.](../images/etl.png)
+extract, transform, load (ETL) is a data pipeline used to collect data from various sources. It then transforms the data according to business rules, and it loads the data into a destination data store. The transformation work in ETL takes place in a specialized engine, and it often involves using staging tables to temporarily hold data as it is being transformed and ultimately loaded to its destination.
+
+![Diagram of the extract, transform, load (ETL) process.](../images/etl.png)
 
 The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
 
@@ -21,11 +23,13 @@ Other tools:
 
 - [SQL Server Integration Services (SSIS)](/sql/integration-services/sql-server-integration-services)
 
-## Extract, load, and transform (ELT)
+<a name='extract-load-and-transform-elt'></a>
 
-Extract, load, and transform (ELT) differs from ETL solely in where the transformation takes place. In the ELT pipeline, the transformation occurs in the target data store. Instead of using a separate transformation engine, the processing capabilities of the target data store are used to transform data. This simplifies the architecture by removing the transformation engine from the pipeline. Another benefit to this approach is that scaling the target data store also scales the ELT pipeline performance. However, ELT only works well when the target system is powerful enough to transform the data efficiently.
+## Extract, load, transform (ELT)
 
-![Diagram of the extract-load-transform (ELT) process.](../images/elt.png)
+Extract, load, transform (ELT) differs from ETL solely in where the transformation takes place. In the ELT pipeline, the transformation occurs in the target data store. Instead of using a separate transformation engine, the processing capabilities of the target data store are used to transform data. This simplifies the architecture by removing the transformation engine from the pipeline. Another benefit to this approach is that scaling the target data store also scales the ELT pipeline performance. However, ELT only works well when the target system is powerful enough to transform the data efficiently.
+
+![Diagram of the extract, load, transform (ELT) process.](../images/elt.png)
 
 Typical use cases for ELT fall within the big data realm. For example, you might start by extracting all of the source data to flat files in scalable storage, such as a Hadoop distributed file system, an Azure blob store, or Azure Data Lake gen 2 (or a combination). Technologies, such as Spark, Hive, or Polybase, can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own proprietary storage. This approach skips the data copy step present in ETL, which often can be a time consuming operation for large data sets.
 
@@ -72,15 +76,6 @@ Other tools:
 - [Online Analytical Processing (OLAP) data stores](./online-analytical-processing.yml#olap-in-azure)
 - [Data warehouses](./data-warehousing.yml)
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Raunak Jhawar](https://www.linkedin.com/in/raunakjhawar) | Senior Cloud Architect
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
 ## Next steps
 

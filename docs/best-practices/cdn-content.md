@@ -84,7 +84,7 @@ Consider how to manage caching within the system. For example, in Azure CDN, you
 
 For more information, see [How caching works](/azure/cdn/cdn-how-caching-works).
 
-To prevent objects from being available on the CDN, you can delete them from the origin, remove or delete the CDN endpoint, or in the case of blob storage, make the container or blob private. However, items are not removed from the CDN until the time-to-live expires. You can also manually purge a CDN endpoint.
+To prevent objects from being available on the CDN, you can delete them from the origin, remove or delete the CDN endpoint, or in the case of blob storage, make the container or blob private. However, items are not removed from the CDN until the time to live expires. You can also manually purge a CDN endpoint.
 
 ### Security
 

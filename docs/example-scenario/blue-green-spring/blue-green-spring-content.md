@@ -44,7 +44,7 @@ As another alternative, you can place any Azure service that hosts web endpoints
 
 ## Scenario details
 
-For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high availability configuration, which can double costs. Another solution is a disaster recovery plan, which brings up the application again in another region after an outage. The cost for the latter might be lower, but bringing the entire application online again takes time.
+For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high-availability configuration, which can double costs. Another solution is a disaster recovery plan, which brings up the application again in another region after an outage. The cost for the latter might be lower, but bringing the entire application online again takes time.
 
 This article describes a process for ensuring high availability during the deployment of a new version of an application. In a traditional configuration, the new bits of the application are deployed to the service that's hosting the application. This configuration often leads to a reload and restart of the application. During that process, the application is unavailable.
 
@@ -66,7 +66,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability
 
-This solution helps you maintain availability for your application during the deployment of a new version. It doesn't increase the overall SLA that Azure Spring Apps provides. Service failures on the platform can still affect your app.
+This solution helps you maintain availability for your application during the deployment of a new version. It doesn't increase the overall service-level agreement (SLA) that Azure Spring Apps provides. Service failures on the platform can still affect your app.
 
 If you want a solution to increase the overall SLA of your configuration, look into setting up a high-availability Azure Spring Apps service over multiple regions and fronting it with a global load-balancing solution.
 

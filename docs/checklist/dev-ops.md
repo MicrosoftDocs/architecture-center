@@ -15,7 +15,7 @@ categories:
   - devops
 ms.custom:
   - checklist
-  - fcp
+  - arb-devops
 checklist:
   - devops
   - management-and-governance
@@ -146,7 +146,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Follow least-privilege principles when you grant access to resources.** Carefully manage access to resources. Deny access by default, unless you explicitly give a user access to a resource. Only grant users access to what they need for completing their tasks. Track user permissions and perform regular security audits.
 
-**Use Azure role-based access control.** Assigning user accounts and access to resources shouldn't be a manual process. Use [Azure role-based access control (Azure RBAC)][rbac] to grant access that's based on [Microsoft Entra ID][azure-ad] identities and groups.
+**Use Azure role-based access control (RBAC).** Assigning user accounts and access to resources shouldn't be a manual process. Use [Azure RBAC][rbac] to grant access that's based on [Microsoft Entra ID][azure-ad] identities and groups.
 
 **Use a bug tracking system to track problems.** Without a good way to track problems, it's easy to miss items, duplicate work, or introduce new problems. Don't rely on informal person-to-person communication to track the status of bugs. Use a bug tracking tool to record details about problems, assign resources to address them, and provide an audit trail of progress and status.
 

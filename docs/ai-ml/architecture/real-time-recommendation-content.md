@@ -61,7 +61,7 @@ Azure Cosmos DB is recommended for its turnkey global distribution and usefulnes
 
 ### Scalability
 
-If you don't plan to use Spark, or you have a smaller workload that doesn't need distribution, consider using a [Data Science Virtual Machine][dsvm] (DSVM) instead of Azure Databricks. A DSVM is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. As with Azure Databricks, any model you create in a DSVM can be operationalized as a service on AKS via Machine Learning.
+If you don't plan to use Spark, or you have a smaller workload that doesn't need distribution, consider using a [Data Science Virtual Machine (DSVM)][dsvm] instead of Azure Databricks. A DSVM is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. As with Azure Databricks, any model you create in a DSVM can be operationalized as a service on AKS via Machine Learning.
 
 During training, either provision a larger fixed-size Spark cluster in Azure Databricks, or configure [autoscaling][autoscaling]. When autoscaling is enabled, Databricks monitors the load on your cluster and scales up and down as needed. Provision or scale out a larger cluster if you have a large data size and you want to reduce the amount of time it takes for data preparation or modeling tasks.
 
@@ -130,9 +130,7 @@ Principal authors:
 ## Related resources
 
 - [Batch scoring of Spark models on Azure Databricks][batch-scoring]
-- [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
-- [Create personalized marketing solutions in near real time](../../ai-ml/idea/personalized-marketing.yml)
 - [Personalized offers](../../solution-ideas/articles/personalized-offers.yml)
 
 <!-- links -->

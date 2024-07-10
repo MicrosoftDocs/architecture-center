@@ -67,8 +67,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml)|Learn how Azure Arc extends Kubernetes cluster management and configuration across datacenters, edge locations, and multiple cloud environments. This architecture uses CNCF-certified Kubernetes clusters.|Hybrid|
-|[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
-|[Multicloud blockchain distributed ledger technology (DLT)](../example-scenario/blockchain/multi-cloud-blockchain.yml)|See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multiparty DLTs to build a cross-cloud blockchain solution. This architecture uses CNCF-certified Kubernetes clusters.|Blockchain|
+|[Build CNCF projects by using Azure Kubernetes Service (AKS)](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
 
 ## Elastic
 
@@ -92,7 +91,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. Grafana is used to display data and send alerts.|Analytics|
 |[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries. Use Grafana to build near real-time analytics dashboards.|Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Grafana is a core component for providing monitoring and observability in this solution.|Migration|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster. Grafana is recommended as a platform for logging and metrics.|Containers|
@@ -110,7 +108,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. MonitoFi uses local instances of InfluxDB to provide real-time monitoring and alerts. |Analytics|
 |[Monitor a microservices app in AKS](../microservices/logging-monitoring.yml)|Learn best practices for monitoring a microservices application that runs on AKS. Includes information about using InfluxDB for metrics when data rates trigger throttling.|Microservices|
 
 ## Jenkins
@@ -135,13 +132,11 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices. Analyze data that's stored in Azure Data Explorer by using Jupyter Notebook.|Analytics|
 [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../ai-ml/guide/mlops-technical-paper.yml)|Learn how to apply the MLOps maturity model to implement a machine learning solution for predicting product shipping levels. Initial experimental models are developed in Jupyter Notebook. |AI|
 [Many models machine learning with Spark](../ai-ml/idea/many-models-machine-learning-azure-spark.yml)|Learn about many models machine learning in Azure. Azure Machine Learning provides a hosted Jupyter Notebook environment.|AI|
-[Precision medicine pipeline with genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml)|Build a precision medicine pipeline for genomic analysis and reporting. Use Microsoft Genomics for efficient secondary and tertiary analysis. Jupyter Notebook is used to annotate Microsoft Genomics output, merge output files with other data, and analyze data.|Analytics|
 
 ## KEDA
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Azure Functions in a hybrid environment](../hybrid/azure-functions-hybrid.yml)|View an architecture that illustrates how to use Azure Functions from on-premises virtual machines. KEDA provides event-driven scale in Kubernetes clusters.|Serverless|
 |[AKS in event stream processing](../solution-ideas/articles/serverless-event-processing-aks.yml)|View a serverless event-driven architecture that runs on AKS with a KEDA scaler. The solution ingests and processes a stream of data and writes the results to a database.|Containers|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. KEDA is used to scale a service that processes funds transfers. |Containers|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster. In this scenario, you can use KEDA to scale event-driven workloads.|Containers|
@@ -160,13 +155,13 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster.|Containers|
 |[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)|Use confidential computing on Kubernetes to run big data analytics with Spark inside confidential containers that are protected by Intel Software Guard Extensions.|Analytics|
 |[Build a CI/CD pipeline for microservices on Kubernetes](../microservices/ci-cd-kubernetes.yml)|Learn about building a CI/CD pipeline for deploying microservices to AKS.|Microservices|
-|[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
+|[Build CNCF projects by using Azure Kubernetes Service (AKS)](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
 |[Choose a bare-metal Kubernetes-at-the-edge platform option](../operator-guides/aks/choose-bare-metal-kubernetes.yml)|Find the best option for configuring Kubernetes clusters at the edge.|Containers|
 |[Choose a Kubernetes-at-the-edge compute option](../operator-guides/aks/choose-kubernetes-edge-compute-option.md)|Learn about trade-offs for various options that are available for extending compute on the edge.|Containers|
 |[Choose an Azure multiparty computing service](../guide/technology-choices/multiparty-computing-service.yml)|Decide which multiparty computing services to use for your solution. Includes information about using Kubernetes to manage containers.|Blockchain|
 |[Container orchestration for microservices](../microservices/design/orchestration.yml)|Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health. Review options for microservices container orchestration, including AKS.|Microservices|
 |[Employee retention with Databricks and Kubernetes](../example-scenario/ai/employee-retention-databricks-kubernetes.yml)|Learn how to use Kubernetes to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications.|Analytics|
-|[GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)|See a GitOps solution for an AKS cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.|Containers|
+|[GitOps for Azure Kubernetes Service (AKS)](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)|See a GitOps solution for an AKS cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.|Containers|
 |[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)|Use Helm charts when you deploy NiFi on AKS. Helm streamlines the process of installing and managing Kubernetes applications.|Analytics|
 |[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)|Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on AKS.|Containers|
 |[CI/CD for AKS apps with Azure Pipelines](../guide/aks/aks-cicd-azure-pipelines.yml)|Learn how AKS simplifies the deployment and management of microservices-based architecture.|Containers|
@@ -215,7 +210,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 [Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run MySQL database workloads.|Containers|
-[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS. MySQL is used to store expense reports.|Containers|
+[Build CNCF projects by using Azure Kubernetes Service (AKS)](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS. MySQL is used to store expense reports.|Containers|
 |[Finance management apps with Azure Database for MySQL](../solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to store critical data with high security and provide users with high-value analytics and insights on aggregated data.|Databases|
 |[IBM z/OS online transaction processing on Azure](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)|Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that's cost-effective, responsive, scalable, and adaptable. The data layer can include Azure implementations of MySQL databases.|Mainframe|
 |[Intelligent apps using Azure Database for MySQL](../databases/idea/intelligent-apps-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.|Databases|
@@ -234,7 +229,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run PostgreSQL database workloads.|Containers|
 |[Azure Database for PostgreSQL intelligent apps](../databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.|Databases|
-|[Build a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)|Learn how to build a telehealth system that connects a professional healthcare organization to its remote patients. Azure Database for PostgreSQL stores user and device-related data.|Databases|
 |[Data cache](../databases/idea/data-cache-with-redis-cache.yml)|Store and share database query results, session states, static contents, and more by using a common cache-aside pattern. This solution works with data stored in Azure Database for PostgreSQL and other databases.|Databases|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors. Processed data is stored in Azure Database for PostgreSQL.|Containers|
 |[Finance management apps using Azure Database for PostgreSQL](../solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to store critical data with high security and provide users with high-value analytics and insights on aggregated data.|Databases|
@@ -243,8 +237,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)|Learn about a data-first approach to middleware integration that enables IBM message queues. This approach supports Azure Database for PostgreSQL.|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. PostgreSQL is the main database for a common AIML use case. |Mainframe|
 |[Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of OLTP, which manages transactional data and supports querying. Azure Database for PostgreSQL is one Azure data store that meets the requirements for OLTP.|Databases|
-|[Oracle database migration: Refactor](../example-scenario/oracle-migrate/oracle-migration-refactor.yml)|Refactor your Oracle database by using Azure Database Migration Service, and move it to PostgreSQL.|Migration|
-|[Overview of Oracle database migration](../example-scenario/oracle-migrate/oracle-migration-overview.yml)|Learn about Oracle database migration paths and the methods you can use to migrate your schema to SQL or PostgreSQL.|Migration|
 |[Scalable apps using Azure Database for PostgreSQL](../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.|Mobile|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 |[Understand data store models](../guide/technology-choices/data-store-overview.md)|Learn about the high-level differences between the various data storage models found in Azure data services. Azure Database for PostgreSQL is one example of a relational database.|Databases|
@@ -295,7 +287,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Azure Cache for Redis is used in a Publish-Subscribe messaging pattern for bank transactions. |Containers|
-|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Azure Stream Analytics, and Azure Machine Learning. Redis is used to store cloud data for analytics and visualization.|IoT|
 |[Data cache](../databases/idea/data-cache-with-redis-cache.yml)| Azure Cache for Redis provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more by using a common cache-aside pattern.|Databases|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors. Azure Cache for Redis is used to cache processed data.|Containers|
 |[Messaging](../databases/idea/messaging.yml)|Learn how Azure Cache for Redis routes real-time messages in publish and subscribe systems.|Databases|

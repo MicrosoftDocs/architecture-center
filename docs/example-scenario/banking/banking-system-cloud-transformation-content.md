@@ -26,7 +26,7 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
 1. A new EFT starts with an HTTP request received by the Channel Holder service.
 
-    The service provides synchronous responses to requesters using a _publish-subscribe_ pattern through an Azure Cache for Redis and waits for a backend response.
+    The service provides synchronous responses to requesters using a *publish-subscribe* pattern through an Azure Cache for Redis and waits for a backend response.
 
 1. The solution validates this initial request using the EFT Pilot Password service.
 
@@ -38,7 +38,7 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
 1. One of these services is the EFT Processor, where the solution effectuates the actual transaction, carrying out credit and debit operations.
 
-    The CSE team used [KEDA](https://keda.sh). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
+    The CSE team used [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
 
     KEDA is supported on AKS and Azure Container Apps
 
@@ -60,7 +60,7 @@ The solution involves three major capabilities:
 
 #### Horizontal Pod Autoscaler for Channel Holder
 
-In this solution, the team used a Kubernetes/OpenShift HPA mechanism. HPA automatically scales the number of pods based on a selected metric. Doing so provides an efficient _scale in and out_ mechanism for containers. Given the CPU-bound nature of the Channel Holder REST API, the team opted for using HPA with CPU so that the service replicas can grow as new EFTs occur.
+In this solution, the team used a Kubernetes/OpenShift HPA mechanism. HPA automatically scales the number of pods based on a selected metric. Doing so provides an efficient *scale in and out* mechanism for containers. Given the CPU-bound nature of the Channel Holder REST API, the team opted for using HPA with CPU so that the service replicas can grow as new EFTs occur.
 
 This component runs a service called Channel Holder on Azure Red Hat OpenShift. It carries out pod autoscaling tests on this service. The component had to achieve the following capabilities:
 
@@ -240,7 +240,7 @@ They used a formula to calculate the estimated ideal number of partitions per to
 
 #### CI/CD velocity
 
-For DevOps, Contoso Bank already used an on-premises instance of GitLab for their code repository. They created continuous integration/continuous delivery (CI/CD) pipelines for development environments using a custom Jenkins-based solution that they developed internally. It wasn't providing an optimal DevOps experience.
+For DevOps, Contoso Bank already used an on-premises instance of GitLab for their code repository. They created continuous integration and continuous delivery (CI/CD) pipelines for development environments using a custom Jenkins-based solution that they developed internally. It wasn't providing an optimal DevOps experience.
 
 To deliver an improved DevOps experience for Contoso, the CSE team used Azure Pipelines on [Azure DevOps](https://azure.microsoft.com/services/devops/) to manage the application lifecycle. The CI pipeline runs on every pull request, while the CD pipeline runs on every successful merge to the main branch. Each member of the development team was responsible for managing the repositories and pipelines for each service. They also  had to enforce code reviews, unit tests and linting (static source code analysis).
 

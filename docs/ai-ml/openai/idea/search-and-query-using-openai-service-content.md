@@ -34,11 +34,11 @@ Query and retrieval:
 
 1. The Azure OpenAI embedding model is used to convert the query into vector embeddings.
 
-1. A vector similarity search that uses this query vector in the vector database returns the top *k* matching content. The matching content to be retrieved can be set according to a threshold that’s defined by a similarity measure, like cosine similarity.
+1. A vector similarity search that uses this query vector in the vector database returns the top *k* matching content. The matching content to be retrieved can be set according to a threshold that's defined by a similarity measure, like cosine similarity.
 
 1. The top *k* retrieved content and the [system prompt](/azure/ai-services/openai/concepts/system-message) are sent to the Azure OpenAI language model, like [GPT-3.5 Turbo or GPT-4](/azure/cognitive-services/openai/how-to/chatgpt).
 
-1. The search results are presented as the answer to the search query that was initiated by the user, or the search results can be used as [the grounding data](/azure/cognitive-services/openai/concepts/advanced-prompt-engineering#provide-grounding-context) for a multi-turn conversation scenario.
+1. The search results are presented as the answer to the search query that was initiated by the user, or the search results can be used as the [grounding data](/azure/cognitive-services/openai/concepts/advanced-prompt-engineering#provide-grounding-context) for a multi-turn conversation scenario.
 
 ## Architecture: Azure AI Search pull approach
 
@@ -54,7 +54,7 @@ Index creation:
 
 1. If certain scenarios require translation of documents, [Azure Translator](/azure/search/cognitive-search-skill-text-translation) can be used, which is a feature that's included in the built-in skill.
 
-1. If the documents are nonsearchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure AI Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), or [custom extraction](/azure/ai-services/document-intelligence/overview#custom-models) models.
+1. If the documents are nonsearchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skill sets in Azure AI Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), or [custom extraction](/azure/ai-services/document-intelligence/overview#custom-models) models.
 
    If AI enrichment is a requirement, pull model (indexers) must be used to load an index.
 
@@ -68,7 +68,7 @@ Query and retrieval:
 
 1. The retrieved content and the system prompt are sent to the Azure OpenAI language model, like [GPT-3.5 Turbo or GPT-4](/azure/cognitive-services/openai/how-to/chatgpt).
 
-1. The search results are presented as the answer to the search query that was initiated by the user, or the search results can be used as [the grounding data](/azure/cognitive-services/openai/concepts/advanced-prompt-engineering#provide-grounding-context) for a multi-turn conversation scenario.
+1. The search results are presented as the answer to the search query that was initiated by the user, or the search results can be used as the [grounding data](/azure/cognitive-services/openai/concepts/advanced-prompt-engineering#provide-grounding-context) for a multi-turn conversation scenario.
 
 ## Architecture: Azure AI Search push approach
 
@@ -81,7 +81,7 @@ Index creation:
 
 1. If the document to be ingested must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used.
 1. If the document is in a nonsearchable format, like a PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text.
-1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to an Azure AI Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
+1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to an Azure AI Search index via a [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
 
 Query and retrieval:
 
@@ -91,13 +91,13 @@ The query and retrieval in this approach is the same as the pull approach earlie
 
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service-b) provides REST API access to Azure OpenAI's language models including the GPT-3, Codex, and the embedding model series for content generation, summarization, semantic search, and natural language-to-code translation. Access the service by using a REST API, Python SDK, or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com).
 
-- [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is an [Azure AI service](https://azure.microsoft.com/products/ai-services). It offers document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Azure AI Document Intelligence provides prebuilt models that can extract data from invoices, documents, receipts, ID cards, and business cards. You can also use it to train and deploy custom models by using a [custom template](/azure/ai-services/document-intelligence/concept-custom-template) form model or a [custom neural](/azure/ai-services/document-intelligence/concept-custom-neural) document model.
+- [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is an [Azure AI service](https://azure.microsoft.com/products/ai-services). It offers document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Azure AI Document Intelligence provides prebuilt models that can extract data from invoices, documents, receipts, ID cards, and business cards. You can also use it to train and deploy custom models by using a [custom template](/azure/ai-services/document-intelligence/concept-custom-template) form model or a [custom neural](/azure/ai-services/document-intelligence/concept-custom-neural) document model.
 
-- [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a UI for exploring Azure AI Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
+- [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a UI for exploring Azure AI Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
 
-- [Azure AI Search](https://azure.microsoft.com/services/search) is a cloud service that provides infrastructure, APIs, and tools for searching. Use Azure AI Search to build search experiences over private disparate content in web, mobile, and enterprise applications.
+- [Azure AI Search](https://azure.microsoft.com/services/search) is a cloud service that provides infrastructure, APIs, and tools for searching. Use Azure AI Search to build search experiences over private disparate content in web, mobile, and enterprise applications.
 
-- [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for various languages, such as .NET, Node.js, and Python. Applications can access files in Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
+- [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for various languages, such as .NET, Node.js, and Python. Applications can access files in Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
 
 - The Enterprise tier of [Azure Cache for Redis](https://azure.microsoft.com/products/cache) provides managed [Redis Enterprise modules](/azure/azure-cache-for-redis/cache-redis-modules#scope-of-redis-modules), like RediSearch, RedisBloom, RedisTimeSeries, and RedisJSON. Vector fields allow vector similarity search, which supports real-time vector indexing (brute force algorithm (FLAT) and hierarchical navigable small world algorithm (HNSW)), real-time vector updates, and k-nearest neighbor search. Azure Cache for Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
 
@@ -109,7 +109,7 @@ Depending on your scenario, you can add the following workflows.
 
 - To create vectorized data, you can use any embedding model. You can also use the [Azure AI services Vision image retrieval API](/azure/ai-services/computer-vision/how-to/image-retrieval) to vectorize images. This tool is available in private preview.
 
-- Use the [Durable Functions extension](/azure/azure-functions/durable/durable-functions-overview) for [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python) as a code-first integration tool to perform text-processing steps, like reading handwriting, text, and tables, and processing language to extract entities on data based on the size and scale of the workload.
+- Use the [Durable Functions extension](/azure/azure-functions/durable/durable-functions-overview) for [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python) as a code-first integration tool to perform text-processing steps, like reading handwriting, text, and tables, and processing language to extract entities on data based on the size and scale of the workload.
 
 - You can use any database for persistent storage of the extracted embeddings, including:
 

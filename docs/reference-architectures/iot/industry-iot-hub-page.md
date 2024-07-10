@@ -9,8 +9,7 @@ ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 01/11/2023
 ms.author: ansyeo
-ms.custom:
-  - internal-intro
+ms.custom: arb-iot
 categories:
   - iot
 products:
@@ -43,8 +42,6 @@ The following Azure IoT solutions and example scenarios address unique business 
 ## Facilities and real estate
 
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments, like buildings, campuses, and cities, that bring together connected devices and data sources. Azure Digital Twins stores digital representations of physical environments to use for monitoring, analysis, and management.
-
-- [Safe environments with IoT Edge monitoring and alerting](../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml). Combining existing closed-circuit TV infrastructure with the Azure intelligent edge and other Azure and Microsoft services helps organizations monitor, follow, and improve health and safety practices.
 
 ## Manufacturing
 

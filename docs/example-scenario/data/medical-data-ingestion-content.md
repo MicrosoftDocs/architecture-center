@@ -4,7 +4,7 @@ This article describes how to create a data store to search and filter medical d
 
 :::image type="content" source="./media/data-factory-ingestion-pipeline.svg" alt-text="Diagram that shows the process of ingesting and indexing medical files." border="false" lightbox="./media/data-factory-ingestion-pipeline.svg":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/data-factory-ingestion-pipeline.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/data-factory-ingestion-pipeline.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -85,7 +85,7 @@ For efficient operation of this solution, consider the telemetry, performance co
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 

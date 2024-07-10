@@ -3,8 +3,8 @@ metadata:
   title: Use Azure Batch to run Financial Service Industry (FSI) workloads
   titleSuffix: Azure Architecture Center
   description: Learn how to run FSI workloads on Azure using Azure Batch.
-  author: utkarshayachit
-  ms.author: pnp
+  author: mocelj
+  ms.author: damocelj
   ms.date: 11/10/2023
   ms.topic: conceptual
   ms.service: architecture-center

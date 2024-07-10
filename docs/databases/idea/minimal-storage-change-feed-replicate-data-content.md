@@ -1,4 +1,4 @@
-This article presents a high-availability solution for a web application that uses massive amounts of data that must be available for a specific time period. It stores the data in Azure Cosmos DB, and uses the Azure Cosmos DB change feed to replicate the data to secondary storage. After the specified time period elapses, Azure Functions is used to delete the data from Azure Cosmos DB.
+This article presents a high-availability solution for a web application dealing with large volumes of data that need to be accessible within a specific time frame. The solution involves using Azure Cosmos DB as the primary data store and using the Azure Cosmos DB change feed to replicate data to low-cost secondary storage. When the specified time period expires, Azure Functions is used to delete the data from Azure Cosmos DB. The data in secondary storage remains available for a longer period of time to enable other solutions for auditing and analysis purposes. The solution also provides high durability by replicating data to different data services.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ This article presents a high-availability solution for a web application that us
 
 1. The client authenticates with Microsoft Entra ID and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer-7 load balancer, switches user traffic to the standby region if there's a regional outage.
-1. App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
+1. App Service hosts websites and RESTful web APIs. Browser clients run Asynchronous JavaScript and XML (AJAX) applications that use the APIs.
 1. Web APIs delegate responsibility to code hosted by Functions to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 1. The queued messages trigger the functions, which perform the background tasks.
 1. Azure Cache for Redis caches database data for the functions. By using the cache, the solution offloads database activity and speeds up the function apps and web apps.
@@ -30,12 +30,13 @@ This article presents a high-availability solution for a web application that us
 - [Queue Storage](https://azure.microsoft.com/services/storage/queues) provides simple, cost-effective, durable message queueing for large workloads.
 - [Table Storage](https://azure.microsoft.com/services/storage/tables) is a NoSQL key-value store for rapid development that uses massive semi-structured datasets. The tables are schemaless and adapt readily as needs change. Access is fast and cost-effective for many types of applications, and typically costs less than other types of keyed storage.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed in-memory caching service and message broker for sharing data and state among compute resources. It includes both the open-source Redis and a commercial product from Redis Labs as managed services. You can improve the performance of high-throughput online transaction processing applications by designing them to scale and to make use of an in-memory data store such as Azure Cache for Redis.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database from Microsoft that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs).
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database from Microsoft that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service-level agreements (SLAs).
 
 ### Alternatives
 
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) directs incoming DNS requests across the global Azure regions based on your choice of traffic routing methods. It also provides automatic failover and performance routing.
 - [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn) caches static content in edge servers for quick response, and uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global.
+- [Azure Container Apps](https://azure.microsoft.com/services/container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. You can use it to implement a microservices architecture whose components scale independently on demand.
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances) provides a quick and simple way to run tasks without having to manage infrastructure. It's useful during development or for running unscheduled tasks.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. It can be used instead of Queue Storage in this architecture. For more information, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
@@ -58,7 +59,9 @@ The architecture is appropriate for any application that:
 
 Examples include apps that:
 
+- Personalize customer experience and drive engagement through live data feeds and sensors in physical locations.
 - Track customer spending habits and shopping behavior.
+- Track vehicle fleets by collecting data on vehicle location, performance, and driver behavior for improved efficiency and safety.
 - Forecast weather.
 - Offer smart traffic systems or implement smart traffic systems or use smart technology to monitor traffic.
 - Analyze manufacturing IoT data.

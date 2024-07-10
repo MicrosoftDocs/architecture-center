@@ -38,4 +38,4 @@ products:
   - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/bot-assistant-architecture.png
 content: |
-  [!include[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]
+  [!INCLUDE[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]

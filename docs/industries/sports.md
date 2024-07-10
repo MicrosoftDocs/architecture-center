@@ -44,8 +44,6 @@ The following articles provide detailed analysis of architectures created and re
 
 ## Solution ideas for the sports industry
 
-Following are other ideas that you can use as a starting point for your sports industry solution.
+Following is another option that you can use as a starting point for your sports industry solution.
 
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml)
-- [Live streaming digital media](../solution-ideas/articles/digital-media-live-stream.yml)
-- [Video-on-demand digital media](../solution-ideas/articles/digital-media-video.yml)

@@ -61,7 +61,7 @@ These components continuously monitor the posture of the workload and its enviro
 
 - [**Microsoft Defender for Cloud**](https://azure.microsoft.com/services/defender-for-cloud) is used to evaluate the overall security posture of the implementation and provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use features to track progress such as secure score and compliance score.
 
-- [**Microsoft Sentinel**](https://azure.microsoft.com/services/microsoft-sentinel) is Security Information and Event Management (SIEM) and security orchestration automated response (security orchestration, automation, and response (SOAR)) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats.
+- [**Microsoft Sentinel**](https://azure.microsoft.com/services/microsoft-sentinel) is Security Information and Event Management (SIEM) and security orchestration, automation, and response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats.
 
 - [**Azure Monitor**](https://azure.microsoft.com/services/monitor) provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Microsoft Defender for Cloud, also push log data to Azure Monitor.
 
@@ -104,9 +104,9 @@ Azure resources that are used to store, test, and train research data sets are p
 - Inbound and outbound access to the public internet and within the virtual network.
 - Access to and from specific services and ports. For example, this architecture blocks all ports ranges except the ones required for Azure Services (such as Azure Monitor). A full list of Service Tags and the corresponding services can be found in [Virtual network service tags](/azure/virtual-network/service-tags-overview).
 
-    Also, access from virtual network with Azure Virtual Desktop (AVD) on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other virtual network (with AVD) is relatively open.
+    Also, access from virtual network with Azure Virtual Desktop on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other virtual network (with Virtual Desktop) is relatively open.
 
-The main blob storage in the secure environment is off the public internet. It's only accessible within the virtual network through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to Azure file shares.
+The main blob storage in the secure environment is off the public internet. It's only accessible within the virtual network through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to shares in Azure Files.
 
 This architecture uses credential-based authentication for the main data store that is in the secure environment. In this case, the connection information like the subscription ID and token authorization is stored in a key vault. Another option is to create identity-based data access, where your Azure account is used to confirm if you have access to the Storage service. In an identity-based data access scenario, no authentication credentials are saved. For the details on how to use identity-based data access, see [Connect to storage by using identity-based data access](/azure/machine-learning/how-to-identity-based-data-access).
 

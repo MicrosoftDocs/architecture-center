@@ -17,10 +17,11 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
 4. The new API:
     - Is surfaced only through the API Management instance, which provides the API facade. The new API isn't accessed directly.
     - Is developed and published as an [Azure PaaS Web API app][azure-api-apps].
-    - Is configured (via [settings for the Web Apps feature of Azure App Service][azure-appservice-ip-restrict]) to accept only the [API Management virtual IP][apim-faq-vip].
+    - Is configured (via [settings for the Web Apps feature of Azure App Service][azure-appservice-ip-restrict]) to accept only the [API Management virtual IP (VIP)][apim-faq-vip].
     - Is hosted in Web Apps with secure transport (HTTPS or SSL) turned on.
-    - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Microsoft Entra ID and OAuth 2.
+    - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Microsoft Entra ID and Open Authorization (OAuth) 2.
 5. The new browser-based web application depends on the Azure API Management instance for *both* the existing HTTP API and the new API.
+6. The travel e-commerce company can now direct some users to the new UI (for preview or testing) while preserving the old UI and existing functionality side-by-side.
 
 The API Management instance is configured to map the legacy HTTP services to a new API contract. In this configuration, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs.
 
@@ -28,26 +29,23 @@ In the future, the project team will gradually port functionality to the new API
 
 ### Components
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management)
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) abstracts backend APIs as well as adding cross cutting functionality and discovery for developers and applications. In this scenario the re-composition of existing legacy backend APIs and the addition of new API functionality is made possible by using API Management as a [façade](/azure/architecture/patterns/strangler-fig) for the new client application to consume consistently and using modern standards. Because API Management façades both the existing and new APIs it's possible for the developers to modernize the legacy backends behind the API Management façade in an iterative way and with minimal to zero impact on the new front end development.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a turn-key Platform as a Service (PaaS) service for web hosting which provides out of the box features such as security, load balancing, autoscaling, and automated management. Azure App Service is a great choice for the new APIs being developed for this solution because it provides flexible turn-key hosting, enabling the DevOps team to focus on delivering features.
 
 ### Alternatives
 
 - If the organization plans to move its infrastructure entirely to Azure, including the virtual machines (VMs) that host the legacy applications, API Management is still a great option because it can act as a facade for any addressable HTTP endpoint.
 - If the organization had decided to keep the existing endpoints private and not expose them publicly, the organization's API Management instance could be linked to an [Azure virtual network][azure-vnet]:
-  - In an [Azure "lift and shift" scenario][azure-vm-lift-shift] linked to a deployed Azure virtual network, the organization could directly address the back-end service through private IP addresses.
-  - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [Azure ExpressRoute][azure-er]. This scenario would then become a [hybrid of Azure and on-premises][azure-hybrid].
+  - When [API Management is linked to an Azure virtual network][apim-vnet-concepts], the organization could directly address the back-end service through private IP addresses.
+  - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site Internet Protocol Security (IPSec) VPN connection][azure-vpn] or [Azure ExpressRoute][azure-er]. This scenario would then become a [hybrid of Azure and on-premises][azure-hybrid].
 - The organization can keep the API Management instance private by deploying it in internal mode. The organization can then use deployment with [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Integrate API Management in an internal virtual network with Application Gateway][apim-vnet-internal].
 - The organization might decide to host its APIs on-premises. One reason for this change might be that the organization couldn't move downstream database dependencies that are in scope for this project to the cloud. If that's the case, the organization can still take advantage of API Management locally by using a [self-hosted gateway][apim-sh-gw].
 
   The self-hosted gateway is a containerized deployment of the API Management gateway that connects back to Azure on an outbound socket. The first prerequisite is that self-hosted gateways can't be deployed without a parent resource in Azure, which carries an additional charge. Second, the Premium tier of API Management is required.
 
-> [!NOTE]
-> For general information on connecting API Management to a virtual network, see [this article][apim-vnet].
-
 ## Scenario details
 
-An e-commerce company in the travel industry is modernizing its legacy browser-based software stack. Although the existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. The company is considering the creation of additional revenue streams to monetize some of the internal intellectual property that it has developed.
+An e-commerce company in the travel industry is modernizing its legacy browser-based software stack. Although the existing stack is mostly monolithic, some [Simple Object Access Protocol (SOAP)-based HTTP services][soap] exist from a recent project. The company is considering the creation of additional revenue streams to monetize some of the internal intellectual property that it has developed.
 
 Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:
 
@@ -73,16 +71,18 @@ You can use this scenario to:
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that help improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Availability and scalability
+### Reliability
 
-- You can [scale out][apim-scaleout] Azure API Management by choosing a pricing tier and then adding units.
-- Scaling can also happen [automatically with autoscaling][apim-autoscale].
-- [Deploying across multiple regions][apim-multi-regions] enables failover options and can be done in the [Premium tier][apim-pricing].
-- Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+- Consider deploying your Azure API Management instance with [Availability zones enabled][apim-ha]. The option to deploy API Management into Availability zones is only available in the Premium service tier.
+- Availability zones can be used in conjunction with [additional gateway instances deployed to different regions][apim-multi-regions]. This improves service availability if one region goes offline. Multi-region deployment is also only available in the Premium service tier.
+- Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring. For example, the capacity metric can be used to determine the overall load on the API Management resource and whether [additional scale-out units are required][apim-scaleout]. Tracking the resource capacity and health improves reliability.
+- Ensure that downstream dependencies, for example the backend services hosting the APIs that API Management façades, are also resilient.
 
 ### Cost optimization
 
-Cost optimization is about finding ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For detailed guidance on the differences in these tiers, see the [Azure API Management pricing guidance][apim-pricing].
 
@@ -92,12 +92,6 @@ You can scale API Management by adding and removing units. Each unit has capacit
 > You can use the Developer tier for evaluation of the API Management features. Don't use it for production.
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure pricing calculator][pricing-calculator].
-
-## Deploy this scenario
-
-To get started, [create an Azure API Management instance in the portal][apim-create].
-
-Alternatively, you can choose from an existing Azure Resource Manager [quickstart template][azure-quickstart-templates-apim] that aligns to your specific use case.
 
 ## Contributors
 
@@ -132,13 +126,14 @@ Learn modules:
 [architecture]: ./media/architecture-apim-api-scenario.png
 [apim-create]: /azure/api-management/get-started-create-service-instance
 [apim-multi-regions]: /azure/api-management/api-management-howto-deploy-multi-region
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
+[apim-ha]: /azure/api-management/high-availability
 [apim-scaleout]: /azure/api-management/upgrade-and-scale
 [azure-apim-ai]: /azure/api-management/api-management-howto-app-insights
 [azure-mon]: /azure/monitoring-and-diagnostics/monitoring-overview
 [azure-appgw]: /azure/application-gateway/application-gateway-introduction
 [apim-vnet-internal]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
 [apim-vnet]: /azure/api-management/api-management-using-with-vnet
+[apim-vnet-concepts]: /azure/api-management/virtual-network-concepts
 [azure-hybrid]: ../../reference-architectures/hybrid-networking/index.yml
 [azure-er]: /azure/expressroute/expressroute-introduction
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal

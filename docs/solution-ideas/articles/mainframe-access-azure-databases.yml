@@ -5,7 +5,7 @@ metadata:
   description: Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.
   author: ashish-khandelwal-ms
   ms.author: askhande
-  ms.date: 02/02/2023
+  ms.date: 06/18/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea

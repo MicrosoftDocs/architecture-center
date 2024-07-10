@@ -513,7 +513,7 @@ Shared hosting providers must protect each entity's hosted environment and cardh
 
 Azure provides security assurances for any hosted environment components that are shared. It's highly recommended that you treat your AKS nodes as a dedicated host for this workload. That is, all compute should be in a single tenant model and not shared with other workloads you may operate.
 
-If complete compute isolation is desired at the Azure infrastructure level, you can [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts). This offering provides _physical_ servers dedicated to your workload, allowing you to place AKS nodes directly into these provisioned hosts. This architectural choice has significant cost & capacity planning impact and is not typical for most scenarios.
+If complete compute isolation is desired at the Azure infrastructure level, you can [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts). This offering provides *physical* servers dedicated to your workload, allowing you to place AKS nodes directly into these provisioned hosts. This architectural choice has significant cost & capacity planning impact and is not typical for most scenarios.
 
 ## Next steps
 

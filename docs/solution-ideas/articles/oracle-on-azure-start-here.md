@@ -2,8 +2,8 @@
 title: Oracle on Azure architecture design
 titleSuffix: Azure Architecture Center
 description: Learn about sample architectures, solutions, and guides that can help you explore Oracle workloads on Azure.
-author: martinekuan
-ms.author: martinek
+author: kisshetty
+ms.author: kishetty
 ms.date: 08/31/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -62,8 +62,6 @@ The following sections can help you on the path to production for Oracle on Azur
 The following articles describe how to run an Oracle database on Azure and connect to an Oracle database that's running in on OCI.
 
 - [Oracle database migration to Azure](./reference-architecture-for-oracle-database-migration-to-azure.yml). This solution idea describes how to migrate an Oracle database to Azure by using Oracle Active Data Guard and Azure Load Balancer. This solution allows you to gradually migrate your application tier in multiple steps.
-
-- [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml). This example scenario describes creation of an interconnection between Azure and OCI to allow applications that are hosted on Azure to communicate with an Oracle database that's hosted on OCI.
 
 - [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design). This article describes how to size an Oracle workload to run in Azure and decide on the best architecture solution for optimal performance.
 
@@ -125,8 +123,3 @@ The following articles provide additional support for implementing Oracle on Azu
 
 - [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview).  Microsoft and Oracle provide low-latency, high-throughput, cross-cloud connectivity between Azure and OCI, allowing you to partition a multi-tier application across both cloud services.
 
-### Example solutions
-
-This additional solution idea might be helpful:
-
-- [Run Oracle databases on Azure](./reference-architecture-for-oracle-database-on-azure.yml). This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure by using Azure Load Balancers or Application Gateways.

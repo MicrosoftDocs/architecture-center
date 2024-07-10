@@ -17,7 +17,7 @@ Azure AI services includes:
 - **Speech.** Speech to text, text to speech, speech translation, and Speaker Recognition
 - **Language.** Entity recognition, sentiment analysis, question answering, conversational language understanding, and translator
 - **Vision.** Computer vision and Face API
-- **Decision.** Anomaly detector, Content Moderator, and Personalizer
+- **Decision.** Anomaly Detector, Content Moderator, and Personalizer
 - **OpenAI Service.** Advanced language models
 
 When the pre-built baseline models don't perform accurately enough on your data, you can customize them by adding training data that's relative to the problem domain. This customization requires the extra effort of gathering adequate data to train and evaluate an acceptable model. Azure AI services that are customizable include [Custom Vision](/azure/cognitive-services/custom-vision-service/overview), [Custom Translator](/azure/cognitive-services/translator/custom-translator/overview), [Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview), and [CLU](/azure/cognitive-services/language-service/conversational-language-understanding/overview). Extending pre-built Azure AI services models is in the center of the spectrum. Most of this article is focused on that central area.
@@ -104,7 +104,7 @@ Training a custom model with specific data can be time-consuming. Steps include 
 
 After you build your model, keep the following recommendations in mind:
 
--	**Be aware of the difference between lexical text and display text.** Speech Studio produces WER based on lexical text. However, what the user sees is the display text with punctuation, capitalization, and numerical words represented as numbers. Following is an example of lexical text versus display text.
+- **Be aware of the difference between lexical text and display text.** Speech Studio produces WER based on lexical text. However, what the user sees is the display text with punctuation, capitalization, and numerical words represented as numbers. Following is an example of lexical text versus display text.
 
     **Lexical text:** the speed is great and the time is even better fifty seven oh six three seconds for the German
 
@@ -116,7 +116,7 @@ After you build your model, keep the following recommendations in mind:
 
     When display text seems wrong, review the detailed recognition result from the SDK, which includes lexical text, in which everything is spelled out. If the lexical text is correct, the recognition is accurate. You can then resolve inaccuracies in the display text (the final recognized result) by adding post-processing rules.
 
--	**Manage datasets, models, and their versions.** In Speech Studio, when you create projects, datasets, and models, there are only two fields: name and description. When you build datasets and models iteratively, you need to follow a good naming and versioning scheme to make it easy to identify the contents of a dataset and which model reflects which version of the dataset. For more details about this recommendation, see [Deploy a custom speech to text solution](custom-speech-text-deploy.yml).
+- **Manage datasets, models, and their versions.** In Speech Studio, when you create projects, datasets, and models, there are only two fields: name and description. When you build datasets and models iteratively, you need to follow a good naming and versioning scheme to make it easy to identify the contents of a dataset and which model reflects which version of the dataset. For more details about this recommendation, see [Deploy a custom speech to text solution](custom-speech-text-deploy.yml).
 
 > [!div class="nextstepaction"]
 > [Go to part two of this guide: deployment](custom-speech-text-deploy.yml)
@@ -146,5 +146,4 @@ Other contributors:
 ## Related resources
 
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
-- [Use a speech to text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 - [Control IoT devices with a voice assistant app](../../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)

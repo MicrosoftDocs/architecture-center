@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL). Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This example scenario shows how to run [Apache NiFi][Apache NiFi] on Azure. NiFi provides a system for processing and distributing data.
 
@@ -26,7 +26,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 - Azure Key Vault securely stores certificates and keys for the NiFi cluster.
 
-- Microsoft Entra ID provides single sign-on and multifactor authentication.
+- Microsoft Entra ID provides single sign-on (SSO) and multifactor authentication.
 
 ### Components
 
@@ -40,7 +40,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 - [Log Analytics][Log Analytics tutorial] is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 - [Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
-- [Microsoft Entra ID][Azure Active Directory (Azure AD)] is a cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that controls access to Azure and other cloud apps.
 
 ### Alternatives
 
@@ -167,7 +167,7 @@ Consider these factors when you configure the data disks for NiFi:
 
 The following table shows the types of managed disks that are currently available in Azure. You can use NiFi with any of these disk types. But for high-throughput data flows, we recommend Premium SSD.
 
-| | Ultra Disk (NVMe) | Premium SSD | Standard SSD | Standard HDD |
+| | Ultra Disk (NVM Express (NVMe)) | Premium SSD | Standard SSD | Standard HDD |
 | --- | --- | --- | --- | ---|
 | **Disk type** | SSD | SSD | SSD | HDD |
 | **Max disk size** | 65,536 GB | 32,767 GB | 32,767 GB | 32,767 GB |
@@ -307,7 +307,7 @@ NiFi in Azure doesn't need access to the public internet to run. If the data flo
 
 :::image type="content" source="media/nifi-outbound-security-rules.png" alt-text="Screenshot showing values of outbound security rule settings like Priority, Name, Port, Protocol, Source, Destination, and Action." lightbox="./media/nifi-outbound-security-rules-lightbox.png":::
 
-With this rule in place, you can still access some Azure services from the data flow if you configure a private endpoint in the virtual network. Use [Azure Private Link][What is Azure Private Link?] for this purpose. This service provides a way for your traffic to travel on the Microsoft backbone network while not requiring any other external network access. NiFi currently supports Private Link for the Blob Storage and Data Lake Storage processors. If a network time protocol (NTP) server isn't available in your private network, allow outbound access to NTP. For detailed information, see [Time sync for Linux VMs in Azure][Time sync for Linux VMs in Azure].
+With this rule in place, you can still access some Azure services from the data flow if you configure a private endpoint in the virtual network. Use [Azure Private Link][What is Azure Private Link?] for this purpose. This service provides a way for your traffic to travel on the Microsoft backbone network while not requiring any other external network access. NiFi currently supports Private Link for the Blob Storage and Data Lake Storage processors. If a Network Time Protocol (NTP) server isn't available in your private network, allow outbound access to NTP. For detailed information, see [Time sync for Linux VMs in Azure][Time sync for Linux VMs in Azure].
 
 #### Data protection
 
@@ -563,10 +563,7 @@ We recommend deploying the NiFi nodes into a single virtual machine scale set th
 
 ### Monitoring
 
-Multiple options are available for monitoring the health and performance of a NiFi cluster:
-
-- Reporting tasks.
-- [MonitoFi][Apache NiFi monitoring with MonitoFi], a separate Microsoft-developed application. MonitoFi runs externally and monitors the cluster by using the NiFi API.
+To monitor the health and performance of a NiFi cluster, use reporting tasks.
 
 #### Reporting task–based monitoring
 
@@ -576,7 +573,7 @@ For monitoring, you can use a reporting task that you configure and run in NiFi.
 
 Sample queries in the following sections can help you get started. For an overview of how to query Log Analytics data, see [Azure Monitor log queries][Kusto query overview].
 
-Log queries in Monitor and Log Analytics use a version of the [Kusto query language][Kusto query overview]. But differences exist between log queries and Kusto queries. For more information, see [Kusto query overview][Azure Monitor and Azure Data Explorer query differences].
+Log queries in Monitor and Log Analytics use a version of the [Kusto Query Language][Kusto query overview]. But differences exist between log queries and Kusto queries. For more information, see [Kusto query overview][Azure Monitor and Azure Data Explorer query differences].
 
 For more structured learning, see these tutorials:
 
@@ -603,7 +600,7 @@ By default, NiFi sends metrics data to the `nifimetrics` table. But you can conf
 | Connection status metrics | `QueuedBytes` |
 | Port status metrics | `OutputCount` |
 | Port status metrics | `OutputBytes` |
-| JVM Metrics | `jvm.uptime` |
+| Java virtual machine (JVM) Metrics | `jvm.uptime` |
 | JVM Metrics | `jvm.heap_used` |
 | JVM Metrics | `jvm.heap_usage` |
 | JVM Metrics | `jvm.non_heap_usage` |
@@ -936,24 +933,22 @@ For more information, see the following resources:
 
 ## Related resources
 
-- [Apache NiFi monitoring with MonitoFi][Apache NiFi monitoring with MonitoFi]
 - [Helm-based deployments for Apache NiFi][Helm-based deployments for Apache NiFi]
 - [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
-- [Hybrid ETL with Azure Data Factory][Hybrid ETL with Azure Data Factory]
+- [Hybrid extract, transform, load (ETL) with Azure Data Factory][Hybrid ETL with Azure Data Factory]
 - [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
 - [Data warehousing and analytics][Data warehousing and analytics]
 
 [Apache NiFi]: https://nifi.apache.org
 [Apache nifi Downloads]: https://nifi.apache.org/download.html
 [Apache nifi Mailing Lists]: https://nifi.apache.org/mailing_lists.html
-[Apache NiFi monitoring with MonitoFi]: ../../guide/data/monitor-apache-nifi-monitofi.yml
 [Apache NiFi Walkthroughs - Securing NiFi with TLS]: https://nifi.apache.org/docs/nifi-docs/html/walkthroughs.html#securing-nifi-with-tls
 [Apache Ranger documentation]: https://cwiki.apache.org/confluence/display/RANGER/NiFi+Plugin
 [Apache ZooKeeper general information]: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
 [Application Gateway health monitoring overview]: /azure/application-gateway/application-gateway-probe-overview
 [Availability Zones]: /azure/availability-zones/az-overview#availability-zones
-[Azure Active Directory (Azure AD)]: https://azure.microsoft.com/services/active-directory
+[Microsoft Entra ID]: https://azure.microsoft.com/services/active-directory
 [Azure Application Gateway documentation]: /azure/application-gateway
 [Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Azure DevOps]: https://azure.microsoft.com/services/devops

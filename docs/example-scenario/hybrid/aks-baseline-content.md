@@ -1,10 +1,13 @@
-This scenario illustrates how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI (AKS hybrid).
+This scenario illustrates how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI.
 
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements. It's part of an architectural baseline guidance set of two articles. See the [recommendations for network design here](aks-network.yml).
 
+> [!IMPORTANT]
+> The information in this article applies to [AKS on Azure Stack HCI version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
+
 ## Architecture
 
-The following image shows the baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter failover cluster:
+The following image shows the baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter failover clusters:
 
 :::image type="content" source="media/aks-azure-stack-hci-baseline-v8.svg" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Stack HCI." lightbox="media/aks-azure-stack-hci-baseline-v8.svg":::
 
@@ -12,8 +15,8 @@ The following image shows the baseline architecture for Azure Kubernetes Service
 
 The architecture consists of the following components and capabilities:
 
-- [Azure Stack HCI (20H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
-- [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
+- [Azure Stack HCI (22H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
+- [Azure Kubernetes Service (AKS) on Azure Stack HCI][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
 - [Azure Arc][]. A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - [Azure Policy](/azure/governance/policy/overview). A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. These standards also include [Azure Policy for Kubernetes][], which applies policies to the workloads running inside the cluster.
 - [Azure Monitor][]. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
@@ -24,12 +27,12 @@ The architecture consists of the following components and capabilities:
 
 ## Components
 
-- [Azure Stack HCI (20H2)][1]
-- [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)][]
+- [Azure Stack HCI (22H2)][1]
+- [Azure Kubernetes Service (AKS) on Azure Stack HCI][]
 - [Windows Admin Center][]
 - [An Azure subscription][]
 - [Azure Arc][]
-- [Azure role-based access control (Azure RBAC)][])
+- [Azure role-based access control (Azure RBAC)][]
 - [Azure Monitor][]
 - [Microsoft Defender for Cloud][]
 
@@ -43,14 +46,14 @@ The architecture consists of the following components and capabilities:
 
 ### Certified hardware
 
-Use Azure Stack HCI-certified hardware, which provides Secure Boot, United Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) settings out of the box. Compute requirements depend on the application and the number of worker nodes that run in AKS on the Azure Stack HCI cluster. Use multiple physical nodes for deployment of Azure Stack HCI or at least a two node Windows Server Datacenter failover cluster to achieve high availability. It's required that all servers have the same manufacturer and model, using 64-bit Intel Nehalem grade, AMD EPYC grade, or later compatible processors with second-level address translation (SLAT).
+Use Azure Stack HCI-certified hardware, which provides Secure Boot, United Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) settings out of the box. Compute requirements depend on the application and the number of worker nodes that run in AKS on the cluster. Use multiple physical nodes for deployment of Azure Stack HCI or at least a two node Windows Server Datacenter failover cluster to achieve high availability. It's required that all servers have the same manufacturer and model, using 64-bit Intel Nehalem grade, AMD EPYC grade, or later compatible processors with second-level address translation (SLAT).
 
 ### Cluster deployment strategies
 
-AKS simplifies on-premises Kubernetes deployment by providing wizards or PowerShell cmdlets you can use to set up Kubernetes and essential Azure Stack HCI add-ons. An Azure Kubernetes Service cluster has the following components on Azure Stack HCI:
+AKS simplifies on-premises Kubernetes deployment by providing wizards or PowerShell cmdlets you can use to set up Kubernetes and essential Azure Stack HCI add-ons. An AKS cluster has the following components on Azure Stack HCI:
 
-- **Management cluster.** Deploy the management cluster on a highly available virtual machine (VM) that's running either on Azure Stack HCI or a Windows Server 2019/2022 Datacenter failover cluster. The management cluster is responsible for deploying and managing multiple workload clusters and it includes the following components:
-  - **API Server.** Interacts with the management tools.
+- **Management cluster.** Deploy the management cluster on a highly available virtual machine (VM) that's running on either Azure Stack HCI or a Windows Server 2019/2022 Datacenter failover cluster. The management cluster is responsible for deploying and managing multiple workload clusters and it includes the following components:
+  - **API server.** Interacts with the management tools.
   - **Load balancer.** Manages load-balancing rules for the API server of the management cluster.
 - **Workload clusters.** Implement highly available control plane components and worker node components. Containerized applications run on a workload cluster. To achieve application isolation, you can deploy up to eight workload clusters. The workload cluster consists of the following components:
   - **Control plane.** Runs on a Linux distribution and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster.
@@ -92,18 +95,18 @@ You can manage AKS on Azure Stack HCI using the following management options:
 
 ### Active Directory requirements
 
-Integrate AKS on Azure Stack HCI or Windows Server Datacenter failover cluster with an Active Directory Domain Services (AD DS) environment for optimal management. When possible, use separate organizational units for the servers and services of AKS on Azure Stack HCI to provide more granular control access and permissions. Active Directory integration with Azure Kubernetes Service on Azure Stack HCI allows a user on a Windows domain-joined machine to connect to the API server (with kubectl) using their single sign-on (SSO) credentials.
+Integrate AKS on Azure Stack HCI or Windows Server Datacenter failover clusters with an Active Directory Domain Services (AD DS) environment for optimal management. When possible, use separate organizational units for the servers and services of AKS on Azure Stack HCI to provide more granular control access and permissions. Active Directory integration with Azure Kubernetes Service on Azure Stack HCI allows a user on a Windows domain-joined machine to connect to the API server (with kubectl) using their single sign-on (SSO) credentials.
 
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow the recommendations unless you have a specific requirement that overrides them.
 
-### Integrate AKS hybrid deployments with Azure Arc
+### Integrate AKS on HCI deployments with Azure Arc
 
-To minimize the TCO, integrate AKS hybrid deployments with Azure Arc. Consider using the following Azure services:
+To minimize the TCO, integrate AKS deployments with Azure Arc. Consider using the following Azure services:
 
 - [Azure Monitor Container Insights.][] Monitors the performance of container workloads that are running on both Linux and Windows clusters. It collects memory and processor metrics, from controllers, nodes, and containers through the Metric API. With container insights, you can identify memory and processor utilization, detect overall pod's performance, understand the behavior of the cluster, and configure alerts for proactive monitoring.
-- [Automation capabilities](/azure/automation/automation-hybrid-runbook-worker). AKS hybrid provides a wide range of automation capabilities, with OS updates combined with full-stack updates including firmware and drivers provided by Azure Stack HCI vendors and partners. You can run Windows PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][] and Azure Arc facilitates a wide range of automation scenarios for [virtualized][] and [containerized][] workloads.
+- [Automation capabilities](/azure/automation/automation-hybrid-runbook-worker). AKS provides a wide range of automation capabilities, with OS updates combined with full-stack updates including firmware and drivers provided by Azure Stack HCI vendors and partners. You can run Windows PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][] and Azure Arc facilitates a wide range of automation scenarios for [virtualized][] and [containerized][] workloads.
 - [Velero and Azure Blob Storage][]. Velero is an open-source tool that supports on-demand backup, scheduled backup, and restoration of all objects in the Kubernetes cluster for any resources defined and stored in an etcd database as a Kubernetes Custom Resource Definition (CRD). It provides backup of Kubernetes resources and volumes for an entire cluster or part of a cluster by using namespaces or label selectors. Store the backup set created with the Velero tool in an Azure storage account in a blob container.
 - [Azure Arc–enabled Kubernetes Service][]. Provides Azure Resource Manager representation of AKS on Azure Stack HCI cluster. Deploy Azure Arc–enabled agents in a Kubernetes namespace, to collect logs and metrics, to gather cluster metadata, cluster version, and node count and ensure that agents are exhibiting optimal performance.
 - [Azure Policy](/azure/governance/policy/overview). Deploy and enforce built-in security policies on AKS cluster using Azure Policy. You can also use custom policy definition to enforce GitOps, which is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a Git repository.
@@ -116,9 +119,9 @@ These considerations implement the pillars of the Azure *Well-Architected Framew
 
 ### Reliability
 
-- Implement a highly available VM for the Management Cluster, and multiple hosts in Kubernetes Cluster to meet the minimum level of availability for workloads.
-- Backup and restore workload clusters using Velero and Azure Blob Storage. Define availability and recovery targets to meet business requirements.
-- AKS hybrid deployments use failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
+- Implement a highly available VM for the management cluster, and multiple hosts in the Kubernetes cluster to meet the minimum level of availability for workloads.
+- Back up and restore workload clusters using Velero and Azure Blob Storage. Define availability and recovery targets to meet business requirements.
+- AKS deployments use failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
 - Configure deployments to use Kubernetes features, such as Deployments, Affinity Mapping, and ReplicaSets, to ensure that the pods are resilient in disruption scenarios.
 - You should ensure that services referenced in the [Architecture section](#architecture) are supported in the region to which Azure Arc is deployed.
 - Consider limiting usage of public container images, and only pull from container registries for which you have control over the SLA, such as ACR.
@@ -183,7 +186,7 @@ Focus on the entire stack by securing the host and containers.
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [Lisa DenBeste](https://www.linkedin.com/in/lisa-denbeste) | Project Management Program Manager
 - Kenny Harder | Project Manager
@@ -191,17 +194,17 @@ Focus on the entire stack by securing the host and containers.
 - [Meg Olsen](https://www.linkedin.com/in/megolsenpm) | Principal
 - [Nate Waters](https://www.linkedin.com/in/nate-waters) | Product Marketing Manager
 
-**Other contributors:**
+Other contributors:
 
 - [Walter Oliver](https://www.linkedin.com/in/walterov) | Senior Program Manager
 
 ## Next steps
 
-- [AKS overview](/azure/aks/hybrid/aks-hybrid-options-overview)
+- [AKS overview](/azure/aks/hybrid/overview)
 
-  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
+  [Azure Stack HCI (22H2)]: /azure-stack/hci/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
-  [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
+  [Azure Kubernetes Service (AKS) on Azure Stack HCI]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [Azure Arc]: https://azure.microsoft.com/services/azure-arc/

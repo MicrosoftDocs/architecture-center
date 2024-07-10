@@ -2571,6 +2571,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/serverless-event-processing-filtering.yml",
+      "redirect_url": "/azure/architecture/patterns/pipes-and-filters",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql-content.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
       "redirect_document_id": false
@@ -3271,11 +3276,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/reference-architectures/ai/batch-scoring-R-models.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-R-models",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "docs/reference-architectures/ai/batch-scoring-databricks.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-databricks",
       "redirect_document_id": true
@@ -3850,17 +3850,97 @@
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
     },
+    {    
+      "source_path": "docs/example-scenario/apps/sap-dev-test.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
+      "redirect_document_id": false
+    },
+    {        
+      "source_path": "docs/ai-ml/architecture/batch-scoring-r-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
+      "redirect_document_id": false
+    },
     {
+      "source_path": "docs/ai-ml/architecture/speech-to-text-transcription-analytics.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
+      "redirect_document_id": false  
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/batch-scoring-R-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-R-models",
+      "redirect_document_id": false
+    },
+    {
+     "source_path": "docs/solution-ideas/articles/digital-media-video.yml",
+      "redirect_url": "/azure/architecture/guide/media/start-here",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "docs/solution-ideas/articles/digital-media-live-stream.yml",
+      "redirect_url": "/azure/architecture/guide/media/start-here",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "docs/guide/ai/bank-fraud-solution.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path": "docs/example-scenario/precision-medicine/genomic-analysis-reporting.yml",
+      "redirect_url": "/azure/architecture/industries/healthcare",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-functions-hybrid.yml",
+      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml",
+      "redirect_url": "/azure/architecture/industries/retail",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/data-science-process/ci-cd-flask.yml",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
     },
     {
+     "source_path": "docs/example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml",
+      "redirect_url": "/azure/architecture/virtual-machines/baseline",
+      "redirect_document_id": false
+    },
+    { 
       "source_path": "docs/data-science-process/environment-setup.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/autonomous-systems.yml",
+      "redirect_url": "/azure/architecture/industries/automotive/automotive-connected-fleets",
+      "redirect_document_id": false
+    },
+    {  
+      "source_path": "docs/hybrid/azure-network-adapter.yml",
+      "redirect_url": "/windows-server/manage/windows-admin-center/azure/use-azure-network-adapter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/machine-teaching.yml",
+      "redirect_url": "/azure/architecture/industries/manufacturing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/anomaly-detector-process.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/telehealth-system.yml",
+      "redirect_url": "/azure/architecture/industries/healthcare",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/data-science-process/platforms-and-tools.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
@@ -3876,6 +3956,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/cognitive-search-with-skillsets.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/ai-search-skillsets",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/data-science-process/move-azure-blob.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
@@ -4737,6 +4822,141 @@
     {
       "source_path": "docs/databases/architecture/sql-managed-instance-cmk.yml",
       "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql-mi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/hosting-applications/digital-marketing-episerver.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/uven-disinfection.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/supply-chain-track-and-trace.yml",
+      "redirect_url": "/azure/architecture/guide/blockchain/blockchain-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sap-netweaver-on-sql-server.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/safe-buildings.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/oracle-on-azure-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/iot-power-management.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/content-research.yml",
+      "redirect_url": "/azure/architecture/industries/education",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/contactless-interfaces.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/sharepoint/index.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance/actuarial-risk-analysis-financial-model.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iot/azure-iot-client-sdk-support.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/linux-vdi-citrix.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/ecommerce-order-processing.yml",
+      "redirect_url": "/azure/architecture/industries/retail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/personalized-marketing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/devtest-labs-reference-architecture.yml",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/net-app-modernization.yml",
+      "redirect_url": "/azure/architecture/guide/migration/migration-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-server-os-mgmt.yml",
+      "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-update-mgmt.yml",
+      "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-automation-hybrid.yml",
+      "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/data/monitor-apache-nifi-monitofi.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/azure-nifi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-rearchitect.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-overview.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-refactor.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/blockchain/multi-cloud-blockchain.yml",
+      "redirect_url": "/azure/architecture/guide/blockchain/blockchain-service",
       "redirect_document_id": false
     }
   ]

@@ -45,7 +45,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
 
-- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, and load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
+- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
 
 - [Mapping data flows](/azure/data-factory/concepts-data-flow-overview) are visually designed data transformations in Azure Synapse Analytics. Data flows provide a way for data engineers to develop data transformation logic without writing code. You can run the resulting data flows as activities within Azure Synapse Analytics pipelines that use scaled-out Apache Spark clusters. You can put data flow activities into operation by using existing Azure Synapse Analytics scheduling, control, flow, and monitoring capabilities.
 
@@ -253,4 +253,3 @@ For information about Azure solution components, see these resources:
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 - [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)

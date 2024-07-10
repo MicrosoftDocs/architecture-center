@@ -253,6 +253,4 @@ Principal author:
 - [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-baseline.yml)
 - [Computer forensics Chain of Custody in Azure](../forensics/index.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
-- [Azure Automation Update Management](../../hybrid/azure-update-mgmt.yml)
 - [Browse Azure Architectures - CI/CD](../../browse/index.yml?terms=ci%2fcd)

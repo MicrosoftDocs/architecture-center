@@ -9,8 +9,8 @@ ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
-azureCategories: 
-  - analytics 
+azureCategories:
+  - analytics
   - storage
   - web
 products:
@@ -155,7 +155,7 @@ await LibraryIOOperationAsync();
 
 ## Considerations
 
-- I/O operations that are expected to be very short lived and are unlikely to cause contention might be more performant as synchronous operations. An example might be reading small files on an SSD drive. The overhead of dispatching a task to another thread, and synchronizing with that thread when the task completes, might outweigh the benefits of asynchronous I/O. However, these cases are relatively rare, and most I/O operations should be done asynchronously.
+- I/O operations that are expected to be very short lived and are unlikely to cause contention might be more performant as synchronous operations. An example might be reading small files on a solid-state drive (SSD) drive. The overhead of dispatching a task to another thread, and synchronizing with that thread when the task completes, might outweigh the benefits of asynchronous I/O. However, these cases are relatively rare, and most I/O operations should be done asynchronously.
 
 - Improving I/O performance may cause other parts of the system to become bottlenecks. For example, unblocking threads might result in a higher volume of concurrent requests to shared resources, leading in turn to resource starvation or throttling. If that becomes a problem, you might need to scale out the number of web servers or partition data stores to reduce contention.
 
@@ -177,7 +177,7 @@ The following sections apply these steps to the sample application described ear
 
 ### Monitor web server performance
 
-For Azure web applications and web roles, it's worth monitoring the performance of the IIS web server. In particular, pay attention to the request queue length to establish whether requests are being blocked waiting for available threads during periods of high activity. You can gather this information by enabling Azure diagnostics. For more information, see:
+For Azure web applications and web roles, it's worth monitoring the performance of the Internet Information Services (IIS) web server. In particular, pay attention to the request queue length to establish whether requests are being blocked waiting for available threads during periods of high activity. You can gather this information by enabling Azure Diagnostics. For more information, see:
 
 - [Monitor Apps in Azure App Service][web-sites-monitor]
 - [Create and use performance counters in an Azure application][performance-counters]

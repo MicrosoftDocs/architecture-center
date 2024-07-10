@@ -1,8 +1,8 @@
 ---
 title: Dashboards to visualize Azure Databricks metrics
 description: Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.
-author: martinekuan
-ms.author: martinek
+author: mssaperla
+ms.author: saperla
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -220,7 +220,7 @@ The final set of visualizations shows the data shuffle metrics associated with a
 - [Monitoring Azure Databricks](index.md)
 - [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
-- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
+- [Ingestion, ETL (extract, transform, load), and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 
 <!-- links -->
 

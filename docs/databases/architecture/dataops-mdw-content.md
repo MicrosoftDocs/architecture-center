@@ -65,7 +65,7 @@ This article describes how a fictional city planning office could use this solut
 
 * Deploy application changes across different environments in an automated manner:
 
-  * Implement Continuous Integration/Continuous Delivery (CI/CD) pipelines.
+  * Implement continuous integration and continuous delivery (CI/CD) pipelines.
 
   * Use deployment gates for manual approvals.
 
@@ -136,7 +136,9 @@ If deployment is successful, there should be three resources groups in Azure rep
 
 For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
 
-### Continuous integration and continuous delivery
+<a name='continuous-integration-and-continuous-delivery'></a>
+
+### Continuous integration and continuous delivery (CI/CD)
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
@@ -152,7 +154,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 1. The completion of a successful build pipeline will trigger the first stage of the release pipeline. Doing so deploys the publish build artifacts into the dev environment, except for ADF.
 
-    Developers manually publish to the dev ADF from the collaboration branch (main). The manual publishing updates the Azure Resource Manager (ARM) templates in the `adf_publish` branch.
+    Developers manually publish to the dev ADF from the collaboration branch (main). The manual publishing updates the Azure Resource Manager templates in the `adf_publish` branch.
 
 1. The successful completion of the first stage triggers a manual approval gate.
 

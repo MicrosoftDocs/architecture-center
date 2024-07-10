@@ -10,7 +10,7 @@ Compliance teams work to mitigate these risks. Part of their work is monitoring 
 
 Azure Cognitive Search can help you automate and improve the quality of risk assessment. It has built-in AI, extensible AI, and intelligent search capabilities. The compliance risk analysis solution presented in this article shows you how to identify risks, like misconduct of financial traders, by consolidating and analyzing content from various communication channels. The potential risks that can be identified in this unstructured content include signals of market manipulation, insider trading, mutual fund fraud, and others.
 
-The solution architecture uses Azure Cognitive Services and Azure Cognitive Search. The scenario targets communication risks in the financial sector, but the design pattern transfers to other industries and sectors, such as government and health care. Organizations can adapt the architecture by developing and integrating risk assessment models that apply to their business scenarios. For example, the [Wolters Kluwer demo app](http://wolterskluwereap.azurewebsites.net) provides attorneys the ability to quickly find relevant information in Securities and Exchange Commission (SEC) filings and correspondence. It identifies risks related to financing, including cybersecurity and intellectual property risks.
+The solution architecture uses Azure Cognitive Services and Azure Cognitive Search. The scenario targets communication risks in the financial sector, but the design pattern transfers to other industries and sectors, such as government and health care. Organizations can adapt the architecture by developing and integrating risk assessment models that apply to their business scenarios. For example, the [Wolters Kluwer demo app](https://www.wolterskluwer.com/solutions/transactional-law-suite/rbsourcefilings) provides attorneys the ability to quickly find relevant information in Securities and Exchange Commission (SEC) filings and correspondence. It identifies risks related to financing, including cybersecurity and intellectual property risks.
 
 Azure Cognitive Search has built-in AI and custom skills that improve business process performance and the productivity of compliance teams. It's especially useful for the following situations:
 
@@ -192,12 +192,6 @@ The following diagram shows an audio ingestion and speech-to-text pipeline. The 
 In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Microsoft Entra ID and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
 
 After the files are uploaded, an Azure Event Grid trigger is emitted to invoke an Azure function. The function then processes the audio file by using the Cognitive Services Speech-to-Text API. The transcribed JSON document is then stored in a separate blob container, which can be ingested as a data source by Azure Cognitive Search.
-
-> [!TIP]
->
-> Refer to the following article for details on integrating speech transcription:
->
-> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 
 ## Search solution
 
@@ -726,4 +720,3 @@ Principal authors:
 - [Knowledge mining for customer support and feedback analysis](/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics)
 - [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
 - [Large-scale custom natural language processing](/azure/architecture/solution-ideas/articles/large-scale-custom-natural-language-processing)
-- [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)

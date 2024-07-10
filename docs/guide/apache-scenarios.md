@@ -54,7 +54,6 @@ This article provides a summary of architectures and solutions that use Azure to
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Actuarial risk analysis and financial modeling](../industries/finance/actuarial-risk-analysis-financial-model.yml)|Learn how an actuarial developer can move an existing solution and its supporting infrastructure to Azure. Use Hadoop for data analysis.| Analytics|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub. Integrate it with your applications for low-latency intelligence. Use Hadoop to store data.| AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Take advantage of edge AI when disconnected from the internet and move your AI models to the edge with a solution that includes Azure Stack Hub. Use Hadoop to store data.| AI|
 |[Big data architectures](../databases/guide/big-data-architectures.yml)|Learn about big data architectures that handle the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. Azure HDInsight Hadoop clusters can be used for batch processing.| Databases|
@@ -108,7 +107,6 @@ This article provides a summary of architectures and solutions that use Azure to
  
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Anomaly detector process](../solution-ideas/articles/anomaly-detector-process.yml)|Learn about Anomaly Detector and see how anomaly detection models are selected with time series data. In this architecture, Event Hubs for Kafka can be used as an alternative to running your own Kafka cluster.|Analytics|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications, including Kafka applications.|Containers|
 |[Asynchronous messaging options](../guide/technology-choices/messaging.yml)|Learn about asynchronous messaging options in Azure, including support for Kafka clients.|Integration|
 |[Automated guided vehicles fleet control](../example-scenario/iot/automated-guided-vehicles-fleet-control.yml)|Learn about an end-to-end approach for an automotive original equipment manufacturer (OEM). Includes several open-source libraries that you can reuse. Back-end services in this architecture can connect to Kafka.|Web|
@@ -127,7 +125,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Publisher-Subscriber pattern](../patterns/publisher-subscriber.yml)|Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously. Kafka is recommended for messaging.|Integration|
 |[Rate Limiting pattern](../patterns/rate-limiting-pattern.yml)|Use a rate limiting pattern to avoid or minimize throttling errors. This pattern can implement Kafka for messaging.|Integration|
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)|Learn how to use the automated COBOL refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs. Kafka can be used as a data source.|Mainframe|
-|[Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)|Learn about a highly scalable, resilient architecture for e-commerce order processing. Event messages enter the system via Kafka and other systems.|Databases|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 
 ## Apache MapReduce
@@ -145,7 +142,6 @@ This article provides a summary of architectures and solutions that use Azure to
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.|Analytics|
 |[Apache NiFi on Azure](../example-scenario/data/azure-nifi.yml)|Automate data flows with Apache NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems.|Analytics|
 |[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)|Use Helm charts when you deploy NiFi on AKS. Helm streamlines the process of installing and managing Kubernetes applications.|Analytics|
 |[Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)|Use Azure Data Explorer and NiFi in a hybrid monitoring solution that ingests streamed and batched logs from diverse sources.|Analytics|
@@ -167,7 +163,6 @@ This article provides a summary of architectures and solutions that use Azure to
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Actuarial risk analysis and financial modeling](../industries/finance/actuarial-risk-analysis-financial-model.yml)|Learn how an actuarial developer can move an existing solution and its supporting infrastructure to Azure. Use Spark for data analysis or to speed up processing by distributing result aggregation.|Analytics|
 |[Advanced analytics](../solution-ideas/articles/advanced-analytics-on-big-data.yml)|Learn how you can combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services. Use Spark pools to clean and transform structureless datasets and combine them with structured data.|Analytics|
 |[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub. Integrate it with your applications for low-latency intelligence. Use Spark to store data.|AI|
 |[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Take advantage of edge AI when disconnected from the internet and move your AI models to the edge with a solution that includes Azure Stack Hub. Use Spark to store data.|AI|
@@ -175,7 +170,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Batch scoring of Spark on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)|Build a scalable solution for batch scoring an Apache Spark classification model.|AI|
 |[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)|Use confidential computing on Kubernetes to run big data analytics with Spark inside confidential containers that are protected by Intel Software Guard Extensions.|Databases|
 |[Big data architectures](../databases/guide/big-data-architectures.yml)|Learn about big data architectures that handle the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. You can use Spark for batch or stream processing and as an analytical data store.|Databases|
-|[Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)|Create content-based recommendation systems that can deliver personalized recommendations to your customers by using Spark, Azure Machine Learning, and Azure Databricks.|Analytics|
 |[Campaign optimization with HDInsight Spark](/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning)|Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign.|Databases|
 |[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)|Compare technology choices for big data batch processing in Azure, including options for implementing Spark.|Analytics|
 |[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)|Compare options for real-time message stream processing in Azure, including options for implementing Spark.|Analytics|

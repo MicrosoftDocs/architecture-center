@@ -19,11 +19,10 @@ A single task instance should be elected to act as the leader, and this instance
 
 The system must provide a robust mechanism for selecting the leader. This method has to cope with events such as network outages or process failures. In many solutions, the subordinate task instances monitor the leader through some type of heartbeat method, or by polling. If the designated leader terminates unexpectedly, or a network failure makes the leader unavailable to the subordinate task instances, it's necessary for them to elect a new leader.
 
-There are several strategies for electing a leader among a set of tasks in a distributed environment, including:
+There are multiple strategies for electing a leader among a set of tasks in a distributed environment, including:
 
-- Selecting the task instance with the lowest-ranked instance or process ID.
-- Racing to acquire a shared, distributed mutex. The first task instance that acquires the mutex is the leader. However, the system must ensure that, if the leader terminates or becomes disconnected from the rest of the system, the mutex is released to allow another task instance to become the leader.
-- Implementing one of the common leader election algorithms such as the [Bully Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html) or the [Ring Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html). These algorithms assume that each candidate in the election has a unique ID, and that it can communicate with the other candidates reliably.
+- Racing to acquire a shared, distributed mutex. The first task instance that acquires the mutex is the leader. However, the system must ensure that, if the leader terminates or becomes disconnected from the rest of the system, the mutex is released to allow another task instance to become the leader. This strategy is demonstrated in the example included below.
+- Implementing one of the common leader election algorithms such as the [Bully Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html), the [Raft Consensus Algorithm](https://raft.github.io/), or the [Ring Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html). These algorithms assume that each candidate in the election has a unique ID, and that it can communicate with the other candidates reliably.
 
 ## Issues and considerations
 
@@ -45,7 +44,7 @@ This pattern might not be useful if:
 
 - There's a natural leader or dedicated process that can always act as the leader. For example, it might be possible to implement a singleton process that coordinates the task instances. If this process fails or becomes unhealthy, the system can shut it down and restart it.
 - The coordination between tasks can be achieved using a more lightweight method. For example, if several task instances simply need coordinated access to a shared resource, a better solution is to use optimistic or pessimistic locking to control access.
-- A third-party solution is more appropriate. For example, the Microsoft Azure HDInsight service (based on Apache Hadoop) uses the services provided by Apache Zookeeper to coordinate the map and reduce tasks that collect and summarize data.
+- A third-party solution, like [Apache Zookeper](https://zookeeper.apache.org/) may be a more efficient solution.
 
 ## Workload design
 
@@ -59,7 +58,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-The [Leader Election sample on GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election)) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of available worker instances. The first instance to acquire the lease is elected the leader and remains the leader until it releases the lease or isn't able to renew the lease. Other worker instances can continue to monitor the blob lease in case the leader is no longer available.
+The [Leader Election sample on GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of available worker instances. The first instance to acquire the lease is elected the leader and remains the leader until it releases the lease or isn't able to renew the lease. Other worker instances can continue to monitor the blob lease in case the leader is no longer available.
 
 > A blob lease is an exclusive write lock over a blob. A single blob can be the subject of only one lease at any point in time. A worker instance can request a lease over a specified blob, and it'll be granted the lease if no other worker instance holds a lease over the same blob. Otherwise, the request will throw an exception.
 >

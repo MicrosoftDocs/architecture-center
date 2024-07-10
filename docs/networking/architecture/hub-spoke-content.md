@@ -265,14 +265,14 @@ You can choose between virtual network peering or Virtual Network Manager connec
    New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
        -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
    ```
+
 #### [Azure portal](#tab/portal)
 
-Select the following button to deploy the reference architecture as an Azure Resource Manager (ARM) template in the Azure portal:
+Select the following button to deploy the reference architecture as an Azure Resource Manager template (ARM template) in the Azure portal:
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 
 ---
-
 
 For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment) that deploy this solution.
 
@@ -365,6 +365,5 @@ Explore the following related architectures:
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
-- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
 - [Secure and govern workloads with network level segmentation](../guide/network-level-segmentation.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)

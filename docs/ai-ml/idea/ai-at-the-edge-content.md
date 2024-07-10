@@ -12,7 +12,7 @@ This architecture shows how you can bring your trained AI model to the edge with
 
 1. Data is processed using Azure Data Factory, to be placed on Azure Data Lake.
 1. Data from Azure Data Factory is placed into the Azure Data Lake Storage for training.
-1. Data scientists train a model using Azure Machine Learning. The model is containerized and put into an Azure Container Registry.
+1. Data scientists train a model using Azure Machine Learning. The model is containerized and put into an Azure container registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
 1. The on-premises web application can be used to score data that's provided by the end user, to score against the model that's deployed in the Kubernetes cluster.
 1. End users provide data that's scored against the model.
@@ -38,7 +38,7 @@ Key technologies used to implement this architecture:
 
 ## Scenario details
 
-With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge, integrate it with your applications for low-latency intelligence, and continuously feedback into a refined AI model for improved accuracy, with no tool or process changes for local applications. This solution idea shows a connected Stack Hub scenario, where edge applications are connected to Azure. For the disconnected-edge version of this scenario, see the article [AI at the edge - disconnected](ai-at-the-edge-disconnected.yml).
+With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge, integrate it with your applications for low-latency intelligence, and continuously feedback into a refined AI model for improved accuracy, with no tool or process changes for local applications. This solution idea shows a connected Azure Stack Hub scenario, where edge applications are connected to Azure. For the disconnected-edge version of this scenario, see the article [AI at the edge - disconnected](ai-at-the-edge-disconnected.yml).
 
 ### Potential use cases
 

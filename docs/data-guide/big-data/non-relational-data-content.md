@@ -2,13 +2,14 @@ A *non-relational database* is a database that does not use the tabular schema o
 
 What all of these data stores have in common is that they don't use a [relational model](../index.md). Also, they tend to be more specific in the type of data they support and how data can be queried. For example, time series data stores are optimized for queries over time-based sequences of data. However, graph data stores are optimized for exploring weighted relationships between entities. Neither format would generalize well to the task of managing transactional data.
 
-The term *NoSQL* refers to data stores that do not use SQL for queries. Instead, the data stores use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional RDBMS would execute the same SQL query.
+The term *NoSQL* refers to data stores that do not use SQL for queries. Instead, the data stores use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional relational database management system (RDBMS) would execute the same SQL query.
 
-The following sections describe the major categories of non-relational or NoSQL database.
+
+There are variations in implementations and specializations of NoSQL databases, like there are variations in capabilities of relational databases. These variations give each implementation their own primary strengths and come with their own learning curve and usage recommendations. The following sections describe the major categories of non-relational or NoSQL database.
 
 ## Document data stores
 
-A document data store manages a set of named string fields and object data values in an entity that's referred to as a *document*. These data stores typically store data in the form of JSON documents. Each field value could be a scalar item, such as a number, or a compound element, such as a list or a parent-child collection. The data in the fields of a document can be encoded in various ways, including XML, YAML, JSON, BSON, or even stored as plain text. The fields within documents are exposed to the storage management system, enabling an application to query and filter data by using the values in these fields.
+A document data store manages a set of named string fields and object data values in an entity that's referred to as a *document*. These data stores typically store data in the form of JSON documents. Each field value could be a scalar item, such as a number, or a compound element, such as a list or a parent-child collection. The data in the fields of a document can be encoded in various ways, including XML, YAML, JSON, binary JSON (BSON), or even stored as plain text. The fields within documents are exposed to the storage management system, enabling an application to query and filter data by using the values in these fields.
 
 Typically, a document contains the entire data for an entity. What items constitute an entity are application-specific. For example, an entity could contain the details of a customer, an order, or a combination of both. A single document might contain information that would be spread across several relational tables in a relational database management system (RDBMS). A document store does not require that all documents have the same structure. This free-form approach provides a great deal of flexibility. For example, applications can store different data in documents in response to a change in business requirements.
 
@@ -85,7 +86,7 @@ Time series data is a set of values organized by time, and a time series data st
 
 ![Example of time series data](./images/time-series.png)
 
-Although the records written to a time series database are generally small, there are often a large number of records, and total data size can grow rapidly. Time series data stores also handle out-of-order and late-arriving data, automatic indexing of data points, and optimizations for queries described in terms of windows of time. This last feature enables queries to run across millions of data points and multiple data streams quickly, in order to support time series visualizations, which is a common way that time series data is consumed.
+Although the records written to a time-series database are generally small, there are often a large number of records, and total data size can grow rapidly. Time series data stores also handle out-of-order and late-arriving data, automatic indexing of data points, and optimizations for queries described in terms of windows of time. This last feature enables queries to run across millions of data points and multiple data streams quickly, in order to support time series visualizations, which is a common way that time series data is consumed.
 
 Relevant Azure services:
 
@@ -128,6 +129,8 @@ Relevant Azure service:
 
 Non-relational data stores often use a different storage architecture from that used by relational databases. Specifically, they tend toward having no fixed schema. Also, they tend not to support transactions, or else restrict the scope of transactions, and they generally don't include secondary indexes for scalability reasons.
 
+Compared to many traditional relational databases, NoSQL databases often offer a desirable level of schema flexibility and platform scalability but sometimes those benefits come at the cost of weaker consistency. Even though you can store your data flexibly, you still need to identify and analyze your data access patterns, then design an appropriate data schema otherwise your NoSQL database can suffer under heavy workload or unexpected usage patterns.
+
 The following compares the requirements for each of the non-relational data stores:
 
 | Requirement | Document data | Column-family data | Key/value data | Graph data |
@@ -136,7 +139,7 @@ The following compares the requirements for each of the non-relational data stor
 | Schema | Schema on read | Column families defined on write, column schema on read | Schema on read | Schema on read |
 | Consistency (across concurrent transactions) | Tunable consistency, document-level guarantees | Column-family&ndash;level guarantees | Key-level guarantees | Graph-level guarantees |
 | Atomicity (transaction scope) | Collection | Table | Table | Graph |
-| Locking Strategy | Optimistic (lock free) | Pessimistic (row locks) | Optimistic (ETag) |
+| Locking Strategy | Optimistic (lock free) | Pessimistic (row locks) | Optimistic (entity tag (ETag)) |
 | Access pattern | Random access | Aggregates on tall/wide data | Random access | Random access |
 | Indexing | Primary and secondary indexes | Primary and secondary indexes | Primary index only | Primary and secondary indexes |
 | Data shape | Document | Tabular with column families containing columns | Key and value | Graph containing edges and vertices |
@@ -178,5 +181,4 @@ Principal author:
 ## Related resources
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)

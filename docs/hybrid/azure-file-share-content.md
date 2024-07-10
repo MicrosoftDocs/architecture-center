@@ -128,16 +128,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
   - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes, and you pay per provisioned storage space. When using premium storage, all file operations are free.
 - Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
-- [Andrew Coughlin](https://www.linkedin.com/in/andrew-coughlin-644a3a38) | Senior Cloud Solutions Architect
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 Learn more about the component technologies:

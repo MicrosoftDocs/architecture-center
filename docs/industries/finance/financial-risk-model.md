@@ -6,7 +6,7 @@ ms.author: damocelj
 categories: 
   - azure
   - ai-machine-learning
-ms.service: cloud-for-industries
+ms.service: architecture-center
 ms.topic: conceptual
 ms.date: 01/13/2023
 azureCategories:
@@ -46,7 +46,7 @@ Microsoft helps meet these needs through a combination of Azure services and par
 
 ## Analyst modeling in R
 
-Let's start by looking at how R may be used by an analyst in a simplified, representative capital markets scenario. You can build this either by referencing an existing R library for the calculation or by writing code from scratch. In our example, we must also fetch external pricing data. To keep the example simple but illustrative, we calculate the potential future exposure (PFE) of an equity stock forward contract. This example avoids complex quantitative modeling techniques for instruments like complex derivatives and focuses on a single risk factor to concentrate on the risk life cycle. Our example lets you do the following:
+Let's start by looking at how R might be used by an analyst in a simplified, representative capital markets scenario. You can build this either by referencing an existing R library for the calculation or by writing code from scratch. In our example, we must also fetch external pricing data. To keep the example simple but illustrative, we calculate the potential future exposure (PFE) of an equity stock forward contract. This example avoids complex quantitative modeling techniques for instruments like complex derivatives and focuses on a single risk factor to concentrate on the risk life cycle. Our example lets you do the following:
 
 - Select an instrument of interest.
 - Source historic prices for the instrument.
@@ -241,9 +241,9 @@ Figure 3 Potential future exposure for MSFT equity forward
 
 ## Using Azure Batch with R
 
-The R solution described above can be connected to Azure Batch and leverage the cloud for risk calculations. This takes little extra effort for a parallel calculation such as ours. The tutorial, [Run a parallel R simulation with Azure Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely), provides detailed information on connecting R to Azure Batch. Below we show the code and summary of the process to connect to Azure Batch and how to take advantage of the extension to the cloud in a simplified PFE calculation.
+The R solution described previously can be connected to Azure Batch, and you can use the cloud for risk calculations. This takes little extra effort for a parallel calculation such as ours. The tutorial, [Run a parallel R simulation with Azure Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely), provides detailed information on connecting R to Azure Batch. Below we show the code and summary of the process to connect to Azure Batch and how to take advantage of the extension to the cloud in a simplified PFE calculation.
 
-This example tackles the same model described earlier. As we've seen before, this calculation can run on our personal computer. Increases to the number of Monte Carlo paths or use of smaller time steps will result in much longer execution times. Almost all of the R code will remain unchanged. We'll highlight the differences in this section.
+This example tackles the same model described earlier. As we've seen before, this calculation can run on our personal computer. Increases to the number of Monte Carlo paths or use of smaller time steps will result in longer execution times. Almost all of the R code will remain unchanged. We'll highlight the differences in this section.
 
 Each path of the Monte Carlo simulation runs in Azure. We can do this because each path is independent of the others, giving us a calculation that's easily parallelized.
 
@@ -306,7 +306,7 @@ rownames(exposure_mc) <- c()
 
 Each Monte Carlo simulation is submitted as a task to Azure Batch. The task executes in the cloud. Results are merged before being sent back to the analyst workbench. The heavy lifting and computations execute in the cloud to take full advantage of scaling and the underlying infrastructure required by the requested calculations.
 
-After the calculations have finished, the additional resources can easily be shut-down by invoking the following a single instruction:
+After the calculations have finished, the extra resources can easily be shut down by invoking the following a single instruction:
 
 ```R
 # Stop the cloud cluster
@@ -317,15 +317,15 @@ stopCluster(cluster)
 
 The first two examples show how to use local and cloud infrastructure to develop an adequate valuation model. This paradigm has begun to shift. In the same way that on-premises infrastructure has transformed into cloud-based IaaS and PaaS services, the modeling of relevant risk figures is transforming into a service-oriented process. Today's analysts face two major challenges:
 
-- The regulatory requirements use increasing compute capacity to add to modeling requirements. The regulators are asking for more frequent and up-to date risk figures.
+- The regulatory requirements use increasing compute capacity to add to modeling requirements. The regulators are asking for more frequent and up-to-date risk figures.
 - The existing risk infrastructure has grown organically with time and creates challenges when implementing new requirements and more advanced risk modeling in an agile manner.
 
 Cloud-based services can deliver the required functionality and support risk analysis. This approach has some advantages:
 
-- The most common risk calculations required by the regulator must be implemented by everyone under the regulation. By using services from a specialized service provider, the analyst benefits from ready to use, regulator-compliant risk calculations. Such services may include market risk calculations, counterparty risk calculations, X-Value Adjustment (XVA), and even Fundamental Review of Trading Book (FRTB) caculations.
+- The most common risk calculations required by the regulator must be implemented by everyone under the regulation. By using services from a specialized service provider, the analyst benefits from ready to use, regulator-compliant risk calculations. Such services might include market risk calculations, counterparty risk calculations, X-Value Adjustment (XVA), and even Fundamental Review of Trading Book (FRTB) calculations.
 - These services expose their interfaces through web services. The existing risk infrastructure can be enhanced by these other services.
 
-In our example, we want to invoke a cloud-based service for FRTB calculations. Several of these can be found on [AppSource](https://appsource.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely). For this article we chose a trial option from [Vector Risk](http://www.vectorrisk.com). We'll continue to modify our system. This time, we use a service to calculate the risk figure of interest. This process consists of the following steps:
+In our example, we want to invoke a cloud-based service for FRTB calculations. Several of these can be found on [AppSource](https://appsource.microsoft.com/product/web-apps/numerix.32502914-857f-402f-a0b0-3cd948b4a5ba). For this article we chose a trial option from [Vector Risk](http://www.vectorrisk.com). We'll continue to modify our system. This time, we use a service to calculate the risk figure of interest. This process consists of the following steps:
 
 1. Call the relevant risk service with the right parameters.
 1. Wait until the service finishes the calculation.
@@ -426,7 +426,6 @@ Principal authors:
 
 ## Related resources
 
-- [Actuarial risk analysis and financial modeling](actuarial-risk-analysis-financial-model.yml)
 - [Risk grid computing solution](risk-grid-banking-solution-guide.yml)
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
 - [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario)

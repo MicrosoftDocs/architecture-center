@@ -4,8 +4,8 @@ description: Learn how to deploy an app that uses on-premises data and scales cr
 author: ronmiab
 ms.author: robess
 categories: azure
-ms.service: azure-stack
-ms.subservice: azure-stack-hub
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.lastreviewed: 11/05/2019

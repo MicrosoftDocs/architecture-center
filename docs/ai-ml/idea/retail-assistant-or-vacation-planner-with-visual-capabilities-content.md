@@ -12,7 +12,7 @@ This solution idea uses Azure services with a bot assistant to improve interacti
 
 1. The user uses an application, which is hosted on [Azure App Service](/azure/app-service), either via a web browser or a mobile device.
 1. App Service communicates with [Azure Bot Service](/azure/bot-service) to facilitate the interaction between the user and the application.
-1. Bot Service uses [Azure Cognitive Services Language Understanding](/azure/cognitive-services/luis/what-is-luis) to identify user intents and meaning.
+1. Bot Service uses [AI Language Understanding](/azure/cognitive-services/luis/what-is-luis) to identify user intents and meaning.
 1. Language Understanding (LUIS) returns the identified user intent to the Azure bot.
 1. The bot passes a visual context input, such as an image, to the [Bing Visual Search API](/azure/cognitive-services/bing-visual-search/overview).
 1. The API returns output to Bot Service.
@@ -23,9 +23,9 @@ This solution idea uses Azure services with a bot assistant to improve interacti
 
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps.
 - [Bot Service](https://azure.microsoft.com/services/bot-services) provides an integrated development environment for bot building.
-- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) consists of cloud-based services that provide AI functionality.
-- [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) is part of Cognitive Services that offers many natural language processing services.
-- [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Cognitive Service for Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use language understanding (LUIS) to predict the meaning of a conversation and pull out relevant, detailed information.
+- [Azure AI services](https://azure.microsoft.com/services/cognitive-services) consists of cloud-based services that provide AI functionality.
+- [AI Language](https://azure.microsoft.com/services/cognitive-services/language-service) is part of Azure AI services that offers many natural language processing services.
+- [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Azure AI Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use language understanding (LUIS) to predict the meaning of a conversation and pull out relevant, detailed information.
 - The [Bing Visual Search API](https://www.microsoft.com/bing/apis/bing-visual-search-api) returns data that's related to a given image, such as similar images, shopping sources for purchasing the item in the image, and webpages that include the image.
 - The [Bing Custom Search API](https://www.microsoft.com/bing/apis/bing-custom-search-api) provides a way to create tailored ad-free search experiences for topics.
 
@@ -39,7 +39,7 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 ## Next steps
 
-- [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure AI services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
 - [Bing Search API documentation](/azure/cognitive-services/bing-web-search)
 - [What is the Bing Visual Search API?](/azure/cognitive-services/bing-visual-search/overview)
@@ -52,4 +52,4 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 - [Visual assistant](./visual-assistant.yml)
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Choose a Microsoft Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)

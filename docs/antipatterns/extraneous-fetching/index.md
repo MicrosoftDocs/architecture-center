@@ -9,11 +9,11 @@ ms.date: 07/25/2022
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
-azureCategories: 
-  - databases 
-  - storage 
+azureCategories:
+  - databases
+  - storage
   - web
-  - compute 
+  - compute
   - devops
 products:
   - azure-sql-database
@@ -36,7 +36,7 @@ keywords:
 
 # Extraneous Fetching antipattern
 
-Anti-patterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. In an *extraneous fetching antipattern*, more than needed data is retrieved for a business operation, often resulting in unnecessary I/O overhead and reduced responsiveness.
+Antipatterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. In an *extraneous fetching antipattern*, more than needed data is retrieved for a business operation, often resulting in unnecessary I/O overhead and reduced responsiveness.
 
 ## Examples of extraneous fetching antipattern
 
@@ -216,7 +216,7 @@ The following graphs show telemetry captured using [New Relic APM][new-relic] du
 
 For each request, the database returned 80,503 bytes, but the response to the client only contained 19,855 bytes, about 25% of the size of the database response. The size of the data returned to the client can vary depending on the format. For this load test, the client requested JSON data. Separate testing using XML (not shown) had a response size of 35,655 bytes, or 44% of the size of the database response.
 
-The load test for the `AggregateOnClientAsync` method shows more extreme results. In this case, each test performed a query that retrieved over 280 Kb of data from the database, but the JSON response was a mere 14 bytes. The wide disparity is because the method calculates an aggregated result from a large volume of data.
+The load test for the `AggregateOnClientAsync` method shows more extreme results. In this case, each test performed a query that retrieved over 280 KB of data from the database, but the JSON response was a mere 14 bytes. The wide disparity is because the method calculates an aggregated result from a large volume of data.
 
 ![Telemetry for the `AggregateOnClientAsync` method][TelemetryAggregateOnClient]
 
@@ -242,7 +242,7 @@ Load testing using the `AggregateOnDatabaseAsync` method generates the following
 
 The average response time is now minimal. This is an order of magnitude improvement in performance, caused primarily by the large reduction in I/O from the database.
 
-Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. The amount of data retrieved from the database was vastly reduced, from over 280 Kb per transaction to 53 bytes. As a result, the maximum sustained number of requests per minute was raised from around 2,000 to over 25,000.
+Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. The amount of data retrieved from the database was vastly reduced, from over 280 KB per transaction to 53 bytes. As a result, the maximum sustained number of requests per minute was raised from around 2,000 to over 25,000.
 
 ![Telemetry for the `AggregateOnDatabaseAsync` method][TelemetryAggregateInDatabaseAsync]
 

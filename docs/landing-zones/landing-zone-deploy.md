@@ -11,7 +11,7 @@ ms.author: robbag
 ms.date: 09/20/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 azureCategories: 
   - devops
   - hybrid

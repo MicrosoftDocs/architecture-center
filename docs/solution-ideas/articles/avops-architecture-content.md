@@ -18,7 +18,7 @@ This architecture provides guidance and recommendations for developing an automa
 1. Extracted measurement data is provided to labeling partners (human-in-the-loop) via [Azure Data Share](/azure/data-share/). Third-party partners perform auto labeling, storing and accessing data via a separate Data Lake account.
 1. Labeled datasets flow to downstream [MLOps](#mlops) processes, mainly to create perception and sensor fusion models. These models perform functions that are used by autonomous vehicles to detect scenes (that is, lane changes, blocked roads, pedestrians, traffic lights, and traffic signs).
 1. In the [ValOps](#valops) stage, trained models are validated via open-loop and closed-loop testing.
-1. Tools like [Foxglove](https://foxglove.dev/), running on [Azure Kubernetes Service](/azure/aks/intro-kubernetes) or [Azure Container Instances](/azure/container-instances/), visualize ingested and processed data. 
+1. Tools like [Foxglove](https://foxglove.dev/), running on [Azure Kubernetes Service](/azure/aks/intro-kubernetes) or [Azure Container Instances](/azure/container-instances/), visualize ingested and processed data.
 
 ### Data collection
 
@@ -32,23 +32,23 @@ Data operations (DataOps) is a set of practices, processes, and tools for improv
 
 #### DataOps components
 
-* [Data Box](https://azure.microsoft.com/products/databox) is used to transfer collected vehicle data to Azure via a regional carrier.
-* [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends the on-premises network into the Microsoft cloud over a private connection.
-* [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores data based on stages, for example, raw or extracted.
-* [Azure Data Factory](https://azure.microsoft.com/products/data-factory) performs ETL via [batch compute](/azure/batch/) and creates data-driven workflows for orchestrating data movement and transforming data.
-* [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
-* [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) stores metadata results, like stored measurements.
-* [Data Share](https://azure.microsoft.com/products/data-share/) is used to share data with partner organizations, like labeling companies, with enhanced security.
-* [Azure Databricks](https://azure.microsoft.com/products/databricks/) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
-* [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
-* [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
+- [Data Box](https://azure.microsoft.com/products/databox) is used to transfer collected vehicle data to Azure via a regional carrier.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends the on-premises network into the Microsoft cloud over a private connection.
+- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores data based on stages, for example, raw or extracted.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) performs ETL via [batch compute](/azure/batch/) and creates data-driven workflows for orchestrating data movement and transforming data.
+- [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) stores metadata results, like stored measurements.
+- [Data Share](https://azure.microsoft.com/products/data-share/) is used to share data with partner organizations, like labeling companies, with enhanced security.
+- [Azure Databricks](https://azure.microsoft.com/products/databricks/) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
+- [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
 
 ### MLOps
 
 Machine learning operations (MLOps) include:
 
 - Feature extraction models (like CLIP and YOLO) for classifying scenes (for example, whether a pedestrian is in the scene) during the [DataOps](#dataops) pipeline.
-- Auto labeling models for labeling ingested images and lidar and radar data. 
+- Auto labeling models for labeling ingested images and lidar and radar data.
 - Perception and computer vision models for detecting objects and scenes.
 - A sensor fusion model that combines sensor streams.
 
@@ -58,10 +58,10 @@ The transfer of the containerized machine learning model to a format that can be
 
 #### MLOps components
 
-* [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) is used to develop machine learning algorithms, like feature extraction, auto labeling, object detection and classification, and sensor fusion.  
-* [Azure DevOps](https://azure.microsoft.com/products/devops) provides support for DevOps tasks like CI/CD, testing, and automation.
-* [GitHub for enterprises](https://github.com/enterprise) is an alternative choice for DevOps tasks like CI/CD, testing, and automation.
-* [Azure Container Registry](https://azure.microsoft.com/products/container-registry) enables you to build, store, and manage container images and artifacts in a private registry.
+- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) is used to develop machine learning algorithms, like feature extraction, auto labeling, object detection and classification, and sensor fusion.  
+- [Azure DevOps](https://azure.microsoft.com/products/devops) provides support for DevOps tasks like CI/CD, testing, and automation.
+- [GitHub for enterprises](https://github.com/enterprise) is an alternative choice for DevOps tasks like CI/CD, testing, and automation.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry) enables you to build, store, and manage container images and artifacts in a private registry.
 
 ### ValOps
 
@@ -93,28 +93,28 @@ Closed-loop testing of autonomous vehicles is the process of testing vehicle cap
 
 The ValOps pipeline integrates closed-loop testing, third-party simulations, and ISV applications.
 
-#### Scenario management 
+#### Scenario management
 
 During the ValOps stage, a catalog of real scenarios is used to validate the autonomous driving solution's ability to simulate the behavior of autonomous vehicles. The objective is to speed up the creation of scenario catalogs by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Use third-party tools for scenario management or a lightweight open source simulator like CARLA, which supports [OpenDRIVE (xodr) format](https://www.asam.net/standards/detail/opendrive/). For more information, see [ScenarioRunner for CARLA](https://github.com/carla-simulator/scenario_runner).
 
 #### ValOps components
 
-* [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) runs large-scale batch inference for open-loop validation within a Resin framework. We recommend that you use [BlobFuse2](/azure/storage/blobs/blobfuse2-what-is) to access the measurement files. You can also use NFS, but you need to evaluate performance for the use case.
-* [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale batch inference for open-loop validation within a Resin framework.
-* [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer) provides an analytics service for measurements and KPIs (that is, re-simulation and job runs).
+- [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) runs large-scale batch inference for open-loop validation within a Resin framework. We recommend that you use [BlobFuse2](/azure/storage/blobs/blobfuse2-what-is) to access the measurement files. You can also use NFS, but you need to evaluate performance for the use case.
+- [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale batch inference for open-loop validation within a Resin framework.
+- [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer) provides an analytics service for measurements and KPIs (that is, re-simulation and job runs).
 
 ### Centralized AVOps functions
 
-An AVOps architecture is complex and involves various third parties, roles, and development stages, so it's important to implement a good governance model. 
+An AVOps architecture is complex and involves various third parties, roles, and development stages, so it's important to implement a good governance model.
 
 We recommend that you create a centralized team to handle functions like infrastructure provisioning, cost management, the metadata and data catalog, lineage, and overall orchestration and event handling. Centralizing these services is efficient and simplifies operations.  
 
 We recommend that you use a centralized team to handle these responsibilities:
 
-- Providing ARM/Bicep templates, including templates for standard services like storage and compute used by each area and subarea of the AVOps architecture 
+- Providing ARM/Bicep templates, including templates for standard services like storage and compute used by each area and subarea of the AVOps architecture
 - Implementation of central Azure Service Bus / Azure Event Hubs instances for an event-driven orchestration of the AVOps data loop
 - Ownership of the metadata catalog
-- Capabilities for end-to-end lineage and traceability across all AVOps components 
+- Capabilities for end-to-end lineage and traceability across all AVOps components
 
 ![Diagram that shows centralized AVOps functions.](..\media\centralized-avops-functions.png)
 
@@ -124,7 +124,7 @@ You can use this architecture to build an automated driving solution on Azure.
 
 ### Potential use cases
 
-Automotive OEMs, Tier 1 vendors, and ISVs that develop solutions for automated driving. 
+Automotive OEMs, Tier 1 vendors, and ISVs that develop solutions for automated driving.
 
 ## Considerations
 
@@ -136,14 +136,14 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 It's important to understand the division of responsibility between the automotive OEM and the cloud provider. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to the cloud provider. Azure platform as a service (PaaS) provides built-in improved security on the physical stack, including the operating system. You can apply the following improvements in addition to the infrastructure security components. These improvements enable a Zero-Trust approach.
 
-* Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
-* Encryption at rest and in transit. For more information, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
-* Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
-* [Row Level Security (RLS)](/azure/active-directory/conditional-access) for Azure Data Explorer.
-* Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
-* Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
-* [Certificate management](/azure/iot-hub/iot-hub-x509-certificate-concepts) to help secure the connection of vehicles.
-* Least privilege access. Limit user access with Just-In-Time ([JIT](/azure/defender-for-cloud/just-in-time-access-usage)) and Just-Enough-Administration ([JEA](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7.3)), risk-based adaptive policies, and data protection.
+- Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
+- Encryption at rest and in transit. For more information, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
+- Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
+- [Row Level Security (RLS)](/azure/active-directory/conditional-access) for Azure Data Explorer.
+- Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
+- Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
+- [Certificate management](/azure/iot-hub/iot-hub-x509-certificate-concepts) to help secure the connection of vehicles.
+- Least privilege access. Limit user access with Just-In-Time ([JIT](/azure/defender-for-cloud/just-in-time-access-usage)) and Just-Enough-Administration ([JEA](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7.3)), risk-based adaptive policies, and data protection.
 
 ### Cost optimization
 
@@ -159,20 +159,20 @@ You can use these strategies to reduce the costs that are associated with develo
 - Consider using Azure services. For example, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models. Using these services can be more cost-effective than building and maintaining in-house infrastructure.
 - Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce the costs that are associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
 
-## Contributors 
+## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal authors:
 
- - [Ryan Matsumura](https://www.linkedin.com/in/ryan-matsumura-4167257b/) | Senior Program Manager
- - [Jochen Schroeer](https://www.linkedin.com/in/jochen-schroeer/) | Lead Architect (Service Line Mobility)
+- [Ryan Matsumura](https://www.linkedin.com/in/ryan-matsumura-4167257b/) | Senior Program Manager
+- [Jochen Schroeer](https://www.linkedin.com/in/jochen-schroeer/) | Lead Architect (Service Line Mobility)
 
-Other contributors: 
+Other contributors:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
- - [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect
- - [Gabriel Sallah](https://www.linkedin.com/in/gabrielsallah/) | HPC/AI Global Black Belt Specialist
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+- [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect
+- [Gabriel Sallah](https://www.linkedin.com/in/gabrielsallah/) | HPC/AI Global Black Belt Specialist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -190,6 +190,7 @@ For more information about developing DataOps for an automated driving system, s
 > [Data operations for autonomous vehicle operations](../../example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
 
 You might also be interested in these related articles:
-* [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
-* [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
-* [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
+
+- [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
+- [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
+- [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)

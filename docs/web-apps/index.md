@@ -76,10 +76,8 @@ The following sections, organized by category, provide links to sample web app a
 
 - [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
 - [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml)
-- [Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Episerver marketing website](../web-apps/hosting-applications/digital-marketing-episerver.yml)
 - [Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 
 ### Healthcare

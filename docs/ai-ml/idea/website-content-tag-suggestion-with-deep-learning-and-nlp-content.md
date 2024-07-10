@@ -20,7 +20,7 @@ This article describes how you can use Microsoft AI to improve website content t
 
 1. NLP post-processing recommends storing the model in a model register in Azure ML, to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined, based on the business goals. Microsoft recommends using ethical AI tools to detect biased language, which ensures the fair training of a language model.
 
-1. The model can be deployed through Azure Kubernetes Service, while running a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints.
+1. The model can be deployed through Azure Kubernetes Service (AKS), while running a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints.
 
 1. Model results can be written to a storage option in file or tabular format, then properly indexed by Azure Cognitive Search. The model would run as batch inference and store the results in the respective datastore.
 
@@ -55,7 +55,7 @@ See the product documentation:
 * [Azure Data Lake Storage Gen2 Introduction](/azure/storage/blobs/data-lake-storage-introduction)
 * [Azure Machine Learning](/azure/machine-learning)
 * [Azure Cognitive Search documentation](/azure/search)
-* [Learn more about Azure Container Registry](/azure/container-registry/container-registry-intro)
+* Learn more about [Azure Container Registry](/azure/container-registry/container-registry-intro)
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
 Try these Microsoft Learn modules:

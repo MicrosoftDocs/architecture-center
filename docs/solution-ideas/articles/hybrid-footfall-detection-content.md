@@ -4,7 +4,7 @@ Gain insights on how customers receive their current products, in relation to st
 
 [ ![Architecture diagram that displays the hybrid footfall detection architecture.](../media/hybrid-footfall-detection.svg)](../media/hybrid-footfall-detection.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -94,13 +94,13 @@ Deploy an AI-based footfall-detection solution that generates insights from real
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
 * [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

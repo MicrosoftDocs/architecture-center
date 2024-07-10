@@ -64,7 +64,7 @@ Since your requirements might differ from the example architecture, use the foll
 
    * Account permissions: If you created a free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need to move the resources. Verify that your Azure subscription allows you to create the necessary resource in the target region.
 
-   * Resource identification: Identify and categorize your resources based on the type of resource needed to export an [Azure Resource Manager (ARM)](https://azure.microsoft.com/features/resource-manager) template or to start replication using various technologies. For each of the resource types you want to move, the steps may be different. Refer to [Moving Azure resources across regions](/azure/azure-resource-manager/management/move-region) to identify the corresponding steps for each of the resource types.
+   * Resource identification: Identify and categorize your resources based on the type of resource needed to export an [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) template or to start replication using various technologies. For each of the resource types you want to move, the steps may be different. Refer to [Moving Azure resources across regions](/azure/azure-resource-manager/management/move-region) to identify the corresponding steps for each of the resource types.
 
 1. Move the networking components.
 

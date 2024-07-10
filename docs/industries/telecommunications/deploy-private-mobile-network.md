@@ -3,7 +3,7 @@ title: Deploy private 5G networks on Azure
 description: Get an overview of how system integrators and operators can build private networks for enterprises by using Azure services. 
 author: rickliev 
 ms.author: rickliev
-ms.date: 11/04/2022
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
