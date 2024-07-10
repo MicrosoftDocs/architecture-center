@@ -6,7 +6,7 @@ author: martinekuan
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.custom:
   - guide
 products:

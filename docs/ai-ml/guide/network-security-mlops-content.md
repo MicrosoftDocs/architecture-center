@@ -446,7 +446,7 @@ resource "azurerm_private_endpoint" "acr_ep" {
 }
 ```
 
-This example scenario also ensures that the container registry has a contributor role for the system-assigned managed identity of the Azure Machine Learning workspace.
+This example scenario also ensures that the container registry has a Contributor role for the system-assigned managed identity of the Azure Machine Learning workspace.
 
 #### Use a compute cluster or instance in the virtual network
 

@@ -1778,13 +1778,13 @@ items:
           href: hybrid/azure-arc-hybrid-config.yml
         - name: Optimize SQL Server with Azure Arc
           href: hybrid/azure-arc-sql-server.yml
-      - name: AKS on Azure Stack HCI (AKS hybrid)
+      - name: AKS on Azure Stack HCI (AKS enabled by Arc)
         items:
         - name: AKS on Azure Stack HCI baseline architecture
           href: example-scenario/hybrid/aks-baseline.yml
         - name: AKS on Azure Stack HCI network architecture
           href: example-scenario/hybrid/aks-network.yml
-        - name: Deploy apps with AKS hybrid on Azure Stack ACI
+        - name: Deploy apps with AKS Arc on Azure Stack HCI
           href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
       - name: Azure Automation solutions
         items:

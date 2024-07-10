@@ -71,7 +71,7 @@ In this stage, you begin to onboard customers to your new SaaS product and begin
 
 ## 5. Market and sell your SaaS solution
 
-In this stage, you begin to market and sell your SaaS solution. Explore all avenues available to you for selling your application, including but not limited to the [Azure Marketplace](https://azure.microsoft.com/partners/marketplace). This stage is also when you begin to take the KPI data from the previous stage and use it to analyze how your customers are interacting with your SaaS application. Then use that analysis to make business and technical decisions about the roadmap of your SaaS product. For more information, see these articles:
+In this stage, you begin to market and sell your SaaS solution. Explore all avenues available to you for selling your application, including but not limited to the [Azure Marketplace](https://azure.microsoft.com/partners/marketplace) and [Microsoft AppSource](https://appsource.microsoft.com/). This stage is also when you begin to take the KPI data from the previous stage and use it to analyze how your customers are interacting with your SaaS application. Then use that analysis to make business and technical decisions about the roadmap of your SaaS product. For more information, see these articles:
 
 - [Mastering the marketplace](https://aka.ms/MasteringTheMarketplace) - Learning content that is focused around how to best take advantage of the Azure Marketplace.
 - [Marketplace publishing guide](/azure/marketplace/publisher-guide-by-offer-type) -  The offer types that are available in the Azure Marketplace and the key differences between them.

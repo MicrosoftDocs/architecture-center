@@ -6,7 +6,7 @@ ms.author: msetayesh
 ms.date: 01/19/2024
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.custom: load-testing
 categories: azure
 products:
