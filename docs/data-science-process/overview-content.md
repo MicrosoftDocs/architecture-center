@@ -194,7 +194,7 @@ Cloud databases often come with built-in support for advanced analytics and mach
 - [Azure SQL Database](/azure/azure-sql/database/) - Documentation on Azure SQL Database, a fully managed relational database service.
 - [Azure Cosmos DB](/azure/cosmos-db/) - Information on Azure Cosmos DB, a globally distributed, multi-model database service.
 - [Azure Database for PostgreSQL](/azure/postgresql/) - Guide to Azure Database for PostgreSQL, a managed database service for app development and deployment.
-- [[Azure Database for MySQL]](/azure/mysql/) - Details on Azure Database for MySQL, a managed service for MySQL databases.
+- [Azure Database for MySQL](/azure/mysql/) - Details on Azure Database for MySQL, a managed service for MySQL databases.
 
 In summary, cloud databases are crucial for Microsoft's Team Data Science Process (TDSP) because they provide scalable, reliable, and efficient data storage and management solutions that support data-driven projects. They facilitate seamless data integration, allowing data scientists to ingest, preprocess, and analyze large datasets from various sources. Cloud databases enable rapid querying and processing of data, which is essential for developing, testing, and deploying machine learning models. Additionally, they enhance collaboration by providing a centralized platform for team members to access and work with data simultaneously. Lastly, cloud databases offer advanced security features and compliance support, ensuring that data remains protected and meets regulatory standards, which is critical for maintaining data integrity and trust.
 
@@ -261,7 +261,6 @@ Big data clusters provide robust security features, including data encryption, a
 
 - [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
 - [Azure Synapse Analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics, integrating big data and data warehousing.
-- [Azure HDInsight](/azure/hdinsight/) - Information on Azure HDInsight, a cloud distribution of Hadoop components including Spark.
 
 In summary, big data clusters, whether SQL or Spark, are crucial for Microsoft's Team Data Science Process (TDSP) because they provide the computational power and scalability necessary to handle vast amounts of data efficiently. They enable data scientists to perform complex queries and advanced analytics on large datasets, facilitating deep insights and accurate model development. By leveraging distributed computing, these clusters ensure rapid data processing and analysis, which accelerates the overall data science workflow. They also support seamless integration with various data sources and tools, enhancing the ability to ingest, process, and analyze data from multiple environments. Furthermore, big data clusters promote collaboration and reproducibility by offering a unified platform where teams can share resources, workflows, and results effectively.
 
