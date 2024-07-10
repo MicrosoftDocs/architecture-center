@@ -69,7 +69,7 @@ Consider the following recommendations when you decide how to implement the prio
 
 - *Monitor processing speeds.* To ensure that messages are processed at the expected rates, continuously monitor the processing speed of high and low-priority queues.
 
-- *Minimize costs.* Process critical tasks immediately available consumers while less critical background tasks can be scheduled during less busy times.
+- *Minimize costs.* Process critical tasks immediately with available consumers. Schedule less critical background tasks during less busy times.
 
 ### Single consumer pool recommendations
 
