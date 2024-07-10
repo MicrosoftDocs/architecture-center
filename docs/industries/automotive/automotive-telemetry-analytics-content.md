@@ -1,10 +1,10 @@
-Automotive original equipment manufacturers (OEMs) need solutions to minimize the time between test drives and getting test drive diagnostic data to R&D engineers. As vehicles become more automated, the software development lifecycles become shorter, which requires faster digital feedback loops. New technology can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data. Use Microsoft Fabric Copilot for data analytics to further reduce the time to insight. Secure data sharing can enhance collaboration between OEMs and suppliers and reduce development cycle times.
+Automotive original equipment manufacturers (OEMs) need solutions to minimize the time between test drives and delivering test drive diagnostic data to R&D engineers. As vehicles become more automated, the software development lifecycles become shorter, which requires faster digital feedback loops. New technology can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data. Use Copilot for Data Science and Data Engineering for data analytics to further reduce the time to insight. Secure data sharing can enhance collaboration between OEMs and suppliers and reduce development cycle times.
 
-This example workload relates to both telemetry and batch test drive data ingestion scenarios. The workload focuses on the data platform that processes diagnostic data and the connectors for visualization and reporting.
+This example workload relates to telemetry scenarios and batch test drive data ingestion scenarios. The workload focuses on the data platform that processes diagnostic data and the connectors for data visualization and data reporting.
 
 ## Architecture
 
-:::image type="content" source="images/analytics-dataflow.svg" alt-text="Diagram that shows the analytics dataflow for automotive streaming data and files." border="false" lightbox="images/analytics-dataflow.svg":::
+:::image type="content" source="images/analytics-dataflow.svg" alt-text="Diagram that shows the analytics dataflow for streaming automotive data and files." border="false" lightbox="images/analytics-dataflow.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/next-generation-telemetry-analytics-automotive.pptx) with all the diagrams in this article.*
 
@@ -12,39 +12,39 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 The following dataflow corresponds to the preceding diagram:
 
-1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. (**1a**) The device publishes live telemetry messages or (**1b**) requests upload of recorded data files by using an MQTT client to Azure Event Grid's MQTT broker functionality. This functionality uses a Claim-Check pattern.
+1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. (**1a**) The device sends real-time telemetry messages or (**1b**) requests the upload of recorded data files by using an MQTT client with Azure Event Grid’s MQTT broker functionality. This functionality uses a Claim-Check pattern.
 
-1. (**2a**) Event Grid routes live vehicle signal data to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an eventstream.
+1. (**2a**) Event Grid routes live vehicle signal data to an Azure Functions app. This app decodes the vehicle signals sent to JavaScript Object Notation (JSON) and posts it to an eventstream.
 
-   (**2b**) Event Grid orchestrates file upload with the device client to Lakehouse. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format that's suitable for ingestion, such as parquet or CSV.
+   (**2b**) Event Grid coordinates the file upload from the device client to the Lakehouse. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format that's suitable for ingestion, such as parquet or CSV.
 
 1. (**3a**) The eventstream routes the decoded JSON vehicle signals for ingestion in Eventhouse.
 
     (**3b**) A data pipeline triggers ingestion of decoded files from Lakehouse.
 
-1. Eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to expand the JSON data into a suitable row format and to enrich the data. For example, cluster location data to support geospatial analytics. Every time a new row is ingested, the real-time analytics engine invokes an associated `Update()` function.
+1. Eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to expand the JSON data into a suitable row format and to enrich the data. An example of JSON data expansion is cluster location data that supports geospatial analytics. Every time a new row is ingested, the real-time analytics engine invokes an associated `Update()` function.
 
-1. Data engineers and data scientists use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) capabilities to build analytics use cases. Users store frequently used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning plugins with Copilot support.
+1. Data engineers and data scientists use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to build analytics use cases. Users store frequently used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning plugins with Copilot support.
 
 1. R&D engineers and data scientists use notebooks to analyze data and build test and validation use cases.
 
-    1. The R&D engineers use [KQL Query Sets](/fabric/real-time-intelligence/kusto-query-set) and [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence) to perform interactive data analysis.
+    1. R&D engineers use [KQL querysets](/fabric/real-time-intelligence/kusto-query-set) and [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence) to perform interactive data analysis.
 
-    1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can use Azure Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git to run analytics. Users can use [Copilot for Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support their workflow with contextual code suggestions.
+    1. Data engineers and data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can use Azure Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git to run analytics. Use [Copilot for Data Science and Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support your workflow with contextual code suggestions.
 
-1. R&D Engineers and Data Scientists can use Power BI with dynamic query or real-time analytics dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
+1. R&D engineers and data scientists can use Power BI with dynamic query or real-time analytics dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
 
-1. Engineers can also connect more tools to Microsoft Fabric. As an example, it's possible to connect Azure managed Grafana to Eventhouse, or to create a web application that queries Eventhouse directly.
+1. Engineers can also connect more tools to Microsoft Fabric. For instance, it's possible to connect Azure managed Grafana to Eventhouse, or to create a web application that queries Eventhouse directly.
 
-1. Data and R&D Engineers use [Data Activator](/fabric/data-activator/) to create Reflex items to monitor conditions and trigger actions such as triggering Power Automate flows for business integration. For example, notifying a teams channel in case the health of a device degrades.
+1. Data and R&D engineers use [Data Activator](/fabric/data-activator/) to create reflex items to monitor conditions and trigger actions, such as triggering Power Automate flows for business integration. For example, Data Activator can notify a teams channel in case the health of a device degrades.
 
 1. The *data collector configuration* enables engineers to change the data collection policies of the data capture device. Azure API Management abstracts and secures the partner configuration API and provides observability.
 
 ### KQL database schema
 
-:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the KQL Database and methods for extracting, expanding, and enriching data." border="false":::
+:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the KQL Database and methods to extract, expand, and enrich data." border="false":::
 
-When [designing the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), it's useful to consider the difference between `fact`  and `dimension` tables. Telemetry is a `fact` table because vehicle signals are progressively appended in either a streaming fashion or as part of a complete recording, and it doesn't change. The fleet metadata can be considered a `fact` table that updates slowly.
+When [designing the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), consider the difference between `fact`  and `dimension` tables. Telemetry is a `fact` table because vehicle signals are progressively appended in a streaming fashion or as part of a complete recording, and it doesn't change. The fleet metadata can be considered a `fact` table that updates slowly.
 
 The vehicle telemetry lands in raw tables. You can use the following message processing concepts to organize the data for analysis and reporting:
 
@@ -69,15 +69,15 @@ The vehicle telemetry lands in raw tables. You can use the following message pro
 
     - Use ML plugins like [autocluster](/azure/data-explorer/kusto/query/autocluster-plugin) to find common patterns of discrete attributes.
 
-1. Perform geospatial analytics with user defined functions. Use the [Geospatial Analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
+1. Perform geospatial analytics with user defined functions. Use the [geospatial analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems/) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
 
-1. Create a **fleet metadata table** to store changes on the vehicle metadata and configuration. Create a **Fleet metadata last known values** materialized view to store the latest state of the vehicle fleet based on a last-time modified column.
+1. Create a **fleet metadata table** to store changes on the vehicle metadata and configuration. Create a **fleet metadata last known values** materialized view to store the latest state of the vehicle fleet based on a last-time modified column.
 
 ### Components
 
-The following key technologies implement this workload. For each component in the architecture, use the relevant Service Guide in the Well-Architected Framework (WAF) where available. For more information, see [WAF Service Guides](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/?product=popular).
+The following key technologies implement this workload. For each component in the architecture, use the relevant Service Guide in the Well-Architected Framework (WAF) where available. For more information, see [WAF Service Guides](https://learn.microsoft.com/azure/well-architected/service-guides/?product=popular).
 
-- [Fabric Real Time Intelligence](/fabric/real-time-intelligence) enables extraction of insights and visualization of vehicle telemetry in motion. It contains eventstreams and the time-series KQL database to store and analyze data and Reflex for reacting to events.
+- [Fabric Real-Time Intelligence](/fabric/real-time-intelligence) enables extraction of insights and visualization of vehicle telemetry in motion. It contains eventstreams and the time-series KQL database to store and analyze data and reflex for reacting to events.
 
 - [Fabric Data Activator](/fabric/data-activator/data-activator-introduction) is a no-code experience for automatically taking actions when patterns or conditions change in changing data.
 
@@ -85,49 +85,49 @@ The following key technologies implement this workload. For each component in th
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs/reliability) is a real-time data streaming platform that's well-suited for streaming millions of vehicle events per second with low latency.
 
-- [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings, using the language of your choice.
+- [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings by using the language of your choice.
 
 - [Azure Managed Grafana](/azure/well-architected/mission-critical/mission-critical-health-modeling#design-recommendations-2) is a data visualization platform that's based on the software from Grafana Labs and is completely managed and supported by Microsoft.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs that provide access to the vehicle telemetry data stored in Fabric to simplify consumption.
 
-- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a hybrid, multicloud management platform for APIs.
+- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a hybrid multicloud management platform for APIs.
 
 ### Alternatives
 
-This architecture can also be implemented using the following Azure services:
+This architecture can also be implemented by using the following Azure services:
 
 - [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores massive amounts of unstructured data, such as recordings, logs, and videos from the vehicles. It replaces OneLake storage.
 
-- [Azure Data Explorer](/azure/data-explorer) is a fast, fully managed data analytics service for real-time analysis. It replaces the Fabric Real Time Intelligence KQL Database.
+- [Azure Data Explorer](/azure/data-explorer) is a fast, fully managed data analytics service for real-time analysis. It replaces the Fabric Real-Time Intelligence KQL Database.
 
-[Azure Batch](/azure/well-architected/service-guides/azure-batch/reliability) is a good alternative for complex file decoding. This scenario involves large numbers of files over 300 megabytes that require different decoding algorithms based on file version or file type. This approach can be done either with Fabric or with Blob Storage and Azure Data Explorer.
+- [Azure Batch](/azure/well-architected/service-guides/azure-batch/reliability) is a good alternative for complex file decoding. This scenario involves large numbers of files over 300 megabytes that require different decoding algorithms based on file version or file type. This approach can be done either with Fabric or with Blob Storage and Azure Data Explorer.
 
-:::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Azure Batch method for decoding complex files." border="false":::
+:::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Batch method for decoding complex files." border="false":::
 
 1. The user or recording device uploads a recorded data file to Lakehouse. When the upload is completed, it triggers a Functions app to schedule decoding.
 
 1. The scheduler starts a Functions app that creates a batch job by taking into consideration the file type, file size, and required decoding algorithm. The app selects a virtual machine (VM) with a suitable size from the pool and starts the job.
 
-1. Azure Batch writes the resulting decoded file back to Lakehouse when the job completes. This file must be suitable for direct ingestion in a format that Eventhouse supports.
+1. Batch writes the resulting decoded file back to Lakehouse when the job completes. This file must be suitable for direct ingestion in a format that Eventhouse supports.
 
 1. Lakehouse triggers a function that ingests the data into Eventhouse upon file write. This function creates the table and data mapping if necessary and starts the ingestion process.
 
 1. The KQL database ingests the data files from Lakehouse.
 
-This approach offers the following benefits:
+This approach provides the following benefits:
 
 - Functions and Batch pools are able to handle scalable data processing tasks robustly and efficiently.
 
 - Batch pools provide insight into processing statistics, task queues, and batch pool health. You can visualize status, detect problems, and rerun failed tasks.
 
-- The combination of Functions and Azure Batch supports plug-and-play processing in Docker containers.
+- The combination of Functions and Batch supports plug-and-play processing in Docker containers.
 
-- Cost savings with the use of [Spot Virtual Machines](/azure/batch/batch-spot-vms) to process files in off-peak times.
+- You save on costs by using [Spot Virtual Machines](/azure/batch/batch-spot-vms) to process files in off-peak times.
 
 ## Scenario details
 
-Automotive OEMs use large fleets of prototype and test vehicles to test and verify all kinds of vehicle functions. Test procedures are expensive because real drivers and vehicles need to be involved, and specific real-world road testing scenarios must pass multiple times. Integration testing is especially important to evaluate interactions between electrical, electronic, and mechanical components in complex systems.
+Automotive OEMs use large fleets of prototype and test vehicles to test and verify all   of vehicle functions. Test procedures are expensive because real drivers and vehicles need to be involved, and specific real-world road testing scenarios must pass multiple times. Integration testing is especially important to evaluate interactions between electrical, electronic, and mechanical components in complex systems.
 
 To validate vehicle functions and analyze anomalies and failures, petabytes of diagnostic data must be captured from electronic control unit (ECUs), computer nodes, vehicle communication buses like Controller Area Network (CAN) and Ethernet, and sensors. In the past, small data logger servers in the vehicles stored diagnostic data locally as Measurement Data Format (MDF), multimedia fusion extension (MFX), CSV, or JSON files. After test drives were complete, the servers uploaded diagnostic data to data centers, which processed it and provided it to R&D engineers for analytics. This process could take hours or sometimes days. More recent scenarios use telemetry ingestion patterns like Message Queuing Telemetry Transport (MQTT)-based synchronous data streams or near real-time file uploads.
 
@@ -181,7 +181,7 @@ It's important to understand the division of responsibility between the automoti
 
 - Use Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
 
-- Use [row level security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for KQL Databases and Azure Data Explorer.
+- Use [row level security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for KQL databases and Azure Data Explorer.
 
 - Use the [restrict statement](/azure/data-explorer/kusto/query/restrict-statement) when you implement middleware applications with access to the KQL database to create a logical model that restricts the user access to the data.
 
@@ -195,7 +195,7 @@ This solution uses the following practices to help optimize costs:
 
 - Correctly configure hot caches and cold storage for the Raw and Signals tables. The hot data cache is stored in RAM or SSD and provides improved performance. Cold data, however, is 45 times cheaper. Set a hot cache policy that's adequate for your use case, such as 30 days.
 
-- Set up a retention policy on the Raw and Signals tables. Determine when the signal data is no longer relevant, for example after 365 days, and set the retention policy accordingly.
+- Set up a retention policy on the Raw table and Signals table. Determine when the signal data is no longer relevant, such as after 365 days, and set the retention policy accordingly.
 
 - Consider which signals are relevant for analysis.
 
@@ -207,7 +207,7 @@ This solution uses the following practices to help optimize costs:
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- Consider using Azure Batch for decoding if the number and size of recorded data files is greater than 1,000 files or 300 MB a day.
+- Consider using Batch for decoding if the number and size of recorded data files is greater than 1,000 files or 300 MB a day.
 
 - Consider performing common calculations and analysis after ingest and storing them in extra tables.
 
