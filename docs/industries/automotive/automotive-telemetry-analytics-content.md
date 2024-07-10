@@ -32,7 +32,7 @@ The following dataflow corresponds to the preceding diagram:
 
     1. Data engineers and data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can use Azure Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git to run analytics. Use [Copilot for Data Science and Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support your workflow with contextual code suggestions.
 
-1. R&D engineers and data scientists can use Power BI with dynamic query or real-time analytics dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
+1. R&D engineers and data scientists can use Power BI with dynamic queries or real-time analytics dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
 
 1. Engineers can also connect more tools to Microsoft Fabric. For instance, it's possible to connect Azure managed Grafana to Eventhouse, or to create a web application that queries Eventhouse directly.
 
@@ -42,9 +42,9 @@ The following dataflow corresponds to the preceding diagram:
 
 ### KQL database schema
 
-:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the KQL Database and methods to extract, expand, and enrich data." border="false":::
+:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the KQL Database and methods to extract, expand, and enrich data." border="false" lightbox="images/data-explorer-schema.svg":::
 
-When [designing the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), consider the difference between `fact`  and `dimension` tables. Telemetry is a `fact` table because vehicle signals are progressively appended in a streaming fashion or as part of a complete recording, and it doesn't change. The fleet metadata can be considered a `fact` table that updates slowly.
+When [designing the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), consider the difference between `fact` tables and `dimension` tables. Telemetry is a `fact` table because vehicle signals are progressively appended in a streaming fashion or as part of a complete recording, and it doesn't change. The fleet metadata can be considered a `fact` table that updates slowly.
 
 The vehicle telemetry lands in raw tables. You can use the following message processing concepts to organize the data for analysis and reporting:
 
@@ -103,11 +103,11 @@ This architecture can also be implemented by using the following Azure services:
 
 - [Azure Batch](/azure/well-architected/service-guides/azure-batch/reliability) is a good alternative for complex file decoding. This scenario involves large numbers of files over 300 megabytes that require different decoding algorithms based on file version or file type. This approach can be done either with Fabric or with Blob Storage and Azure Data Explorer.
 
-:::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Batch method for decoding complex files." border="false":::
+:::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Batch method for decoding complex files." border="false" lightbox="images/batch-workflow.svg":::
 
 1. The user or recording device uploads a recorded data file to Lakehouse. When the upload is completed, it triggers a Functions app to schedule decoding.
 
-1. The scheduler starts a Functions app that creates a batch job by taking into consideration the file type, file size, and required decoding algorithm. The app selects a virtual machine (VM) with a suitable size from the pool and starts the job.
+1. The scheduler starts a Functions app that creates a batch job by taking into consideration the file type, file size, and required decoding algorithm. The app selects a virtual machine with a suitable size from the pool and starts the job.
 
 1. Batch writes the resulting decoded file back to Lakehouse when the job completes. This file must be suitable for direct ingestion in a format that Eventhouse supports.
 
@@ -127,9 +127,11 @@ This approach provides the following benefits:
 
 ## Scenario details
 
-Automotive OEMs use large fleets of prototype and test vehicles to test and verify all   of vehicle functions. Test procedures are expensive because real drivers and vehicles need to be involved, and specific real-world road testing scenarios must pass multiple times. Integration testing is especially important to evaluate interactions between electrical, electronic, and mechanical components in complex systems.
+Automotive OEMs use large fleets of prototype and test vehicles to test and verify all  of vehicle functions. Test procedures are expensive because real drivers and vehicles are required, and specific real-world road testing scenarios must pass multiple times. Integration testing is especially important to evaluate interactions between electrical, electronic, and mechanical components in complex systems.
 
-To validate vehicle functions and analyze anomalies and failures, petabytes of diagnostic data must be captured from electronic control unit (ECUs), computer nodes, vehicle communication buses like Controller Area Network (CAN) and Ethernet, and sensors. In the past, small data logger servers in the vehicles stored diagnostic data locally as Measurement Data Format (MDF), multimedia fusion extension (MFX), CSV, or JSON files. After test drives were complete, the servers uploaded diagnostic data to data centers, which processed it and provided it to R&D engineers for analytics. This process could take hours or sometimes days. More recent scenarios use telemetry ingestion patterns like Message Queuing Telemetry Transport (MQTT)-based synchronous data streams or near real-time file uploads.
+To validate vehicle functions and analyze anomalies and failures, petabytes of diagnostic data must be captured from electronic control unit (ECUs), computer nodes, vehicle communication buses like Controller Area Network (CAN) and Ethernet, and sensors.
+
+In the past, small data logger servers in the vehicles stored diagnostic data locally as Measurement Data Format (MDF), multimedia fusion extension (MFX), CSV, or JSON files. After test drives were complete, the servers uploaded diagnostic data to data centers, which processed it and provided it to R&D engineers for analytics. This process could take hours or sometimes days. More recent scenarios use telemetry ingestion patterns like Message Queuing Telemetry Transport (MQTT)-based synchronous data streams or near real-time file uploads.
 
 ### Potential use cases
 
@@ -175,7 +177,7 @@ It's important to understand the division of responsibility between the automoti
 
   - [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint).
   
-  - [Allow access to Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
+  - [Allow access to Event Hubs namespaces through private endpoints](/azure/event-hubs/private-link-service).
   
 - Encrypt data at rest and data in transit.
 
@@ -213,7 +215,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - Use [KQL query best practices](/azure/data-explorer/kusto/query/best-practices) to make your query run faster.
 
-- When the KQL database expands to contain billions or trillions of records, proper data filtration becomes essential, especially considering the active [partition policy](/azure/data-explorer/kusto/management/partitioning-policy). Use a `where` clause to define a time window to reduce the amount of data queried. Consider changing the data partition policy for the *Signals* table if your common search criteria aren't time-based. For instance, when you filter by recording ID and signal name.
+- Use a `where` clause to define a time window to reduce the amount of data queried. Consider changing the data partition policy for the *Signals* table if your common search criteria aren't time-based. For instance, when you filter by recording ID and signal name. When the KQL database expands to contain billions or trillions of records, proper data filtration becomes essential, especially considering the active [partition policy](/azure/data-explorer/kusto/management/partitioning-policy).
 
 > [!WARNING]
 > Consult with your support team before altering a data partition policy.
