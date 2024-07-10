@@ -18,15 +18,30 @@ Existing architecture in Databricks Diagram
 
 ### Dataflow Read approach in Fabric (First Step)
 
-- test
- kopokppopk
-Setup shortcuts in Fabric
-Schedule Synchronization between UC and Fabric (shortcuts)
-Keep ADB as a write engine
+- Introduction on the approach
+ - Keep ADB for the compute
+ - Potential Fabric Notebook for reading scenario
+- Focus on One Lake Shortcuts
+- Diagram on how to make current lakehouse built on ADB available in Fabric
+- Automate/schedule One Lake shortcuts creation
+- Orchestration change
+- Diagram Scenario 3A
 Modify ADB notebooks to point to OneLake
-Diagram scenario 3 A
 ### Dataflow Write approach in Fabric (Second Step)
-Expain the considerations to take in account
+- Evaluate Batch Approach
+  - Leverage Microsoft Spark Utilities
+  - Evaluate the Spark Pool size
+- Evaluate Streaming approach
+  - Leverage Real Time Analytics for streaming
+- Evaluate Data Governance
+  - Leverage Purview in Fabric
+- Evaluate Security
+  - Leverage One Lake Security
+- Build Delta Tables in One Lake using Fabric Notebook
+  - Read Delta Tables created by ADB and save them in a OneLake location 
+- Fabric Notebook (read/write) to point to OneLake
+- Diagram Scenario 5
+
 ### Components
 ### Alternatives
 ## Scenario details
@@ -41,6 +56,8 @@ Expain the considerations to take in account
 - [Synchronize one Lake with Unity Catalog](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog)
 - [Spark compute size](https://learn.microsoft.com/en-us/fabric/data-engineering/capacity-settings-management)
 - [Microsoft Spark Utilities](https://learn.microsoft.com/en-us/fabric/data-engineering/microsoft-spark-utilities)
+- [Real Time in Fabric](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview)
+- [Purview in Fabric](https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric)
 - [Purview and Unity Catalog](https://learn.microsoft.com/en-us/purview/register-scan-azure-databricks-unity-catalog)
 - [One Lake Security](https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-security)
 ## Related resources
