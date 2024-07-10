@@ -100,7 +100,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Priority queues pattern example
 
-The following example on [GitHub](priority-queues) demonstrates the implementation of the Priority Queues pattern using Azure Service Bus.
+The following example on [GitHub][priority-queues] demonstrates the implementation of the Priority Queues pattern using Azure Service Bus.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus](./_images/priority-queue-example.svg)<br>
 *Figure 4. Architecture of the PriorityQueue example in GitHub*
@@ -115,10 +115,10 @@ Here's an overview of the architecture:
 
 | Role in example architecture | Azure service in example | Name in example |
 | --- | --- | --- |
-| Application | Azure Functions app | [PriorityQueueSender](app) |
+| Application | Azure Functions app | [PriorityQueueSender][app] |
 | Message queue broker | Azure Service Bus | <*your service bus namespace*> |
 | Message queues | Azure Service Bus queues | <*your queue names*> |
-| Consumers | Azure Functions app | [PriorityQueueConsumerHigh](high)<br>[PriorityQueueConsumerLow](low) |
+| Consumers | Azure Functions app | [PriorityQueueConsumerHigh][high]<br>[PriorityQueueConsumerLow][low] |
 
 ## Related resources
 
