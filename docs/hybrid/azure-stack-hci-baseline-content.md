@@ -457,8 +457,7 @@ Microsoft Learn modules:
 [s2d-drive-balance-performance-capacity]: /windows-server/storage/storage-spaces/choosing-drives#option-2--balancing-performance-and-capacity
 [s2d-cache]: /azure-stack/hci/concepts/cache#server-side-architecture
 [s2d-cache-sizing]: /azure-stack/hci/concepts/cache#sizing-the-cache
-[s2d-plan-volumes]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type
-[s2d-plan-volumes-performance]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type#when-performance-matters-most
+[s2d-plan-volumes-performance]: /azure-stack/hci/concepts/plan-volumes#when-performance-matters-most
 [azs-hci-csv-cache]: /azure-stack/hci/manage/use-csv-cache#planning-considerations
 [azs-hci-gpu-acceleration]: /windows-server/virtualization/hyper-v/deploy/use-gpu-with-clustered-vm?pivots=azure-stack-hci
 [azs-hci-networking]: /azure-stack/hci/concepts/plan-host-networking
