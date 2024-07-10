@@ -108,6 +108,9 @@ Keep in mind the following best practices:
 * Skipping automatic driver installation is required before using the GPU Operator.
 * When using the GPU Operator with Cluster Autoscaler, the min-count should be set to 1.
 
+> [!NOTE]
+> Microsoft **doesn't support or manage** the maintenance and compatibility of the NVIDIA drivers as part of the node image deployment when you use the GPU Operator.
+
 ### Deploying GPU Workloads for Large Language Models (LLMs)
 
 #### Kubernetes AI Toolchain Operator (KAITO) add-on for AKS
