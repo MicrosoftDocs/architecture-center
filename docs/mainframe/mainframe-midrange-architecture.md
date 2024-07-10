@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
 author: Venkat-Github-Account
 ms.author: vramakrishna
-ms.date: 06/20/2024
+ms.date: 07/10/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
