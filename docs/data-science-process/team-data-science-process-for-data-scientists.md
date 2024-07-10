@@ -279,14 +279,6 @@ Azure has many resources which could be used for analytics processing.  Azure Ma
 
 - **Integration**: Connects to a wide range of data sources, including on-premises and cloud-based data stores, ensuring comprehensive data integration.
 
-[**Azure HDInsight**](/azure/hdinsight/hdinsight-overview) is a fully-managed cloud service that that is used to process massive amounts of data using popular open-source frameworks.
-
-- **Hadoop**: Provides scalable storage and processing capabilities for large data sets.
-
-- **Spark**: Supports in-memory data processing for faster analytics and machine learning.
-
-- **Kafka**: Allows for real-time data ingestion and processing, suitable for streaming analytics.
-
 [**Azure Stream Analytics**](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics service designed for processing fast-moving data streams, providing the following features:
 
 - **Stream Processing**: Processes data from various sources such as IoT devices, sensors, and applications in real-time.
