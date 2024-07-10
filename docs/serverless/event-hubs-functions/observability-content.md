@@ -246,14 +246,9 @@ Principal author:
 
 To learn more, consider reviewing these related articles:
 
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md)
 - [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data)
 - [Configure monitoring for Azure Functions](/azure/azure-functions/configure-monitoring?tabs=v2)
 - [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data)
 - [Metrics in Azure Monitor - Azure Event Hubs](/azure/event-hubs/event-hubs-metrics-azure-monitor)
 - [Kusto Query Language](/azure/data-explorer/kusto/concepts/)
-
-## Related resources
-
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md) provides guidance on monitoring serverless event-driven architectures.
 - [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.

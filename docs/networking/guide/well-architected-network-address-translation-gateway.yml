@@ -2,8 +2,8 @@
 metadata:
   title: Azure Well-Architected Framework review of an Azure NAT gateway
   description: Learn about best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework five pillars of architectural excellence.
-  author: ehaslett
-  ms.author: ethaslet
+  author: agansu
+  ms.author: gansua
   ms.date: 05/23/2024
   ms.topic: conceptual
   ms.service: architecture-center

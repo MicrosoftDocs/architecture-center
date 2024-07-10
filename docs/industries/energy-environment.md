@@ -43,7 +43,6 @@ The following articles provide detailed analysis of architectures developed and 
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-|[Cost savings through HTAP with Azure SQL](/azure/architecture/databases/guide/azure-sql-htap)|Use a scalable hybrid transaction/analytical processing (HTAP)  architecture with Azure SQL Database to combine transaction processing with analytics. For example, energy providers can use this architecture to manage smart power grids.|Data/Analytics|
 |[Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)|Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences to optimize energy.|IoT|
 |[Efficient Docker image deployment for intermittent low-bandwidth connectivity](/azure/architecture/example-scenario/iot/efficient-docker-image-deployment)|Learn about a reliable and resilient deployment architecture for situations when you have limited, intermittent, or low bandwidth. This architecture is applicable in fields like the oil, gas, and mining industries.|IoT|
 |[Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization) |Learn how to use Azure IoT for environment monitoring and supply chain optimization. Use cases include fire prediction and farming.|IoT|
