@@ -2,7 +2,7 @@ The priority queue pattern enables a workload to process high-priority tasks mor
 
 ## Context and problem
 
-Workloads often need to manage and process tasks with varying levels of importance and urgency. Some tasks require immediate attention while others can wait. Failure to address high-priority tasks can impact user experience and breach service-level agreements (SLAs).
+Workloads often need to manage and process tasks with varying levels of importance and urgency. Some tasks require immediate attention while others can wait. Failure to address high-priority tasks can affect user experience and breach service-level agreements (SLAs).
 
 To handle tasks efficiently based on their priority, workloads need a mechanism to prioritize and execute tasks accordingly. Typically, workloads process tasks in the order they arrive, using a first-in, first-out (FIFO) queue structure. This approach doesn't account for the varying importance of tasks.
 
