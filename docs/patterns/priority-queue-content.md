@@ -22,7 +22,7 @@ With a single queue, the application (producer) assigns a priority to each messa
 
 ### Multiple queues
 
-Multiple queues allow you to separate message by priority. The application assigns a priority to each message and directs the message to the queue corresponding to its priority. The consumers process the messages. A multiple queue solution uses either a single consumer pool or multiple consumer pools.
+Multiple queues allow you to separate messages by priority. The application assigns a priority to each message and directs the message to the queue corresponding to its priority. The consumers process the messages. A multiple queue solution uses either a single consumer pool or multiple consumer pools.
 
 #### Multiple consumer pools
 
@@ -69,7 +69,7 @@ Consider the following recommendations when you decide how to implement the prio
 
 - *Monitor processing speeds.* To ensure that messages are processed at the expected rates, continuously monitor the processing speed of high and low-priority queues.
 
-- *Minimize costs.* Process critical tasks immediately available consumers while less critical background tasks can be scheduled during less busy times.
+- *Minimize costs.* Process critical tasks immediately with available consumers. Schedule less critical background tasks during less busy times.
 
 ### Single consumer pool recommendations
 
@@ -103,7 +103,7 @@ The following example on [GitHub](priority-queues) demonstrates the implementati
 ![Diagram that shows how to implement a priority queue by using Service Bus](./_images/priority-queue-example.svg)<br>
 *Figure 4. Architecture of the PriorityQueue example on GitHub*
 
-Here's a overview of the architecture:
+Here's an overview of the architecture:
 
 - *Application (producer)*: The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`.
 
