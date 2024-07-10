@@ -156,7 +156,7 @@ The address space of the virtual network should be large enough to hold all subn
 
 The preceding list isn't exhaustive. If your design has other resources that will impact the number of available IP addresses, accommodate those addresses.
 
-This architecture is designed for a single workload. For multiple workloads, you might want to isolate the user node pools from each other and from the system node pool. That choice results in more subnets that are smaller in size. Also, the ingress resource might be more complex, and as a result you might need multiple ingress controllers that require extra IP addresses.
+This architecture is designed for a single workload. In a production AKS cluster, the system node pool should always be separated from the user node pool. When you run multiple workloads on the cluster, you might want to isolate the user node pools from each other. That choice results in more subnets that are smaller in size. Also, the ingress resource might be more complex, and as a result you might need multiple ingress controllers that require extra IP addresses.
 
 For the complete set of considerations for this architecture, see [AKS baseline Network Topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md).
 
@@ -195,6 +195,8 @@ In AKS, each node pool maps to a Virtual Machine Scale Set. Nodes are VMs in eac
 For the user node pool, here are some considerations:
 
 - Choose larger node sizes to pack the maximum number of pods set on a node. It will minimize the footprint of services that run on all nodes, such as monitoring and logging.
+
+- If you have specialized workload requirements, select the appropriate VM type. For example, you might need a memory-optimized SKU for some workloads, or a GPU-accelerated SKU for others. To learn more about the VM SKU families available in Azure, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes/overview).
 
 - Deploy at least two nodes. That way, the workload will have a high availability pattern with two replicas. With AKS, you can change the node count without recreating the cluster.
 
@@ -511,7 +513,7 @@ To review scaling considerations included in the Windows containers on AKS basel
 
 ## Business continuity decisions
 
-To maintain business continuity, define the Service Level Agreement for the infrastructure and your application. For information about monthly uptime calculation, see [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
+To maintain business continuity, define the service level objective (SLO) for the infrastructure and your application. To learn more about SLOs, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics). For information about monthly uptime calculation, see [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
 
 ### Cluster nodes
 
@@ -542,7 +544,7 @@ Requests and limits can be specified in your deployment manifests. For more info
 
 ### Availability zones and multi-region support
 
-If your SLA requires a higher uptime, protect against outages by using [availability zones](/azure/aks/availability-zones). You can use availability zones if the region supports them. Both the control plane components and the nodes in the node pools are then able to spread across zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate Virtual Machine Scale Set, which manages node instances and scalability. Scale set operations and configuration are managed by the AKS service. Here are some considerations when enabling multizone:
+If your SLO requires a higher uptime for your cluster, protect against outages by using [availability zones](/azure/aks/availability-zones). You can use availability zones if the region supports them. Both the control plane components and the nodes in the node pools are then able to spread across zones. If an entire zone is unavailable, a node in another zone within the region is still available. Each node pool maps to a separate Virtual Machine Scale Set, which manages node instances and scalability. Scale set operations and configuration are managed by the AKS service. Here are some considerations when enabling multizone:
 
 - **Entire infrastructure.** Choose a region that supports availability zones. For more information, see [Limitations and region availability](/azure/aks/availability-zones#limitations-and-region-availability). If you want to buy an Uptime SLA, choose a region that supports that option. The Uptime SLA is greater when using availability zones.
 
@@ -760,9 +762,9 @@ Here's an example that shows how to automate cluster configuration with GitOps a
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
 
-1. A developer commits changes to source code, such as configuration YAML files, which are stored in a git repository. The changes are then pushed to a git server.
+1. A developer commits changes to source code, such as configuration YAML files, which are stored in a Git repository. The changes are then pushed to a Git server.
 
-2. Flux runs in pod alongside the workload. Flux has read-only access to the git repository to make sure that Flux is only applying changes as requested by developers.
+2. Flux runs in pod alongside the workload. Flux has read-only access to the Git repository to make sure that Flux is only applying changes as requested by developers.
 
 3. Flux recognizes changes in configuration and applies those changes using kubectl commands.
 
@@ -774,7 +776,7 @@ While GitOps and Flux can be configured manually, the [GitOps with Flux v2 clust
 
 ### Workload and cluster deployment strategies
 
-Deploy *any* change (architecture components, workload, cluster configuration), to at least one pre-production AKS cluster. Doing so will simulate the change might unravel issues before deploying to production.
+Deploy *any* change (architecture components, workload, cluster configuration), to at least one pre-production AKS cluster. Doing so will simulate the change and might identify issues before they are deployed to production.
 
 Run tests/validations at each stage before moving on to the next to make sure you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment issues. This deployment should follow a similar pattern as production, using the same GitHub Actions pipeline or Flux operators.
 
@@ -790,7 +792,7 @@ To review cost management considerations specific to Windows-based workloads inc
 
 ### Provision
 
-- There aren't any costs associated with AKS in deployment, management, and operations of the Kubernetes cluster. What does influence cost are the virtual machine instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) SKU is a typical VM type for the system node pool.
+- There are minimal costs associated with AKS in deployment, management, and operations of the Kubernetes cluster itself. What does influence cost are the virtual machine instances, storage, log data, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) SKU is a typical VM type for the system node pool.
 
 - Don't have the same configuration for dev/test and production environments. Production workloads have extra requirements for high availability and are typically more expensive. This configuration isn't necessary in the dev/test environment.
 
@@ -808,13 +810,13 @@ To review cost management considerations specific to Windows-based workloads inc
 
 - Use tags when you create node pools. Tags are useful in creating custom reports to track the incurred costs. Tags give the ability to track the total of expenses and map any cost to a specific resource or team. Also, if the cluster is shared between teams, build chargeback reports per consumer to identify metered costs for shared cloud services. For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools).
 
-- Data transfers between availability zones in a region are not free. If your workload is multi-region or there are transfers across availability zones, then expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
+- If your workload is multi-region and you replicate data between regions, expect additional bandwidth costs if you replicate between regions. For more information, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 - Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Microsoft Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
 
 ### Monitor
 
-In order to monitor cost of the entire cluster, along with compute cost, also gather cost information about storage, bandwidth, firewall, and logs. Azure provides various dashboards to monitor and analyze cost:
+You can monitor the entire cluster, as well as the cost of compute, storage, bandwidth, firewall, and logs. Azure provides various dashboards to monitor and analyze cost:
 
 - [Azure Advisor](/azure/advisor/advisor-get-started)
 
@@ -822,7 +824,7 @@ In order to monitor cost of the entire cluster, along with compute cost, also ga
 
 Ideally, monitor cost in real time or at least at a regular cadence to take action before the end of the month when costs are already calculated. Also monitor the monthly trend over time to stay in the budget.
 
-To make data-driven decisions, pinpoint which resource (granular level) incurs most cost. Also have a good understanding of the meters that are used to calculate usage of each resource. By analyzing metrics, you can determine if the platform is over-sized for instance. You can see the usage meters in Azure Monitor metrics.
+To make data-driven decisions, pinpoint which resource (at a granular level) incurs most cost. Also have a good understanding of the meters that are used to calculate usage of each resource. By analyzing metrics, you can determine if the platform is over-sized for instance. You can see the usage meters in Azure Monitor metrics.
 
 ### Optimize
 
