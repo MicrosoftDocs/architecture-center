@@ -29,7 +29,7 @@ ms.custom:
 
 Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy API Management depending on your [tenancy model](../considerations/tenancy-models.yml). This article assumes you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
 
-Typically, the way you use API Management is similar regardless of the isolation models. This section focuses on the differences in cost and complexity between the isolation models, and how each approach routes requests to your backend API applications.
+Typically, the way you use API Management is similar regardless of the isolation model. This section focuses on the differences in cost and complexity between the isolation models, and how each approach routes requests to your backend API applications.
 
 | Consideration | Shared instance, single-tenant backends | Shared instance, shared multitenant backend | Instance per tenant |
 |---|---|---|---|
@@ -78,7 +78,7 @@ API Management provides [subscriptions](/azure/api-management/api-management-sub
 
 Alternatively, you can identify the tenant through other methods. Here are some example custom approaches, each of which runs within a custom policy that you'd define:
 
-- **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path (`tenant1`) and treat it a tenant identifier. Similarly, given the incoming URL `https://tenant1.contoso.com/products`, you might extract the first part of the domain (`tenant1`). To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
+- **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path (`tenant1`) and treat it a tenant identifier. Similarly, given the incoming URL `https://tenant1.contoso.com/products`, you might extract the subdomain (`tenant1`). To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
 - **Use a request header.** For example, your client applications might add a custom `X-TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
 - **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in a JWT issued by your identity provider. To use this approach, use the [`validate-jwt` policy](/azure/api-management/validate-jwt-policy) and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
 - **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. This approach enables you to create custom tenant mapping logic, to map a logical tenant identifier to a specific URL, or to obtain additional information about a tenant. To use this approach, use the [`send-request` policy](/azure/api-management/send-request-policy). However, this approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach. Be sure to invalidate your cache with each tenant added, removed, or moved that impacts backend lookup.
@@ -134,7 +134,7 @@ The API Management documentation [provides extensive guidance on monetizing APIs
 
 An API Management instance supports a certain amount of [capacity](/azure/api-management/api-management-capacity), which represents the resources available to process your requests. When you use complex policies or deploy more APIs to the instance, more capacity is consumed. You can manage the capacity of an instance in several ways, including by purchasing more units. You can also dynamically scale the capacity of your instance.
 
-Some multitenant instances might consume higher amounts of capacity than single-tenant instances, such as if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your instance's capacity if you see your use increase. You should also consider testing the performance of your solution to understand your capacity needs ahead of time.
+Some multitenant instances might consume higher amounts of capacity than single-tenant instances, such as if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your instance's capacity if you see your use increase. You should also test the performance of your solution to understand your capacity needs ahead of time.
 
 For more information about scaling API Management, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
