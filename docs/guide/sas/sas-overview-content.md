@@ -244,8 +244,9 @@ For best performance:
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
 - [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
-- [EXAScaler Cloud by DataDirect Networks (DDN)](https://azuremarketplace.microsoft.com/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview), which is based on the Lustre file system
+- [Azure Managed Lustre](https://azure.microsoft.com/en-us/products/managed-lustre/), a service providing the Lustre parallel filesystem
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
+- [Azure Premium Files](https://azure.microsoft.com/products/storage/files/), a platform as a service file share services that supports the NFS protocol
 
 SAS offers performance-testing scripts for the Viya and Grid architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
 
@@ -258,15 +259,24 @@ For sizing, Sycomp makes the following recommendations:
 - Provide one GPFS scale node per eight cores with a configuration of 150 MBps per core.
 - Use a minimum of five P30 drives per instance.
 
-##### DDN EXAScaler Cloud (Lustre)
+##### Azure Managed Lustre (AMLFS)
 
-DDN, which acquired Intel's Lustre business, provides EXAScaler Cloud, which is based on the Lustre parallel file system. The solution is available in the Azure Marketplace as part of the DDN EXAScaler Cloud umbrella. Designed for data-intensive deployment, it provides high throughput at low cost.
-
-[Tests show that DDN EXAScaler can run SAS workloads in a parallel manner](https://communities.sas.com/t5/Administration-and-Deployment/EXAScaler-Cloud-by-DDN-A-shared-file-system-to-use-with-SAS-Grid/m-p/714234#M21291). DDN recommends running this command on all client nodes when deploying EXAScaler or Lustre:
+Azure Managed Lustre is a managed file system purpose-built for high-performance computing (HPC) and AI workloads. Testing by SAS and Microsoft on AMLFS performance show that [AMLFS can run SAS workloads in a parallel manner](https://communities.sas.com/t5/Administration-and-Deployment/SAS-and-Azure-Managed-Lustre-file-system/td-p/898127) for both SAS 9 and Viya workloads. It is  recommended to run a tuning command on all client nodes when deploying AMLFS to optimize performance:
 
 ```shell
 lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.max_rpcs_in_flight=16 osc.*.max_dirty_mb=1024 llite.*.max_read_ahead_mb=2048 osc.*.checksums=0  llite.*.max_read_ahead_per_file_mb=256
 ```
+
+Additionally it is recommended to enable Accelerated Networking on all SAS VMs for optimal performance and place the SAS VMs in the same availability zone that AMLFS is deployed in.
+
+##### Azure Premium Files (NFS)
+
+Microsoft provides a managed NFS v4.1 service as part of Azure Premium Files. SAS has extensively tested and [validated the performance of Azure Premium Files with NFS](https://communities.sas.com/t5/SAS-Communities-Library/Using-NFS-Premium-shares-in-Azure-Files-for-SAS-Viya-on/ta-p/901701) and found performance to be more than sufficient to power SAS installations. When using nconnect, SAS can spread IO requests over multiple channels, improving performance even further. Using Azure Premium Files you can benefit from a cost efficient, elastic, performant and POSIX compliant file system. The shares' throughput grows linearly with its size, providing increased performance with data increases. 
+
+When using Azure Premium Files, please consider the following points:
+- Pick Azure Premium Files and size the file share for the performance desired. You can always size up or down if less performance is needed.
+- Use ```nconnect``` in your mounts with a setting of ```nconnect=4``` for optimal performance parallel channel use.
+- Optimize read-ahead settings to be 15x of the rsize and wsize, recommended is 15MB. 
 
 ##### Azure NetApp Files (NFS)
 
@@ -278,6 +288,14 @@ Consider the following points when using this service:
 - On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This goes up to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) applied.
 - To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
+
+##### NFS read-ahead tuning
+
+It is important for SAS performance to tune the NFS mount options used to mounts NFS shares. One of the cores ones the ```read-ahead``` kernel setting. This setting allows the Linux kernel to requests blocks in advance of the actual I/O by the application resulting in improved sequential read throughput. Generally speaking, SAS workloads read many large files for further processing, and as such SAS benefits tremendously from large read-ahead buffers.
+
+With Linux kernels 5.4 or newer the default read-ahead changed from 15MB to 128KB penalizing read performance. In order to maximie performance it is necessary to increase the read-ahead setting on your SAS Linux machines from 128KB. SAS and Microsoft recommend tuning to a factor 15 of the rsize/wsize. Ideally the rsize/wsize is 1MB, resulting in a 15MB read-ahead configuration.
+
+Setting the read-ahead on a virtual machine is done relatively straightforward by adding a ```udev rule``` as documented in our [NFS performance documentation](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput). For Kubernetes, this is a bit more complicated as this needs to be done on the host and not on the pod. SAS has provided [scripts in their benchmark post](https://communities.sas.com/t5/SAS-Communities-Library/Using-NFS-Premium-shares-in-Azure-Files-for-SAS-Viya-on/ta-p/901701) to make this for Viya on AKS and automatically set the read-ahead on the host.
 
 #### Other data sources
 
@@ -341,12 +359,12 @@ When building your environment, see quickstart reference material at [CoreCompet
 
 Principal authors:
 
-- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
-- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Chief Architect
+- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Principal Architect
 
-Other contributor:
+Other contributors:
 
-- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
+- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -360,6 +378,7 @@ For help getting started, see the following resources:
 - [Lsv3 series VMs](/azure/virtual-machines/lsv3-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Azure availability zones](/azure/availability-zones/az-overview)
+- [Improve NFS Azure file share performance](/azure/storage/files/nfs-performance)
 
 For help with the automation process, see the following templates that SAS provides:
 
