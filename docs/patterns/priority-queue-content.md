@@ -22,7 +22,7 @@ With a single queue, the application (producer) assigns a priority to each messa
 
 ### Multiple queues
 
-Multiple queues allow you to separate messages by priority. The application assigns a priority to each message and directs the message to the queue corresponding to its priority. The consumers process the messages. A multiple queue solution uses either a single consumer pool or multiple consumer pools.
+Multiple queues allow you to separate message by priority. The application assigns a priority to each message and directs the message to the queue corresponding to its priority. The consumers process the messages. A multiple queue solution uses either a single consumer pool or multiple consumer pools.
 
 #### Multiple consumer pools
 
@@ -44,7 +44,7 @@ With a single consumer pool, all queues share a single pool of consumers. Consum
 Use a single consumer pool for:
 
 - *Simple management*: A single consumer pool is suitable for application where ease of setup and maintenance is a priority. It reduces the complexity of configuration and monitoring.
-- *Unified processing needs*: A single consumer pool is useful when the exact nature of the incoming tasks is generally similar.
+- *Unified processing needs*: A single consumer pool is useful when the exact nature of the incoming tasks is similar.
 
 ![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-multiple-queues-single-pool.svg)<br>
 *Figure 3. Architecture of multiple queues and a single consumer pool.*
@@ -69,7 +69,7 @@ Consider the following recommendations when you decide how to implement the prio
 
 - *Monitor processing speeds.* To ensure that messages are processed at the expected rates, continuously monitor the processing speed of high and low-priority queues.
 
-- *Minimize costs.* Process critical tasks immediately with available consumers. Schedule less critical background tasks during less busy times.
+- *Minimize costs.* Process critical tasks immediately available consumers while less critical background tasks can be scheduled during less busy times.
 
 ### Single consumer pool recommendations
 
@@ -87,7 +87,7 @@ Consider the following recommendations when you decide how to implement the prio
 
 ## Workload design
 
-An architect should evaluate how the Priority Queue pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Priority Queue pattern can address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
@@ -101,7 +101,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 The following example on [GitHub](priority-queues) demonstrates the implementation of the Priority Queues pattern using Azure Service Bus.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus](./_images/priority-queue-example.svg)<br>
-*Figure 4. Architecture of the PriorityQueue example on GitHub*
+*Figure 4. Architecture of the PriorityQueue example in GitHub*
 
 Here's an overview of the architecture:
 
@@ -109,7 +109,7 @@ Here's an overview of the architecture:
 
 - *Message broker and queues*: The example uses Azure Service Bus as the message broker. It uses two Azure Service Bus queues, one for each message priority (`High` and `Low`). The application (producer) sends messages to the correct queue based on the message `Priority`.
 
-- *Multiple consumer pools*: The example uses multiple consumer pools (`PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`) dedicated to read messages from the each of the queues.
+- *Multiple consumer pools*: The example uses multiple consumer pools (`PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`) dedicated to read messages from each of the queues.
 
 | Role in example architecture | Azure service in example | Name in example |
 | --- | --- | --- |
@@ -122,7 +122,7 @@ Here's an overview of the architecture:
 
 The following patterns might be helpful to you when you implement this pattern:
 
-- [Competing Consumers pattern](./competing-consumers.yml): This pattern involves implementing multiple consumers that listen to the same queue and process tasks in parallel to increase throughput. Each message is processed by only one consumer. The article provides detailed information on the advantages and disadvantages of this approach.
+- [Competing Consumers pattern](./competing-consumers.yml): This pattern involves implementing multiple consumers that listen to the same queue and process tasks in parallel to increase throughput. Only one consumer processes each message. The article provides detailed information on the advantages and disadvantages of this approach.
 
 - [Throttling pattern](./throttling.yml): This pattern can be implemented using queues to manage request rates. By utilizing priority messaging, requests from critical applications or high-value customers can be prioritized over less important ones.
 
