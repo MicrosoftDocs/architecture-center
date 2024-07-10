@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Stack HCI three-node switchless storage architecture
+  title: Azure Stack HCI three-node storage switchless architecture
   description: Learn how to design Azure Stack hyper-converged infrastructure (HCI) using a three-node storage switchless architecture for highly available virtualized and containerized workloads.
   author: neilbird
   ms.author: nebird
@@ -12,7 +12,7 @@ metadata:
     - hybrid
     - management-and-governance
   ms.custom: arb-hybrid
-name: Azure Stack HCI three-node switchless storage architecture
+name: Azure Stack HCI three-node storage switchless architecture
 azureCategories:
   - hybrid
   - management-and-governance

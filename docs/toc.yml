@@ -1822,7 +1822,7 @@ items:
           items:
           - name: Azure Stack HCI baseline
             href: hybrid/azure-stack-hci-baseline.yml
-          - name: Azure Stack HCI switchless storage
+          - name: Azure Stack HCI storage switchless
             href: hybrid/azure-stack-hci-switchless.yml
           - name: Azure Stack HCI stretched clusters for DR
             href: hybrid/azure-stack-hci-dr.yml
