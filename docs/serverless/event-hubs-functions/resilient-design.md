@@ -133,7 +133,6 @@ Before continuing, consider reviewing these related articles:
 > [!div class="nextstepaction"]
 > [Security](./security.md)
 
-## Related resources
+## Related resource
 
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md) provides guidance on monitoring serverless event-driven architectures.
-- [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
+[Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.

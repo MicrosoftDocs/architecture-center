@@ -470,8 +470,13 @@ items:
         href: solutions/dynamics-365-scenarios.md
       - name: All Dynamics 365 architectures
         href: /azure/architecture/browse/?terms=dynamics%20365
+<<<<<<< HEAD
       - name: Customer 360 with Dynamics 365 CI
         href: example-scenario/analytics/synapse-customer-insights.yml
+=======
+      - name: Enhanced customer dimension
+        href: solution-ideas/articles/customer-insights-synapse.yml
+>>>>>>> 217fa95e83cd98aff7ed4fbe0ce1efa923e4687b
     - name: Azure and Microsoft on-premises servers
       href: guide/on-premises-microsoft-technologies.md
   - name: Third-party scenarios
@@ -877,8 +882,6 @@ items:
         href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Big data on confidential computing
         href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
-      - name: Customer 360 with Azure Synapse
-        href: example-scenario/analytics/synapse-customer-insights.yml
       - name: Data contextualization with graph in SQL Database
         href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
       - name: Data lake queries via Synapse serverless
@@ -1554,8 +1557,6 @@ items:
             href: serverless/guide/serverless-app-cicd-best-practices.yml
         - name: Monitor a distributed system
           href: guide/devops/monitor-with-opencensus-application-insights.yml
-        - name: Monitoring serverless event processing
-          href: serverless/guide/monitoring-serverless-event-processing.md
         - name: Serverless Functions app operations
           href: serverless-quest/functions-app-operations.md
         - name: Serverless Functions app security
@@ -2120,8 +2121,6 @@ items:
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: IoT using Azure Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.yml
-      - name: Secure tunneling with Azure Relay
-        href: example-scenario/networking/secure-tunneling-azure-relay.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
     - name: Solution ideas
@@ -4688,8 +4687,6 @@ items:
           href: /azure/architecture/browse/?terms=facilities
         - name: Azure digital twins (construction)
           href: solution-ideas/articles/azure-digital-twins-builder.yml
-        - name: Customer 360 for property management
-          href: example-scenario/analytics/synapse-customer-insights.yml
         - name: Facilities management with MR
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
         - name: IoT connectivity for healthcare facilities

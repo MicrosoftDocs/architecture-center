@@ -131,7 +131,6 @@ Here are some additional implementations to consider:
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
-- [Web application monitoring on Azure](../web-apps/guides/monitoring/app-monitoring.yml)
 
 ### AWS or Google Cloud professionals
 

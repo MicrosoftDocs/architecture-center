@@ -436,9 +436,6 @@ conceptualContent:
         - text: Multi-region deployment
           itemType: architecture
           url: web-apps/app-service/architectures/multi-region.yml
-        - text: Web application monitoring
-          itemType: architecture
-          url: web-apps/guides/monitoring/app-monitoring.yml
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml
