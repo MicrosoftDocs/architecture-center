@@ -1,6 +1,6 @@
 This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
-*Why use the Modern Web App pattern?* The Modern Web App pattern helps optimize high-demand areas of your web application. It offers detailed guidance to decouple these areas, enabling independent scaling for cost optimization. This approach allows you to allocate dedicated resources to critical components, enhancing overall performance. Decoupling separable services can improve reliability by preventing slowdowns in one part of the app from affecting others and enable versioning individual app components independently.
+*Why use the Modern Web App pattern?* The Modern Web App pattern helps optimize high-demand areas of a web app. It offers detailed guidance to decouple these areas, enabling independent scaling for cost optimization. This approach allows you to allocate dedicated resources to critical components, enhancing overall performance. Decoupling separable services can improve reliability by preventing slowdowns in one part of the app from affecting others. Decoupling also enables versioning individual app components independently.
 
 *How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need:
 
@@ -9,7 +9,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 - [***Configuration guidance***](#configuration-guidance): Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation][reference-implementation]*** (sample app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
+> ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation][reference-implementation]*** (sample app) of the Modern Web App pattern. It represents the end state of the Modern Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
 ## Architecture guidance
 
@@ -18,7 +18,7 @@ The Modern Web App pattern builds on the Reliable Web App pattern. It requires a
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
-For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support either an active-active or active-passive configuration depending on your business need. The two regions require the same services except one region has a hub virtual network that connects. Adopt a a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them securely (*see figure 2*).
+For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support either an active-active or active-passive configuration depending on your business need. The two regions require the same services except one region has a hub virtual network that connects. Adopt a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them securely (*see figure 2*).
 
 [![Diagram showing the Modern Web App pattern architecture with second region and hub-and-spoke network topology.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
 *Figure 2. The Modern Web App pattern architecture with second region and hub-and-spoke network topology.*
@@ -68,7 +68,7 @@ To successfully decouple and extract an independent services, you need to update
 [![Diagram showing the role of the design patterns in the Modern Web App pattern architecture.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
 *Figure 3. Role of the design patterns.*
 
-Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
+Each design pattern provides benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
 1. *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
@@ -96,11 +96,11 @@ Each design pattern provides workload design benefits that align with one or mor
     :::column-end:::
 :::row-end:::
 
-Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new independent services. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. To implement the Strangler Fig pattern, follow these recommendations:
+Use the [Strangler Fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new independent services. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. To implement the Strangler Fig pattern, follow these recommendations:
 
 - *Set up a routing layer* In the monolithic web app code base, implement a routing layer that directs traffic based on endpoints. Use custom routing logic as needed to handle specific business rules for directing traffic. For example, if you have a `/users` endpoint in your monolithic app and you moved that functionality to the decoupled service, the routing layer would direct all requests to `/users` to the new service.
 
-- *Manage feature rollout.* Use .NET Feature Management libraries to [implement feature flags](/azure/azure-app-configuration/use-feature-flags-dotnet-core) and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core) to gradually rollout of the decoupled service. The existing monolithic app routing should control how many requests the decoupled services receives. Start with a small percentage of requests and increase usage over time as you gain confidence in its stability and performance.
+- *Manage feature rollout.* Use .NET Feature Management libraries to [implement feature flags](/azure/azure-app-configuration/use-feature-flags-dotnet-core) and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core) to gradually roll out the decoupled services. The existing monolithic app routing should control how many requests the decoupled services receive. Start with a small percentage of requests and increase usage over time as you gain confidence in its stability and performance.
 
     For example, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
 
@@ -135,13 +135,16 @@ This approach ensures that the main application remains responsive and can handl
     // Create a processor for idempotent message processing
     var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
     {
-        // Allow the messages to be auto-completed if processing finishes without failure
+        // Allow the messages to be auto-completed
+        // if processing finishes without failure.
         AutoCompleteMessages = true,
     
-        // PeekLock mode provides reliability in that unsettled messages will be redelivered on failure
+        // PeekLock mode provides reliability in that unsettled messages
+        // will be redelivered on failure.
         ReceiveMode = ServiceBusReceiveMode.PeekLock,
     
-        // Containerized processors can scale at the container level and need not scale via the processor options
+        // Containerized processors can scale at the container level
+        // and need not scale via the processor options.
         MaxConcurrentCalls = 1,
         PrefetchCount = 0
     });
@@ -157,7 +160,7 @@ This approach ensures that the main application remains responsive and can handl
     :::column-end:::
 :::row-end:::
 
-Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled service to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
+Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled services to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
 
 - The sequence of message processing isn't crucial.
 - The queue remains unaffected by malformed messages.
@@ -169,7 +172,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they're ready.
 
-- *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retry messages that fail processing. This mode enhances reliability over deletion-first methods. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times.
+- *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retries messages that fail processing. This mode enhances reliability over deletion-first methods. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times.
 
 - *Implement error handling.* Route malformed or unprocessable messages to a separate, dead-letter queue. This design prevents repetitive processing. For example, you can catch exceptions during message processing and move the problematic message to the separate queue.
 
@@ -190,36 +193,41 @@ For example, the reference implementation uses the Competing Consumers pattern a
 - *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
 - *PrefetchCount*: Set to 0 to avoid prefetching messages.
 
-The processor logs message processing details, aiding in troubleshooting and monitoring. It captures deserialization errors and routes invalid messages to a dead-letter queue, preventing repetitive processing of faulty messages. The service scales at the container level, allowing for efficient handling of message spikes based on queue length.
+The processor logs message processing details, which aids troubleshooting and monitoring. It captures deserialization errors and routes invalid messages to a dead-letter queue, preventing repetitive processing of faulty messages. The service scales at the container level, allowing for efficient handling of message spikes based on queue length.
 
 ```C#
-// Create a processor for the given queue that will process incoming messages
+// Create a processor for the given queue that will process
+// incoming messages.
 var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
 {
-    // Allow the messages to be auto-completed if processing finishes without failure
+    // Allow the messages to be auto-completed
+    // if processing finishes without failure.
     AutoCompleteMessages = true,
-    // PeekLock mode provides reliability in that unsettled messages will be redelivered on failure
+    // PeekLock mode provides reliability in that unsettled messages
+    // are redelivered on failure.
     ReceiveMode = ServiceBusReceiveMode.PeekLock,
-    // Containerized processors can scale at the container level and need not scale via the processor options
+    // Containerized processors can scale at the container level
+    // and need not scale via the processor options.
     MaxConcurrentCalls = 1,
     PrefetchCount = 0
 });
 
-// Called for each message received by the processor
+// Called for each message received by the processor.
 processor.ProcessMessageAsync += async args =>
 {
     logger.LogInformation("Processing message {MessageId} from {ServiceBusNamespace}/{Path}", args.Message.MessageId, args.FullyQualifiedNamespace, args.EntityPath);
-    // Unhandled exceptions in the handler will be caught by the processor and result in abandoning and dead-lettering the message
+    // Unhandled exceptions in the handler will be caught by
+    // the processor and result in abandoning and dead-lettering the message.
     try
     {
         var message = args.Message.Body.ToObjectFromJson<T>();
         await messageHandler(message, args.CancellationToken);
-        logger.LogInformation("Successfully processed message {MessageId} from {ServiceBusNamespace}/{Path}", args.Message.MessageId, args.FullyQualifiedNamespace, args.EntityPath);
+        logger.LogInformation("Successfully processed message {MessageId} from {ServiceBusNamespace}/{Path}",args.Message.MessageId, args.FullyQualifiedNamespace, args.EntityPath);
     }
     catch (JsonException)
     {
         logger.LogError("Invalid message body; could not be deserialized to {Type}", typeof(T));
-        await args.DeadLetterMessageAsync(args.Message, $"Invalid message body; could not be deserialized to {typeof(T)}", cancellationToken: args.CancellationToken);
+        await args.DeadLetterMessageAsync(args.Message, $"Invalid message body; could not be deserialized to {typeof(T)}",cancellationToken: args.CancellationToken);
     }
 };
 ```
@@ -241,9 +249,12 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
     For example, the reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage, and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
 
     ```C#
-    // Add health checks, including health checks for Azure services that are used by this service.
-    // The Blob Storage and Service Bus health checks are provided by AspNetCore.Diagnostics.HealthChecks
-    // (a popular open source project) rather than by Microsoft. https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
+    // Add health checks, including health checks for Azure services
+    // that are used by this service.
+    // The Blob Storage and Service Bus health checks are provided by
+    // AspNetCore.Diagnostics.HealthChecks
+    // (a popular open source project) rather than by Microsoft. 
+    // https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
     builder.Services.AddHealthChecks()
     .AddAzureBlobStorage(options =>
     {
@@ -260,7 +271,7 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
     app.MapHealthChecks("/health");
     ```
 
-- *Configure Azure resources.* Configure the Azure resource to use the app’s health check URLs to confirm liveness and readiness. For example, the reference implementation uses Bicep to configure the health check URLs to confirm the liveness and readiness of the Azure resource. A liveness probe to hit the `/health` endpoint every 10 seconds after an initial delay of 2 seconds.
+- *Configure Azure resources.* Configure the Azure resources to use the app’s health check URLs to confirm liveness and readiness. For example, the reference implementation uses Bicep to configure the health check URLs to confirm the liveness and readiness of the Azure resource. A liveness probe to hit the `/health` endpoint every 10 seconds after an initial delay of 2 seconds.
 
     ```bicep
     probes: [
@@ -290,10 +301,11 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications to r
 
 - *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
 
-- *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry mechanisms. The built-in retry mechanisms are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part. For example, the reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` fetches settings from `MessageBusOptions` to configure retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout.
+- *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry mechanisms. The built-in retry mechanisms are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part. For example, the reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` object fetches settings from `MessageBusOptions` to configure retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout.
 
     ```csharp
-    // ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
+    // ServiceBusClient is thread-safe and can be reused for the lifetime
+    // of the application.
     services.AddSingleton(sp =>
     {
         var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
@@ -336,7 +348,7 @@ The following sections provide guidance on implementing the configuration update
 
 To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
 
-- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
+- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. They help you avoid putting sensitive information like connection strings in your code or configuration files.
 
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
 
@@ -364,7 +376,7 @@ roleAssignments: \[
 \]
 ```
 
-The reference implementation assigns the managed identity the new Azure Container App identity at deployment (*see following code*).
+The reference implementation assigns the managed identity as the new Azure Container App identity at deployment (*see following code*).
 
 ```bicep
 module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' = {
@@ -399,12 +411,12 @@ The Modern Web App pattern begins breaking up the monolithic architecture and in
 
 - *Use stateless services.* Ensure your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like Azure SQL Server.
 
-- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, consider event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA) often provides granular control, allowing you to scale based on event metrics. [Azure Container Apps](/azure/container-apps/scale-app) and Azure Kubernetes Service support KEDA. For services that don't support KEDA, such as [Azure App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
+- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA), often provides granular control, allowing you to scale based on event metrics. [Azure Container Apps](/azure/container-apps/scale-app) and Azure Kubernetes Service support KEDA. For services that don't support KEDA, such as [Azure App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
 
 - *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of one replica. A cold start is when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when configuring autoscaling.
 
 - *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities triggered by temporary load spikes.
-- *Configure queue-based scaling.* If your application uses a message queue like Azure Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every N message in the queue (rounded up).
+- *Configure queue-based scaling.* If your application uses a message queue like Azure Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every N messages in the queue (rounded up).
 
 For example, the reference implementation uses the [Azure Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the Container App based on the length of the queue. The `service-bus-queue-length-rule` scales the service based on the length of a specified Azure Service Bus queue. The `messageCount` parameter is set to 10, so the scaler has one service replica for every 10 messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service. The `queue-connection-string secret`, which contains the connection string for the Service Bus queue, is retrieved from Key Vault. This secret is used to authenticate the scaler to the Service Bus.
 
