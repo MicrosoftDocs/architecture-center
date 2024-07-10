@@ -52,10 +52,6 @@ items:
       items:
       - name: Databases
         items:
-        - name: Relational
-          items:
-          - name: Cost savings through HTAP with Azure SQL
-            href: guide/azure-sql-htap.yml
         - name: NoSQL
           items:
           - name: Use the Transactional Outbox pattern
