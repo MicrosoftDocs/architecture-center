@@ -94,10 +94,10 @@ When designing an Azure Stack HCI cluster it is important to understand the work
 - Number of physical nodes in the cluster, one to sixteen nodes in scale. Note: Three nodes is the maximum if using the ["Storage Switchless" network architecture](/azure/architecture/hybrid/azure-stack-hci-switchless).
   - Resiliency for Compute: Requires a minimum reservation of "_N+1 nodes worth of capacity_" in the cluster, which ensures it is always possible to drain a node to perform updates or for the workload to restart in the event of an unplanned outage of a single node, such as power or hardware failure.
   - For business-critical or mission-critical workloads, consider reserving "_N+2 nodes worth of capacity_" to provide increased resiliency. For example, if two nodes in the cluster are offline, the workload can remain online. This approach provides resiliency for a scenario such as, if a node running workload goes offline during a planned update procedure (_resulting in two nodes being offline simultaneously_).
-- Storage capacity and performance requirements.
-  - Total required usable storage after fault tolerance (_copies_) has been taken into consideration. This is approximately 33% of the raw storage space of your capacity tier disks if using three-way mirrors, (_default setting for three or more node clusters_).
-  - Input/output operations per second (_IOPS_), which, when multiplied by the application block size, determines the storage throughput capability.
   - Resiliency for Storage: It is recommended to deploy three (_or more_) nodes to enable use of the "_three-way mirror_" capability (_3 x copies of data_) for the infrastructure and user volumes, which provides increased performance in addition to maximum reliability for storage.
+- Storage capacity and performance requirements.
+  - Total required usable storage after fault tolerance (_copies_) has been taken into consideration. This is approximately 33% of the raw storage space of your "capacity tier" disks when using three-way mirrors.
+  - Input/output operations per second (_IOPS_) of the platform, which, when multiplied by the application(s) block size, determines the storage throughput capabilities for the workload.
 
 To help design and plan an Azure Stack HCI deployment correctly, it's recommended to use the [Azure Stack HCI - Sizer Tool][azs-hci-sizer-tool] and create a "New Project" for sizing your HCI cluster(s). To use the Sizer requires that you understand your workload requirements, in terms of the number and size of workload VMs that will run on the cluster, this includes number of vCPUs, and amount of Memory and Storage required for the VMs.
 
