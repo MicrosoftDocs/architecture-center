@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches for supporting multitenancy in your IoT solution.
 author: drcrook1
 ms.author: dacrook
-ms.date: 03/15/2023
+ms.date: 07/09/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
