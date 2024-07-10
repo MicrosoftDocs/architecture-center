@@ -121,6 +121,9 @@ The selected physical disk drive type(s) has a direct influence on the performan
 
 **Storage caching optimization**: Storage Spaces Direct provides a [built-in, persistent, real-time, read and write, server-side cache][s2d-cache] that maximizes storage performance. The cache should be sized and configured to accommodate the [working set of your applications and workloads][s2d-cache-sizing]. Storage Spaces Direct virtual disks (_volumes_) are used in combination with Cluster Shared Volumes (CSV) In-Memory Read Cache to [improve Hyper-V performance][azs-hci-csv-cache], such as for unbuffered I/O access to workload VHD or VHDX files.
 
+> [!TIP]
+> For high performance and/or latency sensitive workloads, we recommend using an [All-flash storage (_all NVMe or all SSD_) configuration](/azure-stack/hci/concepts/choose-drives#option-1--maximizing-performance) with three or more physical nodes. Deploying this design with the "_default storage configuration_" settings will use **Three-Way Mirroring** for the infrastructure and user volumes, which provides the highest performance and resiliency. Another advantage of using an all-NVMe or all-SSD configuration, is that you get the usable storage capacity of every flash drive, as there is no capacity "spent" from the flash drives for caching (_unlike hybrid or mixed flash drive type configurations_). To learn more about how to balance performance and capacity to meet your workload requirements, see [Plan volumes - When performance matters most][s2d-plan-volumes-performance].
+
 ### Network design
 
 Network design refers to the overall arrangement of components within the network, both physical and logical. It is possible to use the same physical network interface card (NIC) ports for any/all combination of the management, compute, and storage network intents. When you use the same NIC ports for all intent purposes, it is referred to as a _fully converged networking configuration_.
@@ -338,9 +341,6 @@ Performance efficiency considerations include:
 > For additional information see [PE:02 - Recommendations for capacity planning](/azure/well-architected/performance-efficiency/capacity-planning).
 
 - Network performance optimization. As part of your design, be sure to include projected [network traffic bandwidth allocation][azs-hci-network-bandwidth-allocation] when determining your [optimal network hardware configuration][azs-hci-networking].
-
-> [!TIP]
-> For high performance or latency sensitive workloads, we recommend using an [All-flash storage (_all NVMe or all SSD_) configuration](/azure-stack/hci/concepts/choose-drives#option-1--maximizing-performance) with three or more physical nodes. Deploying this design with the "default storage configuration" settings will use **Three-Way Mirrors** for the infrastructure and user volumes, which provides additional data resiliency and the highest performance. Another advantage of using an all-NVMe or all-SSD configuration, is that you get the usable storage capacity of every flash drive, as there is no capacity "spent" from the flash drives for caching. To learn more about how to balance performance and capacity to meet your workload requirements, see [Plan volumes - When performance matters most][s2d-plan-volumes-performance].
 
 - Compute performance optimization in Azure Stack HCI can be achieved through the use of graphics processing unit (GPU) acceleration, such as requirements for data insights or inferencing for [high-performance AI/ML workloads][azs-hci-gpu-acceleration] that require deployment at edge locations due to data gravity and/or security requirements. In a hybrid / on-premises deployment, it is important to take your workload performance requirements (_including GPUs_) into consideration to enable you to select (_procure_) the right services when designing and procuring your Azure Stack HCI cluster(s).
 
