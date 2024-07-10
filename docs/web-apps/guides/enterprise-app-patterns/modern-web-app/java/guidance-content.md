@@ -1,399 +1,196 @@
-[!INCLUDE [intro](../includes/mwa-intro.md)]
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
-### Choose the right services for your web app
+*Why use the Modern Web App pattern?* The Modern Web App pattern helps optimize high-demand areas of your web application. It offers detailed guidance to decouple these areas, enabling independent scaling for cost optimization. This approach allows you to allocate dedicated resources to critical components, enhancing overall performance. Decoupling separable services can improve reliability by preventing slowdowns in one part of the app from affecting others and enable versioning individual app components independently.
 
-The Modern Web App pattern introduces containerization, asynchronous communication, and queue-based scaling. The services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. You need to adopt new Azure services for the portion of the application that you want to modernize. For the Modern Web App pattern, you need an application platform that supports containerization. You need a container image repository, and you need a messaging system.
+*How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need:
 
-#### Choose a container service
+- [***Architecture guidance***](#architecture-guidance): Learn how to modularize web app components and select appropriate platform-as-a-service (PaaS) solutions.
+- [***Code guidance***](#code-guidance): Implement four design patterns to optimize the decoupled components: Strangler Fig, Queue-Based Load Leveling, Competing Consumers, and Health Endpoint Monitoring patterns.
+- [***Configuration guidance***](#configuration-guidance): Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
 
-For the parts of your application that you want to containerize, you need an application platform that supports containers. Azure has three principle container services: Azure Container Apps (ACA), Azure Kubernetes Service (AKS), and App Service.
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation][reference-implementation]*** (sample app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
-- *Azure Container Apps*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
-- *Azure Kubernetes Service*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
-- *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
+## Architecture guidance
 
-For more information, see [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service).
+The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few additional architectural components to implement. You need a message queue, container platform, another storage service, and a container registry (*see figure 1*).
 
-#### Choose a container repository
+[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
+*Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
-When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. For more information, see [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro).
+For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support either an active-active or active-passive configuration depending on your business need. The two regions require the same services except one region has a hub virtual network that connects. Adopt a a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them securely (*see figure 2*).
 
-#### Choose a messaging system
+[![Diagram showing the Modern Web App pattern architecture with second region and hub-and-spoke network topology.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
+*Figure 2. The Modern Web App pattern architecture with second region and hub-and-spoke network topology.*
 
-A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Pick an Azure messaging system that supports your design message queues and publish-subscribe methods.
+### Decouple architecture
 
-Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
+To implement the Modern Web App pattern, you need to decouple the existing web app architecture. Decoupling architecture involves breaking down a monolithic application into smaller, independent services, each responsible for a specific feature or functionality. This process entails evaluating the current web app, modifying the architecture, and finally, extracting the web app code to a container platform. The goal is to systematically identify and extract application services that will benefit most from being decoupled. To decouple your architecture, follow these recommendations:
 
-- *Azure Event Grid*: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
-- *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with telemetry and event streams that require real-time processing.
-- *Azure Service Bus*: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
+- *Identify service boundaries* Apply domain driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Services that represent distinct business functions and have fewer dependencies are good candidates for decoupling.
 
-For more information, see [Choose between Azure messaging services](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services).
+- *Evaluate service benefits.* Focus on services that benefit most from independent scaling. For example, a high-traffic service like order processing in an e-commerce application might require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these services allows for independent deployment and reduces the risk of affecting other parts of the application.
 
-## Implement the Modern Web App pattern
+- *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how data is managed and shared across services. Decoupled services should manage their own data and minimize direct database access across service boundaries.
 
-The following sections shows you how to implement the Modern web app pattern. It details essential code updates you need to make to your web app so that it successfully fulfills its objectives in alignment with the  pillars of the Well-Architected Framework:
+- *Deploy Azure services.* Select and deploy the Azure services you need to support the web app service you intended to extract. Use the following [Select the right Azure services](#select-the-right-azure-services) section for guidance.
 
-### Reliability
+- *Decouple web app service.* Define clear interfaces and APIs for the newly extracted web app services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, refer to the [Code guidance](#code-guidance) section.
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+- *Use independent storage for decoupled services.* Each decoupled service should have its own data stores to ease versioning and deployment. For example, the reference implementation separates the ticket rendering service from the web API and eliminates the need for the service to access the API’s database. Instead, the service communicates the URL where ticket images were generated back to the web API via a Service Bus message, and the API persists the path to its database.
 
-The Modern Web App pattern uses two design patterns to improve web app reliability: queue-based load leveling and the retry pattern. The Queue-Based Load Leveling pattern improves message-based communication. The Retry pattern improves request-response communication.
+- *Implement separate deployment pipelines for each decoupled service.* Separate deployment pipelines allow each service to be updated at its own pace. If different teams or organizations within your company own different services, having separate deployment pipelines gives each team control over their own deployments. Use CI/CD tools like Jenkins, GitHub Actions, or Azure Pipelines to set up these pipelines.
 
-#### Implement the Queue-Based Load Leveling pattern
+- *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
 
-The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system.
+### Select the right Azure services
 
-##### QBLL recommendations for .NET developers
+For each Azure service in your architecture, consult the relevant [Azure service guide](/azure/well-architected/service-guides) in the Well-Architected Framework. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
-Add content here.
+- *Choose a message queue.* A message queue is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Start with Azure Service Bus as the default choice and use the other two options if Azure Service Bus doesn't meet your needs.<br><br>
 
-The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
+  - Azure Service Bus: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
+  - Azure Event Grid: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
+  - Azure Event Hubs: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
 
-```csharp
-// Publish a message to request that the ticket be rendered.
-await messageSender.PublishAsync(new TicketRenderRequestMessage(Guid.NewGuid(), ticket, null, DateTime.Now), CancellationToken.None);
-```
+- *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.<br><br>
 
- The front end of the reference implementation shows a temporary placeholder message if the rendered image of a ticket is not yet available. This design helps separate the responsiveness of the front end and the web API from the load on the ticket rendering service (*see following code*).
+  - Azure Container Apps (ACA): Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
+  - Azure Kubernetes Service (AKS): Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  
+  - Web Apps for Container: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
 
-```csharp
-@if (string.IsNullOrEmpty(ticket.ImageName))
+- *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
-{
-\<div class="offset-top-md alert alert-warning"\>The customer's ticket is being generated, please check back later.\</div\>
-}
-```
+## Code guidance
 
-The new ticket rendering service is developed using ASP.NET Core and operates as a hosted service. It doesn’t receive messages via incoming HTTP requests. Instead, it pulls messages from Service Bus using `ServiceBusClient.CreateProcessor`, which sets up a dedicated message processing service. It allows the ticket rendering service to pull messages from the messaging service and prevents an overload (*see following code*).
+To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern.
 
-```csharp
-// Create a processor for the given queue that will process incoming messages
-var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
-{
-    // Allow the messages to be auto-completed if processing finishes without failure
-    AutoCompleteMessages = true,
+[![Diagram showing the role of the design patterns in the Modern Web App pattern architecture.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
+*Figure 3. Role of the design patterns.*
 
-    // PeekLock mode provides reliability in that unsettled messages will be redelivered on failure
-    ReceiveMode = ServiceBusReceiveMode.PeekLock,
+Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
-    // Containerized processors can scale at the container level and need not scale via the processor options
-    MaxConcurrentCalls = 1,
-    PrefetchCount = 0
-});
-```
+1. *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
-### Modify the Retry Pattern
+1. *Queue-based Load Leveling pattern*: The Queue-Based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
 
-The [Retry pattern](/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
+1. *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. Implement this pattern in the decoupled service to distribute tasks across multiple instances.
 
-#### How does the retry pattern show up in new ways
+1. *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. **(4a)** Implement this pattern in the  main web app. **(4b)** Also implement it in the decoupled service to track the health of endpoints.
 
-Add content here
+1. *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. **(5a)** Implement this pattern on all outbound calls to other Azure services in main web app, such as calls to message queue and private endpoints. **(5b)** Also implement this pattern in the decoupled service to handle transient failures in calls to the private endpoints.
 
-#### Retry implementation recommendations for .NET developers
-
-Add content here
-
-The reference implementation uses the retry functionality built into the .NET Azure SDK when connecting to Azure Service Bus and Azure Storage. The reference implementation uses `AzureClientFactoryBuilder` to configure retry settings. It invokes `ConfigureDefaults` to apply these settings. It uses the default retry settings for all HTTP-based Azure clients, including the blob storage client (*see following code*).
-
-```csharp
-builder.Services.AddAzureClients(clientConfiguration =>
-{
-    // ... Other configuration omitted here for brevity
-    clientConfiguration.AddBlobServiceClient(new Uri(storageOptions.Uri));
-    clientConfiguration.ConfigureDefaults(options =>
-    {
-        options.Retry.Mode = RetryMode.Exponential;
-        options.Retry.Delay = TimeSpan.FromSeconds(resilienceOptions.BaseDelaySecondsBetweenRetries);
-        options.Retry.MaxRetries = resilienceOptions.MaxRetries;
-        options.Retry.MaxDelay = TimeSpan.FromSeconds(resilienceOptions.MaxDelaySeconds);
-        options.Retry.NetworkTimeout = TimeSpan.FromSeconds(resilienceOptions.MaxNetworkTimeoutSeconds);
-    });
-});
-
-```
-
-In addition to this configuration, the reference implementation specifies the retry options that the Azure Service Bus client uses. Configure these retry settings separately from the defaults since the Azure Service Bus Client communicates via AMQP instead of HTTP.
-
-```csharp
-// ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
-services.AddSingleton(sp =>
-{
-    var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
-    var clientOptions = new ServiceBusClientOptions
-    {
-        RetryOptions = new ServiceBusRetryOptions
-        {
-            Mode = ServiceBusRetryMode.Exponential,
-            MaxRetries = options.MaxRetries,
-            Delay = TimeSpan.FromSeconds(options.BaseDelaySecondsBetweenRetries),
-            MaxDelay = TimeSpan.FromSeconds(options.MaxDelaySeconds),
-            TryTimeout = TimeSpan.FromSeconds(options.TryTimeoutSeconds)
-        }
-    };
-    return new ServiceBusClient(options.Host, azureCredential ?? new DefaultAzureCredential(), clientOptions);
-});
-
-```
-
-In addition to this configuration, the reference implementation specifies the retry options that the Azure Service Bus client uses. Configure these retry settings separately from the defaults since the Azure Service Bus Client communicates via AMQP instead of HTTP.
-
-```csharp
-// ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
-services.AddSingleton(sp =>
-{
-    var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
-    var clientOptions = new ServiceBusClientOptions
-    {
-        RetryOptions = new ServiceBusRetryOptions
-        {
-            Mode = ServiceBusRetryMode.Exponential,
-            MaxRetries = options.MaxRetries,
-            Delay = TimeSpan.FromSeconds(options.BaseDelaySecondsBetweenRetries),
-            MaxDelay = TimeSpan.FromSeconds(options.MaxDelaySeconds),
-            TryTimeout = TimeSpan.FromSeconds(options.TryTimeoutSeconds)
-        }
-    };
-    return new ServiceBusClient(options.Host, azureCredential ?? new DefaultAzureCredential(), clientOptions);
-});
-```
-
-Because the Azure SDK handles retries automatically using the configured settings, no explicit retries are necessary in the reference implementation’s ticket rendering service.
-
-Implementing the retry pattern for the ticket rendering service’s handling of rendering request messages works a bit differently. Because these messages are processed from an Azure Service Bus queue (instead of received via HTTP), the retry pattern is implemented by ensuring that messages are read from the queue using the “[peek-lock](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock)” receive mode. This means that the service will lock messages in the queue while processing them but won’t actually remove them from the queue until processing succeeds. Therefore, if there’s an unexpected error while processing the message, it will be returned to the queue automatically (when the lock expires) and the service will retry processing it. To avoid a malformed message from blocking the queue by continually causing the handler to fail, messages that repeatedly fail to be processed will be moved to a [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) for later review.
-
-## Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-New services will be created as monoliths are split into multiple services and new dependencies will be added for message queues or container image repositories. The modern web app pattern doesn’t introduce any new security patterns beyond those already present in the Reliable Web App pattern, but those existing patterns (managed identities, secrets management, and private endpoints) are applied to many new resources.
-
-### Configure service authentication and authorization
-
-As in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern#configure-service-authentication-and-authorization), use managed identities for all [Azure services that support managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
-
-The reference implementation makes use of managed identities by configuring the Azure Container Registry resource and the Azure Service Bus resource to allow access to several identities. It configures access for the identity performing the deployment, the user-assigned managed identity corresponding to the application owner, and the user-assigned managed identity corresponding to the application. This is done in infrastructure-as-code using role assignments in bicep as shown here.
-
-```bicep
-roleAssignments: \[
-    {
-    principalId: deploymentSettings.principalId
-    principalType: deploymentSettings.principalType
-    roleDefinitionIdOrName: containerRegistryPushRoleId
-    }
-    {
-    principalId: ownerManagedIdentity.outputs.principal_id
-    principalType: 'ServicePrincipal'
-    roleDefinitionIdOrName: containerRegistryPushRoleId
-    }
-    {
-    principalId: appManagedIdentity.outputs.principal_id
-    principalType: 'ServicePrincipal'
-    roleDefinitionIdOrName: containerRegistryPullRoleId
-    }
-\]
-```
-
-When creating the Azure Container App resource in bicep, the user-assigned managed identity representing the application is assigned to the ticket renderer’s Azure Container App so that it runs with that identity and is able to access necessary resources. The ASP.NET Core app run in the Container App can retrieve the identity for use programmatically by using DefaultAzureCredential as detailed in [reliable web app pattern documentation](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern#use-managed-identities).
-
-```bicep
-module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' = {
-  name: 'application-rendering-service-container-app'
-  scope: resourceGroup()
-  params: {
-    // Other parameters omitted for brevity
-    managedIdentities: {
-      userAssignedResourceIds: [
-        managedIdentity.id
-      ]
-    }
-  }
-}
-
-```
-
-## Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). A modern web app needs to consider costs of services used in order to maximize the business’s return on investment. This doesn’t necessarily mean using only low cost services, but it does mean minimizing unnecessary expenses, improving operational efficiency, and paying only for necessary capacity. One of the benefits as you transition from the reliable web app pattern to the modern web app pattern is that services will become more finely divided and easier to scale in and out so you can better optimize cost by paying for only the capacity and performance needed for your solution even in the face of changing or upredictable demand.
-
-### Autoscaling container
-
-Automatic horizontal scaling adds and removes service instances automatically based on relevant demand metrics. It the service to perform more work when demand is high and to save cost when demand is low. By scaling automatically based on metrics relevant to the application’s scenario, scale operations can be performed quickly and without any need for manual intervention.
-
-### Container autoscaling recommendations for .NET developers
-
-Add recommendations
-
-**Example - implementing container autoscaling**: In order to optimize costs, the reference implementation uses [Azure Container Apps autoscaling](https://learn.microsoft.com/azure/container-apps/scale-app). Autoscaling in Azure Container Apps can add or remove instances of Azure Container App replicas based on the number of concurrent HTTP requests, the number of concurrent TCP requests, or on custom [Kubernetes Event-Driven Autoscaler (KEDA)](https://keda.sh/docs/2.13/) scalers. Support for KEDA scalers allows Azure Container Apps to scale based on triggers from dozens of different metrics-based scalers. You can even write your own external KEDA scaler implementations to scale based on metrics custom to your solution.
-
-Autoscaling allows Azure Container Apps to dynamically add or remove instances, potentially even scaling down to zero active instances. Scaling to zero will minimize costs when no work needs done, but developers should be aware that scaling to zero means that there will be a small delay (often several seconds) in spinning the service back up from zero once more work needs to be done. If this delay is not acceptable, you can scale down to one replica instead which will ensure that there’s always a worker ready to handle incoming requests. Azure Container Apps scaling has [cooldown and stabilization window times](https://learn.microsoft.com/azure/container-apps/scale-app?pivots=azure-cli#scale-behavior) so that the scaler pauses after scale operations and does not continually add and remove instances in scenarios of frequently fluctuating demand.
-
-The reference implementation uses the Azure Service Bus KEDA scaler to automatically scale the ticket rendering Container App based on the length of the queue with rendering request messages. The Service Bus KEDA scaler accepts parameters for the namespace and queue to trigger from as well as a messageCount which is set to 10 in the reference implementation. This means that the scaler will aim to have one replica of the service for every ten messages in the queue (rounded up). Azure Container Apps scale settings also allow setting minimum and maximum numbers of replicas that the service can scale to.
-
-Scaling rules can be configured in bicep as part of defining a new Azure Container App. In the reference implementation, minimum replicas is set to zero so that that service can scale in to have no instances running and maximum replicas is set to five. The scaleRules list includes KEDA scale rules. This collection includes the Service Bus scaler. The rule also includes an auth property containing an Azure Container Apps secret that contains the Service Bus queue’s connection string. This secret retrieves its value from Azure Key Vault.
-
-```yml
-scaleRules: [
-  {
-    name: 'service-bus-queue-length-rule'
-    custom: {
-      type: 'azure-servicebus'
-      metadata: {
-        messageCount: '10'
-        namespace: renderRequestServiceBusNamespace
-        queueName: renderRequestServiceBusQueueName
-      }
-      auth: [
-        {
-          secretRef: 'render-request-queue-connection-string'
-          triggerParameter: 'connection'
-        }
-      ]
-    }
-  }
-]
-
-scaleMaxReplicas: 5
-scaleMinReplicas: 0
-```
-
-*Simulate autoscaling:* To test autoscaling under heavy load, purchase many tickets simultaneously in the reference implementation. The default frontend limits purchases to 20 tickets per transaction, but you can modify the frontend or use browser developer tools to buy over 100 tickets at once. This bulk purchase activates the autoscaling rules of the ticket rendering service and prompts it to add more instances. After five minutes of reduced activity, the service scales down automatically.
-
-## Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-Moving from the reliable web app pattern to the modern web app pattern includes separating logically independent pieces of the application into their own services. This improves operational efficiency by making it possible for these different services to version and update independently. While making these changes, it’s important to also continue abiding by the reliable web app’s patterns of infrastructure-as-code and automated deployments so that infrastructure design and updates are manageable and environments are easily reproduceable.
+| Design Pattern | Implementation location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
+|----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
+| [Strangler Fig Pattern](#implement-the-strangler-fig-pattern) | Main web app | ✔ |  | ✔ | ✔ |  |
+| [Queue-Based Load Leveling Pattern](#implement-the-queue-based-load-leveling-pattern) | Producer of decoupled service | ✔ |  | ✔ |  | ✔ |
+| [Competing Consumers Pattern](#implement-the-competing-consumers-pattern) | Decoupled service | ✔ |  | ✔ |  | ✔ |
+| [Health Endpoint Monitoring Pattern](#implement-the-health-endpoint-monitoring-pattern) | Main web app & decoupled service | ✔ |  |  | ✔ | ✔ |
+| [Retry Pattern](#implement-the-retry-pattern) | Main web app & decoupled service | ✔ |  |  |  |  |
 
 ### Implement the Strangler Fig pattern
 
-The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to separate larger services into more granular services. It allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be intractable if they had to be completed all at once. Dividing a monolithic solution into finer-grained services allows services to version and scale independently. A service-oriented architecture in which each service is self-contained makes it easy for different teams in an organization to own different services and innovate at the pace that makes sense for them. And when load increases, only the services that represent the performance bottleneck need to scale out. The strangler fig pattern is a useful pattern for transitioning gradually into such an architecture.
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))*
+    :::column-end:::
+:::row-end:::
 
-In some cases, a strangler fig [façade service](https://learn.microsoft.com/azure/architecture/patterns/strangler-fig#solution) is used to route requests to the various backend solutions while the pattern is being applied. In the case of the reference implementation, such a façade service is not necessary because the ticket rendering service which is separated out doesn’t have any public-facing APIs. However, there is an internal interface used in the solution’s code that allows the web API to consult [a feature flag](https://learn.microsoft.com/azure/azure-app-configuration/manage-feature-flags) and either send messages to its previous in-process ticket rendering implementation or, via an Azure Service Bus message, to the new standalone ticket rendering service.
+Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new independent services. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. To implement the Strangler Fig pattern, follow these recommendations:
 
-#### Strangler Fig implementation recommendations for .NET developers
+- *Set up a routing layer* In the monolithic web app code base, implement a routing layer that directs traffic based on endpoints. Use custom routing logic as needed to handle specific business rules for directing traffic. For example, if you have a `/users` endpoint in your monolithic app and you moved that functionality to the decoupled service, the routing layer would direct all requests to `/users` to the new service.
 
-Add recommendations
+- *Manage feature rollout.* Use .NET Feature Management libraries to [implement feature flags](/azure/azure-app-configuration/use-feature-flags-dotnet-core) and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core) to gradually rollout of the decoupled service. The existing monolithic app routing should control how many requests the decoupled services receives. Start with a small percentage of requests and increase usage over time as you gain confidence in its stability and performance.
 
-**Example - Implementing the Strangler Fig pattern**: In the modern web app reference implementation, you can see the new ticket rendering service in the src/Relecloud.TicketRenderer folder of the solution. It takes functionality that was previously part of the web API and implements it in a standalone service. Because the goal of the modern web app reference implementation is to demonstrate moving toward a micro-service architecture, the ticket rendering service does not share data storage with the web API except for the blob container where ticket images are stored. The ticket rendering service does not interact with the web API’s SQL database. Instead, the Service Bus message requesting ticket rendering includes the data necessary to perform the rendering and, once the rendering is completed (as indicated by another Service Bus message queued by the rendering service and received by the web API), the web API updates its database with details on where the ticket image can be retrieved from.
+    For example, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
 
-The modern web app reference implementation enables both the old (in-process) and new (separate service) behaviors for ticket rendering so that you can simulate the change from the previous architecture to the new one through the application of the strangler fig pattern. Because of this, an interface is used in the reference web API and different implementations are chosen to render tickets depending on the state of the feature flag.
+- *Use a façade service (if necessary).* A façade service is useful when a single request needs to interact with multiple services or when you want to hide the complexity of the underlying system from the client. However, if the decoupled service doesn’t have any public-facing APIs, a façade service might not be necessary.
 
-You will also note that the ticket rendering logic that was moved to the new service was updated to run in a Linux container instead of on Windows. For example, System.Drawing APIs were replaced with cross-platform SkiaSharp alternatives. This was done because Azure Container Apps only supports running Linux Docker containers. As part of the strangler fig pattern, extracted services are often upgraded or updated in some way. The specifics of how they are updated, though, will vary based on your specific context and environment. Updating to run in Linux containers is a detail of the reference implementation’s choice to use Azure Container Apps.
+    In the monolithic web app code base, implement a façade service to route requests to the appropriate backend (monolith or microservice). In the new decoupled service, ensure the new service can handle requests independently when accessed through the façade.
 
-*Simulate the Strangler Fig pattern:* The modern web app reference implementation uses [a feature flag](https://learn.microsoft.com/azure/azure-app-configuration/manage-feature-flags) to enable or disable the standalone ticket rendering service. By default, ticket rendering work is done in a separate service that was implemented according to the strangler fig pattern. To simulate switching between this solution and one without the strangler fig pattern applied, you can navigate to the solution’s Azure App Configuration resource in the Azure Portal and change the value of the DistributedTicketRendering feature flag from true to false (in the feature manager blade). Within 30 seconds, the application should begin rendering tickets in the web API instead of using the separate ticket rendering service (which will scale in to zero active replicas). You can set the feature flag back to true to switch back to using the standalone service for ticket rendering.
+### Implement the Queue-Based Load Leveling pattern
 
-### Implement the Health Endpoint Monitoring pattern
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
+    :::column-end:::
+:::row-end:::
 
-The [health endpoint monitoring pattern](https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the liveness of services. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. Both ASP.NET Core and Azure Container Apps support this pattern. ASP.NET Core apps can add dedicated [health check middleware](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks) to efficiently serve liveness data, including checking the health of key dependencies. Azure Container Apps allow configuration of [health probes](https://learn.microsoft.com/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
+Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) on producer portion of the decoupled service to asynchronously handle tasks that don't need immediate responses. This pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution. It allows the decoupled service to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
 
-#### HEM pattern implementation recommendations for .NET developers
+- *Use nonblocking message queuing.* Ensure the process that sends messages to the queue doesn't block other processes while waiting for the decoupled service to handle messages in the queue. If the process requires the result of the decoupled-service operation, have an alternative way to handle the situation while waiting for the queued operation to complete. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages to the queue without blocking the thread that executes this code (*see example code*):
 
-Add recommendations
+    ```csharp
+    // Asynchronously publish a message without blocking the calling thread
+    await messageSender.PublishAsync(new TicketRenderRequestMessage(Guid.NewGuid(), ticket, null, DateTime.Now), CancellationToken.None);
+    ```
 
-**Example - Implementing the Health Endpoint Monitoring pattern**: The modern web app reference implementation uses [ASP.NET Core health check middleware](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks) to expose endpoints for checking application liveness. It also uses extensions from the popular [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) open source project so that the service’s health checks will include validating that key dependencies (Azure Service Bus and Azure blob storage) are available.
+This approach ensures that the main application remains responsive and can handle other tasks concurrently, while the decoupled service processes the queued requests at a manageable rate.
 
-```C#
+- *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that can't be processed successfully. If failures persist, these messages should be removed from the queue. For example, Azure Service Bus has built-in retry and dead letter queue features.
 
-```C#
-// Add health checks, including health checks for Azure services that are used by this service.
-// The Blob Storage and Service Bus health checks are provided by AspNetCore.Diagnostics.HealthChecks
-// (a popular open source project) rather than by Microsoft. https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
-builder.Services.AddHealthChecks()
-.AddAzureBlobStorage(options =>
-{
-    // AddAzureBlobStorage will use the BlobServiceClient registered in DI
-    // We just need to specify the container name
-    options.ContainerName = builder.Configuration.GetRequiredConfigurationValue("App:StorageAccount:Container");
-})
-.AddAzureServiceBusQueue(
-    builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:Host"),
-    builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:RenderRequestQueueName"),
-    azureCredentials);
+- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases where a message might be processed more than once. For example, the reference implementation uses `ServiceBusClient.CreateProcessor` with `AutoCompleteMessages = true` and `ReceiveMode = ServiceBusReceiveMode.PeekLock` to ensure messages are only processed once and can be reprocessed on failure (*see following code*).
+  
+    ```csharp
+    // Create a processor for idempotent message processing
+    var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
+    {
+        // Allow the messages to be auto-completed if processing finishes without failure
+        AutoCompleteMessages = true,
+    
+        // PeekLock mode provides reliability in that unsettled messages will be redelivered on failure
+        ReceiveMode = ServiceBusReceiveMode.PeekLock,
+    
+        // Containerized processors can scale at the container level and need not scale via the processor options
+        MaxConcurrentCalls = 1,
+        PrefetchCount = 0
+    });
+    ```
 
-// Further app configuration omitted for brevity
-app.MapHealthChecks("/health");
-```
+- *Manage changes to the experience.* Asynchronous processing can lead to tasks not being immediately completed. Users should be made aware when their task is still being processed to set correct expectations and avoid confusion. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is done, such as an email or push notification.
 
-These health checks are used by the Azure Container App to monitor the liveness of service replicas. The health check endpoint configuration is defined for the ticket rendering service Container App in the app’s bicep template.
+### Implement the Competing Consumers pattern
 
-```bicep
-probes: [
-  {
-    type: 'liveness'
-    httpGet: {
-      path: '/health'
-      port: 8080
-    }
-    initialDelaySeconds: 2
-    periodSeconds: 10
-  }
-]
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))*
+    :::column-end:::
+:::row-end:::
 
-```
+Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled service to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
 
-### Containerize service deployment
+- The sequence of message processing isn't crucial.
+- The queue remains unaffected by malformed messages.
+- The processing operation is idempotent, meaning it can be applied multiple times without changing the result beyond the initial application.
 
-An important part of the modern web app pattern is dividing services according to domain boundaries (as discussed in the strangler fig pattern).
+To implement the Competing Consumers pattern, follow these recommendations:
 
-#### Containerizing implementations recommendations for .NET developers
+- *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 
-Add recommendations
+- *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they're ready.
 
-**Example - Implementing containerized service deployment**: The reference implementation publishes the new ticket rendering service as a [Docker container image](https://learn.microsoft.com/dotnet/core/docker/introduction). This means that all dependencies for the app to function are
+- *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retry messages that fail processing. This mode enhances reliability over deletion-first methods. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times.
 
-encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. The reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) Dockerfile which first builds the solution in a Docker container (based on a mcr.microsoft.com/dotnet/sdk image) and then publishes the final service in a separate smaller container.
+- *Implement error handling.* Route malformed or unprocessable messages to a separate, dead-letter queue. This design prevents repetitive processing. For example, you can catch exceptions during message processing and move the problematic message to the separate queue.
 
-```dockerfile
-# Build in a separate stage to avoid copying the SDK into the final image
-FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
+- *Handle out-of-order messages.* Design consumers to process messages that arrive out of sequence. Multiple parallel consumers means they might process messages out of order.
 
-# Restore packages
-COPY ["Relecloud.TicketRenderer/Relecloud.TicketRenderer.csproj", "Relecloud.TicketRenderer/"]
-COPY ["Relecloud.Messaging/Relecloud.Messaging.csproj", "Relecloud.Messaging/"]
-COPY ["Relecloud.Models/Relecloud.Models.csproj", "Relecloud.Models/"]
-RUN dotnet restore "./Relecloud.TicketRenderer/Relecloud.TicketRenderer.csproj"
+- *Scale based on queue length.* Services consuming messages from a queue should autoscale based on queue length. Scale-based autoscaling allows for efficient processing of spikes of incoming messages.
 
-# Build and publish
-COPY . .
-WORKDIR "/src/Relecloud.TicketRenderer"
-RUN dotnet publish "./Relecloud.TicketRenderer.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+- *Use message-reply queue.* If the system requires notifications post-message processing, set up a dedicated reply or response queue. This setup divides operational messaging from notification processes.
 
-# Chiseled images contain only the minimal set of packages needed for .NET 8.0
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled AS final
-WORKDIR /app
-EXPOSE 8080
+- *Use stateless services.* Consider using stateless services to process requests from a queue. It allows for easy scaling and efficient resource usage.
 
-# Copy the published app from the build stage
-COPY --from=build /app/publish .
+- *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting.
 
-# Run as non-root user
-USER $APP_UID
-ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
-```
+For example, the reference implementation uses the Competing Consumers pattern a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue. It configures a queue processor with:
 
-The ticket rendering service uses a chiseled base image (mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled) so that only the minimal set of packages needed for ASP.NET Core to run are included. This reduces the size of the container image and improves security by reducing attack surface area. The service’s Dockerfile also specifies that the container should run with [a non-root user](https://devblogs.microsoft.com/dotnet/securing-containers-with-rootless/) in keeping with the principle of least privilege.
+- *AutoCompleteMessages*: Automatically completes messages if processed without failure.
+- *ReceiveMode*: Uses PeekLock mode and redelivers messages if they aren't settled.
+- *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
+- *PrefetchCount*: Set to 0 to avoid prefetching messages.
 
-The ticket rendering service is built on Linux-based .NET base images, but .NET Docker containers can be built on either Windows or Linux base images. Because the reference implementation uses Azure Container Apps, however, Linux Docker images are required for this scenario.
-
-## Performance efficiency
-
-Performance represents the ability of a solution to function efficiently even as workload demands change. As applications move from the reliable web app pattern to the modern web app pattern, it should be possible to improve performance because of increased decoupling of application services. In a modern web app, one component slowing down should not negatively affect the performance of other components. One pattern supporting the pillar of performance that has already been discussed is queue-based load leveling. Queue-based load leveling provides both reliability benefits (for the worker service) and performance benefits (for the calling task). Another related pattern which is often paired with queue-based load leveling which can improve performance in the worker service is the competing consumers pattern.
-
-### Competing Consumers pattern
-
-The [Competing Consumers pattern](https://learn.microsoft.com/azure/architecture/patterns/competing-consumers) allows incoming work to be efficiently handled by multiple parallel workers. This pattern enables handling bursts of demand by temporarily scaling workers horizontally which are designed such that they can all consume work requests from a message queue in parallel. This pattern can be used if your solution is designed so that message ordering doesn’t matter, malformed messages don’t block the queue, and processing is idempotent so that messages that aren’t successfully handled by one worker can be picked up by another without fear of errors due to processing the message more than once.
-
-#### Competing Consumers implementation recommendations for .NET developers
-
-Add content
-
-*Simulate the pattern:* You can simulate the benefits of competing consumers in the Relecloud modern web app reference implementation by purchasing many tickets at once (100 or more). This will cause many ticket rendering requests to be queue in Azure Service Bus. The requests are quickly handled, though, because the ticket rendering service will automatically scale out and handle the requests in parallel.
-
-**Example - Implementing the Competing Consumers pattern**: The reference implementation uses a stateless Azure Container App to process ticket rendering requests from an Azure Service Bus queue.
+The processor logs message processing details, aiding in troubleshooting and monitoring. It captures deserialization errors and routes invalid messages to a dead-letter queue, preventing repetitive processing of faulty messages. The service scales at the container level, allowing for efficient handling of message spikes based on queue length.
 
 ```C#
 // Create a processor for the given queue that will process incoming messages
@@ -427,16 +224,279 @@ processor.ProcessMessageAsync += async args =>
 };
 ```
 
-Important items to note in the implementation of the Service Bus processor are:
+### Implement the Health Endpoint Monitoring pattern
 
-- Work is retrieved from Service Bus using **peek-lock** receive mode so that if a worker fails while processing a request, the request will simply be returned to the queue and handled by a different worker. Also, the ticket rendering service is implemented such that processing a request twice will not cause any problems. This avoids errors in the case of a worker failing after already completing some or all of the processing work.
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
+    :::column-end:::
+:::row-end:::
 
-- Persistent errors such as malformed JSON in messages are handled by sending messages to a **dead-letter queue**. This prevents malformed messages from clogging the queue.
+Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) in the main app code and decoupled service code to track the health of application endpoints. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
-- **MaxConcurrentCalls** is set to 1 and **PrefetchCount** is set to 0 since scaling is expected to happen in Azure Container Apps, so it’s not necessary for an individual worker to optimize for handling many messages at once.
+- *Implement health checks.* Use [ASP.NET Core health checks middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
 
-Also important is that images are written to Blob Storage in such a way that writing to the same blob twice will simply overwrite the older one rather than causing a failure. This is important when using peek-lock receive mode since it’s possible that in rare circumstances the same rendering request might be processed twice. Scaling is performed automatically based on queue length, as described in the cost optimization section.
+- *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies, such as the database, storage, and messaging system. The non-Microsoft package, [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), can implement health check dependency checks for many common app dependencies.
 
-## Next steps
+    For example, the reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage, and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
 
-You can deploy the reference implementation by following the instructions in the [modern web app pattern for .NET repository](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment of the reference implementation. Once deployed, you can observe the patterns described in this document in action.
+    ```C#
+    // Add health checks, including health checks for Azure services that are used by this service.
+    // The Blob Storage and Service Bus health checks are provided by AspNetCore.Diagnostics.HealthChecks
+    // (a popular open source project) rather than by Microsoft. https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
+    builder.Services.AddHealthChecks()
+    .AddAzureBlobStorage(options =>
+    {
+        // AddAzureBlobStorage will use the BlobServiceClient registered in DI
+        // We just need to specify the container name
+        options.ContainerName = builder.Configuration.GetRequiredConfigurationValue("App:StorageAccount:Container");
+    })
+    .AddAzureServiceBusQueue(
+        builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:Host"),
+        builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:RenderRequestQueueName"),
+        azureCredentials);
+    
+    // Further app configuration omitted for brevity
+    app.MapHealthChecks("/health");
+    ```
+
+- *Configure Azure resources.* Configure the Azure resource to use the app’s health check URLs to confirm liveness and readiness. For example, the reference implementation uses Bicep to configure the health check URLs to confirm the liveness and readiness of the Azure resource. A liveness probe to hit the `/health` endpoint every 10 seconds after an initial delay of 2 seconds.
+
+    ```bicep
+    probes: [
+      {
+        type: 'liveness'
+        httpGet: {
+          path: '/health'
+          port: 8080
+        }
+        initialDelaySeconds: 2
+        periodSeconds: 10
+      }
+    ]
+    ```
+
+### Implement the Retry Pattern
+
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))*
+    :::column-end:::
+:::row-end:::
+
+The [Retry pattern](/azure/architecture/patterns/retry) allows applications to recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to requests to the messaging systems and requests issued by the decoupled services you extract from the web app. To implement the Retry pattern, follow these recommendations:
+
+- *Configure retry options.* When integrating with a message queue, make sure to configure the client responsible for interactions with the queue with appropriate retry settings. Specify parameters such as the maximum number of retries, delay between retries, and maximum delay.
+
+- *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
+
+- *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry mechanisms. The built-in retry mechanisms are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part. For example, the reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` fetches settings from `MessageBusOptions` to configure retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout.
+
+    ```csharp
+    // ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
+    services.AddSingleton(sp =>
+    {
+        var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
+        var clientOptions = new ServiceBusClientOptions
+        {
+            RetryOptions = new ServiceBusRetryOptions
+            {
+                Mode = ServiceBusRetryMode.Exponential,
+                MaxRetries = options.MaxRetries,
+                Delay = TimeSpan.FromSeconds(options.BaseDelaySecondsBetweenRetries),
+                MaxDelay = TimeSpan.FromSeconds(options.MaxDelaySeconds),
+                TryTimeout = TimeSpan.FromSeconds(options.TryTimeoutSeconds)
+            }
+        };
+        return new ServiceBusClient(options.Host, azureCredential ?? new DefaultAzureCredential(), clientOptions);
+    });
+    ```
+
+- *Adopt standard resilience Libraries for HTTP Clients.* For HTTP communications, integrate a standard resilience library such as Polly or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms that are crucial for managing communications with external web services.
+
+- *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
+
+## Configuration guidance
+
+The following sections provide guidance on implementing the configuration updates. Each section aligns with one or more pillars of the Well-Architected Framework.
+
+|Configuration|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
+|---|---|---|---|---|---|
+|[Configure authentication and authorization](#configure-authentication-and-authorization)| |✔| |✔| |
+|[Implement independent autoscaling](#configure-independent-autoscaling)|✔| |✔| |✔|
+|[Containerize service deployment](#containerize-service-deployment)| | |✔| |✔|
+
+### Configure authentication and authorization
+
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))*
+    :::column-end:::
+:::row-end:::
+
+To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
+
+- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
+
+- *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
+
+- *Adopt infrastructure as code (IaC).* Use Azure Bicep or similar IaC tools to define and manage your cloud resources. IaC ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
+
+The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment (`containerRegistryPushRoleId`), application owner (`containerRegistryPushRoleId`), and Azure Container Apps application (`containerRegistryPullRoleId`) (*see following code*).
+
+```bicep
+roleAssignments: \[
+    {
+    principalId: deploymentSettings.principalId
+    principalType: deploymentSettings.principalType
+    roleDefinitionIdOrName: containerRegistryPushRoleId
+    }
+    {
+    principalId: ownerManagedIdentity.outputs.principal_id
+    principalType: 'ServicePrincipal'
+    roleDefinitionIdOrName: containerRegistryPushRoleId
+    }
+    {
+    principalId: appManagedIdentity.outputs.principal_id
+    principalType: 'ServicePrincipal'
+    roleDefinitionIdOrName: containerRegistryPullRoleId
+    }
+\]
+```
+
+The reference implementation assigns the managed identity the new Azure Container App identity at deployment (*see following code*).
+
+```bicep
+module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' = {
+  name: 'application-rendering-service-container-app'
+  scope: resourceGroup()
+  params: {
+    // Other parameters omitted for brevity
+    managedIdentities: {
+      userAssignedResourceIds: [
+        managedIdentity.id
+      ]
+    }
+  }
+}
+```
+
+To configure authentication and authorization on users (*user identities*), follow these recommendations:
+
+- *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
+
+- *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
+
+### Configure independent autoscaling
+
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
+    :::column-end:::
+:::row-end:::
+
+The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
+
+- *Use stateless services.* Ensure your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like Azure SQL Server.
+
+- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, consider event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA) often provides granular control, allowing you to scale based on event metrics. [Azure Container Apps](/azure/container-apps/scale-app) and Azure Kubernetes Service support KEDA. For services that don't support KEDA, such as [Azure App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
+
+- *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of one replica. A cold start is when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when configuring autoscaling.
+
+- *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities triggered by temporary load spikes.
+- *Configure queue-based scaling.* If your application uses a message queue like Azure Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every N message in the queue (rounded up).
+
+For example, the reference implementation uses the [Azure Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the Container App based on the length of the queue. The `service-bus-queue-length-rule` scales the service based on the length of a specified Azure Service Bus queue. The `messageCount` parameter is set to 10, so the scaler has one service replica for every 10 messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service. The `queue-connection-string secret`, which contains the connection string for the Service Bus queue, is retrieved from Key Vault. This secret is used to authenticate the scaler to the Service Bus.
+
+```yml
+scaleRules: [
+  {
+    name: 'service-bus-queue-length-rule'
+    custom: {
+      type: 'azure-servicebus'
+      metadata: {
+        messageCount: '10'
+        namespace: renderRequestServiceBusNamespace
+        queueName: renderRequestServiceBusQueueName
+      }
+      auth: [
+        {
+          secretRef: 'render-request-queue-connection-string'
+          triggerParameter: 'connection'
+        }
+      ]
+    }
+  }
+]
+
+scaleMaxReplicas: 5
+scaleMinReplicas: 0
+```
+
+### Containerize service deployment
+
+:::row:::
+    :::column:::
+        *Well-Architected Framework benefit: Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))*
+    :::column-end:::
+:::row-end:::
+
+Containerization means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts. To containerize deployment, follow these recommendations:
+
+- *Identify domain boundaries.* Start by identifying the domain boundaries within your monolithic application. This helps determine which parts of the application you can extract into separate services.
+
+- *Create docker images.* When creating Docker images for your .NET services, use chiseled base images. These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
+
+- *Use multi-stage Dockerfiles.* Implement multi-stage Dockerfiles to separate build-time assets from the runtime container image. It helps to keep your production images small and secure.
+
+- *Run as nonroot user.* Run your .NET containers as a nonroot user (via user name or UID, $APP_UID) to align with the principle of least privilege. It limits the potential effects of a compromised container.
+
+- *Listen on port 8080.* When running as a nonroot user, configure your application to listen on port 8080. It's a common convention for nonroot users.
+
+- *Encapsulate dependencies.* Ensure that all dependencies for the app to function are encapsulated in the Docker container image. Encapsulation allows the app to be reliably deployed to a wide range of hosts.
+
+- *Choose the right base images.* The base image you choose depends on your deployment environment. If you’re deploying to Azure Container Apps, for instance, you need to use Linux Docker images.
+
+For example, the reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:8.0-jammy`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a nonroot user (`USER $APP_UID`) and exposes port 8080. The dependencies required for the application to operate are included within the Docker image, as evidenced by the commands to copy project files and restore packages. The choice of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled`) for the runtime environment for deployment within Azure Container Apps, which requires Linux containers.
+
+```dockerfile
+# Build in a separate stage to avoid copying the SDK into the final image
+FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+
+# Restore packages
+COPY ["Relecloud.TicketRenderer/Relecloud.TicketRenderer.csproj", "Relecloud.TicketRenderer/"]
+COPY ["Relecloud.Messaging/Relecloud.Messaging.csproj", "Relecloud.Messaging/"]
+COPY ["Relecloud.Models/Relecloud.Models.csproj", "Relecloud.Models/"]
+RUN dotnet restore "./Relecloud.TicketRenderer/Relecloud.TicketRenderer.csproj"
+
+# Build and publish
+COPY . .
+WORKDIR "/src/Relecloud.TicketRenderer"
+RUN dotnet publish "./Relecloud.TicketRenderer.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# Chiseled images contain only the minimal set of packages needed for .NET 8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled AS final
+WORKDIR /app
+EXPOSE 8080
+
+# Copy the published app from the build stage
+COPY --from=build /app/publish .
+
+# Run as non-root user
+USER $APP_UID
+ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
+```
+
+## Deploy the reference implementation
+
+![GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
+
+[![Diagram showing architecture of the reference implementation](../../../_images/modern-web-app-architecture-dotnet.svg)](../../../_images/modern-web-app-architecture-dotnet.svg)
+*Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+
+>[!div class="nextstepaction"]
+>[Modern Web App pattern for .NET reference implementation][reference-implementation]
+
+[reference-implementation]: https://github.com/Azure/modern-web-app-pattern-dotnet
