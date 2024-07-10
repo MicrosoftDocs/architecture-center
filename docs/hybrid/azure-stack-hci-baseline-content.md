@@ -302,7 +302,7 @@ Cost optimization considerations include:
 
   - > For additional information see [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
-- Depending on your initial workload capacity and resiliency requirements, and planning for future growth, consider if using a "two or three-node storage switchless" architecture could reduce cost, such as removing the requirement to procure "_storage class network switches_". Procuring additional "_storage class_" network switches can be an expensive component of new Azure Stack HCI cluster deployments. If your workload capacity and resiliency requirements will **not scale beyond three-nodes**, consider if you could use existing switches for the management and compute networks, and deploy Azure Stack HCI using the [three-node storage switchless architecture](azure-stack-hc-switchless.yml).
+- Depending on your initial workload capacity and resiliency requirements, and planning for future growth, consider if using a "two or three-node storage switchless" architecture could reduce cost, such as removing the requirement to procure "_storage class network switches_". Procuring additional "_storage class_" network switches can be an expensive component of new Azure Stack HCI cluster deployments. If your workload capacity and resiliency requirements will **not scale beyond three-nodes**, consider if you could use existing switches for the management and compute networks, and deploy Azure Stack HCI using the [three-node storage switchless architecture](azure-stack-hci-switchless.yml).
 
 - > For additional information see [CO:07 - Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
