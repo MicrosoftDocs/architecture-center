@@ -79,11 +79,13 @@ Consider the following recommendations when you decide how to implement the prio
 
 ## When to use the priority queue pattern
 
-*Varying task urgency and importance*: Tasks with different levels of urgency and importance need to ensure that more critical tasks are processed before less critical ones.
+Use the priority queue pattern when you have the following requirements: 
 
-*Service level agreements*: Offering different service level guarantees to clients requires ensuring that high-priority clients receive better performance and availability.
+- *Handle tasks of varying urgency and importance*: Tasks with different levels of urgency and importance need to ensure that more critical tasks are processed before less critical ones.
 
-*Workload management*: Managing workloads involves addressing tasks that require immediate attention while allowing less urgent tasks to wait, facilitating efficient task processing based on priority.
+- *Handle different service level agreements*: Offering different service level guarantees to clients requires, ensuring that high-priority clients receive better performance and availability.
+
+- *Accommodate different workload management needs*: Managing workloads involves addressing tasks that require immediate attention while allowing less urgent tasks to wait.
 
 ## Workload design
 
