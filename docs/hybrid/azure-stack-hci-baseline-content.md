@@ -339,8 +339,8 @@ Performance efficiency considerations include:
 
 - Network performance optimization. As part of your design, be sure to include projected [network traffic bandwidth allocation][azs-hci-network-bandwidth-allocation] when determining your [optimal network hardware configuration][azs-hci-networking].
 
-> [!IMPORTANT]
-> We recommend using Mirrored Volumes for performance-sensitive workloads. If you have three or more servers, use the default storage configuration (_three-way mirror_), instead of a two-way mirror, to provide additional resiliency and more data copies for read optimization. To learn more about how to balance performance and capacity to meet your workload requirements, see [Plan volumes][s2d-plan-volumes].
+> [!TIP]
+> For high performance or latency sensitive workloads, we recommend using an [All-flash storage (_all NVMe or all SSD_) configuration](/azure-stack/hci/concepts/choose-drives#option-1--maximizing-performance) with three or more physical nodes. Deploying this configuration with the default storage configuration will use **Three-Way Mirrors** for the infrastructure and user volumes, this provides additional data resiliency. An advantage to using all-NVMe or all-SSD with no cache, is that you get the usable storage capacity of every flash drive, as there is no capacity "spent" on caching. To learn more about how to balance performance and capacity to meet your workload requirements, see [Plan volumes - When performance matters most][s2d-plan-volumes-performance].
 
 - Compute performance optimization in Azure Stack HCI can be achieved through the use of graphics processing unit (GPU) acceleration, such as requirements for data insights or inferencing for [high-performance AI/ML workloads][azs-hci-gpu-acceleration] that require deployment at edge locations due to data gravity and/or security requirements. In a hybrid / on-premises deployment, it is important to take your workload performance requirements (_including GPUs_) into consideration to enable you to select (_procure_) the right services when designing and procuring your Azure Stack HCI cluster(s).
 
@@ -458,6 +458,7 @@ Microsoft Learn modules:
 [s2d-cache]: /azure-stack/hci/concepts/cache#server-side-architecture
 [s2d-cache-sizing]: /azure-stack/hci/concepts/cache#sizing-the-cache
 [s2d-plan-volumes]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type
+[s2d-plan-volumes-performance]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type#when-performance-matters-most
 [azs-hci-csv-cache]: /azure-stack/hci/manage/use-csv-cache#planning-considerations
 [azs-hci-gpu-acceleration]: /windows-server/virtualization/hyper-v/deploy/use-gpu-with-clustered-vm?pivots=azure-stack-hci
 [azs-hci-networking]: /azure-stack/hci/concepts/plan-host-networking
