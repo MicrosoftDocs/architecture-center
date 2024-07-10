@@ -102,7 +102,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The following example on [GitHub][priority-queues] demonstrates the implementation of the Priority Queues pattern using Azure Service Bus.
 
-![Diagram that shows how to implement a priority queue by using Service Bus.](./_images/priority-queue-example.svg)<br>.
+![Diagram that shows how to implement a priority queue by using Service Bus.](./_images/priority-queue-example.svg)<br>
 *Figure 4. Architecture of the PriorityQueue example in GitHub*
 
 Here's an overview of the architecture:
