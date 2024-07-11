@@ -155,6 +155,8 @@ The physical network topology shows the actual physical connections between node
 
 The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for this multi-node storage switched baseline architecture for Azure Stack HCI:
 
+- Dual Top of Rack (ToR) Switches:
+  - Prior to deployment of the cluster, the two ToR network switches need to be configured with the required VLAN IDs, MTU settings and DCB configuration for the Management and Compute ports and the Storage ports, review [physical network requirements](/azure-stack/hci/concepts/physical-network-requirements) for additional information, or work your switch hardware vendor or SI partner for assistance.
 - Azure Stack HCI leverages network automation and _intent-based network configuration_ using the [NetworkATC service](/azure-stack/hci/deploy/network-atc).
   - NetworkATC is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network adapter ports are used for the different network traffic intents (_types_), such as for the cluster "management", workload "compute", and cluster "storage" intents.
   - Intent-based policies simplify the network configuration requirements, by automating the node network configuration based on parameter inputs that are specified as part of the Azure Stack HCI cloud deployment process.
@@ -164,7 +166,6 @@ The logical network topology provides an overview for how the network data flows
   - Management network intent: uses the Converged SET Team virtual interface, allowing the cluster management IP and control plane resources to communicate externally.
   - Compute network intent: one or more logical networks can be created in Azure with the specific VLAN IDs for your environment. These are used by the workload resources, such as virtual machines (VMs) to provide access to the physical network. The logical networks will use the two physical network adapter ports that are Converged using a SET Team for the Compute and Management intents.
 - Storage traffic:
-  - Prior to deployment of the cluster, the two ToR network switches need to be configured with the required VLAN IDs, MTU settings, and DCB configuration, review [physical network requirements](/azure-stack/hci/concepts/physical-network-requirements) for additional information, or work your switch hardware vendor or SI partner for assistance.
   - The physical nodes communicate with each other using two dedicated network adapter ports that are connected to the top of rack (ToR) switches to provide high bandwidth and resiliency for storage traffic.
   - The "SMB1" and "SMB2" storage ports connect to **two separate non-routable (_layer 2_) networks**, each has a specific VLAN ID configured that must match the switch ports configuration on the ToR switches, (_default storage VLAN IDs: 711 and 712_).
   - There is "no default gateway" configured on the two storage intent network adapter ports within the Azure Stack HCI node OS.

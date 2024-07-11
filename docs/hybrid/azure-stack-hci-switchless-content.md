@@ -79,6 +79,8 @@ The physical network topology shows the actual physical connections between node
 
 The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for a three-node storage switchless Azure Stack HCI cluster:
 
+- Dual Top of Rack (ToR) Switches:
+  - Prior to deployment of the cluster, the two ToR network switches need to be configured with the required VLAN IDs and MTU settings for the Management and Compute ports, review [physical network requirements](/azure-stack/hci/concepts/physical-network-requirements) for additional information, or work your switch hardware vendor or SI partner for assistance.
 - Azure Stack HCI leverages network automation and _intent-based network configuration_ using the [NetworkATC service](/azure-stack/hci/deploy/network-atc).
   - NetworkATC is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network adapter ports are used for the different network traffic intents (_types_), such as for the cluster "management", workload "compute", and cluster "storage" intents.
   - Intent-based policies simplify the network configuration requirements, by automating the node network configuration based on parameter inputs that are specified as part of the Azure Stack HCI cloud deployment process.
