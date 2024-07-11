@@ -14,11 +14,8 @@ categories:
   - azure-virtual-network
   - azure-private-link
   - azure-front-door
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

@@ -15,11 +15,8 @@ products:
   - azure-iot-hub
 categories:
   - iot
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

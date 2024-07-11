@@ -12,8 +12,6 @@ products:
   - azure
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - checklist
   - guide

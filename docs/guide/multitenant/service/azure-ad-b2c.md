@@ -11,8 +11,6 @@ products:
   - entra-external-id
 categories:
   - web 
-ms.category:
-  - fcp
 ms.custom:
   - guide
   - arb-saas

@@ -13,11 +13,8 @@ products:
   - azure-cosmos-db
 categories:
   - data
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

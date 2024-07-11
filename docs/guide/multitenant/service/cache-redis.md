@@ -14,11 +14,8 @@ products:
 categories:
   - management-and-governance
   - databases
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

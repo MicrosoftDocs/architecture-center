@@ -12,11 +12,8 @@ products:
 categories:
   - management-and-governance
   - compute
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

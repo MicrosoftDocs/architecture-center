@@ -9,7 +9,6 @@ metadata:
   ms.service: architecture-center
   ms.subservice: anti-pattern
   ms.custom:
-    - fcp
     - arb-saas
 azureCategories:
   - management-and-governance

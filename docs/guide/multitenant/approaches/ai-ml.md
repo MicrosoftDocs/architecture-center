@@ -14,11 +14,8 @@ products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

@@ -14,11 +14,8 @@ products:
   - azure-logic-apps
 categories:
   - integration
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

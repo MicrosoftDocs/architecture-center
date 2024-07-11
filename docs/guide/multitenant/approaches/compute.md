@@ -16,11 +16,8 @@ products:
 categories:
   - compute
   - web
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

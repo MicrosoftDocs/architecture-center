@@ -14,11 +14,8 @@ products:
 categories:
   - management-and-governance
   - devops
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - devx-track-arm-template
   - arb-saas
 ---

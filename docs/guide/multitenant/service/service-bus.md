@@ -13,11 +13,8 @@ products:
   - azure-service-bus
 categories:
   - integration
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

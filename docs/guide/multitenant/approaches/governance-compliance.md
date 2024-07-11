@@ -13,11 +13,8 @@ categories:
   - management-and-governance
   - security
 ms.subservice: azure-guide
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

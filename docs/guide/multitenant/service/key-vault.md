@@ -14,11 +14,8 @@ products:
 categories:
   - management-and-governance
   - security
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

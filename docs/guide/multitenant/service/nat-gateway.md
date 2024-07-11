@@ -13,11 +13,8 @@ products:
   - azure-virtual-network
 categories:
   - networking
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arb-saas
 ---
 

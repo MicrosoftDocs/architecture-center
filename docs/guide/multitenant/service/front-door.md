@@ -11,8 +11,6 @@ products:
   - azure-front-door
 categories:
   - networking
-ms.category:
-  - fcp
 ms.custom:
   - guide
   - arb-saas

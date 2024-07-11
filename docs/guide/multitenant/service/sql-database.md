@@ -13,11 +13,8 @@ products:
   - azure-sql-database
 categories:
   - data
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
   - arg-saas
 ---
 
