@@ -90,7 +90,7 @@ The logical network topology provides an overview for how the network data flows
 - Storage traffic:
   - The nodes communicate with each other directly for storage traffic using the four direct interconnect Ethernet ports per node, which use **six separate non-routable (_layer 2_) networks** for the storage traffic.
   - There is "no default gateway" configured on the four storage intent network adapter ports within the Azure Stack HCI node OS.
-  - Each node can access storage spaces direct (S2D) capabilities of the cluster, such as remote physical disks used in the storage pool, virtual disks, and volumes with communication using SMB-Direct (_RDMA_) protocol using the **four dedicated "switchless" ethernet links** in each node, SMB Multichannel is used for resiliency.
+  - Each node can access storage spaces direct (S2D) capabilities of the cluster, such as remote physical disks used in the storage pool, virtual disks, and volumes using the SMB-Direct (_RDMA_) protocol over the **four dedicated "switchless" storage network adapter ports** available in each node, SMB Multichannel is used for resiliency.
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
 [![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
