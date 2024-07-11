@@ -52,7 +52,7 @@ The networking components include the following resources:
 
   - Reserve a [static IP address][static-ip] if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
   - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn].
-    
+
 - **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances.
 
   - All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules can't be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP. To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
@@ -65,7 +65,7 @@ The networking components include the following resources:
 
 **Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
-**Availability**. Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs]to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) or [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli). This configuration provides a higher [service level agreement (SLA)][vm-sla].
+**Availability**. Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/availability#availability-sets) or across [availability zones](https://learn.microsoft.com/en-us/azure/virtual-machines/availability#availability-zones) in a region. Both of these configurations provide a higher [service level agreement (SLA)][vm-sla].
 
 **Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups.
 
@@ -173,6 +173,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 [static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
 [virtual-machine-sizes]: /azure/virtual-machines/sizes
 [vm-size-tables]: /azure/virtual-machines/sizes
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
+[vm-sla]: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [WAF-cost]: /azure/architecture/framework/cost/overview
