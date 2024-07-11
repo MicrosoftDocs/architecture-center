@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 11/07/2024
+ms.date: 07/11/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
