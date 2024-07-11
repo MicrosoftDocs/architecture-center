@@ -154,7 +154,6 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).
-- Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.
+Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).

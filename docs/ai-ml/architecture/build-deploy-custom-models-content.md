@@ -200,5 +200,4 @@ Principal author:
 ## Related resources
 
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
-- [Suggest content tags with NLP using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
 - [Automate document processing by using AI Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
