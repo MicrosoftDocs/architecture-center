@@ -1,5 +1,5 @@
 
-This article describes an architecture for processing document files that contain multiple documents of various types. It uses the Durable Functions extension of Azure Functions to implement the pipelines that process the files.
+This article describes an architecture for processing files that contain multiple documents of various types. It uses the Durable Functions extension of Azure Functions to implement the pipelines that process the files.
 
 ## Architecture
 
@@ -42,15 +42,15 @@ This article describes an architecture for processing document files that contai
 
 ### Scenario details
 
-This article describes an architecture that uses Durable Functions to implement automated pipelines for processing document files that contain multiple documents of various types. The pipelines identify the documents in a document file, classify them by type, and store information that can be used in subsequent processing.
+This article describes an architecture that uses Durable Functions to implement automated pipelines for processing files that contain multiple documents of various types. The pipelines identify the documents in a document file, classify them by type, and store information that can be used in subsequent processing.
 
-Many companies need to manage and process document files that contain documents that have been scanned in bulk and that can contain several different document types. Typically the document files are PDFs or multi-page TIFF images. These files usually originate from outside the organization, and the receiving company doesn't control the content.
+Many companies need to manage and process documents that have been scanned in bulk and that can contain several different document types. Typically, the files are PDFs or multi-page TIFF images. These files usually originate from outside the organization, and the receiving company doesn't control the content.
 
 Given these constraints, organizations have been forced to build their own document parsing solutions that can include custom technology and manual processes. A solution can include human intervention for splitting out individual document types into their own files and adding classifications qualifiers for each document.
 
 Many of these custom solutions are based on the state machine workflow pattern and use database systems for persisting workflow state, with polling services that check for the states that they're responsible for processing. Maintaining and enhancing such solutions can be difficult and time consuming.
 
-Organizations are looking for reliable, scalable, and resilient solutions for processing and managing document identification and classification for the types of files their organization uses. This includes processing millions of documents per day with full observability into the success or failure of the processing pipeline.
+Organizations are looking for reliable, scalable, and resilient solutions for processing and managing document identification and classification for the types of documents their organization uses. This includes processing millions of documents per day with full observability into the success or failure of the processing pipeline.
 
 ### Potential use cases
 

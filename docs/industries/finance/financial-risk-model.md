@@ -6,7 +6,7 @@ ms.author: damocelj
 categories: 
   - azure
   - ai-machine-learning
-ms.service: cloud-for-industries
+ms.service: architecture-center
 ms.topic: conceptual
 ms.date: 01/13/2023
 azureCategories:

@@ -11,7 +11,8 @@ OHDSI on Azure allows organizations that want to use the OMOP CDM and the associ
 *Download a [Visio file](https://arch-center.azureedge.net/ohdsi-azure.vsdx ) of this architecture.*
 
 The preceding diagram illustrates the solution architecture at a high level. The solution is made up of two major resource groups:
-- **Bootstrap resource group.** Contains a foundational set of Azure resources that support the deployment of the OMOP resource group. 
+
+- **Bootstrap resource group.** Contains a foundational set of Azure resources that support the deployment of the OMOP resource group.
 - **OMOP resource group.** Contains the OHDSI-specific Azure resources.
 
 Azure Pipelines orchestrates all deployment automation.
@@ -26,7 +27,7 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 1. Deploy the OHDSI applications:
    1. Set up the Atlas UI and WebAPI by using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/software-tools/) is a web UI that integrates features from various OHDSI applications. It's supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
    1. Set up Achilles and Synthea by using the BroadSea Methods image. [Achilles](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:achilles) is an R-based script that runs data characterization and quality assessments on the OMOP CDM. The [Synthea ETL](https://github.com/OHDSI/ETL-Synthea) script is an optional tool that enables users to load synthetic patient data into the OMOP CDM.
-   
+
 ### Components
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multitenant cloud-based directory and identity management service. Microsoft Entra ID is used to manage permissions for environment deployment.
@@ -109,7 +110,7 @@ See these resources for more information on deploying an OHDSI tool suite and fo
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -123,7 +124,7 @@ Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Heather Camm](https://www.linkedin.com/in/heather-camm-2367ba15) | Senior Program Manager
 - [Gayatri Jaiswal](https://www.linkedin.com/in/gayatrijaiswal) | Program Manager
- 
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -136,7 +137,7 @@ Other contributors:
 - [OHDSI Atlas demo environment](https://atlas-demo.ohdsi.org/#/home)
 - [OHDSI GitHub](https://github.com/OHDSI)
 - [OHDSI YouTube channel](https://www.youtube.com/user/OHDSIJoinTheJourney)
- 
+
 ## Related resources
 
 - [Solutions for the healthcare industry](../../industries/healthcare.md)

@@ -98,7 +98,7 @@ There are several advantages to introducing a gateway to address this scenario, 
 - When validating certificates, verify the entire certificate chain, including the root CA and intermediate certificates. Full verification ensures the authenticity of the certificate and prevents unauthorized access.
 - Regularly rotate and renew client certificates to minimize the risk of certificate compromise. Automate this process using Azure Key Vault to ensure certificates are always up to date. Setting alerts for upcoming certificate expirations also prevents service disruption at the gateway.
 - Implement mutual TLS (mTLS) to ensure both client and server authenticate each other, providing an extra layer of security. Configure the gateway to enforce mTLS by setting appropriate policies and constraints.
-- Using Azure API Management, you can use the [validate-client-certificate policy](/azure/api-management/api-management-howto-mutual-certificates-for-clients) to validate client certificates, referenced in an Azure Key Vault. This policy validates the client certificate presented by the client application and checks the issuer, expiration, thumbprint, and revocation lists.
+- Using Azure API Management, you can use the [validate-client-certificate policy](/azure/api-management/api-management-howto-mutual-certificates-for-clients) to validate client certificates, referenced in an Azure key vault. This policy validates the client certificate presented by the client application and checks the issuer, expiration, thumbprint, and revocation lists.
 
 ### Reasons to avoid a gateway for this scenario
 
@@ -152,7 +152,7 @@ There are several advantages to introducing a gateway to address this scenario, 
 ### Recommendations and guidance for this scenario
 
 - Since using a managed identity from a gateway doesn't improve traceability of the end user and client application in the Azure OpenAI logs, enhance monitoring on metrics related to API requests. The gateway should provide logging associated with the request, such as the requesting client and user IDs.
-- When routing multiple client application requests through a gateway to a shared Azure OpenAI service, make sure the gateway is making routing decisions based on client identity to appropriate model deployments. For more best practices in gateway implementations for multiple Azure OpenAI deployments, see [using a gateway in front of multiple Azure OpenAI deployments](./azure-openai-gateway-multi-backend.yml).
+- When routing multiple client application requests through a gateway to a shared Azure OpenAI service, make sure the gateway is making routing decisions based on client identity to appropriate model deployments. For more best practices in gateway implementations for multiple Azure OpenAI deployments, see [Using a gateway in front of multiple Azure OpenAI deployments](./azure-openai-gateway-multi-backend.yml).
 
 ## Client applications accessing multiple Azure OpenAI instances
 
@@ -189,7 +189,7 @@ Introducing a gateway to handle client applications accessing multiple Azure Ope
 
 ### Recommendations and guidance for this scenario
 
-- Implement load balancing techniques to distribute the API requests across multiple instances of the Azure OpenAI service to handle high traffic and ensure high availability. For more information on this implementation, see [using a gateway in front of multiple Azure OpenAI deployments or instances](./azure-openai-gateway-multi-backend.yml).
+- Implement load balancing techniques to distribute the API requests across multiple instances of the Azure OpenAI service to handle high traffic and ensure high availability. For more information on this implementation, see [Using a gateway in front of multiple Azure OpenAI deployments or instances](./azure-openai-gateway-multi-backend.yml).
 - When you're implementing multitenant scenarios using multiple Azure OpenAI instances, tracking token usage for a specific tenant must be correlated at the gateway. Correlating token usage at the gateway ensures that you're tracking total token usage regardless of the backend Azure OpenAI instance that the request is forwarded to.
 
 ## General recommendations
@@ -242,7 +242,7 @@ Implementing a gateway for your workload provides benefits beyond the scenarios 
 
 ## Contributors
 
-_The following contributors originally wrote this article._
+*The following contributors originally wrote this article.*
 
 Principal authors:
 
@@ -250,7 +250,7 @@ Principal authors:
 - [Bappaditya Banerjee](https://www.linkedin.com/in/bappaditya-banerjee-8860ba7/) | Senior Customer Engineer, FastTrack for Azure
 - [James Croft](https://www.linkedin.com/in/jmcroft/) | Customer Engineer, ISV & Digital Native Center of Excellence
 
-_To see nonpublic LinkedIn profiles, sign in to LinkedIn._
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
