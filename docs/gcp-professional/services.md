@@ -93,7 +93,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight) <br><br> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) | Managed Apache Spark-based analytics platform. |
+| [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight) <br><br> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) <br><br> [Microsoft Fabric Data Engineering](/fabric/data-engineering/data-engineering-overview)| Managed Apache Spark-based analytics platform. |
 
 #### Big data architectures
 
@@ -111,7 +111,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Dataflow](https://cloud.google.com/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation) | Managed platform for streaming batch data based on Open Source Apache products. |
+| [Cloud Dataflow](https://cloud.google.com/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation) <br><br> [Azure HDInsight](/azure/hdinsight)| Managed platform for streaming and batch data processing using Apache Beam |
 | [Data Studio](https://datastudio.google.com/overview) <br/><br/> [Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
 | [Cloud Search](https://cloud.google.com/products/search) | [Azure Search](https://azure.microsoft.com/services/search) | Delivers full-text search and related search analytics and capabilities. |
 | [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Analysis Services](/analysis-services/analysis-services-overview) | Provides a serverless non-cloud interactive query service that uses standard SQL for analyzing databases. |
@@ -132,7 +132,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns)<br><br> [Microsoft Fabric Real Time Intelligence](/fabric/real-time-hub/real-time-hub-overview)| Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+
 
 #### Time series architectures
 
