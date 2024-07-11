@@ -2,11 +2,11 @@
 ms.custom: devx-track-dotnet
 ---
 
-[!INCLUDE [intro](../includes/intro.md)]
-
 [!INCLUDE [intro 1](../includes/intro1.md)]
 
-*Why the Reliable Web App pattern for Java?* If your business decided to migrate and on-premises Java web app to the cloud, then you need to use Reliable Web App for Java. The pattern shows you how the essential updates you need to make to ensure your Java web app is successful in Azure. It focuses on the high-value updates you should make and outlines the minimal code changes required. These changes improve the reliability, security, performance, and operational excellence of your web app while capitalizing on the benefits of the cloud.
+## Why the Reliable Web App pattern for Java?
+
+If your business decided to migrate and on-premises Java web app to the cloud, then you need to use Reliable Web App for Java. The pattern shows you how the essential updates you need to make to ensure your Java web app is successful in Azure. It focuses on the high-value updates you should make and outlines the minimal code changes required. These changes improve the reliability, security, performance, and operational excellence of your web app while capitalizing on the benefits of the cloud.
 
 [!INCLUDE [intro 2](../includes/intro2.md)]
 
