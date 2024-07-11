@@ -79,13 +79,13 @@ Consider the following recommendations when you decide how to implement the prio
 
 ## When to use the priority queue pattern
 
-Use the priority queue pattern when you have the following requirements: 
+Use the priority queue pattern when you have the following requirements:
 
-- *Handle tasks of varying urgency and importance*: Tasks with different levels of urgency and importance need to ensure that more critical tasks are processed before less critical ones.
+- *Handle tasks of varying urgency and importance.* You have tasks with different levels of urgency and importance and need to ensure you process more critical tasks before less critical ones.
 
-- *Handle different service level agreements*: Offering different service level guarantees to clients requires, ensuring that high-priority clients receive better performance and availability.
+- *Handle different service level agreements.* You offer different service level guarantees to clients requires and need to ensure high-priority clients receive better performance and availability.
 
-- *Accommodate different workload management needs*: Managing workloads involves addressing tasks that require immediate attention while allowing less urgent tasks to wait.
+- *Accommodate different workload management needs.* You have a workload that needs to address certain tasks immediately and less urgent tasks can wait.
 
 ## Workload design
 
@@ -98,9 +98,9 @@ An architect should evaluate how the Priority Queue pattern can address the goal
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
-## Priority queues pattern example
+## Example of the Priority Queues pattern
 
-The following example on [GitHub][priority-queues] demonstrates the implementation of the Priority Queues pattern using Azure Service Bus.
+The following example in [GitHub][priority-queues] demonstrates an implementation of the Priority Queues pattern using Azure Service Bus.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus.](./_images/priority-queue-example.svg)<br>
 *Figure 4. Architecture of the PriorityQueue example in GitHub*
