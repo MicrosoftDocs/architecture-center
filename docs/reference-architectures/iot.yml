@@ -23,6 +23,6 @@ products:
   - azure-digital-twins
 name: Azure IoT reference architecture
 summary: Learn about the recommended architecture for IoT applications on Azure that uses platform as a service (PaaS) components.
-thumbnailUrl: /azure/architecture/browse/thumbs/iot-refarch.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-reference-architecture.png
 content: |
    [!include[](iot-content.md)]
