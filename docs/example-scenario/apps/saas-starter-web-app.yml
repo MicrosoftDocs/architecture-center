@@ -10,7 +10,6 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-    - fcp
     - arb-saas
   ms.category:
     - web
