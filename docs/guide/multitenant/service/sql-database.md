@@ -18,6 +18,7 @@ ms.category:
 ms.custom:
   - guide
   - fcp
+  - arg-saas
 ---
 
 # Multitenancy and Azure SQL Database

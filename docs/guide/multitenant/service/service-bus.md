@@ -12,12 +12,13 @@ products:
   - azure
   - azure-service-bus
 categories:
- - integration
+  - integration
 ms.category:
   - fcp
 ms.custom:
   - guide
   - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Service Bus

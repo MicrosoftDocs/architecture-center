@@ -16,6 +16,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Pricing models for a multitenant solution

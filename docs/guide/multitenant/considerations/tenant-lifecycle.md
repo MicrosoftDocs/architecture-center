@@ -16,6 +16,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Tenant lifecycle considerations in a multitenant solution

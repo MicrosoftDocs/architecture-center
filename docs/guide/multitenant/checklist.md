@@ -17,6 +17,7 @@ ms.category:
 ms.custom:
   - checklist
   - guide
+  - arb-saas
 ---
 
 # Checklist for architecting and building multitenant solutions on Azure

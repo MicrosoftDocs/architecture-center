@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-app-service
- - azure-functions
- - azure-kubernetes-service
+  - azure
+  - azure-app-service
+  - azure-functions
+  - azure-kubernetes-service
 categories:
- - compute
- - web
+  - compute
+  - web
 ms.category:
   - fcp
 ms.custom:
   - guide
   - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for compute in multitenant solutions

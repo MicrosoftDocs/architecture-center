@@ -17,6 +17,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Microsoft SaaS stories video interviews

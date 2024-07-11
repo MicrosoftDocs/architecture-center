@@ -20,6 +20,7 @@ ms.category:
 ms.custom:
   - guide
   - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for IoT in a multitenant solution

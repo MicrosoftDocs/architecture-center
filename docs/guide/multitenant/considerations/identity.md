@@ -18,6 +18,7 @@ ms.category:
 ms.custom:
   - guide
   - fcp
+  - arb-saas
 ---
 
 # Architectural considerations for identity in a multitenant solution

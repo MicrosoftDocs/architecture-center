@@ -18,6 +18,7 @@ ms.category:
 ms.custom:
   - guide
   - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Storage

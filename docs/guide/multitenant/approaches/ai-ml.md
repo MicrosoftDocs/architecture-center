@@ -19,6 +19,7 @@ ms.category:
 ms.custom:
   - guide
   - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for AI and ML in multitenant solutions

@@ -20,6 +20,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Considerations for updating a multitenant solution

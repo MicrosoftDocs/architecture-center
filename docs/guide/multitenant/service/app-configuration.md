@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-resource-manager
+  - azure
+  - azure-resource-manager
 categories:
- - data
+  - data
 ms.category:
   - fcp
 ms.custom:
   - guide
   - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure App Configuration
