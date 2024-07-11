@@ -22,6 +22,6 @@ products:
   - azure-digital-twins
   - azure-functions
   - azure-iot-hub
-thumbnailUrl: /azure/architecture/browse/thumbs/smart-places-diagram-thumbnail-new.png
+thumbnailUrl: /azure/architecture/browse/thumbs/smart-places-diagram.png
 content: |
    [!include[](smart-places-content.md)]
