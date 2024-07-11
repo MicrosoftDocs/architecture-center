@@ -1,4 +1,4 @@
-You can create custom IoT solutions by assembling Azure PaaS (platform-as-a-service) components as this article outlines. The article and this diagram describe Azure components and services that IoT solutions commonly use, but no single solution uses all of these components.
+You can create custom IoT solutions by assembling Azure platform as a service (PaaS) components as this article outlines. The article and this diagram describe Azure components and services that IoT solutions commonly use, but no single solution uses all of these components.
 
 ## Architecture
 
@@ -26,7 +26,7 @@ When devices are connected to the cloud, there are several services that assist 
 
 Once devices are connected to the cloud, you can process and explore their data to gain customized insights about their environment. At a high level, there are three ways to process data: hot path, warm path, and cold path. The paths differ in their requirements for latency and data access.
 
-- The **hot path** analyzes data in near-real-time as it arrives. Hot path telemetry must be processed with very low latency. The hot path typically uses a stream processing engine. Consider using services such as [Azure Stream Analytics](/azure/stream-analytics) or [Azure HDInsight](/azure/hdinsight). The output might trigger an alert, or be written to a structured format that can be queried using analytical tools.
+- The **hot path** analyzes data in near-real-time as it arrives. Hot path telemetry must be processed with low latency. The hot path typically uses a stream processing engine. Consider using services such as [Azure Stream Analytics](/azure/stream-analytics) or [Azure HDInsight](/azure/hdinsight). The output might trigger an alert, or be written to a structured format that can be queried using analytical tools.
 - The **warm path** analyzes data that can accommodate longer delays for more detailed processing. Consider [Azure Data Explorer](/azure/data-explorer) for storing and analyzing large volumes of data.
 - The **cold path** performs batch processing at longer intervals, like hourly or daily. The cold path typically operates over large volumes of data, which can be stored in [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). Results don't need to be as timely as in the hot or warm paths. Consider using [Azure Machine Learning](/azure/machine-learning) or [Azure Databricks](/azure/databricks) to analyze cold data.
 
@@ -43,7 +43,7 @@ You can use the following services for management and business integration:
 
 - [Power BI](/power-bi/connect-data) connects to, models, and visualizes your data. Power BI lets you collaborate on data and use artificial intelligence to make data-driven decisions.
 - [Azure Maps](/azure/azure-maps) creates location-aware web and mobile applications by using geospatial APIs, SDKs, and services like search, maps, routing, tracking, and traffic.
-- [Azure Cognitive Search](/azure/search) provides a search service over varied types of content. Cognitive Search includes indexing, AI enrichment, and querying capabilities.
+- [Azure AI Search](/products/ai-services/ai-search/) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications. AI Search has indexing, AI enrichment, and querying capabilities.
 - [Azure API Management](/azure/api-management) provides a single place to manage all of your APIs.
 - [Azure App Service](/azure/app-service) deploys web applications that scale with your organization.
 - [Azure Mobile Apps](/azure/developer/mobile-apps) builds cross platform and native apps for iOs, Android, Windows, or Mac.
@@ -55,32 +55,31 @@ Azure also provides several services to help you monitor your entire IoT solutio
 
 ### Components
 
-- [Azure RTOS](https://azure.microsoft.com/services/rtos)
-- [Azure Sphere](https://azure.microsoft.com/services/sphere)
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
-- [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps)
+- [API Management](https://azure.microsoft.com/services/api-management)
+- [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search/)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
+- [Azure Databricks](https://azure.microsoft.com/services/databricks)
 - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins)
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
 - [Azure Functions](https://azure.microsoft.com/services/functions)
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
-- [Azure Databricks](https://azure.microsoft.com/services/databricks)
-- [Power BI](https://powerbi.microsoft.com)
-- [Azure Maps](https://azure.microsoft.com/services/azure-maps)
-- [Azure Cognitive Search](https://azure.microsoft.com/services/search)
-- [API Management](https://azure.microsoft.com/services/api-management)
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
-- [Azure Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
-- [Dynamics 365](https://dynamics.microsoft.com)
-- [Microsoft Power Automate (Microsoft Flow)](https://powerautomate.microsoft.com)
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
+- [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+- [Azure Maps](https://azure.microsoft.com/services/azure-maps)
+- [Azure Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
+- [Azure Sphere](https://azure.microsoft.com/services/sphere)
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
+- [Dynamics 365](https://dynamics.microsoft.com)
 - [Microsoft Defender for IoT](https://azure.microsoft.com/services/iot-defender)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Power Automate (Microsoft Flow)](https://powerautomate.microsoft.com)
+- [Power BI](https://powerbi.microsoft.com)
 
 ## Considerations
 
@@ -97,7 +96,7 @@ You can use Azure Digital Twins to control and monitor connected environments. A
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview)."
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for High Availability (HA) and Disaster Recovery (DR) can help you define and achieve required uptime goals for your solution.
 
