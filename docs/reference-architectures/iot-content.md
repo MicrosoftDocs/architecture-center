@@ -56,7 +56,7 @@ Azure also provides several services to help you monitor your entire IoT solutio
 ### Components
 
 - [API Management](https://azure.microsoft.com/services/api-management)
-- [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search/)
+- [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search)
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
