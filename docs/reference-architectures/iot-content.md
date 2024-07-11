@@ -2,7 +2,7 @@ You can create custom IoT solutions by assembling Azure platform as a service (P
 
 ## Architecture
 
-:::image type="content" source="./iot/images/iot-reference-architecture.svg" alt-text="Diagram showing architecture for IoT applications using Azure PaaS components." border="false" lightbox="./iot/images/iot-reference-architecture.svg#lightbox":::
+:::image type="content" source="./iot/images/iot-reference-architecture.svg" alt-text="Diagram that shows the architecture for IOT applications that use Azure PAAS components" border="false" lightbox="./iot/images/iot-reference-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 
