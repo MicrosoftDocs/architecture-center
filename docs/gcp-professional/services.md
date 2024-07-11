@@ -1,9 +1,9 @@
 ---
 title: Google Cloud to Azure services comparison
 description: Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.
-author: martinekuan
-ms.author: petuton
-ms.date: 08/08/2022
+author: ZacharyRiffle
+ms.author: zriffle
+ms.date: 07/11/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -12,16 +12,6 @@ categories:
 products:
   - azure-kubernetes-service
   - azure-machine-learning
-ms.custom:
-  - fcp
-  - devx-track-jenkins
-keywords:
-  - Google Cloud experts
-  - Azure comparison
-  - Google Cloud comparison
-  - difference between Azure and Google Cloud
-  - Azure and GCP
-  - Azure and Google Cloud
 ---
 
 # Google Cloud to Azure services comparison
