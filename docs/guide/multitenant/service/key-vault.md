@@ -9,16 +9,14 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-key-vault
+  - azure
+  - azure-key-vault
 categories:
- - management-and-governance
- - security
-ms.category:
-  - fcp
+  - management-and-governance
+  - security
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Key Vault

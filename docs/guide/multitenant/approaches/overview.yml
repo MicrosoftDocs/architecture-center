@@ -9,7 +9,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
-  - arb-saas
+    - arb-saas
 azureCategories:
   - management-and-governance
   - security

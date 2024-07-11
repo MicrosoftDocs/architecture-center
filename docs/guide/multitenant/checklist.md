@@ -12,11 +12,10 @@ products:
   - azure
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - checklist
   - guide
+  - arb-saas
 ---
 
 # Checklist for architecting and building multitenant solutions on Azure

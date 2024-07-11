@@ -16,10 +16,9 @@ products:
 categories:
   - management-and-governance
   - devops
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Considerations for updating a multitenant solution

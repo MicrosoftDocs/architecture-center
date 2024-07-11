@@ -8,9 +8,11 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-monitor
+  - azure-monitor
 categories:
- - analytics
+  - analytics
+ms.custom:
+  - arb-saas
 ---
 
 # Multitenancy and Application Insights
