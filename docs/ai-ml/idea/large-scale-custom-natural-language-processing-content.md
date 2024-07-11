@@ -104,4 +104,3 @@ Principal author:
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 - [Analyze news feeds with near real-time analytics using image and natural language processing](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
-- [Suggest content tags with NLP using deep learning](./website-content-tag-suggestion-with-deep-learning-and-nlp.yml)

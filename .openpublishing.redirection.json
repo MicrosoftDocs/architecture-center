@@ -4926,8 +4926,58 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/ai-ml/idea/personalized-marketing.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/hpc-cfd.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/ecommerce-scenario.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/service-to-service/restrict-communications.yml",
+      "redirect_url": "/azure/architecture/guide/security/security-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/data-cache-with-redis-cache.yml",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/messaging.yml",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/checklist/data-ops.md",
+      "redirect_url": "/azure/architecture/data-guide/azure-dataops-architecture-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/large-scale-custom-natural-language-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/checklist/dev-ops.md",
+      "redirect_url": "/azure/well-architected/operational-excellence/devops-culture",
       "redirect_document_id": false
     },
     {
@@ -4936,8 +4986,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/customer-insights-synapse.yml",
+      "redirect_url": "/dynamics365/customer-insights/data/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/net-app-modernization.yml",
       "redirect_url": "/azure/architecture/guide/migration/migration-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/optimize-marketing-with-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/personalized-offers",
       "redirect_document_id": false
     },
     {
@@ -4945,6 +5015,11 @@
       "redirect_url": "/azure/automation/overview",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/guide/ai/compliance-risk-analysis.yml",
+      "redirect_url": "/azure/architecture/industries/finance/risk-grid-banking-solution-guide",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "docs/hybrid/azure-update-mgmt.yml",
       "redirect_url": "/azure/automation/overview",

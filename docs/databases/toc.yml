@@ -4,12 +4,6 @@ items:
   items: 
     - name: Explore ideas about
       items:
-      - name: Cache
-        items:
-        - name: Data cache
-          href: idea/data-cache-with-redis-cache.yml        
-        - name: Messaging
-          href: idea/messaging.yml
       - name: Relational
         items:
         - name: Intelligent apps using MySQL

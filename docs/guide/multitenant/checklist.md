@@ -63,7 +63,6 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Operational Excellence considerations
 
-* Review the [Azure Well-Architected Operational Excellence checklist](../../checklist/data-ops.md), which is applicable to all workloads.
 * Use automation to manage the [tenant lifecycle](./considerations/tenant-lifecycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).
 * Understand the differences between [control plane](./considerations/control-planes.yml) and data plane in your multitenant solution.
 * Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.

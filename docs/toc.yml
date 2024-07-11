@@ -434,8 +434,6 @@ items:
         href: solutions/power-platform-scenarios.md
       - name: All Power Platform architectures
         href: /azure/architecture/browse/?products=power-platform
-      - name: CI/CD for Power Platform
-        href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
       - name: Citizen AI with Power Platform
         href: example-scenario/ai/citizen-ai-power-platform.yml
       - name: Eventual consistency with Power Apps
@@ -961,12 +959,8 @@ items:
         href: solution-ideas/articles/demand-forecasting.yml
       - name: Discovery Hub for analytics
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-      - name: Enhanced customer dimension
-        href: solution-ideas/articles/customer-insights-synapse.yml
       - name: Enterprise data warehouse
         href: solution-ideas/articles/enterprise-data-warehouse.yml
-      - name: ETL using HDInsight
-        href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
       - name: Highly scalable customer service and ERP
         href: solution-ideas/articles/erp-customer-service.yml
       - name: Hybrid big data with HDInsight
@@ -1147,8 +1141,6 @@ items:
         href: reference-architectures/n-tier/linux-vm.yml
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.yml
-      - name: Run CFD simulations
-        href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Run reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.yml
     - name: Solution ideas
@@ -1307,8 +1299,6 @@ items:
       href: data-guide/azure-dataops-architecture-design.md
     - name: Guides
       items:
-      - name: DataOps checklist
-        href: checklist/data-ops.md
       - name: Analytics and reporting
         href: data-guide/technology-choices/analysis-visualizations-reporting.md
       - name: Build a scalable system for massive data
@@ -1620,8 +1610,6 @@ items:
       items:
       - name: Azure Sandbox
         href: guide/azure-sandbox/azure-sandbox.yml
-      - name: DevOps checklist
-        href: checklist/dev-ops.md
       - name: Advanced ARM templates
         items:
         - name: Overview
@@ -1650,12 +1638,8 @@ items:
         href: example-scenario/monitoring/enterprise-monitoring.yml
       - name: High-availability blue/green deployment
         href: web-apps/spring-apps/guides/blue-green-spring.yml
-    - name: Solution ideas
-      items:
-      - name: CI/CD for Microsoft Power Platform
-        href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
-      - name: DevSecOps for infrastructure as code
-        href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
+    - name: "Solution idea: DevSecOps for infrastructure as code"
+      href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + Multicloud
     items:
     - name: Get started
@@ -2927,8 +2911,6 @@ items:
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.yml
-      - name: Restrict interservice communications
-        href: example-scenario/service-to-service/restrict-communications.yml
       - name: Secure OBO refresh tokens
         href: example-scenario/secrets/secure-refresh-tokens.yml
       - name: Securely managed web apps
@@ -3344,8 +3326,6 @@ items:
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Build a real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.yml
-      - name: E-commerce front end
-        href: example-scenario/apps/ecommerce-scenario.yml
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.yml
       - name: Intelligent search engine for e-commerce
@@ -3464,8 +3444,6 @@ items:
         - name: Change data in Azure Data Lake
           href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
           maintainContext: true
-      - name: Compliance risk analysis
-        href: guide/ai/compliance-risk-analysis.yml
       - name: Financial institutions with data mesh
         href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
         maintainContext: true
@@ -3485,10 +3463,6 @@ items:
         href: example-scenario/banking/banking-system-cloud-transformation.yml
       - name: Decentralized trust between banks
         href: example-scenario/apps/decentralized-trust.yml
-      - name: Finance management using MySQL
-        href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
-      - name: Finance management using PostgreSQL
-        href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control
@@ -4130,8 +4104,6 @@ items:
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
       - name: Project 15 sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Run CFD simulations
-        href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Run reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.yml
     - name: Compliance solutions
@@ -4252,8 +4224,6 @@ items:
         href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
       - name: Real-time ML to estimate a car's value
         href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
-      - name: Run CFD simulations
-        href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Software-defined vehicle DevOps toolchain
         href: industries/automotive/software-defined-vehicle-reference-architecture.yml
     - name: Datasets
