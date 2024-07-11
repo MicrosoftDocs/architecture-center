@@ -43,7 +43,7 @@ You can use the following services for management and business integration:
 
 - [Power BI](/power-bi/connect-data) connects to, models, and visualizes your data. Power BI lets you collaborate on data and use artificial intelligence to make data-driven decisions.
 - [Azure Maps](/azure/azure-maps) creates location-aware web and mobile applications by using geospatial APIs, SDKs, and services like search, maps, routing, tracking, and traffic.
-- [Azure AI Search](/products/ai-services/ai-search/) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications. AI Search has indexing, AI enrichment, and querying capabilities.
+- [Azure AI Search](/azure/ai-services/ai-search) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications. AI Search has indexing, AI enrichment, and querying capabilities.
 - [Azure API Management](/azure/api-management) provides a single place to manage all of your APIs.
 - [Azure App Service](/azure/app-service) deploys web applications that scale with your organization.
 - [Azure Mobile Apps](/azure/developer/mobile-apps) builds cross platform and native apps for iOs, Android, Windows, or Mac.
