@@ -2,7 +2,11 @@
 ms.custom: devx-track-dotnet
 ---
 
-[!INCLUDE [intro](../includes/intro.md)]
+[!INCLUDE [intro 1](../includes/intro1.md)]
+
+*Why the Reliable Web App pattern for .NET?* The Reliable Web App pattern shows you how to transition an on-premises .NET web app to the cloud. It helps you quickly realize cloud benefits by providing high-value updates and minimal code changes. These enhancements significantly improve the reliability, security, performance, and operational excellence of your web app.
+
+[!INCLUDE [intro 2](../includes/intro2.md)]
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
