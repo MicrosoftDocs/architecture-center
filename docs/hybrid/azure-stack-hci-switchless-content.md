@@ -79,19 +79,19 @@ The physical network topology shows the actual physical connections between node
 
 The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for a three-node storage switchless Azure Stack HCI cluster:
 
-- Storage traffic:
-  - The nodes communicate with each other directly for storage traffic, these "interconnect" ports use **six separate non-routable (_layer 2_) networks**.
-  - There is "no default gateway" configured on the four storage intent network adapter ports within the Azure Stack HCI node OS.
-  - Each node can access storage spaces direct (S2D) capabilities of the cluster, such as remote physical disks used in the storage pool, virtual disks, and volumes with communication using SMB-Direct (_RDMA_) protocol using the two dedicated "switchless" ethernet links in each node, SMB Multichannel is used for resiliency.
-  - This direct communication ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
+- Azure Stack HCI leverages network automation and _intent-based network configuration_ using the [NetworkATC service](/azure-stack/hci/deploy/network-atc).
+  - NetworkATC is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network adapter ports are used for the different network traffic intents (_types_), such as for the cluster "management", workload "compute", and cluster "storage" intents.
+  - Intent-based policies simplify the network configuration requirements, by automating the node network configuration based on parameter inputs that are specified as part of the Azure Stack HCI cloud deployment process.
 - External communication:
-  - When nodes or workload need to communicate externally, such as accessing the corporate LAN, internet or another service, they route using the dual ToR switches.
+  - When the nodes or workload need to communicate externally, such as accessing the corporate LAN, internet, or another service, they route using the dual ToR switches, as outlined in the earlier physical network topology section.
   - When acting as Layer 3 devices, the two ToR switches handle routing and provide connectivity beyond the cluster to the edge border device, such as your firewall or router.
-  - The two network adapter ports used for the Management and Compute intents are "Converged", using a switch embedded teaming (SET) configuration, this provides redundancy and traffic load-balacing capabilities.
-- Network ATC and Intents:
-  - Azure Stack HCI leverages network automation and intent-based network configuration using the [NetworkATC service](/azure-stack/hci/deploy/network-atc).
-  - NetworkATC is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network adapter ports will be used for the different traffic intents (_types_), such as the management, compute, and storage intents.
-  - Intent-based policies define how the network adapter ports should behave, and which network traffic classes should be used on which physical ports, such as the "Storage", "Management" and "Compute" intents, which are associated with the correct network adapter ports as part of the Azure Stack HCI cloud deployment process.
+  - Management network intent: uses the Converged SET Team virtual interface, allowing the cluster management IP and control plane resources to communicate externally.
+  - Compute network intent(s): one or more logical networks can be created in Azure with the specific VLAN IDs for your environment. These are used by the workload resources, such as virtual machines (VMs) to provide access to the physical network. The logical networks will use the two physical network adapter ports that are Converged using a SET Team for the Compute and Management intents.
+- Storage traffic:
+  - The nodes communicate with each other directly for storage traffic using the four direct interconnect Ethernet ports per node, which use **six separate non-routable (_layer 2_) networks** for the storage traffic.
+  - There is "no default gateway" configured on the four storage intent network adapter ports within the Azure Stack HCI node OS.
+  - Each node can access storage spaces direct (S2D) capabilities of the cluster, such as remote physical disks used in the storage pool, virtual disks, and volumes with communication using SMB-Direct (_RDMA_) protocol using the **four dedicated "switchless" ethernet links** in each node, SMB Multichannel is used for resiliency.
+  - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
 [![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
 
