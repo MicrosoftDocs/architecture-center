@@ -128,7 +128,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
-### Time series & IOT data
+### Time series & IoT data
 
 | Google Cloud service | Azure service | Description |
 | ----------- | ------------- | ----------- |
