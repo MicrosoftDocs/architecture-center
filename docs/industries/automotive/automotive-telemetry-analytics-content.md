@@ -48,20 +48,20 @@ When [you design the table schema](/azure/data-explorer/kusto/concepts/fact-and-
 
 The vehicle telemetry lands in raw tables. You can use the following message processing concepts to organize the data for analysis and reporting:
 
-1. Create update policies to expand the JSON telemetry files into individual vehicle signal records by using methods such as:
+- Create update policies to expand the JSON telemetry files into individual vehicle signal records by using methods such as:
 
    - `mv-expand()` expands complex values that are stored in JSON structures into rows with individual signals.
    - `geo_point_to_h3cell()` or `geo_point_to_geohash()` converts latitude and longitude to geohashes for geospatial analytics.
    - `todouble()` and `tostring()` casts extracted values from dynamic JSON objects into the appropriate data types.
    - `lookup` extends the records with values from a dimension table.
 
-1. Create a **Signals Deduped** materialized view by using the aggregation function `take_any()` on the unique key and timestamp. This materialized view deduplicates signals.
+- Create a **Signals Deduped** materialized view by using the aggregation function `take_any()` on the unique key and timestamp. This materialized view deduplicates signals.
 
-1. Create a **Signals Last Known Values** materialized view by using the aggregation function `arg_max()` on the timestamp. This materialized view provides an up-to-date status of the vehicles.
+- Create a **Signals Last Known Values** materialized view by using the aggregation function `arg_max()` on the timestamp. This materialized view provides an up-to-date status of the vehicles.
 
-1. Create a **Signals Downsampled** materialized view by using the [summarize operator](/azure/data-explorer/kusto/query/summarize-operator) with time bins such as *hourly* and *daily*. This materialized view aggregates signals and simplifies reporting across the fleet.
+- Create a **Signals Downsampled** materialized view by using the [summarize operator](/azure/data-explorer/kusto/query/summarize-operator) with time bins such as *hourly* and *daily*. This materialized view aggregates signals and simplifies reporting across the fleet.
 
-1. Create user-defined functions that provide anomaly detection or root cause analysis.
+- Create user-defined functions that provide anomaly detection or root cause analysis.
 
     - Use time-series functions for [anomaly detection and forecasting](/azure/data-explorer/kusto/query/anomaly-detection) to detect potential problems and predict failures.
 
@@ -69,9 +69,9 @@ The vehicle telemetry lands in raw tables. You can use the following message pro
 
     - Use machine learning plugins like [autocluster](/azure/data-explorer/kusto/query/autocluster-plugin) to find common patterns of discrete attributes.
 
-1. Perform geospatial analytics with user-defined functions. Use the [geospatial analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems/) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
+- Perform geospatial analytics with user-defined functions. Use the [geospatial analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems/) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
 
-1. Create a **fleet metadata table** to store changes on the vehicle metadata and configuration. Create a **fleet metadata last known values** materialized view to store the latest state of the vehicle fleet based on a last-time modified column.
+- Create a **fleet metadata table** to store changes on the vehicle metadata and configuration. Create a **fleet metadata last known values** materialized view to store the latest state of the vehicle fleet based on a last-time modified column.
 
 ### Components
 
