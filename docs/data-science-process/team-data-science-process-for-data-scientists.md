@@ -251,7 +251,7 @@ Azure has many resources which could be used for data source documentation (incl
 
 #### Integration of analytics processing within TDSP
 
-Azure has many resources which could be used for analytics processing.  Azure Machine Learning is the main recommended resource. However, this list provides recommended resources often used in Azure architectures which require features beyond Azure Machine Learning.
+Azure has many services that can be used for analytics processing, with Azure Machine Learning as the primary recommended service. However, this list provides recommended services often used in Azure architectures that require features beyond Azure Machine Learning.
 
 [**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. It provides the following functionality:
 
