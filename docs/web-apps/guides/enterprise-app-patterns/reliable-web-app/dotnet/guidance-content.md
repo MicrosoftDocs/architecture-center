@@ -6,12 +6,12 @@ ms.custom: devx-track-dotnet
 
 ## Why the Reliable Web App pattern for .NET?
 
-If your business decided to migrate and on-premises .NET web app to the cloud, then you need to use Reliable Web App for .NET. The pattern shows you how the essential updates you need to make to ensure your .NET web app is successful in Azure. It focuses on the high-value updates you should make and outlines the minimal code changes required. These changes improve the reliability, security, performance, and operational excellence of your web app while capitalizing on the benefits of the cloud.
-
-[!INCLUDE [intro 2](../includes/intro2.md)]
+If your organization is considering a transition from an on-premises .NET web application to the cloud, the Reliable Web App pattern for .NET proven guidance for this process. The pattern shows you how the essential updates you need to make to ensure your .NET web app is successful in Azure. It focuses on the high-value updates you should make and outlines the minimal code changes required. These changes improve the reliability, security, performance, and operational excellence of your web app while capitalizing on the benefits of the cloud.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
+
+[!INCLUDE [intro 2](../includes/intro2.md)]
 
 ## Architecture guidance
 
