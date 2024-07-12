@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - compute
- - web
+  - compute
+  - web
 ms.custom:
   - guide
+  - arb-saas
 --- 
 
 # Architectural approaches for control planes in multitenant solutions

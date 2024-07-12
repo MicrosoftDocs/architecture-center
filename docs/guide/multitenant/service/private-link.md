@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-virtual-network
- - azure-private-link
+  - azure
+  - azure-virtual-network
+  - azure-private-link
 categories:
- - networking
+  - networking
 ms.custom:
   - arb-saas
 ---

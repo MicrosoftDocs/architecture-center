@@ -15,11 +15,9 @@ products:
   - azure-iot-hub
 categories:
   - iot
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for IoT in a multitenant solution

@@ -9,16 +9,14 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-cache-redis
+  - azure
+  - azure-cache-redis
 categories:
- - management-and-governance
- - databases
-ms.category:
-  - fcp
+  - management-and-governance
+  - databases
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Cache for Redis

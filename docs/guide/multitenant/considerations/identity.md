@@ -13,11 +13,9 @@ products:
   - entra-id
 categories:
   - identity
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural considerations for identity in a multitenant solution

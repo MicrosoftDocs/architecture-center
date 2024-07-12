@@ -12,8 +12,8 @@ metadata:
   ms.category:
     - containers
   ms.custom:
-    - fcp
     - example-scenario
+    - arb-saas
 name: Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service
 azureCategories:
   - containers

@@ -13,11 +13,9 @@ products:
   - azure-storage
 categories:
   - storage
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Storage
