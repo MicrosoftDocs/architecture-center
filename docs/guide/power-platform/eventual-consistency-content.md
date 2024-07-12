@@ -94,7 +94,6 @@ Consider the impact of any business logic on an entity that isn't hydrated yet. 
 
 Related architectures:
 
-- [CI/CD for Microsoft Power Platform](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform)
 - [Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform)
 - [Power Automate deployment at scale](/azure/architecture/example-scenario/power-automate/power-automate)
 

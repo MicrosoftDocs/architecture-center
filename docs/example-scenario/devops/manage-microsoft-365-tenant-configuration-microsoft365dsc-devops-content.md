@@ -104,7 +104,6 @@ Principal author:
 - [Microsoft365DSC site](https://microsoft365dsc.com)
 - [Microsoft365DSC export generator tool](https://export.microsoft365dsc.com)
 
-## Related resources
+## Related resource
 
-- [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
-- [DevOps Checklist](/azure/architecture/checklist/dev-ops)
+[End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)

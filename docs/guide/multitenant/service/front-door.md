@@ -8,13 +8,12 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-front-door
+  - azure-front-door
 categories:
- - networking
-ms.category:
-  - fcp
+  - networking
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Use Azure Front Door in a multitenant solution

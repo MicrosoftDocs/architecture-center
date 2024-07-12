@@ -4,8 +4,8 @@ description: Learn how to direct traffic to specific endpoints with a geo-distri
 author: ronmiab
 ms.author: robess
 categories: azure
-ms.service: azure-stack
-ms.subservice: azure-stack-hub
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.lastreviewed: 11/05/2019

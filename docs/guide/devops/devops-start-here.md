@@ -16,9 +16,7 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-devtest-labs
-ms.custom:
-  - overview
-  - fcp
+ms.custom: arb-devops
 ---
 
 # DevOps architecture design
@@ -57,7 +55,6 @@ Plan your path to production by reviewing:
 
 | Article or section | Description |
 |--------------|-------------|
-| [DevOps checklist](../../checklist/dev-ops.md) | A list of things to consider and do when you implement DevOps attitudes and methods in culture, development, testing, release, monitoring, and management. |
 | [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
 | [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
@@ -110,7 +107,6 @@ The following articles are about best practices that are specific to DevOps and 
 ### DevOps
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
-- [DevOps checklist](../../checklist/dev-ops.md)
 - [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
 - [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md)
 - [Continuous monitoring with Azure Monitor](/azure/azure-monitor/continuous-monitoring)

@@ -93,8 +93,4 @@ Principal author:
 ## Related resources
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-
-The following solution ideas feature Azure Database for MySQL:
-
-- [Finance management apps using Azure Database for MySQL](../../solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)

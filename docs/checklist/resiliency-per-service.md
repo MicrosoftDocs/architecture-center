@@ -7,7 +7,7 @@ ms.author: robbag
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: well-architected
+ms.subservice: azure-guide
 products:
   - azure-app-service
 categories:

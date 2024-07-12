@@ -9,10 +9,12 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-openai
+  - azure
+  - azure-openai
 categories:
- - ai-machine-learning
+  - ai-machine-learning
+ms.custom:
+  - arb-saas
 ---
 
 # Multitenancy and Azure OpenAI Service

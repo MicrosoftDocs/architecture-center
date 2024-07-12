@@ -11,6 +11,8 @@ products:
   - azure
 categories:
   - management-and-governance
+ms.custom:
+  - arb-saas
 ---
 # SaaS and multitenant solution architecture
 

@@ -191,7 +191,7 @@ In the **Virtual node usage** column:
 
 ### Windows node pools
 
-AKS supports creating and using Windows Server container node pools through the [Azure container network interface (CNI)](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
+AKS supports creating and using Windows Server container node pools through the [Azure container network interface (CNI)](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [Configure Azure CNI networking](/azure/aks/configure-azure-cni).
 
 The following `az aks nodepool add` command adds a node pool that runs Windows Server containers.
 
@@ -274,7 +274,7 @@ You can disable the cluster autoscaler with `az aks nodepool update` by passing 
   --disable-cluster-autoscaler
 ```
 
-To re-enable the cluster autoscaler on an existing cluster, use `az aks nodepool update`, specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
+To reenable the cluster autoscaler on an existing cluster, use `az aks nodepool update`, specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
 
 For more information about how to use the cluster autoscaler for individual node pools, see [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler).
 
@@ -358,7 +358,7 @@ When you create a new cluster or add a new node pool to an existing cluster, you
 
 AKS supports two networking plugins:
 
-- [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet) is a basic, simple network plugin for Linux. With `kubenet`, nodes get a private IP address from the Azure virtual network subnet. Pods get an IP address from a logically different address space. Network address translation (NAT) lets the pods reach resources on the Azure virtual network by translating the source traffic's IP address to the node's primary IP address. This approach reduces the number of IP addresses you need to reserve in your network space for pods.
+- [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet) is a basic, simple network plugin for Linux. With `kubenet`, nodes get a private IP address from the Azure Virtual Network subnet. Pods get an IP address from a logically different address space. Network address translation (NAT) lets the pods reach resources on the Azure virtual network by translating the source traffic's IP address to the node's primary IP address. This approach reduces the number of IP addresses you need to reserve in your network space for pods.
 
 - [Azure Container Networking Interface (CNI)](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md) gives every pod an IP address to call and access directly. These IP addresses must be unique across your network space. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved for that node. This approach requires advance planning, and can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as application demands grow.
 

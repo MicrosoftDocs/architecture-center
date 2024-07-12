@@ -189,5 +189,4 @@ Principal author:
 
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
-- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
 - [Spaceborne data analysis with Azure Synapse Analytics](../../industries/aerospace/geospatial-processing-analytics.yml)

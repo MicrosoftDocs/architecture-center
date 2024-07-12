@@ -8,15 +8,13 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-container-apps
+  - azure-container-apps
 categories:
- - management-and-governance
- - compute
-ms.category:
-  - fcp
+  - management-and-governance
+  - compute
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Considerations for using Container Apps in a multitenant solution
