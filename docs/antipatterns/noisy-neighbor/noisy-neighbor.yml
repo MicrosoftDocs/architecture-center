@@ -8,7 +8,8 @@ metadata:
   ms.topic: design-pattern
   ms.service: architecture-center
   ms.subservice: anti-pattern
-  ms.custom: fcp
+  ms.custom:
+    - arb-saas
 azureCategories:
   - management-and-governance
   - security

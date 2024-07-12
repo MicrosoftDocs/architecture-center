@@ -13,10 +13,9 @@ products:
   - azure-cost-management
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Measure the consumption of each tenant

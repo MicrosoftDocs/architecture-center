@@ -7,14 +7,15 @@ metadata:
   ms.date: 03/24/2023
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.custom: fcp
+  ms.custom:
+    - arb-saas
 azureCategories:
- - management-and-governance
+  - management-and-governance
 products:
- - azure
- - azure-cost-management
- - azure-resource-manager
- - azure-monitor
+  - azure
+  - azure-cost-management
+  - azure-resource-manager
+  - azure-monitor
 name: Architectural approaches for cost management and allocation in a multitenant solution
 summary: This article describes approaches to consider for cost management and cost allocation in a multitenant solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/tags.png

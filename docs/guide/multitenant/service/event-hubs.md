@@ -12,7 +12,9 @@ products:
   - azure
   - azure-event-hubs
 categories:
- - analytics
+  - analytics
+ms.custom:
+  - arb-saas
 ---
 
 # Multitenancy and Azure Event Hubs

@@ -17,10 +17,9 @@ categories:
   - integration
   - compute
   - hybrid
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Architectural approaches for messaging in multitenant solutions

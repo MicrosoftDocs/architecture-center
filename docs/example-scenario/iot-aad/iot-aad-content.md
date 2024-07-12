@@ -99,7 +99,7 @@ If customers have additional requirements to restrict access to IoT resources ba
 
 ### Get the app to customers
 
-Finally, the developer may want to provide an e-commerce site for customers to purchase licenses for the app. This e-commerce site is separate from the IoT app itself. A sample workload describing how to build an [e-commerce front-end](../apps/ecommerce-scenario.yml) is available on the Azure Reference Architecture Center.
+Finally, the developer may want to provide an e-commerce site for customers to purchase licenses for the app. This e-commerce site is separate from the IoT app itself. 
 
 To increase the discoverability and adoption of your IoT app, the developer should publish the app to the [Microsoft Entra App gallery](/azure/active-directory/develop/howto-app-gallery-listing). The Microsoft Entra application gallery is in the Azure Marketplace app store, where all application connectors are published for single sign-on and user provisioning. IT administrators can add connectors from the app gallery, and then configure and use the connectors for single sign-on and provisioning for additional convenience for the end user of the app.
 

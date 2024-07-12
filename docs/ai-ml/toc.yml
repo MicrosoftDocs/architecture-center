@@ -6,8 +6,6 @@ items:
       items:
       - name: Document processing
         items:
-        - name: Content tagging with NLP
-          href: idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
         - name: Knowledge mining for customer feedback
           href: idea/customer-feedback-and-analytics.yml
         - name: Large-scale custom NLP
@@ -34,8 +32,6 @@ items:
           href: idea/customer-churn-prediction.yml
         - name: Personalized offers
           href: idea/personalized-offers.yml
-        - name: Marketing optimization
-          href: idea/optimize-marketing-with-machine-learning.yml
       - name: Chat bots
         items:
         - name: Search and query a knowledge base

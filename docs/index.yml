@@ -244,9 +244,6 @@ conceptualContent:
 
     - title: DevOps
       links:
-        - text: Checklist
-          url: checklist/dev-ops.md
-          itemType: concept
         - text: Advanced ARM templates
           url: guide/azure-resource-manager/advanced-templates/index.md
           itemType: how-to-guide
@@ -268,9 +265,6 @@ conceptualContent:
 
     - title: High-performance computing (HPC)
       links:
-        - text: Computational fluid dynamics (CFD)
-          itemType: get-started
-          url:  example-scenario/infrastructure/hpc-cfd.yml
         - text: Computer-aided engineering
           itemType: get-started
           url:  example-scenario/apps/hpc-saas.yml
@@ -442,15 +436,9 @@ conceptualContent:
         - text: Multi-region deployment
           itemType: architecture
           url: web-apps/app-service/architectures/multi-region.yml
-        - text: Web application monitoring
-          itemType: architecture
-          url: web-apps/guides/monitoring/app-monitoring.yml
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml
-        - text: E-commerce front end
-          itemType: get-started
-          url:  example-scenario/apps/ecommerce-scenario.yml
         - text: E-commerce product search
           itemType: get-started
           url:  example-scenario/apps/ecommerce-search.yml
