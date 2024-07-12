@@ -31,13 +31,13 @@ This article provides a basic architecture intended for learning about running w
 
 The [components](#components) listed in this architecture link to Azure Well-Architected service guides. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-This *basic architecture* isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality to allow you to evaluate and learn Azure App Service. The following sections outline some deficiencies of the basic architecture, along with the recommendations and considerations.
+This *basic architecture* isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality to allow you to evaluate and learn Azure App Service. The following sections outline some deficiencies of the basic architecture, along with recommendations and considerations.
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Because this architecture isn’t designed for production deployments, the following outlines some of the critical reliability features that were omitted, along with other reliability recommendations and considerations:
+Because this architecture isn’t designed for production deployments, the following outlines some of the critical reliability features that were omitted in this architecture, along with other reliability recommendations and considerations:
 
 - The App Service Plan is configured for the `Standard` tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. The App Service becomes unavailable in the event of any issue with the instance, the rack, or the datacenter hosting the instance.
 - The Azure SQL Database is configured for the `Basic` tier, which doesn't support [zone-redundancy](/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability). This means that data isn't replicated across Azure availability zones, risking loss of committed data in the event of an outage.
@@ -48,12 +48,12 @@ See the [reliability section in the Baseline highly available zone-redundant web
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Because this architecture isn’t designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted, along with other recommendations and considerations:
+Because this architecture isn’t designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations:
 
-- The App Service doesn't have automatic scaling implemented. The service doesn't dynamically adjust to meet demand. With increased demand, you face increased latency and service disruptions.
+- During your proof of concept, you should find a SKU that is suitable for your workload. Don't rely on SKU changes for scaling purposes. Instead, implement horizontal scaling.
+- The App Service in this `basic` architecture doesn't have automatic scaling implemented. The service doesn't dynamically adjust to meet demand. With increased demand, you face increased latency and service disruptions.
   - The `Standard` tier, which this implementation is configured for, does support [auto scale settings](/azure/azure-monitor/autoscale/autoscale-get-started) to allow you to configure rule-based autoscaling, however it isn't implemented in the basic architecture.
   - For production deployments, consider premium tiers that support [automatic autoscaling](/azure/app-service/manage-automatic-scaling) where the platform automatically handles scaling decisions.
-- Limit scaling up and down as much as possible. It can trigger an application restart. Instead, scale out. Select a tier and size that meet your performance requirements under typical load and then scale out the instances to handle changes in traffic volume.
 - Follow the [guidance to scale up individual databases with no application downtime](/azure/sql-database/sql-database-single-database-scale) if you need a higher service tier or performance level for SQL Database.
 
 ### Operational excellence
@@ -86,7 +86,7 @@ During the proof of concept phase, it's important to get an understanding of wha
 
 The following lists guidance around deploying your App Service application.
 
-- Follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) to automate the deployment of your application. Start building your deployment logic in the PoC phase. Implementing CI/CD early in the development process allows you to quickly and safely iterate on your application as you move toward production.
+- Follow the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) to automate the deployment of your application. Start building your deployment logic in the PoC phase. Implementing CI/CD early in the development process allows you to quickly and safely iterate on your application as you move toward production.
 - Use [ARM templates](/azure/azure-resource-manager/resource-group-overview#resource-groups) to deploy Azure resources and their dependencies. It's important to start this process in the PoC phase. As you move toward production, you want the ability to automatically deploy your infrastructure.
 - Use different ARM Templates and integrate them with Azure DevOps services. This setup lets you create different environments in minutes. For example, you can replicate production-like scenarios or load testing environments only when needed and save on cost.
 
@@ -96,7 +96,7 @@ For more information, see the DevOps section in [Azure Well-Architected Framewor
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Because this architecture isn’t designed for production deployments, the following outlines some of the critical security features that were omitted, along with other reliability recommendations and considerations:
+Because this architecture isn’t designed for production deployments, the following outlines some of the critical security features that were omitted in this architecture, along with other reliability recommendations and considerations:
 
 - The `basic` architecture doesn't implement network security. The data and management planes for the resources, such as the Azure App Service and Azure SQL Server, are reachable over the public internet. Omitting network security significantly increases the attack surface of your application. To see how implementing network security ensures the following security features, see the [networking section of the Baseline highly available zone-redundant web application](https://learn.microsoft.com/en-us/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#networking):
 
@@ -108,7 +108,7 @@ Because this architecture isn’t designed for production deployments, the follo
 
 - The `basic' architecture doesn't include a deployment of the [Azure Web Application Firewall](/azure/web-application-firewall/overview). The web application isn't protected against common exploits and vulnerabilities. See the [baseline implementation](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#ingress-to-app-services) to see how the Web Application Firewall can be implemented with Azure Application Gateway in an Azure App Services architecture.
 
-- The `basic` architecture stores secrets such as the Azure SQL Server connection string in App Settings. While app settings are encrypted, consider storing secrets in Azure Key Vault for increased governance.
+- The `basic` architecture stores secrets such as the Azure SQL Server connection string in App Settings. While app settings are encrypted, when moving to production, consider storing secrets in Azure Key Vault for increased governance.
 
 - Leaving remote debugging enabled while in development or the proof of concept phase is fine. When you move to production, you should disable remote debugging.
 
