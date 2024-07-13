@@ -197,7 +197,7 @@ Azure has many resources which could be used for data transfer and storage. This
 
 - **Assessment Tools**: Provides tools for assessing the readiness of databases for migration, identifying potential issues, and offering recommendations to resolve them.
 
-[**Azure Storage**](/azure/storage) offers scalable, secure, and durable storage solutions tailored for different types of data and use cases.
+[**Azure Storage**](/azure/storage) offers scalable, secure, and durable storage solutions tailored for different types of data and use cases. The following storage types are supported:
 
 - **Blob Storage**: Optimized for storing unstructured data such as documents, images, videos, and backups. It's ideal for data scientists needing to store large datasets used in machine learning models.
 
