@@ -179,13 +179,13 @@ Azure has many resources which could be used for data transfer and storage. This
 
 [**Azure Data Transfer Options**](/azure/architecture/data-guide/scenarios/data-transfer) encompass various methods and tools for moving data to and from Azure efficiently, catering to different needs and data sizes.
 
-- **Azure Data Box**: A physical device for large-scale data transfer, ideal for transferring terabytes of data where network bandwidth is limited. This ensures that bulk data can be securely transported to Azure without relying on the internet.
+- [**Azure Data Box**](/azure/databox/): A physical device for large-scale data transfer, ideal for transferring terabytes of data where network bandwidth is limited. This ensures that bulk data can be securely transported to Azure without relying on the internet.
 
-- **Azure Import/Export Service**: Allows for transferring large amounts of data to Azure by shipping hard drives directly to Azure data centers. This is useful for initial data migrations where uploading via network is impractical.
+- [**Azure Import/Export Service**](/azure/import-export/): Allows for transferring large amounts of data to Azure by shipping hard drives directly to Azure data centers. This is useful for initial data migrations where uploading via network is impractical.
 
-- **Azure Data Factory**: A cloud-based data integration service that orchestrates and automates data movement and transformation. It enables complex ETL (extract, transform, load) processes, integrating data from various sources into Azure for analytics and machine learning tasks.
+- [**Azure Data Factory**](/azure/data-factory/): A cloud-based data integration service that orchestrates and automates data movement and transformation. It enables complex ETL (extract, transform, load) processes, integrating data from various sources into Azure for analytics and machine learning tasks.
 
-- **Network Transfer**: Includes high-speed internet-based transfers using Azure ExpressRoute, providing a private connection between on-premises infrastructure and Azure, ensuring secure and fast data transfer.
+- [**Network Transfer**](/azure/expressroute/): Includes high-speed internet-based transfers using Azure ExpressRoute, providing a private connection between on-premises infrastructure and Azure, ensuring secure and fast data transfer.
 
 [**Azure Database Migration Service**](/azure/dms/dms-overview) facilitates the smooth migration of databases to Azure, ensuring minimal downtime and data integrity. Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). It offers the following benefits:
 
@@ -199,15 +199,15 @@ Azure has many resources which could be used for data transfer and storage. This
 
 [**Azure Storage**](/azure/storage) offers scalable, secure, and durable storage solutions tailored for different types of data and use cases. The following storage types are supported:
 
-- **Blob Storage**: Optimized for storing unstructured data such as documents, images, videos, and backups. It's ideal for data scientists needing to store large datasets used in machine learning models.
+- [**Blob Storage**](/azure/storage/blobs/): Optimized for storing unstructured data such as documents, images, videos, and backups. It's ideal for data scientists needing to store large datasets used in machine learning models.
 
-- **Azure Data Lake Storage**: Designed for big data analytics, it provides hierarchical namespace and compatibility with Hadoop, making it suitable for large-scale data analytics projects.
+- [**Azure Data Lake Storage**](/azure/storage/blobs/data-lake-storage-introduction): Designed for big data analytics, it provides hierarchical namespace and compatibility with Hadoop, making it suitable for large-scale data analytics projects.
 
-- **Table Storage**: NoSQL key-value store for semi-structured data, suitable for applications requiring a schema-less design.
+- [**Table Storage**](/azure/storage/tables/): NoSQL key-value store for semi-structured data, suitable for applications requiring a schema-less design.
 
-- **File Storage**: Fully managed file shares in the cloud, accessible via standard SMB protocol, useful for shared storage needs.
+- [**File Storage**](/azure/storage/files/): Fully managed file shares in the cloud, accessible via standard SMB protocol, useful for shared storage needs.
 
-- **Queue Storage**: Provides messaging between application components, useful for decoupling and scaling services.
+- [**Queue Storage**](/azure/storage/queues/): Provides messaging between application components, useful for decoupling and scaling services.
 
 ### Provide data source documentation
 
