@@ -187,7 +187,7 @@ Azure has many resources which could be used for data transfer and storage. This
 
 - **Network Transfer**: Includes high-speed internet-based transfers using Azure ExpressRoute, providing a private connection between on-premises infrastructure and Azure, ensuring secure and fast data transfer.
 
-[**Azure Database Migration Service**](/azure/dms/dms-overview) facilitates the smooth migration of databases to Azure, ensuring minimal downtime and data integrity. Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations).
+[**Azure Database Migration Service**](/azure/dms/dms-overview) facilitates the smooth migration of databases to Azure, ensuring minimal downtime and data integrity. Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). It offers the following benefits:
 
 - **Automated Migration**: Simplifies the migration process by providing automated workflows for moving on-premises databases to Azure SQL Database, Azure Database for MySQL, and Azure Database for PostgreSQL.
 
