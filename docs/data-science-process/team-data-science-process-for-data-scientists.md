@@ -221,7 +221,7 @@ Azure has many resources which could be used for data transfer and storage. This
 
 Azure has many resources which could be used for data source documentation (including notebooks). This list provides recommended resources often used in Azure architectures.
 
-[**Azure Data Catalog**](/azure/data-catalog) is an enterprise-wide metadata catalog that makes data asset discovery straightforward. It helps document data sources and their characteristics.
+[**Azure Data Catalog**](/azure/data-catalog) is an enterprise-wide metadata catalog that makes data asset discovery straightforward. It helps document data sources and their characteristics and provides the following benefits:
 
 - **Metadata Management**: Allows users to register data sources and add metadata, including descriptions, tags, and annotations.
 
