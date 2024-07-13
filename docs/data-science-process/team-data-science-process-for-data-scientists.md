@@ -231,7 +231,7 @@ Azure has many resources which could be used for data source documentation (incl
 
 - **Data Source Information**: Automatically extracts and documents information about data sources, such as schemas, tables, columns, and relationships.
 
-[**Azure Purview**](/azure/purview) is a unified data governance service that helps manage and govern data across your organization.
+[**Azure Purview**](/azure/purview) is a unified data governance service that helps manage and govern data across your organization. It provides the following functionality:
 
 - **Data Mapping and Lineage**: Helps document the data flow and lineage across different systems, providing a clear view of where data comes from and how it's transformed.
 
