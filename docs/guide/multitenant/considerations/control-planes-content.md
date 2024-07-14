@@ -38,7 +38,7 @@ More advanced control planes might also take on more responsibilities:
 
 You need to carefully consider how much effort to spend on building a control plane for your solution. Control planes by themselves don't provide immediate customer value, so it might not be easy to justify spending engineering effort on designing and building a high-quality control plane. However, as your system grows and scales, you'll increasingly need automated management and operations to be able to keep up with your growth.
 
-In certain situations, you might not need a full control plane. This situation might apply if your system will have fewer than about five tenants. Instead, your team can take on a control plane's responsibilities and can use manual operations and processes to onboard and manage tenants. However, you should still have a process and central place to track your tenants and their configurations.
+In certain situations, you might not need a full control plane. This situation might apply if your system will have fewer than about 5-10 tenants. Instead, your team can take on a control plane's responsibilities and can use manual operations and processes to onboard and manage tenants. However, you should still have a process and central place to track your tenants and their configurations.
 
 > [!TIP]
 > If you decide not to create a full control plane, it's still a good idea to be systematic about your management procedures:
