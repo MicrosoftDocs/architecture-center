@@ -167,5 +167,4 @@ Principal Author:
 - [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 - [Vision AI solutions with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 - [Azure IoT reference architecture](../iot.yml)
-- [DevOps Checklist](../../checklist/dev-ops.md)
 - [MLOps maturity model](../../ai-ml/guide/mlops-technical-paper.yml)

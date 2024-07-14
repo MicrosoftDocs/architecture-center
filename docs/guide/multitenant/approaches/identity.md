@@ -14,8 +14,6 @@ products:
   - entra-external-id
 categories:
   - identity
-ms.category:
-  - fcp
 ms.custom:
   - guide
 ---

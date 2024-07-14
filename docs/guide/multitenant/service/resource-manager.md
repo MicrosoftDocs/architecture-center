@@ -9,17 +9,15 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-resource-manager
+  - azure
+  - azure-resource-manager
 categories:
- - management-and-governance
- - devops
-ms.category:
-  - fcp
+  - management-and-governance
+  - devops
 ms.custom:
   - guide
-  - fcp
   - devx-track-arm-template
+  - arb-saas
 ---
 
 # Multitenancy and Azure Resource Manager

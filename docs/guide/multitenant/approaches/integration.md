@@ -14,11 +14,9 @@ products:
   - azure-logic-apps
 categories:
   - integration
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for tenant integration and data access

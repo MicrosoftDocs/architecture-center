@@ -302,5 +302,4 @@ Reference architectures:
 - [Modern analytics architecture with Azure Databricks](../../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
-- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
 - [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)

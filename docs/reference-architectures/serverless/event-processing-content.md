@@ -152,8 +152,6 @@ When creating templates, group resources as a way to organize and isolate them p
 
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
-For more information, see the [DevOps checklist][AWAF-devops-checklist].
-
 ### Disaster recovery
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of geo-distribution features in the various services:
@@ -209,7 +207,6 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 ## Related resources
 
 - [Code walkthrough: Serverless application with Azure Functions](../../web-apps/serverless/architectures/code.yml)
-- [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md)
 - [Private link scenario in event stream processing](../../solution-ideas/articles/serverless-event-processing-private-link.yml)
 - [Azure Kubernetes in event stream processing](../../solution-ideas/articles/serverless-event-processing-aks.yml)
 
@@ -218,7 +215,6 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [AWAF-overview]: /azure/architecture/framework/
-[AWAF-devops-checklist]: ../../checklist/dev-ops.md
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

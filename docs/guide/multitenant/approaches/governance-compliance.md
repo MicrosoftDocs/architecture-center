@@ -8,16 +8,14 @@ ms.date: 3/13/2022
 ms.topic: conceptual
 ms.service: architecture-center
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.subservice: azure-guide
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for governance and compliance in multitenant solutions

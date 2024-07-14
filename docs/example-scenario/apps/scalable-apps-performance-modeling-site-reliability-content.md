@@ -250,8 +250,4 @@ Principal author:
 - [Microsoft 365 documentation](/microsoft-365/?view=o365-worldwide)
 - [Site reliability engineering documentation](/azure/site-reliability-engineering)
 - [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy)
-
-## Related resources
-
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
