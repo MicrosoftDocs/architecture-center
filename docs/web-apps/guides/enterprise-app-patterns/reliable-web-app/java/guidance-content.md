@@ -63,7 +63,7 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 ### Configure user authentication and authorization
 
-[!INCLUDE [AuthN and AuthZ intor](../includes/authn-authz.md)]
+[!INCLUDE [AuthN and AuthZ intro](../includes/authn-authz.md)]
 
 - *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports both single-tenant and multi-tenant applications, allowing users to sign in with their Microsoft identities or social accounts.
 
@@ -148,7 +148,7 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
     ...
     ```
 
-[!INCLUDE [User authN and authZ](../includes/authn-authz.md)]
+[!INCLUDE [User authN and authZ bullet points](../includes/authn-authz-notes.md)]
 
 ### Implement managed identities
 
