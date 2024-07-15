@@ -41,6 +41,7 @@ Read Approach in Fabric Result
 - Build Delta Tables in One Lake using Fabric Notebook
   - Read Delta Tables created by ADB and save them in a OneLake location 
 - Fabric Notebook (read/write) to point to OneLake
+- Notebook to migrate Data to one OneLake (We don't have 2 different Spark engine to write to the same delta tables)
 Write Approach in Fabric Result
  ![Alt text](media/small-medium-data-warehouse/fab-architecture-lakehouse.png)
 
