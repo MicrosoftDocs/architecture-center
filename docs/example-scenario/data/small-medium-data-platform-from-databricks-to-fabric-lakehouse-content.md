@@ -8,6 +8,7 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
  - Potential reason to incorporate Fabric
    - Direct Lake Usage
    - Reduce the number of services used
+   - Graph API call on top of Lakehouse
    - etc
  - Current Customer Architecture
  ![Alt text](media/small-medium-data-warehouse/adb-ref-arch-overview-azure.png)
