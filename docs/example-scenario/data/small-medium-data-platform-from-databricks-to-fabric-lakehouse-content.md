@@ -72,11 +72,13 @@ Write Approach in Fabric Result (Add a link to scenario 5)
 ## Contributors
 ## Next steps
 
-- [Synchronize one Lake with Unity Catalog](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog)
+
+## Related resources
+- [Spark Streaming in Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/get-started-streaming)
+- - [Synchronize one Lake with Unity Catalog](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog)
 - [Spark compute size](https://learn.microsoft.com/en-us/fabric/data-engineering/capacity-settings-management)
 - [Microsoft Spark Utilities](https://learn.microsoft.com/en-us/fabric/data-engineering/microsoft-spark-utilities)
 - [Real Time in Fabric](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview)
 - [Purview in Fabric](https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric)
 - [Purview and Unity Catalog](https://learn.microsoft.com/en-us/purview/register-scan-azure-databricks-unity-catalog)
 - [One Lake Security](https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-security)
-## Related resources
