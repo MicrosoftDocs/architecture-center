@@ -1,29 +1,28 @@
 ## Introduction
-Modern data platform for small and medium business from Azure Databricks to Fabric
- [Laurent and Ames]
- Give details on the scenario
- - Size Lakehouse ~ 600 Gb
- - Databricks for Lakehouse
- - ADF for orchestration
- - Potential reason to incorporate Fabric (keep only the relevant ones for SMB-SMC)
-   - Direct Lake Usage
-   - Reduce the number of services used
-   - SaaS Plaform
-   - Graph API call on top of Lakehouse
-   - Data Sharing between tenants (https://learn.microsoft.com/en-us/fabric/governance/external-data-sharing-overview)
-   - etc
- - Current Customer Architecture (find a simplest diagram)
+Your enterprise might be considering reducing the number of services you use or leveraging specific functionalities of Microsoft Fabric. 
+This article outlines the possible steps to migrate your Lakehouse platform from Azure Databricks to Microsoft Fabric, or to use both services in tandem. 
+It targets small businesses (SMBs) with about 600 GB of data. 
+The migration can be split into two parts:
+ - Azure Databricks (Writing) + Fabric (Reading)
+ - Fabric Platform (Reading and Writing)
+
+The following architecture might be your current state
  ![Alt text](media/small-medium-data-warehouse/adb-ref-arch-overview-azure.png)
 
-### 1 - Steps to migrate to Read approach in Fabric
+### 1 -  Transitioning read compute from Azure Databricks to Microsoft Fabric
 
-- Introduction on the approach
- - Keep ADB for the compute (write)
- - Potential Fabric Notebook for reading scenario
-- Focus on One Lake Shortcuts
-- Diagram on how to make current lakehouse built on ADB available in Fabric
-- Automate/schedule One Lake shortcuts creation
-- Orchestration change
+It is recommended to first migrate the Read operations from Azure DataBricks to Fabric. 
+
+/*added a little intro on building the bridge between ADB and Fabric using shortcuts and a diagram about it*/
+Create shortcuts from external Azure DataBricks Delta tables to OneLake using a notebook: Integrate Databricks Unity Catalog with OneLake - Microsoft Fabric | Microsoft Learn This will make Azure DataBricks Unity Catalog tables available as shortcuts in lakehouses, SQL endpoints, and semantic models. 
+
+You can schedule the notebook or use it in a data pipeline to sync the shortcuts periodically, so that you don’t need to sync tables manually if the metadata changes. New Azure DataBricks tables will be automatically added as shortcuts. 
+
+Orchestration can be migrated to Fabric Data Factory from Azure Data Factory for better integration with Fabric – you will have access to the full range of Data Engineering and other transformation tasks in Fabric. A migration guide can be found here: Migrate to Data Factory - Microsoft Fabric | Microsoft Learn
+
+/*now you can leverage reading functionalities from Fabric, notebook for reading from gold layer, EDA, as a data analust/scientist I can leverage notebook for reading or SQL endpoint from the lakehouse*/
+[Direct lake to PBI scenario? – mention that once they are in Fabric they can do this and not copy over data. Add link to a guide]
+
 Read Approach in Fabric Result (add a link to scenario 3A)
  ![Alt text](media/small-medium-data-warehouse/adb-fabric-architecture.png)
 
@@ -70,8 +69,8 @@ Your architecture could look like this:
 - [Unity Catalog](https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/)
   
 ### Alternatives
-- Keep ADF
-- Use Fabric only for Gold Layer to leverage Direct Lake
+- Orchestration: You can choose to keep Azure Data Factory for orchestration instead of switching to Fabric’s orchestration capabilities.
+- Selective Migration: You may opt to migrate only specific layers of your Lakehouse to Fabric, based on your business needs and workload requirements.
 ## Scenario details
 ### Potential use cases
 ## Considerations
@@ -81,6 +80,7 @@ Your architecture could look like this:
 ### Operations
 - Link to Scenarios 3a and 5
 ### Cost optimization
+- Based on the size of your data and requirements, consider using a small starter pool for an efficient and cost-effective transition. For more information, refer to [the small starter pool configuration guide](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-starter-pools).
 - Link to Scenarios 3a and 5
 ## Contributors
 ## Next steps
@@ -97,3 +97,4 @@ Your architecture could look like this:
 - [Purview and Unity Catalog](https://learn.microsoft.com/en-us/purview/register-scan-azure-databricks-unity-catalog)
 - [One Lake Security](https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-security)
 - [Governance in Fabric](https://learn.microsoft.com/en-us/fabric/governance/governance-compliance-overview)
+- [Direct Lake](https://learn.microsoft.com/en-us/fabric/get-started/direct-lake-overview)
