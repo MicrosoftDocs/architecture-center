@@ -35,33 +35,33 @@ For an implementation with sample deployment templates for MLOps v2, see [Azure 
 - Classical machine learning: Time-series forecasting, regression, and classification on tabular structured data are the most common use cases in this category. Examples include:
 
   - Binary and multi-label classification.
-  
+
   - Linear, polynomial, ridge, lasso, quantile, and Bayesian regression.
-  
+
   - ARIMA, autoregressive, SARIMA, VAR, SES, LSTM.
-  
+
 - CV: The MLOps framework in this article focuses mostly on the CV use cases of segmentation and image classification.
 
 - Natural language processing: You can use this MLOps framework to implement:
 
   - Named entity recognition:
-  
+
   - Text classification
-  
+
   - Text generation
-  
+
   - Sentiment analysis
-  
+
   - Translation
-  
+
   - Question answering
-  
+
   - Summarization
-  
+
   - Sentence detection
-  
+
   - Language detection
-  
+
   - Part-of-speech tagging
 
 AI simulations, deep reinforcement learning, and other forms of AI aren't described in this article.
@@ -124,7 +124,7 @@ MLOps v2 covers the following architectures that are described in this article:
 
 1. Model deployment (outer loop phase)
 
-   The model deployment, or outer loop phase, consists of preproduction staging and testing, production deployment, and monitoring of the model, data, and infrastructure.  When the model meets the criteria of the organization and use case, CD pipelines promote the model and related assets through production, monitoring, and potential retraining.
+   The model deployment, or outer loop phase, consists of preproduction staging and testing, production deployment, and monitoring of the model, data, and infrastructure. When the model meets the criteria of the organization and use case, CD pipelines promote the model and related assets through production, monitoring, and potential retraining.
 
    Personas associated with this phase are primarily machine learning engineers.
 
@@ -280,91 +280,79 @@ To support appropriate segmentation in a machine learning workload, consider the
 
 ##### Data scientist and machine learning engineer
 
-Data scientists and machine learning engineers perform various machine learning and data science activities across the software development lifecycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform’s technical support team.
+Data scientists and machine learning engineers perform various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
 
-**Type:** Person
-**Project specific:** Yes
+**Type:** Person **Project specific:** Yes
 
 ##### Data analyst
 
 Data analysts provide the necessary input for data science activities, such as running SQL queries for business intelligence. This role's responsibilities include working with data, performing data analysis, and supporting model development and model deployment.
 
-**Type:** Person
-**Project specific:** Yes
+**Type:** Person **Project specific:** Yes
 
 ##### Model tester
 
 Model testers conduct tests in testing and staging environments. This role provides functional segregation from the CI/CD processes.
 
-**Type:** Person
-**Project specific:** Yes
+**Type:** Person **Project specific:** Yes
 
 ##### Business stakeholders
 
 Business stakeholders are associated with the project, such as a marketing manager.
 
-**Type:** Person
-**Project specific:** Yes
+**Type:** Person **Project specific:** Yes
 
 ##### Project lead or data science lead
 
 The data science lead is a project administration role for the Machine Learning workspace. This role also does break-fix activities for the machine learning models and packages.
 
-**Type:** Person
-**Project specific:** Yes
+**Type:** Person **Project specific:** Yes
 
 ##### Project or product owner (Business owner)
 
 Business stakeholders are responsible for the Machine Learning workspace according to data ownership.
 
-**Type:** Person
-**Project specific:** Yes
+**Type:** Person **Project specific:** Yes
 
 ##### Platform technical support
 
 Platform technical support is the technical support staff responsible for break-fix activities across the platform. This role covers infrastructure or service but not the machine learning models, packages, or data. These components remain under the data scientist or machine learning engineer role and are the project lead's responsibility.
 
-**Type:** Person
-**Project specific:** No
+**Type:** Person **Project specific:** No
 
 ##### Model end user
 
 Model end users are the end consumers of the machine learning model.
 
-**Type:** Person or Process
-**Project specific:** Yes
+**Type:** Person or Process **Project specific:** Yes
 
 ##### CI/CD processes
 
 CI/CD processes release or roll back changes across platform environments.
 
-**Type:** Process
-**Project specific:** No
+**Type:** Process **Project specific:** No
 
 ##### Machine Learning workspace
 
  Machine Learning workspaces use [managed identities](/azure/machine-learning/how-to-setup-authentication) to interact with other parts of Azure. This persona represents the various services that make up a Machine Learning implementation. These services interact with other parts of the platform, such as the development workspace that connects with the development data store.
 
-**Type:** Process
-**Project specific:** No
+**Type:** Process **Project specific:** No
 
 ##### Monitoring processes
 
 Monitoring processes are compute processes that monitor and alert based on platform activities.
 
-**Type:** Process
-**Project specific:** No
+**Type:** Process **Project specific:** No
 
 ##### Data governance processes
 
 Data governance processes scan the machine learning project and data stores for data governance.
 
-**Type:** Process
-**Project specific:** No
+**Type:** Process **Project specific:** No
 
 ### Microsoft Entra group membership
 
-When you implement RBAC, [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across different personas. You can use Microsoft Entra groups to manage users that need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
+When you implement RBAC, [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across different personas. You can use Microsoft Entra groups to manage users that need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
 
 In this architectural pattern, you can couple these groups with a [Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup), such as a project, team, or department. You can associate users with specific groups to define fine-grained access policies. The policies grant or restrict permissions to various Machine Learning workspaces based on job functions, project requirements, or other criteria. For example, you can have a group that grants all data scientists access to a development workspace for a specific use case.
 
@@ -384,7 +372,7 @@ Consider how you can use the following built-in Azure RBAC roles to apply RBAC t
 
 - ACO = [Machine Learning Compute Operator](/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator)
 
-- ACRPush = [Azure Container Registry Push](/azure/container-registry/container-registry-roles#push-image)
+- AcrPush = [Azure Container Registry Push](/azure/container-registry/container-registry-roles#push-image)
 
 - DOPA = [DevOps Project Administrators](/azure/devops/organizations/security/look-up-project-administrators)
 
@@ -416,11 +404,10 @@ Consider how you can use the following built-in Azure RBAC roles to apply RBAC t
 | Project/product owner            |                                  |           |                          |                 |              |                 |                         | MR            |
 | Platform technical support       | O                                | O, KVA    |                          |                 | DOPCA        | O               | O                       | O             |
 | Model end user                   |                                  |           |                          |                 |              |                 |                         |               |
-| CI/CD processes                  | O                                | O, KVA    | ACRPush                  |                 | DOPCA        | O               | O                       | O             |
+| CI/CD processes                  | O                                | O, KVA    | AcrPush                  |                 | DOPCA        | O               | O                       | O             |
 | Machine Learning workspace |                                  | R         | C                        | C               |              |                 |                         |               |
 | Monitoring processes             | R                                |           |                          |                 |              |                 | LAR                     | MR            |
 | Data governance processes        | R                                |           | R                        | R               | R            | R               |                         |               |
-
 
 ##### Preproduction environment
 
@@ -434,14 +421,13 @@ Consider how you can use the following built-in Azure RBAC roles to apply RBAC t
 | Project/product owner            | R                                |           |                          | R               |              |                 |                         | MR            |
 | Platform technical support       | O                                | O, KVA    | O                        | O               | DOPCA        | O               | O                       | O             |
 | Model end user                   |                                  |           |                          |                 |              |                 |                         |               |
-| CI/CD processes                  | O                                | O, KVA    | ACRPush                  | O               | DOPCA        | O               | O                       | O             |
+| CI/CD processes                  | O                                | O, KVA    | AcrPush                  | O               | DOPCA        | O               | O                       | O             |
 | Machine Learning workspace |                                  | R, KVR    | C                        | C               |              |                 |                         |               |
 | Monitoring processes             | R                                | R         | R                        | R               | R            | R               | LAC                     |               |
 | Data governance processes        | R                                |           | R                        | R               |              |                 |                         |               |
 
 > [!NOTE]
 > Every persona retains access for the project's duration except platform technical support, which has temporary or just-in-time [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) access.
-
 
 RBAC plays a vital role in securing and streamlining MLOps workflows. RBAC restricts access based on assigned roles and prevents unauthorized users from accessing sensitive data, which mitigates security risks. Sensitive data includes training data or models and critical infrastructure, such as production pipelines. You can use RBAC to ensure compliance with data privacy regulations. RBAC also provides a clear record of access and permissions, which simplifies auditing, makes it easy to identify security gaps, and tracks user activity.
 
@@ -451,7 +437,7 @@ Dependencies on various packages, libraries, and binaries are common throughout 
 
 To manage these dependencies, you can use a secure, self-serve, package management process based on the [Quarantine pattern](../../patterns/quarantine.yml). You can design this process to allow data scientists to self-serve from a curated list of packages and ensure that the packages are secure and compliant with organizational standards.
 
-This approach includes safe-listing three industry standard machine learning package repositories: Microsoft Artifact Registry, PyPI, and Conda. Safe-listing enables self-serve from individual Machine Learning workspaces. Then use an automated testing process during the deployment to scan the resulting solution containers. Failures elegantly exit the deployment process and remove the container. The following diagram and process flow demonstrates this process:
+This approach includes safe-listing three industry standard machine learning package repositories: Microsoft Artifact Registry, Python Package Index (PyPI), and Conda. Safe-listing enables self-serve from individual Machine Learning workspaces. Then use an automated testing process during the deployment to scan the resulting solution containers. Failures elegantly exit the deployment process and remove the container. The following diagram and process flow demonstrates this process:
 
 :::image type="content" source="_images/secure-aml-package.png" lightbox="_images/secure-aml-package.png" alt-text="Diagram that shows the secure Machine Learning package approach." border="false":::
 
@@ -459,7 +445,7 @@ This approach includes safe-listing three industry standard machine learning pac
 
 1. Data scientists that work in a Machine Learning workspace that has a [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall#recommended-configuration-for-training-and-deploying-models) can self-serve machine learning packages on-demand from the machine learning package repositories. An exception process is required for everything else by using the [private storage](/azure/machine-learning/how-to-use-private-python-packages#use-a-repository-of-packages-from-private-storage) pattern, which is seeded and maintained by using a centralized function.
 
-1. Machine Learning delivers machine learning solutions as docker containers. As these solutions are developed, they're uploaded to Container Registry. [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) generates vulnerability assessments for the container image.
+1. Machine Learning delivers machine learning solutions as Docker containers. As these solutions are developed, they're uploaded to Container Registry. [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) generates vulnerability assessments for the container image.
 
 1. Solution deployment occurs through a CI/CD process. [Microsoft Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
 
@@ -467,7 +453,7 @@ This approach includes safe-listing three industry standard machine learning pac
 
 The previous process flow provides a secure, self-serve, package management process for data scientists and ensures that the packages are secure and compliant with organizational standards. To balance innovation and security, you can grant data scientists self-service access to common machine learning packages, libraries, and binaries in preproduction environments. Require exceptions for less common packages. This strategy ensures that data scientists can remain productive during development, which prevents a major bottleneck during delivery.
 
-To streamline your release processes, containerize environments for use in production environments. Containerized environments reduce toil and ensure continued security through vulnerability scanning. This process flow provides a repeatable approach that you can use across use cases to the time of delivery. It reduces the overall cost to build and deploy machine learning solutions within your enterprise.  
+To streamline your release processes, containerize environments for use in production environments. Containerized environments reduce toil and ensure continued security through vulnerability scanning. This process flow provides a repeatable approach that you can use across use cases to the time of delivery. It reduces the overall cost to build and deploy machine learning solutions within your enterprise.
 
 ### Monitoring
 
@@ -483,22 +469,19 @@ Monitor model performance to detect model problems and performance degradation e
 
 [Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
 
-**Environment:** Production
-**Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
+**Environment:** Production **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Prediction drift
 
 Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
 
-**Environment:** Production
-**Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
+**Environment:** Production **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Resource
 
 Use several model serving endpoint metrics to indicate quality and performance, such as CPU or memory usage. This approach helps you learn from production to help drive future investments or changes.
 
-**Environment:** All
-**Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
+**Environment:** All **Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
 
 #### Usage metrics
 
@@ -508,8 +491,7 @@ Monitor the usage of endpoints to ensure that you meet organization-specific or 
 
 Track the number of client requests to the model endpoint to understand the active usage profile of the endpoints, which can affect scaling or cost optimization efforts.
 
-**Environment:** Production
-**Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), such as RequestsPerMinute.
+**Environment:** Production **Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), such as RequestsPerMinute.
 **Notes:**
 
 - You can align acceptable thresholds to t-shirt sizing or anomalies that are tailored to your workload's needs.
@@ -519,8 +501,7 @@ Track the number of client requests to the model endpoint to understand the acti
 
 [Throttling delays](/azure/azure-resource-manager/management/request-limits-and-throttling) are slowdowns in the request and response of data transfers. Throttling happens at the Resource Manager level and the service level. Track metrics at both levels.
 
-**Environment:** Production
-**Azure facilitation:**
+**Environment:** Production **Azure facilitation:**
 
 - Monitor - [Resource Manager](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs.
 - Machine Learning - To check information about your endpoints' requests, you can enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview). You can use a Log Analytics workspace to process logs.
@@ -531,8 +512,7 @@ Track the number of client requests to the model endpoint to understand the acti
 
 Track response code errors to help measure service reliability and ensure early detection of service problems. For example, a sudden increase in 500 server error responses could indicate a critical problem that needs immediate attention.
 
-**Environment:** Production
-**Azure facilitation:** Machine Learning - Enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) to check information about your request. For example, you can check the count of XRequestId by using ModelStatusCode or ModelStatusReason. You can use a Log Analytics workspace to process logs.
+**Environment:** Production **Azure facilitation:** Machine Learning - Enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) to check information about your request. For example, you can check the count of XRequestId by using ModelStatusCode or ModelStatusReason. You can use a Log Analytics workspace to process logs.
 **Notes:**
 
 - All HTTP responses codes in the 400 and 500 range are classified as an error.
@@ -545,9 +525,7 @@ Cost management and optimization in a cloud environment are crucial because they
 
 When monthly operating expenses reach or exceed a predefined amount, generate alerts to notify relevant stakeholders, such as project leads or project owners, based on the workspace setup boundaries. You can determine your [workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) based on project, team, or department-related boundaries.
 
-**Environment:** All
-**Azure facilitation:** Microsoft Cost Management - [Budget alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts)
-**Notes:**
+**Environment:** All **Azure facilitation:** Microsoft Cost Management - [Budget alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts) **Notes:**
 
 - Set budget thresholds based on the initial NFRs and cost estimates.
 - Use multiple threshold tiers. Multiple threshold tiers ensure that stakeholders get appropriate warning before the budget is exceeded. These stakeholders might include business leads, project owners, or project Leads depending on the organization or workload.
@@ -557,8 +535,7 @@ When monthly operating expenses reach or exceed a predefined amount, generate al
 
 If a Machine Learning workspace shows no signs of active use based on the associated compute usage for the intended use case, a project owner might decommission the workspace if it's no longer needed for a given project.
 
-**Environment:** Preproduction
-**Azure facilitation:**
+**Environment:** Preproduction **Azure facilitation:**
 
 - Monitor - [Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
 - Machine Learning - [Workspace metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-metrics), such as the count of active cores over a period of time
@@ -572,15 +549,13 @@ If a Machine Learning workspace shows no signs of active use based on the associ
 
 Monitor to detect deviations from appropriate security controls and baselines to ensure that Machine Learning workspaces are compliant with your organization's security policies. You can use a combination of predefined and custom-defined policies.
 
-**Environment:** All
-**Azure facilitation:** [Azure Policy for Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning)
+**Environment:** All **Azure facilitation:** [Azure Policy for Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning)
 
 ##### Endpoint security
 
 To gain visibility into business-critical APIs, implement targeted security monitoring of all Machine Learning endpoints. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
-**Environment:** Production
-**Azure facilitation:** [Microsoft Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) offers broad lifecycle protection, detection, and response coverage for APIs.
+**Environment:** Production **Azure facilitation:** [Microsoft Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) offers broad lifecycle protection, detection, and response coverage for APIs.
 **Notes:** Defender for APIs provides security for APIs that are published in Azure API Management. You can onboard Defender for APIs in the Microsoft Defender for Cloud portal or within the API Management instance in the Azure portal. You must integrate Machine Learning online endpoints with API Management.
 
 #### Deployment monitoring
@@ -591,8 +566,7 @@ Deployment monitoring ensures that any endpoints you create adhere to your workl
 
 Monitor to detect deviations from appropriate standards and ensure that your workload adheres to guardrails.
 
-**Environment:** All
-**Azure facilitation:**
+**Environment:** All **Azure facilitation:**
 
 - Managed policy assignment and lifecycle through [Azure Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines) to treat policy as code.
 - [PSRule for Azure](https://azure.github.io/enterprise-azure-policy-as-code/) provides a testing framework for Azure infrastructure as code.
@@ -604,16 +578,13 @@ Monitor to detect deviations from appropriate standards and ensure that your wor
 
 Implement automated security scans as part of the automated integration and deployment processes.
 
-**Environment:** All
-**Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)
-**Notes:** You can use apps in [Azure Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
+**Environment:** All **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) **Notes:** You can use apps in [Azure Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
 
 ##### Ongoing service
 
 Monitor the ongoing service of an API for performance optimization, security, and resource usage. Ensure timely error detection, efficient troubleshooting, and compliance with standards.
 
-**Environment:** Production
-**Azure facilitation:**
+**Environment:** Production **Azure facilitation:**
 
 - Monitor - [Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
 - Machine Learning - You can enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) to check information about your service.
