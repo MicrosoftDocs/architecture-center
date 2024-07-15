@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 07/01/2024
+ms.date: 07/15/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: robbag
@@ -22,6 +22,40 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## July 2024
+
+### Updated articles
+
+- [Priority Queue pattern](./patterns/priority-queue.yml)  ([#d480fd13ca](https://github.com/MicrosoftDocs/architecture-center/commit/d480fd13ca))
+- [Machine learning operations v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#dba2fe1062](https://github.com/MicrosoftDocs/architecture-center/commit/dba2fe1062))
+- [Index file content and metadata by using Azure AI Search](./ai-ml/architecture/search-blob-metadata.yml)  ([#7767b45a83](https://github.com/MicrosoftDocs/architecture-center/commit/7767b45a83))
+- [Resiliency checklist for services](./checklist/resiliency-per-service.md)  ([#d622b44e5e](https://github.com/MicrosoftDocs/architecture-center/commit/d622b44e5e))
+- [CDN guidance](./best-practices/cdn.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Host name preservation](./best-practices/host-name-preservation.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Monitoring and diagnostics guidance](./best-practices/monitoring.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Azure service retry guidance](./best-practices/retry-service-specific.md)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Architectural approaches for control planes in multitenant solutions](./guide/multitenant/approaches/control-planes.md)  ([#6de5e6f5d8](https://github.com/MicrosoftDocs/architecture-center/commit/6de5e6f5d8))
+- [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)  ([#6de5e6f5d8](https://github.com/MicrosoftDocs/architecture-center/commit/6de5e6f5d8))
+- [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml)  ([#5d0aa22e87](https://github.com/MicrosoftDocs/architecture-center/commit/5d0aa22e87))
+- [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)  ([#2a9102b977](https://github.com/MicrosoftDocs/architecture-center/commit/2a9102b977))
+- [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#468656d555](https://github.com/MicrosoftDocs/architecture-center/commit/468656d555))
+- [Run a Windows VM on Azure](./reference-architectures/n-tier/windows-vm.yml)  ([#a594211d74](https://github.com/MicrosoftDocs/architecture-center/commit/a594211d74))
+- [Azure Private Link service considerations for multitenancy](./guide/multitenant/service/private-link.md)  ([#1aedb5d6ae](https://github.com/MicrosoftDocs/architecture-center/commit/1aedb5d6ae))
+- [Architectural approaches for a multitenant solution](./guide/multitenant/approaches/overview.yml)  ([#217fa95e83](https://github.com/MicrosoftDocs/architecture-center/commit/217fa95e83))
+- [Noisy Neighbor antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#0c1bc4ec53](https://github.com/MicrosoftDocs/architecture-center/commit/0c1bc4ec53))
+- [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#5b31def6dc](https://github.com/MicrosoftDocs/architecture-center/commit/5b31def6dc))
+- [Azure Cache for Redis considerations for multitenancy](./guide/multitenant/service/cache-redis.md)  ([#85599ed745](https://github.com/MicrosoftDocs/architecture-center/commit/85599ed745))
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#24b1156b1c](https://github.com/MicrosoftDocs/architecture-center/commit/24b1156b1c))
+- [Cost management for Kubernetes](./aws-professional/eks-to-aks/cost-management.yml)  ([#0296b7c2d5](https://github.com/MicrosoftDocs/architecture-center/commit/0296b7c2d5))
+- [Storage options for a Kubernetes cluster](./aws-professional/eks-to-aks/storage.md)  ([#add9c4d6dc](https://github.com/MicrosoftDocs/architecture-center/commit/add9c4d6dc))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#e7375957b9](https://github.com/MicrosoftDocs/architecture-center/commit/e7375957b9))
+- [Performance and scale guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.yml)  ([#6113dcf9a0](https://github.com/MicrosoftDocs/architecture-center/commit/6113dcf9a0))
+- [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md)  ([#6113dcf9a0](https://github.com/MicrosoftDocs/architecture-center/commit/6113dcf9a0))
+- [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI](./example-scenario/hybrid/aks-baseline.yml)  ([#269a89f7a8](https://github.com/MicrosoftDocs/architecture-center/commit/269a89f7a8))
+- [Multiparty computing architecture design](./guide/blockchain/multiparty-compute.yml)  ([#35d48de602](https://github.com/MicrosoftDocs/architecture-center/commit/35d48de602))
+- [Analyze observational patient data by using OHDSI with the OMOP CDM](./example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml)  ([#a22c7975e2](https://github.com/MicrosoftDocs/architecture-center/commit/a22c7975e2))
 
 ## June 2024
 
@@ -82,7 +116,6 @@ The following new and updated articles have recently been published in the Azure
 - [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./databases/guide/teradata-vantage-data-factory.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Azure Synapse Analytics for landing zones](./example-scenario/analytics/synapse-analytics-landing-zone.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
-- [Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](./example-scenario/analytics/synapse-customer-insights.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Refactor mainframe architecture by using CloudFrame Renovate](./example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
@@ -210,7 +243,7 @@ The following new and updated articles have recently been published in the Azure
 - [Implement custom speech to text solutions that use AI](./ai-ml/guide/custom-speech-text.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Deploy a custom speech to text solution that uses AI](./ai-ml/guide/custom-speech-text-deploy.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Microsoft machine learning products](./ai-ml/guide/data-science-and-machine-learning.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
-- [Machine learning operations (MLOps) v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Machine learning operations v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [MLOps for Python with Azure Machine Learning](./ai-ml/guide/mlops-python.yml)  ([#171d0a834e](https://github.com/MicrosoftDocs/architecture-center/commit/171d0a834e))
 - [Pipes and Filters pattern](./patterns/pipes-and-filters.yml)  ([#b872e39b9a](https://github.com/MicrosoftDocs/architecture-center/commit/b872e39b9a))
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#4d8d14cfb0](https://github.com/MicrosoftDocs/architecture-center/commit/4d8d14cfb0))
