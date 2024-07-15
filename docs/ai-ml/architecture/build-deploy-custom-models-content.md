@@ -104,13 +104,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-- See the availability service-level agreements (SLAs) for each component Azure service:
-
-  - Document Intelligence - [SLA for Azure AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0).
-  - Azure AI Language - [SLA for Azure AI services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
-  - Azure Functions - [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
-  - Azure Kubernetes Service (AKS) - [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1).
-  - Azure Storage - [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
+- See the service-level agreements for each architecture component at [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 - For configuration options to design high-availability applications with Azure Storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
 
