@@ -27,25 +27,37 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
 Read Approach in Fabric Result (add a link to scenario 3A)
  ![Alt text](media/small-medium-data-warehouse/adb-fabric-architecture.png)
 
-### 2 -  Steps to Write approach in Fabric
+### 2 -  Transitioning write compute from Azure Databricks to Microsoft Fabric
 
-- Evaluate Batch Approach
-  - Leverage Microsoft Spark Utilities
-  - Identify any ADB specificities
-  - Evaluate the Spark Pool size
-- Evaluate Streaming approach
-  - Leverage Real Time Analytics for streaming
-  - Spark job could be also an option?
-- Evalute Monitoring in Fabric? 
-- Evaluate Data Governance
-  - Leverage Purview in Fabric
-- Evaluate Security
-  - Leverage One Lake Security
-- Build Delta Tables in One Lake using Fabric Notebook
-  - Read Delta Tables created by ADB and save them in a OneLake location 
-- Fabric Notebook (read/write) to point to OneLake
-- Notebook to migrate Data to one OneLake (We don't have 2 different Spark engine to write to the same delta tables)
-Write Approach in Fabric Result (Add a link to scenario 5)
+Migrating your data analytics platform from Azure Databricks to Microsoft Fabric involves several key considerations and steps. 
+The following guide outlines the main steps, but please note that this list is not exhaustive.
+
+#### Step 1: Evaluate Notebook Migration
+- Microsoft Spark Utilities vs. Databricks Utilities (DBUtils):
+  - Check if [Microsoft Spark Utilities](https://learn.microsoft.com/en-us/fabric/data-engineering/microsoft-spark-utilities) can fulfill your specific requirements.
+  - Identify any Azure Databricks-specific features or dependencies outside of DBUtils that you are currently using.
+
+#### Step 2: Evaluate Real-Time Scenario Migration
+- Real-Time Analytics:
+ - Determine if Real-Time Analytics in Fabric suits your scenario, especially if you prefer a low-code approach.
+- Spark Streaming Jobs:
+  - Assess if Fabric's Spark Streaming Jobs meet the needs of more advanced real-time data processing scenarios.
+#### Step 3: Evaluate Governance, Monitoring, and Security in Fabric
+ - Ensure your requirements for governance, monitoring, and security are covered by Microsoft Fabric.
+   You can refer to [the governance and compliance overview provided by Microsoft](https://learn.microsoft.com/en-us/fabric/governance/governance-compliance-overview)
+#### Step 4: Confirm the Migration Feasibility
+- After evaluating the above aspects, confirm that you can migrate the compute part of your workload to Fabric.
+- It's important to re-write your data using Fabric Spark compute to avoid limitations related to having two separate Spark computes writing to Delta Tables. 
+For more details, refer to [the OneLake Unity Catalog considerations](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog#other-considerations).
+#### Step 5: Data Migration
+Migrate your data to a new OneLake location. 
+Given the scenario involves a volume of 600 GB maximum, performance issues during migration are unlikely.
+#### Step 6: Update Your Notebooks
+- Replace your Azure Databricks Notebooks with Fabric Notebooks.
+- Point the Fabric Notebooks to the new OneLake location for both reading and writing data.
+
+By following these steps, you can  transition from Azure Databricks to Microsoft Fabric, ensuring that your data analytics platform remains efficient and effective.
+Your architecture could look like this:
  ![Alt text](media/small-medium-data-warehouse/fab-architecture-lakehouse.png)
 
 ### Components
@@ -63,15 +75,16 @@ Write Approach in Fabric Result (Add a link to scenario 5)
 ## Scenario details
 ### Potential use cases
 ## Considerations
-- ADB notebook migration
+- Link to Scenarios 3a and 5
 ### Availability
+- Link to Scenarios 3a and 5
 ### Operations
+- Link to Scenarios 3a and 5
 ### Cost optimization
-- Link to cost optimization in Fabric
-- Spark pool size ==> Move to small one
+- Link to Scenarios 3a and 5
 ## Contributors
 ## Next steps
-
+- [Integrate Unity Catalog with One Lake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog#other-considerations)
 
 ## Related resources
 - [Spark Streaming in Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/get-started-streaming)
