@@ -18,5 +18,4 @@ name: CDN guidance
 summary: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/caching-thumbnail.png
 content: |
-  [!include[](cdn-content.md)]
-
+  [!INCLUDE[](cdn-content.md)]
