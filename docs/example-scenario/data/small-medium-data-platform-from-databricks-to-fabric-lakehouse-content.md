@@ -25,7 +25,7 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
 Read Approach in Fabric Result
  ![Alt text](media/small-medium-data-warehouse/adb-fabric-architecture.png)
 
-### Stepts to Write approach in Fabric
+### Steps to Write approach in Fabric
 
 - Evaluate Batch Approach
   - Leverage Microsoft Spark Utilities
