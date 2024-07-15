@@ -66,6 +66,8 @@ Write Approach in Fabric Result (Add a link to scenario 5)
 ### Availability
 ### Operations
 ### Cost optimization
+- Link to cost optimization in Fabric
+- Spark pool size ==> Move to small one
 ## Contributors
 ## Next steps
 
