@@ -55,9 +55,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
 
-An outcome of your proof of concept should be SKU selection that you estimate is suitable for your workload. Your workload should be designed to efficiently meet demand through horizontal scaling by adding adjusting the number of compute instances deployed in the App Service Plan. Do not design the system to depend on changing the compute SKU to align with demand.
+An outcome of your proof of concept should be SKU selection that you estimate is suitable for your workload. Your workload should be designed to efficiently meet demand through horizontal scaling by adjusting the number of compute instances deployed in the App Service Plan. Do not design the system to depend on changing the compute SKU to align with demand.
 
-- The App Service in this basic architecture doesn't have automatic scaling implemented. The service doesn't dynamically scale our or in to efficiently keep aligned with demand.
+- The App Service in this basic architecture doesn't have automatic scaling implemented. The service doesn't dynamically scale out or in to efficiently keep aligned with demand.
   - The Standard tier does support [auto scale settings](/azure/azure-monitor/autoscale/autoscale-get-started) to allow you to configure rule-based autoscaling. Part of your POC process should be to arrive at efficient autoscaling settings based on your application code's resource needs and expected usage characteristics.
   - For production deployments, consider Premium tiers that support [automatic autoscaling](/azure/app-service/manage-automatic-scaling) where the platform automatically handles scaling decisions.
 - Follow the [guidance to scale up individual databases with no application downtime](/azure/sql-database/sql-database-single-database-scale) if you need a higher service tier or performance level for SQL Database.
@@ -84,9 +84,9 @@ The following are configuration recommendations and considerations:
 
 During the proof of concept phase, it's important to get an understanding of what logs and metrics are available to be captured. The following are recommendations and considerations for monitoring in the proof of concept phase:
 
-- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log) for all items log sources. Configuring the use of all diagnostic settings helps you understand what logs and metrics are provided for you out of the box and any gaps you'll need to close using a logging framework in your application code. When you move to production, you should eliminate log sources that are not adding value and adding noise and cost to your workload's log sink.
+- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log) for all items log sources. Configuring the use of all diagnostic settings helps you understand what logs and metrics are provided for you out of the box and any gaps you'll need to close using a logging framework in your application code. When you move to production, you should eliminate log sources that are not adding value and are adding noise and cost to your workload's log sink.
 - Configure logging to use Azure Log Analytics. Azure Log Analytics provides you with a scalable platform to centralize logging that is easy to query.
-- Use [Application Insights](/azure/application-insights/app-insights-overview) or another Application Performance Management (APM) tool to emit telemetry & logs to monitor application performance.
+- Use [Application Insights](/azure/application-insights/app-insights-overview) or another Application Performance Management (APM) tool to emit telemetry and logs to monitor application performance.
 
 #### Deployment
 
@@ -97,6 +97,16 @@ The following lists guidance around deploying your App Service application.
 - Use different ARM Templates and integrate them with Azure DevOps services. This setup lets you create different environments. For example, you can replicate production-like scenarios or load testing environments only when needed and save on cost.
 
 For more information, see the DevOps section in [Azure Well-Architected Framework](/azure/architecture/framework/devops/overview).
+
+#### Containers
+
+The basic architecture can be used to deploy supported code directly to Windows or Linux instances. Alternatively, App Service is also a container hosting platform to run your containerized web application. App Service offers various built-in containers. If you are using custom or multi-container apps to further fine-tune your runtime environment or to support a code language not natively supported, you'll need to introduce a container registry.
+
+#### Control plane
+
+During the POC phase, get comfortable with Azure App Service's control plane as exposed through the Kudu service. This service exposes common deployment APIs, such as ZIP deployments, exposes raw logs and environment variables.
+
+If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
 
 ### Security
 
@@ -113,7 +123,7 @@ Because this architecture isn’t designed for production deployments, the follo
 
 - This basic architecture doesn't include a deployment of the [Azure Web Application Firewall](/azure/web-application-firewall/overview). The web application isn't protected against common exploits and vulnerabilities. See the [baseline implementation](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#ingress-to-app-services) to see how the Web Application Firewall can be implemented with Azure Application Gateway in an Azure App Services architecture.
 
-- The `basic` architecture stores secrets such as the Azure SQL Server connection string in App Settings. While app settings are encrypted, when moving to production, consider storing secrets in Azure Key Vault for increased governance.
+- This basic architecture stores secrets such as the Azure SQL Server connection string in App Settings. While app settings are encrypted, when moving to production, consider storing secrets in Azure Key Vault for increased governance. An even better solution is to use managed identity for authentication and not have secrets stored in the connection string.
 
 - Leaving remote debugging and Kudu endpoints enabled while in development or the proof of concept phase is fine. When you move to production, you should disable unnecessary control plane, deployment, or remote access.
 
@@ -141,7 +151,7 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 ## Related resources
 
 - [Ten design principles for Azure applications](../../../guide/design-principles/index.md)
-- [Baseline zone-redundant web application](multi-region.yml)
+- [Baseline zone-redundant web application](baseline-zone-redundant.yml)
 - [Highly available multi-region web application](multi-region.yml)
 
 Tips for troubleshooting your application:
