@@ -17,4 +17,4 @@ name: Monitoring and diagnostics guidance
 summary: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
 thumbnailUrl: /azure/architecture/browse/thumbs/pull-model.png
 content: |
-  [!include[](monitoring-content.md)]
+  [!INCLUDE[](monitoring-content.md)]
