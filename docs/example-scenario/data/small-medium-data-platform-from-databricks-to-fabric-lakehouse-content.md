@@ -10,7 +10,7 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
    - Reduce the number of services used
    - Graph API call on top of Lakehouse
    - etc
- - Current Customer Architecture
+ - Current Customer Architecture (find a simplest diagram)
  ![Alt text](media/small-medium-data-warehouse/adb-ref-arch-overview-azure.png)
 
 ### Steps to migrate to Read approach in Fabric
