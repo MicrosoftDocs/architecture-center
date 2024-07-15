@@ -13,7 +13,7 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
  - Current Customer Architecture (find a simplest diagram)
  ![Alt text](media/small-medium-data-warehouse/adb-ref-arch-overview-azure.png)
 
-### Steps to migrate to Read approach in Fabric
+### 1 - Steps to migrate to Read approach in Fabric
 
 - Introduction on the approach
  - Keep ADB for the compute (write)
@@ -25,7 +25,7 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
 Read Approach in Fabric Result
  ![Alt text](media/small-medium-data-warehouse/adb-fabric-architecture.png)
 
-### Steps to Write approach in Fabric
+### 2 -  Steps to Write approach in Fabric
 
 - Evaluate Batch Approach
   - Leverage Microsoft Spark Utilities
