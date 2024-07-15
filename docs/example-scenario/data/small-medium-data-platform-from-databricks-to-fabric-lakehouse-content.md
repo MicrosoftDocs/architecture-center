@@ -36,6 +36,7 @@ Read Approach in Fabric Result (add a link to scenario 3A)
 - Evaluate Streaming approach
   - Leverage Real Time Analytics for streaming
   - Spark job could be also an option?
+- Evalute Monitoring in Fabric? 
 - Evaluate Data Governance
   - Leverage Purview in Fabric
 - Evaluate Security
