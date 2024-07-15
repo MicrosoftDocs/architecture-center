@@ -145,7 +145,7 @@ The major costs for this solution are:
   Logic Apps pricing plans depend on the resources you create and use. The following articles can help you choose the right plan for specific use cases:
 
   - [Costs that typically accrue with Azure Logic Apps](/azure/logic-apps/plan-manage-costs#costs-that-typically-accrue-with-azure-logic-apps)
-  - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](/azure/logic-apps/single-tenant-overview-compare)
+  - [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](/azure/logic-apps/single-tenant-overview-compare)
   - [Usage metering, billing, and pricing models for Azure Logic Apps](/azure/logic-apps/logic-apps-pricing)
 
 For more information on pricing for specific components, see the following resources:
