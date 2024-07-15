@@ -1,5 +1,5 @@
 
-This article describes an architecture for processing Azure Files that contain multiple documents of various types. It uses the Durable Functions extension of Azure Functions to implement the pipelines that process the Azure Files.
+This article describes an architecture for processing documents of various types. It uses the Durable Functions extension of Azure Functions to implement the pipelines that process the documents.
 
 ## Architecture
 
@@ -42,11 +42,11 @@ This article describes an architecture for processing Azure Files that contain m
 
 ### Scenario details
 
-This article describes an architecture that uses Durable Functions to implement automated pipelines for processing Azure Files that contain multiple documents of various types. The pipelines identify the documents in a document file, classify them by type, and store information that can be used in subsequent processing.
+The pipelines identify the documents in a document file, classify them by type, and store information that can be used in subsequent processing.
 
-Many companies need to manage and process documents that have been scanned in bulk and that can contain several different document types. Typically, the Azure Files are PDFs or multi-page TIFF images. These Azure Files usually originate from outside the organization, and the receiving company doesn't control the content.
+Many companies need to manage and process documents that have been scanned in bulk and that can contain several different document types. Typically, the documents are PDFs or multi-page TIFF images. These documents might originate from outside the organization, and the receiving company doesn't control the format.
 
-Given these constraints, organizations have been forced to build their own document parsing solutions that can include custom technology and manual processes. A solution can include human intervention for splitting out individual document types into their own Azure Files and adding classifications qualifiers for each document.
+Given these constraints, organizations have been forced to build their own document parsing solutions that can include custom technology and manual processes. A solution can include human intervention for splitting out individual document types and adding classifications qualifiers for each document.
 
 Many of these custom solutions are based on the state machine workflow pattern and use database systems for persisting workflow state, with polling services that check for the states that they're responsible for processing. Maintaining and enhancing such solutions can be difficult and time consuming.
 
@@ -84,7 +84,7 @@ For reliability information about solution components, see the following resourc
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The most significant costs for this architecture will potentially come from the storage of image Azure Files in the storage account, Azure AI services image processing, and index capacity requirements in the Azure AI Search service.
+The most significant costs for this architecture will potentially come from the storage of images in the storage account, Azure AI services image processing, and index capacity requirements in the Azure AI Search service.
 
 Costs can be optimized by [right sizing](/azure/architecture/framework/services/storage/storage-accounts/cost-optimization) the storage account by using reserved capacity and lifecycle policies, proper [Azure AI Search planning](/azure/search/search-sku-manage-costs) for regional deployments and operational scale up scheduling, and using [commitment tier pricing](/azure/cognitive-services/commitment-tier) that's available for the Computer Vision – OCR service to manage [predictable costs](/azure/cognitive-services/plan-manage-costs).
 
