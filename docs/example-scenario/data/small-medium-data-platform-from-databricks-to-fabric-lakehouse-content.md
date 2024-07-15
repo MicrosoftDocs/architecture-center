@@ -75,7 +75,7 @@ Write Approach in Fabric Result (Add a link to scenario 5)
 
 ## Related resources
 - [Spark Streaming in Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/get-started-streaming)
-- - [Synchronize one Lake with Unity Catalog](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog)
+- [Synchronize one Lake with Unity Catalog](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog)
 - [Spark compute size](https://learn.microsoft.com/en-us/fabric/data-engineering/capacity-settings-management)
 - [Microsoft Spark Utilities](https://learn.microsoft.com/en-us/fabric/data-engineering/microsoft-spark-utilities)
 - [Real Time in Fabric](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview)
