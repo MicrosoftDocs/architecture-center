@@ -61,13 +61,13 @@ Your architecture could look like this:
  ![Alt text](media/small-medium-data-warehouse/fab-architecture-lakehouse.png)
 
 ### Components
-- Fabric Data Factory
-- Fabric Data Engineering
-- MSSpark Utils
-- One Lake Shortcuts
-- Real Time Analytics
-- Direct Lake
-- Purview in Fabric
+- [Fabric Data Factory](https://learn.microsoft.com/en-us/fabric/data-factory/)
+- [Fabric Data Engineering](https://learn.microsoft.com/en-us/fabric/data-engineering/)
+- [One Lake Shortcuts](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts)
+- [Real Time Analytics](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview)
+- [Purview in Fabric](https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric)
+- [Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/introduction/)
+- [Unity Catalog](https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/)
   
 ### Alternatives
 - Keep ADF
