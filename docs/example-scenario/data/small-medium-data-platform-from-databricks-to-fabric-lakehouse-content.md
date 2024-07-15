@@ -8,6 +8,7 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
  - Potential reason to incorporate Fabric (keep only the relevant ones for SMB-SMC)
    - Direct Lake Usage
    - Reduce the number of services used
+   - SaaS Plaform
    - Graph API call on top of Lakehouse
    - Data Sharing between tenants (https://learn.microsoft.com/en-us/fabric/governance/external-data-sharing-overview)
    - etc
