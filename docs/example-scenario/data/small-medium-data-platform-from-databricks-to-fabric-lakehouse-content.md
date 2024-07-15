@@ -16,7 +16,7 @@ Modern data platform for small and medium business from Azure Databricks to Fabr
 ### Steps to migrate to Read approach in Fabric
 
 - Introduction on the approach
- - Keep ADB for the compute
+ - Keep ADB for the compute (write)
  - Potential Fabric Notebook for reading scenario
 - Focus on One Lake Shortcuts
 - Diagram on how to make current lakehouse built on ADB available in Fabric
