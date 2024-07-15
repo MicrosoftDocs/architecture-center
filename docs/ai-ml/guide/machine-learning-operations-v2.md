@@ -282,73 +282,85 @@ To support appropriate segmentation in a machine learning workload, consider the
 
 Data scientists and machine learning engineers perform various machine learning and data science activities across the software development life cycle of a project. Their duties include exploratory data analysis and data preprocessing. Data scientists and machine learning engineers are responsible for training, evaluating, and deploying models. These roles' responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform's technical support team.
 
-**Type:** Person **Project specific:** Yes
+**Type:** Person<br>
+**Project specific:** Yes
 
 ##### Data analyst
 
 Data analysts provide the necessary input for data science activities, such as running SQL queries for business intelligence. This role's responsibilities include working with data, performing data analysis, and supporting model development and model deployment.
 
-**Type:** Person **Project specific:** Yes
+**Type:** Person<br>
+**Project specific:** Yes
 
 ##### Model tester
 
 Model testers conduct tests in testing and staging environments. This role provides functional segregation from the CI/CD processes.
 
-**Type:** Person **Project specific:** Yes
+**Type:** Person<br>
+**Project specific:** Yes
 
 ##### Business stakeholders
 
 Business stakeholders are associated with the project, such as a marketing manager.
 
-**Type:** Person **Project specific:** Yes
+**Type:** Person<br>
+**Project specific:** Yes
 
 ##### Project lead or data science lead
 
 The data science lead is a project administration role for the Machine Learning workspace. This role also does break-fix activities for the machine learning models and packages.
 
-**Type:** Person **Project specific:** Yes
+**Type:** Person<br>
+**Project specific:** Yes
 
 ##### Project or product owner (Business owner)
 
 Business stakeholders are responsible for the Machine Learning workspace according to data ownership.
 
-**Type:** Person **Project specific:** Yes
+**Type:** Person<br>
+**Project specific:** Yes
 
 ##### Platform technical support
 
 Platform technical support is the technical support staff responsible for break-fix activities across the platform. This role covers infrastructure or service but not the machine learning models, packages, or data. These components remain under the data scientist or machine learning engineer role and are the project lead's responsibility.
 
-**Type:** Person **Project specific:** No
+**Type:** Person<br>
+**Project specific:** No
 
 ##### Model end user
 
 Model end users are the end consumers of the machine learning model.
 
-**Type:** Person or Process **Project specific:** Yes
+**Type:** Person or Process<br>
+**Project specific:** Yes
 
 ##### CI/CD processes
 
 CI/CD processes release or roll back changes across platform environments.
 
-**Type:** Process **Project specific:** No
+**Type:** Process<br>
+**Project specific:** No
 
 ##### Machine Learning workspace
 
  Machine Learning workspaces use [managed identities](/azure/machine-learning/how-to-setup-authentication) to interact with other parts of Azure. This persona represents the various services that make up a Machine Learning implementation. These services interact with other parts of the platform, such as the development workspace that connects with the development data store.
 
-**Type:** Process **Project specific:** No
+**Type:** Process<br>
+**Project specific:** No
 
 ##### Monitoring processes
 
 Monitoring processes are compute processes that monitor and alert based on platform activities.
 
-**Type:** Process **Project specific:** No
+**Type:** Process<br>
+**Project specific:** No
 
 ##### Data governance processes
 
 Data governance processes scan the machine learning project and data stores for data governance.
 
-**Type:** Process **Project specific:** No
+**Type:** Process<br>
+**Project specific:** No
 
 ### Microsoft Entra group membership
 
@@ -469,19 +481,22 @@ Monitor model performance to detect model problems and performance degradation e
 
 [Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes are a result of changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance, so it's important to monitor for drift to ensure timely remediation. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
 
-**Environment:** Production **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
+**Environment:** Production<br>
+**Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Prediction drift
 
 Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation, test-labeled, or recent production data. To perform a comparison, data drift refactoring requires recent production datasets and outputs.
 
-**Environment:** Production **Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
+**Environment:** Production<br>
+**Azure facilitation:** Machine Learning – [Model monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Resource
 
 Use several model serving endpoint metrics to indicate quality and performance, such as CPU or memory usage. This approach helps you learn from production to help drive future investments or changes.
 
-**Environment:** All **Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
+**Environment:** All<br>
+**Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
 
 #### Usage metrics
 
@@ -491,7 +506,8 @@ Monitor the usage of endpoints to ensure that you meet organization-specific or 
 
 Track the number of client requests to the model endpoint to understand the active usage profile of the endpoints, which can affect scaling or cost optimization efforts.
 
-**Environment:** Production **Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), such as RequestsPerMinute.
+**Environment:** Production<br>
+**Azure facilitation:** Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), such as RequestsPerMinute.
 **Notes:**
 
 - You can align acceptable thresholds to t-shirt sizing or anomalies that are tailored to your workload's needs.
@@ -501,7 +517,8 @@ Track the number of client requests to the model endpoint to understand the acti
 
 [Throttling delays](/azure/azure-resource-manager/management/request-limits-and-throttling) are slowdowns in the request and response of data transfers. Throttling happens at the Resource Manager level and the service level. Track metrics at both levels.
 
-**Environment:** Production **Azure facilitation:**
+**Environment:** Production<br>
+**Azure facilitation:**
 
 - Monitor - [Resource Manager](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs.
 - Machine Learning - To check information about your endpoints' requests, you can enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview). You can use a Log Analytics workspace to process logs.
@@ -512,7 +529,8 @@ Track the number of client requests to the model endpoint to understand the acti
 
 Track response code errors to help measure service reliability and ensure early detection of service problems. For example, a sudden increase in 500 server error responses could indicate a critical problem that needs immediate attention.
 
-**Environment:** Production **Azure facilitation:** Machine Learning - Enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) to check information about your request. For example, you can check the count of XRequestId by using ModelStatusCode or ModelStatusReason. You can use a Log Analytics workspace to process logs.
+**Environment:** Production<br>
+**Azure facilitation:** Machine Learning - Enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) to check information about your request. For example, you can check the count of XRequestId by using ModelStatusCode or ModelStatusReason. You can use a Log Analytics workspace to process logs.<br>
 **Notes:**
 
 - All HTTP responses codes in the 400 and 500 range are classified as an error.
@@ -525,7 +543,9 @@ Cost management and optimization in a cloud environment are crucial because they
 
 When monthly operating expenses reach or exceed a predefined amount, generate alerts to notify relevant stakeholders, such as project leads or project owners, based on the workspace setup boundaries. You can determine your [workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) based on project, team, or department-related boundaries.
 
-**Environment:** All **Azure facilitation:** Microsoft Cost Management - [Budget alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts) **Notes:**
+**Environment:** All<br>
+**Azure facilitation:** Microsoft Cost Management - [Budget alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts)<br>
+**Notes:**
 
 - Set budget thresholds based on the initial NFRs and cost estimates.
 - Use multiple threshold tiers. Multiple threshold tiers ensure that stakeholders get appropriate warning before the budget is exceeded. These stakeholders might include business leads, project owners, or project Leads depending on the organization or workload.
@@ -535,7 +555,8 @@ When monthly operating expenses reach or exceed a predefined amount, generate al
 
 If a Machine Learning workspace shows no signs of active use based on the associated compute usage for the intended use case, a project owner might decommission the workspace if it's no longer needed for a given project.
 
-**Environment:** Preproduction **Azure facilitation:**
+**Environment:** Preproduction<br>
+**Azure facilitation:**
 
 - Monitor - [Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
 - Machine Learning - [Workspace metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-metrics), such as the count of active cores over a period of time
@@ -549,13 +570,15 @@ If a Machine Learning workspace shows no signs of active use based on the associ
 
 Monitor to detect deviations from appropriate security controls and baselines to ensure that Machine Learning workspaces are compliant with your organization's security policies. You can use a combination of predefined and custom-defined policies.
 
-**Environment:** All **Azure facilitation:** [Azure Policy for Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning)
+**Environment:** All<br>
+**Azure facilitation:** [Azure Policy for Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning)
 
 ##### Endpoint security
 
 To gain visibility into business-critical APIs, implement targeted security monitoring of all Machine Learning endpoints. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
-**Environment:** Production **Azure facilitation:** [Microsoft Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) offers broad lifecycle protection, detection, and response coverage for APIs.
+**Environment:** Production<br>
+**Azure facilitation:** [Microsoft Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) offers broad lifecycle protection, detection, and response coverage for APIs.
 **Notes:** Defender for APIs provides security for APIs that are published in Azure API Management. You can onboard Defender for APIs in the Microsoft Defender for Cloud portal or within the API Management instance in the Azure portal. You must integrate Machine Learning online endpoints with API Management.
 
 #### Deployment monitoring
@@ -566,7 +589,8 @@ Deployment monitoring ensures that any endpoints you create adhere to your workl
 
 Monitor to detect deviations from appropriate standards and ensure that your workload adheres to guardrails.
 
-**Environment:** All **Azure facilitation:**
+**Environment:** All<br>
+**Azure facilitation:**
 
 - Managed policy assignment and lifecycle through [Azure Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines) to treat policy as code.
 - [PSRule for Azure](https://azure.github.io/enterprise-azure-policy-as-code/) provides a testing framework for Azure infrastructure as code.
@@ -578,13 +602,16 @@ Monitor to detect deviations from appropriate standards and ensure that your wor
 
 Implement automated security scans as part of the automated integration and deployment processes.
 
-**Environment:** All **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) **Notes:** You can use apps in [Azure Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
+**Environment:** All<br>
+**Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br>
+**Notes:** You can use apps in [Azure Marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) to extend this process for non-Microsoft security testing modules.
 
 ##### Ongoing service
 
 Monitor the ongoing service of an API for performance optimization, security, and resource usage. Ensure timely error detection, efficient troubleshooting, and compliance with standards.
 
-**Environment:** Production **Azure facilitation:**
+**Environment:** Production<br>
+**Azure facilitation:**
 
 - Monitor - [Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
 - Machine Learning - You can enable [online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) to check information about your service.
