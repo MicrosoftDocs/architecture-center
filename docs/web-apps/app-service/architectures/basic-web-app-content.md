@@ -18,6 +18,7 @@ This article provides a basic architecture intended for learning about running w
 ### Workflow
 
 1. A user issues an HTTPS request to the App Service's default domain on azurewebsites.net. This domain automatically points to your App Service's built-in public IP. The TLS connection is established from the client directly to app service. The certificate is managed completely by Azure.
+1. Easy Auth, a feature of Azure App Service, ensures that the user accessing the site is authenticated with Microsoft Entra ID.
 1. Your application code deployed to App Service handles the request. For example, that code might connect to an Azure SQL Database instance, using a connection string configured in the App Service configured as an app setting.
 1. The information about original request to App Service and the call to Azure SQL Database are logged in Application Insights.
 
