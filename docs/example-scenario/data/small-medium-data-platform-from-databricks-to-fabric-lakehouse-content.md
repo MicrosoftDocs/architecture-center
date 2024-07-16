@@ -1,8 +1,6 @@
 ## Introduction
-Your enterprise might be considering reducing the number of services you use or leveraging specific functionalities of Microsoft Fabric. 
-
 This article outlines the possible steps to migrate your Lakehouse platform from Azure Databricks to Microsoft Fabric, or to use both services in tandem. 
-It targets small businesses (SMBs) with about 600 GB of data. 
+
 The migration can be split into two parts:
  - Azure Databricks (Writing) + Fabric (Reading)
  - Fabric Platform (Reading and Writing)
@@ -33,9 +31,9 @@ Migrating your data analytics platform from Azure Databricks to Microsoft Fabric
 The following guide outlines the main steps, but please note that this list is not exhaustive.
 
 #### Step 1: Evaluate Notebook Migration
-- Microsoft Spark Utilities vs. Databricks Utilities (DBUtils):
+- Microsoft Spark Utilities vs. Databricks Utilities (dbutils):
   - Check if [Microsoft Spark Utilities](https://learn.microsoft.com/en-us/fabric/data-engineering/microsoft-spark-utilities) can fulfill your specific requirements.
-  - Identify any Azure Databricks-specific features or dependencies outside of DBUtils that you are currently using.
+  - Identify any Azure Databricks-specific features or dependencies outside of [dbutils](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/databricks-utils) that you are currently using.
 
 #### Step 2: Evaluate Real-Time Scenario Migration
 - Real-Time Analytics:
@@ -74,7 +72,10 @@ Your architecture could look like this after following the guidance:
 - Orchestration: You can choose to keep Azure Data Factory for orchestration instead of switching to Fabric’s orchestration capabilities.
 - Selective Migration: You may opt to migrate only specific layers of your Lakehouse to Fabric, based on your business needs and workload requirements.
 ## Scenario details
-### Potential use cases
+Your enterprise might be considering reducing the number of services you use, leveraging a SaaS platform or specific functionalities of Microsoft Fabric. 
+ 
+It targets small businesses (SMBs) with about 600 GB of data. 
+
 ## Considerations
 - Link to Scenarios 3a and 5 consideations
 ### Availability
@@ -87,6 +88,7 @@ Your architecture could look like this after following the guidance:
 ## Contributors
 ## Next steps
 - [Integrate Unity Catalog with One Lake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog#other-considerations)
+- [Notebooks in Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/author-execute-notebook)
 
 ## Related resources
 - [Spark Streaming in Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/get-started-streaming)
