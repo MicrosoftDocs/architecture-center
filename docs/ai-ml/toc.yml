@@ -12,6 +12,8 @@ items:
           href: idea/large-scale-custom-natural-language-processing.yml
       - name: Image processing
         items:
+        - name: Image classification
+          href: architecture/intelligent-apps-image-processing.yml            
         - name: Image classification with CNNs
           href: idea/image-classification-with-convolutional-neural-networks.yml
         - name: Retail assistant with visual capabilities
@@ -88,8 +90,6 @@ items:
         items:
         - name: Automate video analysis
           href: architecture/analyze-video-computer-vision-machine-learning.yml
-        - name: Image classification
-          href: architecture/intelligent-apps-image-processing.yml
       - name: Audio processing
         items:
         - name: Extract and analyze call center data
