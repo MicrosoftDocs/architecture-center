@@ -38,18 +38,41 @@ A scalable SAS Grid deployment that uses Azure NetApp Files is applicable to the
 
 For SAS 9.4 (SAS Grid or SAS Analytics Pro) deployments on Azure, Azure NetApp Files is a viable primary storage option for SAS Grid clusters of limited size. [SAS recommends 100 MiB/s throughput per physical core.](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680) Given that recommendation, SAS Grid clusters that use an Azure NetApp Files volume for SASDATA (persistent SAS data files) are scalable to 32 to 48 physical cores across two or more Azure virtual machines. SAS cluster sizes are based on the architectural constraint of a single SASDATA namespace per SAS cluster and the available single [Azure NetApp Files volume bandwidth](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). The core count guidance will be revisited as Azure infrastructure (compute, network, and per file system storage bandwidth) increases over time.
 
-### Azure NetApp Files volume performance expectations
+### Azure NetApp Files volume types
 
-A single Azure NetApp Files volume can handle up to 4,500 MiB/s of reads and 1,500 MiB/s of writes. Given an Azure instance type with sufficient egress bandwidth, a single virtual machine can consume all the write bandwidth of a single Azure NetApp Files volume. However, only the largest single virtual machine can consume all the read bandwidth of a single volume.
+Azure NetApp Files offers two different types of volumes for network-attached storage (NAS) workloads.
 
-SASDATA, the main shared workload of SAS 9.4, has an 80:20 read/write ratio. The important *per volume* numbers for an 80:20 workload with 64KiB read/write are: 
+Regular volumes provide up to 4,500 MiB/s of reads and 1,500 MiB/s of writes, 460,000 input/output operations per second (IOPS), and up to 100 TiB of total capacity, while offering a minimum size of 100 GiB.
 
-- 2,400 MiB/s of read throughput and 600 MiB/s of write throughput running concurrently (~3,000 MiB/s combined).
+Large volumes, which reached general availability in May 2024, provide up to 10,000 GiB/s of throughput, up to 800,000 IOPS, and 1,000 TiB of total capacity. The minimum capacity available is 50 TiB. For more information, see [Requirements and considerations for large volumes](/azure/azure-netapp-files/large-volumes-requirements-considerations). 
+
+### Azure NetApp Files regular volume performance expectations
+
+A single Azure NetApp Files regular volume can handle up to approximately [4,500 MiB/s of reads and 1,500 MiB/s of writes](/azure/azure-netapp-files/azure-netapp-files-performance-considerations). Given an Azure instance type with sufficient egress bandwidth, a single virtual machine (VM) can consume all the write bandwidth of a single Azure NetApp Files regular volume. However, only the largest single VM available in Azure can consume all the read bandwidth of a single volume. If you desire more bandwidth for the workload, consider using an Azure NetApp Files large volume.
+
+SASDATA, the main shared workload of SAS 9.4, has an 80:20 read/write ratio. The important per-volume numbers for an 80:20 workload with 64KiB of read/write are:
+
+- 2,400 MiB/s of read throughput and 600 MiB/s of write throughput that run concurrently. The combined throughput is around 3,000 MiB/s. 
 
 For more information, see [Azure NetApp Files performance benchmarks for Linux](/azure/azure-netapp-files/performance-benchmarks-linux).
 
+### Large volume performance for SAS Grid
+
+A single Azure NetApp Files large volume [can handle up to 10 GiB/s of total throughput](/azure/azure-netapp-files/performance-large-volumes-linux), which means that the performance potential for SAS Grid can be much greater when you deal with larger scales.
+
+The following table shows performance results for workloads that use SAS Grid on an Azure NetApp Files large volume with various example VM sizes. The example list contains instance counts, threads per instance, and `nconnect` values that use RHEL 8.4.
+
+| VM instance | Instance count | Threads per instance | `nconnect` | Per-thread read MiB/s | Per-thread write MiB/s | Total read MiB/s | Total write MiB/s |
+|-------------|----------------|----------------------|------------|-----------------------|------------------------|------------------|-------------------|
+| E32s_v5     | 1              | 16                   | 8          | 465                   | 113                    | 7,440             | 1,808              |
+| E32s_v5     | 2              | 16                   | 8          | 411                   | 113                    | 13,152            | 3,616              |
+| E32s_v5     | 3              | 16                   | 8          | 223                   | 113                    | 10,704            | 5,424              |
+| E32s_v5     | 6              | 16                   | 8          | 117                   | 107                    | 11,232            | 10,272             |
+| E104id_v5   | 1              | 52                   | 8          | 161                   | 47                     | 8,372             | 2,444              |
+| E104id_v5   | 1              | 52                   | 16         | 192                   | 50                     | 9,984             | 2,600              |
+
 > [!NOTE]
-> Azure NetApp Files large volumes feature is now available. This feature provides higher per-volume throughput than regular Azure NetApp Files volumes do. This capability can be considered in case more performance is required for your SASDATA (or SASWORK) volumes. See [this documentation](/azure/azure-netapp-files/large-volumes-requirements-considerations#requirements-and-considerations) for details.
+> If you require more performance for your SASDATA or SASWORK volumes, use Azure NetApp Files large volumes. For details, see [Requirements and considerations for large volumes](/azure/azure-netapp-files/large-volumes-requirements-considerations#requirements-and-considerations).
 
 ### Capacity recommendations
 
@@ -177,7 +200,7 @@ If your capacity requirements for SASWORK exceed the capacities available in tem
 
 :::image type="content" source="media/azure-netapp-files.svg" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.svg" border="false":::
 
-For higher SASWORK capacity and/or medium performance requirements, consider using Azure NetApp Files. Azure NetApp Files provides volume capacities as high as 100 TiB. Each node in the compute tier should have its own SASWORK volume. The volumes shouldn't be shared. 
+For higher SASWORK capacity or medium performance requirements, consider using Azure NetApp Files. Azure NetApp Files provides volume capacities as high as 100 TiB with a regular volume and 1 PiB with a large volume. Each node in the compute tier should have its own SASWORK volume. The volumes shouldn't be shared. 
 
 ### Dataflow
 
@@ -421,6 +444,7 @@ Other contributors:
 - [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/sizer)
 - [Azure NetApp Files documentation](/azure/azure-netapp-files)
 - [Training: Introduction to Azure NetApp Files](/training/modules/introduction-to-azure-netapp-files)
+- [Requirements and considerations for large volumes](/azure/azure-netapp-files/large-volumes-requirements-considerations)
 
 ## Related resources
 
