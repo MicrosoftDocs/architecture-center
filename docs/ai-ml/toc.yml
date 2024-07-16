@@ -13,7 +13,7 @@ items:
       - name: Image processing
         items:
         - name: Image classification
-          href: architecture/intelligent-apps-image-processing.yml            
+          href: idea/intelligent-apps-image-processing.yml            
         - name: Image classification with CNNs
           href: idea/image-classification-with-convolutional-neural-networks.yml
         - name: Retail assistant with visual capabilities

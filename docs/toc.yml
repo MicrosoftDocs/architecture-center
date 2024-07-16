@@ -4448,7 +4448,7 @@ items:
         - name: AI in games
           items:
           - name: Image classification
-            href: ai-ml/architecture/intelligent-apps-image-processing.yml
+            href: ai-ml/idea/intelligent-apps-image-processing.yml
           - name: Speech to text for gaming
             href: /gaming/azure/reference-architectures/cognitive-speech-to-text
             maintainContext: true
@@ -4573,7 +4573,7 @@ items:
         - name: HPC media rendering
           href: solution-ideas/articles/azure-batch-rendering.yml
         - name: Image classification on Azure
-          href: ai-ml/architecture/intelligent-apps-image-processing.yml
+          href: ai-ml/idea/intelligent-apps-image-processing.yml
         - name: Mixed reality solutions
           items:
           - name: Design review
