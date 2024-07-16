@@ -150,26 +150,16 @@ The guidance is backed by an [example implementation](https://github.com/Azure-S
 
 ## Related resources
 
-- [Ten design principles for Azure applications](../../../guide/design-principles/index.md)
 - [Baseline zone-redundant web application](baseline-zone-redundant.yml)
 - [Highly available multi-region web application](multi-region.yml)
 
-Tips for troubleshooting your application:
-
-- Use the [troubleshoot blade](https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers) in the Azure portal to find solutions to common problems.
-- Enable [log streaming](/azure/app-service-web/web-sites-enable-diagnostic-log#stream-logs) to see logging information in near-real-time.
-- The [Kudu dashboard](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about) has several tools for monitoring and debugging your application. For more information, see [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about) (blog post). You can reach the Kudu dashboard from the Azure portal. Open the blade for your app and select **Tools**, then select **Kudu**.
-- If you use Visual Studio, see the article [Troubleshoot a web app in Azure App Service using Visual Studio](/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio) for debugging and troubleshooting tips.
-
 Product documentation:
 
-- [About Azure Key Vault](/azure/key-vault/general/overview)
 - [App Service overview](/azure/app-service/overview)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Azure App Service plan overview](/azure/app-service/overview-hosting-plans)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
-- [What is Azure DNS?](/azure/dns/dns-overview)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 
 Microsoft Learn modules:
