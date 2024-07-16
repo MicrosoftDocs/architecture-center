@@ -8,7 +8,7 @@ This article provides a basic architecture intended for learning about running w
 
 ## Architecture
 
-:::image type="complex" source="../_images/basic-app-service-architecture.svg" lightbox="../_images/basic-app-service-architecture.png" alt-text="Diagram that shows a basic App Service architecture.":::
+:::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.png" alt-text="Diagram that shows a basic App Service architecture.":::
     The diagram shows an Azure App Service connecting directly to an Azure SQL Database. The diagram also shows Azure App Insights and Azure Monitor.
 :::image-end:::
 *Figure 1: Basic Azure App Service architecture*
@@ -18,9 +18,9 @@ This article provides a basic architecture intended for learning about running w
 ### Workflow
 
 1. A user issues an HTTPS request to the App Service's default domain on azurewebsites.net. This domain automatically points to your App Service's built-in public IP. The TLS connection is established from the client directly to app service. The certificate is managed completely by Azure.
-1. EasyAuth, a feature of Azure App Service, ensures that the user accessing the site is authenticated with Microsoft Entra ID.
 1. Your application code deployed to App Service handles the request. For example, that code might connect to an Azure SQL Database instance, using a connection string configured in the App Service configured as an app setting.
 1. The information about original request to App Service and the call to Azure SQL Database are logged in Application Insights.
+
 ### Components
 
 - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
