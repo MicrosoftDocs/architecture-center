@@ -49,18 +49,36 @@ See how to overcome these reliability concerns in the [reliability section in th
 
 If this workload will eventually require a multi-region active-active or active-passive architecture, see [Highly available multi-region web application](./multi-region.yml) for guidance on deploying your App Service-hosted workload across multiple regions.
 
-### Performance efficiency
+### Security
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
+Because this architecture isn’t designed for production deployments, the following outlines some of the critical security features that were omitted in this architecture, along with other reliability recommendations and considerations:
 
-An outcome of your proof of concept should be SKU selection that you estimate is suitable for your workload. Your workload should be designed to efficiently meet demand through horizontal scaling by adjusting the number of compute instances deployed in the App Service Plan. Do not design the system to depend on changing the compute SKU to align with demand.
+- This basic architecture doesn't implement network privacy. The data and management planes for the resources, such as the Azure App Service and Azure SQL Server, are reachable over the public internet. Omitting private networking significantly increases the attack surface of your architecture. To see how implementing private networking ensures the following security features, see the [networking section of the Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#networking):
 
-- The App Service in this basic architecture doesn't have automatic scaling implemented. The service doesn't dynamically scale out or in to efficiently keep aligned with demand.
-  - The Standard tier does support [auto scale settings](/azure/azure-monitor/autoscale/autoscale-get-started) to allow you to configure rule-based autoscaling. Part of your POC process should be to arrive at efficient autoscaling settings based on your application code's resource needs and expected usage characteristics.
-  - For production deployments, consider Premium tiers that support [automatic autoscaling](/azure/app-service/manage-automatic-scaling) where the platform automatically handles scaling decisions.
-- Follow the [guidance to scale up individual databases with no application downtime](/azure/sql-database/sql-database-single-database-scale) if you need a higher service tier or performance level for SQL Database.
+  - A single secure entry point for client traffic
+  - Network traffic is filtered both at the packet level and at the DDoS level.
+  - Data exfiltration is minimized by keeping traffic in Azure by using Private Link
+  - Network resources are logically grouped and isolated from each other through network segmentation.
+
+- This basic architecture doesn't include a deployment of the [Azure Web Application Firewall](/azure/web-application-firewall/overview). The web application isn't protected against common exploits and vulnerabilities. See the [baseline implementation](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#ingress-to-app-services) to see how the Web Application Firewall can be implemented with Azure Application Gateway in an Azure App Services architecture.
+
+- This basic architecture stores secrets such as the Azure SQL Server connection string in App Settings. While app settings are encrypted, when moving to production, consider storing secrets in Azure Key Vault for increased governance. An even better solution is to use managed identity for authentication and not have secrets stored in the connection string.
+
+- Leaving remote debugging and Kudu endpoints enabled while in development or the proof of concept phase is fine. When you move to production, you should disable unnecessary control plane, deployment, or remote access.
+
+- Leaving local authentication methods for FTP and SCM site deployments enabled is fine while in the development or proof of concept phase. When you move to production, you should disable local authentication to those endpoints.
+
+- You don't need to enable [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction) in the proof of concept phase. When moving to production, you should enable Defender for App Service to generate security recommendations you should implement to increase your security posture and to detect multiple threats to your App Service.
+
+- Azure App Service includes an SSL endpoint on a subdomain of `azurewebsites.net` at no extra cost. HTTP requests are redirected to the HTTPS endpoint by default. For production deployments, you'll typically use a custom domain associated with application gateway or API management in front of your App Service deployment.
+
+- Use the [integrated authentication mechanism for App Service ("EasyAuth")](/azure/app-service/overview-authentication-authorization). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
+
+- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. The basic architecture authenticates to SQL Server via password in a connection string. Consider using [managed identity to authenticate to Azure SQL Server](/azure/app-service/tutorial-connect-msi-sql-database).
+
+For some other security considerations, see [Secure an app in Azure App Service](/azure/app-service-web/web-sites-security).
 
 ### Operational excellence
 
@@ -108,36 +126,18 @@ During the POC phase, get comfortable with Azure App Service's control plane as 
 
 If using containers, be sure to understand Kudu's ability to Open an SSH session to a container to support advanced debugging capabilities.
 
-### Security
+### Performance efficiency
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Because this architecture isn’t designed for production deployments, the following outlines some of the critical security features that were omitted in this architecture, along with other reliability recommendations and considerations:
+Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
 
-- This basic architecture doesn't implement network privacy. The data and management planes for the resources, such as the Azure App Service and Azure SQL Server, are reachable over the public internet. Omitting private networking significantly increases the attack surface of your architecture. To see how implementing private networking ensures the following security features, see the [networking section of the Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#networking):
+An outcome of your proof of concept should be SKU selection that you estimate is suitable for your workload. Your workload should be designed to efficiently meet demand through horizontal scaling by adjusting the number of compute instances deployed in the App Service Plan. Do not design the system to depend on changing the compute SKU to align with demand.
 
-  - A single secure entry point for client traffic
-  - Network traffic is filtered both at the packet level and at the DDoS level.
-  - Data exfiltration is minimized by keeping traffic in Azure by using Private Link
-  - Network resources are logically grouped and isolated from each other through network segmentation.
-
-- This basic architecture doesn't include a deployment of the [Azure Web Application Firewall](/azure/web-application-firewall/overview). The web application isn't protected against common exploits and vulnerabilities. See the [baseline implementation](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#ingress-to-app-services) to see how the Web Application Firewall can be implemented with Azure Application Gateway in an Azure App Services architecture.
-
-- This basic architecture stores secrets such as the Azure SQL Server connection string in App Settings. While app settings are encrypted, when moving to production, consider storing secrets in Azure Key Vault for increased governance. An even better solution is to use managed identity for authentication and not have secrets stored in the connection string.
-
-- Leaving remote debugging and Kudu endpoints enabled while in development or the proof of concept phase is fine. When you move to production, you should disable unnecessary control plane, deployment, or remote access.
-
-- Leaving local authentication methods for FTP and SCM site deployments enabled is fine while in the development or proof of concept phase. When you move to production, you should disable local authentication to those endpoints.
-
-- You don't need to enable [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction) in the proof of concept phase. When moving to production, you should enable Defender for App Service to generate security recommendations you should implement to increase your security posture and to detect multiple threats to your App Service.
-
-- Azure App Service includes an SSL endpoint on a subdomain of `azurewebsites.net` at no extra cost. HTTP requests are redirected to the HTTPS endpoint by default. For production deployments, you'll typically use a custom domain associated with application gateway or API management in front of your App Service deployment.
-
-- Use the [integrated authentication mechanism for App Service ("EasyAuth")](/azure/app-service/overview-authentication-authorization). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
-
-- Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials. The basic architecture authenticates to SQL Server via password in a connection string. Consider using [managed identity to authenticate to Azure SQL Server](/azure/app-service/tutorial-connect-msi-sql-database).
-
-For some other security considerations, see [Secure an app in Azure App Service](/azure/app-service-web/web-sites-security).
+- The App Service in this basic architecture doesn't have automatic scaling implemented. The service doesn't dynamically scale out or in to efficiently keep aligned with demand.
+  - The Standard tier does support [auto scale settings](/azure/azure-monitor/autoscale/autoscale-get-started) to allow you to configure rule-based autoscaling. Part of your POC process should be to arrive at efficient autoscaling settings based on your application code's resource needs and expected usage characteristics.
+  - For production deployments, consider Premium tiers that support [automatic autoscaling](/azure/app-service/manage-automatic-scaling) where the platform automatically handles scaling decisions.
+- Follow the [guidance to scale up individual databases with no application downtime](/azure/sql-database/sql-database-single-database-scale) if you need a higher service tier or performance level for SQL Database.
 
 ## Deploy this scenario
 
