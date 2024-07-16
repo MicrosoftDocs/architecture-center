@@ -76,14 +76,14 @@ Your architecture could look like this after following the guidance:
 ## Scenario details
 ### Potential use cases
 ## Considerations
-- Link to Scenarios 3a and 5
+- Link to Scenarios 3a and 5 consideations
 ### Availability
-- Link to Scenarios 3a and 5
+- Link to Scenarios 3a and 5 availabitiy
 ### Operations
-- Link to Scenarios 3a and 5
+- Link to Scenarios 3a and 5 operations
 ### Cost optimization
 - Based on the size of your data and requirements, consider using a small starter pool for an efficient and cost-effective transition. For more information, refer to [the small starter pool configuration guide](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-starter-pools).
-- Link to Scenarios 3a and 5
+- Link to Scenarios 3a and 5 cost optimization
 ## Contributors
 ## Next steps
 - [Integrate Unity Catalog with One Lake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog#other-considerations)
