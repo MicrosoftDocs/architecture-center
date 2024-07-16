@@ -1,5 +1,6 @@
 ## Introduction
 Your enterprise might be considering reducing the number of services you use or leveraging specific functionalities of Microsoft Fabric. 
+
 This article outlines the possible steps to migrate your Lakehouse platform from Azure Databricks to Microsoft Fabric, or to use both services in tandem. 
 It targets small businesses (SMBs) with about 600 GB of data. 
 The migration can be split into two parts:
@@ -23,7 +24,7 @@ Orchestration can be migrated to Fabric Data Factory from Azure Data Factory for
 /*now you can leverage reading functionalities from Fabric, notebook for reading from gold layer, EDA, as a data analust/scientist I can leverage notebook for reading or SQL endpoint from the lakehouse*/
 [Direct lake to PBI scenario? – mention that once they are in Fabric they can do this and not copy over data. Add link to a guide]
 
-Read Approach in Fabric Result (add a link to scenario 3A)
+Your architecture could look like this after adding Fabric:
  ![Alt text](media/small-medium-data-warehouse/adb-fabric-architecture.png)
 
 ### 2 -  Transitioning write compute from Azure Databricks to Microsoft Fabric
@@ -55,8 +56,9 @@ Given the scenario involves a volume of 600 GB maximum, performance issues durin
 - Replace your Azure Databricks Notebooks with Fabric Notebooks.
 - Point the Fabric Notebooks to the new OneLake location for both reading and writing data.
 
-By following these steps, you can  transition from Azure Databricks to Microsoft Fabric, ensuring that your data analytics platform remains efficient and effective.
-Your architecture could look like this:
+By following these steps, you can  transition from Azure Databricks to Microsoft Fabric, ensuring that your data analytics platform remains efficient and effective. 
+
+Your architecture could look like this after following the guidance:
  ![Alt text](media/small-medium-data-warehouse/fab-architecture-lakehouse.png)
 
 ### Components
