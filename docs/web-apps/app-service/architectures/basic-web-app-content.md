@@ -13,7 +13,7 @@ This article provides a basic architecture intended for learning about running w
 :::image-end:::
 *Figure 1: Basic Azure App Service architecture*
 
-*Download a [Visio file](https://arch-center.azureedge.net/web-app-services.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/web-app-services-basic.vsdx) of this architecture.*
 
 ### Workflow
 
