@@ -17,7 +17,7 @@ name: Baseline highly available zone-redundant web application
 azureCategories:
   - web
   - management-and-governance
-summary: A baseline reference architecture for a network secured, highly-available, and zone-redundant App Service web application.
+summary: A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.
 products:
   - azure-app-service
   - azure-application-gateway
