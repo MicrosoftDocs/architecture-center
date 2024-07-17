@@ -228,8 +228,8 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure NetApp Files]: https://azure.microsoft.com/services/netapp
 [Azure NetApp Files documentation]: /azure/azure-netapp-files
 [Azure NetApp Files performance benchmarks for Linux]: /azure/azure-netapp-files/performance-benchmarks-linux
-[Azure Virtual Machines]: https://learn.microsoft.com//azure/well-architected/service-guides/virtual-machines
-[Azure Virtual Network]: https://learn.microsoft.com//azure/well-architected/service-guides/azure-virtual-network/reliability
+[Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
+[Azure Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
 [Benefits of using Azure NetApp Files with Oracle Database]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
 [Data Guard architecture diagram in .svg format]: ./media/oracle-azure-netapp-files-availability.svg
 [Capacity management FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#capacity-management-faqs
@@ -241,8 +241,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Implement Oracle Data Guard on an Azure Linux virtual machine]: /azure/virtual-machines/workloads/oracle/configure-oracle-dataguard
 [Key benefits diagram in .svg format]: ./media/oracle-azure-netapp-files-key-values.svg
 [Linux NFS mount options best practices for Azure NetApp Files]: /azure/azure-netapp-files/performance-linux-mount-options
-[Main architecture diagram in .svg format]: ./media/oracle-azure-netapp-files-architecture.svg
-[Oracle Database]: https://learn.microsoft.com/azure/well-architected/oracle-iaas/get-started
+[Oracle Database]: /azure/well-architected/oracle-iaas/get-started
 [Oracle database performance on Azure NetApp Files single volumes]: /azure/azure-netapp-files/performance-oracle-single-volumes
 [Oracle VM images and their deployment on Microsoft Azure]: /azure/virtual-machines/workloads/oracle/oracle-vm-solutions
 [Performance considerations for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations
