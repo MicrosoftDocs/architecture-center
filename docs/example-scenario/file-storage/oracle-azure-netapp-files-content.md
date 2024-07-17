@@ -29,10 +29,14 @@ This solution has many uses:
 You can run a small-to-medium sized Oracle database on an Azure VM with one or more storage volumes for storing the database files, redo logs, and optionally a backup volume.
 
 :::image type="complex" source="./media/capacity-pool-architecture.png" alt-text="Diagram depicting Oracle VMs deployed on Azure NetApp Files.":::
+    A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM. 
+:::image-end:::
 
 Deploy multiple data volumes for consolidating multiple smaller Oracle instances onto a single Azure VM.
 
-:::image type="complex" source="./media/small-oracle-deployment.png" alt-text="Diagram of consolidated Oracle databases on an Azure VM.":::
+:::image type="complex" source="./media/small-oracle-deployment.png" alt-text="Diagram of consolidated Oracle databases on an Azure VM." border="false":::
+    A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM. The different data and log volumes are represented inside of the application volume group. 
+:::image-end:::
 
 ### Preparing the Azure NetApp Files service
 
@@ -46,13 +50,18 @@ Available throughput for the volumes in a capacity pool is defined by the size a
 
 To protect against unlikely zonal failures make use of Oracle Data Guard to replicate database files and redo logs to an alternate zone in the region.
 
-:::image type="complex" source="./media/oracle-replication-diagram.png" alt-text="Diagram of replicated Oracle workload.":::
+:::image type="complex" source="./media/oracle-replication-diagram.png" alt-text="Diagram of replicated Oracle workload." border="false:::
+    Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
+:::image-end:::
 
 ### Scalability
 
 By using multiple storage volumes for database files, you can achieve additional scalability and flexibility. You can scale up to eight volumes for database files by using [application volume group for Oracle](/azure/azure-netapp-files/application-volume-group-oracle-introduction) to deploy the volumes. This ensures that volumes are laid out in optimal locations within the Azure infrastructure and with lowest possible latency access by the VMs.
 
-:::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment.":::
+:::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment." border="false":::
+  Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
+
+:::image-end:::
 
 ### Components
 
@@ -101,8 +110,6 @@ This image shows the benefits of using Azure NetApp Files with Oracle Database.
 :::image type="complex" source="./media/oracle-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
    The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right section also contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs require high performance. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement.
 :::image-end:::
-
-*Download an [SVG][Key benefits diagram in .svg format] of this architecture.*
 
 ### Simple and reliable service
 
@@ -202,7 +209,7 @@ These factors make Azure NetApp Files less costly than disk storage solutions.
 Principal author:
 
 * [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
-* [Arnt de Gier](mailto:b-arntdegier@microsoft.com) | Technical Marketing Engineer for Azure NetApp Files
+* [Arnt de Gier](https://www.linkedin.com/in/arntdegier/) | Technical Marketing Engineer for Azure NetApp Files
 
 ## Next steps
 
@@ -222,8 +229,8 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure NetApp Files]: https://azure.microsoft.com/services/netapp
 [Azure NetApp Files documentation]: /azure/azure-netapp-files
 [Azure NetApp Files performance benchmarks for Linux]: /azure/azure-netapp-files/performance-benchmarks-linux
-[Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/#overview
-[Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
+[Azure Virtual Machines]: https://learn.microsoft.com//azure/well-architected/service-guides/virtual-machines
+[Azure Virtual Network]: https://learn.microsoft.com//azure/well-architected/service-guides/azure-virtual-network/reliability
 [Benefits of using Azure NetApp Files with Oracle Database]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
 [Data Guard architecture diagram in .svg format]: ./media/oracle-azure-netapp-files-availability.svg
 [Capacity management FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#capacity-management-faqs
@@ -236,7 +243,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Key benefits diagram in .svg format]: ./media/oracle-azure-netapp-files-key-values.svg
 [Linux NFS mount options best practices for Azure NetApp Files]: /azure/azure-netapp-files/performance-linux-mount-options
 [Main architecture diagram in .svg format]: ./media/oracle-azure-netapp-files-architecture.svg
-[Oracle Database]: https://www.oracle.com/database/
+[Oracle Database]: https://learn.microsoft.com/azure/well-architected/oracle-iaas/get-started
 [Oracle database performance on Azure NetApp Files single volumes]: /azure/azure-netapp-files/performance-oracle-single-volumes
 [Oracle VM images and their deployment on Microsoft Azure]: /azure/virtual-machines/workloads/oracle/oracle-vm-solutions
 [Performance considerations for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations
