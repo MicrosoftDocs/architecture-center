@@ -74,7 +74,15 @@ Your architecture could look like this after following the guidance:
 ## Scenario details
 Your enterprise might be considering reducing the number of services you use, leveraging a SaaS platform or specific functionalities of Microsoft Fabric. 
  
-It targets small businesses (SMBs) with about 600 GB of data. 
+It targets small businesses (SMBs) with about 600 GB of data.
+
+## Potential use cases
+
+Here are several scenarios where this transition can be beneficial:
+
+- Enabling Direct Lake scenario: Transitioning now will enable the future use of Direct Lake, setting the stage for advanced capabilities.
+- Integration with Fabric personas: By making this transition, you open your lakehouse to personas already using Fabric, ensuring seamless integration and collaboration.
+- Streamlined architecture: Reducing the number of services used in your architecture can simplify management and increase efficiency.
 
 ## Considerations
 - Link to Scenarios 3a and 5 consideations
@@ -88,6 +96,7 @@ It targets small businesses (SMBs) with about 600 GB of data.
 ## Contributors
 ## Next steps
 - [Integrate Unity Catalog with One Lake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog#other-considerations)
+- [Fabric Data Pipelines with notebooks](https://learn.microsoft.com/en-us/fabric/data-factory/notebook-activity)
 - [Notebooks in Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/author-execute-notebook)
 
 ## Related resources
