@@ -50,7 +50,7 @@ Available throughput for the volumes in a capacity pool is defined by the size a
 
 To protect against unlikely zonal failures make use of Oracle Data Guard to replicate database files and redo logs to an alternate zone in the region.
 
-:::image type="complex" source="./media/oracle-replication-diagram.png" alt-text="Diagram of replicated Oracle workload." border="false:::
+:::image type="complex" source="./media/oracle-replication-diagram.png" alt-text="Diagram of replicated Oracle workload." border="false":::
     Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
 :::image-end:::
 
@@ -165,7 +165,7 @@ When you use Oracle Database in Azure, implement a solution for HA and DR to avo
 
 ### Scalability
 
-As [Highly performant systems][Highly performant systems section of this article] discusses, Azure NetApp Files provides built-in scalability.
+As the [Highly performant systems][Highly performant systems section of this article] section discusses, Azure NetApp Files provides built-in scalability.
 
 ### Security
 
