@@ -5063,7 +5063,7 @@
     {
       "source_path": "docs/ai-ml/architecture/intelligent-apps-image-processing.md",
       "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
-      "redirect_document_id": false
+      "redirect_document_id": true
     }
   ]
 }
