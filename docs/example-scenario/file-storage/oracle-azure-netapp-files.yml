@@ -23,6 +23,6 @@ products:
   - azure-virtual-network
 name: Oracle Database with Azure NetApp Files
 summary: Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
-thumbnailUrl: /azure/architecture/browse/thumbs/oracle-azure-netapp-files-architecture-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/capacity-pool-architecture.png
 content: |
   [!include[](oracle-azure-netapp-files-content.md)]
