@@ -60,7 +60,6 @@ By using multiple storage volumes for database files, you can achieve additional
 
 :::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment." border="false":::
   Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
-
 :::image-end:::
 
 ### Components
