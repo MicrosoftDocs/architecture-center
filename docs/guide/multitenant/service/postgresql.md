@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/07/2023
+ms.date: 07/18/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -26,7 +26,7 @@ Many multitenant solutions on Azure use the open-source relational database mana
 
 There are two deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
 
-- [Flexible Server](/azure/postgresql/flexible-server/) - This is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
+- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) - This is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) - An Azure managed database service designed for solutions requiring a high level of scale, which often includes multitenanted applications. This service is part of the Azure Cosmos DB family of products.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ There maybe a slight performance impact when implementing row-level security on 
 
 More information:
 
-- [Azure Database for PostgreSQL Flexible Server row-level security](/azure/postgresql/flexible-server/concepts-security#row--level-security)
+- [Azure Database for PostgreSQL - Flexible Server row-level security](/azure/postgresql/flexible-server/concepts-security#row--level-security)
 
 ### Horizontal scaling with sharding
 
@@ -69,13 +69,25 @@ More information:
 
 Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require a large number of active connections, which will negatively impact the performance of the Postgres server.
 
-Connection pooling via PgBouncer is installed by default in Azure Database for PostgreSQL [Flexible Server](/azure/postgresql/flexible-server).
+Connection pooling via PgBouncer is installed by default in [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server).
 
 More information:
 
-- [PgBouncer in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/hyperscale/concepts-connection-pool)
+- [PgBouncer in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-pgbouncer)
 - [Connection pooling in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-connection-pool)
 - [Steps to install and set up PgBouncer connection pooling proxy with Azure Database for PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
+
+### Microsoft Entra authentication
+
+[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) supports authenticating connections using Microsoft Entra ID. This allows application workloads in a multitenant environment to authenticate to the database using a tenant specific service principal or managed identity, enabling access to be scoped to a tenant. Combining Microsoft Entra ID authentication with tenant specific with *row security policies* help to reduce risk an application can access another tenants data in a multitenant database.
+
+> [!NOTE]
+> Azure Database for PostgreSQL- Single Server provides limited support for Microsoft Entra ID authentication. However service principals and managed identities can not act as fully functional administrators. As Azure Database for PostgreSQL - Single Server is on the retirement path, this limitation has only been addressed in 
+
+More information:
+
+- [Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
+- [Connect with managed identity to Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-connect-with-managed-identity)
 
 ## Contributors
 
