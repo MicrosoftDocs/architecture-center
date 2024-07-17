@@ -2,15 +2,15 @@ The most demanding Oracle Database workloads require very high I/O capacity. The
 
 ## Benefits 
 
-Azure NetApp Files offers the following benefits  
+Azure NetApp Files offers the following benefits:
 
 - Flexibility: You can enlarge or reduce capacity and throughput on demand to align your configuration to the actual business needs without interruption to the service.
--	Scalability: Use multiple storage volumes and add volumes on the fly to expand both capacity and throughput as needed
--	Availability: Volumes are built on highly available fault-tolerant bare-metal fleet powered by ONTAP with built-in replication capabilities for business continuity and disaster recovery.
--	Consolidation: Run multiple smaller database instances on an Azure VM while maintaining isolation of the database and log files over multiple storage volumes.
--	Data protection: Space-efficient snapshot copies provide application-consistent point in time copies of live databases, and snapshot copies can be backed up by Azure NetApp Files backup or third-party solutions as desired.
--	Cloning: Snapshots can be cloned to provide current data copies to test and development.
--	Storage throughput: Networked storage is subjected to higher throughput limits than managed disk. As a result, you can use smaller VM SKUs than you would with managed disk storage without degrading performance. This approach can significantly reduce costs.
+- Scalability: Use multiple storage volumes and add volumes on the fly to expand both capacity and throughput as needed
+- Availability: Volumes are built on highly available fault-tolerant bare-metal fleet powered by ONTAP with built-in replication capabilities for business continuity and disaster recovery.
+- Consolidation: Run multiple smaller database instances on an Azure VM while maintaining isolation of the database and log files over multiple storage volumes.
+- Data protection: Space-efficient snapshot copies provide application-consistent point in time copies of live databases, and snapshot copies can be backed up by Azure NetApp Files backup or third-party solutions as desired.
+- Cloning: Snapshots can be cloned to provide current data copies to test and development.
+- Storage throughput: Networked storage is subjected to higher throughput limits than managed disk. As a result, you can use smaller VM SKUs than you would with managed disk storage without degrading performance. This approach could significantly reduce costs.
 
 ## Potential use cases
 
@@ -18,8 +18,8 @@ This solution has many uses:
 
 - Running new Oracle Database instances that require high availability (HA) and have high standards for performance.
 - Migrating highly performant, highly available Oracle Database instances from on-premises to Azure Virtual Machines.
--	Migrating Oracle Exadata systems to Azure.
--	Consolidating multiple small Oracle instances onto a single Azure VM with one or more storage volumes for individual isolation and management.
+- Migrating Oracle Exadata systems to Azure.
+- Consolidating multiple small Oracle instances onto a single Azure VM with one or more storage volumes for individual isolation and management.
 - Cloning enterprise-scale Oracle Database systems for use in test and development environments. The solution is particularly suited for cases that require advanced data management capabilities. It can help meet aggressive data protection service level agreements (SLAs) by utilizing fast and space-efficient snapshots.
 - Implementing Oracle Pacemaker clusters that use NFS shared storage.
 - Deploying SAP AnyDB, or Oracle 19c.
@@ -66,11 +66,11 @@ By using multiple storage volumes for database files, you can achieve additional
 
 The solution uses the following components:
 
-- [Azure NetApp Files][Azure NetApp Files] is a first-party Azure file storage system that enables migrating and running file-based applications in Azure without code changes. It's developed by Microsoft and NetApp, a Microsoft partner. 
+- [Azure NetApp Files][Azure NetApp Files] is a first-party Azure file storage system that enables migrating and running file-based applications in Azure without code changes. It's developed by Microsoft and NetApp, a Microsoft partner.
 - [Virtual Machines][Azure Virtual Machines] is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. This solution uses [Linux VMs with Oracle Database software][Oracle VM images and their deployment on Microsoft Azure].
 - [Azure Virtual Network][Azure Virtual Network] is a networking service that manages virtual private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of the Azure infrastructure.
 - [Oracle Database][Oracle Database] is a multi-model database management system. It supports various data types and workloads.
-    - The [dNFS][About Direct NFS Client Mounts to NFS Storage Devices] client optimizes I/O paths between Oracle and NFS servers. As a result, it provides better performance than traditional NFS clients.
+  - The [dNFS][About Direct NFS Client Mounts to NFS Storage Devices] client optimizes I/O paths between Oracle and NFS servers. As a result, it provides better performance than traditional NFS clients.
 
 ### Alternatives
 
