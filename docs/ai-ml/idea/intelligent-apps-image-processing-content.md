@@ -67,12 +67,12 @@ For a guided learning path, see:
 - [Classify images with Azure AI Custom Vision](/training/modules/classify-images-custom-vision/)
 - [Use AI to recognize objects in images by using the Custom Vision service](/training/modules/train-custom-vision-ai/)
 - [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
-- [Classify images with Custom Vision Service](/training/modules/classify-images-with-custom-vision-service/)
-- [Detect objects in images with the Custom Vision service](/training/modules/detect-objects-images-custom-vision/)
+- [Classify images with Azure AI Custom Vision services]/training/modules/classify-images/)
+- [Detect objects in images with Azure AI Custom Vision](/training/modules/detect-objects-images-custom-vision/)
 
 ## Related resources
 
-[AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
+[Use AI enrichment with image and text processing](../../solution-ideas/articles/ai-search-skillsets.yml)
 
 <!-- links -->
 [architecture]: _images/architecture-intelligent-apps-image-processing.png
