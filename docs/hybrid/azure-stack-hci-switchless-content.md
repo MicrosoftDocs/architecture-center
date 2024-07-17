@@ -19,8 +19,6 @@ This architecture serves as a starting point for a [three-node Azure Stack HCI c
 
 [![Diagram illustrating a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity. The cluster uses a number of Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates and Azure Site Recovery.](images/azure-stack-hci-switchless.png)](images/azure-stack-hci-switchless.png#lightbox)
 
-_Download a [Visio file][architectural-diagram-visio-source] of this architecture._
-
 For information about these resources, see Azure product documentation listed in [Related resources](#related-resources).
 
 ## Potential use cases
@@ -189,6 +187,5 @@ Microsoft Learn modules:
 - [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
 - [Protect your virtual machines by using Azure Backup](/training/modules/protect-virtual-machines-with-azure-backup)
 
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-switchless.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci-sizer-tool]: https://aka.ms/hci-catalog#sizer
