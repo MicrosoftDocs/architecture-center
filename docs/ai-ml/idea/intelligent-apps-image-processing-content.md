@@ -4,7 +4,7 @@ By using Azure services, such as the Computer Vision API and Azure Functions, co
 
 ## Architecture
 
-![Architecture for image classification][architecture]
+![Diagram of an architecture for used for image classification tasks.][architecture]
 
 *Download a [Visio file][visio-download] of this solution idea.*
 
