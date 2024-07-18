@@ -180,10 +180,17 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 
 - The AI toolchain operator (KAITO) is a managed add-on for AKS that simplifies the experience of running OSS AI models on your AKS clusters. For more information, see [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](/azure/aks/ai-toolchain-operator).
 - For instructions on running GPU workloads on AKS, see:
-    - [Use GPUs on Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/gpu-cluster)
-    - [Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/use-windows-gpu)
-- [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](https://learn.microsoft.com/azure/aks/ai-toolchain-operator)
-- [Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/open-ai-quickstart?tabs=aoai)
+    - [Use GPUs on Azure Kubernetes Service (AKS)](/azure/aks/gpu-cluster)
+    - [Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)](/azure/aks/use-windows-gpu)
+- [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](/azure/aks/ai-toolchain-operator)
+- [Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)](/azure/aks/open-ai-quickstart?tabs=aoai)
 - [Deploy Kaito on AKS using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 - [Bring Your Own AI Models to Intelligent Apps on AKS with Kaito](https://learn.microsoft.com/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
 - [Open-Source Models on AKS with Kaito](https://moaw.dev/workshop/?src=gh:pauldotyu/moaw/learnlive/workshops/opensource-models-on-aks-with-kaito)
+
+## Related resources
+See the following related guides:
+- [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](/azure/machine-learning/how-to-deploy-kubernetes-extension?view=azureml-api-2&tabs=deploy-extension-with-cli)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Model Catalog and Collections on Azure](/azure/machine-learning/concept-model-catalog?view=azureml-api-2)
+- 
