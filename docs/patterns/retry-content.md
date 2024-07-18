@@ -15,7 +15,7 @@ In the cloud, transient faults should be expected and an application should be d
 The diagram above illustrates invoking an operation in a hosted service using a retry mechansim. If the request is unsuccessful after a predefined number of attempts, the application should treat the fault as an exception and handle it accordingly.
 
 >[!NOTE]
->Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. Built-in retry support for many Azure services can be found [here](/azure/architecture/best-practices/retry-service-specific) 
+>Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. Built-in retry support for many Azure services can be found [here](../best-practices/retry-service-specific.md) and the [Microsof Entity Framework](/ef) provides facilities to retry [failed database operations](/ef/core/miscellaneous/connection-resiliency).
 
 ### Retry strategies
 
@@ -34,8 +34,6 @@ The application should wrap all attempts to access a remote service in code that
 An application should log the details of faults and failing operations. This information is useful to operators. That being said, in order to avoid flooding operators with alerts on operations where subsequently retried attempts were successful, it is best to log early failures as *informational entries* and only the failure of the last of the retry attempts as an actual error. Here is an [example of how this logging model would look like](https://docs.particular.net/nservicebus/recoverability/#retry-logging).
 
 If a service is frequently unavailable or busy, it's often because the service has exhausted its resources. You can reduce the frequency of these faults by scaling out the service. For example, if a database service is continually overloaded, it might be beneficial to partition the database and spread the load across multiple servers.
-
-> [Microsoft Entity Framework](/ef) provides facilities for retrying database operations. Also, most Azure services and client SDKs include a retry mechanism. For more information, see [Retry guidance for specific services](../best-practices/retry-service-specific.md).
 
 ## Issues and considerations
 
