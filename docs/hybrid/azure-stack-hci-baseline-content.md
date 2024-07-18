@@ -447,26 +447,11 @@ The following section provides an example list of the high-level tasks or typica
 
 ## Related resources
 
-See product documentation for details on specific Azure services:
-
-- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
-- [Key Vault](https://azure.microsoft.com/products/key-vault)
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
-- [Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
-- [Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
-- [Site Recovery](https://azure.microsoft.com/products/site-recovery)
-- [Backup](https://azure.microsoft.com/products/backup)
-
-More information:
-
 - [Hybrid architecture design](hybrid-start-here.md)
-- [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
+- [Azure hybrid options](../guide/technology-choices/hybrid-considerations.md)
 - [Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
-- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
 
 ## Next steps
 
@@ -483,7 +468,19 @@ Product documentation:
 - [What are Azure Arc-enabled Data Services?](/azure/azure-arc/data/overview)
 - [What is Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
 - [What is the Backup service?](/azure/backup/backup-overview)
-- [Introduction to Kubernetes compute target in Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere)
+
+Product documentation for details on specific Azure services:
+
+- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
+- [Key Vault](https://azure.microsoft.com/products/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
+- [Monitor](https://azure.microsoft.com/products/monitor)
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
+- [Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Site Recovery](https://azure.microsoft.com/products/site-recovery)
+- [Backup](https://azure.microsoft.com/products/backup)
 
 Microsoft Learn modules:
 
@@ -537,7 +534,7 @@ Microsoft Learn modules:
 [azure-policy]: /azure/governance/policy/overview
 [azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [azure-update-management]: /azure/update-manager/
-[azure-well-architected-framerwork]: /azure/architecture/framework
+[azure-well-architected-framework]: /azure/architecture/framework
 [cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
 [key-vault]: /azure/key-vault/general/basic-concepts
 [ms-ata]: /advanced-threat-analytics/what-is-ata
