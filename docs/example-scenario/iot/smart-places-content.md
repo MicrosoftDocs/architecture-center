@@ -196,7 +196,7 @@ These services provide support for components in all areas of the solution:
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
-- [Microsoft Entra ID][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
+- [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
 
 - [Azure Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
 
@@ -331,7 +331,6 @@ Other contributor:
 [App Service overview]: /azure/well-architected/service-guides/app-service-web-apps
 [Azure AI services]: https://azure.microsoft.com/products/ai-services/
 [Azure API Management]: https://azure.microsoft.com/services/api-management
-[Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
@@ -373,6 +372,7 @@ Other contributor:
 [Ingest IoT Hub telemetry into Azure Digital Twins]: /azure/digital-twins/how-to-ingest-iot-hub-data?tabs=cli
 [Integrate Azure Digital Twins with Azure SignalR Service]: /azure/digital-twins/how-to-integrate-azure-signalr
 [IoT analytics with Azure Data Explorer]: ../../solution-ideas/articles/iot-azure-data-explorer.yml
+[Microsoft Entra ID]: https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id
 [Microsoft Graph]: https://developer.microsoft.com/graph
 [Microsoft Power Apps on Azure]: https://powerapps.microsoft.com
 [Microsoft Teams]: https://www.microsoft.com/microsoft-teams/group-chat-software
