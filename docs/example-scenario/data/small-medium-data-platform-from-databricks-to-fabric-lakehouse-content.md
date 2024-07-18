@@ -1,12 +1,12 @@
 ## Introduction
 This article outlines the possible steps to migrate your Lakehouse platform from Azure Databricks to Microsoft Fabric, or to use both services in tandem. 
 
-The migration can be split into two parts:
- - Azure Databricks (Writing) + Fabric (Reading)
- - Fabric Platform (Reading and Writing)
+The migration can be split into two steps:
+ - Transition to Azure Databricks and Fabric
+ - Transition fully to Fabric
 
 The following architecture might be your current state
- ![Alt text](media/small-medium-data-warehouse/adb-ref-arch-overview-azure.png)
+ ![Alt text](media/small-medium-data-warehouse/adb-lakehouse.png)
 
 ### 1 -  Transitioning read compute from Azure Databricks to Microsoft Fabric
 
