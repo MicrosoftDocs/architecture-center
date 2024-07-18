@@ -10,17 +10,17 @@ The following architecture might be your current state
 
 ### 1 -  Transitioning read compute from Azure Databricks to Microsoft Fabric
 
+![Alt text](media/small-medium-data-warehouse/smb-azure-databricks-to-fabric-migration-read.png)
+
 It is recommended to first migrate the Read operations from Azure DataBricks to Fabric. 
 
-/*added a little intro on building the bridge between ADB and Fabric using shortcuts and a diagram about it*/
-Create shortcuts from external Azure DataBricks Delta tables to OneLake using a notebook: Integrate Databricks Unity Catalog with OneLake - Microsoft Fabric | Microsoft Learn This will make Azure DataBricks Unity Catalog tables available as shortcuts in lakehouses, SQL endpoints, and semantic models. 
+To build a bridge between Azure Databricks and Fabric OneLake, we can create shortcuts that allow any Fabric entities such as Lakehouses to access tables stored in Azure Databricks without copying them into OneLake. Shortcuts can be created using a notebook: [Integrate Databricks Unity Catalog with OneLake - Microsoft Fabric | Microsoft Learn](https://learn.microsoft.com/fabric/onelake/onelake-unity-catalog) This will make Azure DataBricks Unity Catalog tables available as shortcuts in lakehouses, SQL endpoints, and semantic models. 
 
 You can schedule the notebook or use it in a data pipeline to sync the shortcuts periodically, so that you don’t need to sync tables manually if the metadata changes. New Azure DataBricks tables will be automatically added as shortcuts. 
 
-Orchestration can be migrated to Fabric Data Factory from Azure Data Factory for better integration with Fabric – you will have access to the full range of Data Engineering and other transformation tasks in Fabric. A migration guide can be found here: Migrate to Data Factory - Microsoft Fabric | Microsoft Learn
+Orchestration can be migrated to Fabric Data Factory from Azure Data Factory for better integration with Fabric – you will have access to the full range of Data Engineering and other transformation tasks in Fabric. A migration guide can be found here: [Migrate to Data Factory - Microsoft Fabric | Microsoft Learn](https://learn.microsoft.com/fabric/data-factory/upgrade-paths)
 
-/*now you can leverage reading functionalities from Fabric, notebook for reading from gold layer, EDA, as a data analust/scientist I can leverage notebook for reading or SQL endpoint from the lakehouse*/
-[Direct lake to PBI scenario? – mention that once they are in Fabric they can do this and not copy over data. Add link to a guide]
+Now you can leverage read functionalities for your external data: using a notebook to read from your gold layer, or doing exploratory data analysis using the SQL endpoint for a Lakehouse. You can also query this data from Power BI using Direct Lake mode without copying data into the Power BI engine. More information here: [Direct Lake - Microsoft Fabric | Microsoft Learn](https://learn.microsoft.com/en-us/fabric/get-started/direct-lake-overview)
 
 Your architecture could look like this after adding Fabric:
  ![Alt text](media/small-medium-data-warehouse/adb-fabric-architecture.png)
