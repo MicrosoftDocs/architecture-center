@@ -63,7 +63,7 @@ If you require high availability within a region, you can use Azure NetApp Files
 - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)
 - [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines)
 - [Azure NetApp Files](/azure/azure-netapp-files)
-    - [Cross-region replication](/azure/azure/azure-netapp-files/cross-region-replication-introduction)
+    - [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction)
     - [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction)
 - [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability)
 
@@ -119,4 +119,4 @@ You can consume Moodle in various models, where typically customers start using 
 * [Solution architectures using Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures)
 * [Moodle docs: Redis cache store](https://docs.moodle.org/311/en/Redis_cache_store#:~:text=Before%20Redis%20is%20available%20as%20a%20cache%20store%2C,as%20an%20application%20or%20session%20level%20cache%20store.)
 * [Azure NetApp Files for NFS storage with Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
-* [Automatic scaling with Azure Virtual Machine Scale Sets flexible orchestration mode](/updates/automatic-scaling-for-vms-with-azure-virtual-machine-scale-sets-flexible-orchestration-mode/)
+* [Automatic scaling with Azure Virtual Machine Scale Sets flexible orchestration mode](https://azure.microsoft.com/updates/automatic-scaling-for-vms-with-azure-virtual-machine-scale-sets-flexible-orchestration-mode/)
