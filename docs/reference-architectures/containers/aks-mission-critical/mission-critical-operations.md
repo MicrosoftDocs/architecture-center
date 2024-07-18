@@ -8,6 +8,8 @@ ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom:
+  - arb-containers
 ms.category:
   - management-and-governance
 azureCategories:

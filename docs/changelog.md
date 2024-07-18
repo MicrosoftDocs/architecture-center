@@ -234,7 +234,7 @@ The following new and updated articles have recently been published in the Azure
 - [Query-based document summarization](./ai-ml/guide/query-based-summarization.md)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [AI at the edge with Azure Stack Hub](./ai-ml/idea/ai-at-the-edge.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [Build and deploy a social media analytics solution](./ai-ml/architecture/build-deploy-social-media-analytics-solution.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
-- [Image classification on Azure](./ai-ml/architecture/intelligent-apps-image-processing.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
+- [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
 - [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#863c1fb294](https://github.com/MicrosoftDocs/architecture-center/commit/863c1fb294))
 - [Serverless web application](./web-apps/serverless/architectures/web-app.yml)  ([#08aa3d6222](https://github.com/MicrosoftDocs/architecture-center/commit/08aa3d6222))
 - [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)  ([#95dfc35ea1](https://github.com/MicrosoftDocs/architecture-center/commit/95dfc35ea1))

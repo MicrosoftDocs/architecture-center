@@ -8,12 +8,13 @@ ms.date: 12/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - e2e-aks
 ---
 
 # Backup and recovery for AKS
