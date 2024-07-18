@@ -18,27 +18,27 @@ ms.custom:
 
 # Use Azure API Management in a multitenant solution
 
-[Azure API Management](/azure/api-management/api-management-key-concepts) is a comprehensive API gateway and reverse proxy for APIs. It provides many features that are useful to API-focused applications, including caching, response mocking, and a developer portal. This article summarizes some of the key features of API Management that are particularly useful for multitenant solutions.
+[Azure API Management](/azure/api-management/api-management-key-concepts) is a comprehensive API gateway and reverse proxy for APIs. It provides many features, including caching, response mocking, and a developer portal, that are useful to API-focused applications. This article summarizes some of the key features of API Management that are particularly useful for multitenant solutions.
 
 > [!NOTE]
-> This article focuses on how you can use API Management when you have your own multitenant applications that host APIs, whether for internal or external use.
+> This article focuses on how you can use API Management when you have your own multitenant applications that host APIs for internal or external use.
 > 
-> Another form of multitenancy is to provide the API Management gateway as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. This article doesn't discuss this form of multitenancy. Consider using [workspaces](/azure/api-management/workspaces-overview), which help you to share an API Management instance across multiple teams who might have different levels of access.
+> Another form of multitenancy is to provide the API Management gateway as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. This article doesn't discuss this form of multitenancy. Consider using [workspaces](/azure/api-management/workspaces-overview), which help you share an API Management instance across multiple teams who might have different levels of access.
 
 ## Isolation models
 
-Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy API Management depending on your [tenancy model](../considerations/tenancy-models.yml). This article assumes you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
+Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are many ways that you can deploy API Management depending on your [tenancy model](../considerations/tenancy-models.yml). This article assumes that you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
 
-Typically, the way you use API Management is similar regardless of the isolation model. This section focuses on the differences in cost and complexity between the isolation models, and how each approach routes requests to your backend API applications.
+Typically, the way you use API Management is similar regardless of the isolation model. This section focuses on the differences in cost and complexity between the isolation models and how each approach routes requests to your back-end API applications.
 
-| Consideration | Shared instance, single-tenant backends | Shared instance, shared multitenant backend | Instance per tenant |
+| Consideration | Shared instance, single-tenant back ends | Shared instance, shared multitenant back end | Instance per tenant |
 |---|---|---|---|
 | Number of tenants supported | Many | Almost unbounded | One per instance |
 | Cost | Lower | Lower | Higher |
 | Deployment complexity | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | High. Multiple instances to manage |
 | Routing configuration complexity | Higher | Lower | Lower |
 | Susceptible to noisy-neighbor issues | Yes | Yes | No |
-| Tenant level network isolation | No | No | Yes |
+| Tenant-level network isolation | No | No | Yes |
 | Example scenario | Custom domain names per tenant | Large multitenant solution with a shared application tier | Tenant-specific deployment stamps |
 
 ### Shared instance isolation models
