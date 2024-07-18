@@ -19,6 +19,7 @@ metadata:
     - microservices
     - example-scenario
     - e2e-aks
+    - arb-containers
 name: CI/CD for AKS apps with GitHub Actions and GitFlow
 azureCategories:
   - containers

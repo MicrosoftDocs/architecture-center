@@ -19,6 +19,7 @@ metadata:
     - devops
     - kubernetes
     - e2e-aks
+    - arb-containers
 name: CI/CD for AKS apps with Azure Pipelines
 azureCategories:
   - containers
