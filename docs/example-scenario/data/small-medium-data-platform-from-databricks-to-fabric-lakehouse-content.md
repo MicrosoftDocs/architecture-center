@@ -12,7 +12,7 @@ The following architecture might be your current state
 
 It is recommended to first migrate the Read operations from Azure DataBricks to Fabric. 
 
-To build a bridge between Azure Databricks and Fabric OneLake, we can create shortcuts that allow any Fabric entities such as Lakehouses to access tables stored in Azure Databricks without copying them into OneLake. Shortcuts can be created using a notebook: [Integrate Databricks Unity Catalog with OneLake - Microsoft Fabric | Microsoft Learn](https://learn.microsoft.com/fabric/onelake/onelake-unity-catalog) This will make Azure DataBricks Unity Catalog tables available as shortcuts in lakehouses, SQL endpoints, and semantic models. 
+To build a bridge between Azure Databricks and Fabric OneLake, we can create shortcuts that allow any Fabric entities such as Lakehouses to access tables created by Azure Databricks without copying them into OneLake. Shortcuts can be created using a notebook: [Integrate Databricks Unity Catalog with OneLake - Microsoft Fabric | Microsoft Learn](https://learn.microsoft.com/fabric/onelake/onelake-unity-catalog) This will make Azure DataBricks Unity Catalog tables available as shortcuts in lakehouses, SQL endpoints, and semantic models. 
 
 ![Alt text](media/small-medium-data-warehouse/smb-azure-databricks-to-fabric-migration-read.png)
 
