@@ -79,11 +79,7 @@ More information:
 
 ### Microsoft Entra authentication
 
-[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) supports authenticating connections using Microsoft Entra ID. This allows application workloads in a multitenant environment to authenticate to the database using a tenant specific service principal or managed identity, enabling access to be scoped to a tenant. Combining Microsoft Entra ID authentication with tenant specific with *row security policies* help to reduce risk an application can access another tenants data in a multitenant database.
-
-> [!NOTE]
-> Azure Database for PostgreSQL- Single Server provides limited support for Microsoft Entra ID authentication. However service principals and managed identities can not act as fully functional administrators. As Azure Database for PostgreSQL - Single Server is on the retirement path, this limitation has only been addressed in 
-
+[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) supports authenticating connections using Microsoft Entra ID. This feature enables application workloads in a multitenant environment to authenticate to the database by using a tenant-specific service principal or managed identity, which means that the database access can be scoped to an individual tenant. By combining Microsoft Entra ID authentication with tenant specific *row security policies*, you can reduce the risk of an application accessing another tenant's data from within a multitenant database.
 More information:
 
 - [Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
