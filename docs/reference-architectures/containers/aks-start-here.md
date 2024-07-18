@@ -15,6 +15,7 @@ products:
 ms.custom:
   - overview
   - e2e-aks
+  - arb-containers
 ---
 
 # Azure Kubernetes Service (AKS) - Plan your design and operations

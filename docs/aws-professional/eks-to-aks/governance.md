@@ -7,6 +7,8 @@ ms.date: 06/03/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - arb-containers
 categories:
   - containers
   - management-and-governance
