@@ -8,13 +8,14 @@ ms.date: 12/28/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom:
+  - e2e-aks
+  - devx-track-azurecli
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - e2e-aks
-  - devx-track-azurecli
 ---
 
 # Azure Kubernetes Service patch and upgrade guidance
