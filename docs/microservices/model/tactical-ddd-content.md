@@ -15,6 +15,9 @@ This section provides a brief summary of the tactical DDD patterns, so if you ar
 - The attributes of an entity may change over time. For example, a person's name or address might change, but they are still the same person.
 - An entity can hold references to other entities.
 
+> [!NOTE]
+> Be wary of Entity Trap also known as Entity Service Antipattern wherein services are modeled around entities / data instead of behavior. Entity services either expose simple CRUD methods or end up too big to lose their purpose. Service names such as *Manager, *Supervisor, *Handler, *Helper, *Controller can indicate that the associated service is in an entity trap.
+
 **Value objects**. A value object has no identity. It is defined only by the values of its attributes. Value objects are also immutable. To update a value object, you always create a new instance to replace the old one. Value objects can have methods that encapsulate domain logic, but those methods should have no side-effects on the object's state. Typical examples of value objects include colors, dates and times, and currency values.
 
 **Aggregates**. An aggregate defines a consistency boundary around one or more entities. Exactly one entity in an aggregate is the root. Lookup is done using the root entity's identifier. Any other entities in the aggregate are children of the root, and are referenced by following pointers from the root.
