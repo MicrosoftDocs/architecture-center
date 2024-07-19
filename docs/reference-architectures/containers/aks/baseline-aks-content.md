@@ -651,20 +651,18 @@ It's a good practice to automatically update AKS node images when new virtual ha
 
 You're responsible for deciding how often your node images should be updated. You can design your maintenance windows to be aligned as much as possible with the business needs.
 
-For most clusters, we recommend AKS automatically update your node OS images. This approach gives you a good level of predictability while also reducing your cluster's exposure to known security issues. To learn more about how to configure automatic AKS nodes updates, see [Auto-upgrade node OS images](/azure/aks/auto-upgrade-node-os-image).
-
-For security-labeled VHD updates, you should configure a daily maintenance window. For regular VHD updates, we recommend you configure a weekly maintenance window.
+For most clusters, we recommend that AKS automatically updates your node OS images. For security-labeled VHD updates, you should configure a daily maintenance window. For regular VHD updates, we recommend you configure a weekly maintenance window. This approach gives you a good level of predictability while also reducing your cluster's exposure to known security issues. To learn more about how to configure automatic AKS nodes updates, see [Auto-upgrade node OS images](/azure/aks/auto-upgrade-node-os-image).
 
 For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
 
-**OS patching:** AKS can execute native updates to the operating system on each node. This approach gives predictability because you can configure maintenance windows that align with your business needs, such as your peak hours and what time works best for your system operations. However, you get a low level of control over the updates, because it's not possible to know in advance about the contents of the updates that will be applied to each node.
+**OS patching:** AKS can execute native updates to the operating system on each node. You can configure maintenance windows that align with your business needs, such as your peak hours and what time works best for your system operations. However, you don't get much control over the updates, because it's not possible to know in advance about the contents of the updates that will be applied to each node.
 
-An installation might require the node VMs to be rebooted. AKS doesn't reboot nodes because of pending updates, so you need to have a process that monitors nodes for pending reboots and performs them in a controlled manner. An open-source option is [Kured](https://github.com/kubereboot/kured) (Kubernetes reboot daemon).
+Installation of an OS patch might require the node VMs to be rebooted. AKS doesn't reboot nodes because of pending updates, so you need to have a process that monitors nodes for pending reboots and performs them in a controlled manner. An open-source option is [Kured](https://github.com/kubereboot/kured) (Kubernetes reboot daemon).
 
 > [!TIP]
-> Keeping your node images in sync with the latest weekly release minimizes these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades ensures AKS compatibility and means you get weekly security patches. Applying daily OS patches fixes security issues faster, but those patches might not have been tested in AKS.
+> Where possible, we recommend you use node image upgrades as your primary weekly security patching strategy.
 >
-> Where possible, use node image upgrades as your primary weekly security patching strategy.
+> Relying just on node image upgrades ensures AKS compatibility and means you get weekly security patches. Keeping your node images in sync with the latest weekly release also minimizes the need to reboot nodes, while maintaining an enhanced security posture. Applying daily OS patches fixes security issues faster, but those patches might not have been tested in AKS.
 
 You can also choose to manually apply node updates, which gives you the greatest level of predictability and control over the AKS nodes updates. However, you need to be diligent about applying updates according to your policy, and your operational processes need to support this approach. This approach is often followed for for immutable infrastructure.
 
