@@ -13,8 +13,6 @@ metadata:
     - management-and-governance
   ms.custom:
     - arb-hybrid
-    - reference-architecture
-    - devx-track-arm-template
     - linux-related-content
 name: Manage configurations for Azure Arc-enabled servers
 azureCategories:
