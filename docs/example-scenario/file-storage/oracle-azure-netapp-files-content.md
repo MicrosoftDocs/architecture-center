@@ -58,7 +58,7 @@ To protect against unlikely zonal failures make use of Oracle Data Guard to repl
 
 By using multiple storage volumes for database files, you can achieve additional scalability and flexibility. You can scale up to eight volumes for database files by using [application volume group for Oracle](/azure/azure-netapp-files/application-volume-group-oracle-introduction) to deploy the volumes. This ensures that volumes are laid out in optimal locations within the Azure infrastructure and with lowest possible latency access by the VMs.
 
-:::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment." lightbox="./media/application-volume-group-deployment.png" a border="false":::
+:::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment." lightbox="./media/application-volume-group-deployment.png" border="false":::
   Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
 :::image-end:::
 
