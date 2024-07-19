@@ -12,7 +12,6 @@ metadata:
     - hybrid
     - management-and-governance
   ms.custom:
-    - arb-hybrid
     - linux-related-content
 name: Manage configurations for Azure Arc-enabled servers
 azureCategories:
