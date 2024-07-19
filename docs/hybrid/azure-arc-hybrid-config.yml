@@ -12,10 +12,7 @@ metadata:
     - hybrid
     - management-and-governance
   ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
-    - devx-track-arm-template
+    - arb-hybrid
     - linux-related-content
 name: Manage configurations for Azure Arc-enabled servers
 azureCategories:

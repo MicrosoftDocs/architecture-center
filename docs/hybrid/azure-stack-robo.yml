@@ -12,8 +12,7 @@ metadata:
     - hybrid
     - management-and-governance
   ms.custom:
-    - fcp
-    - e2e-hybrid
+    - arb-hybrid
 name: Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office
 azureCategories:
   - hybrid
