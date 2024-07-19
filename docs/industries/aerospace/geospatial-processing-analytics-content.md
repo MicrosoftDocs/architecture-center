@@ -384,9 +384,9 @@ To support spaceborne data workloads on Azure Synapse, you need libraries like [
         - geopandas
     ```
 
-    > [!NOTE]
-    >
-    > GDAL uses virtual file system [`/vsiadls/`](https://gdal.org/user/virtual_file_systems.html#vsiadls-microsoft-azure-data-lake-storage-gen2) for Azure Data Lake Storage. This functionality is available starting in [GDAL v3.3.0](https://github.com/OSGeo/gdal/blob/eeeffe624996518655f231125712582551222932/gdal/NEWS#L9). Be sure to use version 3.3.0 or later.
+   > [!NOTE]
+   >
+   > GDAL uses virtual file system [`/vsiadls/`](https://gdal.org/user/virtual_file_systems.html#vsiadls-microsoft-azure-data-lake-storage-gen2) for Azure Data Lake Storage.
 
 2. Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign in to your workspace.
 
