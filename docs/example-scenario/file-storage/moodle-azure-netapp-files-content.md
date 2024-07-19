@@ -26,7 +26,7 @@ For the best user (learner) experience, Moodle requires consistent low latency a
 
 The following diagram captures an example of a single-region deployment:
 
-:::image type="complex" source="./media/azure-netapp-files-moodle-architecture.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle." border="false":::
+:::image type="complex" source="./media/azure-netapp-files-moodle-architecture.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle." lightbox="./media/azure-netapp-files-moodle-architecture.png" border="false":::
     A black-lined rectangle denotes an Azure region that contains a virtual network. The virtual network has multiple three smaller rectangles inside of it: two stacked, and one to the right. The top rectangle denotes a network security group the Moodle, a PHP application, an HTTP server, as well as a Redis Cache connected to the third rectangle: the MySQL database. The network security group also includes with a DNS router connected to an application gateway for the Virtual Machine Scale Sets, which is attached to the Azure other rectangle below representing the Azure NetApp Files delegated subnet that contains three volumes and related snapshots. Student access the Moodle through the DNS, while the Azure VPN gateway securely connects the resources to the customer data center.
 :::image-end:::
 
@@ -36,7 +36,7 @@ This single-region setup provides highly available access to the Moodle applicat
 
 The following diagram captures a setup with cross-region replication:
 
-:::image type="complex" source="./media/azure-netapp-files-moodle-secondary-region.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-region replication." border="false":::
+:::image type="complex" source="./media/azure-netapp-files-moodle-secondary-region.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-region replication." lightbox="./media/azure-netapp-files-moodle-secondary-region.png" border="false":::
     A diagram that replicates the single-region Azure NetApp Files Moodle deployment. The diagram adds a second black rectangle to the right of the first one, representing a second Azure region. Azure Traffic Manager routes students to either region to access the application. The Azure NetApp Files volumes are replicated to the secondary region for data protection.
 :::image-end:::
 
@@ -52,7 +52,7 @@ Once the primary region has been recovered, the replication direction is reverse
 
 If you require high availability within a region, you can use Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. The same benefits apply regarding the presence of compute and ancillary services which only need to be started up and scaled up in failover situations.
 
-:::image type="complex" source="./media/azure-netapp-files-moodle-zonal.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." border="false":::
+:::image type="complex" source="./media/azure-netapp-files-moodle-zonal.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="./media/azure-netapp-files-moodle-zonal.png" border="false":::
     A diagram that replicates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes DR versions of the Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
 :::image-end:::
 
@@ -108,7 +108,7 @@ Azure NetApp Files also offers [a performance and TCO calculator](https://aka.ms
 
 Principal author:
 
-* [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Technical Marketing Engineer
+- [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Technical Marketing Engineer
 
 ## Next steps
 
