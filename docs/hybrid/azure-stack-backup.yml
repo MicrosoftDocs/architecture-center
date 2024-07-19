@@ -12,9 +12,7 @@ metadata:
     - hybrid
     - management-and-governance
   ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
+    - arb-hybrid
 name: Back up files and applications on Azure Stack Hub
 azureCategories:
   - hybrid
