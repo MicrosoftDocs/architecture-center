@@ -28,13 +28,13 @@ This solution has many uses:
 
 You can run a small-to-medium sized Oracle database on an Azure VM with one or more storage volumes for storing the database files, redo logs, and optionally a backup volume.
 
-:::image type="complex" source="./media/capacity-pool-architecture.png" alt-text="Diagram depicting Oracle VMs deployed on Azure NetApp Files.":::
+:::image type="complex" source="./media/capacity-pool-architecture.png" alt-text="Diagram depicting Oracle VMs deployed on Azure NetApp Files." lightbox="./media/capacity-pool-architecture.png" border="false":::
     A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM. 
 :::image-end:::
 
 Deploy multiple data volumes for consolidating multiple smaller Oracle instances onto a single Azure VM.
 
-:::image type="complex" source="./media/small-oracle-deployment.png" alt-text="Diagram of consolidated Oracle databases on an Azure VM." border="false":::
+:::image type="complex" source="./media/small-oracle-deployment.png" alt-text="Diagram of consolidated Oracle databases on an Azure VM." lightbox="./media/small-oracle-deployment.png"  border="false":::
     A diagram of an Azure NetApp Files deployment. A rectangle with a dashed blue line surrounds all contents in the image, denoting 'Availability zone one' inside of an Azure region. Inside the dashed rectangle are two smaller, stacked rectangles with dotted blue lines. The top rectangle denotes a virtual machine (VM) subnet with an Oracle VM. A line connects the Oracle VM to a diagram of an Azure NetApp Files delegated subnet. The Azure NetApp Files delegated subnet has a yellow rectangle describing a capacity pool, which contains a smaller blue rectangle for the Oracle application volume group, inside of which are the individual volumes connected to the Oracle VM. The different data and log volumes are represented inside of the application volume group. 
 :::image-end:::
 
@@ -50,7 +50,7 @@ Available throughput for the volumes in a capacity pool is defined by the size a
 
 To protect against unlikely zonal failures make use of Oracle Data Guard to replicate database files and redo logs to an alternate zone in the region.
 
-:::image type="complex" source="./media/oracle-replication-diagram.png" alt-text="Diagram of replicated Oracle workload." border="false":::
+:::image type="complex" source="./media/oracle-replication-diagram.png" alt-text="Diagram of replicated Oracle workload." lightbox="./media/oracle-replication-diagram.png" border="false":::
     Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
 :::image-end:::
 
@@ -58,7 +58,7 @@ To protect against unlikely zonal failures make use of Oracle Data Guard to repl
 
 By using multiple storage volumes for database files, you can achieve additional scalability and flexibility. You can scale up to eight volumes for database files by using [application volume group for Oracle](/azure/azure-netapp-files/application-volume-group-oracle-introduction) to deploy the volumes. This ensures that volumes are laid out in optimal locations within the Azure infrastructure and with lowest possible latency access by the VMs.
 
-:::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment." border="false":::
+:::image type="complex" source="./media/application-volume-group-deployment.png" alt-text="Diagram of application volume group for Oracle deployment." lightbox="./media/application-volume-group-deployment.png" a border="false":::
   Two rectangles with dashed blue lines delineate a set of virtual machines (VMs); each rectangle denotes a different availability zone in the same Azure region. Within each availability zone, there is a virtual machine subnet hosting an Oracle VM. The Oracle VMs have delegated subnets for Azure NetApp Files that host a manual quality of service capacity pool, denoted by a solid color yellow rectangle stretching between the delegated subnet in each availability zone. The capacity pools house the different Oracle volume deployments.
 :::image-end:::
 
@@ -106,7 +106,7 @@ After you choose a solution, test it under load. Ensure that it meets SLAs for p
 
 This image shows the benefits of using Azure NetApp Files with Oracle Database.
 
-:::image type="complex" source="./media/oracle-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
+:::image type="complex" source="./media/oracle-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." lightbox="./media/oracle-azure-netapp-files-key-values.png" border="false":::
    The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right section also contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs require high performance. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement.
 :::image-end:::
 
@@ -157,11 +157,9 @@ When you use Oracle Database in Azure, implement a solution for HA and DR to avo
 - Deploy a secondary VM, but only install the binaries on it.
 - Put both VMs in the same virtual network. Then they can access each other over the private persistent IP address.
 
-:::image type="complex" source="./media/oracle-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how Oracle Data Guard protects data in a virtual network that includes Azure NetApp Files and Oracle Database." border="false":::
+:::image type="complex" source="./media/oracle-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how Oracle Data Guard protects data in a virtual network that includes Azure NetApp Files and Oracle Database." lightbox="./media/oracle-azure-netapp-files-availability.png" border="false":::
    A large rectangle labeled Oracle resource group fills most of the diagram. Inside it, another rectangle is labeled Oracle virtual network. It contains two smaller rectangles, one for the Oracle subnet and one for the Azure NetApp Files subnet. The Oracle subnet rectangle contains icons for Oracle Database and virtual machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled d N F S connects the two subnet rectangles. A colored key indicates that log data in the database file system requires high performance. The data files have a medium-to-high performance requirement.
 :::image-end:::
-
-*Download an [SVG][Data Guard architecture diagram in .svg format] of this architecture.*
 
 ### Scalability
 
