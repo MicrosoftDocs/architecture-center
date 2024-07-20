@@ -13,6 +13,7 @@ products:
   - azure-virtual-machines
   - entra-id
   - azure-virtual-desktop
+  - azure-service-bus
 categories:
   - databases
   - hybrid
@@ -151,6 +152,12 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. Includes recommendations for using Azure NetApp Files.|Compute|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
+
+## NServiceBus
+
+|Architecture|Summary|Technology focus|
+|--|--|--|
+|[Build message-driven business applications with NServiceBus and Azure Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus)|Use NServiceBus to build better message-driveen applications on Azure Service Bus, abstracting infrastructure concerns like serialization, routing, and dead-lettering.|Microservices|
 
 ## Oracle
 
