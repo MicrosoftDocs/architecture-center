@@ -255,7 +255,6 @@ To start implementing this solution, see this information:
 
 - [Big data analytics with Azure Data Explorer][Big data analytics with Azure Data Explorer]
 - [Health data consortium on Azure][Health data consortium on Azure]
-- [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
 - [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
 - [Geospatial reference architecture - Azure Orbital][Geospatial reference architecture - Azure Orbital]
 - [Geospatial analysis for telecom][Geospatial analysis for telecom]
@@ -265,13 +264,10 @@ To start implementing this solution, see this information:
 
 - [Compare the machine learning products and technologies from Microsoft - Azure Databricks][Compare the machine learning products and technologies from Microsoft - Azure Databricks]
 - [Machine learning operations (MLOps) framework to scale up machine learning lifecycle with Azure Machine Learning][Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]
-- [Azure Machine Learning decision guide for optimal tool selection][Azure Machine Learning decision guide for optimal tool selection]
 - [Monitor Azure Databricks][Monitoring Azure Databricks]
 
-[About Azure Key Vault]: /azure/key-vault/general/overview
 [Advanced analytics architecture]: ../../solution-ideas/articles/advanced-analytics-on-big-data.yml
 [Apache Sedona (incubating)]: http://sedona.apache.org/
-[App Service documentation]: /azure/app-service/
 [App Service overview]: /azure/app-service/overview
 [Azure App Service diagnostics overview]: /azure/app-service/overview-diagnostics
 [Azure App Service SSL certificates available for purchase]: https://azure.microsoft.com/updates/azure-app-service-ssl-certificates-available-for-purchase/
@@ -280,12 +276,9 @@ To start implementing this solution, see this information:
 [Azure Data Explorer geo_distance_2points() function]: /azure/data-explorer/kusto/query/geo-distance-2points-function
 [Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Data Explorer performance update (EngineV3)]: /azure/data-explorer/engine-v3
-[Azure Databricks Workspace concepts]: /azure/databricks/getting-started/concepts
-[Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
-[Azure Monitor overview]: /azure/azure-monitor/overview
 [Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
 [Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
@@ -303,11 +296,9 @@ To start implementing this solution, see this information:
 [GeoServer]: https://en.wikipedia.org/wiki/GeoServer
 [Geospatial analysis for telecom]: /azure/architecture/example-scenario/data/geospatial-analysis-telecommunications-industry
 [Geospatial reference architecture - Azure Orbital]: /azure/orbital/geospatial-reference-architecture
-[Getting started with the Azure Maps Power BI visual]: /azure/azure-maps/power-bi-visual-getting-started
 [GitHub - mapbox/tippecanoe]: https://github.com/mapbox/tippecanoe
 [Health data consortium on Azure]: ./azure-health-data-consortium.yml
 [Introducing Databricks Optimized Autoscaling on Apache Spark]: https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html
-[Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Introduction to Azure Data Lake Storage Gen2 scalability]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
 [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]: ../mlops/mlops-technical-paper.yml
@@ -332,14 +323,9 @@ To start implementing this solution, see this information:
 [Spaceborne data analysis with Azure Synapse Analytics]: /azure/architecture/industries/aerospace/geospatial-processing-analytics
 [ST_AsMVT (postgis.net)]: https://postgis.net/docs/ST_AsMVT.html
 [Throughput units]: /azure/event-hubs/event-hubs-scalability#throughput-units
-[Urbica Martin]: https://github.com/urbica/node-martin
 [Use Azure Key Vault secrets in pipeline activities]: /azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities
 [Use Key Vault references for App Service and Azure Functions]: /azure/app-service/app-service-key-vault-references
 [Vector tiles]: https://wikipedia.org/wiki/Vector_tiles
 [Web Feature Service]: https://en.wikipedia.org/wiki/Web_Feature_Service
 [Well Known Text Module]: /bingmaps/v8-web-control/modules/well-known-text-module
-[What is Azure Data Explorer?]: /azure/data-explorer/data-explorer-overview
-[What is Azure Data Factory?]: /azure/data-factory/introduction
-[What is Azure Database for PostgreSQL?]: /azure/postgresql/overview
 [What is Azure IoT Hub?]: /azure/iot-hub/about-iot-hub
-[What is Power BI?]: /power-bi/fundamentals/power-bi-overview

@@ -5059,6 +5059,11 @@
       "source_path": "docs/example-scenario/blockchain/multi-cloud-blockchain.yml",
       "redirect_url": "/azure/architecture/guide/blockchain/blockchain-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/intelligent-apps-image-processing.md",
+      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
+      "redirect_document_id": true
     }
   ]
 }

@@ -11,10 +11,6 @@ metadata:
   ms.category:
     - hybrid
     - management-and-governance
-  ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
 name: Azure Arc hybrid management and deployment for Kubernetes clusters
 azureCategories:
   - hybrid
