@@ -391,13 +391,13 @@ For more information on the measurement, allocation, and optimization of costs f
 
 Principal author:
 
- * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
 
 ## Next steps
