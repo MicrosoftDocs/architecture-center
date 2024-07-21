@@ -138,7 +138,7 @@ Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 * [Rob Bagby](https://linkedin.com/in/robbagby/) | Principal Content Developer, C+E Skilling Content R&D
-* [John Downs](https://linkedin.com/in/john-downs) | Principal Program Manager, MCAPS
+* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 * [Rick Hallihan](https://linkedin.com/in/hallihan/) | Senior Software Engineer, C+E Skilling Content R&D
 * [Landon Pierce](https://linkedin.com/in/landon-pierce) | Customer Engineer, Azure CXP
 * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist, OCP

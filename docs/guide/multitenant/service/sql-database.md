@@ -76,7 +76,7 @@ More information:
 Principal author:
 
  * [Paul Burpo](https://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Program Manager
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

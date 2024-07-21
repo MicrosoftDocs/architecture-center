@@ -96,7 +96,7 @@ If you load each tenant's configuration settings separately, your application ne
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

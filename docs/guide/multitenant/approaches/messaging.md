@@ -227,7 +227,7 @@ Principal author:
  
 Other contributors:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
  * [Clemens Vasters](https://linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
  * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 

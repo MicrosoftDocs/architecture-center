@@ -280,7 +280,7 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 Principal authors:
 
  * [Raj Nemani](https://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

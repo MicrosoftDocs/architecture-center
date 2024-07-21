@@ -95,7 +95,7 @@ Reservation scopes can also be helpful, when you have tenants with unpredictable
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

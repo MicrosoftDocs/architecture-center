@@ -128,7 +128,7 @@ Principal authors:
  
 Other contributors:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
  * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer, Microsoft
  * [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b) | Senior Service Engineer, FastTrack for Azure
  * [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan) | Senior Program Manager, CS Tech Strategy App Innovation

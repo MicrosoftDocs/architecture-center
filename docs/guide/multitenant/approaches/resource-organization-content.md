@@ -177,7 +177,7 @@ Resource tags enable you to add custom metadata to your Azure resources, which c
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

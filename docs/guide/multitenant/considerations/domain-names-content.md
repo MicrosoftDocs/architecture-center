@@ -126,7 +126,7 @@ Several Azure services support automatic management of certificates for custom d
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

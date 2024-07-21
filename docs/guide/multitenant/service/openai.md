@@ -109,7 +109,7 @@ Principal author:
 
 Other contributors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Program Manager
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce) | Customer Engineer, ISV & DN CoE
 - [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Tech Strategist

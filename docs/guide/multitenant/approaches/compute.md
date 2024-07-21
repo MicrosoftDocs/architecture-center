@@ -165,7 +165,7 @@ Consider the tradeoffs for each piece of state you maintain in your compute tier
 Principal authors:
 
  * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
  
 Other contributors:
 

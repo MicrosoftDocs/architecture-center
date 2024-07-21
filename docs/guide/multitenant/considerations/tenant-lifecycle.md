@@ -105,7 +105,7 @@ Deactivation is separate to offboarding in that it's intended to be a temporary 
 
 Principal author:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
