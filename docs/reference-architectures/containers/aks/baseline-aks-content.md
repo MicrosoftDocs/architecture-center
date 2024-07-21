@@ -633,51 +633,60 @@ Monitor the health of pods by setting [Liveness and Readiness probes](https://ku
 > [!NOTE]
 > AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
 
-### AKS cluster updates
+### Routine updates for AKS clusters
 
-It's important that your update strategy is consistent with your business requirements. Updates are released regularly. You can decide how often the AKS cluster or its nodes are updated (the *cadence*) and at what days or times updates should be applied (your *maintenance window*). You can also control whether updates are manually or automatically installed.
+Part of day-2 operations for Kubernetes clusters is performing routine platform and OS updates. There are three layers of updates that need to be address on every AKS cluster:
 
-If your AKS cluster is covered by strict security regulations, you might need to apply security-labeled patches daily or as soon as they're available. In other situations, you might consider weekly or monthly updates.
+- The Kubernetes version (e.g. Kubernetes 1.30.3 to 1.30.7 or Kubernetes 1.30.7 to 1.31.1), which might come with Kubernetes API changes and deprecations. Version changes at this layer impact the whole cluster.
+- The VHD image on each node, which combines operating system updates and AKS component updates. These updates are tested against the cluster's Kubernetes version. Version changes at this layer are applied at the node pool level and do not impact the Kubernetes version.
+- The operating system's own native update process (Windows Update, apt, and so on). These updates are supplied directly by the OS vendor and are not specifically tested against the cluster's Kubernetes version. Version changes at this layer impacts a single node and do not impact the Kubernetes version.
 
-Organizations that operate AKS clusters as immutable infrastructure don't update their clusters - neither automatic or manual updates are performed. Instead, when a desired update becomes available, a replica stamp gets deployed that includes the update. When the new infrastructure instance is ready, the old one is drained and eventually decommissioned.
+Each of these layers are independently controlled, and you must decide how each are handled for your workload's clusters. You must decide how often each AKS cluster, its node pools, or its nodes are updated (the *cadence*) and at what days or times updates should be applied (your *maintenance window*). You decide whether updates are manually or automatically installed or even not installed at all. Just like your workload running on your cluster requires a safe deployment practice, so too does the updates to your clusters.
 
-#### Updates to AKS nodes
+For a comprehensive perspective on patching and upgrading, see [Azure Kubernetes Service patch and upgrade guidance](/azure/architecture/operator-guides/aks/aks-upgrade-practices) in the [AKS day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide). Continue below for baseline recommendations as it relates to this architecture.
 
-There are two ways in which AKS nodes are typically updated: node image updates, and OS patching.
+#### Immutable infrastructure
 
-**Node image updates:** AKS regularly provides new node images that have the latest OS and runtime updates. These images are virtual hard disks (VHDs) that the nodes use. These updated images aren't automatically applied to running nodes, and you need to decide how these updates should be applied.
+Workloads that operate AKS clusters as immutable infrastructure don't update their clusters - neither automatic nor manual updates are performed. Node image upgrade should be set to [`None`](/azure/aks/auto-upgrade-node-os-image#channels-for-node-os-image-upgrades) and cluster auto-upgrade set to [`none`](/azure/aks/auto-upgrade-cluster#cluster-auto-upgrade-channels). In this configuration, you are solely responsible for all upgrades at all layers. When a desired update becomes available, the update is tested in pre-production for compatibility on a new cluster. After that, a production replica stamp gets deployed that includes the updated AKS version and node pool VHDs. When the new production cluster is ready, the old cluster is drained and eventually decommissioned.
 
-It's a good practice to automatically update AKS node images when new virtual hard disks (VHDs) become available. While it's not possible to know in advance what the changes are in each update, VHD images are vetted before they're published.
+Immutable infrastructure with regular deployments of new infrastructure is the only situation in which a production cluster should not have in-place upgrade strategy applied to it. All other clusters should have an in-place upgrade strategy.
 
-You're responsible for deciding how often your node images should be updated. You can design your maintenance windows to be aligned as much as possible with the business needs.
+#### In-place upgrades
 
-For most clusters, we recommend that AKS automatically updates your node OS images. For security-labeled VHD updates, you should configure a daily maintenance window. For regular VHD updates, we recommend you configure a weekly maintenance window. This approach gives you a good level of predictability while also reducing your cluster's exposure to known security issues. To learn more about how to configure automatic AKS nodes updates, see [Auto-upgrade node OS images](/azure/aks/auto-upgrade-node-os-image).
+Workloads that do not operate AKS clusters as immutable infrastructure, should regularly update their running clusters, addressing all three all layers, aligned to your workload's requirements. Use the following recommendations as a starting point for designing your routine update process.
 
-For more information, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) the [AKS Release Notes](https://github.com/Azure/AKS/releases).
+- Use the [planned maintenance](/azure/aks/planned-maintenance) feature of AKS to schedule and control upgrades on your cluster. This allows you to perform these updates, an inherently risky operation, at a controlled time to reduce impact from an unexpected failure.
+- Configure [pod disruption budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) such that your application remains stable during rolling upgrades but not so aggressive that node upgrades are blocked from happening, as most upgrades require a cordon and drain process on each node.
+- Validate Azure resource quota and resource availability. In-place upgrades deploy new instances of nodes (known as surge nodes) before old nodes are removed. This means Azure quota and IP space must be available for the new nodes. A [surge value](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade) of 33% is a good starting point for most workloads.
+- Test compatibility with tooling (such as service meshes or security agents you added to your cluster) and your workload components (such as ingress controllers, service meshes, and your workload pods) in a pre-production environment.
 
-**OS patching:** AKS can execute native updates to the operating system on each node. You can configure maintenance windows that align with your business needs, such as your peak hours and what time works best for your system operations. However, you don't get much control over the updates, because it's not possible to know in advance about the contents of the updates that will be applied to each node.
+##### In-place upgrades for nodes
 
-Installation of an OS patch might require the node VMs to be rebooted. AKS doesn't reboot nodes because of pending updates, so you need to have a process that monitors nodes for pending reboots and performs them in a controlled manner. An open-source option is [Kured](https://github.com/kubereboot/kured) (Kubernetes reboot daemon).
+Use the `NodeImage` auto upgrade channel for node OS image upgrades. This allows your cluster to update the VHD on each node with node-level updates that are tested by Microsoft against your AKS version. For Windows nodes, these updates are made about once a month. For Linux nodes, these updates happen about once a week.
 
-> [!TIP]
-> Where possible, we recommend you use node image upgrades as your primary weekly security patching strategy.
->
-> Relying just on node image upgrades ensures AKS compatibility and means you get weekly security patches. Keeping your node images in sync with the latest weekly release also minimizes the need to reboot nodes, while maintaining an enhanced security posture. Applying daily OS patches fixes security issues faster, but those patches might not have been tested in AKS.
+- These upgrades will never change your AKS or Kubernetes version, so Kubernetes API compatibility is not a concern with these upgrades.
+- Using `NodeImage` as the upgrade channel respects your planned maintenance window, which should be set for at least once a week, no matter what node image OS, to ensure timely application.
+- These updates include OS level security, compatibility, and functional updates, OS configuration settings, and AKS component updates.
+- Image releases and their included component version numbers can be tracked using the [AKS release tracker](/azure/aks/release-tracker).
 
-You can also choose to manually apply node updates, which gives you the greatest level of predictability and control over the AKS nodes updates. However, you need to be diligent about applying updates according to your policy, and your operational processes need to support this approach. This approach is often followed for for immutable infrastructure.
+If security requirements for your cluster demand a more aggressive patching cadence and your cluster can tolerate the potential interruptions, then use the `SecurityPatch` upgrade channel instead. These updates are also tested by Microsoft and will only be made available if there are security-only updates Microsoft has considered important enough to accelerate the release of ahead of the next scheduled node image upgrade (which will also happen with this upgrade channel selected). This option still honors your maintenance windows, so ensure your maintenance window has more frequent gaps (such as daily or every other day) to support these unexpected security updates.
 
-#### Updates to the AKS cluster
+Most clusters doing in-place upgrades should avoid the `None` and `Unmanaged` node image upgrade channel option.
+
+##### In-place updates to the cluster
 
 Kubernetes is a rapidly evolving platform, and regular updates bring important security fixes as well as new capabilities. It's important that you remain current with Kubernetes updates. You should stay within the [two most recent versions (N-2)](/azure/aks/supported-kubernetes-versions). Upgrading to the latest version of Kubernetes is critical because new versions are released frequently.
 
-It's a good idea to manually update your AKS cluster, because it provides you with the opportunity to test a new AKS cluster version in your lower environments before the updates hit your production environment. This approach also achieves the greatest level of predictability and control. However, you need to be diligent about monitoring for new updates to the Kubernetes platform, and quickly adopting new versions as they're released.
+Most clusters should be able to perform in-place AKS version updates with enough caution and rigor. The risk of performing an in-place AKS version upgrade can mostly be mitigated through sufficient pre-production testing, quota validation, and pod disruption budget configuration. However, any in-place upgrade can have unexpected behavior. If in-place upgrades are deemed too risky for your workload, then we recommended you use a [Blue-green deployment of AKS clusters](/azure/architecture/guide/aks/blue-green-deployment-for-aks) approach instead of following the remaining recommendations.
+
+We recommend that you avoid the [cluster auto-upgrade](azure/aks/auto-upgrade-cluster) feature to start with. Use a manual approach as it provides you with the time to test a new AKS cluster version in your pre-production environments before the updates hit your production environment. This approach also achieves the greatest level of predictability and control. However, you must be diligent about monitoring for new updates to the Kubernetes platform, and quickly adopting new versions as they're released. Its recommended to adopt a 'stay current' mindset over a [Long-term support (LTS)](/azure/aks/long-term-support) approach.
 
 > [!WARNING]
-> We don't recommend automatically patching or updating a production AKS cluster, even with minor version updates, unless those updates have been tested in your lower environments first.
+> We don't recommend automatically patching or updating a production AKS cluster, even with minor version updates, unless those updates have been tested in your lower environments first. For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
-For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
+You can receive notifications when a new AKS version is available for your cluster by using the [AKS system topic for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation deploys this Event Grid system topic so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution. Also review the [AKS release notes](https://github.com/Azure/AKS/releases) for specific compatibility concerns, behavior changes, or feature deprecations.
 
-You can receive notifications when a new AKS version is available for your cluster by using the [AKS system topic for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation deploys this Event Grid system topic so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution.
+You might eventually reach the point of confidence with Kubernetes releases, AKS releases, your cluster, its cluster-level components, and the workload, to explore the auto-upgrade feature. For production systems, it would be rare to ever move beyond `patch`. Also, with auto upgrading your AKS version, be aware of your infrastructure as code's AKS version setting for the AKS cluster so that they do not get out of sync. Configure your [planned maintenance](/azure/aks/planned-maintenance) window to support this auto-upgrade operation.
 
 ### Security monitoring
 
