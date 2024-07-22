@@ -412,7 +412,7 @@ For more information, see [Differences between Azure Network Policy and Calico p
 >
 > In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. NAT isn't needed for routing that traffic.
 >
-> Azure CNI also offers enhanced security control because it enables the use Azure Network Policy. It's recommended that Azure CNI Overlay be used for IP address constrained deployments, which only allocates IP addresses from the node pool subnet(s) for the nodes and uses a highly optimized overlay layer for pod IPs.
+> Azure CNI also offers enhanced security control because it enables the use of Azure Network Policy. It's recommended that Azure CNI Overlay be used for IP address constrained deployments, which only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs.
 >
 > For information about the models, see [Choosing a CNI network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure CNI network models](/azure/aks/concepts-network#compare-network-models).
 
@@ -525,7 +525,7 @@ Regular upkeep of your cluster such as timely updates is crucial for reliability
 
 ### Pod availability
 
-**Ensure pod resources are specified**. It's highly recommended that deployments specify pod resource requirements. The scheduler can then appropriately schedule the pod. Reliability will be significantly reduced if pods cannot be scheduled.
+**Specify pod resource requirements**. It's highly recommended that deployments specify pod resource requirements. The scheduler can then appropriately schedule the pod. Reliability will be significantly reduced if pods cannot be scheduled.
 
 **Set pod disruption budgets**. This setting determines how many replicas in a deployment can come down during an update or upgrade event. For more information, see [Pod disruption budgets](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
 
@@ -562,7 +562,7 @@ For simplicity, in this architecture AKS is deployed to a single region with nod
 
 Enabling availability zones won't be enough in the unlikely event that the entire region goes down. To have higher availability, run multiple AKS clusters, in different regions.
 
-- Use paired regions if available. Consider using a CI/CD pipeline that is configured to use a [paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions) to recover from region failures. A benefit of using paired regions is reliability during updates. Azure makes sure that only one region in the pair is updated at a time. Certain DevOps tools such as Flux can make the multi-region deployments easier. Note that [some regions don't have pairs](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair).
+- Use paired regions when they're available. Consider using a CI/CD pipeline that is configured to use a [paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions) to recover from region failures. A benefit of using paired regions is reliability during updates. Azure makes sure that only one region in the pair is updated at a time. Note that [some regions don't have pairs](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair). If your region isn't paired, you can still deploy a multi-region solution by selecting other regions to use. Certain DevOps tools such as Flux can make the multi-region deployments easier.
 
 - If an Azure resource supports geo-redundancy, provide the location where the redundant service will have its secondary instance. For example, enabling geo-replication for Azure Container Registry will automatically replicate images to the selected Azure regions, and will provide continued access to images even if the primary region experiences an outage.
 
@@ -577,7 +577,7 @@ Enabling availability zones won't be enough in the unlikely event that the entir
 
 In case of failure in the primary region, you should be able to quickly create a new instance in another region. Here are some recommendations:
 
-- Use multiple regions. If available, use paired regions.
+- Use multiple regions. If your primary region has a paired region, use that pair. If not, select regions based on your data residency and latency requirements.
 
 - A non-stateful workload can be replicated efficiently. If you need to store state in the cluster (not recommended), make sure you back up the data frequently in the paired region.
 
