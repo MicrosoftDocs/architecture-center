@@ -9,14 +9,10 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom: arb-data
   ms.category:
     - databases
     - developer-tools
-  ms.custom:
-    - acom-architecture
-    - serverless
-    - Cosmos DB
+  ms.custom: arb-data
 name: Serverless apps using Azure Cosmos DB
 azureCategories:
   - databases
@@ -27,4 +23,4 @@ products:
   - azure-functions
 thumbnailUrl: /azure/architecture/browse/thumbs/serverless-apps-using-cosmos-db.png
 content: |
-   [!include[](serverless-apps-using-cosmos-db-content.md)]
+   [!INCLUDE[](serverless-apps-using-cosmos-db-content.md)]
