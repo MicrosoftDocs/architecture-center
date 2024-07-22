@@ -8,7 +8,7 @@ Most of SMB customers who would benefit from implemeting this pattern are on pre
 
 //todo move the picture up before converting to .svg
 
-[ ![Diagram that shows simplified architecture.](media/small-medium-data-warehouse/MDWSMB3_Brief.svgg)](media/small-medium-data-warehouse/MDWSMB3_Brief.svg#lightbox)
+[ ![Diagram that shows simplified architecture.](media/small-medium-data-warehouse/MDWSMB3_Brief.svg)](media/small-medium-data-warehouse/MDWSMB3_Brief.svg#lightbox)
 
 
 Conseptual modernisation opportunity is to move legacy DW solution into a combination of Azure SQL Database/Managed Instance and Microsoft Fabric. This path offers broad surface of compatibility with traditional SQL Server, SQL client tools like SQL Server Management Studio (SSMS), offers appealing Lift & Shift options for existing processes and has low demands for upskilling from the team who supports this solution. This solution may be an initial step towards full monernization, where organisation fully adopts lakehose approach when size of the Datawarehouse grows and skillset of the team expands. Please compare with [Article Lakehouse, greenfield, scenario 5]
