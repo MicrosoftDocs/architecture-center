@@ -18,4 +18,4 @@ name: Extract, transform, and load (ETL)
 summary: Learn about extract, transform, load (ETL) and extract, load, transform (ELT) data transformation pipelines, and how to use control flows and data flows.
 thumbnailUrl: /azure/architecture/browse/thumbs/etl.png
 content: |
-  [!include[](etl-content.md)]
+  [!INCLUDE[](etl-content.md)]
