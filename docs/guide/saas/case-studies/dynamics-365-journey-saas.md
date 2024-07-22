@@ -17,6 +17,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 # The journey to SaaS: Dynamics 365
 

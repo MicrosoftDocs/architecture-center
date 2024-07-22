@@ -15,8 +15,7 @@ categories:
   - devops
 products:
   - azure-resource-manager
-ms.custom:
-  - article
+ms.custom: arb-devops
 ---
 
 # Advanced Azure Resource Manager template functionality

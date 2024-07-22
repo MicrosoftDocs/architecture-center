@@ -6,15 +6,17 @@ ms.author: prwilk
 ms.date: 07/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
+ms.custom:
+  - arb-containers
 products:
-- azure-kubernetes-service
-- azure-front-door
+  - azure-kubernetes-service
+  - azure-front-door
 ms.category:
-- containers
-- networking
-- database
-- monitoring
+  - containers
+  - networking
+  - database
+  - monitoring
 categories: featured
 ---
 

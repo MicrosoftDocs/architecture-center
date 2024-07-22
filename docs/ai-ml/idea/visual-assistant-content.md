@@ -22,12 +22,12 @@ This solution presents a visual assistant that provides rich information that's 
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed HTTP-based service for hosting web apps, REST APIs, and mobile backends.
 - [Azure Bot Service](https://azure.microsoft.com/services/bot-services) offers an environment for developing intelligent, enterprise-grade bots that enrich customer experiences. The integrated environment also provides a way to maintain control of your data.
-- The [Bing Custom Search API](https://www.microsoft.com/bing/apis/bing-custom-search-api) provides a way to create customized search experiences with Bing's powerful ranking and global-scale search index.
+- The [Bing Custom Search API](https://www.microsoft.com/bing/apis/bing-custom-search-api) provides a way to create customized search experiences with the Bing powerful ranking and global-scale search index.
 - The [Bing Entity Search API](https://www.microsoft.com/bing/apis/bing-entity-search-api) offers search capabilities that identify relevant entities, such as well-known people, places, movies, TV shows, video games, books, and businesses.
 - The [Bing Visual Search API](https://www.microsoft.com/bing/apis/bing-visual-search-api) returns data that's related to a given image, such as similar images, shopping sources for purchasing the item in the image, and webpages that include the image.
 - The [Bing Web Search API](https://www.microsoft.com/bing/apis/bing-web-search-api) provides search results after you issue a single API call. The results compile relevant information from billions of webpages, images, videos, and news.
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) that offers many natural language processing services.
-- [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Cognitive Service for Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use LUIS to predict the meaning of a conversation and pull out relevant, detailed information.
+- [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Azure AI Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use LUIS to predict the meaning of a conversation and pull out relevant, detailed information.
 
 ## Scenario details
 
@@ -53,7 +53,7 @@ Organizations can use this solution to provide:
 - To learn how to build with Bot Service, see [Build a bot with the Language Service and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service).
 - To create a bot that incorporates QnA Maker and Bot Service, see [Create conversational AI solutions](/training/paths/create-bots-with-the-azure-bot-service).
 - To solidify your understanding of LUIS, Bot Service, and the Bing Visual Search API, see [Exam AI-900: Microsoft Azure AI Fundamentals](/certifications/exams/ai-900).
-- To certify your knowledge about Cognitive Services, see [Microsoft Certified: Azure AI Engineer Associate](/certifications/azure-ai-engineer).
+- To certify your knowledge about Azure AI services, see [Microsoft Certified: Azure AI Engineer Associate](/certifications/azure-ai-engineer).
 - To learn more about the components in this solution, see these resources:
 
   - [App Service overview](/azure/app-service/overview)

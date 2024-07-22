@@ -8,6 +8,8 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
+  ms.custom:
+    - arb-containers
 azureCategories:
   - containers
   - management-and-governance
@@ -19,4 +21,4 @@ name: Kubernetes monitoring and logging
 summary: Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.
 thumbnailUrl: /azure/architecture/browse/thumbs/monitor-containers-architecture.png
 content: |
-   [!include[](monitoring-content.md)]
+   [!INCLUDE[](monitoring-content.md)]

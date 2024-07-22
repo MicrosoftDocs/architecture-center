@@ -16,9 +16,7 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-devtest-labs
-ms.custom:
-  - overview
-  - fcp
+ms.custom: arb-devops
 ---
 
 # DevOps architecture design
@@ -57,7 +55,6 @@ Plan your path to production by reviewing:
 
 | Article or section | Description |
 |--------------|-------------|
-| [DevOps checklist](../../checklist/dev-ops.md) | A list of things to consider and do when you implement DevOps attitudes and methods in culture, development, testing, release, monitoring, and management. |
 | [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
 | [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
@@ -71,7 +68,6 @@ Plan your path to production by reviewing:
 | [Azure Artifacts](https://azure.microsoft.com/services/devops/artifacts) |  [Azure Artifacts overview](/azure/devops/artifacts/start-using-azure-artifacts) |  Fully integrated package management for your CI/CD pipelines.
 | [Azure DevOps](https://azure.microsoft.com/services/devops) | [Azure DevOps documentation](/azure/devops) | Modern dev services for managing your development lifecycle end-to-end. It includes Azure Repos, Azure Pipelines, and Azure Artifacts. |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) | [Azure DevTest Labs documentation](/azure/devtest-labs) | Reusable templates and artifacts for provisioning development and test environments. |
-| [Azure Lab Services](https://azure.microsoft.com/services/lab-services) | [Azure Lab Services documentation](/azure/lab-services) | A tool for setting up and providing on-demand access to preconfigured virtual machines (VMs). |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor) | [Azure Monitor documentation](/azure/azure-monitor) | Provides full observability into your applications, infrastructure, and network. |
 | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) | [Azure Pipelines documentation](/azure/devops/pipelines) | Helps you automate build and deployment by using cloud-hosted pipelines. |
   [Azure Repos](https://azure.microsoft.com/services/devops/repos) | [Azure Repos documentation](/azure/devops/repos) | Provides unlimited, cloud-hosted private Git repos for your project and can be configured to use GitHub Advanced Security. |
@@ -110,7 +106,6 @@ The following articles are about best practices that are specific to DevOps and 
 ### DevOps
 
 - [How Teams at Microsoft Embraced a DevOps Culture - Azure webinar series](https://info.microsoft.com/ww-ondemand-how-teams-at-microsoft-embraced-a-devops-culture.html)
-- [DevOps checklist](../../checklist/dev-ops.md)
 - [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
 - [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md)
 - [Continuous monitoring with Azure Monitor](/azure/azure-monitor/continuous-monitoring)

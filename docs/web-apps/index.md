@@ -74,7 +74,6 @@ The following sections, organized by category, provide links to sample web app a
 
 ### E-commerce
 
-- [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
 - [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
@@ -132,7 +131,6 @@ Here are some additional implementations to consider:
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
-- [Web application monitoring on Azure](../web-apps/guides/monitoring/app-monitoring.yml)
 
 ### AWS or Google Cloud professionals
 

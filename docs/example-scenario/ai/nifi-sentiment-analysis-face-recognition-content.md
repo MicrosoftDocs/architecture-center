@@ -185,6 +185,5 @@ Principal authors:
 
 ## Related resources
 
-- [Extract, transform, load (ETL) using HDInsight](../../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)
 - [Knowledge mining for customer feedback](../../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Apache NiFi on Azure](../data/azure-nifi.yml)
