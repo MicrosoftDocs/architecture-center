@@ -1,6 +1,6 @@
 This reference architecture details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
 
-This architecture builds on the [AKS baseline architecture](/baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
+This architecture builds on the [AKS baseline architecture](../aks/baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
 ## Architecture
 
