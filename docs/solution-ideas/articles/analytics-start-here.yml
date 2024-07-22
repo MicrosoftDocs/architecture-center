@@ -10,7 +10,9 @@ metadata:
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category: analytics
-  ms.custom: azure-synapse-analytics
+  ms.custom: 
+  - azure-synapse-analytics
+  - arb-data
 azureCategories:
   - analytics
   - databases
