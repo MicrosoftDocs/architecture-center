@@ -157,7 +157,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Build message-driven business applications with NServiceBus and Azure Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus)|Use NServiceBus to build better message-driveen applications on Azure Service Bus, abstracting infrastructure concerns like serialization, routing, and dead-lettering.|Microservices|
+|[Build message-driven business applications with NServiceBus and Azure Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus)|Use NServiceBus to build better message-driven applications on Azure Service Bus, abstracting infrastructure concerns like serialization, routing, and dead-lettering.|Microservices|
 
 ## Oracle
 
