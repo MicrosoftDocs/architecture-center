@@ -85,11 +85,18 @@ Here are several scenarios where this transition can be beneficial:
 - Streamlined architecture: Reducing the number of services used in your architecture can simplify management and increase efficiency.
 
 ## Considerations
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see Microsoft [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/).
+
+The following considerations apply to this scenario.
 - Link to Scenarios 3a and 5 consideations
 ### Availability
-- Link to Scenarios 3a and 5 availabitiy
+Whatever the options you decide to take you can rely on Databricks and/or Fabric availability guidance:
+- [Fabric availability](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric)
+- [Databricks availability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 ### Operations
-- Link to Scenarios 3a and 5 operations
+Whatever the options you decide to take you can rely on Databricks and/or Fabric operations guidance:
+- [Fabric operations](https://learn.microsoft.com/en-us/fabric/cicd/cicd-overview)
+- [Databricks operations](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops)
 ### Cost optimization
 - Based on the size of your data and requirements, consider using a small starter pool for an efficient and cost-effective transition. For more information, refer to [the small starter pool configuration guide](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-starter-pools).
 - Link to Scenarios 3a and 5 cost optimization
