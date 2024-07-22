@@ -103,6 +103,8 @@ Regardless of the options you decide to take you can rely on Databricks and/or F
 - [Databricks cost optimization](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/cost-optimization/best-practices)
 
 ## Contributors
+- Ames Huang | Software Developer
+- Laurent Bananier | Senior Software Developer
 ## Next steps
 - [Integrate Unity Catalog with One Lake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog#other-considerations)
 - [Fabric Data Pipelines with notebooks](https://learn.microsoft.com/en-us/fabric/data-factory/notebook-activity)
