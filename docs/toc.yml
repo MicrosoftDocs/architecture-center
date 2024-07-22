@@ -4197,8 +4197,6 @@ items:
         - name: Best practices for Route Service
           href: /azure/azure-maps/how-to-use-best-practices-for-routing
           maintainContext: true
-      - name: Move NYC Taxi data with SSIS
-        href: data-science-process/move-data-to-azure-blob-using-ssis.md
       - name: Single sign on for car park management
         href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
         maintainContext: true
