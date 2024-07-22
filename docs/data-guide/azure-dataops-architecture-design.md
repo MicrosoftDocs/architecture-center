@@ -64,7 +64,7 @@ To help you get started with DataOps production, consider these resources:
 
 Depending on the DataOps technology you use, see the following best practices resources:
 
-- [NiFi System Administrator’s Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
+- [NiFi System Administrator's Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
 - [Microsoft Purview accounts architectures and best practices](/azure/purview/concept-best-practices-accounts)
 - [Continuous integration and delivery in Azure Data Factory](/azure/data-factory/continuous-integration-delivery)
 - [Repos for Git integration](/azure/databricks/repos)
@@ -79,7 +79,7 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 ### Data governance
 
-You can integrate Profisee data management with Azure Purview to build a foundation for data governance and management.
+You can integrate Profisee data management with Azure Microsoft Purview to build a foundation for data governance and management.
 
 > [!div class="nextstepaction"]
 > [Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)

@@ -40,7 +40,7 @@ This solution enables users to search for documents based on both file content a
 
 [Azure AI Search](/azure/search/search-what-is-azure-search) is a fully managed search service that can create [search indexes](/azure/search/search-what-is-an-index) that contain the information you want to allow users to search for.
 
-Because the files that are searched in this scenario are binary documents, you can store them in [Blob Storage](/azure/storage/blobs/storage-blobs-overview). If you do, you can use the built-in [Blob Storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) in Azure AI Search to automatically extract text from the document and add their content to the search index.
+The documents that are searched in this scenario are stored in [Blob Storage](/azure/storage/blobs/storage-blobs-overview). Because of this, you can use the built-in [Blob Storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) in Azure AI Search to automatically extract text from the document and add their content to the search index.
 
 ### Searching file metadata
 
