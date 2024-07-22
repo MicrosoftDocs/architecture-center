@@ -17,7 +17,7 @@ This architecture is a starting point for a [three-node Azure Stack HCI cluster 
 
 ## Architecture
 
-:::image type="content" source="images/azure-stack-hci-switchless.png" alt-text="Diagram that illustrates a three-node Azure Stack HCI cluster using a switchless storage architecture that has dual ToR switches for external (north/south) connectivity. The cluster uses a number of Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates, and Azure Site Recovery." lightbox="images/azure-stack-hci-switchless.png" border="false":::
+:::image type="content" source="images/azure-stack-hci-switchless.png" alt-text="Diagram that illustrates a three-node Azure Stack HCI cluster using a switchless storage architecture that has dual Top-of-Rack (ToR) switches for external (north-south) connectivity. The cluster uses a number of Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates, and Azure Site Recovery." lightbox="images/azure-stack-hci-switchless.png" border="false":::
 
 For more information about these resources, see [Related resources](#related-resources).
 
@@ -53,7 +53,7 @@ Network design refers to the overall arrangement of physical and logical compone
 
 #### Physical network topology
 
-The physical network topology shows the actual physical connections between nodes and networking components. The connections between nodes and networking components for a three-node storage switchless Azure Stack HCI deployment is as such:
+The physical network topology shows the actual physical connections between nodes and networking components. The connections between nodes and networking components for a three-node storage switchless Azure Stack HCI deployment are:
 
 - Three nodes (or servers):
 
@@ -69,26 +69,27 @@ The physical network topology shows the actual physical connections between node
   
   - This design provides link redundancy, dedicated low latency, and high bandwidth and high throughput.
   
-  - Within the HCI cluster, nodes communicate directly with each other by using these links for the storage replication traffic (or east/west traffic).
-  
-  - This direct communication avoids the requirement to use additional network switch ports for storage and removes the requirement to apply quality of service (QoS) or priority flow control (PFC) configuration for SMB-Direct (or RDMA) traffic on the network switches.
+  - Nodes within the HCI cluster communicate directly through these links to handle storage replication traffic, also known as east-west traffic.
+
+  - This direct communication eliminates the need for extra network switch ports for storage and removes the requirement to apply quality of service (QoS) or priority flow control (PFC) configuration for SMB-Direct (or RDMA) traffic on the network switches.
   
   - Check with your hardware OEM partner or network interface card (NIC) vendor for any recommended OS drivers, firmware versions, or firmware settings for the switchless interconnect network configuration.
-- Dual Top of Rack (ToR) Switches:
+  
+- Dual Top-of-Rack (ToR) switches:
 
-  - Although this configuration is _switchless_ for storage traffic, it still requires ToR switches for the external connectivity (_north/south traffic_), such as the cluster _management_ intent and the workload _compute_ intents.
+  - This configuration is _switchless_ for storage traffic but still requires ToR switches for the external connectivity. This connectivity is referred to as north-south traffic and includes the cluster _management_ intent and the workload _compute_ intents.
   
   - The uplinks to the switches from each node use two network adapter ports. Ethernet cables connect these ports, one to each ToR switch, to provide link redundancy.
   
   - We recommend that you use dual ToR switches to provide redundancy for servicing operations and load balancing for external communication.
   
-- External Connectivity:
+- External connectivity:
 
-  - The dual ToR switches connect to the external network, such as the internal corporate LAN, and use your edge border network device (such as a firewall or router) to provide access to the required outbound URLs.
+  - The dual ToR switches connect to the external network, such as the internal corporate LAN, and use your edge border network device, such as a firewall or router, to provide access to the required outbound URLs.
   
-  - The two ToR switches handle traffic that goes in and out of the Azure Stack HCI cluster (north/south traffic), such as traffic that flows over the management and compute intents.
+  - The two ToR switches handle the north-south traffic for the Azure Stack HCI cluster, including traffic related to management and compute intents.
 
-:::image type="content" source="images/azure-stack-hci-3node-physical-network.png" alt-text="Diagram that illustrates the physical networking topology for a three-node Azure Stack HCI cluster by using a switchless storage architecture with dual ToR switches for external (or north/south) connectivity." lightbox="images/azure-stack-hci-3node-physical-network.png" border="false":::
+:::image type="content" source="images/azure-stack-hci-3node-physical-network.png" alt-text="Diagram that illustrates the physical networking topology for a three-node Azure Stack HCI cluster by using a switchless storage architecture with dual ToR switches for external (or north-south) connectivity." lightbox="images/azure-stack-hci-3node-physical-network.png" border="false":::
 
 #### Logical network topology
 
@@ -100,34 +101,35 @@ The logical network topology provides an overview for how the network data flows
   
 - Azure Stack HCI applies network automation and _intent-based network configuration_ by using the [Network ATC service](/azure-stack/hci/deploy/network-atc).
 
-  - Network ATC is designed to ensure optimal networking configuration and traffic flow by using network "_Intents_", such as defining which physical network adapter ports are used for the different network traffic intents (_types_), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
+  - Network ATC is designed to ensure optimal networking configuration and traffic flow by using network traffic _intents_. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or types), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
   
   - Intent-based policies simplify the network configuration requirements by automating the node network configuration based on parameter inputs that are specified as part of the Azure Stack HCI cloud deployment process.
-  
+
 - External communication:
 
-  - When the nodes or workload need to communicate externally by accessing the corporate LAN, internet, or another service, they route using the dual ToR switches. This process is outlined in the previous physical network topology section.
+  - When the nodes or workload need to communicate externally by accessing the corporate LAN, internet, or another service, they route using the dual ToR switches. This process is described in the previous **physical network topology** section.
   
   - When the two ToR switches act as Layer 3 devices, they handle routing and provide connectivity beyond the cluster to the edge border device, such as your firewall or router.
   
-  - Management network intent uses the Converged SET Team virtual interface, which allows the cluster management IP and control plane resources to communicate externally.
+  - Management network intent uses the Converged SET Team virtual interface, which enables the cluster management IP address and control plane resources to communicate externally.
   
-  - Compute network intent: one or more logical networks can be created in Azure with the specific VLAN IDs for your environment. These are used by the workload resources, such as virtual machines (VMs) to provide access to the physical network. The logical networks use the two physical network adapter ports that are Converged by using a SET Team for the Compute and Management intents.
+  - For the compute network intent, you can create one or more logical networks in Azure with the specific VLAN IDs for your environment. The workload resources, such as VMs, use these IDs to give access to the physical network. The logical networks use the two physical network adapter ports that are converged using a SET Team for the compute and management intents.
   
 - Storage traffic:
-  - The nodes communicate with each other directly for storage traffic by using the four direct interconnect ethernet ports per node, which use **six separate non-routable ( or layer 2) networks** for the storage traffic.
+
+  - The nodes communicate with each other directly for storage traffic by using the four direct interconnect ethernet ports per node, which use six separate non-routable (or Layer 2) networks for the storage traffic.
   
-  - There is "no default gateway" configured on the four storage intent network adapter ports within the Azure Stack HCI node OS.
-  
-  - Each node can access storage spaces direct (S2D) capabilities of the cluster, such as remote physical disks used in the storage pool, virtual disks, and volumes using the SMB-Direct (_RDMA_) protocol over the **four dedicated switchless storage network adapter ports** available in each node, SMB Multichannel is used for resiliency.
+  - There's _no default gateway_ configured on the four storage intent network adapter ports within the Azure Stack HCI node OS.
+
+  - Each node can access S2D capabilities of the cluster, such as remote physical disks that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB-Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-:::image type="content" source="images/azure-stack-hci-3node-logical-network.png" alt-text="Diagram that illustrates the logical networking topology for a three-node Azure Stack HCI cluster by using a switchless storage architecture with dual ToR switches for external (north/south) connectivity." lightbox="images/azure-stack-hci-3node-logical-network.png" border="false":::
+:::image type="content" source="images/azure-stack-hci-3node-logical-network.png" alt-text="Diagram that illustrates the logical networking topology for a three-node Azure Stack HCI cluster by using a switchless storage architecture with dual ToR switches for external (north-south) connectivity." lightbox="images/azure-stack-hci-3node-logical-network.png" border="false":::
 
 #### IP address requirements
 
-To deploy a three-node storage switchless configuration of Azure Stack HCI with dual links for the storage interconnects, the cluster infrastructure platform requires that you allocate a minimum of 20 x IP addresses. Additional IP addresses are required if you use a VM appliance supplied by your hardware OEM partner, or if you use microsegmentation or software defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements).
+To deploy a three-node storage switchless configuration of Azure Stack HCI with dual links for the storage interconnects, the cluster infrastructure platform requires that you allocate a minimum of 20 x IP addresses. More IP addresses are required if you use a VM appliance supplied by your hardware OEM partner, or if you use microsegmentation or software defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements).
 
 When you design and plan IP address requirements for Azure Stack HCI, remember to account for additional IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Stack HCI cluster and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Stack HCI, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
 
@@ -169,7 +171,7 @@ Use the following deployment automation template as an example of how to deploy 
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
-- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.md)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
 
 ## Next steps
 

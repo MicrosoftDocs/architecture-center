@@ -17,7 +17,7 @@ For more information about workload architecture patterns that are optimized to 
 
 ## Architecture
 
-:::image type="content" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual ToR switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery." lightbox="images/azure-stack-hci-baseline.png" border="false":::
+:::image type="content" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery." lightbox="images/azure-stack-hci-baseline.png" border="false":::
 
 For more information, see [Related resources](#related-resources).
 
@@ -158,7 +158,7 @@ Network design is the overall arrangement of components within the network's phy
 
 Although a fully converged networking configuration is supported, the optimal configuration for performance and reliability is for the storage intent to use dedicated network adapter ports. Therefore, this baseline architecture provides example guidance for how to deploy a multinode Azure Stack HCI cluster using the Storage Switched network architecture with two network adapter ports that are converged for management and compute intents and two dedicated network adapter ports for the storage intent. For more information, see [Network considerations for cloud deployments of Azure Stack HCI](/azure-stack/hci/plan/cloud-deployment-network-considerations).
 
-This architecture requires two or more physical nodes and up to a maximum of 16 nodes in scale. Each node requires four network adapter ports that are connected to two ToR switches. The two ToR switches should be interconnected through multi-chassis link aggregation group (MLAG) links. The two network adapter ports that are used for the storage intent traffic must support [Remote Direct Memory Access (RDMA)](/azure-stack/hci/concepts/host-network-requirements#rdma). These ports require a minimum link speed of 10 Gbps, but we recommend a speed of 25 Gbps or higher. The two network adapter ports used for the management and compute intents are converged using switch embedded teaming (SET) technology. SET technology provides link redundancy and load-balancing capabilities. These ports require a minimum link speed of 1 Gbps, but we recommend a speed of 10 Gbps or higher.
+This architecture requires two or more physical nodes and up to a maximum of 16 nodes in scale. Each node requires four network adapter ports that are connected to two Top-of-Rack (ToR) switches. The two ToR switches should be interconnected through multi-chassis link aggregation group (MLAG) links. The two network adapter ports that are used for the storage intent traffic must support [Remote Direct Memory Access (RDMA)](/azure-stack/hci/concepts/host-network-requirements#rdma). These ports require a minimum link speed of 10 Gbps, but we recommend a speed of 25 Gbps or higher. The two network adapter ports used for the management and compute intents are converged using switch embedded teaming (SET) technology. SET technology provides link redundancy and load-balancing capabilities. These ports require a minimum link speed of 1 Gbps, but we recommend a speed of 10 Gbps or higher.
 
 #### Physical network topology
 
@@ -166,7 +166,7 @@ The physical network topology shows the actual physical connections between node
 
 - Dual ToR switches:
 
-  - Dual (two) ToR network switches are required for network resiliency, and the ability to service or apply firmware updates, to the switches without incurring downtime. This strategy prevents a single point of failure (SPoF).
+  - Dual ToR network switches are required for network resiliency, and the ability to service or apply firmware updates, to the switches without incurring downtime. This strategy prevents a single point of failure (SPoF).
   
   - The dual ToR switches are used for the storage east-west traffic. These switches use two dedicated ethernet ports that have specific storage VLANs and priority flow control (PFC) traffic classes that are defined to provide lossless RDMA communication.
   
@@ -186,7 +186,7 @@ The physical network topology shows the actual physical connections between node
 
   - Dual ToR switches connect to the external network, such as your internal corporate LAN, to provide access to the required outbound URLs by using your edge border network device. This device can be a firewall or router. These switches route traffic that goes in and out of the Azure Stack HCI cluster north-south traffic.
   
-  - External north-south traffic connectivity is used for the cluster management intent and the compute intents using two switch ports and two network adapter ports per node that are converged using a switch embedded teaming (SET) and a virtual switch within Hyper-V to provide resiliency. These components work to provide external connectivity for Arc VMs and other workload resources deployed within the logical networks that are created in Resource Manager using Azure portal, CLI, or IaC templates.
+  - External north-south traffic connectivity supports the cluster management intent and compute intents. This is achieved by using two switch ports and two network adapter ports per node that are converged through switch embedded teaming (SET) and a virtual switch within Hyper-V to ensure resiliency. These components work to provide external connectivity for Arc VMs and other workload resources deployed within the logical networks that are created in Resource Manager using Azure portal, CLI, or IaC templates.
 
     :::image type="content" source="images/azure-stack-hci-baseline-physical-network.png" alt-text="Diagram that shows the physical networking topology for a multinode Azure Stack HCI cluster that uses a storage switched architecture with dual ToR switches." lightbox="images/azure-stack-hci-baseline-physical-network.png" border="false":::
 
@@ -200,13 +200,13 @@ The logical network topology provides an overview for how network data flows bet
   
 - Azure Stack HCI uses the [Network ATC service](/azure-stack/hci/deploy/network-atc) to apply network automation and intent-based network configuration.
   
-  - Network ATC is designed to ensure optimal networking configuration and traffic flow by using network traffic _intents_. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or _types_), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
+  - Network ATC is designed to ensure optimal networking configuration and traffic flow by using network traffic _intents_. Network ATC defines which physical network adapter ports are used for the different network traffic intents (or types), such as for the cluster _management_, workload _compute_, and cluster _storage_ intents.
   
   - Intent-based policies simplify the network configuration requirements by automating the node network configuration based on parameter inputs that are specified as part of the Azure Stack HCI cloud deployment process.
   
 - External communication:
 
-  - When the nodes or workload need to communicate externally, like when they access the corporate LAN, internet, or another service, they route traffic using the dual ToR switches. This process is described in the earlier physical network topology section.
+  - When the nodes or workload need to communicate externally by accessing the corporate LAN, internet, or another service, they route using the dual ToR switches. This process is outlined in the previous **physical network topology** section.
   
   - When the two ToR switches act as Layer 3 devices, they handle routing and provide connectivity beyond the cluster to the edge border device, such as your firewall or router.
   
@@ -220,7 +220,7 @@ The logical network topology provides an overview for how network data flows bet
   
   - The _SMB1_ and _SMB2_ storage ports connect to two separate nonroutable (or Layer 2) networks. Each network has a specific VLAN ID configured that must match the switch ports configuration on the ToR switches' _default storage VLAN IDs: 711 and 712_.
   
-  - There's no default gateway configured on the two storage intent network adapter ports within the Azure Stack HCI node OS.
+  - There's _no default gateway_ configured on the two storage intent network adapter ports within the Azure Stack HCI node OS.
   
   - Each node can access S2D capabilities of the cluster, such as remote physical disks that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB-Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
   
