@@ -11,7 +11,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
-    -arb-data
+    - arb-data
 azureCategories:
   - databases
   - management-and-governance
