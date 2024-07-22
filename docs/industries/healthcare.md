@@ -59,7 +59,6 @@ The following articles provide detailed analysis of architectures developed and 
 
 The following are some additional ideas that you can use as a starting point for your healthcare solution.
 
-- [Population Health Management for Healthcare](../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [Medical Data Storage Solutions](../solution-ideas/articles/medical-data-storage.yml)
 - [HIPAA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)

@@ -104,10 +104,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 [Azure digital twins builder][Azure digital twins builder]: Use building information modeling data from Autodesk Forge to automate the creation of an Azure Digital Twins foundational dataset.
 
-#### Analytics
-
-[Geospatial data processing and analytics][Geospatial data processing and analytics]: Make large volumes of geospatial data available for analytics.
-
 #### Healthcare
 
 [Health data consortium][Health data consortium]: Share data among members of a healthcare consortium.
@@ -204,7 +200,6 @@ The following resources provide practical recommendations and information for sp
 [Explore Event Grid integration]: /training/modules/explore-event-grid-integration
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Forecast energy and power demand with machine learning]: ../solution-ideas/articles/forecast-energy-power-demand.yml
-[Geospatial data processing and analytics]: ../example-scenario/data/geospatial-data-processing-analytics-azure.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
 [Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml

@@ -130,7 +130,6 @@ Principal author:
 - [How To Turn Visitor Cellphone Roaming Data Into Revenue?](https://customers.microsoft.com/story/nos-spgs-media-telco-azure-sql-r-server-portugal)
 - [5G positioning: What you need to know](https://www.ericsson.com/en/blog/2020/12/5g-positioning--what-you-need-to-know)
 
-## Related resources
+## Related resource
 
-- [Geospatial data processing and analytics](geospatial-data-processing-analytics-azure.yml)
 - [Solutions for the telecommunications industry](../../industries/telecommunications.md)

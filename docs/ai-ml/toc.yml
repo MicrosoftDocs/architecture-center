@@ -108,8 +108,6 @@ items:
           href: architecture/batch-scoring-databricks.yml
       - name: Recommendations
         items:
-        - name: Real-time recommendation API
-          href: architecture/real-time-recommendation.yml
         - name: Social media analytics solution
           href: architecture/build-deploy-social-media-analytics-solution.yml
       - name: Monitoring
