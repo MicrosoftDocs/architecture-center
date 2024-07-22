@@ -11,10 +11,10 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+    -arb-data
 azureCategories:
   - databases
   - management-and-governance
-  - arb-data
 products:
   - microsoft-purview
   - azure-data-factory
