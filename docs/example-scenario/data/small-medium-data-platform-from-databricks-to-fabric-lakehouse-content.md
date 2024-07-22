@@ -5,7 +5,7 @@ The migration can be split into two steps:
  - Transition to Azure Databricks and Fabric
  - Transition fully to Fabric
 
-The following architecture might be your current state
+A typical Databricks lakehouse architecture looks like the following diagram:
  ![Alt text](media/small-medium-data-warehouse/adb-lakehouse.png)
 
 ### 1 -  Transitioning read compute from Azure Databricks to Microsoft Fabric
@@ -22,7 +22,7 @@ Orchestration can be migrated to Fabric Data Factory from Azure Data Factory for
 
 Now you can leverage read functionalities for your external data: using a notebook to read from your gold layer, or doing exploratory data analysis using the SQL endpoint for a Lakehouse. You can also query this data from Power BI using Direct Lake mode without copying data into the Power BI engine. More information here: [Direct Lake - Microsoft Fabric | Microsoft Learn](https://learn.microsoft.com/en-us/fabric/get-started/direct-lake-overview)
 
-Your architecture could look like this after adding Fabric:
+Your architecture could look like this after adding Fabric (Insert the link to scenario 3b article when ready):
  ![Alt text](media/small-medium-data-warehouse/adb-fabric-architecture.png)
 
 ### 2 -  Transitioning write compute from Azure Databricks to Microsoft Fabric
@@ -56,7 +56,7 @@ Given the scenario involves a volume of 600 GB maximum, performance issues durin
 
 By following these steps, you can  transition from Azure Databricks to Microsoft Fabric, ensuring that your data analytics platform remains efficient and effective. 
 
-Your architecture could look like this after following the guidance:
+Your architecture could look like this after following the guidance (Insert the link to scenario 5 article when ready)
  ![Alt text](media/small-medium-data-warehouse/fab-architecture-lakehouse.png)
 
 ### Components
@@ -88,18 +88,20 @@ Here are several scenarios where this transition can be beneficial:
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see Microsoft [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/).
 
 The following considerations apply to this scenario.
-- Link to Scenarios 3a and 5 consideations
 ### Availability
-Whatever the options you decide to take you can rely on Databricks and/or Fabric availability guidance:
+Regardless of the options you decide to take you can rely on Databricks and/or Fabric availability guidance:
 - [Fabric availability](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric)
 - [Databricks availability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 ### Operations
-Whatever the options you decide to take you can rely on Databricks and/or Fabric operations guidance:
+Regardless of the options you decide to take you can rely on Databricks and/or Fabric operations guidance:
 - [Fabric operations](https://learn.microsoft.com/en-us/fabric/cicd/cicd-overview)
 - [Databricks operations](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops)
 ### Cost optimization
-- Based on the size of your data and requirements, consider using a small starter pool for an efficient and cost-effective transition. For more information, refer to [the small starter pool configuration guide](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-starter-pools).
-- Link to Scenarios 3a and 5 cost optimization
+Regardless of the options you decide to take you can rely on Databricks and/or Fabric cost optimization guidance:
+- [Fabric cost optimization](https://learn.microsoft.com/en-us/fabric/enterprise/optimize-capacity#compute-optimization-by-fabric-experience)
+  - Based on the size of your data and requirements, consider using a small starter pool for an efficient and cost-effective transition. For more information, refer to [the small starter pool configuration guide](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-starter-pools). 
+- [Databricks cost optimization](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/cost-optimization/best-practices)
+
 ## Contributors
 ## Next steps
 - [Integrate Unity Catalog with One Lake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-unity-catalog#other-considerations)
