@@ -43,7 +43,7 @@ Customers often have explicit or implicit requirements that can affect how your 
 - **Regulations:** Clarify whether customers have any regulatory concerns that require additional approval before updates can be applied. For example, if you provide a health solution that includes IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
 - **Sensitivity:** Understand whether any of your customers are particularly sensitive or resistant to having updates applied. If they are, try to understand why. For example, if they run a physical store or a retail website, they might want to avoid updates around Black Friday, because the risks are higher than potential benefits.
 - **History:** Review your own track record of successfully completing updates without any impact to your customers. You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
-- **Rollback:** Conider whether customers want to roll back updates if there's a breaking change, and who would trigger such a rollback request.
+- **Rollback:** Consider whether customers want to roll back updates if there's a breaking change, and who would trigger such a rollback request.
 
 ## Your requirements
 

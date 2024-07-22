@@ -29,7 +29,7 @@ For more information about using Azure Front Door in a multitenant solution, see
 
 ### Authentication and authorization
 
-Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). When App Service receives a request, it checks to see whether each of the following conditions are met:
+Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). When App Service receives a request, it checks to see whether each of the following conditions is met:
 
 - The request contains a token.
 - The token is valid.
