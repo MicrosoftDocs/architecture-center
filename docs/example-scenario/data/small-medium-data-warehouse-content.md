@@ -80,7 +80,7 @@ However, a hybrid approach combines easy migration of the existing data estate w
 
 This example workload shows several ways that SMBs can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with Azure and Microsoft services and tools like Azure AI Services, and Microsoft Dynamics and Power Platform.
 
-### Potential use cases - TODO - mofify from here
+### Potential use cases 
 
 Several scenarios can benefit from this workload:
 
@@ -88,13 +88,13 @@ Several scenarios can benefit from this workload:
 
 - Meshing existing Dynamics or Power Platform [Dataverse](https://powerplatform.microsoft.com/dataverse) data with batched and real-time [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) sources.
 
-- Using innovative techniques to interact with centralized Data Lake Storage Gen2 data. Techniques include serverless analysis, knowledge mining, data fusion between domains, and end-user data exploration.
+- Using innovative techniques to interact with centralized Data Lake Storage Gen2 data. Techniques include serverless analysis, knowledge mining, data fusion between domains, and end-user data exploration, including Fabric Copilot.
 
 - Setting up eCommerce companies to adopt a data warehouse to optimize their operations.
 
 This solution isn't recommended for:
 
-- [Greenfield](https://wikipedia.org/wiki/Greenfield_project) deployment of data warehouses that are estimated to be > 1 TB within one year.
+- [Greenfield](https://wikipedia.org/wiki/Greenfield_project) deployment of data warehouses.
 
 - Migrating on-premises data warehouses that are > 1 TB or projected to grow to that size within a year.
 
@@ -106,11 +106,11 @@ The following considerations apply to this scenario.
 
 ### Availability
 
-SQL Database is a PaaS service that can meet your high availability (HA) and disaster recovery (DR) requirements. Be sure to pick the SKU that meets your requirements. For guidance, see [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla).
+SQL Database and SQL Managed Instance are PaaS services that can meet your high availability (HA) and disaster recovery (DR) requirements. Be sure to pick the SKU that meets your requirements. For guidance, see [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla) and [High availability for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql)
 
 ### Operations
 
-SQL Database uses [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms) to develop and maintain legacy artifacts like stored procedures.
+SQL Database and Managed Instance use [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms) to develop and maintain legacy artifacts like stored procedures.
 
 ### Cost optimization
 
@@ -122,15 +122,10 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 - [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
 
-- [Azure Synapse pipelines](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) base costs on the number of data pipeline activities, integration runtime hours, data flow cluster size, and execution and operation charges. Pipeline costs increase with additional data sources and amounts of data processed. The example assumes one data source batched every hour for 15 minutes on an Azure-hosted integration runtime.
-
-- [Azure Synapse Spark pool](https://azure.microsoft.com/pricing/details/synapse-analytics/#overview) bases pricing on node size, number of instances, and uptime. The example assumes one small compute node with five hours a week to 40 hours a month utilization.
-
-- [Azure Synapse serverless SQL pool](https://azure.microsoft.com/pricing/details/synapse-analytics/#overview) bases pricing on TBs of data processed. The sample assumes 50 TBs processed a month. This figure refers to the size of the data lake, not the original legacy database size.
+- [Microsoft Fabric](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) pricing is based on Fabric F capacity price or Premium Per Person price. Serverless capacilities would consume CPU and memory from dedicated capacity that was purchased. 
 
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) bills based on tier, throughput units provisioned, and ingress traffic received. The example assumes one throughput unit in Standard tier over one million events for a month.
 
-- [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/) bases costs on the number of provisioned streaming units. The sample assumes one streaming unit used over the month.
 
 ## Contributors
 
@@ -143,18 +138,19 @@ Principal author:
 ## Next steps
 
 - For training content and labs, see the [Data Engineer Learning Paths](/training/roles/data-engineer).
-- [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+- [Microsoft Fabric - Get Started MSLearn Path](https://learn.microsoft.com/en-us/training/fabric/)
+- [Microsoft Fabric - MSLearn modules](https://learn.microsoft.com/en-us/training/browse/?products=fabric&resource_type=module)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
+- [Create an instance - Azure SQL MI](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&tabs=azure-portal)
 - [Create a storage account for Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account)
 - [Azure Event Hubs Quickstart - Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create)
-- [Quickstart - Create a Stream Analytics job by using the Azure portal](/azure/stream-analytics/stream-analytics-quick-create-portal)
-- [Quickstart: Get started with Azure Machine Learning](/azure/machine-learning/quickstart-create-resources)
+
 
 ## Related resources
 
 - Learn more about:
   - [Data lakes](../../data-guide/scenarios/data-lake.md)
-  - [Data warehousing and analytics](data-warehouse.yml)
-  - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
-  - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
+  - [Data warehousing and analytics](data-warehouse.yml)  
   - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
+  - TODO: links to Fabric lakehouse greenfield
+  - TODO: link to Fabric enterprise with DW
