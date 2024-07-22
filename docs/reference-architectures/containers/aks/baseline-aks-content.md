@@ -96,7 +96,7 @@ Within the network, three subnets are deployed.
 
 #### Subnet to host Azure Firewall
 
-[Azure Firewall](/azure/firewall/) is firewall as a service. The firewall instance secures outbound network traffic. Without this layer of security, this traffic might communicate with a malicious third-party service that could exfiltrate sensitive company data. [Azure Firewall Manager](/azure/firewall-manager/overview) enables you to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* network architecture type.
+[Azure Firewall](/azure/firewall/) is firewall as a service. The firewall instance secures outbound network traffic. Without this layer of security, this traffic might communicate with a malicious third-party service that could exfiltrate sensitive company data. [Azure Firewall Manager](/azure/firewall-manager/overview) enables you to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* architecture type.
 
 #### Subnet to host a gateway
 
@@ -219,9 +219,9 @@ Securing access to and from the cluster is critical. Think from the cluster's pe
 
 There are two ways to manage AKS to Azure access through Microsoft Entra ID: *service principals* or *managed identities for Azure resources*.
 
-Of the two ways, managed identities is recommended. With service principals, you are responsible for managing and rotating secrets, either manually or programmatically. With managed identities, Microsoft Entra ID manages and performs the authentication and timely rotation of secrets for you.
+Of the two ways, managed identities are recommended. With service principals, you are responsible for managing and rotating secrets, either manually or programmatically. With managed identities, Microsoft Entra ID manages and performs the authentication and timely rotation of secrets for you.
 
-It's recommended that [managed identities is enabled](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. You can enable this setting only during cluster creation. Even if Microsoft Entra ID isn't used immediately, you can incorporate it later.
+It's recommended that [managed identities are enabled](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. You can enable this setting only during cluster creation. Even if Microsoft Entra ID isn't used immediately, you can incorporate it later.
 
 By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster: the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, and so on. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
 
@@ -395,7 +395,7 @@ With either method, review the required [egress network rules](/azure/aks/limit-
 
 An exception to the zero-trust control is when the cluster needs to communicate with other Azure resources. For instance, the cluster needs to pull an updated image from the container registry, or secrets from Azure Key Vault. The recommended approach is by using [Azure Private Link](/azure/private-link/private-link-overview). The advantage is that specific subnets reach the service directly instead of the traffic between the cluster and the services going over the internet. A downside is that Private Link needs additional configuration instead of using the target service over its public endpoint. Also, not all Azure services or SKUs support Private Link. For those cases, consider enabling a [Virtual Network service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) on the subnet to access the service.
 
-If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP addresses of the firewall, those addresses can be added the service's IP allowlist. One downside is that Azure Firewall needs to have additional rules to make sure only traffic from a specific subnet is allowed. Factor in those addresses when you're planning multiple IP addresses for egress traffic with Azure Firewall, otherwise you could reach port exhaustion. For more information about multiple IP address planning, see [Restrict and control outbound traffic](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
+If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP addresses of the firewall, those addresses can be added the service's IP allowlist. One downside is that Azure Firewall needs to have additional rules to make sure only traffic from a specific subnet is allowed. Factor in those addresses when you're planning multiple IP addresses for egress traffic with Azure Firewall, otherwise you could reach port exhaustion. For more information about planning for multiple IP addresses, see [Restrict and control outbound traffic](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
 
 To review Windows-specific egress considerations used in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#egress-traffic-flow).
 
@@ -653,7 +653,7 @@ Part of day-2 operations for Kubernetes clusters is performing routine platform 
 - The VHD image on each node, which combines operating system updates and AKS component updates. These updates are tested against the cluster's Kubernetes version. Version changes at this layer are applied at the node pool level and do not affect the Kubernetes version.
 - The operating system's own native update process (Windows Update, apt, and so forth). These updates are supplied directly by the OS vendor and are not specifically tested against the cluster's Kubernetes version. Version changes at this layer affect a single node and do not affect the Kubernetes version.
 
-Each of these layers are independently controlled, and you must decide how each are handled for your workload's clusters. You must decide how often each AKS cluster, its node pools, or its nodes are updated (the *cadence*) and at what days or times updates should be applied (your *maintenance window*). You decide whether updates are manually or automatically installed or even not installed at all. Just like your workload running on your cluster requires a safe deployment practice, so too do the updates to your clusters.
+Each of these layers is independently controlled, and you must decide how each are handled for your workload's clusters. You must decide how often each AKS cluster, its node pools, or its nodes are updated (the *cadence*) and at what days or times updates should be applied (your *maintenance window*). You decide whether updates are manually or automatically installed or even not installed at all. Just like your workload running on your cluster requires a safe deployment practice, so too do the updates to your clusters.
 
 For a comprehensive perspective on patching and upgrading, see [Azure Kubernetes Service patch and upgrade guidance](/azure/architecture/operator-guides/aks/aks-upgrade-practices) in the [AKS day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide). Continue below for baseline recommendations as it relates to this architecture.
 
@@ -883,7 +883,7 @@ Continue learning about the AKS baseline architecture:
 See the following related guides:
 
 - [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
-- The [AKS Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which is an enterprise-scale implementation based on this architecture. The accelerator helps you setup your Azure environment in a consistent and repeatble manner using Infrastructure-As-Code (IaC) for an Azure Kubernetes Service (AKS) deployment.
+- The [AKS Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which is an enterprise-scale implementation based on this architecture. The accelerator helps you set up your Azure environment in a consistent and repeatable manner using Infrastructure-As-Code (IaC) for an Azure Kubernetes Service (AKS) deployment.
 - [Azure Kubernetes Services (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
 
 See the following related architectures:
