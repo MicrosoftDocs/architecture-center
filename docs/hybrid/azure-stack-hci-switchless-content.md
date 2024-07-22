@@ -138,7 +138,7 @@ When you design and plan IP address requirements for Azure Stack HCI, remember t
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 > [!IMPORTANT]
-> Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline.yml#well-architected-framework-considerations).
+> Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline.yml#considerations).
 
 ### Cost optimization
 
