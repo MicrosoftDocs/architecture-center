@@ -12,10 +12,10 @@ This architecture builds on the [AKS baseline architecture](../aks/baseline-aks.
 
 ## Components
 
-Many components and Azure services are used in the multi-region AKS reference architecture. Only those components with uniqueness to this multi-cluster architecture are listed below. For the remaining, refer ti the [AKS Baseline architecture](../aks/baseline-aks.yml).
+Many components and Azure services are used in the multi-region AKS reference architecture. Only those components with uniqueness to this multi-cluster architecture are listed below. For the remaining, refer to the [AKS Baseline architecture](../aks/baseline-aks.yml).
 
 - **Regional AKS clusters:** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-- **Regional hub-spoke networks:** A regional hub-spoke network pair are deployed for each regional AKS instance. Azure Firewall Manager policies are used to manage firewall policies across all regions.
+- **Regional hub-spoke networks:** A regional hub-spoke network pair is deployed for each regional AKS instance. Azure Firewall Manager policies are used to manage firewall policies across all regions.
 - **Regional key vault:** Azure Key Vault is provisioned in each region for storing sensitive values and keys specific to the AKS instance and supporting services found in that region.
 - **Multiple log workspaces:** Regional Log Analytics workspaces are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
 - **Global Azure Front Door profile:** Azure Front Door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this reference architecture.
@@ -25,7 +25,7 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 This reference architecture uses two cloud design patterns:
 - [Geodes (geographical nodes)](../../../patterns/geodes.yml), where any region can service any request.
-- [Deployment Stamps](../../../patterns/deployment-stamp.yml) where multiple independent copies of an application or application component are deployed from a single source, such as a deployment template.
+- [Deployment Stamps](../../../patterns/deployment-stamp.yml), where multiple independent copies of an application or application component are deployed from a single source, such as a deployment template.
 
 ### Geode pattern considerations
 
@@ -35,7 +35,7 @@ Within each region, nodes in the AKS node pools are spread across multiple avail
 
 ### Deployment stamp considerations
 
-When managing a multi-region AKS cluster, multiple AKS instances are deployed across multiple regions. Each one of these instances is considered a stamp. In the event of a regional failure or the need to add more capacity and / or regional presence for your cluster, you might need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, it's important to consider the following things:
+When you manage a multi-region AKS solution, you deploy multiple AKS clusters across multiple regions. Each one of these clusters is considered a *stamp*. In the event of a regional failure or the need to add more capacity and / or regional presence for your cluster, you might need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, it's important to consider the following things:
 
 - Select the appropriate technology for stamp definitions that allows for generalized configuration. The reference implementation uses Bicep for defining infrastructure as code.
 - Provide instance-specific values using a deployment input mechanism such as variables or parameter files.
@@ -60,11 +60,11 @@ When deploying multiple Kubernetes clusters in highly available and geographical
 
 #### Cluster definition
 
-You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, the Azure CLI, and Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These methods, however, can present challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens the opportunity for misconfiguration due to missed steps or unavailable configuration options. The deployment and configuration of many clusters using the portal is a time-consuming process requiring the focus of one or more engineers. If you use the Azure CLI or Azure PowerSHell, you can construct a repeatable and automated process using the command-line tools. However, the responsibility of idempotency, deployment failure control, and failure recovery is on you and the scripts you build.
+You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, the Azure CLI, and Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These methods, however, can present challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens the opportunity for misconfiguration due to missed steps or unavailable configuration options. The deployment and configuration of many clusters using the portal is a time-consuming process requiring the focus of one or more engineers. If you use the Azure CLI or Azure PowerShell, you can construct a repeatable and automated process using the command-line tools. However, the responsibility of idempotency, deployment failure control, and failure recovery is on you and the scripts you build.
 
-When working with multiple AKS instances, we recommend considering infrastructure as code solutions, such as Bicep, Azure Resource Manager templates, or Terraform configurations. Infrastructure as code solutions provide an automated, scalable, and idempotent deployment solution. This reference architecture includes a Bicep implementation for the solution's shared services, and another for the AKS clusters and other regional services. If you use infrastructure as code, a deployment stamp can be defined with generalized configurations such as networking, authorization, and diagnostics. A deployment parameter file can be provided with region-specific values. With this configuration, a single template can be used to deploy an almost identical stamp across any region.
+When working with multiple AKS instances, we recommend considering infrastructure as code solutions, such as Bicep, Azure Resource Manager templates, or Terraform. Infrastructure as code solutions provide an automated, scalable, and idempotent deployment solution. This reference architecture includes a Bicep implementation for the solution's shared services, and another for the AKS clusters and other regional services. If you use infrastructure as code, a deployment stamp can be defined with generalized configurations such as networking, authorization, and diagnostics. A deployment parameter file can be provided with region-specific values. With this configuration, a single template can be used to deploy an almost identical stamp across any region.
 
-The cost of developing and maintaining infrastructure as code assets can be costly. In some cases, the overhead of infrastructure as code might outweigh the benefits. For example, this might apply if you have a small and unchanging number of AKS instances. For these cases, it's acceptable to use a more imperative approach, such as with command-line tools or even manual approaches with the Azure portal.
+The cost of developing and maintaining infrastructure as code assets can be costly. In some cases, the overhead of defining infrastructure as code might outweigh the benefits. such as when you have a very small and unchanging number of AKS instances. For these cases, it's acceptable to use a more imperative approach, such as with command-line tools or even manual approaches with the Azure portal.
 
 #### Cluster deployment
 
@@ -82,7 +82,7 @@ As new stamps are added or removed from the global cluster, the deployment pipel
 
 Another option would be to create business logic to create clusters based on a list of desired locations or other indicating data points. For instance, the deployment pipeline could contain a list of desired regions; a step within the pipeline could then loop through this list, deploying a cluster into each region found in the list. The disadvantage to this configuration is the complexity in deployment generalization and that each cluster stamp isn't explicitly detailed in the deployment pipeline. The positive benefit is that adding or removing cluster stamps from the pipeline becomes a simple update to the list of desired regions.
 
-Also, removing a cluster stamp from the deployment pipeline doesn't necessarily ensure that it's also decommissioned. Depending on your deployment solution and configuration, you might need an extra step to ensure that the AKS instances have appropriately been decommissioned. Consider using [deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) to enable full lifecycle management of Azure resources, including cleanup after they are no longer needed.
+Also, removing a cluster stamp from the deployment pipeline doesn't necessarily ensure that it's also decommissioned. Depending on your deployment solution and configuration, you might need an extra step to ensure that the AKS instances have appropriately been decommissioned. Consider using [deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) to enable full lifecycle management of Azure resources, including cleanup after they're no longer needed.
 
 #### Cluster bootstrapping
 
@@ -100,7 +100,7 @@ GitOps is detailed in more depth in the [AKS baseline reference architecture](./
 
 As multiple Kubernetes instances are added, the benefit of policy-driven governance, compliance, and configuration increases. Utilizing policies, specifically Azure Policy, provides a centralized and scalable method for cluster control. The benefit of AKS policies is detailed in the [AKS baseline reference architecture](../aks/baseline-aks.yml#policy-management).
 
-Azure Policy is enabled in this reference implementation when the AKS clusters are created. Initiatives are assigned in Audit mode to gain visibility into non-compliance. The implementation also sets more policies that aren't part of any built-in initiatives. Those policies are set in Deny mode. For example, there is a policy in place to ensure that only approved container images are run in the cluster. Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
+Azure Policy is enabled in this reference implementation when the AKS clusters are created. Initiatives are assigned in Audit mode to gain visibility into non-compliance. The implementation also sets more policies that aren't part of any built-in initiatives. Those policies are set in Deny mode. For example, there's a policy in place to ensure that only approved container images are run in the cluster. Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
 
 *Policy scope* refers to the target of each policy and policy initiative. The reference implementation associated with this architecture uses Bicep to assign policies to the resource group into which each AKS cluster is deployed. As the footprint of the global cluster grows, it results in many duplicate policies. You can also scope policies to an Azure subscription or Azure management group. This method enables you to apply a single set of policies to all the AKS clusters within the scope of a subscription, or all the subscriptions found under a management group.
 
@@ -126,44 +126,37 @@ Consider the following items when planning for workload deployment.
 
 A significant motivation for choosing a multi-region Kubernetes architecture is service availability. That is, if a service or service component becomes unavailable in one region, traffic should be routed to a region where another instance of that service is still available. A multi-region architecture includes many different failure points. In this section, each of these potential failure points is discussed.
 
-#### Application pods (regional)
+#### Application pod failures
 
-A Kubernetes deployment object is used to create a ReplicaSet, which consists of multiple replicas of a pod. If one pod is unavailable, traffic is routed between the remaining. The Kubernetes ReplicaSet attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be created automatically. Liveness probes can be used to check the state of the application or process running in the pod. If the service is unresponsive, the liveness probe removes the pod, which forces the ReplicaSet to create a new instance.
+A Kubernetes Deployment object is used to create a ReplicaSet, which manages multiple replicas of a pod. If one pod is unavailable, traffic is routed between the remaining. The Kubernetes ReplicaSet attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be created automatically. Liveness probes can be used to check the state of the application or process running in the pod. If the service is unresponsive, the liveness probe removes the pod, which forces the ReplicaSet to create a new instance.
 
 For more information, see [Kubernetes ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
 
-#### Application pods (global)
-<!-- TODO Should this be 'Cluster'? -->
+#### Datacenter hardware failures
+
+Localized failure can occasionally occur. For example, power might become unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point of failure, use Azure availability zones. By using availability zones, you ensure that AKS nodes in a one availability zone are physically separated from those defined in another availability zone.
+
+For more information, see [AKS and Azure availability zones](/azure/aks/availability-zones).
+
+#### Azure region failures
 
 When an entire region becomes unavailable, the pods in the cluster are no longer available to serve requests. In this case, Azure Front Door routes all traffic to the remaining healthy regions. The Kubernetes clusters and pods in the healthy regions will continue to serve requests.
 
-Take care in this situation to compensate for increased requests and traffic to the remaining cluster. A few things to consider:
+Take care in this situation to compensate for increased requests and traffic to the remaining cluster. Consider the following points:
 
-- Ensure that network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet that's big enough to support all Pod IP addresses while traffic is spiking.
+- Ensure that network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet that's large enough to support all Pod IP addresses while traffic is spiking.
 - Use the Horizontal Pod Autoscaler to increase the pod replica count to compensate for the increased regional demand.
 - Use the AKS Cluster Autoscaler to increase the Kubernetes instance node counts to compensate for the increased regional demand.
 
 For more information, see [Horizontal Pod Autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
 
-#### Kubernetes node pools (regional)
-
-Localized failure can occasionally occur. For example, power might become unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point of failure, use Azure availability zones, which ensures that AKS nodes in a given availability zone are physically separated from those defined in another availability zone.
-
-For more information, see [AKS and Azure availability zones](/azure/aks/availability-zones).
-
-#### Kubernetes node pools (global)
-
-In the unlikely event of a complete regional failure, Azure Front Door will route traffic to the remaining and healthy regions. Again, take care in this situation to compensate for increased traffic and requests to the remaining clusters.
-
-For more information, see [Azure Front Door](/azure/frontdoor).
-
 ### Network topology
 
 Similar to the AKS baseline reference architecture, this architecture uses a hub-spoke network topology. In addition to the considerations specified in the [AKS baseline reference architecture](../aks/baseline-aks.yml#network-topology), consider the following best practices:
 
-- Implement a hub-spoke set of virtual networks for each regional AKS instance, where the hub-spoke virtual networks are peered. <!-- TODO are inter-region networks peered? -->
+- Implement a hub-spoke set of virtual networks for each regional AKS instance. Within each region, peer each spoke to the hub virtual network.
 - Route all outbound traffic through an Azure Firewall instance found in each regional hub network. Utilize Azure Firewall Manager policies to manage firewall policies across all regions.
-- Follow the IP sizing found in the [AKS baseline reference architecture](../aks/baseline-aks.yml#plan-the-ip-addresses), and allow for more IP addresses for both node and pod scale operations in case you experience a regional failure.
+- Follow the IP sizing found in the [AKS baseline reference architecture](../aks/baseline-aks.yml#plan-the-ip-addresses), and allow for more IP addresses for both node and pod scale operations in case you experience a regional failure in another region and traffic to the remaining regions increases substantially.
 
 ### Traffic management
 
@@ -173,11 +166,11 @@ With the AKS baseline reference architecture, workload traffic is routed directl
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster-aks-ingress-flow.vsdx) of this diagram.*
 
-1. The user sends a request to a domain name (such as `https://contoso-web.azurefd.net`), which is resolved to the Azure Front Door profile. This request is encrypted with a wildcard certificate (`*.azurefd.net`) issued for all subdomains of Azure Front Door. <!-- TODO mention custom domains? --> Azure Front Door validates the request against WAF policies, selects the fastest origin (based on health and latency), and uses public DNS to resolve the origin IP address (Azure Application Gateway instance). <!-- TODO not public DNS if it's using PL -->
+1. The user sends a request to a domain name (such as `https://contoso-web-a1bc2de3fh4ij5kl.z01.azurefd.net`), which is resolved to the Azure Front Door profile. This request is encrypted with a wildcard certificate (`*.azurefd.net`) issued for all subdomains of Azure Front Door. Azure Front Door validates the request against WAF policies, selects the fastest origin (based on health and latency), and uses public DNS to resolve the origin IP address (Azure Application Gateway instance).
 
-2. Azure Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door.
+1. Azure Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door.
 
-   Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a Network Security Group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the `X-Azure-FDID` header, which Azure Front Door adds to the request before sending it to the origin, to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see [Protocol support for HTTP headers in Azure Front Door](/azure/frontdoor/front-door-http-headers-protocol).
+   Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a network security group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the `X-Azure-FDID` header, which Azure Front Door adds to the request before sending it to the origin, to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see [Protocol support for HTTP headers in Azure Front Door](/azure/frontdoor/front-door-http-headers-protocol).
 
 ### Shared resource considerations
 
@@ -217,13 +210,15 @@ Azure Front Door is used to load balance and route traffic to each AKS cluster. 
 
 ##### Cluster configuration
 
-As each regional AKS instance is added, the Application Gateway deployed alongside the Kubernetes cluster needs to be enrolled as an origin in Azure Front Door, which makes it available for routing. This operation requires an update to your infrastructure as code assets. Alternatively, this operation can be decoupled from the deployment configuration and managed by using tools such as the Azure CLI. The included reference implementation's deployment pipeline uses a distinct Azure CLI step for this operation. <!-- TODO check this for accuracy -->
+As each regional AKS instance is added, the Application Gateway deployed alongside the Kubernetes cluster needs to be enrolled as an origin in Azure Front Door, which makes it available for routing. This operation requires an update to your infrastructure as code assets. Alternatively, this operation can be decoupled from the deployment configuration and managed by using tools such as the Azure CLI.
 
 ##### Certificates
 
-Azure Front Door doesn't support self-signed certificates, even in development or test environments. To enable HTTPS traffic, you need to create your TLS/SSL certificate signed by a certificate authority (CA). The reference implementation uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. When planning for a production cluster, use your organization's preferred method for procuring TLS certificates.
+Azure Front Door doesn't support origins using self-signed certificates, even in development or test environments. To enable HTTPS traffic, you need to create your TLS/SSL certificate signed by a certificate authority (CA). For information about other CAs that Front Door supports, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/end-to-end-tls?#supported-certificates).
 
-For information about other CAs that Front Door supports, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/end-to-end-tls?#supported-certificates).
+The reference implementation uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate for each of the application gateways. The certificate generation process requires deployment of some temporary Azure resources. For more information on how the reference implementation creates TLS certificates, see the [Certificate Generation for an Azure Public IP with your DNS Prefix](https://github.com/mspnp/letsencrypt-pip-cert-generation) sample.
+
+When planning for a production cluster, use your organization's preferred method for procuring TLS certificates.
 
 ### Cluster access and identity
 
