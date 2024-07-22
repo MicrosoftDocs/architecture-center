@@ -1,6 +1,6 @@
 This reference architecture details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
 
-This architecture builds on the [AKS baseline architecture](/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
+This architecture builds on the [AKS baseline architecture](/baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
 ## Architecture
 
@@ -12,7 +12,7 @@ This architecture builds on the [AKS baseline architecture](/baseline-aks), Micr
 
 ## Components
 
-Many components and Azure services are used in the multi-region AKS reference architecture. Only those components with uniqueness to this multi-cluster architecture are listed below. For the remaining, refer ti the [AKS Baseline architecture](../aks/baseline-aks).
+Many components and Azure services are used in the multi-region AKS reference architecture. Only those components with uniqueness to this multi-cluster architecture are listed below. For the remaining, refer ti the [AKS Baseline architecture](../aks/baseline-aks.yml).
 
 - **Regional AKS clusters:** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
 - **Regional hub-spoke networks:** A regional hub-spoke network pair are deployed for each regional AKS instance. Azure Firewall Manager policies are used to manage firewall policies across all regions.
@@ -98,7 +98,7 @@ GitOps is detailed in more depth in the [AKS baseline reference architecture](./
 
 ##### Azure Policy
 
-As multiple Kubernetes instances are added, the benefit of policy-driven governance, compliance, and configuration increases. Utilizing policies, specifically Azure Policy, provides a centralized and scalable method for cluster control. The benefit of AKS policies is detailed in the [AKS baseline reference architecture](../aks/baseline-aks#policy-management).
+As multiple Kubernetes instances are added, the benefit of policy-driven governance, compliance, and configuration increases. Utilizing policies, specifically Azure Policy, provides a centralized and scalable method for cluster control. The benefit of AKS policies is detailed in the [AKS baseline reference architecture](../aks/baseline-aks.yml#policy-management).
 
 Azure Policy is enabled in this reference implementation when the AKS clusters are created. Initiatives are assigned in Audit mode to gain visibility into non-compliance. The implementation also sets more policies that aren't part of any built-in initiatives. Those policies are set in Deny mode. For example, there is a policy in place to ensure that only approved container images are run in the cluster. Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
 
@@ -159,11 +159,11 @@ For more information, see [Azure Front Door](/azure/frontdoor).
 
 ### Network topology
 
-Similar to the AKS baseline reference architecture, this architecture uses a hub-spoke network topology. In addition to the considerations specified in the [AKS baseline reference architecture](../aks/baseline-aks#network-topology), consider the following best practices:
+Similar to the AKS baseline reference architecture, this architecture uses a hub-spoke network topology. In addition to the considerations specified in the [AKS baseline reference architecture](../aks/baseline-aks.yml#network-topology), consider the following best practices:
 
 - Implement a hub-spoke set of virtual networks for each regional AKS instance, where the hub-spoke virtual networks are peered. <!-- TODO are inter-region networks peered? -->
 - Route all outbound traffic through an Azure Firewall instance found in each regional hub network. Utilize Azure Firewall Manager policies to manage firewall policies across all regions.
-- Follow the IP sizing found in the [AKS baseline reference architecture](../aks/baseline-aks#plan-the-ip-addresses), and allow for more IP addresses for both node and pod scale operations in case you experience a regional failure.
+- Follow the IP sizing found in the [AKS baseline reference architecture](../aks/baseline-aks.yml#plan-the-ip-addresses), and allow for more IP addresses for both node and pod scale operations in case you experience a regional failure.
 
 ### Traffic management
 
@@ -199,13 +199,13 @@ The AKS multi-region reference implementation creates a single registry and repl
 
 ##### Cluster access
 
-Each AKS cluster requires access to the container registry so that it can pull container image layers. There are multiple ways for establishing access to Azure Container Registry. This reference architecture uses a managed identity for each cluster, which is then granted the `AcrPull` role on the container registry. For more information and recommendations on using managed identities for Azure Container Registry access, see the [AKS baseline reference architecture](../aks/baseline-aks#integrate-microsoft-entra-id-for-the-cluster).
+Each AKS cluster requires access to the container registry so that it can pull container image layers. There are multiple ways for establishing access to Azure Container Registry. This reference architecture uses a managed identity for each cluster, which is then granted the `AcrPull` role on the container registry. For more information and recommendations on using managed identities for Azure Container Registry access, see the [AKS baseline reference architecture](../aks/baseline-aks.yml#integrate-microsoft-entra-id-for-the-cluster).
 
 This configuration is defined in the cluster stamp Bicep file, so that each time a new stamp is deployed, the new AKS instance is granted access. Because the container registry is a shared resource, ensure that your deployments include the resource ID of the container registry as a parameter.
 
 #### Azure Monitor
 
-The Azure Monitor Container insights feature is the recommended tool to monitor and understand the performance and health of your cluster and container workloads. [Container insights](/azure/azure-monitor/containers/container-insights-overview) utilizes both a Log Analytics workspace for storing log data, and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to store numeric time-series data. Prometheus metrics can also be collected by Container Insights and the data can be sent to either [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) or [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). For more information, see the [AKS baseline reference architecture](../aks/baseline-aks#monitor-and-collect-metrics).
+The Azure Monitor Container insights feature is the recommended tool to monitor and understand the performance and health of your cluster and container workloads. [Container insights](/azure/azure-monitor/containers/container-insights-overview) utilizes both a Log Analytics workspace for storing log data, and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to store numeric time-series data. Prometheus metrics can also be collected by Container Insights and the data can be sent to either [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) or [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). For more information, see the [AKS baseline reference architecture](../aks/baseline-aks.yml#monitor-and-collect-metrics).
 
 You can also configure your [AKS cluster diagnostic settings](/azure/aks/monitor-aks#collect-resource-logs) to collect and analyze resource logs from the AKS control plane components and forward them to a Log Analytics workspace.
 
@@ -227,7 +227,7 @@ For information about other CAs that Front Door supports, see [Allowed certifica
 
 ### Cluster access and identity
 
-As discussed in the [AKS baseline reference architecture](../aks/baseline-aks#integrate-microsoft-entra-id-for-the-cluster), we recommend that you use Microsoft Entra ID as the identity provider for your clusters. The Microsoft Entra groups can then be used to control access to cluster resources.
+As discussed in the [AKS baseline reference architecture](../aks/baseline-aks.yml#integrate-microsoft-entra-id-for-the-cluster), we recommend that you use Microsoft Entra ID as the identity provider for your clusters. The Microsoft Entra groups can then be used to control access to cluster resources.
 
 When you manage multiple clusters, you need to decide on an access schema. Options include:
 
