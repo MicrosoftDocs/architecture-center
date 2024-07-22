@@ -104,7 +104,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-- See the service-level agreements for each architecture component at [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+- See the service-level agreements (SLAs) for each architecture component at [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 - For configuration options to design high-availability applications with Azure Storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
 

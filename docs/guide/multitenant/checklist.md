@@ -88,7 +88,7 @@ Principal authors:
 
 Other contributor:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Program Manager
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
