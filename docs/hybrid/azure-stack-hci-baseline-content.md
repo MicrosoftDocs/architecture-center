@@ -1,10 +1,10 @@
 This baseline reference architecture provides workload-agnostic guidance and recommendations for configuring Azure Stack HCI 23H2 and later infrastructure to ensure a reliable platform that can deploy and manage highly available virtualized and containerized workloads. This architecture describes the resource components and cluster design choices for the physical nodes that provide local compute, storage, and networking features. It also describes how to use Azure services to simplify and streamline the day-to-day management of Azure Stack HCI.
 
-This architecture is a starting point for how to use the storage switched network design to deploy a multinode Azure Stack HCI cluster. The workload applications deployed on an Azure Stack HCI cluster should be well architected. Well-architected workload applications must be deployed using multiple instances (or high availability) of any critical workload services and have appropriate business continuity and disaster recovery (BCDR) controls in place, such as regular backups and disaster recovery failover capabilities. To focus on the HCI infrastructure platform, these workload design aspects are intentionally excluded from this article.
+For more information about workload architecture patterns that are optimized to run on Azure Stack HCI, see the content located in the **Azure Stack HCI workloads** navigation menu.
+
+This architecture is a starting point for how to use the storage switched network design to deploy a multinode Azure Stack HCI cluster. The workload applications deployed on an Azure Stack HCI cluster should be well architected. Well-architected workload applications must be deployed using multiple instances or high availability of any critical workload services and have appropriate business continuity and disaster recovery (BCDR) controls in place. These BCDR controls include regular backups and disaster recovery failover capabilities. To focus on the HCI infrastructure platform, these workload design aspects are intentionally excluded from this article.
 
 For more information about guidelines and recommendations for the five pillars of the Azure Well-Architected Framework, see the [Azure Stack HCI Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci).
-
-For more information about workload architecture patterns that are optimized to run on Azure Stack HCI, see the content located in the **Azure Stack HCI workloads** navigation menu.
 
 ## Article layout
 
@@ -93,7 +93,7 @@ The architecture can incorporate the following optional supporting services to e
 
 - [Monitor][azure-monitor] is a cloud-based service for collecting, analyzing, and acting on diagnostic logs and telemetry from your cloud and on-premises workloads. You can use Monitor to maximize the availability and performance of your applications and services through a comprehensive monitoring solution. Deploy Azure Stack HCI Insights to simplify the creation of the Monitor data collection rule (DCR) and quickly enable monitoring of Azure Stack HCI clusters.
 
-- [Azure Policy][azure-policy] is a service that evaluates Azure and on-premises resources. Azure Policy evaluates resources through integration with Azure Arc by using the properties of those resources to business rules, called _Policy Definitions_, to determine compliance or capabilities that you can use to apply VM Guest Configuration using policy settings.
+- [Azure Policy][azure-policy] is a service that evaluates Azure and on-premises resources. Azure Policy evaluates resources through integration with Azure Arc by using the properties of those resources to business rules, called _policy definitions_, to determine compliance or capabilities that you can use to apply VM Guest Configuration using policy settings.
 
 - [Defender for Cloud][ms-defender-for-cloud] is a comprehensive infrastructure security management system. It enhances the security posture of your datacenters and delivers advanced threat protection for hybrid workloads, whether they reside in Azure or elsewhere, and across on-premises environments.
 
@@ -103,7 +103,7 @@ The architecture can incorporate the following optional supporting services to e
 
 ## Cluster design choices
 
-It's important to understand the workload performance and resiliency requirements when you design an Azure Stack HCI cluster. These requirements include recovery time objective (RTO) and recovery point objective (RPO) times, compute (CPU), memory, and storage requirements for all workloads that are deployed on the Azure Stack HCI cluster. Several characteristics of the workload affect the decision-making process, including:
+It's important to understand the workload performance and resiliency requirements when you design an Azure Stack HCI cluster. These requirements include recovery time objective (RTO) and recovery point objective (RPO) times, compute (CPU), memory, and storage requirements for all workloads that are deployed on the Azure Stack HCI cluster. Several characteristics of the workload affect the decision-making process and include:
 
 - Processor (or CPU) architecture capabilities, such as the GHz frequency (or speed) and number of cores per socket.
 
@@ -127,7 +127,7 @@ It's important to understand the workload performance and resiliency requirement
 
 To design and plan an Azure Stack HCI deployment, we recommend that you use the [Azure Stack HCI Sizing Tool][azs-hci-sizer-tool] and create a _New Project_ for sizing your HCI clusters. Using the Sizing Tool requires that you understand your workload requirements. When considering the number and size of workload VMs that run on your cluster, make sure to consider factors such as the number of vCPUs, memory requirements, and necessary storage capacity for the VMs.
 
-The Sizing Tool *Preferences* section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the cluster. Make sure to:
+The Sizing Tool **Preferences** section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the cluster. Make sure to:
 
 - Reserve a minimum of N+1 nodes worth of capacity, or one node, across the cluster.
 
