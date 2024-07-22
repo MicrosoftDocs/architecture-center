@@ -32,19 +32,19 @@ Legacy SMB data warehouses might contain several types of data:
 
 The following dataflow demonstrates the ingestion of your chosen data type:
 
-1. Microsoft Fabric Data pipelines ingest the legacy data warehouses into Azure.
+1. Microsoft Fabric Data pipelines or Data Factory Pipelines orchestrate the ingestion of transactional data into the datawarehousing solution.
 
-   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Fabric SQL Database. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Microsoft Fabric software-as-a-service (SaaS). You can modernize databases incrementally after the lift and shift.
+   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Azure SQL Database/Managed Instance. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Microsoft Fabric software-as-a-service (SaaS). You can modernize databases incrementally after the lift and shift.
 
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
 
-1. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Fabric Serverless analysis tools. You can bring the fused, processed data back into Dynamics and use for further analysis inside Microsoft Fabric.
+2. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Fabric Serverless analysis tools. You can bring the fused, processed data back into Dynamics and use for further analysis inside Microsoft Fabric.
 
-1. Real-time data from streaming sources can also enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
+3. Real-time data from streaming sources can also enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
-1. The data can also enter the centralized Fabric OneLake for further analysis, storage, and reporting.
+4. The data can also enter the centralized Fabric OneLake for further analysis, storage, and reporting by using ADLS shortcuts, which opens up in-place analysis and downstream consumption. 
 
-1. Serverless analysis tools (Serverless SQL endpoint and Fabric Spark capabilities) are available inside Microsoft Fabric on demand and do not require any provisioned resources.
+5. Serverless analysis tools (SQL Analytics endpoint and Fabric Spark capabilities) are available inside Microsoft Fabric on demand and do not require any provisioned resources.
 
    Serverless analysis tools are ideal for:
    - ETL/ELT on OneLake data.
@@ -52,38 +52,25 @@ The following dataflow demonstrates the ingestion of your chosen data type:
    - Ad hoc data science explorations in T-SQL format or Python.
    - Early prototyping for data warehouse entities.
 
-Microsoft Fabricis tightly is integrated with potential consumers of your fused datasets, like Power BI frond end Reports, Azure Machine Learning, Power Apps, Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
+Microsoft Fabricis is tightly integrated with potential consumers of your fused datasets, like Power BI frond end Reports, Azure Machine Learning, Power Apps, Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
 ### Components
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. In this solution:
+- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an analytics service that combines capabilities of data engineering, data warehousing, data science, real-time and business intelligence. In this solution:
 
-  - An [Azure Synapse Workspace](/azure/synapse-analytics/quickstart-create-workspace) promotes collaboration between data engineers, data scientists, data analysts, and business intelligence (BI) professionals.
-  - [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) orchestrate and ingest data into SQL Database and Data Lake Storage Gen2.
-  - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Data Lake Storage Gen2 on demand.
-  - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage Gen2 with Spark languages like Spark SQL, pySpark, and Scala.
+  - [Fabric data engineering capabilities](https://learn.microsoft.com/en-us/fabric/data-engineering/data-engineering-overview) provide collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are destributed to end consumers. 
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an intelligent, scalable, relational database service built for the cloud. In this solution, SQL Database holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)/[Managed Instance](https://azure.microsoft.com/en-us/products/azure-sql/managed-instance/) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs can ingest data from anywhere, and seamlessly integrates with Azure data services.
-
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time, serverless analytics service for streaming data. Stream Analytics offers rapid, elastic scalability, enterprise-grade reliability and recovery, and built-in machine learning capabilities.
-
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. Machine Learning is one example of the Azure and Microsoft services that can consume fused, processed data from Data Lake Storage Gen2.
 
 ### Alternatives
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) could replace or complement Event Hubs. The solution you choose depends on the source of your streaming data, and whether you need cloning and bidirectional communication with the reporting devices.
 
-- You can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory) for data integration instead of Azure Synapse pipelines. The choice depends on several factors:
+- You can use [Fabric Data Pipeline](https://learn.microsoft.com/en-us/fabric/data-factory/activity-overview) for data integration instead of Data Factory pipelines. The choice depends on several factors. Full list of considerations can be found [here](https://learn.microsoft.com/en-us/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory). 
 
-  - Azure Synapse pipelines keep the solution design simpler, and allow collaboration inside a single Azure Synapse workspace.
-  - Azure Synapse pipelines don't support SSIS packages rehosting, which is available in Azure Data Factory.
-  - [Synapse Monitor Hub](/azure/synapse-analytics/get-started-monitor) monitors Azure Synapse pipelines, while [Azure Monitor](https://azure.microsoft.com/services/monitor) can monitor Data Factory.
-
-  For more information and a feature comparison between Azure Synapse pipelines and Data Factory, see [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
-
-- You can use [Synapse Analytics dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) for storing enterprise data, instead of using SQL Database. Review the use cases and considerations in this article and related resources to make a decision.
+- You can use [Fabric Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing) for storing enterprise data, instead of using Azure SQL Database/Managed Instance. This article pririotizes time to market for customer who want to modernise, so ASQLDB/MI was offered. Please see data store options for Fabric described [here] (https://learn.microsoft.com/en-us/fabric/get-started/decision-guide-data-store) and check articles for [TODO: link to datalake greenhouse]
 
 ## Scenario details
 
