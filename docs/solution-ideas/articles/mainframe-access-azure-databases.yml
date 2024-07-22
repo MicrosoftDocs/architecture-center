@@ -9,9 +9,7 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom: 
-  - fcp
-  - arb-data
+  ms.custom: arb-data
 azureCategories:
   - databases
   - integration

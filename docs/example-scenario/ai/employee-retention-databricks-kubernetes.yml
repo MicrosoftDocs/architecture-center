@@ -9,7 +9,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-  - arb-data
+    - arb-data
 azureCategories:
   - ai-machine-learning
 products:

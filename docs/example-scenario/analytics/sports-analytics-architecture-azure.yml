@@ -10,8 +10,8 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: 
-  - arb-sports
-  - arb-data
+    - arb-sports
+    - arb-data
 azureCategories:
   - analytics
   - ai-machine-learning

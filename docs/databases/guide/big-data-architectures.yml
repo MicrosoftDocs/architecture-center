@@ -9,8 +9,8 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom: 
-  - arb-iot
-  - arb-data
+    - arb-iot
+    - arb-data
 azureCategories:
   - ai-machine-learning
 products:
