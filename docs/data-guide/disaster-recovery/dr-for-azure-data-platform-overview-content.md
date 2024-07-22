@@ -2,7 +2,7 @@
 
 This series provides an illustrative example of how an organization could design a disaster recovery (DR) strategy for an Azure enterprise Data platform.
 
-- This series of articles complements the guidance provided by Microsoft's [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), the Azure [Well-Architected Framework](/azure/architecture/framework/) and [Business Continuity Management](/azure/availability-zones/business-continuity-management-program)
+- This series of articles complements the guidance provided by Microsoft's [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), the Azure [Well-Architected Framework](/azure/well-architected/reliability/disaster-recovery) and [Business Continuity Management](/azure/availability-zones/business-continuity-management-program)
 
 Azure provides a broad range of resiliency options that can provide service continuity in the event of a disaster. But higher service levels can introduce complexity and a cost premium. The trade-off of cost versus resiliency versus complexity is the key decision-making factor for most customers regarding DR.
 
@@ -47,7 +47,7 @@ The key assumptions for this DR worked example are
 
 - The Organization follows an ITIL based service management methodology for operational support of the Azure data platform
 - The Organization has an existing disaster recovery process as part of its service restoration framework for IT assets
-- "[Infrastructure as Code](/azure/architecture/framework/devops/automation-infrastructure)" (infrastructure as code (IaC)) has been used to deploy the Azure data platform enabled by an automation service, such as Azure DevOps or similar
+- [Infrastructure as Code (IaC)](/azure/architecture/framework/devops/automation-infrastructure) has been used to deploy the Azure data platform enabled by an automation service, such as Azure DevOps or similar
 - Each solution hosted by the Azure data platform has completed a Business Impact Assessment or similar, providing clear service requirements for recovery point objective (RPO), recovery time objective (RTO) and MTO
 
 ## Next steps

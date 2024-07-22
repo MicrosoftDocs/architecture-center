@@ -153,7 +153,7 @@ An effective DR plan presents a step-by-step guide for service recovery that can
 - Architecture design
     - Describe the end-end to E2E scenario detail, and attach all associated support documentation
 - Dependencies
-    - List out all the component's relationships and dependencies
+    - List out all the components' relationships and dependencies
 - DR Prerequisites
     - Confirmation that upstream source systems are available as required
     - Elevated access across the stack has been granted to the DR executor resources
@@ -163,7 +163,7 @@ An effective DR plan presents a step-by-step guide for service recovery that can
     - Run order
     - Step description
     - Step prerequisite
-    - Detailed process steps for each discrete action, including URL's
+    - Detailed process steps for each discrete action, including URLs
     - Validation instructions, including the evidence required
     - Expected time to complete each step, including contingency
     - The process to be followed if the step fails
