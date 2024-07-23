@@ -99,7 +99,7 @@ The architecture includes the following optional supporting services to enhance 
 
 - [Azure Backup][azure-backup] is a cloud-based service that provides a simple, secure, and cost-effective solution to back up your data and recover it from the Microsoft Cloud. Azure Backup Server is used to take backup of VMs that are deployed on Azure Stack HCI and store them in the Backup service.
 
-- [Site Recovery][azure-site-recovery] is a disaster recovery service that provides BCDR capabilities by enabling business apps and workloads to fail over if there's a disaster or outage. Site Recovery manages replication and failover of workloads that run on physical servers and VMs between their primary site (on premises) and a secondary location (Azure).
+- [Site Recovery][azure-site-recovery] is a disaster recovery service that provides BCDR capabilities by enabling business apps and workloads to fail over if there's a disaster or outage. Site Recovery manages replication and failover of workloads that run on physical servers and VMs between their primary site (on-premises) and a secondary location (Azure).
 
 ## Cluster design choices
 
@@ -127,7 +127,7 @@ It's important to understand the workload performance and resiliency requirement
 
 To design and plan an Azure Stack HCI deployment, we recommend that you use the [Azure Stack HCI sizing tool][azs-hci-sizer-tool] and create a _New Project_ for sizing your HCI clusters. Using the sizing tool requires that you understand your workload requirements. When considering the number and size of workload VMs that run on your cluster, make sure to consider factors such as the number of vCPUs, memory requirements, and necessary storage capacity for the VMs.
 
-The Sizing Tool **Preferences** section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the cluster. Make sure to:
+The sizing tool **Preferences** section guides you through questions that relate to the system type (Premier, Integrated System, or Validated Node) and CPU family options. It also helps you select your resiliency requirements for the cluster. Make sure to:
 
 - Reserve a minimum of N+1 nodes worth of capacity, or one node, across the cluster.
 
@@ -135,7 +135,7 @@ The Sizing Tool **Preferences** section guides you through questions that relate
 
 This scenario requires use of three-way mirroring for user volumes, which is the default for clusters that have three or more physical nodes.
 
-The output from the Azure Stack HCI Sizing Tool is a list of recommended hardware solution SKUs that can provide the required workload capacity and platform resiliency requirements based on the input values in the Sizer Project. For more information about available OEM hardware partner solutions, see [Azure Stack HCI Solutions Catalog](https://azurestackhcisolutions.azure.microsoft.com/#catalog). To help rightsize solution SKUs to meet your requirements, contact your preferred hardware solution provider or system integration (SI) partner.
+The output from the Azure Stack HCI sizing tool is a list of recommended hardware solution SKUs that can provide the required workload capacity and platform resiliency requirements based on the input values in the Sizer Project. For more information about available OEM hardware partner solutions, see [Azure Stack HCI Solutions Catalog](https://azurestackhcisolutions.azure.microsoft.com/#catalog). To help rightsize solution SKUs to meet your requirements, contact your preferred hardware solution provider or system integration (SI) partner.
 
 ### Physical disk drives
 
