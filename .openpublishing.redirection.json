@@ -3389,7 +3389,12 @@
       "source_path": "docs/guide/ai/custom-speech-text.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/custom-speech-text",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path": "docs/guide/ai/conversation-summarization.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
+      "redirect_document_id": true
+    },
     {
       "source_path": "docs/ai-ml/guide/custom-speech-text.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
