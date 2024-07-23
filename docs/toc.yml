@@ -4158,8 +4158,6 @@ items:
       items:
       - name: All telecommunications architectures
         href: /azure/architecture/browse/?terms=telecommunications
-      - name: Carrier-grade example solution
-        href: industries/telecommunications/carrier-grade.yml
       - name: Geospatial analysis for telecommunications
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
       - name: Low-latency network connections
