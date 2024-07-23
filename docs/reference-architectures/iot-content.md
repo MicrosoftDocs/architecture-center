@@ -10,9 +10,9 @@ You can create custom IoT solutions by assembling Azure platform as a service (P
 
 The following workflow corresponds to the preceding diagram:
 
-- **Things**, typically **devices** that generate data
-- **Insights** that you form about the data
-- **Actions** that you take based on insights
+- **Things**, typically **devices** that generate data.
+- **Insights** that you form about the data.
+- **Actions** that you take based on insights.
 
 For example, a motor sends temperature data. You use this data to evaluate whether the motor is performing as expected. You use the insight about the motor's performance to prioritize its maintenance schedule.
 
@@ -89,10 +89,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 You can use Azure Digital Twins to control and monitor connected environments. A digital twin is a virtual model of a real-world environment that is driven with data from business systems and IoT devices. Businesses and organizations use digital twins to enable insights and actions. Developers and architects use digital twin solutions to help implement intelligent and connected environments such as:
 
-- Predictive maintenance in manufacturing
-- Supply chain visibility
-- Smart shelves for real-time inventory
-- Connected homes and smart buildings
+- Predictive maintenance in manufacturing.
+- Supply chain visibility.
+- Smart shelves for real-time inventory.
+- Connected homes and smart buildings.
 
 ### Reliability
 
@@ -102,9 +102,9 @@ A key area of consideration for resilient IoT solutions is business continuity a
 
 Different Azure services offer different options for redundancy and failover to help you achieve the uptime goals that best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:
 
-- Level of resiliency you require
-- Implementation and maintenance complexity
-- Cost of goods sold (COGS) impact
+- Level of resiliency you require.
+- Implementation and maintenance complexity.
+- Cost of goods sold (COGS) impact.
 
 You can find service-specific performance information in the documentation for each Azure IoT service.
 
@@ -163,10 +163,10 @@ Each IoT hub is provisioned with a certain number of units in a specific pricing
 
 For IoT Hub, consider the following scale factors:
 
-- The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub
-- The quota of connected devices in an IoT Hub instance
-- Ingestion throughput: How quickly IoT Hub can ingest messages
-- Processing throughput: How quickly the incoming messages are processed
+- The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
+- The quota of connected devices in an IoT Hub instance.
+- Ingestion throughput: How quickly IoT Hub can ingest messages.
+- Processing throughput: How quickly the incoming messages are processed.
 
 IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
 
