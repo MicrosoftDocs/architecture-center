@@ -68,12 +68,12 @@ MLflow consists of several key functionalities:
 
 MLflow aims to simplify and standardize the process of machine learning development, from experimentation to deployment.
 
-Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python), so you can use Git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or another Git-compatible service. In addition to the assets already tracked in Machine Learning, your team can develop their own taxonomy within their Git-compatible service to store other project information, such as:
+Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python), so you can use Git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or another Git-compatible service. In addition to the assets already tracked in Machine Learning, your team can develop their own taxonomy within their Git-compatible service to store other project data, such as the following information:
 
 - Documentation
-  - Project, for example the final project report
-  - Data report, for example the data dictionary or data quality reports
-  - Model, for example model reports
+  - Project: for example, the final project report
+  - Data report: for example, the data dictionary or data quality reports
+  - Model: for example, model reports
 - Code
   - Data preparation
   - Model development
@@ -90,48 +90,27 @@ The TDSP provides recommendations for managing shared analytics and storage infr
 
 #### Cloud file systems for storing datasets
 
-Cloud file systems are crucial for Microsoft's Team Data Science Process (TDSP) for several reasons:
+Cloud file systems are crucial to the Microsoft Team Data Science Process (TDSP) for several reasons:
 
-**Centralized data storage**
+**Centralized data storage**: Cloud file systems provide a centralized location for storing datasets, which is essential for collaboration among data science team members. This centralization ensures that all team members can access the most current data, and reduces the risk of working with outdated or inconsistent datasets.
 
-Cloud file systems provide a centralized location for storing datasets, which is essential for collaboration among data science team members. This centralization ensures that all team members have access to the
-most up-to-date data, reducing the risk of working with outdated or inconsistent datasets.
+**Scalability**: Cloud file systems can handle large volumes of data, which is common in data science projects. The file systems offer scalable storage solutions that grow with the needs of the project. They let teams store and process massive datasets without worrying about hardware limitations.
 
-**Scalability**
+**Accessibility**: With cloud file systems, you access data from anywhere with an internet connection. This access is particularly important for distributed teams or when team members need to work remotely. Cloud file systems facilitate seamless collaboration and ensure that data is always available when needed.
 
-Cloud file systems can handle large volumes of data, which is common in data science projects. They offer scalable storage solutions that can grow with the needs of the project, allowing teams to store and process massive datasets without worrying about hardware limitations.
+**Security and compliance**: Cloud providers often implement robust security measures, including encryption, access controls, and compliance with industry standards and regulations. Strong security measures can protect sensitive data and help your team meet legal and regulatory requirements.
 
-**Accessibility**
+**Version control**: Cloud file systems often include version control features, which let teams track changes to datasets over time. Version control is crucial for maintaining the integrity of the data and for reproducing results in data science projects. It also helps you audit and troubleshoot any issues that arise.
 
-With cloud file systems, data can be accessed from anywhere with an internet connection. This is particularly important for distributed teams or when team members need to work remotely. It facilitates seamless collaboration and ensures that data is always available when needed.
+**Integration with tools**: Cloud file systems can integrate seamlessly with various data science tools and platforms. Tool integration supports easier data ingestion, processing, and analysis. For example, Microsoft Azure Storage integrates well with Azure Machine Learning, Databricks, and other data science tools.
 
-**Security and compliance**
+**Collaboration and sharing**: Cloud file systems make it easy to share datasets with other team members or stakeholders. They support collaborative features such as shared folders and permissions management. Collaboration features facilitate teamwork and ensure that the right people have access to the data they need.
 
-Cloud providers often offer robust security measures, including encryption, access controls, and compliance with industry standards and regulations. This ensures that sensitive data is protected and that the team can meet legal and regulatory requirements.
+**Cost efficiency**: Cloud file systems can be more cost-effective than maintaining on-premises storage solutions. Cloud providers offer flexible pricing models, including pay-as-you-go options, which can help manage costs based on the actual usage and storage requirements of the data science project.
 
-**Version control**
+**Disaster recovery**: Cloud file systems typically include features for data backup and disaster recovery. These features can help ensure that data is not lost in the event of hardware failures, accidental deletions, or other disasters. It provides peace of mind and supports continuity in data science operations.
 
-Cloud file systems often include version control features, which allow teams to track changes to datasets over time. This is crucial for maintaining the integrity of the data and for reproducing results in data science projects. It also helps in auditing and troubleshooting any issues that arise.
-
-**Integration with tools**
-
-Cloud file systems can integrate seamlessly with various data science tools and platforms. This integration allows for smooth data ingestion, processing, and analysis. For example, Microsoft Azure's cloud storage integrates well with Azure Machine Learning, Databricks, and other data science tools.
-
-**Collaboration and sharing**
-
-These systems make it easy to share datasets with other team members or stakeholders. They support collaborative features such as shared folders and permissions management, which facilitate teamwork and ensure that the right people have access to the data they need.
-
-**Cost efficiency**
-
-Using cloud file systems can be more cost-effective than maintaining on-premises storage solutions. Cloud providers offer flexible pricing models, including pay-as-you-go options, which can help manage costs based on the actual usage and storage requirements of the data science project.
-
-**Disaster recovery**
-
-Cloud file systems typically include features for data backup and disaster recovery. This ensures that data is not lost in the event of hardware failures, accidental deletions, or other disasters. It provides peace of mind and ensures continuity in data science operations.
-
-**Automation and workflow integration**
-
-Cloud storage systems can be integrated into automated workflows, enabling the seamless transfer of data between different stages of the data science process. This automation can improve efficiency and reduce the manual effort required to manage data.
+**Automation and workflow integration**: Cloud storage systems can integrate into automated workflows, enabling seamless data transfer between different stages of the data science process. Automation can help improve efficiency and reduce the manual effort required to manage data.
 
 ##### Recommended Azure resources for cloud file systems
 
@@ -139,55 +118,33 @@ Cloud storage systems can be integrated into automated workflows, enabling the s
 - [Azure Data Lake Storage](/azure/storage/data-lake-storage/) - Information on Azure Data Lake Storage Gen2, designed for big data analytics and supporting large-scale datasets.
 - [Azure Files](/azure/storage/files/) - Details on Azure Files, providing fully managed file shares in the cloud.
 
-In summary, cloud file systems are crucial for Microsoft's Team Data Science Process (TDSP) as they provide scalable, secure, and accessible storage solutions that support the entire data lifecycle. They enable seamless data integration from various sources, facilitating comprehensive data acquisition and understanding. With cloud file systems, data scientists can efficiently store, manage, and access large datasets, which is essential for training and deploying machine learning models. These systems also enhance collaboration by allowing team members to share and work on data simultaneously in a unified environment. Furthermore, cloud file systems offer robust security features, ensuring that data is protected and compliant with regulatory requirements, which is vital for maintaining data integrity and trust.
+In summary, cloud file systems are crucial to the Microsoft Team Data Science Process (TDSP) as they provide scalable, secure, and accessible storage solutions that support the entire data lifecycle. Cloud file systems enable seamless data integration from various sources, which supports comprehensive data acquisition and understanding. With cloud file systems, data scientists can efficiently store, manage, and access large datasets, which is essential for training and deploying machine learning models. These systems also enhance collaboration by letting team members share and work on data simultaneously in a unified environment. And cloud file systems offer robust security features that help protect data and make it compliant with regulatory requirements, which is vital for maintaining data integrity and trust.
 
 #### Cloud databases
 
-Cloud databases play a critical role in Microsoft's Team Data Science Process (TDSP) for several reasons:
+Cloud databases play a critical role in the Microsoft Team Data Science Process (TDSP) for several reasons:
 
-**Scalability**
+**Scalability**: Cloud databases offer scalable solutions that can easily grow to meet the increasing data needs of a project. Scalability is essential for data science projects that often involve large and complex datasets. Cloud databases can handle varying workloads without the need for manual intervention or hardware upgrades.
 
-Cloud databases offer scalable solutions that can easily grow with the increasing data needs of a project. This is essential for data science projects that often involve large and complex datasets. Cloud databases can handle varying workloads without the need for manual intervention or hardware upgrades.
+**Performance optimization**: Developers optimize cloud databases for performance with capabilities such as automatic indexing, query optimization, and load balancing. These features help ensure that data retrieval and processing are fast and efficient, which is crucial for data science tasks that require real-time or near-real-time data access.
 
-**Performance optimization**
+**Accessibility and collaboration**: Teams can access data stored in cloud databases from anywhere. So, cloud databases foster collaboration among team members who might be geographically dispersed. Accessibility and collaboration is particularly important for distributed teams or those working remotely. Cloud databases support multi-user environments that enable simultaneous access and collaboration.
 
-Cloud databases are optimized for performance, with capabilities such as automatic indexing, query optimization, and load balancing. These features help ensure that data retrieval and processing are fast and efficient, which is crucial for data science tasks that require real-time or near-real-time data access.
+**Integration with data science tools**: Cloud databases seamlessly integrate with various data science tools and platforms. For example,  Azure cloud databases integrate well with Azure Machine Learning, Power BI, and other data analytics tools. This integration streamlines the data pipeline, from ingestion and storage to analysis and visualization.
 
-**Accessibility and collaboration**
+**Security and compliance**: Cloud providers implement robust security measures, including data encryption, access controls, and compliance with industry standards and regulations. Security measures help ensure that you protect sensitive data and the team meets legal and regulatory requirements. Security features are vital for maintaining data integrity and privacy.
 
-Data stored in cloud databases can be accessed from anywhere, facilitating collaboration among team members who may be geographically dispersed. This is particularly important for distributed teams or those working remotely. Cloud databases support multi-user environments, enabling simultaneous access and collaboration.
+**Cost efficiency**: Cloud databases often operate on a pay-as-you-go model, which can be more cost-effective than maintaining on-premises database systems. This pricing flexibility lets organizations manage their budgets effectively, paying only for the storage and computing resources that they use.
 
-**Integration with data science tools**
+**Automatic Backups and Disaster Recovery**: Cloud databases provide automatic backup and disaster recovery solutions, ensuring that data is not lost in the event of hardware failures, accidental deletions, or other disasters. This reliability is crucial for maintaining data continuity and integrity in data science projects.
 
-Cloud databases seamlessly integrate with various data science tools and platforms. For example, Microsoft Azure\'s cloud databases integrate well with Azure Machine Learning, Power BI, and other data analytics tools. This integration streamlines the data pipeline, from ingestion and storage to analysis and visualization.
+**Real-time data processing**: Many cloud databases support real-time data processing and analytics, which is essential for data science tasks that require up-to-date information. This capability allows data scientists to make timely decisions based on the latest data available.
 
-**Security and compliance**
+**Data integration**: Cloud databases can easily integrate with other data sources, including other databases, data lakes, and external data feeds. This integration capability allows data scientists to combine data from multiple sources, providing a more comprehensive view and enabling more sophisticated analysis.
 
-Cloud providers implement robust security measures, including data encryption, access controls, and compliance with industry standards and regulations. This ensures that sensitive data is protected and that the team can meet legal and regulatory requirements. Security features are critical for maintaining data integrity and privacy.
+**Flexibility and variety**: Cloud databases come in various forms, such as relational databases, NoSQL databases, and data warehouses. This variety allows data science teams to choose the best type of database for their specific needs, whether they require structured data storage, unstructured data handling, or large-scale data analytics.
 
-**Cost efficiency**
-
-Cloud databases often operate on a pay-as-you-go model, which can be more cost-effective than maintaining on-premises database systems. This pricing flexibility allows organizations to manage their budgets effectively, paying only for the storage and computing resources they use.
-
-**Automatic Backups and Disaster Recovery**
-
-Cloud databases provide automatic backup and disaster recovery solutions, ensuring that data is not lost in the event of hardware failures, accidental deletions, or other disasters. This reliability is crucial for maintaining data continuity and integrity in data science projects.
-
-**Real-time data processing**
-
-Many cloud databases support real-time data processing and analytics, which is essential for data science tasks that require up-to-date information. This capability allows data scientists to make timely decisions based on the latest data available.
-
-**Data integration**
-
-Cloud databases can easily integrate with other data sources, including other databases, data lakes, and external data feeds. This integration capability allows data scientists to combine data from multiple sources, providing a more comprehensive view and enabling more sophisticated analysis.
-
-**Flexibility and variety**
-
-Cloud databases come in various forms, such as relational databases, NoSQL databases, and data warehouses. This variety allows data science teams to choose the best type of database for their specific needs, whether they require structured data storage, unstructured data handling, or large-scale data analytics.
-
-**Support for advanced analytics**
-
-Cloud databases often come with built-in support for advanced analytics and machine learning. For example, Azure SQL Database offers built-in machine learning services, enabling data scientists to perform advanced analytics directly within the database environment.
+**Support for advanced analytics**: Cloud databases often come with built-in support for advanced analytics and machine learning. For example, Azure SQL Database offers built-in machine learning services, enabling data scientists to perform advanced analytics directly within the database environment.
 
 ##### Recommended Azure resources for cloud databases
 
@@ -196,11 +153,11 @@ Cloud databases often come with built-in support for advanced analytics and mach
 - [Azure Database for PostgreSQL](/azure/postgresql/) - Guide to Azure Database for PostgreSQL, a managed database service for app development and deployment.
 - [Azure Database for MySQL](/azure/mysql/) - Details on Azure Database for MySQL, a managed service for MySQL databases.
 
-In summary, cloud databases are crucial for Microsoft's Team Data Science Process (TDSP) because they provide scalable, reliable, and efficient data storage and management solutions that support data-driven projects. They facilitate seamless data integration, allowing data scientists to ingest, preprocess, and analyze large datasets from various sources. Cloud databases enable rapid querying and processing of data, which is essential for developing, testing, and deploying machine learning models. Additionally, they enhance collaboration by providing a centralized platform for team members to access and work with data simultaneously. Lastly, cloud databases offer advanced security features and compliance support, ensuring that data remains protected and meets regulatory standards, which is critical for maintaining data integrity and trust.
+In summary, cloud databases are crucial for the Microsoft Team Data Science Process (TDSP) because they provide scalable, reliable, and efficient data storage and management solutions that support data-driven projects. They facilitate seamless data integration, allowing data scientists to ingest, preprocess, and analyze large datasets from various sources. Cloud databases enable rapid querying and processing of data, which is essential for developing, testing, and deploying machine learning models. Additionally, they enhance collaboration by providing a centralized platform for team members to access and work with data simultaneously. Lastly, cloud databases offer advanced security features and compliance support, ensuring that data remains protected and meets regulatory standards, which is critical for maintaining data integrity and trust.
 
 #### Big data clusters (SQL or Spark)
 
-Big data clusters, such as those using SQL or Spark, are fundamental to Microsoft's Team Data Science Process (TDSP) for several reasons:
+Big data clusters, such as those using SQL or Spark, are fundamental to the Microsoft Team Data Science Process (TDSP) for several reasons:
 
 **Handling large volumes of data**
 
@@ -233,8 +190,7 @@ Big data clusters are ideal for data transformation and Extract, Transform, Load
 
 **Cost efficiency**
 
-Utilizing big data clusters can be cost-effective, especially when leveraging cloud-based solutions like Azure Databricks and other cloud services. These services offer flexible pricing models, including pay-as-you-go,
-which can be more economical than maintaining on-premises big data infrastructure.
+Utilizing big data clusters can be cost-effective, especially when leveraging cloud-based solutions like Azure Databricks and other cloud services. These services offer flexible pricing models, including pay-as-you-go, which can be more economical than maintaining on-premises big data infrastructure.
 
 **Fault rolerance**
 
@@ -262,11 +218,11 @@ Big data clusters provide robust security features, including data encryption, a
 - [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
 - [Azure Synapse Analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics, integrating big data and data warehousing.
 
-In summary, big data clusters, whether SQL or Spark, are crucial for Microsoft's Team Data Science Process (TDSP) because they provide the computational power and scalability necessary to handle vast amounts of data efficiently. They enable data scientists to perform complex queries and advanced analytics on large datasets, facilitating deep insights and accurate model development. By leveraging distributed computing, these clusters ensure rapid data processing and analysis, which accelerates the overall data science workflow. They also support seamless integration with various data sources and tools, enhancing the ability to ingest, process, and analyze data from multiple environments. Furthermore, big data clusters promote collaboration and reproducibility by offering a unified platform where teams can share resources, workflows, and results effectively.
+In summary, big data clusters, whether SQL or Spark, are crucial for the Microsoft Team Data Science Process (TDSP), because they provide the computational power and scalability necessary to handle vast amounts of data efficiently. They enable data scientists to perform complex queries and advanced analytics on large datasets, facilitating deep insights and accurate model development. By leveraging distributed computing, these clusters ensure rapid data processing and analysis, which accelerates the overall data science workflow. They also support seamless integration with various data sources and tools, enhancing the ability to ingest, process, and analyze data from multiple environments. Furthermore, big data clusters promote collaboration and reproducibility by offering a unified platform where teams can share resources, workflows, and results effectively.
 
 #### AI and machine learning services
 
-AI and machine learning (ML) services are integral to Microsoft's Team Data Science Process (TDSP) for several reasons:
+AI and machine learning (ML) services are integral to the Microsoft Team Data Science Process (TDSP) for several reasons:
 
 **Advanced analytics**
 
@@ -331,11 +287,11 @@ Azure Machine Learning is the main Azure resource recommended for data science a
 - [Azure Machine Learning](/azure/machine-learning/) - The main documentation page for Azure Machine Learning, covering setup, model training, deployment, and more.
 - [Azure AI Services](/azure/ai-services/) - Information on AI Services, offering pre-built AI models for vision, speech, language, and decision-making tasks.
 
-In summary, AI and machine learning services are crucial for Microsoft's Team Data Science Process (TDSP) because they provide powerful tools and frameworks that streamline the development, training, and deployment of machine learning models. These services automate complex tasks such as algorithm selection and hyperparameter tuning, significantly accelerating the model development process. They also offer scalable infrastructure, allowing data scientists to handle large datasets and computationally intensive tasks efficiently. By integrating seamlessly with other Azure services, AI and machine learning tools enhance data ingestion, preprocessing, and model deployment, ensuring a smooth end-to-end workflow. Furthermore, these services foster collaboration and reproducibility, enabling teams to share insights, experiment results, and models effectively while maintaining high standards of security and compliance.
+In summary, AI and machine learning services are crucial for the Microsoft Team Data Science Process (TDSP), because they provide powerful tools and frameworks that streamline the development, training, and deployment of machine learning models. These services automate complex tasks such as algorithm selection and hyperparameter tuning, significantly accelerating the model development process. They also offer scalable infrastructure, allowing data scientists to handle large datasets and computationally intensive tasks efficiently. By integrating seamlessly with other Azure services, AI and machine learning tools enhance data ingestion, preprocessing, and model deployment, ensuring a smooth end-to-end workflow. Furthermore, these services foster collaboration and reproducibility, enabling teams to share insights, experiment results, and models effectively while maintaining high standards of security and compliance.
 
 ### Responsible AI
 
-With AI or machine learning solutions, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai), which helps achieve Microsoft's [Responsible AI Standard](https://www.microsoft.com/ai/principles-and-approach/). Your workload must still individually address AI-related harms.
+With AI or machine learning solutions, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai), which supports the Microsoft [Responsible AI Standard](https://www.microsoft.com/ai/principles-and-approach/). Your workload must still individually address AI-related harms.
 
 ## Peer-reviewed citations
 
