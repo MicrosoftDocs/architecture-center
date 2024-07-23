@@ -337,14 +337,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service"/>
-        <updated>2024-06-25T19:16:59.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure OpenAI and Azure AI Search to search documents in your enterprise data and retrieve results.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Build and deploy custom document processing models on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-custom-models"/>
@@ -1025,14 +1017,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Enable the financial services risk lifecycle with Azure and R]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/industries/finance/financial-risk-model</id>
-        <link href="https://learn.microsoft.com/azure/architecture/industries/finance/financial-risk-model"/>
-        <updated>2024-05-29T13:13:50.000Z</updated>
-        <summary type="html"><![CDATA[Learn about risk calculations, which are pivotal at several stages in the lifecycle of key financial services operations.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[AKS triage—Workload deployments]]></title>
         <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment</id>
         <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment"/>
@@ -1401,14 +1385,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure Machine Learning architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture"/>
-        <updated>2024-04-29T16:57:59.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end machine learning lifecycle.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Customer churn prediction using real-time analytics]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-churn-prediction</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-churn-prediction"/>
@@ -1518,22 +1494,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization"/>
         <updated>2024-04-15T15:33:06.000Z</updated>
         <summary type="html"><![CDATA[Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Implement custom speech to text solutions that use AI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text"/>
-        <updated>2024-04-15T15:33:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn about approaches for implementing high-quality speech-aware applications that use AI. This article describes the problem space and decision-making process.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy a custom speech to text solution that uses AI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text-deploy</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text-deploy"/>
-        <updated>2024-04-15T15:33:06.000Z</updated>
-        <summary type="html"><![CDATA[Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

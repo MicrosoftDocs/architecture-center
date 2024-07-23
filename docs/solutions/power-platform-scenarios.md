@@ -84,7 +84,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Advanced analytics](../solution-ideas/articles/advanced-analytics-on-big-data.yml)|Combine any data at any scale and then use custom machine learning to get near real-time data analytics on streaming services. Power BI provides querying and reporting.| Analytics
-|[Azure Machine Learning architecture](../ai-ml/idea/azure-machine-learning-solution-architecture.yml)|Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end machine learning lifecycle. Power BI provides data visualization.| AI|
 |[Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)|Gather insights from clinical and medical data by using Microsoft Cloud for Healthcare. Power BI reports provide insights on healthcare metrics.| Web|
 |[Data analysis for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)|Learn about an architecture that you can use for data analysis workloads in regulated industries. The architecture includes ETL/ELT and Power BI.| Analytics|
 |[Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management. Produce and deliver high-quality, trusted data. Power BI is used as an analytics tool. | Databases|

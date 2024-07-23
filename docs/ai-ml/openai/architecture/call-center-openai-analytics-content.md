@@ -39,7 +39,6 @@ Depending on your scenario, you can add the following workflows.
 
 - Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Azure AI Language.
 - Depending on the size and scale of your workload, you can use [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python?source=recommendations&pivots=python-mode-configuration) as a code-first integration tool to perform text-processing steps, like text summarization on extracted data.
-- Deploy and implement a [custom speech-to-text solution](/azure/architecture/ai-ml/guide/custom-speech-text-deploy).
 
 ## Scenario details
 
@@ -122,8 +121,7 @@ Principal authors:
 - [Ingestion Client with AI services](/azure/ai-services/speech-service/ingestion-client)
 - [Post-call transcription and analytics](/azure/ai-services/speech-service/call-center-quickstart)
 
-## Related resources
+## Related resource
 
-- [Deploy a custom speech-to-text solution](/azure/architecture/guide/ai/custom-speech-text-deploy)
 - [Create custom language and acoustic models](/azure/architecture/solution-ideas/articles/speech-services)
-- [Deploy a custom speech-to-text solution](/azure/architecture/ai-ml/guide/custom-speech-text-deploy)
+

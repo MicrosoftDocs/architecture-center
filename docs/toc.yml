@@ -1675,16 +1675,6 @@ items:
         - name: Security baseline for Arc-enabled servers
           href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline
           maintainContext: true
-      - name: Hybrid deployments
-        items:
-        - name: Configure hybrid cloud identity
-          href: hybrid/deployments/solution-deployment-guide-identity.md
-        - name: Deploy AI-based footfall detection
-          href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
-        - name: Deploy Kubernetes on Azure Stack Hub
-          href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
-        - name: Direct traffic with a geo-distributed app
-          href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
       - name: Azure VMware Solution guidance
         items:
         - name: API Management for AVS
@@ -1772,8 +1762,6 @@ items:
         href: hybrid/azure-stack-robo.yml
       - name: Azure Stack Hub solutions
         items:
-        - name: AI-based footfall detection
-          href: solution-ideas/articles/hybrid-footfall-detection.yml
         - name: Back up files on Azure Stack Hub
           href: hybrid/azure-stack-backup.yml
         - name: Disaster recovery for Stack Hub VMs
@@ -3235,8 +3223,6 @@ items:
             maintainContext: true
       - name: AI and ML in retail
         items:
-        - name: Deploy AI-based footfall detection
-          href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
         - name: Forecast bike rental demand
           href: /azure/machine-learning/tutorial-automated-ml-forecast
           maintainContext: true
@@ -3302,8 +3288,6 @@ items:
       items:
       - name: All retail architectures
         href: /azure/architecture/browse/?terms=retail
-      - name: AI-based footfall detection
-        href: solution-ideas/articles/hybrid-footfall-detection.yml
       - name: Analyze MongoDB Atlas data
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Interactive price analytics
@@ -3427,8 +3411,6 @@ items:
       - name: Financial institutions with data mesh
         href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
         maintainContext: true
-      - name: Financial services risk lifecycle
-        href: industries/finance/financial-risk-model.md
       - name: Risk grid computing solution
         href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: Big compute for financial risk modeling

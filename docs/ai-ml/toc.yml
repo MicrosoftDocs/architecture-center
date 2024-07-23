@@ -34,10 +34,6 @@ items:
           href: idea/customer-churn-prediction.yml
         - name: Personalized offers
           href: idea/personalized-offers.yml
-      - name: Chat bots
-        items:
-        - name: Search and query a knowledge base
-          href: openai/idea/search-and-query-using-openai-service.yml
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
@@ -62,8 +58,6 @@ items:
           href: idea/many-models-machine-learning-azure-machine-learning.yml
       - name: Other ideas
         items:
-        - name: Azure Machine Learning architecture
-          href: idea/azure-machine-learning-solution-architecture.yml
         - name: Data science and machine learning
           href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
     - name: Design architectures
@@ -138,18 +132,10 @@ items:
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.yml
-      - name: Document processing
-        items:
         - name: OpenAI GPT-3 summarization
           href: guide/query-based-summarization.md
-        - name: Build language model pipelines
-          href: openai/guide/language-model-pipelines.yml
       - name: Audio processing
         items:
-        - name: Custom speech-to-text overview
-          href: guide/custom-speech-text.yml
-        - name: Custom speech-to-text
-          href: guide/custom-speech-text-deploy.yml
         - name: Conversation summarization
           href: guide/conversation-summarization.yml
       - name: MLOps
@@ -212,10 +198,6 @@ items:
             href: ../data-science-process/prepare-data.md
     - name: OpenAI
       items:
-      - name: Explore ideas about
-        items:
-        - name: Search and query a knowledge base
-          href: openai/idea/search-and-query-using-openai-service.yml
       - name: Design architectures
         items:
         - name: Azure OpenAI chat baseline architecture
@@ -252,8 +234,6 @@ items:
             href: guide/azure-openai-gateway-multi-backend.yml
           - name: Custom authentication for a gateway in front of Azure OpenAI
             href: guide/azure-openai-gateway-custom-authentication.yml
-        - name: Build language model pipelines
-          href: openai/guide/language-model-pipelines.yml
         - name: OpenAI GPT-3 summarization
           href: guide/query-based-summarization.md
         - name: Conversation summarization
