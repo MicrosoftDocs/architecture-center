@@ -3386,6 +3386,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/ai-ml/guide/custom-speech-text.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "docs/ai-ml/guide/custom-speech-text-deploy.yml",
+        "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
+        "redirect_document_id": false
+    }, 
+    {
       "source_path": "docs/example-scenario/mlops/mlops-technical-paper.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/mlops-technical-paper",
       "redirect_document_id": true
@@ -5120,16 +5130,6 @@
         "redirect_url": "/azure/search/retrieval-augmented-generation-overview",
         "redirect_document_id": false
     },
-    {
-        "source_path": "docs/ai-ml/guide/custom-speech-text.yml",
-        "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "docs/ai-ml/guide/custom-speech-text-deploy.yml",
-        "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
-        "redirect_document_id": false
-    }, 
     {
       "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-rearchitect.yml",
       "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
