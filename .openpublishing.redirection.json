@@ -3386,11 +3386,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/guide/ai/custom-speech-text.yml",
-      "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "docs/example-scenario/mlops/mlops-technical-paper.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/mlops-technical-paper",
       "redirect_document_id": true
