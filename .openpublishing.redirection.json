@@ -5068,7 +5068,7 @@
     {
       "source_path": "docs/industries/telecommunications/carrier-grade.yml",
       "redirect_url": "/azure/architecture/browse/?terms=telecommunications",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
