@@ -18,6 +18,7 @@ metadata:
     - NiFi
     - HDInsight
     - CognitiveServices
+    - arb-data
 name: Face recognition and sentiment analysis
 azureCategories:
   - analytics

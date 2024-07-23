@@ -17,6 +17,7 @@ metadata:
     - Apache Kafka
     - Delta Lake
     - "https://azure.microsoft.com/solutions/architecture/hdinsight-kafka-spark-delta-lake"
+    - arb-data
   social_image_url: /azure/architecture/solution-ideas/media/hdinsight-kafka-spark-delta-lake.png
 name: Use HDInsight and Delta Lake to manage event data
 azureCategories:
