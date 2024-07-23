@@ -5126,7 +5126,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path": "docs/ai-ml/guide/custom-speech-text redirect.yml",
+        "source_path": "docs/ai-ml/guide/custom-speech-text.yml",
         "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
         "redirect_document_id": false
     },
