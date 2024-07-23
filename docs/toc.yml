@@ -1677,16 +1677,12 @@ items:
           maintainContext: true
       - name: Hybrid deployments
         items:
-        - name: Configure hybrid cloud connectivity
-          href: hybrid/deployments/solution-deployment-guide-connectivity.md
         - name: Configure hybrid cloud identity
           href: hybrid/deployments/solution-deployment-guide-identity.md
         - name: Deploy AI-based footfall detection
           href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
         - name: Deploy Kubernetes on Azure Stack Hub
           href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
-        - name: Deploy hybrid with on-premises data
-          href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
         - name: Direct traffic with a geo-distributed app
           href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
       - name: Azure VMware Solution guidance
@@ -1780,14 +1776,8 @@ items:
           href: solution-ideas/articles/hybrid-footfall-detection.yml
         - name: Back up files on Azure Stack Hub
           href: hybrid/azure-stack-backup.yml
-        - name: Cross-cloud scaling (on-premises data)
-          href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
-        - name: Cross-cloud scaling with Traffic Manager
-          href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
         - name: Disaster recovery for Stack Hub VMs
           href: hybrid/azure-stack-vm-disaster-recovery.yml
-        - name: Hybrid geo-distributed architecture
-          href: example-scenario/hybrid/hybrid-geo-distributed.yml
         - name: Hybrid relay connection
           href: solution-ideas/articles/hybrid-relay-connection.yml
       - name: Azure VMware Solution in hub-and-spoke
@@ -1823,8 +1813,6 @@ items:
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
         href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
-      - name: Train machine learning at the edge
-        href: example-scenario/hybrid/train-machine-learning-models-on-premises-data.yml
       - name: Use file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
     - name: Solution ideas

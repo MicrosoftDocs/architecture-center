@@ -46,7 +46,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Hybrid systems
 
 - [Cross-cloud scaling—on-premises data][Cross-cloud scaling - on-premises data]: See a hybrid app that spans Azure and Azure Stack Hub and uses a single on-premises data source, which is a compliance requirement for some organizations.
-- [Cross-cloud scaling with Traffic Manager][Cross-cloud scaling with Traffic Manager]: Use Azure Traffic Manager to extend a local app by connecting it to public cloud resources.
 
 #### Microservice architectures
 
@@ -184,7 +183,6 @@ The following resources provide practical recommendations and information for sp
 [Business continuity and disaster recovery for Azure Logic Apps]: /azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Choose between virtual network peering and VPN gateways]: ../reference-architectures/hybrid-networking/vnet-peering.yml
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
-[Cross-cloud scaling with Traffic Manager]: ../example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
 [Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
 [Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
