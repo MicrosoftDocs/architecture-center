@@ -219,5 +219,5 @@ Microsoft Learn modules:
 - [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
 - [Protect your VMs by using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
 
-[azure-well-architected-framerwork]: /azure/architecture/framework
+[azure-well-architected-framework]: /azure/architecture/framework
 [azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#sizer
