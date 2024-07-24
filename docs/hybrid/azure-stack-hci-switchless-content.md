@@ -4,7 +4,7 @@ The storage switchless network design removes the requirement for storage class 
 
 This reference architecture provides workload-agnostic guidance and recommendations for configuring Azure Stack HCI as a resilient infrastructure platform to deploy and manage virtualized workloads. For more information about workload architecture patterns that are optimized to run on Azure Stack HCI, see the content located under the **Azure Stack HCI workloads** navigation menu.
 
-This architecture is a starting point for a [three-node Azure Stack HCI cluster that uses a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). Workload applications that are deployed on an Azure Stack HCI cluster should be well-architected. This approach includes deploying multiple instances for high availability of any critical workload services and implementing appropriate business continuity and disaster recovery (BC/DR) controls, such as regular backups and DR failover capabilities. To focus on the HCI infrastructure platform, these workload design aspects are intentionally excluded from this article. For more information about guidelines and recommendations for the five pillars of the Azure Well-Architected Framework, see the [Azure Stack HCI Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci).
+This architecture is a starting point for a [three-node Azure Stack HCI cluster that uses a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). Workload applications that are deployed on an Azure Stack HCI cluster should be well architected. This approach includes deploying multiple instances for high availability of any critical workload services and implementing appropriate business continuity and disaster recovery (BCDR) controls, such as regular backups and DR failover capabilities. To focus on the HCI infrastructure platform, these workload design aspects are intentionally excluded from this article. For more information about guidelines and recommendations for the five pillars of the Azure Well-Architected Framework, see the [Azure Stack HCI Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci).
 
 ## Article layout
 
@@ -27,7 +27,7 @@ The following use case requirements can be addressed by using this design and th
 
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads that are deployed in a single location to enable business-critical applications and services to operate in a resilient, cost-effective, and scalable manner.
 
-- The storage switchless network design removes the requirement to deploy storage class network switches to connect the network adapter ports that are used for the Storage traffic.
+- The storage switchless network design removes the requirement to deploy storage class network switches to connect the network adapter ports that are used for the storage traffic.
 
 - You can use the storage switchless network design to help reduce the costs associated with the procurement and configuration of storage class network switches for storage traffic, but it does increase the number of network adapter ports required in the physical nodes.
 
@@ -42,7 +42,7 @@ When you determine your cluster design options, refer to the [baseline reference
 When you use the storage switchless design, it's crucial to remember that a three-node cluster is the maximum supported size. This limitation is a key consideration for your cluster design choices because you must ensure that your workload's capacity requirements don't exceed the physical capacity capabilities of the three-node cluster specifications. Because you can't perform an add-node gesture to expand a storage switchless cluster beyond three nodes, it's **critically important** to understand your workload capacity requirements beforehand and plan for future growth. This way you can ensure that your workload doesn't exceed the storage and compute capacity over the expected lifespan of the Azure Stack HCI cluster hardware.
 
 > [!CAUTION]
-> To increase the scale (or perform an add-node operation) for an existing three-node storage switchless HCI cluster, you have to redeploy the cluster and add extra networking capabilities such as switches, ports, cables for storage traffic, and additional required nodes. <br><br> The maximum supported cluster size for the storage switchless network design is three nodes. Be sure to consider this limit when sizing the hardware during the cluster design phase to accommodate future workload capacity growth requirements.
+> To increase the scale or perform an add-node operation for an existing three-node storage switchless HCI cluster, you have to redeploy the cluster and add extra networking capabilities, such as switches, ports, cables for storage traffic, and additional required nodes. <br><br> The maximum supported cluster size for the storage switchless network design is three nodes. Be sure to consider this limit when sizing the hardware during the cluster design phase to accommodate future workload capacity growth requirements.
 
 ### Network design
 
@@ -59,15 +59,15 @@ The physical network topology shows the actual physical connections between node
 
   - Each node is a physical server that runs on Azure Stack HCI OS.
   
-  - Each node requires six network adapter ports in total: four RDMA capable ports for storage and two ports for management and compute.
+  - Each node requires six network adapter ports in total: four RDMA-capable ports for storage and two ports for management and compute.
   
 - Storage traffic:
 
-  - Each of the three nodes is interconnected through dual dedicated physical network adapter ports for storage. This process is illustrated in the following diagram.
+  - Each of the three nodes is interconnected through dual dedicated physical network adapter ports for storage. The following diagram illustrates this process.
   
   - The storage network adapter ports connect directly to each node by using ethernet cables to form a full mesh network architecture for the storage traffic.
   
-  - This design provides link redundancy, dedicated low latency, and high bandwidth and high throughput.
+  - This design provides link redundancy, dedicated low latency, high bandwidth, and high throughput.
   
   - Nodes within the HCI cluster communicate directly through these links to handle storage replication traffic, also known as east-west traffic.
 
@@ -77,7 +77,7 @@ The physical network topology shows the actual physical connections between node
   
 - Dual Top-of-Rack (ToR) switches:
 
-  - This configuration is _switchless_ for storage traffic but still requires ToR switches for the external connectivity. This connectivity is referred to as north-south traffic and includes the cluster _management_ intent and the workload _compute_ intents.
+  - This configuration is _switchless_ for storage traffic but still requires ToR switches for the external connectivity. This connectivity is called north-south traffic and includes the cluster _management_ intent and the workload _compute_ intents.
   
   - The uplinks to the switches from each node use two network adapter ports. Ethernet cables connect these ports, one to each ToR switch, to provide link redundancy.
   
@@ -93,11 +93,12 @@ The physical network topology shows the actual physical connections between node
 
 #### Logical network topology
 
-The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. The following is a summarization of the logical setup for a three-node storage switchless Azure Stack HCI cluster:
+The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. The following list summarizes the logical setup for a three-node storage switchless Azure Stack HCI cluster:
 
-- Dual Top of Rack (ToR) Switches:
+- Dual ToR switches:
 
-  - Prior to deployment of the cluster, the two ToR network switches need to be configured with the required VLAN IDs and MTU settings for the Management and Compute ports. For more information, see [physical network requirements](/azure-stack/hci/concepts/physical-network-requirements), or ask your switch hardware vendor or SI partner for assistance.
+
+  - Before cluster deployment, the two ToR network switches need to be configured with the required VLAN IDs and maximum transmission unit (MTU) settings for the management and compute ports. For more information, see the [physical network requirements](/azure-stack/hci/concepts/physical-network-requirements) or ask your switch hardware vendor or systems integrator (SI) partner for assistance.
   
 - Azure Stack HCI applies network automation and _intent-based network configuration_ by using the [Network ATC service](/azure-stack/hci/deploy/network-atc).
 
@@ -111,9 +112,9 @@ The logical network topology provides an overview for how the network data flows
   
   - When the two ToR switches act as Layer 3 devices, they handle routing and provide connectivity beyond the cluster to the edge border device, such as your firewall or router.
   
-  - Management network intent uses the Converged SET Team virtual interface, which enables the cluster management IP address and control plane resources to communicate externally.
+  - Management network intent uses the Converged Switch Embedded Teaming (SET) virtual interface, which enables the cluster management IP address and control plane resources to communicate externally.
   
-  - For the compute network intent, you can create one or more logical networks in Azure with the specific VLAN IDs for your environment. The workload resources, such as VMs, use these IDs to give access to the physical network. The logical networks use the two physical network adapter ports that are converged using a SET Team for the compute and management intents.
+  - For the compute network intent, you can create one or more logical networks in Azure with the specific VLAN IDs for your environment. The workload resources, such as virtual machines (VMs), use these IDs to give access to the physical network. The logical networks use the two physical network adapter ports that are converged by using SET for the compute and management intents.
   
 - Storage traffic:
 
@@ -121,7 +122,7 @@ The logical network topology provides an overview for how the network data flows
   
   - There's _no default gateway_ configured on the four storage intent network adapter ports within the Azure Stack HCI node OS.
 
-  - Each node can access S2D capabilities of the cluster, such as remote physical disks that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB-Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
+  - Each node can access S2D capabilities of the cluster, such as remote physical disks that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
@@ -146,7 +147,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Cost optimization considerations include:
 
-- Switchless cluster interconnects versus switch-based cluster interconnects. The switchless interconnect topology consists of connections between dual port, or _redundant_, Remote Direct Memory Access (RDMA)-capable network adapter ports in each node to form a full mesh. Each node has two direct connections to every other node. Though this implementation is straightforward, it's only supported in two-node or three-node clusters. An Azure Stack HCI cluster with four or more nodes requires the _storage switched_ network architecture. You can use this architecture to add more nodes after deployment, unlike the storage switchless design that doesn't support add-node operations.
+- Switchless cluster interconnects versus switch-based cluster interconnects. The switchless interconnect topology consists of connections between dual port, or _redundant_, RDMA-capable network adapter ports in each node to form a full mesh. Each node has two direct connections to every other node. Although this implementation is straightforward, it's only supported in two-node or three-node clusters. An Azure Stack HCI cluster with four or more nodes requires the _storage switched_ network architecture. You can use this architecture to add more nodes after deployment, unlike the storage switchless design that doesn't support add-node operations.
 
 ### Performance efficiency
 
@@ -185,9 +186,9 @@ Product documentation:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
 - [Azure Update Manager overview](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager)
-- [What are Azure Arc-enabled Data Services?](/azure/azure-arc/data/overview)
+- [What are Azure Arc-enabled data services?](/azure/azure-arc/data/overview)
 - [What are Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
-- [What is the Azure Backup service?](/azure/backup/backup-overview)
+- [What is Azure Backup?](/azure/backup/backup-overview)
 - [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere)
 
 Product documentation for specific Azure services:

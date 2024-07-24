@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure Stack HCI stretched clusters for disaster recovery
-  description: This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI using stretched clustering.
+  description: This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering.
   author: martinekuan
   ms.author: pnp
   ms.date: 07/22/2024
@@ -16,7 +16,7 @@ name: Use Azure Stack HCI stretched clusters for disaster recovery
 azureCategories:
   - hybrid
   - management-and-governance
-summary: This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI using stretched clustering.
+summary: This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering.
 products:
   - azure-stack-hci
   - azure-blob-storage
