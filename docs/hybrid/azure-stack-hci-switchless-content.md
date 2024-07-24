@@ -17,7 +17,7 @@ This architecture is a starting point for a [three-node Azure Stack HCI cluster 
 
 ## Architecture
 
-:::image type="complex" source="images/azure-stack-hci-switchless.png" alt-text="Diagram that shows a three-node Azure Stack HCI cluster that uses a switchless storage architecture and has dual ToR switches for external connectivity."
+:::image type="complex" source="images/azure-stack-hci-switchless.png" alt-text="Diagram that shows a three-node Azure Stack HCI cluster that uses a switchless storage architecture and has dual ToR switches for external connectivity." lightbox="images/azure-stack-hci-switchless.png"
    Diagram that illustrates a three-node Azure Stack HCI cluster that uses a switchless storage architecture and has dual Top-of-Rack (ToR) switches for external (north-south) connectivity. The cluster uses several Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Manager, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates, and Azure Site Recovery.
 :::image-end:::
 
@@ -127,7 +127,10 @@ The logical network topology provides an overview for how the network data flows
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-    :::image type="content" source="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity." lightbox="images/three-node-logical-network.png" border="false":::
+    :::image type="complex" source="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster." lightbox="images/three-node-logical-network.png"
+    
+Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity." lightbox="images/three-node-logical-network.png" 
+:::image-end:::
 
 #### IP address requirements
 
