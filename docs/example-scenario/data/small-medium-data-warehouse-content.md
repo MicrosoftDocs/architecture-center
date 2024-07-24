@@ -6,15 +6,12 @@ Most of SMB customers who would benefit from implemeting this pattern are on pre
 
 ## Simplified Architecture
 
-//todo move the picture up before converting to .svg
 
 [ ![Diagram that shows simplified architecture.](media/small-medium-data-warehouse/MDWSMB3_Brief.svg)](media/small-medium-data-warehouse/MDWSMB3_Brief.svg#lightbox)
 
 
 Conseptual modernisation opportunity is to move legacy DW solution into a combination of Azure SQL Database/Managed Instance and Microsoft Fabric. This path offers broad surface of compatibility with traditional SQL Server, SQL client tools like SQL Server Management Studio (SSMS), offers appealing Lift & Shift options for existing processes and has low demands for upskilling from the team who supports this solution. This solution may be an initial step towards full monernization, where organisation fully adopts lakehose approach when size of the Datawarehouse grows and skillset of the team expands. Please compare with [Article Lakehouse, greenfield, scenario 5]
 
-//todo
-*Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
 ## Architecture
 
@@ -152,5 +149,5 @@ Principal author:
   - [Data lakes](../../data-guide/scenarios/data-lake.md)
   - [Data warehousing and analytics](data-warehouse.yml)  
   - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
-  - TODO: links to Fabric lakehouse greenfield
-  - TODO: link to Fabric enterprise with DW
+ <!--TODO: links to Fabric lakehouse greenfield
+  - TODO: link to Fabric enterprise with DW* -->
