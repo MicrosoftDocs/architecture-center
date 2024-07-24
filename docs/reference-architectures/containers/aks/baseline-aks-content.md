@@ -380,7 +380,6 @@ The architecture only accepts TLS encrypted requests from the client. TLS v1.2 i
 
 You can implement end-to-end TLS traffic all at every hop the way through to the workload pod. Be sure to measure the performance, latency, and operational impact when making the decision to secure pod-to-pod traffic. For most single-tenant clusters, with proper control plane RBAC and mature Software Development Lifecycle practices, it's sufficient to TLS encrypt up to the ingress controller and protect with Web Application Firewall (WAF). That will minimize overhead in workload management and network performance impacts. Your workload and compliance requirements will dictate where you perform [TLS termination](/azure/application-gateway/ssl-overview#tls-termination).
 
-
 ### Egress traffic flow
 
 In this architecture, we recommend all egress traffic from the cluster communicating through Azure Firewall or your own similar network virtual appliance, instead of using other egress options such as [NAT Gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource) or [HTTP proxy](/azure/aks/http-proxy) that don't provide network traffic inspection. For zero-trust control and the ability to inspect traffic, all egress traffic from the cluster moves through Azure Firewall. You can implement that choice using user-defined routes (UDRs). The next hop of the route is the [private IP address](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses) of the Azure Firewall. Here, Azure Firewall decides whether to block or allow the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or the built-in threat intelligence rules.
@@ -637,6 +636,12 @@ While Azure Monitor includes a set of existing log queries to start with, you ca
 For more information about our monitoring best practices for AKS, see [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks).
 
 To review Windows-specific monitoring considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#monitoring).
+
+### Network metrics
+
+Basic, cluster level networking metrics are made available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). The [Network Observability add-on](/azure/aks/network-observability-overview) can further be used to expose network metrics at the node level. It's recommended that most clusters use the Network Observability add-on to provide additional network troubleshooting capabilities and the ability to detect unexpected network usage or issues at the node level. This reference implementation enables this add-on.
+
+For workloads that are *highly sensitive* to TCP or UDP packet loss, latency, or DNS pressure, having pod level network metrics is important. In AKS that level of detail is provided by the [Advanced Network Observability](/azure/aks/advanced-network-observability-concepts) offering. Most workloads will not require this depth of network observability, and it is not suggested to be installed unless your pods demands a highly optimzed network, with sensitivity down to the packet level.
 
 ### Enable self-healing
 
