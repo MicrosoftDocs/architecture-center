@@ -132,8 +132,6 @@ items:
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.yml
-        - name: OpenAI GPT-3 summarization
-          href: guide/query-based-summarization.md
       - name: Audio processing
         items:
         - name: Conversation summarization
@@ -234,7 +232,5 @@ items:
             href: guide/azure-openai-gateway-multi-backend.yml
           - name: Custom authentication for a gateway in front of Azure OpenAI
             href: guide/azure-openai-gateway-custom-authentication.yml
-        - name: OpenAI GPT-3 summarization
-          href: guide/query-based-summarization.md
         - name: Conversation summarization
           href: guide/conversation-summarization.yml

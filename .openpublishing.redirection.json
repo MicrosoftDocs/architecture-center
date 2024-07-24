@@ -5091,6 +5091,11 @@
         "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/guide/query-based-summarization.md",
+      "redirect_url": "/previous-versions/azure/architecture/ai-ml/guide/query-based-summarization",
+      "redirect_document_id": false
+    },
+    {
         "source_path": "docs/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.yml",
         "redirect_url": "/azure/architecture/hybrid/hybrid-start-here",
         "redirect_document_id": false

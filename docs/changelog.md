@@ -228,7 +228,6 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy AI and machine learning at the edge](./ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](./ai-ml/guide/mlops-technical-paper.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [Network security checklist for MLOps solutions](./ai-ml/guide/network-security-mlops.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
-- [Query-based document summarization](./ai-ml/guide/query-based-summarization.md)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [AI at the edge with Azure Stack Hub](./ai-ml/idea/ai-at-the-edge.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [Build and deploy a social media analytics solution](./ai-ml/architecture/build-deploy-social-media-analytics-solution.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
 - [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
