@@ -1,6 +1,6 @@
 ---
 title: Team Data Science Process for data scientists
-description: Training guidance on a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies using the Team Data Science Process and Azure Machine Learning.
+description: Learn about the Team Data Science Process and Azure Machine Learning objectives to implement comprehensive data science solutions with Azure technologies.
 author: marktab
 manager: marktab
 editor: marktab
@@ -19,9 +19,9 @@ categories:
 
 # Team Data Science Process for data scientists
 
-This article provides training guidance for objectives that you set when you implement comprehensive data science solutions with Azure technologies.
+This article provides guidance and training on the objectives that you set when you implement comprehensive data science solutions with Azure technologies.
 
-## Objectives for Data Scientists
+## Objectives for data scientists
 
 This list describes the key objectives for data scientists using TDSP:
 
@@ -32,21 +32,21 @@ This list describes the key objectives for data scientists using TDSP:
 - [Provide data source documentation](#provide-data-source-documentation)
 - [Use tools for analytics processing](#use-tools-for-analytics-processing)
 
-These objectives are crucial for preparing to use Microsoft's Team Data Science Process (TDSP) because it outlines a comprehensive approach to effectively managing and executing data science projects. Each objective includes its importance and links to these Azure resources.
+These objectives are crucial for preparing to use Microsoft's Team Data Science Process (TDSP). TDSP outlines a comprehensive approach to effectively manage and launch data science projects. Each objective describes its importance and links to the relevant Azure resources.
 
 ### Understand an analytics workload
 
-- **Identify requirements**: This step involves understanding the specific needs and goals of the analytics workload. It helps in identifying the business questions to be answered and the problems to be solved.
+- **Identify requirements**: This step involves understanding the specific needs and goals of the analytics workload. It helps to identify the business questions to be answered and the problems to be solved.
 
-- **Define scope**: Clearly defining the scope of the project ensures that the team focuses on relevant data and analytics tasks.
+- **Define scope**: This step is about clearly defining the scope of the project to help ensure that the team focuses on relevant data and analytics tasks.
 
-- **Resource allocation**: Understanding the workload helps in determining the resources required, such as computing power, storage, and human expertise.
+- **Resource allocation**: This step involves understanding the workload to help determine the required resources, such as computing power, storage, and human expertise.
 
 #### Integration within TDSP
 
-Azure has many resources which could be used for analytics workloads. This list provides recommended resources often used in Azure architectures.
+Azure has many resources that you can used for analytics workloads. The following list provides recommended resources often used in Azure architectures.
 
-- **Planning and Execution**: Use the [Cloud Adoption Framework](/azure/cloud-adoption-framework/innovate/ai) for strategic planning and governance, ensuring that the analytics workload aligns with business goals and compliance requirements. Cloud Adoption Framework elaborates on the comparatively straightforward framework used in TDSP. Features of the Cloud Adoption Framework include:
+- **Planning and Execution**: Use the [Cloud Adoption Framework](/azure/cloud-adoption-framework/innovate/ai) for strategic planning and governance. It helps ensure that the analytics workload aligns with business goals and compliance requirements. Cloud Adoption Framework elaborates on the comparatively straightforward framework used in TDSP. Features of the Cloud Adoption Framework include:
 
   - **Strategic Planning**: Offers strategic guidance to align cloud adoption with business objectives, ensuring that analytics workloads are designed to meet organizational goals.
 
@@ -64,7 +64,7 @@ Azure has many resources which could be used for analytics workloads. This list 
 
   - **Data Integration**: Seamlessly integrates with various data sources, enabling comprehensive data ingestion and processing capabilities.
 
-  - **Big Data and Data Warehousing**: Combines big data and data warehousing capabilities, allowing you to run complex queries across large datasets efficiently.
+  - **Big Data and Data Warehousing**: Combines big data and data warehousing capabilities, allowing you to run complex queries om large datasets efficiently.
 
   - **Scalability**: Scales computational resources based on workload demands, ensuring that you can handle varying data processing loads effectively.
 
@@ -72,7 +72,7 @@ Azure has many resources which could be used for analytics workloads. This list 
 
   - **Analytics**: Supports advanced analytics and machine learning with built-in integration for services like Azure Machine Learning and Power BI.
 
-- **Monitoring and Optimization**: Leverage [Azure Monitor](/azure/azure-monitor/overview) to track performance, identify issues, and optimize the analytics workload, ensuring high availability and reliability.
+- **Monitoring and Optimization**: Use [Azure Monitor](/azure/azure-monitor/overview) to track performance, identify issues, and optimize the analytics workload, ensuring high availability and reliability.
 
   - **Data Collection**: Gathers metrics and logs from various sources, including Azure resources, applications, and the operating system.
 
@@ -80,7 +80,7 @@ Azure has many resources which could be used for analytics workloads. This list 
 
   - **Diagnostics**: Helps identify issues and anomalies in your data processing pipelines and workloads through diagnostic logs and activity logs.
 
-  - **Alerting**: Configures alerts based on specific metrics or log data, ensuring you are promptly notified of potential issues that could impact the performance or reliability of your analytics workloads.
+  - **Alerting**: Configures alerts based on specific metrics or log data, and promptly notifying you of potential issues that could affect the performance or reliability of your analytics workloads.
 
   - **Visualization**: Offers customizable dashboards and workbooks to visualize data, helping you understand trends and patterns in your workload performance.
 
@@ -104,19 +104,19 @@ The Team Data Science Process is a peer-reviewed architectural framework providi
 
 - **Advanced analytics**: Azure Machine Learning provides powerful tools and services for building, training, and deploying machine learning models.
 
-- **Scalability**: Azure ML offers scalable computing resources, allowing teams to handle large datasets and complex models.
+- **Scalability**: Azure Machine Learning offers scalable computing resources, allowing teams to handle large datasets and complex models.
 
 - **Integration**: It integrates well with other Azure services, facilitating a seamless workflow from data ingestion to deployment.
 
-[Azure Machine Learning (Azure ML)](/azure/machine-learning) is the main recommended Azure resource for each of the five stages of Microsoft's Team Data Science Process (TDSP) lifecycle, which are: Business Understanding, Data Acquisition and Understanding, Modeling, Deployment, and Customer Acceptance. Here\'s how Azure ML supports each stage:
+[Azure Machine Learning](/azure/machine-learning) is the main recommended Azure resource for each of the five stages of Microsoft's Team Data Science Process (TDSP) lifecycle: Business Understanding, Data Acquisition and Understanding, Modeling, Deployment, and Customer Acceptance. Here's how Azure Machine Learning supports each stage:
 
 #### Business understanding
 
 In this initial stage, the focus is on understanding the business requirements and defining the objectives of the data science project.
 
-- **Project Workspaces**: Azure ML provides project workspaces where teams can collaborate and share documents, ensuring that everyone is aligned with the business objectives.
+- **Project Workspaces**: Azure Machine Learning provides project workspaces where teams can collaborate and share documents, ensuring that everyone is aligned with the business objectives.
 
-- **Experiment Tracking**: The platform allows for documentation and tracking of initial hypotheses and business metrics that will guide the data science project.
+- **Experiment Tracking**: The platform allows for documentation and tracking of initial hypotheses and business metrics that guide the data science project.
 
 - **Integration with Azure DevOps**: Teams can use Azure DevOps to manage project workflows, user stories, and tasks, ensuring that the business understanding is clearly mapped to actionable items.
 
@@ -124,21 +124,21 @@ In this initial stage, the focus is on understanding the business requirements a
 
 This stage involves gathering and exploring data to understand its structure and relevance to the business problem.
 
-- **Data integration**: Azure ML integrates seamlessly with Azure Data Lake, Azure SQL Database, and other data services, facilitating easy data ingestion from various sources.
+- **Data integration**: Azure Machine Learning integrates seamlessly with Azure Data Lake, Azure SQL Database, and other data services, facilitating easy data ingestion from various sources.
 
-- **Data labeling**: Built-in data labeling tools help in annotating datasets, which is particularly useful for supervised learning models.
+- **Data labeling**: Built-in data labeling tools help in annotating datasets, which is useful for supervised learning models.
 
-- **Exploratory Data Analysis (EDA)**: Jupyter notebooks and integrated Python/R environments in Azure ML enable thorough EDA to understand data distributions, identify patterns, and detect anomalies.
+- **Exploratory Data Analysis (EDA)**: Jupyter notebooks and integrated Python/R environments in Azure Machine Learning enable thorough EDA to understand data distributions, identify patterns, and detect anomalies.
 
 #### Modeling
 
 In the modeling stage, data scientists build and train machine learning models to address business problems.
 
-- **Automated ML**: Azure ML's Automated ML capabilities can automatically select the best algorithms and tune hyperparameters, speeding up the model development process.
+- **Automated ML**: Azure Machine Learning Automated ML capabilities can automatically select the best algorithms and tune hyperparameters, speeding up the model development process.
 
 - **Custom modeling**: It supports custom model development using popular frameworks like TensorFlow, PyTorch, and Scikit-learn.
 
-- **Experimentation and versioning**: Azure ML enables running multiple experiments in parallel, tracking results, and versioning models, making it easier to compare and select the best model.
+- **Experimentation and versioning**: Azure Machine Learning enables running multiple experiments in parallel, tracking results, and versioning models, making it easier to compare and select the best model.
 
 - **Hyperparameter tuning**: Built-in support for automated hyperparameter tuning helps optimize model performance.
 
@@ -146,23 +146,23 @@ In the modeling stage, data scientists build and train machine learning models t
 
 Once a model is developed and validated, it needs to be deployed so it can be used in production environments.
 
-- **Model deployment**: Azure ML provides various deployment options, including Azure Kubernetes Service (AKS) and edge devices, allowing for flexible deployment strategies.
+- **Model deployment**: Azure Machine Learning provides various deployment options, including Azure Kubernetes Service (AKS) and edge devices, allowing for flexible deployment strategies.
 - 
 - **Endpoint management**: It offers tools for managing endpoints for real-time and batch predictions, ensuring scalable and reliable model serving.
 
-- **CI/CD integration**: Azure ML integrates with Azure DevOps, enabling continuous integration and continuous deployment (CI/CD) for machine learning models, to build repeatable transitions from development to production.
+- **CI/CD integration**: Azure Machine Learning integrates with Azure DevOps, enabling continuous integration and continuous deployment (CI/CD) for machine learning models, to build repeatable transitions from development to production.
 
 #### Customer acceptance
 
 In the final stage, the focus is on ensuring that the deployed model meets the business requirements and delivers value.
 
-- **Model Monitoring**: Azure ML provides comprehensive monitoring capabilities to track model performance, detect drift, and ensure models remain accurate and relevant over time.
+- **Model Monitoring**: Azure Machine Learning provides comprehensive monitoring capabilities to track model performance, detect drift, and ensure models remain accurate and relevant over time.
 
 - **Feedback Loops**: It supports the implementation of feedback loops where predictions are reviewed and used to retrain models, continuously improving model accuracy and relevance.
 
-- **Reporting and Visualization**: Integration with notebooks, Power BI and other visualization tools helps in creating dashboards and reports to present model results and insights to stakeholders.
+- **Reporting and Visualization**: Integration with notebooks, Power BI, and other visualization tools helps in creating dashboards and reports to present model results and insights to stakeholders.
 
-- **Security and Compliance**: Azure ML ensures that models and data comply with regulatory requirements, providing tools for managing data privacy and security.
+- **Security and Compliance**: Azure Machine Learning ensures that models and data comply with regulatory requirements, providing tools for managing data privacy and security.
 
 ### Understand the foundations of data transfer and storage
 
@@ -174,33 +174,33 @@ In the final stage, the focus is on ensuring that the deployed model meets the b
 
 #### Integration of data transfer and storage within TDSP
 
-Azure has many resources which could be used for data transfer and storage. This list provides recommended resources often used in Azure architectures.
+Azure has many resources that you can use for data transfer and storage. The following list provides recommended resources often used in Azure architectures.
 
 [**Azure Data Transfer Options**](/azure/architecture/data-guide/scenarios/data-transfer) encompass various methods and tools for moving data to and from Azure efficiently, catering to different needs and data sizes.
 
-- [**Azure Data Box**](/azure/databox/): A physical device for large-scale data transfer, ideal for transferring terabytes of data where network bandwidth is limited. This ensures that bulk data can be securely transported to Azure without relying on the internet.
+- [**Azure Data Box**](/azure/databox/): A physical device for large-scale data transfer, ideal for transferring terabytes of data where network bandwidth is limited. This device helps ensure that bulk data can be securely transported to Azure without relying on the internet.
 
-- [**Azure Import/Export Service**](/azure/import-export/): Allows for transferring large amounts of data to Azure by shipping hard drives directly to Azure data centers. This is useful for initial data migrations where uploading via network is impractical.
+- [**Azure Import/Export Service**](/azure/import-export/): Allows for transferring large amounts of data to Azure by shipping hard drives directly to Azure data centers. This service is useful for initial data migrations where uploading via network is impractical.
 
 - [**Azure Data Factory**](/azure/data-factory/): A cloud-based data integration service that orchestrates and automates data movement and transformation. It enables complex ETL (extract, transform, load) processes, integrating data from various sources into Azure for analytics and machine learning tasks.
 
 - [**Network Transfer**](/azure/expressroute/): Includes high-speed internet-based transfers using Azure ExpressRoute, providing a private connection between on-premises infrastructure and Azure, ensuring secure and fast data transfer.
 
-[**Azure Database Migration Service**](/azure/dms/dms-overview) facilitates the smooth migration of databases to Azure, ensuring minimal downtime and data integrity. Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). It offers the following benefits:
+[**Azure Database Migration Service**](/azure/dms/dms-overview): Handles migrating databases to Azure smoothly, helping to ensure minimal downtime and data integrity. Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). It offers the following benefits:
 
 - **Automated Migration**: Simplifies the migration process by providing automated workflows for moving on-premises databases to Azure SQL Database, Azure Database for MySQL, and Azure Database for PostgreSQL.
 
 - **Continuous Replication**: Supports continuous data replication, allowing for minimal downtime and ensuring data is up-to-date during the migration process.
 
-- **Compatibility**: Ensures compatibility checks and recommends optimizations for the target Azure environment, making the transition seamless and efficient.
+- **Compatibility**: Supports compatibility checks and recommends optimizations for the target Azure environment, making the transition seamless and efficient.
 
 - **Assessment Tools**: Provides tools for assessing the readiness of databases for migration, identifying potential issues, and offering recommendations to resolve them.
 
-[**Azure Storage**](/azure/storage) offers scalable, secure, and durable storage solutions tailored for different types of data and use cases. The following storage types are supported:
+[**Azure Storage**](/azure/storage): Offers scalable, secure, and durable storage solutions tailored for different types of data and use cases. The following storage types are supported:
 
-- [**Blob Storage**](/azure/storage/blobs/): Optimized for storing unstructured data such as documents, images, videos, and backups. It's ideal for data scientists needing to store large datasets used in machine learning models.
+- [**Blob Storage**](/azure/storage/blobs/): Stores unstructured data such as documents, images, videos, and backups. It's ideal for data scientists needing to store large datasets used in machine learning models.
 
-- [**Azure Data Lake Storage**](/azure/storage/blobs/data-lake-storage-introduction): Designed for big data analytics, it provides hierarchical namespace and compatibility with Hadoop, making it suitable for large-scale data analytics projects.
+- [**Azure Data Lake Storage**](/azure/storage/blobs/data-lake-storage-introduction): Handles big data analytics. It provides hierarchical namespace and compatibility with Hadoop, making it suitable for large-scale data analytics projects.
 
 - [**Table Storage**](/azure/storage/tables/): NoSQL key-value store for semi-structured data, suitable for applications requiring a schema-less design.
 
@@ -218,7 +218,7 @@ Azure has many resources which could be used for data transfer and storage. This
 
 #### Integration of data source documentation within TDSP
 
-Azure has many resources which could be used for data source documentation (including notebooks). This list provides recommended resources often used in Azure architectures.
+Azure has many resources that you can use for data source documentation (including notebooks). The following list provides recommended resources often used in Azure architectures.
 
 [**Azure Data Catalog**](/azure/data-catalog) is an enterprise-wide metadata catalog that makes data asset discovery straightforward. It helps document data sources and their characteristics and provides the following benefits:
 
@@ -232,7 +232,7 @@ Azure has many resources which could be used for data source documentation (incl
 
 [**Azure Purview**](/azure/purview) is a unified data governance service that helps manage and govern data across your organization. It provides the following functionality:
 
-- **Data Mapping and Lineage**: Helps document the data flow and lineage across different systems, providing a clear view of where data comes from and how it's transformed.
+- **Data Mapping and Lineage**: Helps document the data flow and lineage across different systems, providing a clear view of where data comes from and how it transforms.
 
 - **Data Catalog**: Similar to Azure Data Catalog, it provides a searchable data catalog enriched with metadata and data classifications.
 
@@ -266,7 +266,7 @@ Azure has many services that can be used for analytics processing, with Azure Ma
 
 - **Collaborative Notebooks**: Supports collaborative workspaces where data scientists can write code, run experiments, and share results.
 
-- **Scalable Compute**: Automatically scales compute resources based on workload demands, optimizing cost and performance.
+- **Scalable Compute**: Automatically scales compute resources based on workload demands and optimizes cost and performance.
 
 - **Machine Learning**: Provides built-in libraries for machine learning, including MLlib, TensorFlow, and Keras, to streamline model development and training.
 
@@ -306,7 +306,7 @@ This preparation is critical for delivering successful data science projects tha
 
 ## Training paths on Microsoft Learn
 
-Whether you're just starting a career, or you are an experienced professional, our self-directed approach helps you arrive at your goals faster, with more confidence and at your own pace. Develop skills through interactive modules and paths or learn from an instructor. Learn and grow your way.
+Whether you're just starting a career, or you're an experienced professional, our self-directed approach helps you arrive at your goals faster, with more confidence and at your own pace. Develop skills through interactive modules and paths or learn from an instructor. Learn and grow your way.
 
 Microsoft Learn organizes its training content into three skill levels: beginner, intermediate, and advanced. Understanding these distinctions is essential for selecting the appropriate learning paths to match your skill level and career goals.
 
@@ -319,11 +319,11 @@ Microsoft Learn organizes its training content into three skill levels: beginner
 
 - To build a solid foundation in a new area.
 - To ensure learners understand basic concepts and terminologies.
-- To prepare learners for more complex topics.
+- To prepare learners for more complex articles.
 
 #### Beginner learning paths
 
-- [Copilot foundations](/training/paths/copilot-foundations/)
+- [Explore Copilot foundations](/training/paths/copilot-foundations/)
 - [Deploy and consume models with Azure Machine Learning](/training/paths/deploy-consume-models-azure-machine-learning/)
 - [Design a machine learning solution](/training/paths/design-machine-learning-solution/)
 - [Experiment with Azure Machine Learning](/training/paths/automate-machine-learning-model-selection-azure-machine-learning/)
@@ -355,21 +355,21 @@ Microsoft Learn organizes its training content into three skill levels: beginner
 - [Create custom copilots with Azure AI Studio](/training/paths/create-custom-copilots-ai-studio/)
 - [Create machine learning models](/training/paths/create-machine-learn-models/)
 - [Develop custom object detection models with NVIDIA and Azure Machine Learning](/training/paths/develop-custom-object-detection-models-with-nvidia-and-azure-machine-learning/)
-- [End-to-end machine learning operations (MLOps) with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
+- [Build end-to-end machine learning operations (MLOps) with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
 - [Implement a Machine Learning solution with Azure Databricks](/training/paths/build-operate-machine-learning-solutions-azure-databricks/)
 - [Train models in Azure Machine Learning with the CLI (v2)](/training/paths/train-models-azure-machine-learning-cli-v2/)
 - [Work with generative artificial intelligence (AI) models in Azure Machine Learning](/training/paths/work-with-generative-models-azure-machine-learning/)
 
 ### Advanced
 
-- **Target audience:** Experienced professionals who are looking to master their skills and tackle complex, high-level tasks.
-- **Content:** In-depth technical training, advanced techniques, and comprehensive coverage of specialized topics. It often includes expert-level problem-solving and optimization strategies.
+- **Target audience:** Experienced professionals who are looking to perfect their skills and tackle complex, high-level tasks.
+- **Content:** In-depth technical training, advanced techniques, and comprehensive coverage of specialized subjects. It often includes expert-level problem-solving and optimization strategies.
 
 **Purpose:**
 
-- To provide expertise in a specific area.
-- To prepare learners for expert-level certifications and advanced career roles.
-- To enable learners to lead projects and innovate within their field.
+- Provide expertise in a specific area.
+- Prepare learners for expert-level certifications and advanced career roles.
+- Enable learners to lead projects and innovate within their field.
 
 #### Expert learning path
 
