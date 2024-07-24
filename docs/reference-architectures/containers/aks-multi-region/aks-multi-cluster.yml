@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - containers
     - reference-architecture
+    - arb-containers
 name: AKS baseline for multiregion clusters
 azureCategories:
   - containers

@@ -17,6 +17,7 @@ metadata:
     - reference-architecture
     - internal-intro
     - linux-related-content
+    - arb-containers
 azureCategories:
   - containers
   - web

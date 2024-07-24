@@ -234,7 +234,7 @@ To deploy this scenario:
 1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
 2. Create an [Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 3. Configure your Azure Data Factory to [connect to a Git repository](/azure/data-factory/source-control).
-4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory) to your Azure Data Factory Git repository.
+4. Add [Profisee's Azure Data Factory templates](https://github.com/Profisee/azuredatafactory) to your Azure Data Factory Git repository.
 5. Create a new Azure Data Factory Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
 
 ## Contributors

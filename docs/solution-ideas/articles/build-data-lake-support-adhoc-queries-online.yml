@@ -14,6 +14,7 @@ metadata:
     - analytics
   ms.custom:
     - solution-idea
+    - arb-data
 name: Build a delta lake to support ad hoc queries in online leisure and travel booking
 azureCategories:
   - databases

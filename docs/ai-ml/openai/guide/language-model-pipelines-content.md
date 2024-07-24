@@ -69,17 +69,16 @@ Other contributor:
 
 - [Azure Business Process Accelerator](https://github.com/Azure/business-process-automation)
 - [Azure OpenAI](/azure/cognitive-services/openai)
-- [Azure OpenAI embeddings QnA](https://github.com/azure-samples/azure-open-ai-embeddings-qna)
-- [ChatGPT](https://chat.openai.com)
+- [Azure OpenAI embeddings QnA](https://github.com/Azure-Samples/azure-open-ai-embeddings-qna)
 - [Enterprise search with OpenAI architecture](https://github.com/MSUSAzureAccelerators/Knowledge-Mining-with-OpenAI)
 - [Generative AI for developers: Exploring new tools and APIs in Azure OpenAI Service](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/generative-ai-for-developers-exploring-new-tools-and-apis-in/ba-p/3817003)
-- [LangChain](https://python.langchain.com/v0.1/docs/get_started/introduction/)
+- [LangChain](https://python.langchain.com/v0.2/docs/introduction/)
 - [Memory with language models](https://python.langchain.com/docs/modules/memory/)
 - [Quickstart: Get started generating text using Azure OpenAI Service](/azure/cognitive-services/openai/quickstart?pivots=programming-language-studio&tabs=command-line)
-- [Redis on Azure OpenAI](https://github.com/openai/openai-cookbook/tree/main/examples/vector_databases/redis)
 - [Revolutionize your enterprise data with ChatGPT: Next-gen apps with Azure OpenAI and Azure Cognitive Search](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087)
 - [Semantic Kernel](/semantic-kernel/overview)
-- [Vector databases with Azure OpenAI](https://github.com/openai/openai-cookbook/tree/main/examples/vector_databases)
+- [OpenAI Cookbook: Redis](https://cookbook.openai.com/examples/vector_databases/redis/readme)
+- [OpenAI Cookbook: Vector databases](https://cookbook.openai.com/examples/vector_databases/readme)
 
 ## Related resources
 
