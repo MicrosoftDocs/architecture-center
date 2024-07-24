@@ -91,7 +91,7 @@ The physical network topology shows the actual physical connections between node
   
   - The two ToR switches handle the north-south traffic for the Azure Stack HCI cluster, including traffic related to management and compute intents.
 
-    :::image type="content" source="images/azure-stack-hci-3node-physical-network.png" alt-text="Diagram of a three-node Azure Stack HCI cluster with switchless storage architecture and dual ToR switches for external connectivity." lightbox="images/azure-stack-hci-3node-physical-network.png" border="false":::
+    :::image type="content" source="images/three-node-physical-network.png" alt-text="Diagram of a three-node Azure Stack HCI cluster with switchless storage architecture and dual ToR switches for external connectivity." lightbox="images/three-node-physical-network.png" border="false":::
 
 #### Logical network topology
 
@@ -127,7 +127,7 @@ The logical network topology provides an overview for how the network data flows
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-    :::image type="content" source="images/azure-stack-hci-3node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity." lightbox="images/azure-stack-hci-3node-logical-network.png" border="false":::
+    :::image type="content" source="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity." lightbox="images/three-node-logical-network.png" border="false":::
 
 #### IP address requirements
 
