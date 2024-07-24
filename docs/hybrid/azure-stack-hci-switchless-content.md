@@ -162,7 +162,7 @@ Performance efficiency considerations include:
 
 ## Deploy this scenario
 
-For more information about how to design, procure, and deploy an Azure Stack HCI solution, see the **Deploy this scenario** section of the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline.yml#deploy-this-scenario).
+For more information about how to design, procure, and deploy an Azure Stack HCI solution, see the **Deploy this scenario** section of the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline-content.md#deploy-this-scenario).
 
 Use the following deployment automation template as an example of how to deploy Azure Stack HCI by using the three-node storage switchless architecture.
 
