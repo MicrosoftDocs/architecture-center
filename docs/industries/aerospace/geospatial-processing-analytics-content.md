@@ -440,7 +440,6 @@ Additional contributors:
 
 ## Related resources
 
-- [Geospatial data processing and analytics](../../example-scenario/data/geospatial-data-processing-analytics-azure.yml)
 - [Geospatial analysis for the telecommunications industry](../../example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
 - [Big data architectures](/azure/architecture/data-guide/big-data)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)

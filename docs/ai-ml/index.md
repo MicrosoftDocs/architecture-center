@@ -236,7 +236,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
-- [Build a real-time recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml)
 
 ### Azure automated machine learning
 

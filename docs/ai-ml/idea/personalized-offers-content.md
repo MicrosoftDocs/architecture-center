@@ -75,7 +75,6 @@ Principal author:
 ## Next steps
 
 - [MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
-- [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 - [Microsoft Certified: Data Scientist Associate certification](/certifications/azure-data-scientist)
 - [Create a classification model with Azure Machine Learning designer, with no coding required](/training/modules/create-classification-model-azure-machine-learning-designer)
 - [Use automated machine learning in Azure Machine Learning and learn how to create a drag-and-drop machine learning model](/training/modules/use-automated-machine-learning)

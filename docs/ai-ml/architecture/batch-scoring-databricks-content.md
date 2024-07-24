@@ -118,7 +118,6 @@ Principal author:
 
 ## Related resources
 
-- [Build a Real-time Recommendation API on Azure][aac-recommendation]
 - [Batch scoring for deep learning models using Azure Machine Learning pipelines][aac-batch-deep]
 - [Batch scoring of Python Models on Azure][aac-batch-python]
 
@@ -126,7 +125,6 @@ Principal author:
 
 [aac-batch-deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
 [aac-batch-python]: ../../ai-ml/architecture/batch-scoring-python.yml
-[aac-recommendation]: ../../reference-architectures/ai/real-time-recommendation.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
