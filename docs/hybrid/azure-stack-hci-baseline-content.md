@@ -77,7 +77,7 @@ This architecture consists of physical server hardware that you can use to deplo
 
 The architecture requires the following mandatory resources and components:
 
-- [Azure Stack HCI][azs-hci] is a hyperconverged infrastructure (HCI) solution that's deployed on-premises or in edge locations by using physical server hardware and networking infrastructure. Azure Stack HCI provides a platform to deploy and manage virtualized workloads such as VMs, Kubernetes clusters, and other services that are enabled by Azure Arc. Azure Stack HCI clusters can scale from a single-node deployment to a maximum of 16 nodes by using validated, integrated, or premium hardware versions that are provided by the original equipment manufacturer (OEM) partners.
+- [Azure Stack HCI][azs-hci] is a hyperconverged infrastructure (HCI) solution that's deployed on-premises or in edge locations by using physical server hardware and networking infrastructure. Azure Stack HCI provides a platform to deploy and manage virtualized workloads such as VMs, Kubernetes clusters, and other services that are enabled by Azure Arc. Azure Stack HCI clusters can scale from a single-node deployment to a maximum of sixteen nodes using validated, integrated, or premium hardware categories that are provided by original equipment manufacturer (OEM) partners.
 
 - [Azure Arc][azure-arc] is a cloud-based service that extends the management model based on Azure Resource Manager to Azure Stack HCI and other non-Azure locations. Azure Arc uses Azure as the control and management plane to enable the management of various resources such as VMs, Kubernetes clusters, and containerized data and machine learning services.
 
