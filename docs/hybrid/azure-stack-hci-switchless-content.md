@@ -142,7 +142,7 @@ When you design and plan IP address requirements for Azure Stack HCI, remember t
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 > [!IMPORTANT]
-> Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline-content.md#considerations).
+> Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](./azure-stack-hci-baseline-content.md#considerations).
 
 ### Cost optimization
 
@@ -162,7 +162,7 @@ Performance efficiency considerations include:
 
 ## Deploy this scenario
 
-For more information about how to design, procure, and deploy an Azure Stack HCI solution, see the **Deploy this scenario** section of the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline-content.md#deploy-this-scenario).
+For more information about how to design, procure, and deploy an Azure Stack HCI solution, see the **Deploy this scenario** section of the [Azure Stack HCI baseline reference architecture](./azure-stack-hci-baseline-content.md#deploy-this-scenario).
 
 Use the following deployment automation template as an example of how to deploy Azure Stack HCI by using the three-node storage switchless architecture.
 
