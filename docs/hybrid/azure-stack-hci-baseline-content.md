@@ -19,7 +19,7 @@ For more information about guidelines and recommendations for the five pillars o
 
 :::image type="complex" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity." lightbox="images/azure-stack-hci-baseline.png"
 
-Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery."  
+Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery.  
 ::image-end:::
 
 For more information, see [Related resources](#related-resources).
@@ -209,7 +209,7 @@ A summarization of the logical setup for this multinode storage switched baselin
 
 - Dual ToR switches:
 
-  - Before you deploy the cluster, the two ToR network switches need to be configured with the required VLAN IDs, maximum transmission unit settings, and datacenter bridging configuration for the _management_ , _compute_, and _storage_ ports. For more information, see [Physical network requirements for Azure Stack HCI](/azure-stack/hci/concepts/physical-network-requirements), or ask your switch hardware vendor or SI partner for assistance.
+  - Before you deploy the cluster, the two ToR network switches need to be configured with the required VLAN IDs, maximum transmission unit settings, and datacenter bridging configuration for the _management_, _compute_, and _storage_ ports. For more information, see [Physical network requirements for Azure Stack HCI](/azure-stack/hci/concepts/physical-network-requirements), or ask your switch hardware vendor or SI partner for assistance.
   
 - Azure Stack HCI uses the [Network ATC approach](/azure-stack/hci/deploy/network-atc) to apply network automation and intent-based network configuration.
   
