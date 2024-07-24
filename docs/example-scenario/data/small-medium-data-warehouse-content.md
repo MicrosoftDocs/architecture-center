@@ -1,16 +1,15 @@
 This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end data warehousing solutions integrate easily with tools like Azure Machine Learning, Azure AI Services, Power Platform, Microsoft Dynamics, and other Microsoft technologies, but offer an easy entry point to the fully managed SaaS data platfrom on Microsoft Fabric that can be expanded at a later stage. 
 
-## Who may benefit from this architecure
+## Who may benefit from this architecture
 
-Most of SMB customers who would benefit from implemeting this pattern are on prem SQL Server customers with DW solution under half a TB, currently using a mix of tools like SSIS, SSAS and SSRS. SQL Stored procedures are also common, as well as external ETL/ELT tool and SQL replication/snapshotting and SQL Agent jobs to engest data into Datawarehousing solution. Most of data sync operations are snapshot based and are only done once a day. No realtime reporting requirements currently. 
+Most small-medium business customers who would benefit from implementing this pattern are on-premises SQL Server users with a Data Warehousing solution under half a terabyte. They currently use a mix of tools like SSIS, SSAS, and SSRS, along with common SQL stored procedures, external ETL/ELT tools, SQL replication/snapshotting, and SQL Agent jobs for data ingestion into their data warehousing solution. Data synchronization operations are typically snapshot-based and performed once a day, with no real-time reporting requirements.
 
 ## Simplified Architecture
 
 
 [ ![Diagram that shows simplified architecture.](media/small-medium-data-warehouse/MDWSMB3_Brief.svg)](media/small-medium-data-warehouse/MDWSMB3_Brief.svg#lightbox)
 
-
-Conseptual modernisation opportunity is to move legacy DW solution into a combination of Azure SQL Database/Managed Instance and Microsoft Fabric. This path offers broad surface of compatibility with traditional SQL Server, SQL client tools like SQL Server Management Studio (SSMS), offers appealing Lift & Shift options for existing processes and has low demands for upskilling from the team who supports this solution. This solution may be an initial step towards full monernization, where organisation fully adopts lakehose approach when size of the Datawarehouse grows and skillset of the team expands. Please compare with [Article Lakehouse, greenfield, scenario 5] 
+Conceptual modernization opportunity is to move legacy Data Warehousing solution into a combination of Azure SQL Database/Managed Instance and Microsoft Fabric. This approach ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS), provides appealing lift-and-shift options for existing processes, and requires minimal upskilling for the support team. This solution can serve as an initial step towards full-flegded modernization, enabling the organization to fully adopt a lakehouse approach as the data warehouse grows and the team's skillset expands. See the comparisons [Article Lakehouse, greenfield, scenario 5]
 
 
 ## Architecture
@@ -29,7 +28,7 @@ Legacy SMB data warehouses might contain several types of data:
 
 The following dataflow demonstrates the ingestion of your chosen data type:
 
-1. Microsoft Fabric Data pipelines or Data Factory Pipelines orchestrate the ingestion of transactional data into the datawarehousing solution.
+1. Microsoft Fabric Data pipelines or Data Factory Pipelines orchestrate the ingestion of transactional data into the Data Warehousing solution.
 
    - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Azure SQL Database/Managed Instance. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Microsoft Fabric software-as-a-service (SaaS). You can modernize databases incrementally after the lift and shift.
 
@@ -49,7 +48,7 @@ The following dataflow demonstrates the ingestion of your chosen data type:
    - Ad hoc data science explorations in T-SQL format or Python.
    - Early prototyping for data warehouse entities.
 
-Microsoft Fabricis is tightly integrated with potential consumers of your fused datasets, like Power BI frond end Reports, Azure Machine Learning, Power Apps, Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
+Microsoft Fabric is tightly integrated with potential consumers of your mutli-source datasets, such as Power BI frond-end reports, Azure Machine Learning, Power Apps, Azure Logic Apps, Azure Functions, and Azure App Service web apps.
 
 ### Components
 
@@ -73,15 +72,15 @@ Microsoft Fabricis is tightly integrated with potential consumers of your fused 
 
 Small and medium businesses (SMBs) face a choice when modernizing their on-premises data warehouses for the cloud. They can adopt big data tools for future extensibility, or keep traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition.
 
-However, a hybrid approach combines easy migration of the existing data estate with the opportunity to leverage modern tools and AI capabilities side by side. SQL-based data sources can keep running in the cloud and continue to modernize as appropriate.
+However, a hybrid approach offers the best of both worlds, allowing easy migration of existing data estates while leveraging modern tools and AI capabilities. SQL-based data sources can continue to operate in the cloud and modernize as needed.
 
-This example workload shows several ways that SMBs can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with Azure and Microsoft services and tools like Azure AI Services, and Microsoft Dynamics and Power Platform.
+This example workload illustrates several strategies for SMBs to modernize legacy data stores and explore big data tools and capabilities without stretching current budgets and skill sets. These comprehensive Azure data warehousing solutions seamlessly integrate with Azure and Microsoft services, including Azure AI Services, Microsoft Dynamics, and Power Platform. 
 
 ### Potential use cases 
 
 Several scenarios can benefit from this workload:
 
-- Migrating a traditional, on-premises relational data warehouse that's smaller than 1 TB and extensively uses SQL Server Integration Services (SSIS) packages to orchestrate stored procedures.
+- Migrating a traditional on-premises relational data warehouse under 1 TB, extensively utilizing SQL Server Integration Services (SSIS) packages to orchestrate stored procedures.
 
 - Meshing existing Dynamics or Power Platform [Dataverse](https://powerplatform.microsoft.com/dataverse) data with batched and real-time [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) sources.
 
@@ -93,11 +92,11 @@ This solution isn't recommended for:
 
 - [Greenfield](https://wikipedia.org/wiki/Greenfield_project) deployment of data warehouses.
 
-- Migrating on-premises data warehouses that are > 1 TB or projected to grow to that size within a year.
+- Migrating on-premises data warehouses that are larger than 1 TB or are projected to reach that size within a year.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets designed to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 The following considerations apply to this scenario.
 
