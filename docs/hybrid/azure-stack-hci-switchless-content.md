@@ -49,7 +49,7 @@ When you use the storage switchless design, it's crucial to remember that a thre
 Network design refers to the overall arrangement of physical and logical components within the network. In a three-node storage switchless configuration for Azure Stack HCI, three physical nodes are directly connected without using an external switch for storage traffic. These direct interlinked ethernet connections simplify network design by reducing complexity because there's no requirement to define or apply storage quality of service and prioritization configurations on the switches. The technologies that underpin lossless RDMA communication, such as ECN, PFC, or QoS that are required for RoCE v2 and iWARP, aren't needed. However, this configuration supports a maximum of three nodes, which means you can't scale the cluster by adding more nodes after deployment.
 
 > [!NOTE]
-> This three-node storage switchless architecture requires **six network adapter ports** that provide redundant links for all network intents. Take this into consideration if you plan to use a _small form-factor hardware_ SKU, or if there is limited physical space in the server chassis for extra network cards. Consult your preferred hardware OEM partner for more information.
+> This three-node storage switchless architecture requires **six network adapter ports** that provide redundant links for all network intents. Take this into consideration if you plan to use a _small form-factor hardware_ SKU, or if there is limited physical space in the server chassis for extra network cards. Consult your preferred hardware manufacturer partner for more information.
 
 #### Physical network topology
 
@@ -73,7 +73,7 @@ The physical network topology shows the actual physical connections between node
 
   - This direct communication eliminates the need for extra network switch ports for storage and removes the requirement to apply quality of service (QoS) or priority flow control (PFC) configuration for SMB-Direct (or RDMA) traffic on the network switches.
   
-  - Check with your hardware OEM partner or network interface card (NIC) vendor for any recommended OS drivers, firmware versions, or firmware settings for the switchless interconnect network configuration.
+  - Check with your hardware manufacturer partner or network interface card (NIC) vendor for any recommended OS drivers, firmware versions, or firmware settings for the switchless interconnect network configuration.
   
 - Dual Top-of-Rack (ToR) switches:
 
@@ -125,11 +125,11 @@ The logical network topology provides an overview for how the network data flows
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-    :::image type="content" source="images/azure-stack-hci-3node-logical-network.png" alt-text="Diagram that illustrates the logical networking topology for a three-node Azure Stack HCI cluster by using a switchless storage architecture with dual ToR switches for external (or north-south) connectivity." lightbox="images/azure-stack-hci-3node-logical-network.png" border="false":::
+    :::image type="content" source="images/azure-stack-hci-3node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity." lightbox="images/azure-stack-hci-3node-logical-network.png" border="false":::
 
 #### IP address requirements
 
-To deploy a three-node storage switchless configuration of Azure Stack HCI with dual links for the storage interconnects, the cluster infrastructure platform requires that you allocate a minimum of 20 x IP addresses. More IP addresses are required if you use a VM appliance supplied by your hardware OEM partner, or if you use microsegmentation or software defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements).
+To deploy a three-node storage switchless configuration of Azure Stack HCI with dual links for the storage interconnects, the cluster infrastructure platform requires that you allocate a minimum of 20 x IP addresses. More IP addresses are required if you use a VM appliance supplied by your hardware manufacturer partner, or if you use microsegmentation or software defined networking (SDN). For more information, see [Review the three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements).
 
 When you design and plan IP address requirements for Azure Stack HCI, remember to account for additional IP addresses or network ranges needed for your workload beyond the ones that are required for the Azure Stack HCI cluster and infrastructure components. If you plan to use Azure Kubernetes Services (AKS) on Azure Stack HCI, see [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements).
 
@@ -184,7 +184,7 @@ Product documentation:
 - [Protect VM workloads with Site Recovery on Azure Stack HCI](/azure-stack/hci/manage/azure-site-recovery)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
-- [Update Management overview](/azure/automation/update-management/overview)
+- [Azure Update Manager overview](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager)
 - [What are Azure Arc-enabled Data Services?](/azure/azure-arc/data/overview)
 - [What are Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
 - [What is the Azure Backup service?](/azure/backup/backup-overview)
@@ -211,11 +211,11 @@ Microsoft Learn modules:
 - [Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
 - [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
 - [Scale model deployment with Azure Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/scale-model-deployment-with-azure-machine-learning-anywhere/ba-p/2888753)
-- [Realizing Machine Learning anywhere with AKS and Arc-enabled ML - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-arc-blog/realizing-machine-learning-anywhere-with-azure-kubernetes/ba-p/3470783)
-- [Machine learning on AKS hybrid & Stack HCI using Azure Arc-enabled ML - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-stack-blog/machine-learning-on-aks-hybrid-amp-stack-hci-using-azure-arc/ba-p/3816127)
+- [Realizing Machine Learning anywhere with AKS and Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-arc-blog/realizing-machine-learning-anywhere-with-azure-kubernetes/ba-p/3470783)
+- [Machine learning on AKS hybrid and Stack HCI using Azure Arc-enabled machine learning - Tech Community Blog](https://techcommunity.microsoft.com/t5/azure-stack-blog/machine-learning-on-aks-hybrid-amp-stack-hci-using-azure-arc/ba-p/3816127)
 - [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
 - [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
-- [Protect your virtual machines by using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
+- [Protect your VMs by using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
 
 [azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#sizer
