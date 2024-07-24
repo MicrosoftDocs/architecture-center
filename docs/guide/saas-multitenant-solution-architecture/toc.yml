@@ -138,7 +138,7 @@ items:
               href: ../multitenant/service/azure-ad-b2c.md
           - name: AI and ML
             items:
-            - name: Azure Cognitive Search
+            - name: Azure AI Search
               href: /azure/search/search-modeling-multitenant-saas-applications
               maintainContext: true
             - name: Azure OpenAI
@@ -146,4 +146,4 @@ items:
         - name: Multitenancy checklist
           href: ../multitenant/checklist.md
         - name: Related resources
-          href: ../multitenant/related-resources.md      
+          href: ../multitenant/related-resources.md

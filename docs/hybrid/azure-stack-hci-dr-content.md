@@ -140,7 +140,6 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office](/azure/architecture/hybrid/azure-stack-robo)
 - [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
-- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-dr.vsdx

@@ -157,7 +157,6 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
 - [Predictive aircraft engine monitoring](../../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-- [Anomaly detector process](../../solution-ideas/articles/anomaly-detector-process.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
 - [Claim Check pattern](../../patterns/claim-check.yml)
 - [Command and Query Responsibility Segregation (CQRS) pattern](../../patterns/cqrs.yml)

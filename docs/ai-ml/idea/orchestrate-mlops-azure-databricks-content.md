@@ -10,7 +10,7 @@ This article provides a [machine learning operations (MLOps)](/azure/cloud-adopt
 
 ### Workflow
 
-This solution provides a robust MLOps process that uses Azure Databricks. All elements in the architecture are pluggable, so you can integrate other Azure and third-party services throughout the architecture as needed. This architecture and description are adapted from the e-book [The Big Book of MLOps](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops). This e-book explores the architecture described here in more detail.
+This solution provides a robust MLOps process that uses Azure Databricks. All elements in the architecture are pluggable, so you can integrate other Azure and third-party services throughout the architecture as needed. This architecture and description are adapted from the e-book [`The Big Book of MLOps`](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops). This e-book explores the architecture described here in more detail.
 
 - **Source control:** This project's code repository organizes the notebooks, modules, and pipelines. Data scientists create development branches to test updates and new models. Code is developed in notebooks or in IDEs, backed by Git, with [Databricks Repos](/azure/databricks/repos) integration for syncing with your Azure Databricks workspaces. Source control promotes machine learning pipelines from development, through staging (for testing), to production (for deployment).
 
@@ -125,7 +125,7 @@ Other contributor:
 
 ## Next steps
 
-- [The Big Book of MLOps](https://databricks.com/p/ebook/the-big-book-of-mlops)
+- [`The Big Book of MLOps`](https://databricks.com/p/ebook/the-big-book-of-mlops)
 - [Need for Data-centric machine learning Platforms](https://databricks.com/blog/2021/06/23/need-for-data-centric-ml-platforms.html) (introduction to MLOps)
 - [Databricks Machine Learning in-product quickstart](/azure/databricks/applications/machine-learning/ml-quickstart)
 - [10-minute tutorials: Get started with machine learning on Azure Databricks](/azure/databricks/applications/machine-learning/tutorial)

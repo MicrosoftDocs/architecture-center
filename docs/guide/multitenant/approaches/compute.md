@@ -9,18 +9,16 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-app-service
- - azure-functions
- - azure-kubernetes-service
+  - azure
+  - azure-app-service
+  - azure-functions
+  - azure-kubernetes-service
 categories:
- - compute
- - web
-ms.category:
-  - fcp
+  - compute
+  - web
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for compute in multitenant solutions
@@ -142,7 +140,7 @@ Compute tiers can be subject to cross-tenant data leakage, if they are not prope
 
 To avoid the [Busy Front End antipattern](../../../antipatterns/busy-front-end/index.md), avoid your front end tier doing a lot of the work that could be handled by other components or tiers of your architecture. This antipattern is particularly important when you create shared front-ends for a multitenant solution, because a busy front end will degrade the experience for all tenants.
 
-Instead, consider using asynchronous processing by making use of queues or other messaging services. This approach also enables you to apply *quality of service* (QoS) controls for different tenants, based on their requirements. For example, all tenants might share a common front end tier, but tenants who [pay for a higher service level](../considerations/pricing-models.md) might have a higher set of dedicated resources to process the work from their queue messages.
+Instead, consider using asynchronous processing by making use of queues or other messaging services. This approach also enables you to apply *quality of service (QoS)* controls for different tenants, based on their requirements. For example, all tenants might share a common front end tier, but tenants who [pay for a higher service level](../considerations/pricing-models.md) might have a higher set of dedicated resources to process the work from their queue messages.
 
 ### Inelastic or insufficient scaling
 
@@ -167,11 +165,11 @@ Consider the tradeoffs for each piece of state you maintain in your compute tier
 Principal authors:
 
  * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
  
 Other contributors:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

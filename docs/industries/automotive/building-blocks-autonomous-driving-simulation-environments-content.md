@@ -210,6 +210,3 @@ Relevant architectures:
 - [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
 
 - [Real-time asset tracking and management](/azure/architecture/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central)
-
-- [Machine teaching with the Microsoft Autonomous Systems platform](/azure/architecture/solution-ideas/articles/autonomous-systems)
-

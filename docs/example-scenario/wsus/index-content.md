@@ -215,7 +215,5 @@ Principal author:
 ## Related resources
 
 - [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
 - [Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)
-- [Manage hybrid Azure workloads using Windows Admin Center](/azure/architecture/hybrid/hybrid-server-os-mgmt)
 - [CI/CD for Azure VMs](/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)

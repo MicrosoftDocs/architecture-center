@@ -4,7 +4,7 @@ author: robbagby
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: cloud-for-industries
+ms.service: architecture-center
 products:
   - azure-migrate
 categories:
@@ -170,4 +170,3 @@ Product documentation:
 
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Messaging Bridge pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)

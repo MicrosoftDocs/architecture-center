@@ -69,12 +69,10 @@ The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection 
 The following sections, organized by category, provide links to sample networking architectures. 
 ### High availability
 - [Deploy highly available NVAs](guide/nva-ha.yml)
-- [High availability and disaster recovery scenarios for IaaS apps](../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
-### Hybrid networking 
-- [Azure Automation update management](../hybrid/azure-update-mgmt.yml)
-- [Connect standalone servers by using Azure Network Adapter](../hybrid/azure-network-adapter.yml)
+### Hybrid networking
+
 - [Design a hybrid Domain Name System solution with Azure](../hybrid/hybrid-dns-infra.yml)
 - [Hybrid availability and performance monitoring](../hybrid/hybrid-perf-monitoring.yml)
 - [Implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml)

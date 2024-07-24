@@ -20,7 +20,7 @@ categories:
 
 # Artificial intelligence (AI) architecture design
 
-*Artificial intelligence* (AI) is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
+*Artificial intelligence (AI)* is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
 
 ![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](_images/ai-overview-img-001.png)
 
@@ -70,8 +70,6 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 
 Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
 
-- [Autonomous systems and solutions from Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
-
 ### General info on Microsoft AI
 
 Learn more about Microsoft AI, and keep up-to-date with related news:
@@ -96,9 +94,9 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 One example of prebuilt AI might be a pretrained model that can be incorporated as is or used to provide a baseline for further custom training. Another example would be a cloud-based API service that can be called at will to process natural language in a desired fashion.
 
-#### Azure Cognitive Services
+#### Azure AI services
 
-[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provide developers the opportunity to use prebuilt APIs and integration toolkits to create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Cognitive Services can be categorized into five main pillars: Vision, Speech, Language, Web Search, and Decision/Recommendation.
+[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provide developers the opportunity to use prebuilt APIs and integration toolkits to create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure AI services can be categorized into five main pillars: Vision, Speech, Language, Web Search, and Decision/Recommendation.
 
 - [Azure Cognitive Services documentation](/azure/cognitive-services/)
 
@@ -140,11 +138,11 @@ The core concept of AI is the use of algorithms to analyze data and generate mod
 
 - [Introduction to machine learning with Python and Azure Notebooks](/training/paths/intro-to-ml-with-python/)
 
-- [`scikit-learn`.](https://scikit-learn.org/stable/) An open-source ML library for Python
+- [`scikit-learn`](https://scikit-learn.org/stable/). An open-source ML library for Python
 
-- [PyTorch.](https://pytorch.org/) An open-source Python library with a rich ecosystem that can be used for deep learning, computer vision, natural language processing, and more
+- [PyTorch](https://pytorch.org/). An open-source Python library with a rich ecosystem that can be used for deep learning, computer vision, natural language processing, and more
 
-- [TensorFlow.](https://www.tensorflow.org/) An open-source symbolic math library also used for ML applications and neural networks
+- [TensorFlow](https://www.tensorflow.org/). An open-source symbolic math library also used for ML applications and neural networks
 
 - [Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow](/azure/azure-functions/functions-machine-learning-tensorflow?tabs=bash)
 
@@ -234,8 +232,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../ai-ml/guide/mlops-python.yml)
 
-- [Batch scoring of R machine learning models on Azure](../ai-ml/architecture/batch-scoring-r-models.yml)
-
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
@@ -260,7 +256,7 @@ Azure provides extensive support for automated ML. Developers can build models u
 
 - [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 
-### Azure Cognitive Services
+### Azure AI services
 
 This is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps. These domain-specific, pretrained AI models can be customized with your data.
 
@@ -302,9 +298,9 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft machine learning library for Apache Spark is [SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml).
+The Microsoft machine learning library for Apache Spark is [SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. Learn more about [SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml).
 
-- [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
+- [Azure HDInsight overview](/azure/hdinsight/hdinsight-overview). Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 
 - [Tutorial: Build an Apache Spark machine learning application in Azure HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
 

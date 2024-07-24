@@ -102,5 +102,4 @@ Principal author:
 
 ## Related resources
 
-- [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../dronerescue/vision-classifier-model-with-custom-vision.yml)

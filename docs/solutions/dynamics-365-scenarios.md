@@ -95,7 +95,6 @@ Azure Active Directory is now Microsoft Entra ID. For more information, see [New
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](../example-scenario/analytics/synapse-customer-insights.yml)|Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Customer Insights.| Analytics|
 |[Enhanced customer dimension with Dynamics 365 Customer Insights](../solution-ideas/articles/customer-insights-synapse.yml) |Use Customer Insights to create an enhanced customer dataset and make it available in Azure Data Lake for consumption by Azure Synapse Analytics.|Analytics|
 
 ### Dynamics 365 Sales

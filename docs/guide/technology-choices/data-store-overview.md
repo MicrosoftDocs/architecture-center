@@ -7,7 +7,7 @@ ms.author: prwilk
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure

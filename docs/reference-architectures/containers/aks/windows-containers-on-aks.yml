@@ -17,6 +17,7 @@ metadata:
     - reference-architecture
     - internal-intro
     - e2e-aks
+    - arb-containers
 name: Running Windows containers on AKS
 azureCategories:
   - containers

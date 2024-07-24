@@ -17,6 +17,7 @@ metadata:
     - reference-architecture
     - internal-intro
     - e2e-aks
+    - arb-containers
 name: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers

@@ -185,7 +185,6 @@ Other contributors:
 - [DeepSim training platform](https://minds.ai/platform/)
 - [Vestas supercharges its wind farm control models for sustainable energy with Azure HPC](https://customers.microsoft.com/story/1430379358742351454-vestas-energy-azure-hpc)
 
-## Related resources
+## Related resource
 
 - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
-- [Use subject matter expertise in machine teaching and reinforcement learning](../../solution-ideas/articles/machine-teaching.yml)

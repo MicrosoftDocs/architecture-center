@@ -8,6 +8,7 @@ ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom: arb-healthcare
 products:
   - azure
   - dynamics-365
@@ -52,9 +53,7 @@ The following articles provide detailed analysis of architectures developed and 
 | [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn how to develop a consumer health portal using Azure services, to track statistics from wearables, engage with medical providers, and monitor health habits, built on a foundation of the [Azure Well Architected Framework](/azure/architecture/framework/). | Web |
 | [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. | Security |
 | [Health Data Consortium on Azure](../example-scenario/data/azure-health-data-consortium.yml) | Use the Azure Data Platform, and [Azure Data Share](/azure/data-share/overview) to create an environment where healthcare organizations can appropriately, and securely share data with partner organizations to support activities like clinical trials and research.  | Data |
-| [Precision Medicine Pipeline with Genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml) | Use [Microsoft Genomics](/azure/genomics/overview-what-is-genomics) and the Azure Data Platform to perform analysis and reporting for scenarios like precision medicine and genetic profiling. | Data/Analytics |
 | [Predict Hospital Readmissions with Machine Learning](../example-scenario/ai/predict-hospital-readmissions-machine-learning.yml) | Predict the readmissions of diabetic patients using Azure Data, AI, and Analytics tools through the different personas of Data Professionals throughout the process. | Data/AI |
-| [Build a telehealth system with Azure](../example-scenario/apps/telehealth-system.yml) | Explore a customer's implementation of a telehealth system using Azure services. | Containers |
 
 ## Solution ideas for healthcare
 
@@ -66,6 +65,3 @@ The following are some additional ideas that you can use as a starting point for
 - [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Predict Length of Stay in Hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
-- [Contactless IoT interfaces with Azure intelligent edge](../solution-ideas/articles/contactless-interfaces.yml)
-- [COVID-19 Safe Solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
-- [UVEN smart and secure disinfection and lighting](../solution-ideas/articles/uven-disinfection.yml)

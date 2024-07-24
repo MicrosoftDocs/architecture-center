@@ -162,7 +162,6 @@ Learn modules:
 
 - [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [Run CFD simulations](../../example-scenario/infrastructure/hpc-cfd.yml)
 
 <!-- links -->
 

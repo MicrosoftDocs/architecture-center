@@ -15,6 +15,7 @@ products:
 ms.custom:
   - overview
   - e2e-aks
+  - arb-containers
 ---
 
 # Azure Kubernetes Service (AKS) - Plan your design and operations
@@ -106,7 +107,6 @@ The typical AKS solution journey shown ranges from learning about AKS to growing
 If you're seeking additional references that use AKS as their foundation, here are a few to consider.
 
 * [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-* [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
 * [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 
 ### Azure Arc-enabled Kubernetes

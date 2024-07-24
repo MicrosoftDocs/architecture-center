@@ -3,9 +3,9 @@ metadata:
   title: Building blocks for autonomous-driving simulation environments
   titleSuffix: Azure Architecture Center
   description: To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.
-  author: martinekuan
-  ms.author: gugulesi
-  ms.date: 08/22/2022
+  author: HamletDRC
+  ms.author: hamda
+  ms.date: 06/18/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea

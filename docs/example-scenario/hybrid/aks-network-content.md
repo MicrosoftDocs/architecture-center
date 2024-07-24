@@ -1,6 +1,9 @@
-This scenario illustrates how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS hybrid clusters.
+This scenario illustrates how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.
 
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers. It's part of an architectural baseline guidance set of two articles. See the [baseline architecture recommendations here](aks-baseline.yml).
+
+> [!IMPORTANT]
+> The information in this article applies to [AKS on Azure Stack HCI version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
 
 ## Architecture
 
@@ -12,9 +15,9 @@ The following image shows the network architecture for Azure Kubernetes Service 
 
 The scenario consists of the following components and capabilities:
 
-- [Azure Stack HCI (20H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Stack HCI cluster is implemented as a 2-4 node cluster.
+- [Azure Stack HCI (22H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Stack HCI cluster is implemented as a 2-4 node cluster.
 - Windows Server 2019/2022 datacenter failover cluster is a group of independent computers that work together to increase the availability and scalability of clustered roles.
-- [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)][] is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale.
+- [Azure Kubernetes Service on Azure Stack HCI][] is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale.
 - [Active Directory Domain Services][] is a hierarchical structure that stores information about objects on the network. It provides identity and access solution for identities associated with users, computers, applications, or other resources that are included in a security boundary.
 - [Management cluster][] also known as AKS host is responsible for deploying and managing multiple workload clusters. The management cluster consumes 1 IP address from the node pool, but you should reserve another 2 IPs for update operations. The management cluster also consumes one IP from the VIP pool.
 - [Workload Cluster][] is a highly available deployment of Kubernetes using Linux VMs for running Kubernetes control plane components and Linux and/or Windows worker nodes.
@@ -324,14 +327,14 @@ Other contributors:
 
 ## Next steps
 
-- [AKS overview](/azure/aks/hybrid/aks-hybrid-options-overview)
+- [AKS overview](/azure/aks/hybrid/overview)
 
 ## Related resources
 
 - [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)
 
-[Azure Stack HCI (20H2)]: /azure-stack/hci/overview
-[Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
+[Azure Stack HCI (22H2)]: /azure-stack/hci/overview
+[Azure Kubernetes Service on Azure Stack HCI]: /azure/aks/hybrid/aks-hybrid-options-overview
 [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
 [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
 [Workload Cluster]: /azure/aks/hybrid/kubernetes-concepts#the-workload-cluster

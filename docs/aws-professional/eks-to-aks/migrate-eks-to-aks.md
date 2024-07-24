@@ -1,12 +1,14 @@
 ---
 title: Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)
 description: Learn about options for migrating from Amazon EKS to Azure Kubernetes Service (AKS).
-author: DixitArora-MSFT
-ms.author: dixitaro
-ms.date: 02/22/2024
+author: ketan-chawda-msft
+ms.author: kechaw
+ms.date: 06/05/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - arb-containers
 products:
   - azure-kubernetes-service
   - azure-policy
@@ -152,6 +154,7 @@ Other contributors:
 
 ## Next steps
 
+- [Migration Guide - Azure Samples](https://github.com/Azure-Samples/eks-aks-migration-guide)
 - [AKS for Amazon EKS professionals](/azure/architecture/aws-professional/eks-to-aks/)
 - [Kubernetes identity and access management](/azure/architecture/aws-professional/eks-to-aks/workload-identity)
 - [Kubernetes monitoring and logging](/azure/architecture/aws-professional/eks-to-aks/monitoring)

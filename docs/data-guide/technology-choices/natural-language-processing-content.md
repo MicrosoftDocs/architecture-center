@@ -199,4 +199,3 @@ Principal authors:
 - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 - [Analyze news feeds with near real-time analytics using image and natural language processing](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
-- [Suggest content tags with NLP using deep learning](../../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)

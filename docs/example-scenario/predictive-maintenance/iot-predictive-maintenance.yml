@@ -8,10 +8,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - cse
-    - example-scenario
+  ms.custom: arb-iot
 name: IoT Edge railroad maintenance and safety system
 azureCategories:
   - iot

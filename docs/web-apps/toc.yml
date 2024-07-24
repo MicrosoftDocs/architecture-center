@@ -66,10 +66,6 @@ items:
         items:
         - name: Single-page application authorization
           href: guides/security/secure-single-page-application-authorization.yml
-      - name: Monitoring guidance for web apps
-        items:
-        - name: Monitoring a web application
-          href: guides/monitoring/app-monitoring.yml
       - name: Application development guidance for web apps
         items:
         - name: Enterprise app patterns
@@ -102,8 +98,6 @@ items:
           href: ../example-scenario/infrastructure/wordpress-app-service.yml
         - name: VM hosting
           href: ../example-scenario/infrastructure/wordpress-iaas.yml
-      - name: Episerver
-        href: hosting-applications/digital-marketing-episerver.yml
       - name: Sitecore
         href: hosting-applications/digital-marketing-sitecore.yml
       - name: Umbraco

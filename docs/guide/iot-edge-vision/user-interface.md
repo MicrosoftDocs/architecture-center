@@ -12,9 +12,7 @@ categories: iot
 products:
   - power-bi
   - azure-app-service
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 
 ---
 

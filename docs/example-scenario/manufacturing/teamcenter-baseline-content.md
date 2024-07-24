@@ -80,10 +80,6 @@ Teamcenter provides a broad and rich depth of many functional solutions for mana
 - Increase competitive advantage by increasing speed to market for new products.
 - Power digital thread and digital twins.
 
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). In general, consider Availability zones or Availability sets based on requirements of multisite implementations. For more information, see [High availability and disaster recovery for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery).
-
 #### Web tier and Enterprise tier reliability
 
 **Use multiple virtual machines in the Web tier.** You should use multiple instances of the Teamcenter application to enhance the resiliency and scalability of the application. Run these instances on multiple virtual machines and load balance the traffic between them. A single web server Java Virtual Machine (JVM) can support several thousand concurrent sessions when properly tuned. However, you should run multiple parallel web servers for either load balancing and/or increased reliability.

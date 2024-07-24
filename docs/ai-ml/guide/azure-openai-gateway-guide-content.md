@@ -117,7 +117,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to charge back usage.
+All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to chargeback usage.
 
 ### Operational Excellence
 
@@ -180,6 +180,7 @@ The use of non-Microsoft gateway technology, which is a product or service that 
 Learn about a specific scenario where deploying a gateway between an intelligent application and Azure OpenAI deployments is used to address workload requirements:
 
 - [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.yml)
+- [Custom authentication and authorization for client applications](./azure-openai-gateway-custom-authentication.yml)
 
 Learn ways to [Implement logging and monitoring for Azure OpenAI models](../openai/architecture/log-monitor-azure-openai.yml).
 

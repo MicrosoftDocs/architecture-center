@@ -9,7 +9,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.custom: fcp
+  ms.custom: arb-integrations
 azureCategories:
   - hybrid
   - integration
@@ -24,4 +24,4 @@ name: Integration architecture design
 summary: Bring workflows together and automate processes by connecting apps, data, services, and devices. See resources with integration guidelines and recommendations.
 thumbnailUrl: /azure/architecture/browse/thumbs/integration-basic-architecture-thumbnail.png
 content: |
-   [!include[](integration-start-here-content.md)]
+   [!INCLUDE[](integration-start-here-content.md)]

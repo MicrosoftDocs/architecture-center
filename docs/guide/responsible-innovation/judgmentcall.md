@@ -6,7 +6,7 @@ author: dcass
 ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
