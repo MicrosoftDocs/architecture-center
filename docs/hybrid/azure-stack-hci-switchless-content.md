@@ -35,7 +35,7 @@ Use this design and the designs described in the [Azure Stack HCI baseline refer
 
 ## Architecture components
 
-The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](azure-stack-hci-baseline.yml#components) used for Azure Stack HCI deployments.
+The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](azure-stack-hci-baseline-content.md#components) used for Azure Stack HCI deployments.
 
 ## Cluster design choices
 
@@ -127,9 +127,9 @@ The logical network topology provides an overview for how the network data flows
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-    :::image type="complex" source="images/three-node-logical-network.png" lightbox="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster." border="false":::
-Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity. 
-:::image-end:::
+    :::image type="complex" source="images/three-node-logical-network.png" lightbox="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster."
+    Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity.
+    :::image-end:::
 
 #### IP address requirements
 
@@ -142,7 +142,7 @@ When you design and plan IP address requirements for Azure Stack HCI, remember t
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 > [!IMPORTANT]
-> Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline.yml#considerations).
+> Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline-content.md#considerations).
 
 ### Cost optimization
 

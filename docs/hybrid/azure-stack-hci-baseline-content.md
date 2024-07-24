@@ -17,9 +17,8 @@ For more information about guidelines and recommendations for the five pillars o
 
 ## Architecture
 
-:::image type="complex" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity." lightbox="images/azure-stack-hci-baseline.png"
-Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery.  
-::image-end:::
+:::image type="complex" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity." lightbox="images/azure-stack-hci-baseline.png":::
+Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery. :::image-end:::
 
 For more information, see [Related resources](#related-resources).
 
@@ -166,8 +165,6 @@ This architecture requires two or more physical nodes and up to a maximum of 16 
 
 The following physical network topology shows the actual physical connections between nodes and networking components.
 
-
-
 You need the following components when you design a multinode storage switched Azure Stack HCI deployment that uses this baseline architecture:
 
 :::image type="content" source="images/azure-stack-hci-baseline-physical-network.png" alt-text="Diagram that shows the physical networking topology for a multinode Azure Stack HCI cluster that uses a storage switched architecture with dual ToR switches." lightbox="images/azure-stack-hci-baseline-physical-network.png" border="false":::
@@ -199,8 +196,6 @@ You need the following components when you design a multinode storage switched A
 #### Logical network topology
 
 The logical network topology shows an overview of how network data flows between devices, regardless of their physical connections.
-
-
 
 A summarization of the logical setup for this multinode storage switched baseline architecture for Azure Stack HCI is as follows:
 
