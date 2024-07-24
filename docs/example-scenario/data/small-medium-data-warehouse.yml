@@ -16,7 +16,6 @@ azureCategories:
 products:
   - azure-data-lake
   - azure-sql-database
-  - microsoft-fabric
   - azure-synapse-analytics
   - dynamics-365
   - power-platform
