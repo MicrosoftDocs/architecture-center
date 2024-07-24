@@ -18,7 +18,6 @@ For more information about guidelines and recommendations for the five pillars o
 ## Architecture
 
 :::image type="complex" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity." lightbox="images/azure-stack-hci-baseline.png"
-
 Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery.  
 ::image-end:::
 
