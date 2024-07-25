@@ -32,9 +32,9 @@ For information about choosing a published VM image, see [Find Windows VM images
 
 For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium storage also features free bursting, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure, enabling high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
-[Managed Disks][managed-disks] simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
+[Managed disks][managed-disks] simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
-The OS disk is a virtual hard drive (VHD) stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data. 
+The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data. 
 
 Ephemeral disks provide good performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
 
@@ -46,7 +46,7 @@ The networking components include the following resources:
 
 - **Virtual network**. Every VM is deployed into a virtual network that can be segmented into multiple subnets.
 
-- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM a maximum number of NICs is defined for each [VM size][vm-size-tables].
+- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM, a maximum number of NICs is defined for each [VM size][vm-size-tables].
 
 - **Public IP address**. A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP). The public IP address can be dynamic or static. The default is dynamic.
 
@@ -57,21 +57,21 @@ The networking components include the following resources:
 
   - All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules can't be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP. To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
   
-- **NAT (Network Address Translation) Gateway.** [NAT Gateways](/azure/nat-gateway) allow all instances in a private subnet to connect outbound to the internet while remaining fully private. Only packets arriving as response packets to an outbound connection can pass through a NAT gateway. Unsolicited inbound connections from the internet are not permitted.
+- **Azure NAT Gateway.** [Network Address Translation (NAT) gateways](/azure/nat-gateway) allow all instances in a private subnet to connect outbound to the internet while remaining fully private. Only packets that arrive as response packets to an outbound connection can pass through a NAT gateway. Unsolicited inbound connections from the internet aren't permitted.
 
-- **Azure Bastion.** [Azure Bastion](/azure/bastion/) is a fully managed PaaS service that allows secure access to virtual machines via private IP addresses. This eliminates the need for virtual machines to have a Public IP address and exposing them to the internet, thus increasing their security posture. Bastion provides secure RDP/SSH connectivity to your virtual machines directly over TLS through various methods, including the Azure portal or native SSH or RDP clients.
+- **Azure Bastion.** [Azure Bastion](/azure/bastion/) is a fully managed platform as a service solution that provides secure access to VMs via private IP addresses. With this configuration, VMs don't need a public IP address that exposes them to the internet, which increases their security posture. Azure Bastion provides secure RDP or SSH connectivity to your VMs directly over Transport Layer Security (TLS) through various methods, including the Azure portal or native SSH or RDP clients.
 
 ### Operations
 
 **Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
-**Availability**. Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/availability#availability-sets) or across [availability zones](https://learn.microsoft.com/en-us/azure/virtual-machines/availability#availability-zones) in a region. Both of these configurations provide a higher [service level agreement (SLA)][vm-sla].
+**Availability**. Your VM might be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/availability#availability-sets) or across [availability zones](/azure/virtual-machines/availability#availability-zones) in a region. Both of these configurations provide a higher [service-level agreement (SLA)][vm-sla].
 
 **Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups.
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
-**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. Managed disks can be deleted as with any other Azure resource. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
+**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. You can delete managed disks just like any other Azure resource. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
 
 ## Considerations
 
@@ -131,10 +131,9 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - To install AMD drivers on a Windows VM, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup)
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 
-## Related resource
+## Related resources
 
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
-
 - [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
