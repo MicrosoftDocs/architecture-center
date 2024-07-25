@@ -34,7 +34,7 @@ For best disk I/O performance, we recommend [Premium Storage][premium-storage], 
 
 [Managed Disks][managed-disks] simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
-The OS disk is a virtual hard drive (VHD) stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. The VHD can be locally attached NVMe or similar devices available on many VM SKUs. 
+The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. The VHD can be locally attached NVMe or similar devices available on many VM SKUs. 
 
 Ephemeral disks provide good performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. For Linux VMs, the OS disk is `/dev/sda1`. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data.
 
@@ -94,7 +94,7 @@ The networking components include the following resources:
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
-**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. Managed disks can be deleted just like any other Azure resource. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
+**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. You can delete managed disks just like any other Azure resource. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
 
 ## Considerations
 
@@ -154,12 +154,12 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - To create a Linux VM, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
 - To install an NVIDIA driver on a Linux VM, see [Install NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup)
 - To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 
 ## Related resources
 
 - [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml)
 - [Run a Windows VM on Azure](windows-vm.yml)
-- [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
