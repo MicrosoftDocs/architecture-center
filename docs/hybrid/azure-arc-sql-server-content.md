@@ -187,7 +187,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ## Related resources
 
-- [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office][Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office]
+- [Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases][Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases]
 - [Manage configurations for Azure Arc-enabled servers][Manage configurations for Azure Arc-enabled servers]
 - [Azure Arc hybrid management and deployment for Kubernetes clusters][Azure Arc hybrid management and deployment for Kubernetes clusters]
 - [Azure hybrid options][Azure hybrid options]
@@ -259,7 +259,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Introduction to Azure Arc-enabled data services - training content]: /training/modules/intro-to-arc-enabled-data-services
 [Introduction to Azure Arc-enabled Kubernetes - training content]: /training/modules/intro-to-arc-enabled-kubernetes
 [Introduction to Azure Arc - training content]: /training/modules/intro-to-azure-arc
-[Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office]: ./azure-stack-robo.yml
+[Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases]: ./azure-stack-hci-switchless.yml
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml

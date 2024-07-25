@@ -10,7 +10,7 @@ The following reference architecture illustrates how to design and implement dis
 
 The architecture incorporates the following components and capabilities:
 
-- **[Azure Stack HCI (20H2)][azs-hci]**. [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes.
+- **[Azure Stack HCI (22H2)][azs-hci]**. [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged infrastructure (HCI) cluster solution that you can use to host virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. You can configure the stretched cluster with 4 to 16 physical nodes.
 - **[Storage Replica][storage-replica]**. Storage Replica is a Windows Server technology that enables volume replication between servers or clusters for the purpose of disaster recovery.
 - **[Live migration][live-migration]**. Live migration is a Hyper-V feature in Windows Server that allows you to seamlessly move running virtual machines (VMs) from one Hyper-V host to another without perceived downtime.
 - **[Cloud Witness][cloud-witness]**. Cloud Witness is a Failover Cluster quorum witness that uses Microsoft Azure Blob Storage to provide a vote on cluster quorum.
@@ -139,7 +139,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office](/azure/architecture/hybrid/azure-stack-robo)
-- [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-dr.vsdx
