@@ -5,7 +5,7 @@ description: Review autoscaling guidance. Autoscaling is the process of dynamica
 ms.author: robbag
 author: RobBagby
 ms.date: 10/11/2022
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: best-practice
 categories:

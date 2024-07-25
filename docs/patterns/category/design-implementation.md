@@ -5,7 +5,7 @@ description: Use these design and implementation patterns to simplify administra
 ms.author: robbag
 author: RobBagby
 ms.date: 07/28/2022
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
