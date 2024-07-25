@@ -116,7 +116,7 @@ Cloud file systems are crucial to the TDSP for several reasons:
 
 - [Azure Blob Storage](/azure/storage/blobs/) - Comprehensive documentation on Azure Blob Storage, a scalable object storage service for unstructured data.
 - [Azure Data Lake Storage](/azure/storage/data-lake-storage/) - Information on Azure Data Lake Storage Gen2, designed for big data analytics and supporting large-scale datasets.
-- [Azure Files](/azure/storage/files/) - Details on Azure Files, providing fully managed file shares in the cloud.
+- [Azure Files](/azure/storage/files/) - Details on Azure Files that provides fully managed file shares in the cloud.
 
 In summary, cloud file systems are crucial to the TDSP as they provide scalable, secure, and accessible storage solutions that support the entire data lifecycle. Cloud file systems enable seamless data integration from various sources, which supports comprehensive data acquisition and understanding. With cloud file systems, data scientists can efficiently store, manage, and access large datasets, which is essential for training and deploying machine learning models. These systems also enhance collaboration by letting team members share and work on data simultaneously in a unified environment. And cloud file systems offer robust security features that help protect data and make it compliant with regulatory requirements, which is vital for maintaining data integrity and trust.
 
@@ -136,7 +136,7 @@ Cloud databases play a critical role in the TDSP for several reasons:
 
 **Cost efficiency**: Cloud databases often operate on a pay-as-you-go model, which can be more cost-effective than maintaining on-premises database systems. This pricing flexibility lets organizations manage their budgets effectively, paying only for the storage and computing resources that they use.
 
-**Automatic Backups and Disaster Recovery**: Cloud databases provide automatic backup and disaster recovery solutions. These solutions help ensure your data isn't lost if hardware failures, accidental deletions, or other disasters occur. Reliability is crucial for maintaining data continuity and integrity in data science projects.
+**Automatic backups and disaster recovery**: Cloud databases provide automatic backup and disaster recovery solutions. These solutions help ensure your data isn't lost if hardware failures, accidental deletions, or other disasters occur. Reliability is crucial for maintaining data continuity and integrity in data science projects.
 
 **Real-time data processing**: Many cloud databases support real-time data processing and analytics, which is essential for data science tasks that require the most current information. This capability helps data scientists make timely decisions based on the latest data available.
 
@@ -194,7 +194,7 @@ These capabilities help data scientists perform complex analytics directly withi
 ##### Recommended Azure resources for big data clusters
 
 - [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse analytics provides easy access to distributed computation resources through the Apache Spark framework.
-- [Azure Synapse analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse analytics, integrating big data and data warehousing.
+- [Azure Synapse Analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics, integrating big data and data warehousing.
 
 In summary, big data clusters, whether SQL or Spark, are crucial for the TDSP, because they provide the computational power and scalability necessary to handle vast amounts of data efficiently. They enable data scientists to perform complex queries and advanced analytics on large datasets, facilitating deep insights, and accurate model development. When you use distributed computing, these clusters ensure rapid data processing and analysis, which accelerates the overall data science workflow. They also support seamless integration with various data sources and tools, enhancing the ability to ingest, process, and analyze data from multiple environments. Also, big data clusters promote collaboration and reproducibility by offering a unified platform where teams can effectively share resources, workflows, and results.
 
