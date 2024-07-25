@@ -147,7 +147,6 @@ Principal authors:
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Predict hospital readmissions with traditional and automated machine learning techniques](../ai/predict-hospital-readmissions-machine-learning.yml)
 - [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
-- [Population health management for healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)
 - [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform.yml)

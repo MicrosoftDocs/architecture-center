@@ -36,8 +36,6 @@ To get started, consider the following example implementations:
 
 -   [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
 
--   [Geospatial data processing and analytics](../../example-scenario/data/geospatial-data-processing-analytics-azure.yml)
-
 -   [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
 
 -   [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)

@@ -169,7 +169,6 @@ Related hybrid guidance:
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
-- [Deploy a hybrid app with on-premises data that scales cross-cloud](deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md)
 
 Related architectures:
 

@@ -455,6 +455,5 @@ Other contributor:
 
 ## Related resources
 
-- [Query-based document summarization](../../ai-ml/guide/query-based-summarization.md)
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
