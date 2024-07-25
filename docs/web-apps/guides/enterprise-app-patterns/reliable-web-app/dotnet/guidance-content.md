@@ -6,16 +6,143 @@ ms.custom: devx-track-dotnet
 
 ## Why the Reliable Web App pattern for .NET?
 
-If your organization is considering a transition from an on-premises .NET web application to the cloud, the Reliable Web App pattern for .NET proven guidance for this process. The pattern shows you how the essential updates you need to make to ensure your .NET web app is successful in Azure. It focuses on the high-value updates you should make and outlines the minimal code changes required. These changes improve the reliability, security, performance, and operational excellence of your web app while capitalizing on the benefits of the cloud.
+The Reliable Web App pattern is a set of principles and implementation techniques that define how you should replatform web apps when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud. The following guidance uses the reference implementation as an example throughout and follows the replatform journey of the fictional company, Relecloud, to provide business context for your journey. Before implementing the Reliable Web App pattern for .NET, Relecloud had a monolithic, on-premises ticketing web app that used the ASP.NET framework.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
+> ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation for a fictional company named Relecloud. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
 
 [!INCLUDE [intro 2](../includes/intro2.md)]
+
+## Business guidance
+
+The initial step replatforming a web app is to define your business objectives. You should set immediate goals, like your service level objective and cost optimization targets, and future goals, like for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. 
+
+For example, Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
+
+- Apply low-cost, high-value code changes
+- Reach a service level objective (SLO) of 99.9%
+- Adopt DevOps practices
+- Create cost-optimized environments
+- Improve reliability and security
+
+Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach these goals. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 ## Architecture guidance
 
 [!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
+
+### Pick the right Azure services
+
+When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
+
+For example, before the move to the cloud, Relecloud's ticketing web app was an on-premises, monolithic, ASP.NET app. It ran on two virtual machines and had a Microsoft SQL Server database. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
+
+**Application platform:** Use [Azure App Service](/azure/app-service/overview) as your application platform. Relecloud chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
+
+- *High service level agreement (SLA):* It has a high SLA that meets the production environment SLO of 99.9%.
+- *Reduced management overhead:* It's a fully managed solution that handles scaling, health checks, and load balancing.
+- *.NET support:* It supports the version of .NET that the application is written in.
+- *Containerization capability:* The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services
+- *Autoscaling:* The web app can automatically scale up, down, in, and out based on user traffic and settings.
+
+**Identity management
+
+Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Relecloud chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
+
+- *Authentication and authorization:* The application needs to authenticate and authorize call center employees.
+- *Scalable:* It scales to support larger scenarios.
+- *User-identity control:* Call center employees can use their existing enterprise identities.
+- *Authorization protocol support:* It supports OAuth 2.0 for managed identities.
+
+### Database
+
+Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree). Relecloud's web app used SQL Server on-premises. So they wanted to use the existing database schema, stored procedures, and functions. Several SQL products are available on Azure, but Relecloud chose [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) for the following reasons:
+
+- *Reliability:* The general-purpose tier provides a high SLA and multi-region redundancy. It can support a high user load.
+- *Reduced management overhead:* It provides a managed SQL database instance.
+- *Migration support:* It supports database migration from on-premises SQL Server.
+- *Consistency with on-premises configurations:* It supports the existing stored procedures, functions, and views.
+- *Resiliency:* It supports backups and point-in-time restore.
+- *Expertise and minimal rework:* SQL Database takes advantage of in-house expertise and requires minimal work to adopt.
+
+### Application performance monitoring
+
+Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry on your application. Relecloud chose to use Application Insights for the following reasons:
+
+- *Integration with Azure Monitor:* It provides the best integration with Azure Monitor.
+- *Anomaly detection:* It automatically detects performance anomalies.
+- *Troubleshooting:* It helps you diagnose problems in the running app.
+- *Monitoring:* It collects information about how users are using the app and allows you to easily track custom events.
+- *Visibility gap:* The on-premises solution didn't have application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
+
+### Cache
+
+Choose whether to add cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is Azure's primary cache solution. It's a managed in-memory data store based on the Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details, and it added Azure Cache for Redis for the following reasons:
+
+- *Reduced management overhead:* It's a fully managed service.
+- *Speed and volume:* It has high-data throughput and low latency reads for commonly accessed, slow changing data.
+- *Diverse supportability:* It's a unified cache location for all instances of the web app to use.
+- *External data store:* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+- *Nonsticky sessions:* Externalizing session state supports nonsticky sessions.
+
+### Load balancer
+
+Web applications using PaaS solutions should use Azure Front Door, Azure Application Gateway, or both based on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. Relecloud needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+
+- *Global load balancing:* It's a layer-7 load balancer that can route traffic across multiple regions.
+- *Web application firewall:* It integrates natively with Azure Web Application Firewall.
+- *Routing flexibility:* It allows the application team to configure ingress needs to support future changes in the application.
+- *Traffic acceleration:* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+- *Custom domains:* It supports custom domain names with flexible domain validation.
+- *Health probes:* The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+- *Monitoring support:* It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+- *DDoS protection:* It has built-in layer 3-4 DDoS protection.
+- *Content delivery network:* It positions Relecloud to use a content delivery network. The content delivery network provides site acceleration.
+
+### Web application firewall
+
+Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection of from common web exploits and vulnerabilities. Relecloud used Azure Web Application Firewall for the following reasons:
+
+- *Global protection:* It provides improved global web app protection without sacrificing performance.
+- *Botnet protection:* The team can monitor and configure to address security concerns from botnets.
+- *Parity with on-premises:* The on-premises solution was running behind a web application firewall managed by IT.
+- *Ease of use:* Web Application Firewall integrates with Azure Front Door.
+
+### Configuration storage
+
+Choose whether to add app configuration storage to your web app. [Azure App Configuration](/azure/azure-app-configuration/overview) is a service for centrally managing application settings and feature flags. Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide whether this service is a good fit for your app. Relecloud wanted to replace file-based configuration with a central configuration store that integrates with the application platform and code. They added App Configuration to the architecture for the following reasons:
+
+- *Flexibility:* It supports feature flags. Feature flags allow users to opt in and out of early preview features in a production environment without redeploying the app.
+- *Supports Git pipeline:* The source of truth for configuration data needed to be a Git repository. The pipeline needed to update the data in the central configuration store.
+- *Supports managed identities:* It supports managed identities to simplify and help secure the connection to the configuration store.
+
+### Secrets manager
+
+Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Relecloud's on-premises web app stored secrets in code configuration files, but it's a better security practice to externalize secrets. While [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
+
+- *Encryption:* It supports encryption at rest and in transit.
+- *Managed identity support:* The application services can use managed identities to access the secret store.
+- *Monitoring and logging:* It facilitates audit access and generates alerts when stored secrets change.
+- *Integration:* It provides native integration with the Azure configuration store (App Configuration) and web hosting platform (App Service).
+
+### Storage solution
+
+Review the [Azure storage options](/azure/architecture/guide/technology-choices/storage-options) to pick the right storage solution based on your requirements. Relecloud's on-premises web app had disk storage mounted to each web server, but the team wanted to use an external data storage solution. Relecloud chose [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for the following reasons:
+
+- *Secure access:* The web app can eliminate endpoints for accessing storage exposed to the public internet with anonymous access.
+- *Encryption:* It encrypts data at rest and in transit.
+- *Resiliency:* It supports zone-redundant storage (ZRS). Zone-redundant storage replicates data synchronously across three Azure availability zones in the primary region. Each availability zone is in a separate physical location that has independent power, cooling, and networking. This configuration should make the ticketing images resilient against loss.
+
+### Endpoint security
+
+Use [Azure Private Link](/azure/private-link/private-link-overview) to access platform-as-a-service solutions over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Relecloud chose Private Link for the following reasons:
+
+- *Enhanced security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
+- *Minimal effort:* The private endpoints support the web app platform and database platform the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
+
+### Network security
+
+Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) allows you to connect to virtual machines securely without exposing RDP/SSH ports. Relecloud adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
 
 ## Code guidance
 
