@@ -1,5 +1,5 @@
 
-This article describes an architecture for processing documents of various types. It uses the Durable Functions extension of Azure Functions to implement the pipelines that process the documents.
+This article describes an architecture for processing documents of various types. It uses the Durable Functions extension of Azure Functions to implement the pipelines that process the documents using Azure AI Document Intelligence.
 
 ## Architecture
 
@@ -14,11 +14,7 @@ This article describes an architecture for processing documents of various types
    1. The web app adds a command message to a storage queue to initiate pipeline processing.
 1. Durable Functions orchestration is triggered by the command message. The message contains metadata that identifies the location in Blob Storage of the document file to be processed. Each Durable Functions instance processes only one document file.
 1. The Scan activity function calls the Computer Vision Read API, passing in the location in storage of the document to be processed. Optical character recognition (OCR) results are returned to the orchestration to be used by subsequent activities.
-1. The Classify activity function calls the document classifier service that's hosted in an Azure Kubernetes Service (AKS) cluster. This service uses regular expression pattern matching to identify the starting page of each known document and to calculate how many document types are contained in the document file. The types and page ranges of the documents are calculated and returned to the orchestration.
-
-   > [!NOTE]
-   > Azure doesn't offer a service that can classify multiple document types in a single file. This solution uses a non-Azure service that's hosted in AKS.
-
+1. The Classify activity function calls the Azure AI Document Intelligence service to read and identify each known document contained within the document file. The type and page ranges of each embedded document is returned to the orchestration.
 1. The Metadata Store activity function saves the document type and page range information in an Azure Cosmos DB store.
 1. The Indexing activity function creates a new search document in the Cognitive Search service for each identified document type and uses the [Azure AI Search libraries for .NET](/dotnet/api/overview/azure/search?view=azure-dotnet) to include in the search document the full OCR results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
 1. End users can search for documents by contents and metadata. Correlation IDs in the search result set can be used to look up document records that are in Azure Cosmos DB. The records include links to the original document file in Blob Storage.
@@ -34,7 +30,6 @@ This article describes an architecture for processing documents of various types
 
 ### Alternatives
 
-- The [Azure AI Document Intelligence read (OCR) model](/azure/ai-services/document-intelligence/concept-read) is an alternative to Computer Vision Read.
 - This solution stores metadata in Azure Cosmos DB to facilitate global distribution. [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is another option for persistent storage of document metadata and information.
 - You can use other messaging platforms, including [Azure Service Bus](https://azure.microsoft.com/products/service-bus), to trigger Durable Functions instances.
 - For a solution accelerator that helps in clustering and segregating data into templates, see [Azure/form-recognizer-accelerator (github.com)](https://github.com/Azure/form-recognizer-accelerator).
@@ -61,7 +56,7 @@ This solution applies to many areas:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected)
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected).
 
 ### Reliability
 
@@ -79,7 +74,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 The most significant costs for this architecture will potentially come from the storage of images in the storage account, Azure AI services image processing, and index capacity requirements in the Azure AI Search service.
 
-Costs can be optimized by [right sizing](/azure/well-architected/service-guides/storage-accounts/cost-optimization) the storage account by using reserved capacity and lifecycle policies, proper [Azure AI Search planning](/azure/search/search-sku-manage-costs) for regional deployments and operational scale up scheduling, and using [commitment tier pricing](/azure/ai-services/commitment-tier) that's available for the Computer Vision – OCR service to manage [predictable costs](/azure/ai-studio/how-to/costs-plan-manage).
+Costs can be optimized by [right sizing](/azure/well-architected/service-guides/storage-accounts/cost-optimization) the storage account by using reserved capacity and lifecycle policies, proper [Azure AI Search planning](/azure/search/search-sku-manage-costs) for regional deployments and operational scale up scheduling, and using [commitment tier pricing](/azure/ai-services/commitment-tier) that's available for the Document Intelligence service to manage [predictable costs](/azure/ai-studio/how-to/costs-plan-manage).
 
 Here are some guidelines for optimizing costs:
 
@@ -89,7 +84,7 @@ Here are some guidelines for optimizing costs:
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale in an efficient manner to meet the demands that users place on it. For more information, see [Performance efficiency pillar overview](/azure/well-architected/performance-efficiency).
+Performance efficiency is the ability of your workload to scale in an efficient manner to meet the demands that users place on it. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/performance-efficiency).
 
 Periods when this solution processes high volumes can expose performance bottlenecks. Make sure that you understand and plan for the [scaling options for Azure Functions](/azure/azure-functions/functions-scale#scale), [Azure AI services autoscaling](/azure/ai-services/autoscale?tabs=portal), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview) to ensure proper performance efficiency for your solution.
 
