@@ -114,7 +114,7 @@ These other uses cases have similar design patterns:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 * For the Kubernetes cluster, you need at least a 3-node user-node pool with virtual machine (VM) SKU DS2_v2 or larger.
 * Volumes that use Azure managed disks can't be attached across zones. They must be located in the same zone.

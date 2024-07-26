@@ -135,7 +135,7 @@ Industries that use mainframes can benefit from UniKix rehosting solutions. The 
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/), apply to this solution:
+The following considerations, based on the [Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
 
 ### Reliability
 
@@ -147,7 +147,7 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 ### Cost optimization
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/architecture/framework/).
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/well-architected/).
 
 - For managed disks, the VMs in this solution use either Premium SSD or Ultra Disk Storage. For more information about disk options and pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 

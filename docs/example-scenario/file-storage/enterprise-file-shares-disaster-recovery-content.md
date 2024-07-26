@@ -33,7 +33,7 @@ This architecture applies to businesses that want to provide file shares for cli
 
 ## Considerations
 
-The [Azure Well-Architected Framework](/azure/architecture/framework) provides reference guidance and best practices to apply to your architecture.
+The [Azure Well-Architected Framework](/azure/well-architected/) provides reference guidance and best practices to apply to your architecture.
 
 ### Availability
 
