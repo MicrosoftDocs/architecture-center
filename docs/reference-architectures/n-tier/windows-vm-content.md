@@ -130,11 +130,12 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - To install NVIDIA drivers on a Windows VM, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup)
 - To install AMD drivers on a Windows VM, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup)
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
+- [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 
-## Related resources
+## Related resource
 
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
-- [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
+
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
