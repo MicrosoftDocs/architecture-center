@@ -193,7 +193,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - [Azure hybrid options][Azure hybrid options]
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
-[azure-well-architected-framerwork]: /azure/architecture/framework/
+[azure-well-architected-framerwork]: /azure/well-architected/
 [sql-server]: /sql/sql-server/
 [azure-arc]: /azure/azure-arc/overview
 [azure-arc-enabled-servers]: /azure/azure-arc/servers/overview

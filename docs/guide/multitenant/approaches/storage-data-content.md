@@ -4,7 +4,7 @@ In this article, we provide guidance about the key considerations and requiremen
 
 ## Key considerations and requirements
 
-It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework).
+It's important to consider the approaches you use for storage and data services from a number of perspectives, which approximately align to the pillars of the [Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Scale
 

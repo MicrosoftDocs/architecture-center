@@ -143,7 +143,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-dr.vsdx
-[azure-well-architected-framework]: /azure/architecture/framework
+[azure-well-architected-framework]: /azure/well-architected/
 [microsoft-component]: /
 [azs-hci]: /azure-stack/hci/overview
 [storage-replica]: /windows-server/storage/storage-replica/storage-replica-overview
