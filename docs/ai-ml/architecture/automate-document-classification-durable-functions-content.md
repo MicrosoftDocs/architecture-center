@@ -9,14 +9,13 @@ This article describes an architecture for processing documents of various types
 
 ### Workflow
 
-1. The user provides a document file that the web app uploads. The file contains multiple documents of various types. It can, for instance, be a PDF or multipage TIFF file.
-   1. The document file is stored in Azure Blob Storage.
-   1. The web app adds a command message to a storage queue to initiate pipeline processing.
+1. The user provides a document file that the web app uploads. The file contains multiple embedded documents of various types. It can, for instance, be a PDF or multipage TIFF file.
+   - a - The document file is stored in Azure Blob Storage.
+   - b - web app adds a command message to a storage queue to initiate pipeline processing.
 1. Durable Functions orchestration is triggered by the command message. The message contains metadata that identifies the location in Blob Storage of the document file to be processed. Each Durable Functions instance processes only one document file.
-1. The Scan activity function calls the Computer Vision Read API, passing in the location in storage of the document to be processed. Optical character recognition (OCR) results are returned to the orchestration to be used by subsequent activities.
-1. The Classify activity function calls the Azure AI Document Intelligence service to read and identify each known document contained within the document file. The type and page ranges of each embedded document is returned to the orchestration.
-1. The Metadata Store activity function saves the document type and page range information in an Azure Cosmos DB store.
-1. The Indexing activity function creates a new search document in the Cognitive Search service for each identified document type and uses the [Azure AI Search libraries for .NET](/dotnet/api/overview/azure/search?view=azure-dotnet) to include in the search document the full OCR results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
+1. The Analyze activity function calls the Document Intelligence Analyze Document API, passing in the location in storage of the document file to be processed. Analysis will read and identify each known document contained within the document file. The name, type, page ranges, and content of each embedded document is returned to the orchestration.
+1. The Metadata Store activity function saves the document type, location, and page range information for each identified document in an Azure Cosmos DB store.
+1. The Indexing activity function creates a new search document in the Azure AI Search service for each identified document and uses the [Azure AI Search libraries for .NET](/dotnet/api/overview/azure/search?view=azure-dotnet) to include in the search document the full OCR results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
 1. End users can search for documents by contents and metadata. Correlation IDs in the search result set can be used to look up document records that are in Azure Cosmos DB. The records include links to the original document file in Blob Storage.
 
 ### Components
@@ -26,6 +25,7 @@ This article describes an architecture for processing documents of various types
 - [Azure Storage](https://azure.microsoft.com/en-us/products/category/storage) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](https://azure.microsoft.com/products/storage/blobs), [Azure Files](https://azure.microsoft.com/products/storage/files), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues).
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps. The Web Apps feature is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications easily run and scale in Windows and Linux-based environments.
 - [Azure AI services](https://azure.microsoft.com/en-us/products/ai-services/) provides intelligent algorithms to see, hear, speak, understand, and interpret your user needs by using natural methods of communication.
+- [Azure AI Document Intelligence](https://azure.microsoft.com/en-us/services/cognitive-services/document-intelligence) is a set of services that enable you to extract insights from your documents, forms, and images.
 - [Azure AI Search](https://azure.microsoft.com/products/search) provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 
 ### Alternatives
