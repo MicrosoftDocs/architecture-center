@@ -3,7 +3,7 @@ title: Data lakes
 description: Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format.
 author: PRASADA1207
 ms.author: prasada
-ms.date: 06/14/2022
+ms.date: 07/12/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -68,9 +68,7 @@ When building a comprehensive data lake solution on Azure, consider the followin
 - [Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/introduction/): A unified platform for processing, storing, analyzing, and monetizing data, supporting ETL, dashboards, security, data exploration, machine learning, and generative AI.
 - [Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is): A unified experience to ingest, explore, prepare, manage, and serve data for immediate BI and machine learning needs. It integrates deeply with Azure Data Lake, enabling querying and analyzing large datasets efficiently.
 - [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction): A cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and transformation.
-- [Azure HD Insight](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-overview): It is a managed cluster platform that makes it easy to run big data frameworks like Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Hadoop, and others in your Azure environment.
-
-
+- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview)- It is a comprehensive data platform that unifies data engineering, data science, data warehousing, real-time analytics, and business intelligence into a single solution.
 
 ## Contributors
 
@@ -82,7 +80,6 @@ Principal author:
 
 ## Next steps
 -	[What is One Lake ?](https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview)
-- [What is Microsoft Fabric?](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview)
 - [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure Data Lake Analytics Documentation](/azure/data-lake-analytics)
 - [Introduction to Azure Data Lake Storage (training module)](/training/modules/intro-to-azure-data-lake-storage)
