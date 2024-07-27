@@ -116,7 +116,6 @@ For additional high availability and disaster recovery reference architectures, 
 
 - [Multi-region N-tier application][Multi-region-N-tier-application]
 - [Multi-region load balancing][Multi-region-load-balancing]
-- [Multi-region app with private database][Multi-region-app-with-private-database]
 - [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
 
 <!-- links -->
