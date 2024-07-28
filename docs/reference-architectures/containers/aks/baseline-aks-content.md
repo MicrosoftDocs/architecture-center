@@ -639,7 +639,7 @@ To review Windows-specific monitoring considerations included in the Windows con
 
 ### Network metrics
 
-Basic, cluster level networking metrics are made available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). The [Network Observability add-on](/azure/aks/network-observability-overview) can further be used to expose network metrics at the node level. Most clusters should use the Network Observability add-on to provide additional network troubleshooting capabilities, and to detect unexpected network usage or issues at the node level. This reference implementation enables this add-on.
+Basic, cluster level networking metrics are made available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). The [Network Observability add-on](/azure/aks/network-observability-overview) can further be used to expose network metrics at the node level. Most clusters should use the Network Observability add-on to provide additional network troubleshooting capabilities, and to detect unexpected network usage or issues at the node level.
 
 For workloads that are *highly sensitive* to TCP or UDP packet loss, latency, or DNS pressure, having pod-level network metrics is important. In AKS that level of detail is provided by the [Advanced Network Observability](/azure/aks/advanced-network-observability-concepts) offering. Most workloads don't require this depth of network observability, and you shouldn't install the Advanced Network Observability add-on unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
