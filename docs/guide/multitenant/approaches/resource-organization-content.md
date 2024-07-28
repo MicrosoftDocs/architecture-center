@@ -1,4 +1,4 @@
-Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider, when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
+Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements
 
@@ -15,9 +15,9 @@ If you know with certainty that you won't grow to large numbers of tenants or to
 If you have an automated deployment process and need to scale across resources, determine how you'll deploy and assign tenants across multiple resource instances. For example, how will you detect that you're approaching the number of tenants that can be assigned to a specific resource? Will you plan to deploy new resources *just in time* for when you need them? Or, will you deploy a pool of resources *ahead of time* so they're ready for you to use when you need them?
 
 > [!TIP]
-> In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow.
+> In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow. By documenting the processes, you make it easier for yourself to automate them if the need arises in the future.
 
-It's also important to avoid making assumptions in your code and configuration, which can limit your ability to scale. For example, you might need to scale out to multiple storage accounts. Ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
+It's also important to avoid making assumptions any assumptions throughout your code and configuration that can limit your ability to scale. For example, you might need to scale out to multiple storage accounts in the future, so ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
 
 ## Approaches and patterns to consider
 
@@ -35,13 +35,13 @@ When you run single instances of a resource, you need to consider any service li
 
 You also need to ensure your application code is fully aware of multitenancy, and that it restricts access to the data for a specific tenant.
 
-As an illustration of the shared resource approach, suppose Contoso is building a multitenant SaaS application that includes a web application, a database, and a storage account. They might decide to deploy shared resources, and they'd use these resources to service all of their customers. In the following diagram, a single set of resources is shared by all the customers.
+As an illustration of the shared resource approach, suppose Contoso is building a multitenant SaaS application that includes a web application, a database, and a storage account. They might decide to deploy shared resources, and they use these resources to service all of their customers. In the following diagram, a single set of resources is shared by all the customers.
 
 ![Diagram that shows a single set of resources that are shared by all the customers.](media/resource-organization/isolation-within-resource.png)
 
 #### Separate resources in a resource group
 
-You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant. Or, you might share some components between tenants and deploy other components that are dedicated to a specific tenant.
+You can also deploy dedicated resources for each tenant. You might deploy an entire copy of your solution for a single tenant. Or, you might share some components between tenants and deploy other components that are dedicated to a specific tenant, which is also called a [horizontally partitioned approach](../considerations/tenancy-models.yml#horizontally-partitioned-deployments).
 
 We recommend that you use resource groups to manage resources with the same lifecycle. In some multitenant systems, it makes sense to deploy resources for multiple tenants into a single resource group or a set of resource groups.
 
