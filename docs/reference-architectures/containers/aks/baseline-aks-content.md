@@ -631,7 +631,7 @@ With AKS, Azure manages some core Kubernetes services and the logs for the AKS c
 
 Other log categories, such as **KubeScheduler** or **KubeAudit**, may be very helpful to enable during early cluster or workload lifecycle development, where added cluster autoscaling, pod placement & scheduling, and similar data could help troubleshoot cluster or workload operations concerns. Keeping the extended troubleshooting logs on full time, once the troubleshooting needs are over, might be considered an unnecessary cost to ingest and store in Azure Monitor.
 
-While Azure Monitor includes a set of existing log queries to start with, you can also use them as a foundation to help build your own queries. As your library grows, you can save and reuse log queries using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries help enable additional observability into the health and performance of your AKS clusters, and support your service level objectives (SLOs).
+While Azure Monitor includes a set of existing log queries to start with, you can also use them as a foundation to help build your own queries. As your library grows, you can save and reuse log queries using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries enables additional observability into the health and performance of your AKS clusters, and supports you achieving your service level objectives (SLOs).
 
 For more information about our monitoring best practices for AKS, see [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks).
 
@@ -639,9 +639,9 @@ To review Windows-specific monitoring considerations included in the Windows con
 
 ### Network metrics
 
-Basic, cluster level networking metrics are made available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). The [Network Observability add-on](/azure/aks/network-observability-overview) can further be used to expose network metrics at the node level. It's recommended that most clusters use the Network Observability add-on to provide additional network troubleshooting capabilities and the ability to detect unexpected network usage or issues at the node level. This reference implementation enables this add-on.
+Basic, cluster level networking metrics are made available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). The [Network Observability add-on](/azure/aks/network-observability-overview) can further be used to expose network metrics at the node level. Most clusters should use the Network Observability add-on to provide additional network troubleshooting capabilities, and to detect unexpected network usage or issues at the node level. This reference implementation enables this add-on.
 
-For workloads that are *highly sensitive* to TCP or UDP packet loss, latency, or DNS pressure, having pod level network metrics is important. In AKS that level of detail is provided by the [Advanced Network Observability](/azure/aks/advanced-network-observability-concepts) offering. Most workloads will not require this depth of network observability, and it is not suggested to be installed unless your pods demands a highly optimzed network, with sensitivity down to the packet level.
+For workloads that are *highly sensitive* to TCP or UDP packet loss, latency, or DNS pressure, having pod-level network metrics is important. In AKS that level of detail is provided by the [Advanced Network Observability](/azure/aks/advanced-network-observability-concepts) offering. Most workloads don't require this depth of network observability, and you shouldn't install the Advanced Network Observability add-on unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Enable self-healing
 
@@ -773,7 +773,7 @@ Instead of using an imperative approach like kubectl, use tools that automatical
 
 An essential part of the CI/CD flow is the bootstrapping of a newly provisioned cluster. A GitOps approach is useful towards this end, allowing operators to declaratively define the bootstrapping process as part of the IaC strategy and see the configuration reflected in the cluster automatically.
 
-When using GitOps, an agent is deployed in the cluster to make sure that the state of the cluster is coordinated with configuration stored in your private Git repo. One such agent is [flux](https://fluxcd.io/flux/concepts/), which uses one or more operators in the cluster to trigger deployments inside Kubernetes. Flux does these tasks:
+When you use GitOps, an agent is deployed in the cluster to make sure that the state of the cluster is coordinated with configuration stored in your private Git repo. One such agent is [flux](https://fluxcd.io/flux/concepts/), which uses one or more operators in the cluster to trigger deployments inside Kubernetes. Flux does these tasks:
 
 - Monitors all configured repositories.
 - Detects new configuration changes.
@@ -832,7 +832,7 @@ To review cost management considerations specific to Windows-based workloads inc
 
 - Enabling diagnostics on the cluster can increase the cost.
 
-- If your workload is expected exist for a long period, you can commit to one- or three-year Reserved Virtual Machine Instances to reduce the node costs. For more information, see [Reserved VMs](/azure/architecture/framework/cost/optimize-vm#reserved-vms).
+- If your workload is expected to exist for a long period, you can commit to one- or three-year Reserved Virtual Machine Instances to reduce the node costs. For more information, see [Reserved VMs](/azure/architecture/framework/cost/optimize-vm#reserved-vms).
 
 - Use tags when you create node pools. Tags are useful in creating custom reports to track the incurred costs. Tags give the ability to track the total of expenses and map any cost to a specific resource or team. Also, if the cluster is shared between teams, build chargeback reports per consumer to identify metered costs for shared cloud services. For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools).
 
