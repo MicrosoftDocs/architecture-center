@@ -315,7 +315,7 @@ Here's an example from this architecture:
 Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, and `entrypoints` indicate that routes will be served over HTTPS. The `middlewares` specifies that only traffic from the Azure Application Gateway subnet is allowed. The responses will use gzip encoding if the client accepts. Because Traefik does TLS termination, communication with the backend services is over HTTP.
 
 ```yaml
-apiVersion:networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aspnetapp-ingress
@@ -845,7 +845,7 @@ You can monitor the entire cluster, as well as the cost of compute, storage, ban
 
 Ideally, monitor cost in real time or at least at a regular cadence to take action before the end of the month when costs are already calculated. Also monitor the monthly trend over time to stay in the budget.
 
-To make data-driven decisions, pinpoint which resource (at a granular level) incurs most cost. Also have a good understanding of the meters that are used to calculate usage of each resource. By analyzing metrics, you can determine if the platform is over-sized for instance. You can see the usage meters in Azure Monitor metrics.
+To make data-driven decisions, pinpoint which resource (at a granular level) incurs most cost. Also have a good understanding of the meters that are used to calculate usage of each resource. For example, by analyzing metrics, you can determine whether the platform is oversized. You can see the usage meters in Azure Monitor metrics.
 
 ### Optimize
 
