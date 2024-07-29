@@ -278,7 +278,7 @@ You can enroll Azure Arc VMs that are deployed on Azure Stack HCI by using [Azur
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -540,7 +540,7 @@ Microsoft Learn modules:
 [azure-policy]: /azure/governance/policy/overview
 [azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [azure-update-management]: /azure/update-manager/
-[azure-well-architected-framework]: /azure/architecture/framework
+[azure-well-architected-framework]: /azure/well-architected/
 [cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
 [key-vault]: /azure/key-vault/general/basic-concepts
 [ms-ata]: /advanced-threat-analytics/what-is-ata
