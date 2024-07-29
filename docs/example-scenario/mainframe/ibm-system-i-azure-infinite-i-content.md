@@ -135,7 +135,7 @@ Principal author:
   - [Migrate Legacy Cold Storage AS/400](https://www.infinitecorporation.com/data-migration)
   - [Infinite Cloud: beautiful screens from IBM i / AS400 green screens](https://www.infinitecorporation.com/infinite-cloud)
 - Optimizing costs:
-  - [Microsoft Azure Well-Architected Framework](/azure/well-architected/) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+  - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
   - [Checklist - Optimize cost](/azure/architecture/framework/cost/optimize-checklist)
   - [Virtual machines](/azure/architecture/framework/cost/optimize-vm)
 

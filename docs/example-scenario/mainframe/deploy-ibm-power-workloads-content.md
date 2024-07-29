@@ -56,7 +56,7 @@ You can use Azure NetApp Files for scenarios that need network file storage in t
 
 ## Considerations
 
-Azure NetApp Files contains a set of features that provide design considerations based on the pillars of the [Azure Well-Architected Framework](/azure/well-architected/), which is a set of guiding tenets used to improve the quality of a workload.
+Azure NetApp Files contains a set of features that provide design considerations based on the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework), which is a set of guiding tenets used to improve the quality of a workload.
 
 ### Reliability
 

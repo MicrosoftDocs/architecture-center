@@ -123,7 +123,7 @@ Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include t
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework), apply to this solution:
 
 ### Availability
 

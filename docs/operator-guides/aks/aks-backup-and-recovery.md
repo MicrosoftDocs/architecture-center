@@ -201,7 +201,7 @@ Other contributors:
 - [Configuring backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
 - [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
 - [Business continuity and disaster recovery best practices for AKS](/azure/aks/operator-best-practices-multi-region)
-- [Reliability patterns - cloud design patterns](/azure/well-architected/reliability/design-patterns)
+- [Reliability patterns - cloud design patterns](/azure/well-architected/resiliency/reliability-patterns#high-availability)
 
 ### Third-party AKS backup and recovery options
 

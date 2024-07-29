@@ -50,7 +50,7 @@ The following articles provide detailed analysis of architectures developed and 
 | ------- | ------- | ------- |
 | [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) | Use [Microsoft Cloud for Healthcare](/industry/healthcare/overview), a software package created for the healthcare industry, to build an architecture for scheduling and following up on virtual visits between patients, providers, and care managers. | Web |
 | [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml) | Use Microsoft Cloud for Healthcare to collect, analyze, and visualize medical and health insights, that can be used to improve healthcare operations. | Web |
-| [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn how to develop a consumer health portal using Azure services, to track statistics from wearables, engage with medical providers, and monitor health habits, built on a foundation of the [Azure Well Architected Framework](/azure/well-architected/). | Web |
+| [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml) | Learn how to develop a consumer health portal using Azure services, to track statistics from wearables, engage with medical providers, and monitor health habits, built on a foundation of the [Azure Well Architected Framework](/azure/architecture/framework/). | Web |
 | [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. | Security |
 | [Health Data Consortium on Azure](../example-scenario/data/azure-health-data-consortium.yml) | Use the Azure Data Platform, and [Azure Data Share](/azure/data-share/overview) to create an environment where healthcare organizations can appropriately, and securely share data with partner organizations to support activities like clinical trials and research.  | Data |
 | [Predict Hospital Readmissions with Machine Learning](../example-scenario/ai/predict-hospital-readmissions-machine-learning.yml) | Predict the readmissions of diabetic patients using Azure Data, AI, and Analytics tools through the different personas of Data Professionals throughout the process. | Data/AI |
@@ -59,6 +59,7 @@ The following articles provide detailed analysis of architectures developed and 
 
 The following are some additional ideas that you can use as a starting point for your healthcare solution.
 
+- [Population Health Management for Healthcare](../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [Medical Data Storage Solutions](../solution-ideas/articles/medical-data-storage.yml)
 - [HIPAA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)

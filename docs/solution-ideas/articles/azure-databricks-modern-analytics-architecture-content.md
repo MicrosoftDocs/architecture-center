@@ -160,6 +160,7 @@ To learn about related solutions, see this information:
 - [Stream processing with Azure Databricks][Stream processing with Azure Databricks]
 - [Batch scoring of Spark models on Azure Databricks][Batch scoring of Spark models on Azure Databricks]
 - [Observability patterns and metrics for performance tuning][Observability patterns and metrics for performance tuning]
+- [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Microsoft Cost Management]: https://azure.microsoft.com/services/cost-management
@@ -172,6 +173,7 @@ To learn about related solutions, see this information:
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
+[Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md

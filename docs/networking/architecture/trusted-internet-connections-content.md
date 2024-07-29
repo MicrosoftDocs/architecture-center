@@ -72,7 +72,7 @@ TIC 3.0 compliance solutions are commonly used by federal organizations and gove
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 - Evaluate your current architecture to determine which of the solutions presented here provides the best approach to TIC 3.0 compliance.
 - Contact your CISA representative to request access to CLAW.

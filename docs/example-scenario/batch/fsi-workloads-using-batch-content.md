@@ -130,7 +130,7 @@ The architecture provides two options to connect to the network so you can submi
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 In this example workflow, we rely on manual data transfer and submission of jobs as a good starting point for workloads that aren't yet ready for automation. However, for production workloads, we recommend automating the data transfer and job submission, which can be done using [Azure Data Factory](/azure/data-factory) or other workflow orchestration tools.
 

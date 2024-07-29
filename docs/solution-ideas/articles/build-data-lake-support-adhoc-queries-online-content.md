@@ -96,7 +96,7 @@ Raw documents are not necessarily required.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Performance efficiency
 
@@ -122,7 +122,7 @@ For deploying the used services in this example workload automatically, it's bes
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/well-architected/) to learn about other considerations.
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to learn about other considerations.
 
 ## Deploy this scenario
 

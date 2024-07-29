@@ -9,8 +9,6 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-  - arb-data
 azureCategories:
   - analytics
   - iot

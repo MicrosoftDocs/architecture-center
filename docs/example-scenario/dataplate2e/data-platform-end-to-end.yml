@@ -16,7 +16,6 @@ metadata:
     - fcp
     - data-analytics
     - example-scenario
-    - arb-data
 name: Analytics end-to-end with Azure Synapse
 azureCategories:
   - databases

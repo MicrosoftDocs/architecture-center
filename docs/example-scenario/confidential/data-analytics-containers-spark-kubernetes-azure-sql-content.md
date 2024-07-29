@@ -97,7 +97,7 @@ Many industries, especially financial services, protect their data by using conf
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Azure confidential enclaves that use [DCsv3 and DCdsv3-series](/azure/virtual-machines/dcv3-series) VMs offer large memory sizes to help run memory-intensive applications like analytics. This scenario uses Intel SGX-enabled DCsv3-series VMs. You can only deploy certain sizes in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 

@@ -89,7 +89,7 @@ By following the guidance you can maintain full control of your research data, h
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
@@ -181,5 +181,6 @@ Principal author:
 ## Related resources
 
 - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Azure Machine Learning architecture](/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture)
 - [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
 - [Many models machine learning at scale with Azure Machine Learning](/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning)

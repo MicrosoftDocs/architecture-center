@@ -62,7 +62,7 @@ You can use the following components.
 
 #### Platform services
 
-To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/well-architected/). The framework consists of five pillars of architectural excellence:
+To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/architecture/framework). The framework consists of five pillars of architectural excellence:
 
 - Cost optimization
 - Operational excellence
@@ -111,7 +111,7 @@ These toolkits minimize the time and effort needed to prototype the benefits of 
 
 ## Considerations
 
-When you use these services to create a proof of concept or MVP, you're not finished. There's more work to make a production solution. Frameworks such as the [Well-Architected Framework](/azure/well-architected/) provide reference guidance and best practices to apply to your architecture.
+When you use these services to create a proof of concept or MVP, you're not finished. There's more work to make a production solution. Frameworks such as the [Well-Architected Framework](/azure/architecture/framework) provide reference guidance and best practices to apply to your architecture.
 
 ### Availability
 

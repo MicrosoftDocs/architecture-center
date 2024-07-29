@@ -15,7 +15,6 @@ metadata:
     - databases
   ms.custom:
     - example-scenario
-    - arb-data
 name: Enterprise business intelligence
 azureCategories:
   - integration

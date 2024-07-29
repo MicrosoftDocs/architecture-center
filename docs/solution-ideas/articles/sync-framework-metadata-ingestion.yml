@@ -9,8 +9,6 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-  - arb-data
 azureCategories:
   - databases
   - analytics

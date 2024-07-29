@@ -5,7 +5,7 @@ description: Learn best practices for designing web APIs that support platform i
 ms.author: robbag
 author: RobBagby
 ms.date: 07/25/2022
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 products:

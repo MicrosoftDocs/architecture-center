@@ -12,7 +12,10 @@ metadata:
     - kubernetes
     - aks
   ms.subservice: reference-architecture
-  ms.custom: arb-containers
+  ms.custom:
+    - containers
+    - reference-architecture
+    - arb-containers
 name: AKS baseline for multiregion clusters
 azureCategories:
   - containers

@@ -53,7 +53,7 @@ Using an Azure VM spares the expense of a high-end visualization workstation. Th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 This example uses the HB-series of [high-performance VMs][vm-size]. The HB-series is optimized for applications driven by memory bandwidth, such as computational fluid dynamics (CFD), and the Standard_HB120rs_v2 VM is the latest in the series. For Intel-based hardware, the [Standard_HC44rs][hc-series] VM is an option.
 

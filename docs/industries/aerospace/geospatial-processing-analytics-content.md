@@ -128,7 +128,7 @@ This solution is ideal for the aerospace and aircraft industries. It addresses t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Operational excellence
 
@@ -440,6 +440,7 @@ Additional contributors:
 
 ## Related resources
 
+- [Geospatial data processing and analytics](../../example-scenario/data/geospatial-data-processing-analytics-azure.yml)
 - [Geospatial analysis for the telecommunications industry](../../example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
 - [Big data architectures](/azure/architecture/data-guide/big-data)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)

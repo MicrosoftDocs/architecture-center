@@ -173,7 +173,7 @@ The effectiveness of any alternative choices depends greatly on the [tenancy mod
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
@@ -229,7 +229,7 @@ Here are some additional recommended resources for building a SaaS application o
 
 - [Architect multitenant solutions on Azure](../../guide/multitenant/overview.md) - Describes best practices.
 - [ISV Considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone)
-- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
 - [WingTips Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) - Provides details about tradeoffs between various tenancy models within the database layer.
 
 ## Related resources

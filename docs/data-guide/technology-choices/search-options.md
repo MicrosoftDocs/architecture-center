@@ -8,7 +8,7 @@ ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-products:
+products: 
   - azure-cognitive-search
 ---
 
@@ -34,7 +34,7 @@ For search scenarios, begin choosing the appropriate search data store for your 
 
 - Do you need an index only for full-text search, or do you also need rapid aggregation of numeric data and other analytics? If you need functionality beyond full-text search, consider options that support additional analytics.
 
-- Do you need a search index for Log Analytics, with support for log collection, aggregation, and visualizations on indexed data? If so, consider Elasticsearch, which is part of a Log Analytics stack.
+- Do you need a search index for log analytics, with support for log collection, aggregation, and visualizations on indexed data? If so, consider Elasticsearch, which is part of a log analytics stack.
 
 - Do you need to index data in common document formats such as PDF, Word, PowerPoint, and Excel? If yes, choose an option that provides document indexers.
 
@@ -65,7 +65,7 @@ The following tables summarize the key differences in capabilities.
 | Capability | Cognitive Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
 | Supports analytics beyond full text search | No | Yes | Yes |
-| Part of a Log Analytics stack | No | Yes (ELK) | No |
+| Part of a log analytics stack | No | Yes (ELK) | No |
 | Supports semantic search | Yes (find similar documents only) | Yes | Yes |
 
 ### Security capabilities

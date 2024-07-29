@@ -19,7 +19,6 @@ metadata:
     - ExpressRoute
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/extend-your-on-premises-big-data-investments-with-hdinsight"
-    - arb-data
 name: Extend your on-premises big data investments with HDInsight
 azureCategories:
   - analytics

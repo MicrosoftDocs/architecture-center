@@ -13,7 +13,6 @@ metadata:
     - databases
   ms.custom:
     - fcp
-    - arb-data
 name: Deliver highly scalable customer service and ERP applications
 azureCategories:
   - databases

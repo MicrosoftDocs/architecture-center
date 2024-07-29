@@ -103,7 +103,7 @@ The following tables summarize the key differences in capabilities.
 
 [3] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
 
-[4] When used within an Azure virtual network. For more information, see [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[4] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
 
 ## Contributors
 

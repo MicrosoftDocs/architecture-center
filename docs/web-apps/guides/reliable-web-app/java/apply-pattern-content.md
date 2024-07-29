@@ -416,7 +416,7 @@ Deploy the **[reference implementation](https://aka.ms/eap/rwa/java)** by follow
 **Cloud best practices.** For Azure adoption and architectural guidance, see:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview). A framework to help your organization prepare and execute a strategy to build solutions on Azure.
-- [Well-Architected Framework](/azure/well-architected/). A set of guiding tenets that you can use to improve the quality of a workload.
+- [Well-Architected Framework](/azure/architecture/framework/). A set of guiding tenets that you can use to improve the quality of a workload.
 
 For applications that require a higher service level objective (SLO), see [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
 

@@ -100,7 +100,7 @@ There are four high-level options for a [disaster recovery strategy](/azure/arch
 While the operating cost attributed to the higher levels of service resiliency often dominates the [Key Design Decision (KDD)](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) for a DR strategy. There are other important considerations.
 
 > [!NOTE]
->[Cost Optimization](/azure/architecture/framework/cost/) is one of the five pillars of architectural excellence with the Azure [Well-Architected Framework](/azure/well-architected/). Its goal is to reduce unnecessary expenses and improve operational efficiencies
+>[Cost Optimization](/azure/architecture/framework/cost/) is one of the five pillars of architectural excellence with the Azure [Well-Architected Framework](/azure/architecture/framework/). Its goal is to reduce unnecessary expenses and improve operational efficiencies
 
 The DR scenario for this worked example is a complete Azure regional outage that directly impacts the primary region that hosts the Contoso Data Platform.
 For this outage scenario, the relative impact on the four high-level DR Strategies are:

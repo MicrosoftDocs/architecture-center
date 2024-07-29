@@ -82,7 +82,7 @@ We recommend installing the latest stable version of MAS because it provides the
 
 Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend using the quickstart guide to deploy MAS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo).
 
-We work closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). Contact your IBM account team for support beyond this documentation.
+We work closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). Contact your IBM account team for support beyond this documentation.
 
 Before you proceed with your deployment, you need to answer the following questions about design:
 
@@ -210,7 +210,7 @@ Don't use Azure Blob with CSI drivers, because it doesn't support hard links, wh
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 

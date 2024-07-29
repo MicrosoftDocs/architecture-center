@@ -1,4 +1,4 @@
-This article describes a typical architecture of a consumer health portal, that aligns with the pillars of the [Azure Well Architected Framework](/azure/well-architected/). You might choose to customize this architecture to meet your particular needs.
+This article describes a typical architecture of a consumer health portal, that aligns with the pillars of the [Azure Well Architected Framework](/azure/architecture/framework/index). You might choose to customize this architecture to meet your particular needs.
 
 ## Architecture
 
@@ -69,7 +69,7 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 

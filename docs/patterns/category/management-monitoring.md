@@ -5,7 +5,7 @@ description: Use these management and monitoring patterns to support cloud appli
 ms.author: robbag
 author: RobBagby
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

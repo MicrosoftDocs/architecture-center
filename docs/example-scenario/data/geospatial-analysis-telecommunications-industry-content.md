@@ -64,9 +64,9 @@ This solution is ideal for the telecommunications industry, and it applies to th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-Consider following the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) when you implement this solution. The framework provides technical guidance across five pillars: cost optimization, security, reliability, performance efficiency, and operational excellence.
+Consider following the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) when you implement this solution. The framework provides technical guidance across five pillars: cost optimization, security, reliability, performance efficiency, and operational excellence.
 
 ### Performance
 
@@ -130,6 +130,7 @@ Principal author:
 - [How To Turn Visitor Cellphone Roaming Data Into Revenue?](https://customers.microsoft.com/story/nos-spgs-media-telco-azure-sql-r-server-portugal)
 - [5G positioning: What you need to know](https://www.ericsson.com/en/blog/2020/12/5g-positioning--what-you-need-to-know)
 
-## Related resource
+## Related resources
 
+- [Geospatial data processing and analytics](geospatial-data-processing-analytics-azure.yml)
 - [Solutions for the telecommunications industry](../../industries/telecommunications.md)

@@ -20,7 +20,6 @@ metadata:
     - solutions
     - app-dev
     - ai-machine-learning
-    - arb-data
 name: Intelligent apps using Azure Database for PostgreSQL
 azureCategories:
   - databases

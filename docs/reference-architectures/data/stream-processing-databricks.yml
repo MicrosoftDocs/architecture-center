@@ -14,7 +14,6 @@ metadata:
     - databases
   ms.custom:
     - reference-architecture
-    - arb-data
 name: Stream processing with Azure Databricks
 azureCategories:
   - analytics

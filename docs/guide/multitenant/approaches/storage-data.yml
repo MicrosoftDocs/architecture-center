@@ -4,7 +4,7 @@ metadata:
   description: This article describes approaches to support multitenancy for the storage and data components of your solution.
   author: johndowns
   ms.author: jodowns
-  ms.date: 07/29/2024
+  ms.date: 03/13/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

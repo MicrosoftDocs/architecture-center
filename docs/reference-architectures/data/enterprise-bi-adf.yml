@@ -12,7 +12,8 @@ metadata:
     - analytics
     - databases
     - integration
-  ms.custom: arb-data
+  ms.custom:
+    - reference-architecture
 name: Automated enterprise BI
 azureCategories:
   - analytics

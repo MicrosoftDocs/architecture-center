@@ -187,13 +187,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ## Related resources
 
-- [Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases][Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases]
+- [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office][Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office]
 - [Manage configurations for Azure Arc-enabled servers][Manage configurations for Azure Arc-enabled servers]
 - [Azure Arc hybrid management and deployment for Kubernetes clusters][Azure Arc hybrid management and deployment for Kubernetes clusters]
 - [Azure hybrid options][Azure hybrid options]
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
-[azure-well-architected-framerwork]: /azure/well-architected/
+[azure-well-architected-framerwork]: /azure/architecture/framework/
 [sql-server]: /sql/sql-server/
 [azure-arc]: /azure/azure-arc/overview
 [azure-arc-enabled-servers]: /azure/azure-arc/servers/overview
@@ -259,7 +259,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Introduction to Azure Arc-enabled data services - training content]: /training/modules/intro-to-arc-enabled-data-services
 [Introduction to Azure Arc-enabled Kubernetes - training content]: /training/modules/intro-to-arc-enabled-kubernetes
 [Introduction to Azure Arc - training content]: /training/modules/intro-to-azure-arc
-[Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases]: ./azure-stack-hci-switchless.yml
+[Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office]: ./azure-stack-robo.yml
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml

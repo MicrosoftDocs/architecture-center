@@ -7,7 +7,8 @@ ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.custom: arb-containers
+ms.custom:
+  - arb-containers
 products:
   - azure-kubernetes-service
   - azure-front-door

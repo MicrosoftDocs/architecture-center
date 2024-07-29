@@ -6,7 +6,7 @@ ms.author: robbag
 author: RobBagby
 categories: azure
 ms.date: 07/25/2022
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 azureCategories:

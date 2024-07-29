@@ -30,7 +30,7 @@ categories:
 # Solutions for the education industry
 Help your students take hold of their futures with Microsoft Azure, a platform that provides the tools to enable, elevate, and enhance remote learning. Azure services can connect teachers to students, help you create models of smart campus buildings, deploy virtual labs, and more.
 
-Watch the following short video to get a sense of the breadth of the Azure offerings for education. It also shows how the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get the necessary resources for education.
+Watch the following short video to get a sense of the breadth of the Azure offerings for education. It also shows how the [Cloud Adoption Framework](/azure/cloud-adoption-framework) can help you get the necessary resources for education.
 <br><br>
 
 > [!VIDEO https://www.youtube.com/embed/3wgbxfm40aQ]

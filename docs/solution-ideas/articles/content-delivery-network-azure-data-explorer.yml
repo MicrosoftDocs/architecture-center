@@ -11,7 +11,6 @@ metadata:
   ms.subservice: solution-idea
   ms.custom:
     - fcp
-    - arb-data
 name: Content Delivery Network analytics
 summary: This architecture pattern demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards.
 products:

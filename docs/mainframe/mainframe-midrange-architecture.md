@@ -210,7 +210,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ## Related resources
 

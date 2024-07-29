@@ -32,7 +32,7 @@ highlightedContent:
       itemType: whats-new
     # Card
     - title: Well-Architected Framework (WAF)
-      url: /azure/well-architected/
+      url: /azure/architecture/framework
       itemType: how-to-guide
     # Card
     - title: Cloud Adoption Framework (CAF)
@@ -63,7 +63,7 @@ productDirectory:
     - title: Optimize your workload
       imageSrc: /media/common/i_architecture.svg
       links:
-        - url: /azure/well-architected/
+        - url: /azure/architecture/framework
           text: Guiding tenets for your architecture
         - url: /assessments/?id=azure-architecture-review
           text: Examine your workload
@@ -71,8 +71,8 @@ productDirectory:
           text: Performance tuning
         - url: ./antipatterns/index.md
           text: Performance antipatterns
-        - url: /azure/well-architected/security/principles
-          text: Secure your workload
+        - url: /azure/architecture/framework/security/overview
+          text: Secure your infrastructure
     # Card
     - title: Choose the right technology
       # imageSrc should be square in ratio with no whitespace

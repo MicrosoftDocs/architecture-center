@@ -88,7 +88,7 @@ After the platform landing zone is in place, the next step is to create and oper
 
 | Deployment option | Description |
 | --- | ---|
-| [Bicep subscription vending](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) | The subscription vending Bicep module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. |
+| [Bicep subscription vending](https://github.com/Azure/bicep-lz-vending) | The subscription vending Bicep module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. |
 | [Terraform subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | The subscription vending Terraform module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on EA, MCA, and MPA billing accounts |
 
 ## Application

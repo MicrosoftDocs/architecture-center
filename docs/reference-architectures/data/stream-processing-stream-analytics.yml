@@ -14,7 +14,6 @@ metadata:
   ms.custom:
     - reference-architecture
     - internal-intro
-    - arb-data
 name: Stream processing with Azure Stream Analytics
 azureCategories:
   - analytics

@@ -227,7 +227,7 @@ Principal authors:
 
 ## Next steps
 
-- [Microsoft Well-Architected Framework](/azure/well-architected/)
+- [Microsoft Well-Architected Framework](/azure/architecture/framework)
 
 ## Related resources
 

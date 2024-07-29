@@ -5,7 +5,7 @@ This article describes an infrastructure and workflow process to help teams prov
 
 ## Architecture
 
-The architecture design follows the [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone) principles that are described in the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/).
+The architecture design follows the [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone) principles that are described in the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework).
 
 This scenario uses a hub-and-spoke network topology as shown in the following diagram:
 

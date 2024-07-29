@@ -451,7 +451,7 @@ For a hands-on introduction to .NET web applications on Azure, see this [guidanc
 For Azure adoption and architectural guidance, see:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview). Can help your organization prepare and execute a strategy to build solutions on Azure.
-- [Well-Architected Framework](/azure/well-architected/). A set of guiding tenets that can be used to improve the quality of a workload.
+- [Well-Architected Framework](/azure/architecture/framework/). A set of guiding tenets that can be used to improve the quality of a workload.
 
 For applications that require a higher SLO than the Reliable Web App pattern, see [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
 

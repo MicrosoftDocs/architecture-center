@@ -62,7 +62,7 @@ Murex MX.3 is a complex workload with high memory, low latency, and high availab
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
@@ -206,4 +206,4 @@ Principal authors:
 ## Related resources
 
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
-- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)

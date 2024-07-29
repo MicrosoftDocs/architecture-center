@@ -9,7 +9,6 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom: arb-data
 azureCategories: [databases]
 products: [azure-data-factory, azure-synapse-analytics]
 name: Data scrambling for SAP applications using Delphix and Azure Data Factory

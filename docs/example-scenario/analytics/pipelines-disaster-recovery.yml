@@ -10,8 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-    - arb-integrations
-    - arb-data
+  - arb-integrations
 azureCategories:
   - analytics
   - integration

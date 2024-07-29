@@ -20,7 +20,6 @@ metadata:
     - ai gallery
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting"
     - ai-machine-learning
-    - arb-data
 name: Demand forecasting
 azureCategories:
   - analytics

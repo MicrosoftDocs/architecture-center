@@ -11,7 +11,6 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
-    - arb-data
 name: Stream processing with fully managed open-source data engines
 azureCategories:
   - analytics

@@ -39,7 +39,7 @@ You can use this solution to ingest data from Microsoft 365 and other systems to
 
 ## Considerations
 
-These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 

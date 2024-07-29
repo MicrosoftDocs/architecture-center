@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 07/12/2024
+ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -19,7 +19,6 @@ products:
 categories:
   - ai-machine-learning
 ---
-
 # Deployment stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the deployment of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data-science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
@@ -73,11 +72,11 @@ In this stage, your team delivers:
 
 ## Peer-reviewed literature
 
-Researchers publish studies about the TDSP in peer-reviewed literature. The [citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the deployment lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the deployment lifecycle stage.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal author:
 
@@ -93,3 +92,4 @@ These articles describe the other stages of the TDSP lifecycle:
 - [Data acquisition and understanding](lifecycle-data.md)
 - [Modeling](lifecycle-modeling.md)
 - [Customer acceptance](lifecycle-acceptance.md)
+

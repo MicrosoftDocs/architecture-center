@@ -5,7 +5,7 @@ description: Learn best practices for building reliable, scalable, and secure ap
 ms.author: robbag
 author: RobBagby
 ms.date: 01/04/2022
-ms.topic: best-practice
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

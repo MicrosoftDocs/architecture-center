@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution"
     - ai-machine-learning
     - aml-project-improvement
-    - arb-data
 name: Demand forecasting for shipping and distribution
 azureCategories:
   - analytics

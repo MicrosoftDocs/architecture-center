@@ -4,12 +4,11 @@ metadata:
   description: Learn how the Team Data Science Process provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
   author: marktab
   ms.author: matabl
-  ms.date: 07/12/2024
+  ms.date: 02/15/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ai-usage: ai-assisted
 azureCategories:
   - ai-machine-learning
 products:
@@ -18,4 +17,4 @@ name: What is the Team Data Science Process?
 summary: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/tdsp-tasks-roles.png
 content: |
-  [!INCLUDE[](overview-content.md)]
+  [!include[](overview-content.md)]

@@ -23,7 +23,6 @@ metadata:
     - hybrid application
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/tiered-data-for-analytics"
-    - arb-data
 name: Tier applications and data for analytics
 azureCategories:
   - analytics

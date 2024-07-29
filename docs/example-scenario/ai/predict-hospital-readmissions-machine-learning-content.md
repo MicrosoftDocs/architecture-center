@@ -86,7 +86,7 @@ To achieve these objectives, healthcare and life science organizations should ai
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -169,3 +169,4 @@ Principal authors:
 - [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
 - [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
+- [Population Health Management for Healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)

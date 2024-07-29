@@ -20,7 +20,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace"
     - ai-machine-learning
     - aml-project-improvement
-    - arb-data
 name: Predictive aircraft engine monitoring
 azureCategories:
   - analytics

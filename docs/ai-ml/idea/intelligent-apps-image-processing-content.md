@@ -67,7 +67,7 @@ For a guided learning path, see:
 - [Classify images with Azure AI Custom Vision](/training/modules/classify-images-custom-vision/)
 - [Use AI to recognize objects in images by using the Custom Vision service](/training/modules/train-custom-vision-ai/)
 - [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
-- [Classify images with Azure AI Custom Vision services](/training/modules/classify-images/)
+- [Classify images with Azure AI Custom Vision services]/training/modules/classify-images/)
 - [Detect objects in images with Azure AI Custom Vision](/training/modules/detect-objects-images-custom-vision/)
 
 ## Related resources

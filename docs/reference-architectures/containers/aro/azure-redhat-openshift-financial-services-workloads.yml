@@ -8,8 +8,9 @@ metadata:
   ms.date: 06/13/2024
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: example-scenario
-  ms.custom: arb-containers
+  ms.subservice: example-workload
+  ms.custom:
+  - arb-containers
 azureCategories:
   - containers
   - security

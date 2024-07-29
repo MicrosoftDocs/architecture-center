@@ -8,7 +8,8 @@ metadata:
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
-  ms.custom: arb-containers
+  ms.custom:
+  - arb-containers
 name: Configure networking of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 3 of 9)
 azureCategories:
   - containers

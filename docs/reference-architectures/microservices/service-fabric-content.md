@@ -46,7 +46,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 ## Considerations
 
-These considerations implement the pillars of the [Azure Well-Architected Framework](/azure/well-architected/), which is a set of guiding tenets for improving the quality of a workload.
+These considerations implement the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework), which is a set of guiding tenets for improving the quality of a workload.
 
 ### Design considerations
 

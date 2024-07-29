@@ -49,7 +49,7 @@ SDM significantly reduces the risk and complexity of legacy workload rehosting b
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](/azure/well-architected/), apply to this solution.
+The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution.
 
 ### Availability
 

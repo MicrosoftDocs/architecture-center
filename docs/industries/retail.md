@@ -64,6 +64,7 @@ The following articles provide detailed analysis of architectures developed and 
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
+| [Build a Real-time Recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml) | Build a recommendation engine that can be generalized for products, movies, news, and other consumer services, using Azure Databricks, Azure Machine Learning, Azure Cosmos DB, and Azure Kubernetes Service. | AI/ML |
 | [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml) | Build an insightful sales and marketing solution with a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure. | Analytics |
 | [IBM z/OS online transaction processing on Azure](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml) | With a dynamically adaptable infrastructure, businesses can realize and launch their products quickly to delight their users. Learn how to migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud. | Mainframe |
 | [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml) | Use Azure Cognitive Search, a dedicated search service, to dramatically increase the relevance of search results for your e-commerce customers. | Web |

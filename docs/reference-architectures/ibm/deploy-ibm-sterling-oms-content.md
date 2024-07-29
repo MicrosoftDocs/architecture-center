@@ -69,7 +69,7 @@ For more OMS use cases, see [IBM Sterling Order Management](https://www.ibm.com/
 
 This guidance supports Sterling OMS 10.0 Q3 2022 and later versions. These versions provide the best integration options with Azure because they support PostgreSQL and the Azure Red Hat OpenShift container platform. Before you build out your own deployment, use [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling) to deploy Sterling OMS. When you then understand how the deployment and configuration work, you can more quickly determine your implementation's design requirements.
 
-Microsoft works closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. These resources follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). For support beyond this documentation, contact your IBM account team.
+Microsoft works closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. These resources follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). For support beyond this documentation, contact your IBM account team.
 
 Before you proceed with your deployment, answer the following questions about your design:
 
@@ -134,7 +134,7 @@ IBM also supports other JMS-based message queuing systems, such as Apache Active
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 

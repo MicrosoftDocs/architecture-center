@@ -4,7 +4,7 @@ description: Review how to choose an encoding format for asynchronous messaging.
 ms.author: robbag
 author: RobBagby
 ms.date: 03/16/2020
-ms.topic: best-practice
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 categories:

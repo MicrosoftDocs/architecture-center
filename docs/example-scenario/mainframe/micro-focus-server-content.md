@@ -86,7 +86,7 @@ Deploying Enterprise Server on Azure VMs can help businesses:
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution:
 
 ### Availability
 
@@ -131,7 +131,7 @@ Principal author:
 ## Next steps
 
 - For more information, contact <legacy2azure@microsoft.com>.
-- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 
 ## Related resources
 

@@ -15,7 +15,6 @@ metadata:
   ms.custom:
     - reference-architecture
     - linux-related-content
-    - arb-data
 name: N-tier application with Apache Cassandra
 azureCategories:
   - databases

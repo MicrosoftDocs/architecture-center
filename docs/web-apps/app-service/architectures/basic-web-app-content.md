@@ -31,7 +31,7 @@ This article provides a basic architecture intended for learning about running w
 
 ## Recommendations and considerations
 
-The [components](#components) listed in this architecture link to Azure Well-Architected service guides. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+The [components](#components) listed in this architecture link to Azure Well-Architected service guides. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 This *basic architecture* isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality to allow you to evaluate and learn Azure App Service. The following sections outline some deficiencies of this basic architecture, along with recommendations and considerations.
 
