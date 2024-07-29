@@ -1,8 +1,6 @@
-This architecture shows how Azure can provide scale-out performance and high availability that is similar to IBM z/OS mainframe systems with coupling facilities (CFs).
+This article describes an architecture that uses Azure services to provide scale-out performance and high availability that's similar to IBM z/OS mainframe systems with coupling facilities (CFs).
 
-## Architecture
-
-### Mainframe architecture
+## Mainframe architecture
 
 The following diagram shows the architecture of an IBM z/OS mainframe system with coupling facility and Parallel Sysplex components:
 
@@ -10,7 +8,7 @@ The following diagram shows the architecture of an IBM z/OS mainframe system wit
 
 *Download a [Visio file](https://arch-center.azureedge.net/refactor-zos-coupling-facility.vsdx) of this architecture.*
 
-#### Workflow
+### Workflow
 
 - Input travels into the mainframe over Transmission Control Protocol/Internet Protocol (TCP/IP) via standard mainframe protocols like, TN3270 and Hypertext Transfer Protocol Secure (HTTPS) **(A)**.
 
@@ -23,7 +21,7 @@ The following diagram shows the architecture of an IBM z/OS mainframe system wit
 - A CEC connects via the CF (**H**) to shared memory and state.
 - The CF (**I**) is a physical device that connects multiple CECs to shared memory.
 
-### Azure architecture
+## Azure architecture
 
 The following diagram shows Azure services that provide similar functionality and performance to z/OS mainframes with Parallel Sysplex and CFs.
 
@@ -31,7 +29,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 *Download a [Visio file](https://arch-center.azureedge.net/refactor-zos-coupling-facility-azure-services.vsdx) of this architecture.*
 
-#### Workflow
+### Workflow
 
 1. Remote clients send input via Azure ExpressRoute or from other Azure applications. In both cases, TCP/IP is the primary connection to the system.
 
