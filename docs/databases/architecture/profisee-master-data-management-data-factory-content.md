@@ -201,7 +201,7 @@ Financial organizations rely heavily on data for critical activities like monthl
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -234,7 +234,7 @@ To deploy this scenario:
 1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
 2. Create an [Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 3. Configure your Azure Data Factory to [connect to a Git repository](/azure/data-factory/source-control).
-4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory) to your Azure Data Factory Git repository.
+4. Add [Profisee's Azure Data Factory templates](https://github.com/Profisee/azuredatafactory) to your Azure Data Factory Git repository.
 5. Create a new Azure Data Factory Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
 
 ## Contributors

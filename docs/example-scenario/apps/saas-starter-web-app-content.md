@@ -173,7 +173,7 @@ The effectiveness of any alternative choices depends greatly on the [tenancy mod
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -203,26 +203,25 @@ This architecture should be able to scale to easily meet most medium to medium-l
 
 If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) on GitHub. It's a deployable reference implementation of this architecture.
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
 
-Other contributors: 
+Other contributors:
 
- - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
- - [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
- - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
- - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
- - [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
- - [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
- - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
+- [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
+- [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
+- [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+- [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
 
 ## Next steps
 
@@ -230,7 +229,7 @@ Here are some additional recommended resources for building a SaaS application o
 
 - [Architect multitenant solutions on Azure](../../guide/multitenant/overview.md) - Describes best practices.
 - [ISV Considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
 - [WingTips Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) - Provides details about tradeoffs between various tenancy models within the database layer.
 
 ## Related resources

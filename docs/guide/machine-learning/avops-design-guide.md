@@ -3,7 +3,7 @@ title: Autonomous Vehicle Operations (AVOps) design guide
 description: Get an overview about using Azure services to build an Autonomous Vehicle Operations (AVOps) solution.
 author: rmats808
 ms.author: rmatsumura
-ms.date: 03/13/2023
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

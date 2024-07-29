@@ -1,12 +1,14 @@
 ---
 title: Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)
 description: Learn about options for migrating from Amazon EKS to Azure Kubernetes Service (AKS).
-author: DixitArora-MSFT
-ms.author: dixitaro
-ms.date: 02/22/2024
+author: ketan-chawda-msft
+ms.author: kechaw
+ms.date: 06/05/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - arb-containers
 products:
   - azure-kubernetes-service
   - azure-policy
@@ -135,14 +137,14 @@ Follow these steps to back up persistent data:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors**:
-
 <!-- docutune:ignoredChange ISV -->
+
+Principal authors:
 
 - Dixit Arora | Senior Customer Engineer, ISV DN CoE
 - [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer, ISV DN CoE
 
-**Other contributors**:
+Other contributors:
 
 - [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
 - [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Principal Cloud Solution Architect
@@ -152,6 +154,7 @@ Follow these steps to back up persistent data:
 
 ## Next steps
 
+- [Migration Guide - Azure Samples](https://github.com/Azure-Samples/eks-aks-migration-guide)
 - [AKS for Amazon EKS professionals](/azure/architecture/aws-professional/eks-to-aks/)
 - [Kubernetes identity and access management](/azure/architecture/aws-professional/eks-to-aks/workload-identity)
 - [Kubernetes monitoring and logging](/azure/architecture/aws-professional/eks-to-aks/monitoring)

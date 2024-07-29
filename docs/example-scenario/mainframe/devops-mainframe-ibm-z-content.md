@@ -75,7 +75,7 @@ Here are some additional benefits of using Azure DevOps together with IBM Z and 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability 
 
@@ -119,13 +119,15 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Transformation Specialist 
 - [Ivan Dovgan](https://www.linkedin.com/in/ivandov/) | Senior Software Architect 
 
-Other contributors: 
+Other contributors:
+
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) |Technical Writer 
 - [Bhuvi Vatsey](https://www.linkedin.com/in/bvatsey/) | Modernization Specialist 
 

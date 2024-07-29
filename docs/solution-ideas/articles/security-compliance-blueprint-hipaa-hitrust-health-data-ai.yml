@@ -11,17 +11,7 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - storage
-  ms.custom:
-    - acom-architecture
-    - data
-    - medical records management
-    - medical records storage
-    - medical data solutions
-    - healthcare data storage
-    - cloud storage in healthcare
-    - medical data storage
-    - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/security-compliance-blueprint-hipaa-hitrust-health-data-ai"
+  ms.custom: arb-healthcare
 name: HIPAA and HITRUST compliant health data AI
 azureCategories:
   - storage

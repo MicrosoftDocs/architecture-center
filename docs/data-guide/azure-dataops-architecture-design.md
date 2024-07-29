@@ -57,7 +57,6 @@ The following resources can help you learn about the core services for DataOps:
 
 To help you get started with DataOps production, consider these resources:
 
-- Assess your DataOps process by using the [DataOps checklist](../checklist/data-ops.md).
 - Get help choosing the right data solution with [Choose a data analytics and reporting technology in Azure](./technology-choices/analysis-visualizations-reporting.md).
 - Start building your data storage system with [Build a scalable system for massive data](./scenarios/build-scalable-database-solutions-azure-services.md).
 
@@ -65,14 +64,14 @@ To help you get started with DataOps production, consider these resources:
 
 Depending on the DataOps technology you use, see the following best practices resources:
 
-- [NiFi System Administrator’s Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
+- [NiFi System Administrator's Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
 - [Microsoft Purview accounts architectures and best practices](/azure/purview/concept-best-practices-accounts)
 - [Continuous integration and delivery in Azure Data Factory](/azure/data-factory/continuous-integration-delivery)
 - [Repos for Git integration](/azure/databricks/repos)
 - [Deploying and Managing Power BI Premium Capacities](/power-bi/guidance/whitepaper-powerbi-premium-deployment)
 - [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery)
 
-You can also learn about the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+You can also learn about the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Specific implementations
 
@@ -80,7 +79,7 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 ### Data governance
 
-You can integrate Profisee data management with Azure Purview to build a foundation for data governance and management.
+You can integrate Profisee data management with Azure Microsoft Purview to build a foundation for data governance and management.
 
 > [!div class="nextstepaction"]
 > [Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)

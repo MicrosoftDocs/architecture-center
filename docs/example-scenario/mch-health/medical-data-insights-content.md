@@ -90,7 +90,7 @@ This solution is ideal for the healthcare industry. The scenario also demonstrat
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -147,10 +147,7 @@ Principal authors:
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Predict hospital readmissions with traditional and automated machine learning techniques](../ai/predict-hospital-readmissions-machine-learning.yml)
 - [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
-- [Population health management for healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)
-- [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
 - [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)
 - [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
-- [Build a telehealth system on Azure](../apps/telehealth-system.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform.yml)
 - [Remote patient monitoring](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)

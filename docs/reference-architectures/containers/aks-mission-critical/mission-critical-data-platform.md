@@ -8,6 +8,8 @@ ms.date: 12/01/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom:
+  - arb-containers
 ms.category:
   - database
 azureCategories:
@@ -188,7 +190,7 @@ The message broker must be available for producers to send messages and consumer
 
 The messaging system acts as a buffer between message producers and consumers. There are key indicator types that you should monitor in a mission-critical system that provide valuable insights described below:
 
-- **Throttling** - Throttling indicates that the system does't have the required resources to process the request. Both Service Bus and Event Hubs support monitoring throttled requests. You should alert on this indicator.
+- **Throttling** - Throttling indicates that the system doesn't have the required resources to process the request. Both Service Bus and Event Hubs support monitoring throttled requests. You should alert on this indicator.
 - **Queue depth** - A queue depth that is growing can indicate that message processors aren't working or there aren't enough processors to handle the current load. Queue depth can be used to inform auto-scaling logic of handlers.
   - For Service Bus, queue depth is exposed as message count
   - For Event Hubs, the consumers have to calculate queue depth per partition and push the metric to your monitoring software. For each read, the consumer gets the sequence number of the current event, and the event properties of the last enqueued event. The consumer can calculate the offset.

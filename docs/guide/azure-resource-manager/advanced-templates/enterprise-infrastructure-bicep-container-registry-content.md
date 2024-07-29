@@ -119,7 +119,7 @@ Finally, though you might not have an index of all repositories and the code wit
 
 Principal authors:
 
-* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
+* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Technical Specialist
 
 Other contributors:
 
@@ -136,7 +136,6 @@ Other contributors:
 
 ## Related resources
 
-- [Azure DevTest Labs reference architecture for enterprises](../../../example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
 - [CI/CD pipeline for container-based workloads](../../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)

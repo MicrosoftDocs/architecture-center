@@ -11,17 +11,7 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - storage
-  ms.custom:
-    - acom-architecture
-    - medical records management
-    - data
-    - medical records storage
-    - medical data solutions
-    - healthcare data storage
-    - cloud storage in healthcare
-    - medical data storage
-    - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/medical-data-storage"
+  ms.custom: arb-healthcare
 name: Medical data storage solutions
 azureCategories:
   - storage

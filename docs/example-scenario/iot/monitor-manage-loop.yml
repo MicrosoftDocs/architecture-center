@@ -9,9 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - example-scenario
+  ms.custom: arb-iot
 name: IoT monitor and manage loops
 summary: Learn how an IoT monitor and manage loop is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
 products:

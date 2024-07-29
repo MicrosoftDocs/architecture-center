@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/28/2023
+ms.date: 07/11/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -12,10 +12,8 @@ products:
   - azure
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
-  - guide
+  - arb-saas
 ---
 
 # Service-specific guidance for a multitenant solution

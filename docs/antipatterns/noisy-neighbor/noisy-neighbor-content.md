@@ -1,24 +1,24 @@
-Multitenant systems share resources between tenants. Because tenants use the same shared resources, the activity of one tenant can have a negative impact on another tenant's use of the system.
+Multitenant systems share resources between two or more tenants. Because tenants use the same shared resources, the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Problem description
 
 When you build a service to be shared by multiple customers or tenants, you can build it to be *multitenanted*. A benefit of multitenant systems is that resources can be pooled and shared among tenants. This often results in lower costs and improved efficiency. However, if a single tenant uses a disproportionate amount of the resources available in the system, the overall performance of the system can suffer. The *noisy neighbor* problem occurs when one tenant's performance is degraded because of the activities of another tenant.
 
-Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide, which means that at peak times, the total resource usage is higher than the capacity of the system:
+Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide. At peak times, tenant A uses all of the system's resources, which means that any requests that tenant B makes fail. In other words, the total resource usage is higher than the capacity of the system:
 
 ![Figure showing the resource usage of two tenants. Tenant A consumes the complete set of system resources, meaning tenant B experiences failures.](_images/noisy-neighbor-single.png)
 
-It's likely that whichever tenant's request that arrived first will take precedence. Then the other tenant will experience a noisy neighbor problem. Alternatively, both tenants might find their performance suffers.
+It's likely that whichever tenant's request that arrives first will take precedence. Then the other tenant will experience a noisy neighbor problem. Alternatively, both tenants might find their performance suffers.
 
 The noisy neighbor problem also occurs even when each individual tenant is consuming relatively small amounts of the system's capacity, but the collective resource usage of many tenants results in a peak in overall usage:
 
 ![Figure with 3 tenants, each consuming less the maximum throughput of the solution. In total, the three tenants consume the complete system resources.](_images/noisy-neighbor-multiple.png)
 
-This can happen when you have multiple tenants that all have similar usage patterns, or where you haven't provisioned sufficient capacity for the collective load on the system.
+This situation can happen when you have multiple tenants that all have similar usage patterns, or where you haven't provisioned sufficient capacity for the collective load on the system.
 
 ## How to fix the problem
 
-Noisy neighbor problems are an inherent risk in multitenant systems, and it's not possible to completely eliminate the possibility of being affected by a noisy neighbor. However, there are some steps that both clients and service providers can take to reduce the likelihood of noisy neighbor problems, or to mitigate their effects when they're observed.
+Noisy neighbor problems are an inherent risk when you share a single resource, and it's not possible to completely eliminate the possibility of being affected by a noisy neighbor. However, there are some steps that both clients and service providers can take to reduce the likelihood of noisy neighbor problems, or to mitigate their effects when they're observed.
 
 ### Actions that clients can take
 
@@ -36,7 +36,7 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
   - If you host multiple instances of your solution, consider rebalancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns across multiple stamps, to flatten the peaks in their usage.
   - Consider whether you have background processes or resource-intensive workloads that aren't time-sensitive. Run these workloads asynchronously at off-peak times, to preserve your peak resource capacity for time-sensitive workloads.
 - **Check whether your downstream services provide controls to mitigate noisy neighbor problems.** For example, when using Kubernetes, [consider using pod limits](/azure/aks/developer-best-practices-resource-management), and when using Service Fabric, [consider using the built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
-- **Restrict the operations that tenants can perform.** For example, prevent tenants from executing operations that will run very large database queries, such as by specifying a maximum returnable record count or time limit on queries. This action mitigates the risk of tenants taking actions that might negatively impact other tenants.
+- **Restrict the operations that tenants can perform.** For example, restrict tenants from executing operations that will run very large database queries, such as by specifying a maximum returnable record count or time limit on queries. This action mitigates the risk of tenants taking actions that might negatively impact other tenants.
 - **Provide a Quality of Service (QoS) system.** When you apply QoS, you prioritize some processes or workloads ahead of others. By factoring QoS into your design and architecture, you can ensure that high-priority operations take precedence when there's pressure on your resources.
 
 ## Considerations
@@ -50,7 +50,7 @@ Regardless of the cause, it's important to treat these problems as resource gove
 
 ## How to detect the problem
 
-From a client's perspective, the noisy neighbor problem typically manifests as failed server requests, or requests that take a long time to complete. In particular, if the same request succeeds at other times and appears to fail randomly, there might be a noisy neighbor issue. Client applications should record telemetry to track the success rate and performance of the requests to services, and the applications should also record baseline performance metrics for comparison purposes.
+From a client's perspective, the noisy neighbor problem typically manifests as failed requests to the service, or as requests that take a long time to complete. In particular, if the same request succeeds at other times and appears to fail randomly, there might be a noisy neighbor issue. Client applications should record telemetry to track the success rate and performance of the requests to services, and the applications should also record baseline performance metrics for comparison purposes.
 
 From a service's perspective, the noisy neighbor issue might appear in several ways:
 
@@ -63,18 +63,18 @@ From a service's perspective, the noisy neighbor issue might appear in several w
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
 
 Other contributors:
 
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford/) | Partner Technology Strategist
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
- * [Architectural considerations for a multitenant solution](../../guide/multitenant/considerations/overview.yml)
- * [Transient fault handling best practices](../../best-practices/transient-faults.md)
+- [Architectural considerations for a multitenant solution](../../guide/multitenant/considerations/overview.yml)
+- [Transient fault handling best practices](../../best-practices/transient-faults.md)

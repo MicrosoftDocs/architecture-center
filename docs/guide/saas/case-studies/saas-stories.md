@@ -13,10 +13,9 @@ products:
 categories:
   - management-and-governance
   - security
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Microsoft SaaS stories video interviews

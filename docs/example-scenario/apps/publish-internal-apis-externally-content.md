@@ -59,7 +59,7 @@ In this scenario, an organization hosts multiple APIs using [Azure Application S
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -139,7 +139,7 @@ You need to further configure the components deployed using the preceding Resour
 4. App Service Plan with ASE as location
 5. An API App (App Services for simplicity) - `srasprest` (URL: `https://srasprest.contoso.org`) – ASP.NET Model-View-Controller (MVC)-based web API. After the deployment, configure:
    - Web app to use the TLS certificate
-   - Application Insights to the preceding apps: API-insights
+   - Application Insights to the preceding apps: `api-insights`
    - Create an Azure Cosmos DB service for web APIs hosted internal to VNet: `noderestapidb`
    - Create DNS entries on the Private DNS zone created
    - You can make use of Azure Pipelines to configure the agents on Virtual Machines to deploy the code for Web App on internal Network
@@ -155,12 +155,12 @@ You need to further configure the components deployed using the preceding Resour
     > [!NOTE]
     > Testing the APIM APIs from the Azure portal won't work, because `api.contoso.org` isn't able to be publicly resolved.*
 
-8. Configure the Application Gateway (WAF V1) to access the API service: apim-gateway on Port 80. Add TLS certs to the Application Gateway and corresponding health probes and HTTP settings. Also configure the Rules and Listeners to use the TLS cert.
+8. Configure the Application Gateway to access the API service: `apim-gateway` on port 80. Add TLS certs to the Application Gateway and corresponding health probes and HTTP settings. Also configure the Rules and Listeners to use the TLS cert.
 
 Once the preceding steps are successfully completed, configure the DNS entries in the web registrar CNAME entries of `api.contoso.org` and `portal.contoso.org` with the Application Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
 
 > [!NOTE]
-> It's not a good practice to use the same URL for internal and external endpoints for the APIM services (though in this demo, both URLs are the same). If you choose to have different URLs for internal and external endpoints, you can make use of Application Gateway WAF v2, which supports HTTP redirection and much more.
+> It's not a good practice to use the same URL for internal and external endpoints for the APIM services.
 
 ## Contributors
 

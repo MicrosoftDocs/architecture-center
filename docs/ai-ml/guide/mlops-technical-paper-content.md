@@ -447,7 +447,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 ### Model serving considerations
 
-- The Azure Machine Learning SDK provides an option to deploy directly to Azure Kubernetes Service from a registered model, creating limits on what security/metrics are in place. You can try to find an easier solution for clients to test their model, but it's best to develop a more robust deployment to AKS for production workloads.
+- The Azure Machine Learning SDK provides an option to deploy directly to Azure Kubernetes Service (AKS) from a registered model, creating limits on what security/metrics are in place. You can try to find an easier solution for clients to test their model, but it's best to develop a more robust deployment to AKS for production workloads.
 
 ## Next steps
 

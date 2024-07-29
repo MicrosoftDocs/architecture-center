@@ -54,7 +54,7 @@ HDInsight is a managed Hadoop service. Use it to deploy and manage Hadoop cluste
 - Languages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, autotermination, autoscaling.
 - Manages the Spark cluster for you.
-- Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure Synapse, and other services. See [Data Sources](/azure/databricks/data/data-sources/).
+- Built-in integration with Azure Blob Storage, Azure Data Lake Storage, Azure Synapse, and other services. For more information, see [Data Sources](/azure/databricks/data/data-sources/).
 - User authentication with Microsoft Entra ID.
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
 - Supports [GPU-enabled clusters](/azure/databricks/clusters/gpu)
