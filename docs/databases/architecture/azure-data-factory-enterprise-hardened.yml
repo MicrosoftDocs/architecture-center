@@ -5,7 +5,7 @@ metadata:
   description: Learn how to design an enterprise hardened workload for Azure Data Factory on Azure landing zones.
   author: claytonsiemens77
   ms.author: csiemens
-  ms.date: 07/23/2024
+  ms.date: 07/30/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
