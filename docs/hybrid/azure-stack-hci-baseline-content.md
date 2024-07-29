@@ -17,8 +17,8 @@ For more information about guidelines and recommendations for the five pillars o
 
 ## Architecture
 
-:::image type="complex" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity." lightbox="images/azure-stack-hci-baseline.png":::
-    Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery. 
+:::image type="complex" source="images/azure-stack-hci-baseline.png" alt-text="Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity." lightbox="images/azure-stack-hci-baseline.png" border="false":::
+    Diagram that shows a multinode Azure Stack HCI cluster reference architecture with dual Top-of-Rack (ToR) switches for external north-south connectivity. The cluster uses many Azure services, including Azure Arc, Azure Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates enabled by Azure Arc, and Azure Site Recovery.
 :::image-end:::
 
 For more information, see [Related resources](#related-resources).
@@ -311,7 +311,7 @@ This section describes an example scenario. A fictitious customer called _Contos
 
   - Yearly: 17 hours, 23 minutes, and 16 seconds
 
-- **To help meet the SLO targets**, Contoso Manufacturing implements the principle of least privilege (PoLP) to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This approach helps prevent downtime due to any inadvertent or accidental actions performed on production resources. Furthermore, the security event logs for on-premises Active Directory Domain Services (AD DS) domain controllers are monitored to detect and report any user account group membership changes, known as _add_ and _remove_ actions, for the *Azure Stack HCI cluster administrators* group by using a security information event management (SIEM) solution. Monitoring increases reliability and improves the security of the solution.
+- **To help meet the SLO targets**, Contoso Manufacturing implements the principle of least privilege (PoLP) to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This approach helps prevent downtime due to any inadvertent or accidental actions performed on production resources. Furthermore, the security event logs for on-premises Active Directory Domain Services (AD DS) domain controllers are monitored to detect and report any user account group membership changes, known as _add_ and _remove_ actions, for the _Azure Stack HCI cluster administrators_ group by using a security information event management (SIEM) solution. Monitoring increases reliability and improves the security of the solution.
 
   For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
@@ -442,7 +442,7 @@ The following section provides an example list of the high-level tasks or typica
 
 1. **Work with the hardware OEM or SI partner to arrange delivery of the hardware**. The SI partner or your employees are then required to integrate the hardware into your on-premises datacenter or edge location, such as racking and stacking the hardware, physical network, and power supply unit cabling for the physical nodes.
 
-1. **Perform the Azure Stack HCI cluster deployment**. Depending on your chosen solution version (Premier solution, Integrated system, or Validated nodes), either the hardware partner, SI partner, or your employees can [deploy the Azure Stack HCI software](/azure-stack/hci/deploy/deployment-introduction). This step starts by onboarding the physical nodes Azure Stack HCI OS into Azure Arc-enabled servers, then starting the Azure Stack HCI cloud deployment process. Customers and partners can raise a support request directly with Microsoft in the [Azure portal](https://portal.azure.com/) by selecting the *Support + Troubleshooting* icon or by contacting their hardware OEM or SI partner, depending on the nature of the request and the hardware solution category.
+1. **Perform the Azure Stack HCI cluster deployment**. Depending on your chosen solution version (Premier solution, Integrated system, or Validated nodes), either the hardware partner, SI partner, or your employees can [deploy the Azure Stack HCI software](/azure-stack/hci/deploy/deployment-introduction). This step starts by onboarding the physical nodes Azure Stack HCI OS into Azure Arc-enabled servers, then starting the Azure Stack HCI cloud deployment process. Customers and partners can raise a support request directly with Microsoft in the [Azure portal](https://portal.azure.com/) by selecting the _Support + Troubleshooting_ icon or by contacting their hardware OEM or SI partner, depending on the nature of the request and the hardware solution category.
 
    > [!TIP]
    > ![GitHub logo](../_images/github.svg) The [Azure Stack HCI 23H2 cluster reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy a switched multiserver deployment of Azure Stack HCI by using an ARM template and parameter file. Alternatively, [the Bicep example](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) demonstrates how to use a Bicep template to deploy an Azure Stack HCI cluster, including its prerequisites resources.
@@ -532,7 +532,6 @@ Microsoft Learn modules:
 [azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#catalog
 [azs-hci-vbs]: /windows-hardware/design/device-experiences/oem-vbs
 [azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hci]: /azure-stack/hci/overview
 [azs-hybrid-benefit]: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
 [azure-arc]: /azure/azure-arc/overview
 [azure-backup]: /azure/backup/backup-overview
@@ -540,7 +539,6 @@ Microsoft Learn modules:
 [azure-policy]: /azure/governance/policy/overview
 [azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [azure-update-management]: /azure/update-manager/
-[azure-well-architected-framework]: /azure/well-architected/
 [cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
 [key-vault]: /azure/key-vault/general/basic-concepts
 [ms-ata]: /advanced-threat-analytics/what-is-ata
