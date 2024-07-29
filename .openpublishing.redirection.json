@@ -1845,22 +1845,22 @@
     },
     {
       "source_path": "docs/patterns/category/resiliency.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/reliability/design-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/category/availability.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/reliability/design-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/category/performance-scalability.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/reliability/design-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/category/security.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/reliability/design-patterns",
       "redirect_document_id": false
     },
     {
