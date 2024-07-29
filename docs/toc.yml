@@ -793,8 +793,6 @@ items:
     href: patterns/throttling.yml
   - name: Valet Key
     href: patterns/valet-key.yml
-- name: Microsoft Azure Well-Architected Framework
-  href: /azure/architecture/framework
 - name: Azure categories
   items:
   - name: AI + Machine Learning
@@ -1643,7 +1641,7 @@ items:
     - name: Guides
       items:
       - name: Hybrid workload in Azure
-        href: /azure/architecture/framework/hybrid/hybrid-overview
+        href: /azure/well-architected/hybrid/hybrid-overview
         maintainContext: true
       - name: Hybrid app design considerations
         href: /hybrid/app-solutions/overview-app-design-considerations
@@ -2805,10 +2803,10 @@ items:
           href: /azure/security/fundamentals/overview
           maintainContext: true
         - name: Security design principles
-          href: /azure/architecture/framework/security/security-principles
+          href: /azure/well-architected/security/principles
           maintainContext: true
         - name: Security patterns
-          href: /azure/architecture/framework/security/security-patterns
+          href: /azure/well-architected/security/design-patterns
           maintainContext: true
         - name: End-to-end security
           href: /azure/security/fundamentals/end-to-end
@@ -4163,8 +4161,6 @@ items:
         - name: Best practices for Route Service
           href: /azure/azure-maps/how-to-use-best-practices-for-routing
           maintainContext: true
-      - name: Move NYC Taxi data with SSIS
-        href: data-science-process/move-data-to-azure-blob-using-ssis.md
       - name: Single sign on for car park management
         href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
         maintainContext: true
@@ -4777,5 +4773,7 @@ items:
         - name: Stream sporting events
   - name: IoT-specific industry solutions
     href: reference-architectures/iot/industry-iot-hub-page.md
-- name: Cloud Adoption Framework
-  href: /azure/cloud-adoption-framework
+- name: Microsoft Azure Well-Architected Framework
+  href: /azure/well-architected/
+- name: Cloud Adoption Framework for Azure
+  href: /azure/cloud-adoption-framework/

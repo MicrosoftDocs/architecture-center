@@ -139,7 +139,7 @@ When you design and plan IP address requirements for Azure Stack HCI, remember t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 > [!IMPORTANT]
 > Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline#considerations).
@@ -221,5 +221,5 @@ Microsoft Learn modules:
 - [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
 - [Protect your VMs by using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
 
-[azure-well-architected-framework]: /azure/architecture/framework
+[azure-well-architected-framework]: /azure/well-architected/
 [azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#sizer
