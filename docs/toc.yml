@@ -2191,7 +2191,7 @@ items:
           href: example-scenario/mainframe/deploy-ibm-power-workloads.yml  
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
-        - name: Refactor IBM z/OS mainframe CF
+        - name: Refactor an IBM z/OS mainframe CF
           href: reference-architectures/zos/refactor-zos-coupling-facility.yml
         - name: Refactor IBM z/TPF mainframe
           href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
