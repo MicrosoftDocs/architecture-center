@@ -55,7 +55,7 @@ Plan your path to production by reviewing:
 
 | Article or section | Description |
 |--------------|-------------|
-| [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
+| [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
 | [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 | [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
@@ -93,7 +93,7 @@ Here are some example architectures. For each one there's a list of the key Azur
 
 ## Best practices
 
-The [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) provides reference guidance and best practices that you can use to improve the quality of your architectures. The framework comprises five pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency. Here's where to find documentation of the pillars:
+The [Microsoft Azure Well-Architected Framework](/azure/well-architected/) provides reference guidance and best practices that you can use to improve the quality of your architectures. The framework comprises five pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency. Here's where to find documentation of the pillars:
 
 - [Reliability](/azure/architecture/framework/resiliency)
 - [Security](/azure/architecture/framework/security)

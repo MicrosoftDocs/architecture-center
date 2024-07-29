@@ -142,7 +142,7 @@ MDM use cases include the following retail and manufacturing scenarios:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The MMU is lightweight and easy to use, and it doesn't require installation. You can download this utility from the Profisee Support Portal and unzip the file into a desired directory. The MMU transfers data and model structures from Master Data Services 2014, 2016, and 2017 to Profisee MDM. The utility then re-creates the entities, attributes, relationships, and hierarchies from the current Master Data Services implementation directly within Profisee MDM.
 

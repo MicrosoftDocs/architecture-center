@@ -73,11 +73,11 @@ In some multitenant solutions, you might decide to deploy separate or dedicated 
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Software Engineer
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributor:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

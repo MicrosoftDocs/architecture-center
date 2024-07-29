@@ -2,8 +2,8 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 07/15/2024
-ms.topic: conceptual
+ms.date: 07/22/2024
+ms.topic: release-notes
 ms.service: architecture-center
 ms.author: robbag
 categories: 
@@ -25,10 +25,46 @@ The following new and updated articles have recently been published in the Azure
 
 ## July 2024
 
+### New articles
+
+- [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml)
+
 ### Updated articles
 
+- [Create smart places by using Azure Digital Twins](./example-scenario/iot/smart-places.yml)  ([#da340d5676](https://github.com/MicrosoftDocs/architecture-center/commit/da340d5676))
+- [Oracle Database with Azure NetApp Files](./example-scenario/file-storage/oracle-azure-netapp-files.yml)  ([#9187e38cb6](https://github.com/MicrosoftDocs/architecture-center/commit/9187e38cb6))
+- [Baseline highly available zone-redundant app services web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml)  ([#2e88dba4ed](https://github.com/MicrosoftDocs/architecture-center/commit/2e88dba4ed))
+- [Basic web application](./web-apps/app-service/architectures/basic-web-app.yml)  ([#2e88dba4ed](https://github.com/MicrosoftDocs/architecture-center/commit/2e88dba4ed))
 - [Priority Queue pattern](./patterns/priority-queue.yml)  ([#d480fd13ca](https://github.com/MicrosoftDocs/architecture-center/commit/d480fd13ca))
 - [Machine learning operations v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#dba2fe1062](https://github.com/MicrosoftDocs/architecture-center/commit/dba2fe1062))
+- [Microsoft partner and third-party scenarios on Azure](./guide/partner-scenarios.md)  ([#5c0d9b3b86](https://github.com/MicrosoftDocs/architecture-center/commit/5c0d9b3b86))
+- [Types of vision API services](./data-guide/cognitive-services/vision-api.md)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#955ab05fd4](https://github.com/MicrosoftDocs/architecture-center/commit/955ab05fd4))
+- [Types of language API services](./data-guide/cognitive-services/language-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
+- [Types of speech API services](./data-guide/cognitive-services/speech-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural approaches for governance and compliance in multitenant solutions](./guide/multitenant/approaches/governance-compliance.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural approaches for tenant integration and data access](./guide/multitenant/approaches/integration.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural considerations for identity in a multitenant solution](./guide/multitenant/considerations/identity.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Tenant lifecycle considerations in a multitenant solution](./guide/multitenant/considerations/tenant-lifecycle.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Use Azure Front Door in a multitenant solution](./guide/multitenant/service/front-door.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Deploy SAS Grid 9.4 on Azure NetApp Files](./guide/hpc/netapp-files-sas.yml)  ([#a9e1aa18b6](https://github.com/MicrosoftDocs/architecture-center/commit/a9e1aa18b6))
+- [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)  ([#4044caa69b](https://github.com/MicrosoftDocs/architecture-center/commit/4044caa69b))
+- [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#4044caa69b](https://github.com/MicrosoftDocs/architecture-center/commit/4044caa69b))
+- [Security considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-security.md)  ([#4044caa69b](https://github.com/MicrosoftDocs/architecture-center/commit/4044caa69b))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#a3bf6fecb0](https://github.com/MicrosoftDocs/architecture-center/commit/a3bf6fecb0))
+- [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#01c5ce83cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c5ce83cb))
+- [Considerations when using domain names in a multitenant solution](./guide/multitenant/considerations/domain-names.yml)  ([#fab01daa64](https://github.com/MicrosoftDocs/architecture-center/commit/fab01daa64))
+- [Architectural considerations for a multitenant solution](./guide/multitenant/considerations/overview.yml)  ([#fab01daa64](https://github.com/MicrosoftDocs/architecture-center/commit/fab01daa64))
+- [Build and deploy custom document processing models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#feb90625fa](https://github.com/MicrosoftDocs/architecture-center/commit/feb90625fa))
 - [Index file content and metadata by using Azure AI Search](./ai-ml/architecture/search-blob-metadata.yml)  ([#7767b45a83](https://github.com/MicrosoftDocs/architecture-center/commit/7767b45a83))
 - [Resiliency checklist for services](./checklist/resiliency-per-service.md)  ([#d622b44e5e](https://github.com/MicrosoftDocs/architecture-center/commit/d622b44e5e))
 - [CDN guidance](./best-practices/cdn.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
@@ -76,7 +112,6 @@ The following new and updated articles have recently been published in the Azure
 - [Tenancy models for a multitenant solution](./guide/multitenant/considerations/tenancy-models.yml)  ([#9065e2bdea](https://github.com/MicrosoftDocs/architecture-center/commit/9065e2bdea))
 - [Artificial intelligence (AI) architecture](./ai-ml/index.md)  ([#5cfe865d6c](https://github.com/MicrosoftDocs/architecture-center/commit/5cfe865d6c))
 - [Implement logging and monitoring for Azure OpenAI language models](./ai-ml/openai/architecture/log-monitor-azure-openai.yml)  ([#5cfe865d6c](https://github.com/MicrosoftDocs/architecture-center/commit/5cfe865d6c))
-- [Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search](./ai-ml/openai/idea/search-and-query-using-openai-service.yml)  ([#5eed497953](https://github.com/MicrosoftDocs/architecture-center/commit/5eed497953))
 - [Build and deploy custom document processing models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#41812da656](https://github.com/MicrosoftDocs/architecture-center/commit/41812da656))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)  ([#70a52e7f1f](https://github.com/MicrosoftDocs/architecture-center/commit/70a52e7f1f))
 - [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#d5ffd66a10](https://github.com/MicrosoftDocs/architecture-center/commit/d5ffd66a10))
@@ -170,7 +205,6 @@ The following new and updated articles have recently been published in the Azure
 - [N-tier application with Apache Cassandra](./databases/architecture/n-tier-cassandra.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
 - [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
 - [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml)  ([#84a2e94497](https://github.com/MicrosoftDocs/architecture-center/commit/84a2e94497))
-- [Enable the financial services risk lifecycle with Azure and R](./industries/finance/financial-risk-model.md)  ([#be1be29555](https://github.com/MicrosoftDocs/architecture-center/commit/be1be29555))
 - [AKS triage—Workload deployments](./operator-guides/aks/aks-triage-deployment.md)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
 - [AKS triage—Node health](./operator-guides/aks/aks-triage-node-health.md)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
 - [Quarantine pattern](./patterns/quarantine.yml)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
@@ -225,23 +259,18 @@ The following new and updated articles have recently been published in the Azure
 - [Azure file shares in a hybrid environment](./hybrid/azure-file-share.yml)  ([#78c1ee7b97](https://github.com/MicrosoftDocs/architecture-center/commit/78c1ee7b97))
 - [Azure enterprise cloud file share](./hybrid/azure-files-private.yml)  ([#d392845160](https://github.com/MicrosoftDocs/architecture-center/commit/d392845160))
 - [Disconnected AI at the edge with Azure Stack Hub](./ai-ml/idea/ai-at-the-edge-disconnected.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
-- [Azure Machine Learning architecture](./ai-ml/idea/azure-machine-learning-solution-architecture.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
 - [Customer churn prediction using real-time analytics](./ai-ml/idea/customer-churn-prediction.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
 - [Customer support and feedback analysis](./ai-ml/idea/customer-feedback-and-analytics.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
 - [Deploy AI and machine learning at the edge](./ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](./ai-ml/guide/mlops-technical-paper.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [Network security checklist for MLOps solutions](./ai-ml/guide/network-security-mlops.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
-- [Query-based document summarization](./ai-ml/guide/query-based-summarization.md)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [AI at the edge with Azure Stack Hub](./ai-ml/idea/ai-at-the-edge.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
 - [Build and deploy a social media analytics solution](./ai-ml/architecture/build-deploy-social-media-analytics-solution.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
-- [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
 - [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#863c1fb294](https://github.com/MicrosoftDocs/architecture-center/commit/863c1fb294))
 - [Serverless web application](./web-apps/serverless/architectures/web-app.yml)  ([#08aa3d6222](https://github.com/MicrosoftDocs/architecture-center/commit/08aa3d6222))
 - [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)  ([#95dfc35ea1](https://github.com/MicrosoftDocs/architecture-center/commit/95dfc35ea1))
 - [Secure research environment for regulated data](./ai-ml/architecture/secure-compute-for-research.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Conversation summarization](./ai-ml/guide/conversation-summarization.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
-- [Implement custom speech to text solutions that use AI](./ai-ml/guide/custom-speech-text.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
-- [Deploy a custom speech to text solution that uses AI](./ai-ml/guide/custom-speech-text-deploy.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Microsoft machine learning products](./ai-ml/guide/data-science-and-machine-learning.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Machine learning operations v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [MLOps for Python with Azure Machine Learning](./ai-ml/guide/mlops-python.yml)  ([#171d0a834e](https://github.com/MicrosoftDocs/architecture-center/commit/171d0a834e))

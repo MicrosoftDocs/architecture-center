@@ -18,7 +18,7 @@ Specifically, you can use NLP to:
 
 Business scenarios that can benefit from custom NLP include:
 
-- Document intelligence for handwritten or machine-created documents in finance, healthcare, retail, government, and other sectors.
+- Document Intelligence for handwritten or machine-created documents in finance, healthcare, retail, government, and other sectors.
 - Industry-agnostic NLP tasks for text processing, such as name entity recognition (NER), classification, summarization, and relation extraction. These tasks automate the process of retrieving, identifying, and analyzing document information like text and unstructured data. Examples of these tasks include risk stratification models, ontology classification, and retail summarizations.
 - Information retrieval and knowledge graph creation for semantic search. This functionality makes it possible to create medical knowledge graphs that support drug discovery and clinical trials.
 - Text translation for conversational AI systems in customer-facing applications across retail, finance, travel, and other industries.
@@ -44,15 +44,15 @@ The library has optimized builds for CPUs, GPUs, and the latest Intel Xeon chips
 
 ## Key selection criteria
 
-In Azure, Spark services like Azure Databricks, Azure Synapse Analytics, and Azure HDInsight provide NLP functionality when you use them with Spark NLP. Azure Cognitive Services is another option for NLP functionality. To decide which service to use, consider these questions:
+In Azure, Spark services like Azure Databricks, Azure Synapse Analytics, and Azure HDInsight provide NLP functionality when you use them with Spark NLP. Azure AI services is another option for NLP functionality. To decide which service to use, consider these questions:
 
-- Do you want to use prebuilt or pretrained models? If yes, consider using the APIs that Azure Cognitive Services offers. Or download your model of choice through Spark NLP.
+- Do you want to use prebuilt or pretrained models? If yes, consider using the APIs that Azure AI services offers. Or download your model of choice through Spark NLP.
 
 - Do you need to train custom models against a large corpus of text data? If yes, consider using Azure Databricks, Azure Synapse Analytics, or Azure HDInsight with Spark NLP.
 
 - Do you need low-level NLP capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF)? If yes, consider using Azure Databricks, Azure Synapse Analytics, or Azure HDInsight with Spark NLP. Or use an open-source software library in your processing tool of choice.
 
-- Do you need simple, high-level NLP capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis? If yes, consider using the APIs that Cognitive Services offers. Or download your model of choice through Spark NLP.
+- Do you need simple, high-level NLP capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis? If yes, consider using the APIs that Azure AI services offers. Or download your model of choice through Spark NLP.
 
 ## Capability matrix
 
@@ -60,7 +60,7 @@ The following tables summarize the key differences in the capabilities of NLP se
 
 ### General capabilities
 
-| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure Cognitive Services |
+| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure AI services |
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
@@ -69,7 +69,7 @@ The following tables summarize the key differences in the capabilities of NLP se
 
 ### Low-level NLP capabilities
 
-| Capability of annotators | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure Cognitive Services |
+| Capability of annotators | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure AI services |
 | --- | --- | --- |
 | Sentence detector | Yes | No |
 | Deep sentence detector | Yes | Yes |
@@ -92,7 +92,7 @@ The following tables summarize the key differences in the capabilities of NLP se
 
 ### High-level NLP capabilities
 
-| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure Cognitive Services |
+| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure AI services |
 | --- | --- | --- |
 | Spell checking | Yes | No |
 | Summarization | Yes | Yes |
@@ -151,7 +151,7 @@ The core components of a Spark NLP pipeline are:
 
 Spark NLP uses Spark MLlib pipelines, which MLflow natively supports. [MLflow](https://mlflow.org) is an open-source platform for the machine learning lifecycle. Its components include:
 
-- Mlflow Tracking: Records experiments and provides a way to query results.
+- MLflow Tracking: Records experiments and provides a way to query results.
 - MLflow Projects: Makes it possible to run data science code on any platform.
 - MLflow Models: Deploys models to diverse environments.
 - Model Registry: Manages models that you store in a central repository.

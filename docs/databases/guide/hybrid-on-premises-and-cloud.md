@@ -19,6 +19,7 @@ products:
 ms.custom:
   - guide
   - e2e-hybrid
+  - arb-data
 ---
 
 # Extend on-premises data solutions to the cloud

@@ -9,6 +9,8 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - hybrid
 name: Deploy an Azure Arc-enabled SQL managed instance for disaster recovery
 azureCategories:
   - hybrid

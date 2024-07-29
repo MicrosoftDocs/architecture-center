@@ -357,10 +357,10 @@ Other contributors:
 [Dynamic Virtual Machine Multi-Queue]: https://techcommunity.microsoft.com/t5/networking-blog/synthetic-accelerations-in-a-nutshell-windows-server-2019/ba-p/653976
 [Network ATC]: /azure-stack/hci/concepts/network-atc-overview
 [Azure Arc–enabled Kubernetes service]: /azure/azure-arc/kubernetes/
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
+[Microsoft Azure Well-Architected Framework]: /azure/well-architected/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [cost optimization]: /azure/architecture/framework/cost/overview
-[Microsoft Azure Well-Architected Framework.]: /azure/architecture/framework/
+[Microsoft Azure Well-Architected Framework.]: /azure/well-architected/
 [manage your Kubernetes cluster using GitOps]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: /azure/architecture/hybrid/arc-hybrid-kubernetes
 [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac

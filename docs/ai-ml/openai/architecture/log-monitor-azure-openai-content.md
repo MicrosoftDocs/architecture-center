@@ -107,7 +107,7 @@ Output:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -159,5 +159,4 @@ Other contributors:
 ## Related resources
 
 - [Protect APIs with Azure Application Gateway and Azure API Management](../../../web-apps/api-management/architectures/protect-apis.yml)
-- [Query-based document summarization](/azure/architecture/ai-ml/guide/query-based-summarization)
 - [AI architecture design](../../../data-guide/big-data/ai-overview.md)

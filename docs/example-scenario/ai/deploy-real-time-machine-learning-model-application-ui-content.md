@@ -84,7 +84,7 @@ The applicability of this example workload *isn't limited to a specific industry
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 In the world of machine learning and custom model training and deployment, you should consider implementing more governance and adopt practices for operations like [MLOps](https://azure.microsoft.com/services/machine-learning/mlops/?msclkid=582fd3e1b10711ecb0ef71c8772fc3df), [DevOps](https://azure.microsoft.com/overview/what-is-devops), and continuous integration and continuous delivery (CI/CD).
 

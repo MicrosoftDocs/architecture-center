@@ -32,7 +32,7 @@ These considerations and requirements are presented in the order in which they'r
 
 Governance and compliance considerations might require that you use a particular pattern or set of IoT resources. Not all IoT services have the same certifications or capabilities. If you need to meet specific compliance standards, you might need to select specific services. Information on governance and compliance is covered in a [dedicated article on that topic](governance-compliance.md).
 
-Governance in IoT can also take additional forms, such as device ownership and management. Does the customer own the device or does the solution provider?  Who owns the management of those devices?  These considerations and implications are unique to each solution provider and can lead to different choices in the technology, deployment pattern, and multi-tenancy pattern that you use.
+Governance in IoT can also take additional forms, such as device ownership and management. Does the customer own the device or does the solution provider?  Who owns the management of those devices?  These considerations and implications are unique to each solution provider and can lead to different choices in the technology, deployment pattern, and multitenancy pattern that you use.
 
 ### Scale
 
@@ -75,7 +75,7 @@ Most of these security topics apply in a multitenant solution similar to how the
 
 ## Approaches to consider
 
-All the considerations that you'd normally make in an IoT architecture, for all the primary components (such as management, ingestion, processing, storage, security, and so on), are all choices you still must make when pursuing a multi-tenant solution. The primary difference is how you arrange and utilize the components to support multi-tenancy. For example, common decision points for storage might be deciding whether to use SQL Server or Azure Data Explorer, or perhaps on the ingestion and management tier, you'd choose between IoT Hub and IoT Central.
+All the considerations that you'd normally make in an IoT architecture, for all the primary components (such as management, ingestion, processing, storage, security, and so on), are all choices you still must make when pursuing a multitenant solution. The primary difference is how you arrange and utilize the components to support multitenancy. For example, common decision points for storage might be deciding whether to use SQL Server or Azure Data Explorer, or perhaps on the ingestion and management tier, you'd choose between IoT Hub and IoT Central.
 
 Most IoT solutions fit within a [root architecture pattern](#root-architecture-patterns), which is a combination of the deployment target, tenancy model, and deployment pattern. These factors are determined by the key requirements and considerations described above.
 
@@ -275,7 +275,7 @@ Principal authors:
  
 Other contributors:
 
-- [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
