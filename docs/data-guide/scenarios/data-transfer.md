@@ -47,7 +47,7 @@ The [Azure Import/Export service](/azure/import-export/storage-import-export-ser
 
 ### Azure Data Box
 
-[Azure Data Box](https://azure.microsoft.com/services/storage/databox) is a Microsoft-provided appliance that works much like the Import/Export service. With Data Box, Microsoft ships you a proprietary, secure, and tamper-resistant transfer appliance and handles the end-to-end logistics, which you can track through the portal. One benefit of the Data Box service is ease of use. You don't need to purchase several hard drives, prepare them, and transfer files to each one. Data Box is supported by many industry-leading Azure partners to make it easier to seamlessly use offline transport to the cloud from their products.
+[Azure Data Box](https://azure.microsoft.com/services/storage/databox) is a Microsoft-provided appliance that works much like the Import/Export service. With Data Box, Microsoft ships you a proprietary, secure, and tamper-resistant transfer appliance and handles the end-to-end logistics, which you can track through the portal. One benefit of the Data Box service is ease of use. You don't need to purchase several hard drives, prepare them, and transfer Azure Files to each one. Data Box is supported by many industry-leading Azure partners to make it easier to seamlessly use offline transport to the cloud from their products.
 
 ## Command-line tools and APIs
 
@@ -55,7 +55,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 - The [Azure CLI](/azure/hdinsight/hdinsight-upload-data#utilities) is a cross-platform tool that allows you to manage Azure services and upload data to Storage.
 
-- **AzCopy**. Use AzCopy from a [Windows](/azure/storage/common/storage-use-azcopy) or [Linux](/azure/storage/common/storage-use-azcopy-linux) command line to easily copy data to and from Blob Storage, Azure File Storage, and Azure Table Storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from AWS to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement Library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It's provided as a .NET Core library.
+- **AzCopy**. Use AzCopy from a [Windows](/azure/storage/common/storage-use-azcopy) or [Linux](/azure/storage/common/storage-use-azcopy-linux) command line to easily copy data to and from Blob Storage, Azure Files, and Azure Table Storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from AWS to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement Library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It's provided as a .NET Core library.
 
 - With **PowerShell**, the [Start-AzureStorageBlobCopy PowerShell cmdlet](/powershell/module/azure.storage/start-azurestorageblobcopy?view=azurermps-5.0.0&preserve-view=true) is an option for Windows administrators who are used to PowerShell.
 
@@ -71,15 +71,15 @@ Consider these options when you want scripted and programmatic data transfer:
 
 ## Graphical interface
 
-Consider the following options if you're only transferring a few files or data objects and don't need to automate the process.
+Consider the following options if you're only transferring a few Azure Files or data objects and don't need to automate the process.
 
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure Storage accounts. It allows you to upload, download, and manage blobs, Azure Files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
 
-- **Azure portal**. Both Blob Storage and Data Lake Storage provide a web-based interface for exploring files and uploading new files. This option is a good one if you don't want to install tools or issue commands to quickly explore your files, or if you want to upload a handful of new ones.
+- **Azure portal**. Both Blob Storage and Data Lake Storage provide a web-based interface for exploring Azure Files and uploading new Azure Files. This option is a good one if you don't want to install tools or issue commands to quickly explore your Azure Files, or if you want to upload a handful of new ones.
 
 ## Data sync and pipelines
 
-- [Azure Data Factory](/azure/data-factory) is a managed service best suited for regularly transferring files between many Azure services, on-premises systems, or a combination of the two. By using Data Factory, you can create and schedule data-driven workflows called pipelines that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. You can create data-driven workflows for [orchestrating](../technology-choices/pipeline-orchestration-data-movement.md) and automating data movement and data transformation.
+- [Azure Data Factory](/azure/data-factory) is a managed service best suited for regularly transferring Azure Files between many Azure services, on-premises systems, or a combination of the two. By using Data Factory, you can create and schedule data-driven workflows called pipelines that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. You can create data-driven workflows for [orchestrating](../technology-choices/pipeline-orchestration-data-movement.md) and automating data movement and data transformation.
 
 - [Pipelines and activities](/azure/data-factory/concepts-pipelines-activities) in Data Factory and Azure Synapse Analytics can be used to construct end-to-end data-driven workflows for your data movement and data processing scenarios. Additionally, the [Azure Data Factory integration runtime](/azure/data-factory/concepts-integration-runtime) is used to provide data integration capabilities across different network environments.
 
@@ -97,7 +97,7 @@ For data transfer scenarios, choose the appropriate system for your needs by ans
 
 - Do you need to transfer data to or from a relational database? If yes, choose an option that supports one or more relational databases. Some of these options also require a Hadoop cluster.
 
-- Do you need an automated data pipeline or workflow orchestration? If yes, consider Data Factory.
+- Do you need an automated Data Pipeline or workflow orchestration? If yes, consider Data Factory.
 
 ## Capability matrix
 
@@ -118,7 +118,7 @@ The following tables summarize the key differences in capabilities.
 
 **Hadoop/HDInsight:**
 
-| Capability | Distcp | Sqoop | Hadoop CLI |
+| Capability | DistCp | Sqoop | Hadoop CLI |
 | --- | --- | --- | --- |
 | Optimized for big data | Yes | Yes |  Yes |
 | Copy to relational database |  No | Yes | No |
@@ -130,7 +130,7 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-| Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
+| Capability | The Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse Analytics |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
@@ -162,7 +162,7 @@ The following tables summarize the key differences in capabilities.
 | Custom data transformations | No | No | Yes | No |
 | Pricing model | Free | Free | Pay per usage | Pay per unit |
 
-\* Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.
+* Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.
 
 ## Contributors
 

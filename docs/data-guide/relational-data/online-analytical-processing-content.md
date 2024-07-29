@@ -119,7 +119,7 @@ The following tables summarize the key differences in capabilities.
 | Supports tabular semantic models | Yes | Yes | No | No |
 | Easily integrate multiple data sources | Yes | Yes | No <sup>1</sup> | No <sup>1</sup> |
 | Supports real-time analytics | No | No | Yes | Yes |
-| Requires process to copy data from source(s) | Yes | Yes | No | No |
+| Requires process to copy data from sources | Yes | Yes | No | No |
 | Microsoft Entra integration | Yes | No | No <sup>2</sup> | Yes |
 
 [1] Although SQL Server and Azure SQL Database cannot be used to query from and integrate multiple external data sources, you can still build a pipeline that does this for you using [SSIS](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). SQL Server hosted in an Azure VM has additional options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/polybase-guide). For more information, see [Pipeline orchestration, control flow, and data movement](../technology-choices/pipeline-orchestration-data-movement.md).
