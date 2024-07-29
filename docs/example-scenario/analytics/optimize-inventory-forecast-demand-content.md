@@ -3,6 +3,7 @@ This article showcases a practical, scalable, and manageable solution for implem
 *Ray® or Ray.io® is either a registered trademark or trademarks of the Anyscale, Inc. in the United States and/or other countries. No endorsement by Anyscale, Inc. is implied by the use of these marks.*
 
 ## Architecture
+
 :::image type="content" alt-text="Diagram of a solution that ingests data from multiple sources and uses machine learning to optimize inventory and forecast demand." source="./media/optimize-inventory-forecast-demand-architecture.svg" lightbox="./media/optimize-inventory-forecast-demand-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/optimize-inventory-forecast-demand-architecture.vsdx) of this architecture.*
@@ -96,7 +97,6 @@ Methods of forecasting demand include on-point predictions, probabilistic Monte 
 ### Forecasting with Deep Learning
 
 The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, this solution uses multivariate probabilistic forecasting to account for uncertainties that are common in supply chains. By using an ensemble modeling approach that blends Deep AutoRegression RNN (DeepAR) or Transformer models that use the classical Monte Carlo Sampling method, the reference solution achieved 99.9% mean square error (MSE) improvement over a customer's initial approach for high-volume/high-impact business products. For ensembling, this solution explored XGBClassifier and XGBRegressor model architectures.
-
 
 :::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="./media/optimize-inventory-forecast-demand-dataflow.svg" lightbox="./media/optimize-inventory-forecast-demand-dataflow.svg":::
 
