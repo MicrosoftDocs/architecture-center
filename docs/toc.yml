@@ -1636,9 +1636,6 @@ items:
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Hybrid workload in Azure
-        href: /azure/well-architected/hybrid/hybrid-overview
-        maintainContext: true
       - name: Hybrid app design considerations
         href: /hybrid/app-solutions/overview-app-design-considerations
         maintainContext: true

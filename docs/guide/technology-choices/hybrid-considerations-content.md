@@ -115,7 +115,6 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 
 ## Next steps
 
-- [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)
 - [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 - [Introduction to hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid)
 - [Introduction to Azure hybrid cloud services (Learn module)](/training/modules/intro-to-azure-hybrid-services)
