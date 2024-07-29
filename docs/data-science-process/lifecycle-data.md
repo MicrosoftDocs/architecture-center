@@ -16,6 +16,7 @@ products:
 categories:
   - ai-machine-learning
 ---
+
 # Data acquisition and understanding stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
@@ -82,7 +83,7 @@ In this stage, your team delivers:
 
 ## Peer-reviewed literature
 
-Researchers publish studies about the TDSP in peer-reviewed literature. [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the data acquisition and understanding lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. The [citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the data acquisition and understanding lifecycle stage.
 
 ## Contributors
 
