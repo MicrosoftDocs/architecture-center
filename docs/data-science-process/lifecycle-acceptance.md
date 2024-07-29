@@ -19,6 +19,7 @@ products:
 categories:
   - ai-machine-learning
 ---
+
 # Customer acceptance stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
@@ -64,7 +65,7 @@ The main artifact that your team creates in this final stage is the *exit report
 
 ## Peer-reviewed literature
 
-Researchers publish studies about the TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the customer acceptance lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. The [citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the customer acceptance lifecycle stage.
 
 ## Contributors
 
@@ -84,5 +85,3 @@ These articles describe the other stages of the TDSP lifecycle:
 - [Data acquisition and understanding](lifecycle-data.md)
 - [Modeling](lifecycle-modeling.md)
 - [Deployment](lifecycle-deployment.md)
-
-
