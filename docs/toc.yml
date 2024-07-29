@@ -793,8 +793,6 @@ items:
     href: patterns/throttling.yml
   - name: Valet Key
     href: patterns/valet-key.yml
-- name: Microsoft Azure Well-Architected Framework
-  href: /azure/architecture/framework
 - name: Azure categories
   items:
   - name: AI + Machine Learning
@@ -895,8 +893,6 @@ items:
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
       - name: Geospatial analysis with Azure Synapse
         href: industries/aerospace/geospatial-processing-analytics.yml
-      - name: Geospatial data processing and analytics
-        href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: Helm-based deployments for Apache NiFi
         href: guide/data/helm-deployments-apache-nifi.yml
       - name: Ingest FAA content to analyze flight data
@@ -1420,8 +1416,6 @@ items:
         href: databases/architecture/dataops-mdw.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
-      - name: Geospatial data processing and analytics
-        href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: Helm-based deployments
         href: guide/data/helm-deployments-apache-nifi.yml
       - name: Measure Azure app sustainability
@@ -1643,7 +1637,7 @@ items:
     - name: Guides
       items:
       - name: Hybrid workload in Azure
-        href: /azure/architecture/framework/hybrid/hybrid-overview
+        href: /azure/well-architected/hybrid/hybrid-overview
         maintainContext: true
       - name: Hybrid app design considerations
         href: /hybrid/app-solutions/overview-app-design-considerations
@@ -1675,20 +1669,6 @@ items:
         - name: Security baseline for Arc-enabled servers
           href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline
           maintainContext: true
-      - name: Hybrid deployments
-        items:
-        - name: Configure hybrid cloud connectivity
-          href: hybrid/deployments/solution-deployment-guide-connectivity.md
-        - name: Configure hybrid cloud identity
-          href: hybrid/deployments/solution-deployment-guide-identity.md
-        - name: Deploy AI-based footfall detection
-          href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
-        - name: Deploy Kubernetes on Azure Stack Hub
-          href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
-        - name: Deploy hybrid with on-premises data
-          href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
-        - name: Direct traffic with a geo-distributed app
-          href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
       - name: Azure VMware Solution guidance
         items:
         - name: API Management for AVS
@@ -1752,14 +1732,6 @@ items:
           href: hybrid/azure-arc-hybrid-config.yml
         - name: Optimize SQL Server with Azure Arc
           href: hybrid/azure-arc-sql-server.yml
-      - name: AKS on Azure Stack HCI (AKS enabled by Arc)
-        items:
-        - name: AKS on Azure Stack HCI baseline architecture
-          href: example-scenario/hybrid/aks-baseline.yml
-        - name: AKS on Azure Stack HCI network architecture
-          href: example-scenario/hybrid/aks-network.yml
-        - name: Deploy apps with AKS Arc on Azure Stack HCI
-          href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
       - name: Azure Automation solutions
         items:
         - name: Azure Automation State Configuration
@@ -1770,26 +1742,36 @@ items:
         href: hybrid/azure-files-private.yml
       - name: Azure files secured by AD DS
         href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
-      - name: Azure Stack HCI stretched clusters for DR
-        href: hybrid/azure-stack-hci-dr.yml
-      - name: Azure Stack HCI switchless interconnect
-        href: hybrid/azure-stack-robo.yml
+      - name: Azure Functions in a hybrid environment
+        href: hybrid/azure-functions-hybrid.yml
+      - name: Azure Stack HCI solutions
+        items:
+        - name: Azure Stack HCI infrastructure
+          items:
+          - name: Azure Stack HCI baseline
+            href: hybrid/azure-stack-hci-baseline.yml
+          - name: Azure Stack HCI storage switchless configuration
+            href: hybrid/azure-stack-hci-switchless.yml
+          - name: Azure Stack HCI stretched clusters for DR
+            href: hybrid/azure-stack-hci-dr.yml
+        - name: Azure Stack HCI workloads
+          items:
+          - name: AKS on Azure Stack HCI (AKS hybrid)
+            items:
+            - name: AKS on Azure Stack HCI baseline architecture
+              href: example-scenario/hybrid/aks-baseline.yml
+            - name: AKS on Azure Stack HCI network architecture
+              href: example-scenario/hybrid/aks-network.yml
+            - name: Deploy apps with AKS hybrid on Azure Stack ACI
+              href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
+          - name: Azure Stack HCI Hybrid cross cluster scaling
+            href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Azure Stack Hub solutions
         items:
-        - name: AI-based footfall detection
-          href: solution-ideas/articles/hybrid-footfall-detection.yml
         - name: Back up files on Azure Stack Hub
           href: hybrid/azure-stack-backup.yml
-        - name: Cross-cloud scaling (on-premises data)
-          href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
-        - name: Cross-cloud scaling with Traffic Manager
-          href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
         - name: Disaster recovery for Stack Hub VMs
           href: hybrid/azure-stack-vm-disaster-recovery.yml
-        - name: High-availability Kubernetes cluster
-          href: example-scenario/hybrid/high-availability-kubernetes.yml
-        - name: Hybrid geo-distributed architecture
-          href: example-scenario/hybrid/hybrid-geo-distributed.yml
         - name: Hybrid relay connection
           href: solution-ideas/articles/hybrid-relay-connection.yml
       - name: Azure VMware Solution in hub-and-spoke
@@ -1811,8 +1793,6 @@ items:
         href: reference-architectures/hybrid-networking/expressroute.yml
       - name: Hybrid availability and monitoring
         href: hybrid/hybrid-perf-monitoring.yml
-      - name: Hybrid cross cluster scaling
-        href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
       - name: Hybrid file share with disaster recovery
@@ -1825,8 +1805,6 @@ items:
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
         href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
-      - name: Train machine learning at the edge
-        href: example-scenario/hybrid/train-machine-learning-models-on-premises-data.yml
       - name: Use file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
     - name: Solution ideas
@@ -2819,10 +2797,10 @@ items:
           href: /azure/security/fundamentals/overview
           maintainContext: true
         - name: Security design principles
-          href: /azure/architecture/framework/security/security-principles
+          href: /azure/well-architected/security/principles
           maintainContext: true
         - name: Security patterns
-          href: /azure/architecture/framework/security/security-patterns
+          href: /azure/well-architected/security/design-patterns
           maintainContext: true
         - name: End-to-end security
           href: /azure/security/fundamentals/end-to-end
@@ -3247,8 +3225,6 @@ items:
             maintainContext: true
       - name: AI and ML in retail
         items:
-        - name: Deploy AI-based footfall detection
-          href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
         - name: Forecast bike rental demand
           href: /azure/machine-learning/tutorial-automated-ml-forecast
           maintainContext: true
@@ -3314,12 +3290,8 @@ items:
       items:
       - name: All retail architectures
         href: /azure/architecture/browse/?terms=retail
-      - name: AI-based footfall detection
-        href: solution-ideas/articles/hybrid-footfall-detection.yml
       - name: Analyze MongoDB Atlas data
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Build a real-time recommendation API
-        href: reference-architectures/ai/real-time-recommendation.yml
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.yml
       - name: Intelligent search engine for e-commerce
@@ -3441,8 +3413,6 @@ items:
       - name: Financial institutions with data mesh
         href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
         maintainContext: true
-      - name: Financial services risk lifecycle
-        href: industries/finance/financial-risk-model.md
       - name: Risk grid computing solution
         href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: Big compute for financial risk modeling
@@ -3609,8 +3579,6 @@ items:
         href: example-scenario/ai/risk-stratification-surgery.yml
       - name: Ingest and store medical data
         href: example-scenario/data/medical-data-ingestion.yml
-      - name: Population health management
-        href: solution-ideas/articles/population-health-management-for-healthcare.yml
       - name: Predict hospital readmissions with ML
         href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
       - name: Predict patient length of stay and flow
@@ -4090,8 +4058,6 @@ items:
         href: /azure/architecture/browse/?terms=energy
       - name: Environmental monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-      - name: Geospatial data processing and analytics
-        href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: IoT Edge data processing - Monitor oil rigs
         href: solution-ideas/articles/data-storage-edge.yml
       - name: Oil and gas tank level forecasting
@@ -4152,8 +4118,6 @@ items:
       items:
       - name: All telecommunications architectures
         href: /azure/architecture/browse/?terms=telecommunications
-      - name: Carrier-grade example solution
-        href: industries/telecommunications/carrier-grade.yml
       - name: Geospatial analysis for telecommunications
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
       - name: Low-latency network connections
@@ -4191,8 +4155,6 @@ items:
         - name: Best practices for Route Service
           href: /azure/azure-maps/how-to-use-best-practices-for-routing
           maintainContext: true
-      - name: Move NYC Taxi data with SSIS
-        href: data-science-process/move-data-to-azure-blob-using-ssis.md
       - name: Single sign on for car park management
         href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
         maintainContext: true
@@ -4805,5 +4767,7 @@ items:
         - name: Stream sporting events
   - name: IoT-specific industry solutions
     href: reference-architectures/iot/industry-iot-hub-page.md
-- name: Cloud Adoption Framework
-  href: /azure/cloud-adoption-framework
+- name: Microsoft Azure Well-Architected Framework
+  href: /azure/well-architected/
+- name: Cloud Adoption Framework for Azure
+  href: /azure/cloud-adoption-framework/

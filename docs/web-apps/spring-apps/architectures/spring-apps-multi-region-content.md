@@ -236,4 +236,4 @@ We recommend the following guides for a deeper understanding about the configura
 - [High-availability blue/green deployment for applications](../guides/blue-green-spring.yml)
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../../best-practices/host-name-preservation.yml)
 
-This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.
+This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). We recommend that you review the design principles for each pillar.

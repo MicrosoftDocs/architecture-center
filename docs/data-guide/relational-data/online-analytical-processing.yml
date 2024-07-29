@@ -17,4 +17,4 @@ name: Online analytical processing (OLAP)
 summary: Learn about online analytical processing (OLAP) solutions to organize large databases and support complex analysis without affecting transactional systems.
 thumbnailUrl: /azure/architecture/browse/thumbs/semantic-modeling.png
 content: |
-  [!include[](online-analytical-processing-content.md)]
+  [!INCLUDE[](online-analytical-processing-content.md)]

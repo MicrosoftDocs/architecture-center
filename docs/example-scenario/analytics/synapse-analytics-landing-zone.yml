@@ -9,7 +9,9 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: arb-sports
+  ms.custom: 
+    - arb-sports
+    - arb-data
 azureCategories:
   - analytics
 products:

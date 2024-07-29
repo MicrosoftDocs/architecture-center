@@ -21,6 +21,7 @@ metadata:
     - app modernization
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/unlock-legacy-data"
+    - arb-data
 name: Unlock legacy data with Azure Stack
 azureCategories:
   - migration
