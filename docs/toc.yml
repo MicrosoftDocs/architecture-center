@@ -1410,8 +1410,6 @@ items:
         href: example-scenario/data/azure-nifi.yml
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.yml
-      - name: Data governance with Profisee
-        href: databases/architecture/profisee-master-data-management-purview.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: DataOps for modern data warehouse
@@ -1420,8 +1418,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Helm-based deployments
         href: guide/data/helm-deployments-apache-nifi.yml
-      - name: Master data management with Profisee
-        href: databases/architecture/profisee-master-data-management-data-factory.yml
       - name: Measure Azure app sustainability
         href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
       - name: Modern data warehouse for small business
@@ -2504,8 +2500,6 @@ items:
         href: example-scenario/mainframe/general-mainframe-refactor.yml
       - name: Migrate a web app with APIM
         href: example-scenario/apps/apim-api-scenario.yml
-      - name: Migrate master data services with Profisee
-        href: databases/architecture/profisee-mds-migration-utility.yml
       - name: Modernize mainframe and midrange data
         href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
     - name: Solution ideas
