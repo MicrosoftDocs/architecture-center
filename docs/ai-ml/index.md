@@ -236,7 +236,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
-
 ### Azure automated machine learning
 
 Azure provides extensive support for automated ML. Developers can build models using a no-code UI or through a code-first notebooks experience.
