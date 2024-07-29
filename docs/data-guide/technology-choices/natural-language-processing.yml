@@ -27,4 +27,4 @@ name: Natural language processing technology
 summary: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
 thumbnailUrl: /azure/architecture/browse/thumbs/natural-language-processing-thumbnail.png
 content: |
-  [!include[](natural-language-processing-content.md)]
+  [!INCLUDE[](natural-language-processing-content.md)]
