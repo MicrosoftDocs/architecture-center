@@ -9,7 +9,8 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom:
+    - arb-saas
   ms.category:
     - web
 name: Starter web app for SaaS development

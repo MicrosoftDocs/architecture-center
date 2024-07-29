@@ -49,7 +49,7 @@ SDM significantly reduces the risk and complexity of legacy workload rehosting b
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution.
+The following considerations, based on the [Azure Well-Architected Framework](/azure/well-architected/), apply to this solution.
 
 ### Availability
 
@@ -57,7 +57,7 @@ Availability for the application tier is provided with Site Recovery as shown in
 
 ### Operations
 
-The Azure environment in the diagram is managed either with the Azure portal or [Azure Resource Manager (ARM) templates and scripts](/azure/azure-resource-manager/templates/). This allows for the administration of assets (like resizing) and managing security and access. Management of the actual SDM environment is provided via the LzWorkbench administration tool. This allows for the creation and management of execution environments in the SDM.
+The Azure environment in the diagram is managed either with the Azure portal or [Azure Resource Manager templates and scripts](/azure/azure-resource-manager/templates/). This allows for the administration of assets (like resizing) and managing security and access. Management of the actual SDM environment is provided via the LzWorkbench administration tool. This allows for the creation and management of execution environments in the SDM.
 
 ### Performance efficiency
 

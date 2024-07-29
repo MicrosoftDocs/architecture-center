@@ -123,7 +123,7 @@ Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include t
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
 
 ### Availability
 
@@ -186,7 +186,6 @@ Principal author:
 
 ## Related resources
 
-- [High availability and disaster recovery scenarios for IaaS apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)

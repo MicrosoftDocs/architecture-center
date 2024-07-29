@@ -9,9 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - example-scenario
+  ms.custom: arb-iot
 name: IoT analyze and optimize loops
 summary: Learn about analyze and optimize loops, an IoT pattern for generating and applying optimization insights based on the entire business context.
 products:

@@ -171,7 +171,7 @@ If your model achieves high accuracy, it provides a list of products that you ca
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -253,4 +253,3 @@ For information about Azure solution components, see these resources:
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 - [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)

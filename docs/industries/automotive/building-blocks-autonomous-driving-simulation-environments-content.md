@@ -128,7 +128,7 @@ This solution is ideal for the automotive and transportation industries. Typical
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability and resiliency
 
@@ -210,6 +210,3 @@ Relevant architectures:
 - [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
 
 - [Real-time asset tracking and management](/azure/architecture/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central)
-
-- [Machine teaching with the Microsoft Autonomous Systems platform](/azure/architecture/solution-ideas/articles/autonomous-systems)
-

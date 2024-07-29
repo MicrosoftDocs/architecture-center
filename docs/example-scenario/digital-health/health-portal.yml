@@ -10,9 +10,7 @@ metadata:
   ms.subservice: example-scenario
   ms.category:
     - web
-  ms.custom:
-    - fcp
-    - example-scenario
+  ms.custom: arb-healthcare
 name: Consumer health portal on Azure
 azureCategories:
   - web

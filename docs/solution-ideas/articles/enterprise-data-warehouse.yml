@@ -21,6 +21,7 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/modern-data-warehouse"
     - internal-intro
+    - arb-data
 name: Enterprise data warehouse
 azureCategories:
   - databases

@@ -8,13 +8,12 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-front-door
+  - azure-front-door
 categories:
- - networking
-ms.category:
-  - fcp
+  - networking
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Use Azure Front Door in a multitenant solution
@@ -280,16 +279,16 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 
 Principal authors:
 
- * [Raj Nemani](http://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Raj Nemani](https://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-* [Fernando Antivero](http://linkedin.com/in/fernandoantivero) | Fullstack Developer & Cloud Platform Engineer
-* [Duong Au](http://linkedin.com/in/duong-au-32427b46) | Senior Content Developer, C+E Skilling Content R&D
-* [Harikrishnan M B (HARI)](http://linkedin.com/in/harikrishnanmb) | Product Manager 2, Azure Networking 
-* [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+* [Fernando Antivero](https://linkedin.com/in/fernandoantivero) | Fullstack Developer & Cloud Platform Engineer
+* [Duong Au](https://linkedin.com/in/duong-au-32427b46) | Senior Content Developer, C+E Skilling Content R&D
+* [Harikrishnan M B (HARI)](https://linkedin.com/in/harikrishnanmb) | Product Manager 2, Azure Networking 
+* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -9,7 +9,7 @@ This article describes how to extract insights from customer conversations at a 
 
 1. A phone call between an agent and a customer is recorded and stored in Azure Blob Storage. Audio files are uploaded to an Azure Storage account via a supported method, such as the UI-based tool, [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer), or a [Storage SDK or API](/azure/storage/blobs/reference).
 
-1. [Azure AI Speech](/azure/ai-services/speech-service/overview) is used to transcribe audio files in [batch mode](/azure/ai-services/speech-service/batch-transcription) asynchronously with speaker diarization enabled. The transcription results are persisted in Blob Storage.
+1. [Azure AI Speech](/azure/ai-services/speech-service/overview) is used to transcribe audio files in [Batch mode](/azure/ai-services/speech-service/batch-transcription) asynchronously with speaker diarization enabled. The transcription results are persisted in Blob Storage.
 
 1. [Azure AI Language](/azure/ai-services/language-service/overview) is used to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
@@ -39,7 +39,6 @@ Depending on your scenario, you can add the following workflows.
 
 - Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Azure AI Language.
 - Depending on the size and scale of your workload, you can use [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python?source=recommendations&pivots=python-mode-configuration) as a code-first integration tool to perform text-processing steps, like text summarization on extracted data.
-- Deploy and implement a [custom speech-to-text solution](/azure/architecture/ai-ml/guide/custom-speech-text-deploy).
 
 ## Scenario details
 
@@ -51,14 +50,14 @@ This solution provides value to organizations in industries like telecommunicati
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Find the availability service-level agreement (SLA) for each component in [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-- To design high-availability applications with Storage accounts, see [the configuration options](/azure/storage/common/geo-redundant-design).
+- To design high-availability applications with Storage accounts, see the [configuration options](/azure/storage/common/geo-redundant-design).
 - To ensure resiliency of the compute services and datastores in this scenario, use failure mode for services like Azure Functions and Storage. For more information, see the [resiliency checklist for Azure services](/azure/architecture/checklist/resiliency-per-service).
 - [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 
@@ -122,9 +121,7 @@ Principal authors:
 - [Ingestion Client with AI services](/azure/ai-services/speech-service/ingestion-client)
 - [Post-call transcription and analytics](/azure/ai-services/speech-service/call-center-quickstart)
 
-## Related resources
+## Related resource
 
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
-- [Deploy a custom speech-to-text solution](/azure/architecture/guide/ai/custom-speech-text-deploy)
 - [Create custom language and acoustic models](/azure/architecture/solution-ideas/articles/speech-services)
-- [Deploy a custom speech-to-text solution](/azure/architecture/ai-ml/guide/custom-speech-text-deploy)
+

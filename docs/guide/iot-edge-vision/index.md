@@ -13,9 +13,7 @@ products:
   - azure-iot-edge
   - azure-machine-learning
   - azure-storage
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 ---
 
 # Vision AI solutions with Azure IoT Edge

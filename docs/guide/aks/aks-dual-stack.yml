@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - containers
     - reference-architecture
+    - arb-containers
 name: Enable dual-stack network traffic on Azure Kubernetes Service
 azureCategories:
   - containers

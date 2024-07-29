@@ -71,7 +71,7 @@ In active-passive mode with cold standby, the primary region has all the resourc
 
 As mentioned, active-passive mode includes failover taking some time, so it's easier to keep all data in sync. Active-passive mode with cold standby is the most cost effective approach because you don't deploy all the resources to both regions.
 
-If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources as needed. You can use Terraform, Bicep, or Azure Resource Manager (ARM) templates, and automate infrastructure setup in a continuous integration/continuous deployment (CI/CD) pipeline. You should regularly test your configuration by recreating your secondary region to ensure your templates are deployable in an emergency.
+If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources as needed. You can use Terraform, Bicep, or Azure Resource Manager templates, and automate infrastructure setup in a continuous integration/continuous deployment (CI/CD) pipeline. You should regularly test your configuration by recreating your secondary region to ensure your templates are deployable in an emergency.
 
 The [deployment stamps](../../../patterns/deployment-stamp.yml) pattern is recommended because multiple independent copies of an application or component can be deployed from a single template to multiple regions.
 
@@ -236,4 +236,4 @@ We recommend the following guides for a deeper understanding about the configura
 - [High-availability blue/green deployment for applications](../guides/blue-green-spring.yml)
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../../best-practices/host-name-preservation.yml)
 
-This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.
+This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). We recommend that you review the design principles for each pillar.
