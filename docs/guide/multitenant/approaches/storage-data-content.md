@@ -152,7 +152,7 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

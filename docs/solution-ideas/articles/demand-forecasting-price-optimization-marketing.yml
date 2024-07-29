@@ -19,6 +19,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing"
     - ai-machine-learning
     - aml-project-improvement
+    - arb-data
 name: Use a demand forecasting model for price optimization
 azureCategories:
   - analytics

@@ -14,6 +14,7 @@ metadata:
     - iot
   ms.custom:
     - fcp
+    - arb-data
 name: Big data analytics with Azure Data Explorer
 azureCategories:
   - analytics

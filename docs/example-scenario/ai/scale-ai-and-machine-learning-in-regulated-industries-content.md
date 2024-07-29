@@ -112,7 +112,7 @@ Implementation of enterprise-scale analytics and AI reference architecture in re
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 In this section, we discuss lessons learned from the implementation of the architecture described earlier in a life sciences and healthcare regulated environment. We also cover high-level design considerations to meet common ISRM controls and policies.
 
@@ -266,4 +266,4 @@ Product documentation:
 
 Azure Architecture Center overview articles:
 
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)

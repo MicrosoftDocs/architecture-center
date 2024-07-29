@@ -5,7 +5,7 @@ description: Use these messaging patterns to support cloud applications by using
 ms.author: robbag
 author: RobBagby
 ms.date: 07/28/2022
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

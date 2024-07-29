@@ -48,7 +48,7 @@ Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/nois
 
 ## Microsoft Azure Well-Architected Framework
 
-While the entirety of the [Azure Well-Architected Framework](/azure/architecture/framework/index) is important for all solutions, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
+While the entirety of the [Azure Well-Architected Framework](/azure/well-architected/) is important for all solutions, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
 
 ## Multitenant architectural guidance
 
