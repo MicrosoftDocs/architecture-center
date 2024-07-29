@@ -18,6 +18,7 @@ metadata:
     - Cosmos DB
     - mode-api
     - "https://azure.microsoft.com/solutions/architecture/gaming-using-cosmos-db"
+    - arb-data
 name: Gaming using Azure Cosmos DB
 azureCategories:
   - databases

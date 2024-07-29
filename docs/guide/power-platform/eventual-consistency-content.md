@@ -102,4 +102,4 @@ Guidance for Web development:
 - [Ten design principles for Azure applications](/azure/architecture/guide/design-principles)
 - [Design and implementation patterns](/azure/architecture/patterns/category/design-implementation)
 - [App Service deployment best practices](/azure/app-service/deploy-best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
