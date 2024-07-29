@@ -1855,12 +1855,12 @@
     },
     {
       "source_path": "docs/patterns/category/performance-scalability.md",
-      "redirect_url": "/azure/well-architected/reliability/design-patterns",
+      "redirect_url": "/azure/well-architected/performance-efficiency/design-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/category/security.md",
-      "redirect_url": "/azure/well-architected/reliability/design-patterns",
+      "redirect_url": "/azure/well-architected/security/design-patterns",
       "redirect_document_id": false
     },
     {
