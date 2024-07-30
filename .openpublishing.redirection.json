@@ -4335,6 +4335,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/serverless/cloud-automation.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/serverless/event-processing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/healthcare-network.yml",
       "redirect_url": "/azure/architecture/networking/idea/healthcare-network",
       "redirect_document_id": true

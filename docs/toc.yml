@@ -1566,8 +1566,6 @@ items:
             href: serverless/event-hubs-functions/observability.yml
       - name: Architectures
         items:
-        - name: Event-based cloud automation
-          href: reference-architectures/serverless/cloud-automation.yml
         - name: Multicloud with Serverless Framework
           href: example-scenario/serverless/serverless-multicloud.yml
         - name: Real-time location sharing
