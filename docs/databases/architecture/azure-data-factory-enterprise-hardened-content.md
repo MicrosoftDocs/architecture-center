@@ -7,7 +7,7 @@ This architecture incorporates the best practices and guidance from the [Microso
 
 ## Context and key design decisions
 
-According to the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Contoso operates a medallion lakehouse that supports their first data workloads for the financial department. Contoso hardens and extends this system to support the analytical data needs of the enterprise. This strategy provides data science capabilities and self-service functionality.
+According to the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Contoso operates a [medallion lakehouse](/azure/databricks/lakehouse/medallion) that supports their first data workloads for the financial department. Contoso hardens and extends this system to support the analytical data needs of the enterprise. This strategy provides data science capabilities and self-service functionality.
 
 ### Key requirements
 
