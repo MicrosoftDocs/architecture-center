@@ -11,8 +11,8 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: 
-  - fcp
-  - arb-aiml
+    - fcp
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - analytics

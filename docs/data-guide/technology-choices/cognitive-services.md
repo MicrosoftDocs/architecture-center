@@ -18,7 +18,7 @@ products:
 ms.custom:
   - cognitive services
   - AI guide
-  - arb-aiml  
+  - arb-aiml
 ---
 
 # Choose an Azure AI services technology

@@ -6,9 +6,9 @@ metadata:
   author: matthansen0
   ms.author: mahans
   ms.date: 03/04/2024
-  ms.custom: 
-- arb-healthcare
-- arb-aiml 
+  ms.custom:
+    - arb-healthcare
+    - arb-aiml 
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
