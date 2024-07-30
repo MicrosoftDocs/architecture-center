@@ -3,7 +3,7 @@ title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
 ms.date: 07/30/2024
-ms.topic: conceptual
+ms.topic: release-notes
 ms.service: architecture-center
 ms.author: robbag
 categories: 
