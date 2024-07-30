@@ -162,6 +162,10 @@ By planning your scale-out strategy, you can scale to extremely large numbers of
 
 Resource tags enable you to add custom metadata to your Azure resources, which can be useful for management and tracking costs. For more details, see [Allocate costs by using resource tags](cost-management-allocation.yml#allocate-costs-by-using-resource-tags).
 
+### Deployment stacks
+
+Deployment stacks enable you to group resources together based on a common lifetime, even if they span multiple resource groups or subscriptions. Deployment stacks are useful when you deploy tenant-specific resources, especially if you have a deployment approach that requires deploying different types of resources into different places because of scale or compliance concerns. Deployment stacks also enable you to easily remove all of the resources related to a single tenant in one operation, if that tenant is offboarded. For more information, see [Deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks).
+
 ## Antipatterns to avoid
 
 - **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important, as your load or number of tenants increase. Plan how you'll deploy additional resources as you scale, and test the plan.
