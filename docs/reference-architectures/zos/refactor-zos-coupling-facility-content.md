@@ -10,9 +10,9 @@ The following diagram shows the architecture of an IBM z/OS mainframe system wit
 
 ### Workflow
 
-- Input travels into the mainframe over Transmission Control Protocol/Internet Protocol (TCP/IP) via standard mainframe protocols like, TN3270 and Hypertext Transfer Protocol Secure (HTTPS) **(A)**.
+- Input travels into the mainframe over Transmission Control Protocol/Internet Protocol (TCP/IP) via standard mainframe protocols, like TN3270 and Hypertext Transfer Protocol Secure (HTTPS) **(A)**.
 
-- Batch-processing or online transaction-processing applications receive the input **(B)**. Batch jobs can spread or clone across multiple central electronics complexes (CECs) that share data in the data tier. The online tier can spread a logical Customer Information Control System (CICS) region across multiple CECs via Parallel Sysplex CICS or CICSPlex.
+- Batch processing or online transaction processing applications receive the input **(B)**. Batch jobs can spread or clone across multiple central electronics complexes (CECs) that share data in the data tier. The online tier can spread a logical Customer Information Control System (CICS) region across multiple CECs via Parallel Sysplex CICS or CICSPlex.
 - Common Business Oriented Language (COBOL), PL/I, Assembler, or compatible applications (**C**) run in the Parallel Sysplex-enabled environment, such as a CICSPlex environment.
 - Other application services (**D**) can also use shared memory across a CF.
 - Parallel Sysplex-enabled data services, like IBM Db2 (**E**), provide scale-out data storage in a shared environment.
