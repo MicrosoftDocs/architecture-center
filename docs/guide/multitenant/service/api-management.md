@@ -49,7 +49,7 @@ It's common to share an API Management instance between multiple tenants, which 
 
 If you deploy distinct back-end applications for each tenant, then you can deploy a single API Management instance and route traffic to the correct tenant back end for each request. This approach requires you to configure API Management with the back-end hostnames for each tenant or to have another way to map an incoming request to the correct tenant's back end.
 
-Because it requires extra lookup, this approach might not scale to large numbers of tenants that share a single API Management instance. There might also be some performance overhead when you look up the tenant back end. However, the size of this performance overhead depends on how you design such a lookup.
+Because it requires an extra lookup, this approach might not scale to large numbers of tenants that share a single API Management instance. There might also be some performance overhead when you look up the tenant back end. However, the size of this performance overhead depends on how you design such a lookup.
 
 #### Shared multitenant back-end application
 
