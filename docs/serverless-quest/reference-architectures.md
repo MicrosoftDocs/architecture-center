@@ -134,10 +134,6 @@ This two-part solution describes a hypothetical drone delivery system. Drones se
 - You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
 - The article [Code walkthrough: Serverless application with Azure Functions](../web-apps/serverless/architectures/code.yml) walks you through the code and the design processes.
 
-### Event-based cloud automation
-
-Automating workflows and repetitive tasks on the cloud can dramatically improve a DevOps team's productivity. A serverless model is best suited for event-driven automation scenarios. This [event-based automation reference architecture](../reference-architectures/serverless/cloud-automation.yml) illustrates two cloud automation scenarios: cost center tagging and throttling response.
-
 ### Multicloud with Serverless Framework
 
 The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.

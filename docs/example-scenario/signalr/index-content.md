@@ -166,4 +166,3 @@ See [how to authenticate and send real-time messages](/azure/azure-functions/fun
 - [Transit hub dynamic pub-sub messaging system](/azure/architecture/solution-ideas/articles/transit-hub)
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
-- [Event-based cloud automation](/azure/architecture/reference-architectures/serverless/cloud-automation)
