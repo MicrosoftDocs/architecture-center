@@ -4,12 +4,6 @@ items:
   items: 
     - name: Explore ideas about
       items:
-      - name: Cache
-        items:
-        - name: Data cache
-          href: idea/data-cache-with-redis-cache.yml        
-        - name: Messaging
-          href: idea/messaging.yml
       - name: Relational
         items:
         - name: Intelligent apps using MySQL
@@ -58,18 +52,10 @@ items:
         items:
         - name: N-tier app with Cassandra
           href: architecture/n-tier-cassandra.yml
-      - name: Relational
-        items:
-        - name: SQL Managed Instance with CMK
-          href: architecture/sql-managed-instance-cmk.yml
     - name: Apply guidance
       items:
       - name: Databases
         items:
-        - name: Relational
-          items:
-          - name: Cost savings through HTAP with Azure SQL
-            href: guide/azure-sql-htap.yml
         - name: NoSQL
           items:
           - name: Use the Transactional Outbox pattern
@@ -93,4 +79,4 @@ items:
         - name: Data obfuscation with Delphix
           href: guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
         - name: Data scrambling for SAP with Delphix
-          href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml       
+          href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml      

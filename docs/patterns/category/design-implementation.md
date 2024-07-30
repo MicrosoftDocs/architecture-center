@@ -2,10 +2,10 @@
 title: Design and implementation patterns
 titleSuffix: Cloud Design Patterns
 description: Use these design and implementation patterns to simplify administration, development, and reusability for your cloud application.
-author: martinekuan
-ms.author: martinek
+ms.author: robbag
+author: RobBagby
 ms.date: 07/28/2022
-ms.topic: design-pattern
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

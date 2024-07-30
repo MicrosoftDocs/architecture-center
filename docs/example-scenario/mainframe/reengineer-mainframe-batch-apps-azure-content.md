@@ -85,7 +85,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 - [AKS](https://azure.microsoft.com/services/kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
 - [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It's a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
 - [Functions](https://azure.microsoft.com/services/functions): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
-- [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
 
 #### Storage

@@ -48,7 +48,7 @@ Other relevant use cases include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -120,7 +120,7 @@ Product documentation of Azure services:
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
-[corda]: https://docs.r3.com/en/platform/corda/4.7/enterprise/network/azure-vm.html
+[corda]: https://docs.r3.com/en/platform/corda/4.8/enterprise.html
 [monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [security]: /azure/security

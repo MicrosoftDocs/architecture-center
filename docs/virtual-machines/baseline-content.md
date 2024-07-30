@@ -274,7 +274,7 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 ##### Virtual machines
 
-[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). The data is managed by Azure and you have no control or access to the underlying storage resource. However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). The data is managed by Azure and you have no control or access to the underlying storage resource. However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
 
 [VM insights](/azure/azure-monitor/vm/vminsights-overview) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs.
 
@@ -416,7 +416,7 @@ The business requirements and their targets must be clearly defined and factored
 
 This architecture uses zone-redundancy for several components. Each zone is made up of one or more datacenters with independent power, cooling, and networking. Having instances run in separate zones protects the application against datacenter failures.
 
-- Virtual Machine Scale Sets allocates a specified number of instances and distributes them evenly across availability zones and fault domains. This distribution is achieved through the _maximum spread_ capability, which we recommend. Spreading VM instances across fault domains makes sure all VMs aren't updated at the same time.
+- Virtual Machine Scale Sets allocates a specified number of instances and distributes them evenly across availability zones and fault domains. This distribution is achieved through the *maximum spread* capability, which we recommend. Spreading VM instances across fault domains makes sure all VMs aren't updated at the same time.
 
     Consider a scenario where there are three availability zones. If you have three instances, each instance is allocated to a different availability zone and placed in a different fault domain. Azure guarantees that only one fault domain is updated at a time in each availability zone. However, there could be a situation in which all three fault domains hosting your VMs across the three availability zones are updated simultaneously. All zones and domains are impacted. Having at least two instances in each zone provides a buffer during upgrades.
 
@@ -438,7 +438,7 @@ To prevent service level degradation and failures, ensure reliable scaling opera
 
 Autoscale allows you to define different profiles based on different event types, such as time, schedule, or metrics. Metrics-based profiles can use built-in metrics (host-based) or more detailed metrics (in-guest VM metrics) that requires installing the Azure Monitor Agent to collect them.  Every profile contains rules for scale-out (increase) and scale-in (decrease). Consider exploring all different scaling scenarios based on designed profiles and evaluate them for potential loop conditions that can cause a series of opposing scale events. Azure Monitor will attempt to mitigate this situation by waiting for the cooldown period before it scales again. 
 
-Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogenous environments, autoscaling of multiple profiles isn't supported. Consider creating different scale sets to manage them separately if you plan to use autoscale with more than one type of VM. 
+Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogeneous environments, autoscaling of multiple profiles isn't supported. Consider creating different scale sets to manage them separately if you plan to use autoscale with more than one type of VM. 
 
 Consider other aspects such as bootstrapping, graceful shutdowns, installing the workload and all its dependencies, and disk management when creating or deleting VMs instances. 
 
@@ -460,7 +460,7 @@ Security doesn't only refer to technical controls. We recommend that you follow 
 
 #### Segmentation
 
-- **Network segmentation**. Workload resources are placed in a virtual network, which provides isolation from the internet. Within the virtual network, subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the virtual network is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
+- **Network segmentation**. Workload resources are placed in a virtual network, which provides isolation from the internet. Within the virtual network, subnets can be used as trust boundaries. *Colocate related resources needed for handling a transaction in one subnet*. In this architecture, the virtual network is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
 
     The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
 
@@ -513,8 +513,8 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 #### Encryption
 
 - **Data in transit**. User traffic between users and the Application Gateway public IP is encrypted using the external certificate. Traffic between the application gateway and the front-end VMs, and between the front-end and back-end VMs is encrypted using an internal certificate. Both certificates are stored in [Key Vault](/azure/key-vault/general/overview):
-    - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public internet traffic.
-    - ***.workload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
+  - `app.contoso.com`: An external certificate used by clients and Application Gateway for secure public internet traffic.
+  - `*.workload.contoso.com`: A wildcard certificate used by the infrastructure components for secure internal traffic.
 
 - **Data at rest**. Log data is stored in a managed disk attached to VMs. That data is automatically encrypted by using platform-provided encryption on Azure.
 

@@ -74,7 +74,7 @@ In this architecture, traffic hitting the FW from, for example Subnet-B to Subne
 
 Return traffic coming from Subnet-X will be forwarded to the iLB in Subnet-D. The GatewaySubnet will also have a custom route that points Subnet-B-C to the iLB. Subnet-D isn't via the iLB. This will be treated as *regular* inter-VNET routing.
 
-While not in the drawing, it would make sense for Subnet-B/C/D/Gateway to also include a route for Subnet-A pointing it to the iLB. This arrangement avoids the "regular" VNET routing to bypass the FWs. This as Subnet-A is just another subnet in the VNET according to the Azure networking stack. It won't treat Subnet-A different, although you treat it as DMZ/Internet/etc.
+While not in the drawing, it would make sense for Subnet-B/C/D/Gateway to also include a route for Subnet-A pointing it to the iLB. This arrangement avoids the "regular" VNET routing to bypass the FWs. This as Subnet-A is just another subnet in the VNET according to the Azure networking stack. It won't treat Subnet-A different, although you treat it as DMZ, Internet, and so on.
 
 ## Summary
 
@@ -108,4 +108,3 @@ Explore related architectures:
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
-- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)

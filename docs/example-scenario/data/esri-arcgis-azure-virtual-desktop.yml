@@ -3,9 +3,9 @@ metadata:
   title: Esri ArcGIS Platform on Azure Virtual Desktop 
   titleSuffix: Azure Architecture Center
   description: View a reference architecture that shows how to deploy ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure.
-  author: rovin-ms
-  ms.author: rovin
-  ms.date: 01/10/2023
+  author: Borg-GitHub
+  ms.author: mhallenborg
+  ms.date: 07/02/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

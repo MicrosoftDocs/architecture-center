@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a multilayered approach for protecting virtual machines (VMs) in Azure. Users need to connect to VMs for management and administrative purposes. It's critical to minimize the attack surface that connectivity creates.
+This solution offers a multilayered strategy for protecting virtual machines (VMs) in Azure. Users need to connect to VMs for management and administrative purposes. It's crucial to maintain accessibility while minimizing the attack surface.
 
-This solution achieves non-persistent granular access to VMs by incorporating several protection mechanisms. It aligns with the *principle of least privilege (PoLP)* and the concept of *separation of duties*. To reduce exposure to attacks, this solution locks down inbound traffic to VMs, but it makes VM connections accessible when needed. Implementing this type of protection minimizes the risk of many popular cyber attacks on VMs, such as brute-force attacks and distributed denial-of-service (DDoS) attacks.
+This solution achieves non-persistent granular access to VMs by incorporating several protection mechanisms offered by Microsoft Azure and Entra services. The solution aligns with the *principle of least privilege (PoLP)* and the concept of separation of duties. To reduce exposure to attacks, inbound traffic to VMs is locked down. However, connectivity to VM is possible only when needed. In addition, authorization to Azure cloud resources is only granted only for legit reasons. Implementing these types of protection minimize the risk of many popular cyber-attacks on VMs, such as brute-force and distributed denial-of-service (DDoS) attacks.
 
 This solution uses many Azure services and features including:
 
@@ -11,13 +11,14 @@ This solution uses many Azure services and features including:
 - Azure Bastion.
 - Azure role-based access control (Azure RBAC) custom roles.
 - Microsoft Entra Conditional Access, optionally.
+- Azure Key Vault, optionally.
 
 ## Potential use cases
 
 *Defense in depth* is the main idea behind this architecture. This strategy challenges users with several lines of defense before granting the users access to VMs. The goal is to ensure that:
 
-- Each user is legitimate.
-- Each user has legal intentions.
+- Each user is verified.
+- Each user has legitimate intentions.
 - Communication is secure.
 - Access to VMs in Azure is only provided when needed.
 
@@ -27,7 +28,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
   - The administrator needs to troubleshoot an issue, investigate behavior, or apply a critical update.
   - The administrator uses Remote Desktop Protocol (RDP) to access a Windows VM or secure shell (SSH) to access a Linux VM.
-  - The access should include the minimum number of permissions that the work requires.
+  - The access should include the minimum number of permissions required for performing the task.
   - The access should be valid for only a limited time.
   - After the access expires, the system should lock down the VM access to prevent malicious access attempts.
 
@@ -52,13 +53,13 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 ## Dataflow
 
-1. **Authentication and access decisions**: The user is authenticated against Microsoft Entra ID for access to the Azure portal, Azure REST APIs, Azure PowerShell, or the Azure CLI. If authentication succeeds, a Microsoft Entra Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
+1. **Authentication and access decisions**: The user is authenticated against Microsoft Entra ID to access the Azure portal, Azure REST APIs, Azure PowerShell, or the Azure CLI. If authentication succeeds, a Microsoft Entra Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
 
-1. **Identity-based just-in-time access**: During authorization, Microsoft Entra PIM assigns the user a custom role of type *eligible*. The eligibility is limited to required resources and is a *time-bound* role, not a *permanent* one. Within a specified time frame, the user requests activation of this role through the Azure PIM interface. That request can trigger other actions, such as starting an approval workflow or prompting the user for multifactor authentication to verify identity. In an approval workflow, another person needs to approve the request. Otherwise the user isn't assigned the custom role and can't continue to the next step.
+2. **Identity-based just-in-time access**: During authorization, Microsoft Entra PIM assigns the user a custom role of type *eligible*. The eligibility is limited to required resources and is a *time-bound* role, not a *permanent* one. Within a specified time frame, the user requests activation of this role through the Azure PIM interface. That request can trigger other actions, such as starting an approval workflow or prompting the user for multifactor authentication to verify identity. In an approval workflow, another person needs to approve the request. Otherwise the user isn't assigned the custom role and can't continue to the next step.
 
-1. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user then requests JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. Azure Bastion opens an internal RDP session by using that connection. The session is limited to the Azure virtual network and isn't exposed to the public internet.
+3. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user then requests JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. Azure Bastion opens an internal RDP session by using that connection. The session is limited to the Azure virtual network and isn't exposed to the public internet.
 
-1. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time.
+4. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time. The user may retrieve the password from an Azure Key Vault, if the password was stored as a secret in the Key Vault, and sufficient RBAC permissions are configured to limit access to the appropriate user account.
 
 ### Components
 
@@ -89,6 +90,8 @@ This solution uses the following components:
 
   Azure Bastion is optional in this solution. Users can connect directly to Azure VMs by using the RDP protocol. If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet`. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. By using this configuration, you block connections that don't come from the user's on-premises environment.
   
+- [Azure Key Vault][Azure Key Vault] provides a secure mechanism to store the VM user's password as a *secret*. The secret RBAC can be configured so only the VM user account has the permission to retrieve it. Retrieving the password value from the key vault can be done through Azure APIs (such as using Azure CLI) or from the Azure portal, as Azure Key Vault integrates with the Azure Bastion user interface.
+
   ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
@@ -117,9 +120,10 @@ Principal author:
 [Azure AD]: https://azure.microsoft.com/services/active-directory
 [Azure AD Conditional Access]: /azure/active-directory/conditional-access/overview
 [Azure Bastion]: /azure/bastion
+[Azure Key Vault]: /azure/key-vault
 [Azure RBAC]: /azure/role-based-access-control/overview
 [Azure RBAC custom roles]: /azure/role-based-access-control/custom-roles
-[Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines
+[Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
 [Configure Bastion and connect to a Windows VM through a browser]: /azure/bastion/tutorial-create-host-portal
 [Just-in-time (JIT) VM access]: /azure/security-center/security-center-just-in-time
 [Privileged Identity Management (PIM)]: /azure/active-directory/privileged-identity-management

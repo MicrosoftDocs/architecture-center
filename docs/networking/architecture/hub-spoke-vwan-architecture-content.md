@@ -2,7 +2,7 @@ This hub-spoke architecture provides an alternate solution to the
 reference architectures [hub-spoke network topology in Azure](../architecture/hub-spoke.yml) and [implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal).
 
 The *hub* is a virtual network in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises data center(s) and the hub through an ExpressRoute or VPN gateway connection. The main differentiator of this approach is the use of
-[Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) (VWAN) to replace hubs as a managed service.
+[Azure Virtual WAN (VWAN)](https://azure.microsoft.com/services/virtual-wan/) to replace hubs as a managed service.
 
 This architecture includes the benefits of standard hub-spoke network topology and introduces new benefits:
 
@@ -39,13 +39,13 @@ The architecture consists of:
 
 -   **Virtual WAN hub**. The [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is used as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network, and a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
 
--   **Secured virtual hub**. A Virtual WAN hub with associated security and routing policies configured by Azure Firewall Manager. A secured virtual hub comes with a built-in routing so there is no need to configure user-defined routes.
+-   **Secured virtual hub**. A Virtual WAN hub with associated security and routing policies configured by Azure Firewall Manager. A secured virtual hub comes with a built-in routing so there's no need to configure user-defined routes.
 
 -   **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
 -   **Spoke virtual networks**. One or more virtual networks that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own virtual networks and are managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
--   **Virtual network peering**. Two virtual networks can be connected using a VNet peering connection. Peering connections are nontransitive, low-latency connections between virtual networks. Once peered, virtual networks exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use virtual network peering to connect the hub to each spoke. Azure Virtual WAN enables transitivity among hubs, which is not possible solely using peering.
+-   **Virtual network peering**. Two virtual networks can be connected using a VNet peering connection. Peering connections are nontransitive, low-latency connections between virtual networks. Once peered, virtual networks exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use virtual network peering to connect the hub to each spoke. Azure Virtual WAN enables transitivity among hubs, which isn't possible solely using peering.
 
 ### Components
 
@@ -116,7 +116,7 @@ For more information about setting up the gateway, see the following reference a
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
 
-A hub-spoke topology cannot be used without a gateway, even if you don't need connectivity with your on-premises network.
+A hub-spoke topology can't be used without a gateway, even if you don't need connectivity with your on-premises network.
 
 ### Virtual network peering
 
@@ -142,7 +142,7 @@ To support network-wide shared services like DNS resources, custom NVAs, Azure B
 
 ### Operations
 
-Azure VWAN is a managed service provided by Microsoft. From a technology standpoint, it is not completely different from a customer-managed hub infrastructure. Azure Virtual WAN simplifies overall network architecture by offering a mesh network topology with transitive network connectivity among spokes. Monitoring of Azure VWAN can be achieved using Azure Monitor. Site-to-site configuration and connectivity between on-premises networks and Azure can be fully automated.
+Azure VWAN is a managed service provided by Microsoft. From a technology standpoint, it isn't completely different from a customer-managed hub infrastructure. Azure Virtual WAN simplifies overall network architecture by offering a mesh network topology with transitive network connectivity among spokes. Monitoring of Azure VWAN can be achieved using Azure Monitor. Site-to-site configuration and connectivity between on-premises networks and Azure can be fully automated.
 
 ### Reliability
 
@@ -154,7 +154,7 @@ With the help of Azure Virtual WAN, lower latency among spokes and across region
 
 ### Scalability
 
-Azure Virtual WAN provides a full mesh connectivity among spokes by preserving the ability to restrict traffic based on needs. With this architecture it is possible to have large-scale site-to-site performance. Moreover, you can create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
+Azure Virtual WAN provides a full mesh connectivity among spokes by preserving the ability to restrict traffic based on needs. With this architecture it's possible to have large-scale site-to-site performance. Moreover, you can create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
 
 ### Security
 
@@ -172,9 +172,17 @@ Virtual network peering is a nontransitive relationship between two virtual netw
 
 ### Cost optimization
 
-A customer-managed hub infrastructure introduces management cost to underlying Azure resources. To achieve a transitive connectivity with a predictable latency, you must have a Network Virtual Appliance (NVA) or Azure Firewall deployed in each hub. Using Azure Firewall with either choice will lower the cost compared to an NVA. Azure Firewall costs are the same for both options. There is an extra cost for Azure Virtual WAN; however, it is much less costly than managing your own hub infrastructure.
+Use the [Azure Virtual WAN pricing page](https://azure.microsoft.com/pricing/details/virtual-wan/) to understand and estimate the most cost-effective solution for your network topology. Azure Virtual WAN pricing involves several key cost factors:
 
-For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan).
+1. *Deployment hours*: Charges for the deployment and use of Virtual WAN hubs.
+2. *Scale unit*: Fees based on the bandwidth capacity (Mbps/Gbps) for scaling VPN (S2S, P2S) and ExpressRoute gateways.
+3. *Connection unit*: Costs for each connection to VPN, ExpressRoute, or remote users.
+4. *Data processed unit*: Charges per GB for data processed through the hub.
+5. *Routing infrastructure unit*: Costs for the routing capabilities in the hub.
+6. *Azure Firewall with Secured Virtual Hub*: Recommended and adds an additional cost per deployment unit and data processed unit.
+7. *Hub-to-hub data transfer*: Costs for transferring data between hubs subject to inter-region (intra/inter-continental) charges as detailed in the [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+For pricing aligned to common networking scenarios, see [About virtual WAN pricing](/azure/virtual-wan/pricing-concepts#pricing).
 
 ## Contributors
 

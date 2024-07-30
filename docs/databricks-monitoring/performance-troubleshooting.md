@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Databricks performance issues
 description: Use Grafana monitoring dashboards to troubleshoot performance bottlenecks in Apache Spark jobs on Azure Databricks.
-author: martinekuan
+author: mssaperla
+ms.author: saperla
 categories: azure
-ms.author: martinek
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -162,4 +162,4 @@ For example, the following graph shows that the memory used by shuffling on the 
 - [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
 - [Use dashboards to visualize Azure Databricks metrics](dashboards.md)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
-- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
+- [Ingestion, ETL (extract, transform, load), and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)

@@ -3,7 +3,7 @@ metadata:
   title: Host a Murex MX.3 workload on Azure using SQL
   titleSuffix: Azure Architecture Center
   description: Learn how to implement an Azure architecture for Murex workloads using SQL Server as the database.
-  author: martinekuan
+  author: agansu
   ms.author: gansua
   ms.date: 02/07/2024
   ms.topic: example-scenario

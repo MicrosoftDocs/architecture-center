@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/06/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -13,10 +13,8 @@ products:
 categories:
   - management-and-governance
   - security
-ms.category:
-  - fcp
 ms.custom:
-  - guide
+  - arb-saas
 ---
 
 # Resources for architects and developers of multitenant solutions
@@ -28,7 +26,7 @@ The following articles provide examples of multitenant architectures on Azure.
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
 | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml) | Reference architecture for a multitenant SaaS scenario on Azure, which is deployed in multiple regions | Web |
-| [Use Application Gateway Ingress Controller with a multi-tenant Azure Kubernetes Service](../../example-scenario/aks-agic/aks-agic.yml) | Example for implementing multitenancy with AKS and AGIC | Kubernetes |
+| [Use Application Gateway Ingress Controller with a multitenant Azure Kubernetes Service (AKS)](../../example-scenario/aks-agic/aks-agic.yml) | Example for implementing multitenancy with AKS and AGIC | Kubernetes |
 | [All multitenant architectures](../../browse/index.yml?terms=multitenant) | Lists all the architectures that include multitenancy | Multiple |
 
 ## Cloud design patterns
@@ -50,7 +48,7 @@ Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/nois
 
 ## Microsoft Azure Well-Architected Framework
 
-While the entirety of the [Azure Well-Architected Framework](/azure/architecture/framework/index) is important for all solutions, pay special attention to the [Resiliency pillar](/azure/architecture/framework/resiliency/reliability-patterns#resiliency). The nature of cloud hosting leads to  applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
+While the entirety of the [Azure Well-Architected Framework](/azure/well-architected/) is important for all solutions, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
 
 ## Multitenant architectural guidance
 
@@ -62,13 +60,13 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 ### Governance and compliance
 
-* [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions): It's important to consider how you manage your Azure subscriptions, as well as how you allocate tenant resources to subscriptions.
+* [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions): It's important to consider how you manage your Azure subscriptions, as well as how you allocate tenant resources to subscriptions.
 * [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources, for multiple customers from within your own Microsoft Entra tenant. Many tasks and services can be performed across managed tenants, by using Azure delegated resource management.
 * [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview): In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group.
 
 ### Compute
 
-* [Best practices for cluster isolation in Azure Kubernetes Service](/azure/aks/operator-best-practices-cluster-isolation): AKS provides flexibility in how you can run multitenant clusters and can isolate resources. To maximize your investment in Kubernetes, you must first understand and implement AKS multitenancy and isolation features. This best practices article focuses on isolation for cluster operators.
+* [Best practices for cluster isolation in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-cluster-isolation): AKS provides flexibility in how you can run multitenant clusters and can isolate resources. To maximize your investment in Kubernetes, you must first understand and implement AKS multitenancy and isolation features. This best practices article focuses on isolation for cluster operators.
 * [Best practices for cluster security and upgrades in Azure Kubernetes Service](/azure/aks/operator-best-practices-cluster-security): As you manage clusters in Azure Kubernetes Service (AKS), workload and data security is a key consideration. When you run multitenant clusters using logical isolation, you especially need to secure resource and workload access.
 
 ### Networking
@@ -83,8 +81,9 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
   
 ### Storage and data
 
+* [Design and build multitenant SaaS apps at scale with Azure Cosmos DB](https://www.youtube.com/watch?v=dd7W_kMh-z4) (video): Learn how to design and optimize multitenant SaaS applications using Azure Cosmos DB. This session explores key design considerations related to tenant isolation, cost optimization, and global distribution. The contents of this session applies whether you have a high volume of small B2C tenants or a low volume of highly skewed B2B tenants.
 * [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post discussing how to build a multitenant system that uses Azure Cosmos DB.
-* [Azure Cosmos DB hierarchical partition keys (private preview)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/): A blog post announcing the private preview of hierarchical partition keys for Azure Cosmos DB for NoSQL. With hierarchical partition keys, also known as sub-partitioning, you can now natively partition your container with up to three levels of partition keys. This enables more optimal partitioning strategies for multitenant scenarios or workloads that would otherwise use synthetic partition keys.
+* [Azure Cosmos DB hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys): By using hierarchical partition keys, also known as subpartitioning, you can natively partition your container with multiple levels of partition keys. This enables more optimal partitioning strategies for multitenant scenarios or workloads that would otherwise use synthetic partition keys.
 * [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): A set of articles describing various tenancy models that are available for a multitenant SaaS application, using Azure SQL Database.
 * [Running 1 million databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/): A blog post describing how Dynamics 365 team manages databases at scale.
 * [Design a multitenant database by using Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)
@@ -102,12 +101,12 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 ### Identity
 
-* [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps): Microsoft Entra ID has its own concept of multitenancy, which refers to operating across multiple Microsoft Entra directories. When working with Microsoft Entra apps, developers can choose to configure their app to be either single-tenant or multitenant.
+* [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps): Microsoft Entra ID has its own concept of multitenancy, which refers to operating across multiple Microsoft Entra directories. When developers work with Microsoft Entra apps, they can choose to configure their app to be either single-tenant or multitenant to support different scenarios.
 * [Custom-branded identity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution that is capable of supporting millions of users and billions of authentications per day.
-* [Build a multi-tenant daemon with the Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
+* [Build a multitenant daemon with the Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
 * [Authenticate and authorize multitenant apps using Microsoft Entra ID](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Microsoft Entra ID enables you to improve the functionality of cloud-native apps in multitenant scenarios.
-* [Azure Architecture Walkthrough: Building a multi-tenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): a walk through the architecture behind a multi-tenant mobile app with Azure Active Directory B2C and API Management.
-* [Define and implement permissions, roles and scopes with Microsoft Entra ID in SaaS solution](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication & authorization, which can be used by SaaS providers. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
+* [Azure Architecture Walkthrough: Building a multitenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): a walk through the architecture behind a multitenant mobile app with Azure Active Directory B2C and API Management.
+* [Define and implement permissions, roles, and scopes with Microsoft Entra ID in SaaS solution](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication & authorization, which can be used by SaaS providers. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
   
 ### Analytics
 
@@ -115,21 +114,21 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 ### IoT
 
-* [Multitenancy in IoT Hub Device Provisioning Service](/azure/iot-dps/how-to-provision-multitenant): A multitenant IoT solution will commonly assign tenant devices, by using a group of IoT hubs that are scattered across regions.
+* [Multitenancy in IoT Hub Device Provisioning Service](/azure/iot-dps/how-to-provision-multitenant): A multitenant IoT solution commonly assigns tenant devices by using a group of IoT hubs that are spread across regions.
 
 ### AI/ML
 
 * [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with Azure Cognitive Search.
+* [A Solution for ML Pipeline in Multi-tenancy Manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818): This blog post describes how Azure Machine Learning pipelines can be designed to support multiple tenants by using Azure Machine Learning workspaces.
 
 ## Community content
 
 ### Kubernetes
 
 * [Three Tenancy Models For Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
-* [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes is not a multitenant system out of the box. While it's possible to configure multitenancy, this can be challenging. This article explains Kubernetes multitenancy types.
-* [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, since Kubernetes is not a multitenant system per se, getting multitenancy right comes with some challenges. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multitenancy.
-* [Capsule: Kubernetes multi-tenancy made simple](https://github.com/projectcapsule/capsule): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It is not intended to be yet another PaaS, instead, it has been designed as a micro-services-based ecosystem with the minimalist approach, leveraging only on upstream Kubernetes.
-* [Loft: Add Multi-Tenancy To Your Clusters](https://github.com/loft-sh/kiosk): Loft provides lightweight Kubernetes extensions for multitenancy.
+* [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes isn't a multitenant system out of the box, and requires custom configuration. This article explains Kubernetes multitenancy types.
+* [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that organizations are increasingly interested in as their Kubernetes usage spreads out. However, because Kubernetes isn't explicitly a multitenant system, it can be challenging to design a multitenant Kubernetes implementation. This article describes these challenges and how to overcome them, and some useful tools for Kubernetes multitenancy.
+* [Capsule: Kubernetes multi-tenancy made simple](https://capsule.clastix.io/): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a microservices-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
 * [Crossplane: The cloud native control plane framework](https://www.crossplane.io/): Crossplane enables you to build control planes for your own solution, by using a Kubernetes-based approach.
 
 ## Contributors
@@ -138,7 +137,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure

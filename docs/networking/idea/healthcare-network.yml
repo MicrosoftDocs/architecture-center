@@ -5,10 +5,11 @@ metadata:
   description: See how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud.
   author: niravi-msft
   ms.author: niravi
-  ms.date: 12/12/2022
+  ms.date: 05/22/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: arb-iot
 azureCategories:
   - hybrid
   - iot

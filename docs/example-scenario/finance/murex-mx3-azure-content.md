@@ -54,7 +54,7 @@ This solution is ideal for use in the finance industry. The following are some p
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Murex MX.3 is a complex workload with high memory, low latency, and high availability requirements. This section outlines some of the technical considerations that need to be analyzed while implementing a Murex MX.3 workload in Azure.
 
@@ -192,4 +192,4 @@ Other contributors:
 
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml)
-- [Run Oracle databases on Azure](../../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)
+- [Oracle on Azure architecture design](../../solution-ideas/articles/oracle-on-azure-start-here.md)

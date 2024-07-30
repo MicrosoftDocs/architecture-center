@@ -13,10 +13,9 @@ products:
   - azure-cost-management
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Measure the consumption of each tenant
@@ -30,7 +29,7 @@ There are two primary concerns driving the need for measuring each tenant's cons
 
 However, it can be difficult to measure the actual resources used by a tenant in a multitenant solution. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage, based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It's difficult to determine exactly how much space each tenant uses of that relational database, either in terms of storage or of the compute capacity that's required to service any queries and requests.
 
-By contrast, for a single-tenant solution, you can use [Azure Cost Management](/azure/cost-management-billing/costs/overview-cost-management) within the Azure portal, to get a complete cost breakdown for all the Azure resources that are consumed by that tenant.
+By contrast, for a single-tenant solution, you can use [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) within the Azure portal, to get a complete cost breakdown for all the Azure resources that are consumed by that tenant.
 
 Therefore, when facing these challenges, it's important to consider how to measure consumption.
 
@@ -92,19 +91,19 @@ Some Azure services provide features that allow other methods of attribution of 
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-- [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
 
 Other contributors:
 
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

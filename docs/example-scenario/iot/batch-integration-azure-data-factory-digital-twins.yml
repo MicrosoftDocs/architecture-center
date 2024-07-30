@@ -5,11 +5,11 @@ metadata:
   description: Use Azure Data Factory to extract data from source systems and update data in Azure Digital Twins by using batch pipelines. 
   author: howardginsburg
   ms.author: hoginsbu
-  ms.date: 01/18/2023
+  ms.date: 06/07/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom: arb-iot
 azureCategories:
   - analytics
   - integration

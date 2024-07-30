@@ -75,13 +75,11 @@ The following sections provide links to reference architectures in some key mana
 ### High availability
 
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
-- [High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 - [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 - [Deploy highly available NVAs](../../networking/guide/nva-ha.yml)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Run a highly available SharePoint Server 2016 farm in Azure](../../reference-architectures/sharepoint/index.yml)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
 
 ### Compliance and governance
@@ -93,18 +91,14 @@ The following sections provide links to reference architectures in some key mana
 ### Hybrid management
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
-- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 - [Back up files and applications on Azure Stack Hub](../../hybrid/azure-stack-backup.yml)
 - [Disaster recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-disaster-recovery.yml)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Manage configurations for Azure Arc-enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
-- [Manage hybrid Azure workloads using Windows Admin Center](../../hybrid/hybrid-server-os-mgmt.yml)
 
 ### Update management
 
 - [Plan deployment for updating Windows VMs in Azure](../../example-scenario/wsus/index.yml)
-- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 
 ## Best practices
 

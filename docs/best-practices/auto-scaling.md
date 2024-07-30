@@ -2,10 +2,10 @@
 title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
-author: martinekuan
-ms.author: martinek
+ms.author: robbag
+author: RobBagby
 ms.date: 10/11/2022
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: best-practice
 categories:
@@ -53,15 +53,15 @@ Azure provides built-in autoscaling for most compute options.
 
 - **Service Fabric** also supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. That way, each node type can be scaled in or out independently. See [Scale a Service Fabric cluster in or out using autoscale rules][service-fabric-autoscale].
 
-- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up).
+- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an app service. For more information, see [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up).
 
 These compute options all use [Azure Monitor autoscale][monitoring] to provide a common set of autoscaling functionality.
 
 - **Azure Functions** differs from the previous compute options, because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code is running, scaling out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
 
-Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure diagnostics and application-based metrics, along with custom code to monitor and export the application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
+Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure Diagnostics and application-based metrics, along with custom code to monitor and export the application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
 
-Use the built-in autoscaling features of the platform, if they meet your requirements. If not, carefully consider whether you really need more complex scaling features. Examples of additional requirements may include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
+Use the built-in autoscaling features of the platform, if they meet your requirements. If not, carefully consider whether you really need more complex scaling features. Examples of additional requirements might include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
 
 ## Use Azure Monitor autoscale
 
@@ -103,7 +103,7 @@ For details about how Azure Monitor scales, see [Best practices for Autoscale](/
 
 - If you configure autoscaling using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters to measure specific business processes.
 
-- When autoscaling Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more information, see [scale a Service Fabric cluster in or out using autoscale rules](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
+- When autoscaling Service Fabric, the node types in your cluster are made of virtual machine scale sets at the back end, so you need to set up autoscale rules for each node type. Take into account the number of nodes that you must have before you set up autoscaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more information, see [Scale a Service Fabric cluster in or out using autoscale rules](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
 - You can use the portal to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage).
 
@@ -126,8 +126,8 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 - When background tasks run on separate compute instances, such as in worker roles of a cloud-services&ndash;hosted application, you may need to scale different parts of the application using different scaling policies. For example, you may need to deploy additional user interface (UI) compute instances without increasing the number of background compute instances, or the opposite of this. If you offer different levels of service (such as basic and premium service packages), you may need to scale out the compute resources for premium service packages more aggressively than those for basic service packages in order to meet SLAs.
 
-- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This is one possible indicator of an imbalance or difference between the current load and the processing capacity of the background task. There is a slightly more complex, but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it is unnecessary to scale, even if the queue length is long. 
-  - For example, there could be 50,000 messages in a queue, but the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a 3rd-party web service for sending out emails. It is likely that business stakeholders would consider that to be a period of time that wouldn't justify spending extra money for scaling. 
+- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This is one possible indicator of an imbalance or difference between the current load and the processing capacity of the background task. There is a slightly more complex, but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it is unnecessary to scale, even if the queue length is long.
+  - For example, there could be 50,000 messages in a queue, but the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a third-party web service for sending out emails. It is likely that business stakeholders would consider that to be a period of time that wouldn't justify spending extra money for scaling.
   - On the other hand, there could be 500 messages in a queue, with the same 500 ms critical time, but the endpoint is part of the critical path in some real-time online game, where business stakeholders defined a 100 ms or less response time. In that case, scaling out would make sense.
   - In order to make use of critical time in auto-scaling decisions, it's helpful to have a library automatically add the relevant information to the headers of messages, while they are sent and processed. One such library that provides this functionality is [NServiceBus](https://docs.particular.net/monitoring/metrics/definitions#metrics-captured-critical-time).
 
@@ -143,7 +143,7 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 ## Related resources
 
-The following patterns and guidance may also be relevant to your scenario when implementing autoscaling:
+The following patterns and guidance might also be relevant to your scenario when implementing autoscaling:
 
 - [Throttling pattern](../patterns/throttling.yml). This pattern describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
 

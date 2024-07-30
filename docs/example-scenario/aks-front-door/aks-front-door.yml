@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Azure Front Door to secure AKS workloads
+  titleSuffix: Azure Architecture Center
+  description: Learn how to secure AKS workloads by using end-to-end TLS encryption, Azure Front Door Premium, an Azure Private Link service, and the NGINX ingress controller.
+  author: paolosalvatori
+  ms.author: paolos
+  ms.date: 06/06/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - containers
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Use Azure Front Door to secure AKS workloads
+azureCategories:
+  - containers
+  - networking
+summary: Learn how to secure AKS workloads by using end-to-end TLS encryption, Azure Front Door Premium, an Azure Private Link service, and the NGINX ingress controller.
+products:
+  - azure-front-door
+  - azure-key-vault
+  - azure-private-link
+  - azure-container-registry
+  - azure-kubernetes-service
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-front-door.png
+content: |
+   [!include[](aks-front-door-content.md)]

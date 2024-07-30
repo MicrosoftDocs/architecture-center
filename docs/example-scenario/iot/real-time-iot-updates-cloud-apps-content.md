@@ -79,7 +79,6 @@ To learn about related solutions, see this information:
 
 - [IoT architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview#guides)
 - [IoT solution architecture](./devices-platform-application.yml)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 
 ### IoT patterns
 
@@ -90,6 +89,5 @@ To learn about related solutions, see this information:
 ### IoT architectures
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [IoT and data analytics](../data/big-data-with-iot.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Project 15 Open Platform](../../solution-ideas/articles/project-15-iot-sustainability.yml)

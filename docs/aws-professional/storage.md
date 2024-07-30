@@ -1,8 +1,8 @@
 ---
-title: Compare AWS and Azure storage services
+title: Compare storage services on Azure and AWS
 description: Review storage technology differences between Azure and AWS. Compare Azure Storage with S3, EBS, EFS, and Glacier.
-author: martinekuan
-ms.author: martinek
+author: splitfinity-zz-zz
+ms.author: yubaijna
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -33,7 +33,7 @@ In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/st
 
 - [Queue storage](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) provides messaging for workflow processing and for communication between components of cloud services.
 
-- [File storage](/azure/storage/files/storage-java-how-to-use-file-storage) offers shared storage for legacy applications using the standard server message block (SMB) protocol. File storage is used in a similar manner to EFS in the AWS platform.
+- [File storage](/azure/storage/files/storage-java-how-to-use-file-storage) offers shared storage for legacy applications using the standard Server Message Block (SMB) protocol. File storage is used in a similar manner to EFS in the AWS platform.
 
 ## Glacier and Azure Storage
 

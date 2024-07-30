@@ -4,9 +4,10 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Implement a custom natural language processing (NLP) solution in Azure. Use Spark NLP for tasks like topic and sentiment detection and analysis.
   author: msteller-Ai
-  ms.author: msteller
+  ms.author: pnp
   ms.date: 08/16/2022
   ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom: fcp
@@ -19,8 +20,8 @@ products:
   - azure-databricks
   - azure-hdinsight
   - azure-synapse-analytics
-name: Large-scale custom natural language processing
+name: Large-scale custom natural language processing (NLP)
 summary: Implement a custom natural language processing (NLP) solution in Azure. Use Spark NLP for tasks like topic and sentiment detection and analysis.
 thumbnailUrl: /azure/architecture/browse/thumbs/large-scale-custom-natural-language-processing-thumbnail.png
 content: |
-  [!include[](large-scale-custom-natural-language-processing-content.md)]
+  [!INCLUDE[](large-scale-custom-natural-language-processing-content.md)]

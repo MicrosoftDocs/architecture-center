@@ -1,4 +1,4 @@
-This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity. Also, see [Detect mobile bank fraud](/azure/architecture/guide/ai/bank-fraud-solution).
+This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity.
 
 ## Architecture
 
@@ -47,7 +47,7 @@ Other relevant use cases include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -105,7 +105,6 @@ Principal author:
 
 ## Related resources
 
-- [Detect mobile bank fraud](/azure/architecture/guide/ai/bank-fraud-solution)
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)

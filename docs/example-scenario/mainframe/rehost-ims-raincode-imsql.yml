@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.
   author: amethygeo
-  ms.author: naruldoss, amsolomo
+  ms.author: naruldoss
   ms.date: 12/07/2023
   ms.topic: example-scenario
   ms.service: architecture-center

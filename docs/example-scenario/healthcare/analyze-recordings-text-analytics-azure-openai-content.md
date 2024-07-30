@@ -94,7 +94,7 @@ You can use this solution for many purposes, including:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -150,7 +150,5 @@ Principal authors:
 
 ## Related resources
 
-- [Build a telehealth system on Azure](../apps/telehealth-system.yml)
 - [Clinical insights with Microsoft Cloud for Healthcare](../mch-health/medical-data-insights.yml)
-- [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
 - [Other healthcare architectures](../../browse/index.yml?terms=healthcare)

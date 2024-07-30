@@ -98,11 +98,6 @@ Principal author:
 - [What is Microsoft Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management)
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Key Vault](https://azure.microsoft.com/services/key-vault)
-
-## Related resources
-
-- [Data governance with Profisee and Microsoft Purview](/azure/architecture/databases/architecture/profisee-master-data-management-purview)
-- [Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)

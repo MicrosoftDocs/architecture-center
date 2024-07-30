@@ -2,13 +2,14 @@
 metadata:
   title: Azure resource organization in multitenant solutions
   description: This article describes how to organize your Azure resources in a multitenant solution.
-  author: martinekuan
-  ms.author: architectures
+  author: johndowns
+  ms.author: jodowns
   ms.date: 05/24/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.category: fcp
+  ms.custom:
+    - arb-saas
 azureCategories:
   - management-and-governance
   - security

@@ -69,7 +69,7 @@ This solution outlines a modern data architecture. Azure Databricks forms the co
      - Removing users and denying them access.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provide financial governance services for Azure workloads.
+   - Microsoft Cost Management provides financial governance services for Azure workloads.
 
 ### Components
 
@@ -115,7 +115,7 @@ The solution uses the following components.
 
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
-- [Azure Cost Management and Billing][Azure Cost Management and Billing] manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Microsoft Cost Management][Microsoft Cost Management] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
 
 ## Scenario details
 
@@ -160,10 +160,9 @@ To learn about related solutions, see this information:
 - [Stream processing with Azure Databricks][Stream processing with Azure Databricks]
 - [Batch scoring of Spark models on Azure Databricks][Batch scoring of Spark models on Azure Databricks]
 - [Observability patterns and metrics for performance tuning][Observability patterns and metrics for performance tuning]
-- [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
-[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management
+[Microsoft Cost Management]: https://azure.microsoft.com/services/cost-management
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure Data Lake Storage Gen2]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
@@ -173,7 +172,6 @@ To learn about related solutions, see this information:
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
-[Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md

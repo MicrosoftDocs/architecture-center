@@ -11,7 +11,7 @@ ms.author: robbag
 ms.date: 09/20/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 azureCategories: 
   - devops
   - hybrid
@@ -73,7 +73,7 @@ After you deploy the landing zone, you need to operate and maintain it. For more
 
 ### Alternative platform deployment for policies with Enterprise Policy as Code (EPAC)
 
-[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy, manage, and operate Azure Policy in your environment. You can use EPAC instead of the preceding [platform options](#platform) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones]( https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
+[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy, manage, and operate Azure Policy in your environment. You can use EPAC instead of the preceding [platform options](#platform) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
 
 EPAC is best suited for more advanced and mature DevOps and infrastructure-as-code customers. However, customers of any size can use EPAC if they want to after they assess it. To ensure that you're aligned, see [Who should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code#who-should-use-epac) first.
 
@@ -88,7 +88,7 @@ After the platform landing zone is in place, the next step is to create and oper
 
 | Deployment option | Description |
 | --- | ---|
-| [Bicep subscription vending](https://github.com/Azure/bicep-lz-vending) | The subscription vending Bicep module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. |
+| [Bicep subscription vending](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) | The subscription vending Bicep module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. |
 | [Terraform subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | The subscription vending Terraform module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on EA, MCA, and MPA billing accounts |
 
 ## Application
@@ -100,6 +100,7 @@ You can use the following options to deploy and manage applications or workloads
 | Application | Description |
 | --- | --- |
 | [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | An open-source collection of Azure Resource Manager (ARM), Bicep, and Terraform templates that represent the strategic design path and target technical state for an AKS deployment. |
+| [Azure OpenAI chat baseline architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/azure-openai-baseline-landing-zone) | Outlines how to integrate an Azure OpenAI chat application within Azure landing zones to utilize centralized shared resources while adhering to governance and cost efficiency, offering guidance for workload teams on deployment and management. |
 | [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) | Proven recommendations and considerations across both multitenant and App Service environment use cases with a reference implementation for ASEv3-based deployment. |
 | [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) | Proven recommendations and considerations for deploying APIM management with a reference implementation showcasing Azure Application Gateway with an internal APIM instance-backed Azure Functions as back end. |
 | [SAP on Azure landing zone accelerator](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | Terraform and Ansible templates that accelerate SAP workload deployments by using Azure landing zone best practices, including the creation of infrastructure components like compute, networking, storage, monitoring, and build of SAP systems. |

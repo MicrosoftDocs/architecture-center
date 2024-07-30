@@ -1,14 +1,14 @@
 ---
 title: Advanced analytics
 description: Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
-author: martinekuan
-ms.author: pnp
+author: pratimav0420
+ms.author: prvalava
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-azureCategories: 
+azureCategories:
   - analytics
   - ai-machine-learning
   - databases
@@ -45,7 +45,7 @@ Most advanced analytics architectures include some or all of the following compo
 
 - **Analysis and reporting**. As the name suggests, advanced analytics solutions usually produce some sort of report or analytical feed that includes predicted data values. Often, predicted label values are used to populate real-time dashboards.
 
-- **Orchestration**. Although the initial data exploration and modeling is performed interactively by data scientists, many advanced analytics solutions periodically re-train models with new data &mdash; continually refining the accuracy of the models. This retraining can be automated using an orchestrated workflow.
+- **Orchestration**. Although the initial data exploration and modeling is performed interactively by data scientists, many advanced analytics solutions periodically retrain models with new data &mdash; continually refining the accuracy of the models. This retraining can be automated using an orchestrated workflow.
 
 ## Machine learning
 
@@ -79,11 +79,11 @@ Relevant Azure services:
 
 ## Artificial intelligence
 
-Artificial intelligence (AI) refers to scenarios where a machine mimics the cognitive functions associated with human minds, such as learning and problem solving. Because AI leverages machine learning algorithms, it is viewed as an umbrella term. Most AI solutions rely on a combination of predictive services, often implemented as web services, and natural language interfaces, such as chatbots that interact via text or speech, that are presented by AI apps running on mobile devices or other clients. In some cases, the machine learning model is embedded with the AI app.
+Artificial intelligence (AI) refers to scenarios where a machine mimics the cognitive functions associated with human minds, such as learning and problem solving. Because AI uses machine learning algorithms, it is viewed as an umbrella term. Most AI solutions rely on a combination of predictive services, often implemented as web services, and natural language interfaces, such as chatbots that interact via text or speech, that are presented by AI apps running on mobile devices or other clients. In some cases, the machine learning model is embedded with the AI app.
 
 ## Model deployment
 
-The predictive services that support AI applications may leverage custom machine learning models, or off-the-shelf cognitive services that provide access to pretrained models. The process of deploying custom models into production is known as operationalization, where the same AI models that are trained and tested within the processing environment are serialized and made available to external applications and services for batch or self-service predictions. To use the predictive capability of the model, it is deserialized and loaded using the same machine learning library that contains the algorithm that was used to train the model in the first place. This library provides predictive functions (often called score or predict) that take the model and features as input and return the prediction. This logic is then wrapped in a function that an application can call directly or can be exposed as a web service.
+The predictive services that support AI applications may use custom machine learning models, or off-the-shelf cognitive services that provide access to pretrained models. The process of deploying custom models into production is known as operationalization, where the same AI models that are trained and tested within the processing environment are serialized and made available to external applications and services for batch or self-service predictions. To use the predictive capability of the model, it is deserialized and loaded using the same machine learning library that contains the algorithm that was used to train the model in the first place. This library provides predictive functions (often called score or predict) that take the model and features as input and return the prediction. This logic is then wrapped in a function that an application can call directly or can be exposed as a web service.
 
 Relevant Azure services:
 

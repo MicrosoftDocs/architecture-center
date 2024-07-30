@@ -1,7 +1,3 @@
----
-ms.custom:
-  - devx-track-azurecli
----
 This example scenario helps secure the connection to a Microsoft Teams channel bot's web app by using Azure Private Link and Azure Private Endpoint. At the same time, it enables channels in the Teams client to communicate with the bot through an IP that's exposed through an Azure Firewall instance.
 
 ## Architecture
@@ -41,7 +37,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network)
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
 - [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Private Link](https://azure.microsoft.com/services/private-link)
 
 ### Alternatives

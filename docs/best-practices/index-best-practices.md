@@ -2,9 +2,10 @@
 title: Best practices in cloud applications
 titleSuffix: Azure Architecture Center
 description: Learn best practices for building reliable, scalable, and secure applications in the cloud. See resources on caching, partitioning, monitoring, and other areas.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 ms.date: 01/04/2022
-ms.topic: design-pattern
+ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
@@ -45,7 +46,7 @@ This table lists various best practices. The **Related pillars or patterns** col
 | [Message encoding considerations][Message encoding considerations] | Use asynchronous messages to exchange information between system components. Choose the payload structure, encoding format, and serialization library that work best with your data. | [Messaging][Messaging patterns], [Security][Overview of the security pillar] |
 | [Monitoring and diagnostics][Best practices for monitoring cloud applications] | Track system health, usage, and performance with a monitoring and diagnostics pipeline. Turn monitoring data into alerts, reports, and triggers that help in various situations. Examples include detecting and correcting issues, spotting potential problems, meeting performance guarantees, and fulfilling auditing requirements. | [Operational excellence][Overview of the operational excellence pillar] |
 | [Retry guidance for specific services][Retry guidance for Azure services] | Use, adapt, and extend the retry mechanisms that Azure services and client SDKs offer. Develop a systematic and robust approach for managing temporary issues with connections, operations, and resources. | [Design and implementation][Design and implementation patterns], [Reliability][Principles of the reliability pillar] |
-| [Transient fault handling][Transient fault handling] | Handle transient faults caused by unavailable networks or resources. Overcome challenges when developing appropriate retry strategies. Avoid duplicating layers of retry code and other anti-patterns. | [Design and implementation][Design and implementation patterns], [Reliability][Principles of the reliability pillar] |
+| [Transient fault handling][Transient fault handling] | Handle transient faults caused by unavailable networks or resources. Overcome challenges when developing appropriate retry strategies. Avoid duplicating layers of retry code and other antipatterns. | [Design and implementation][Design and implementation patterns], [Reliability][Principles of the reliability pillar] |
 
 ## Next steps
 

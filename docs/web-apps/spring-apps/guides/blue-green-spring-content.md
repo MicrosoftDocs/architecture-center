@@ -83,7 +83,7 @@ You can further improve your availability by implementing zero-downtime deployme
 
 ## Considerations
 
-The following solution considerations implement the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+The following solution considerations implement the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -159,5 +159,4 @@ Principal author:
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
 - [Expose Azure Spring Apps through a reverse proxy](../../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
-- [DevTest and DevOps for microservice solutions](../../../solution-ideas/articles/dev-test-microservice.yml)
 - [Deploy Azure Spring Apps to multiple regions](../../../reference-architectures/microservices/spring-apps-multi-region.yml)

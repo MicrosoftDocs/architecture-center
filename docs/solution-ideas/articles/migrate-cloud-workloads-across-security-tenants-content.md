@@ -6,12 +6,12 @@ To address business transformations like acquisitions or divesture, teams need t
 
 :::image type="content" source="../media/cross-tenant-migration-strategy.svg" alt-text="Diagram that shows a cross-tenant migration architecture." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. 
-   a. Extract the Azure Resource Manager (ARM) template and configuration artifacts and store them in a source code / configuration repository. This step conforms with Infrastructure as Code (IaC) practices and ensures that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
+1.
+   a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code / configuration repository. This step conforms with Infrastructure as Code (IaC) practices and ensures that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
    b. Deploy the artifacts (infrastructure and configuration) to the target resource group or groups in the new tenant subscription.
 
@@ -31,7 +31,7 @@ To address business transformations like acquisitions or divesture, teams need t
 * [An Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in adopting Azure.
 * [Azure DevOps](https://azure.microsoft.com/services/devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications.
 * [Azure Backup](https://azure.microsoft.com/products/backup) provides cost-effective solutions for backing up your data and recovering it from Azure.
-* [Azure App Service](https://azure.microsoft.com/products/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities.
+* [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities.
 * [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-performance data storage layer for modern cloud applications.
 * The [Azure Storage](https://azure.microsoft.com/products/category/storage) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, durable storage for various data objects in the cloud.
 * [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.

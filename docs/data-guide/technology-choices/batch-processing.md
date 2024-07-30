@@ -1,9 +1,9 @@
 ---
 title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
-author: martinekuan
+author: pratimav0420
+ms.author: prvalava
 categories: azure
-ms.author: pnp
 ms.reviewer: tozimmergren
 ms.date: 10/03/2022
 ms.topic: conceptual
@@ -54,7 +54,7 @@ HDInsight is a managed Hadoop service. Use it to deploy and manage Hadoop cluste
 - Languages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, autotermination, autoscaling.
 - Manages the Spark cluster for you.
-- Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure Synapse, and other services. See [Data Sources](/azure/databricks/data/data-sources/).
+- Built-in integration with Azure Blob Storage, Azure Data Lake Storage, Azure Synapse, and other services. For more information, see [Data Sources](/azure/databricks/data/data-sources/).
 - User authentication with Microsoft Entra ID.
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
 - Supports [GPU-enabled clusters](/azure/databricks/clusters/gpu)
@@ -81,11 +81,11 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
 | Relational data store | Yes | Yes | No | Yes |
-| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
+| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks unit (DBU)<sup>2</sup> + cluster hour |
 
 [1] With manual configuration.
 
-[2] A Databricks Unit (DBU) is a unit of processing capability per hour.
+[2] A Databricks unit (DBU) is a unit of processing capability per hour.
 
 ### Capabilities
 

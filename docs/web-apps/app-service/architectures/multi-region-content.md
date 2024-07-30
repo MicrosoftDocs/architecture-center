@@ -30,7 +30,7 @@ Key technologies used to implement this architecture:
 - [Microsoft Entra ID][Azure-Active-Directory] is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
 - [Azure DNS][Azure-DNS] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 - [Azure Content Delivery Network][Azure-Content-Delivery-Network] is a global solution for delivering high-bandwidth content by caching it at strategically placed physical nodes across the world.
-- [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) solution in this design.
+- [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall (WAF)](/azure/frontdoor/waf-overview) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design.
 - [Azure AppService][Azure-AppService] is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
 - [Azure Function Apps][Azure-Function] can be used to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
 - [Azure Storage][Azure-Storage] is a cloud storage solution for modern data storage scenarios, offering highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.
@@ -112,7 +112,7 @@ Azure Cosmos DB supports geo-replication across regions in active-active pattern
 
 ### Storage
 
-For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). With RA-GRS storage, the data is replicated to a secondary region. You have read-only access to the data in the secondary region through a separate endpoint. [User-initiated failover](/azure/storage/common/storage-initiate-account-failover?tabs=azure-portal) to the secondary region is supported for geo-replicated storage accounts.  Initiating a storage account failover automatically updates DNS records to make the secondary storage account the new primary storage account.  Failovers should only be undertaken when you deem it's necessary. This requirement is defined by your organization's disaster recovery plan, and you should consider the implications as described in the Considerations section below.
+For Azure Storage, use [read-access geo-redundant storage (RA-GRS)][ra-grs]. With RA-GRS storage, the data is replicated to a secondary region. You have read-only access to the data in the secondary region through a separate endpoint. [User-initiated failover](/azure/storage/common/storage-initiate-account-failover?tabs=azure-portal) to the secondary region is supported for geo-replicated storage accounts.  Initiating a storage account failover automatically updates DNS records to make the secondary storage account the new primary storage account.  Failovers should only be undertaken when you deem it's necessary. This requirement is defined by your organization's disaster recovery plan, and you should consider the implications as described in the Considerations section below.
 
 If there's a regional outage or disaster, the Azure Storage team might decide to perform a geo-failover to the secondary region. For these types of failovers, there's no customer action required.  Fail back to the primary region is also managed by the Azure storage team in these cases.
 
@@ -144,7 +144,7 @@ While all tiers of Azure Cache for Redis offer [Standard replication for high av
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -281,16 +281,6 @@ Azure Search removes the overhead of performing complex data searches from the p
 
 [Operational excellence](/azure/architecture/framework/devops/overview) refers to the operations processes that deploy an application and keep it running in production and is an extension of the [Well-Architected Framework Reliability](/azure/architecture/framework/resiliency/overview) guidance.  This guidance provides a detailed overview of architecting resiliency into your application framework to ensure your workloads are available and can recover from failures at any scale.  A core tenet of this approach is to design your application infrastructure to be highly available, optimally across multiple geographic regions as this design illustrates.  
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
- - Arvind Boggaram Pandurangaiah Setty | Senior Consultant
- 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - Deep dive on [Azure Front Door - traffic routing methods][front-door-routing]
@@ -327,7 +317,7 @@ Principal author:
 [Azure-DNS]: https://azure.microsoft.com/services/dns
 [Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn
 [Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor
-[Azure-AppService]: https://azure.microsoft.com/services/app-service
+[Azure-AppService]: /azure/well-architected/service-guides/app-service-web-apps
 [Azure-Function]: https://azure.microsoft.com/services/functions
 [Azure-Storage]: https://azure.microsoft.com/product-categories/storage
 [Azure-Redis-Cache]: https://azure.microsoft.com/services/cache

@@ -28,7 +28,7 @@ Jupyter is a trademark of its respective company. No endorsement is implied by t
 
    - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions will stream data to Event Hubs for ingestion into Azure Data Explorer.
 
-     or
+     -or-
 
    - Azure Functions can invoke Azure Digital Twins through its API, which then streams data to Event Hubs for ingestion into Azure Data Explorer.
 
@@ -94,5 +94,4 @@ Principal author:
 
 - [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [Real-time analytics on big data architecture](real-time-analytics.yml)

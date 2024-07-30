@@ -15,6 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-sap
+    - linux-related-content
 name: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
 azureCategories:
   - databases
