@@ -1,11 +1,12 @@
 ---
 title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
+titleSuffix: Azure Architecture Center
 author: pratimav0420
 ms.author: prvalava
 categories: azure
 ms.reviewer: tozimmergren
-ms.date: 10/03/2022
+ms.date: 07/30/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -21,39 +22,39 @@ ms.custom:
 
 # Choose a batch processing technology in Azure
 
-Big data solutions often use long-running batch jobs to filter, aggregate and otherwise prepare the data for analysis. Usually, these jobs involve reading source files from scalable storage (like HDFS, Azure Data Lake Store, and Azure Storage), processing them, and writing the output to new files in scalable storage.
+Big data solutions are often composed of discrete batch processing tasks that contribute to the overall data processing solution. Batch processing is suitable for workloads that do not require immediate access to insights and can be complementary to real-time processing requirements. It is also a great option for balancing complexity and cost for the overall implementation. 
 
 The fundamental requirement of such batch processing engines is to scale out computations to handle a large volume of data. Unlike real-time processing, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
 
 ## Technology choices for batch processing
 
+### Microsoft Fabric 
+
+[Fabric](/fabric/get-started/microsoft-fabric-overview) Microsoft Fabric is an all-in-one analytics and data platform designed for enterprises seeking a unified solution. It is a software as a service (SAAS) offering that simplifies provisioning, management and governance required for running an end-to-end analytics solution. It covers data movement, processing, ingestion, transformation and reporting. In the context of batch processing Fabric services include Data Engineering, Data Factory with builtin Lakehouse, Data warehouse and spark processing experiences. It is also augmented by AI-driven Copilot experiences that can ease and speed up development. 
+
+- Languages: R, Python, Java, Scala, SQL 
+
+- Security: Managed V-net, OneLake RBAC 
+
+- Primary Storage: One Lake, Shortcuts/Mirroring options available 
+
+- Spark: Prehydrated Starter pool and Custom Spark pool with predefined node sizes 
+
 ### Azure Synapse Analytics
 
-[Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Consider Azure Synapse when you have large amounts of data (more than 1 TB) and are running an analytics workload that will benefit from parallelism.
+[Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that brings together both SQL and Spark technologies under a single construct of a workspace that simplifies security, governance and management. Every workspace is enabled with an integrated data pipelines experience that developers can author end to end workflows. You can also provision a Dedicated SQL pool (formerly SQLDW) for large scale analytics, a Serverless SQL end point that you can use to directly query the lake and a Spark runtime for distributed data processing. 
 
-### Azure Data Lake Analytics
-
-[Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It's optimized for distributed processing of large data sets stored in Azure Data Lake Store.
-
-- Languages: [U-SQL](/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) (including Python, R, and C# extensions).
-- Integrates with Azure Data Lake Store, Azure Storage blobs, Azure SQL Database, and Azure Synapse.
-- Pricing model is per-job.
-
-### HDInsight
-
-HDInsight is a managed Hadoop service. Use it to deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](/azure/hdinsight/spark/apache-spark-overview), [Hive](/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
-
-- Languages: R, Python, Java, Scala, SQL
-- Kerberos authentication with Active Directory, Apache Ranger-based access control
-- Gives you complete control of the Hadoop cluster
+- Languages: Python, Java, Scala, and SQL
+- Security: Managed V-net, RBAC and access control, Storage ACLs on ADLS Gen2 
+- Primary Storage: ADLS Gen2, Integrates with other sources 
+- Spark: Custom Spark configuration setup with predefined node sizes 
 
 ### Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.
+[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. It features rich and premium Spark features built on top of open-source Spark and can be considered as a premium spark offering enabling on Azure. It is offered as first party service with very tight integration with the rest of the Azure services. It features additional configurations for Spark cluster deployment and Unity Catalog that helps simplify governance of the Databricks spark objects. 
 
 - Languages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, autotermination, autoscaling.
-- Manages the Spark cluster for you.
 - Built-in integration with Azure Blob Storage, Azure Data Lake Storage, Azure Synapse, and other services. For more information, see [Data Sources](/azure/databricks/data/data-sources/).
 - User authentication with Microsoft Entra ID.
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
@@ -77,35 +78,32 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight | Azure Databricks |
-| --- | --- | --- | --- | --- |
-| Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
-| Relational data store | Yes | Yes | No | Yes |
-| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks unit (DBU)<sup>2</sup> + cluster hour |
+| Capability | Microsoft Fabric | Azure Synapse Analytics | Azure Databricks |
+| --- | --- | --- | --- |
+| Is software as a service | Yes<sup>1</sup> | No | No |
+| Is managed service | No | Yes | Yes |
+| Relational data store | Yes | Yes | Yes |
+| Pricing model | Capacity units | By SQL pool/cluster hour | Databricks unit (DBU)<sup>2</sup> + cluster hour |
 
-[1] With manual configuration.
+[1] Assigned Fabric capacity.
 
 [2] A Databricks unit (DBU) is a unit of processing capability per hour.
 
-### Capabilities
+### Other capabilities
 
-| Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP | Azure Databricks |
-| --- | --- | --- | --- | --- | --- | --- |
-| Autoscaling | No | No | Yes | Yes | Yes | Yes |
-| Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster | Per cluster |
-| In-memory caching of data | No | Yes | Yes | No | Yes | Yes |
-| Query from external relational stores | Yes | No | Yes | No | No | Yes |
-| Authentication  | Microsoft Entra ID | SQL / Microsoft Entra ID | No | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID |
-| Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
-| Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
-| Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes |
-| Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
+| Capability | Microsoft Fabric | Azure Synapse Analytics | Azure Databricks |
+| --- | --- | --- | --- |
+| Autoscaling | No | No | Yes |
+| Scale-out granularity  | Per Fabric SKU | Per cluster/per SQL pool | Per cluster |
+| In-memory caching of data | No | Yes | Yes |
+| Query from external relational stores | Yes | No | Yes |
+| Authentication  | Microsoft Entra ID | SQL / Microsoft Entra ID |Microsoft Entra ID |
+| Auditing  | Yes | Yes | Yes |
+| Row-level security | Yes | Yes <sup>1</sup> | Yes |
+| Supports firewalls | Yes | Yes | Yes |
+| Dynamic data masking | Yes | Yes | Yes |
 
-[1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
-
-[2] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
-
-[3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[1] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
 
 ## Contributors
 
@@ -114,16 +112,15 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+- [Pratima Valavala](https://www.linkedin.com/in/pratimavalavala/) | Principal Solutions Architect 
 
 ## Next steps
 
-- [Create a lake database in Azure Synapse Analytics](/training/modules/create-metadata-objects-azure-synapse-serverless-sql-pools)
-- [Create an Azure Databricks workspace](/azure/databricks/getting-started)
-- [Explore Azure Databricks](/training/modules/explore-azure-databricks)
-- [Get started with Azure Data Lake Analytics using the Azure portal](/azure/data-lake-analytics/data-lake-analytics-get-started-portal)
+- [What is Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) 
+- [Fabric Decision guide](/fabric/get-started/decision-guide-pipeline-dataflow-spark) 
 - [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [What is HdInsight](/azure/hdinsight/hdinsight-overview) 
 - [What is Azure Databricks?](/azure/databricks/introduction)
-- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 
 ## Related resources
 
