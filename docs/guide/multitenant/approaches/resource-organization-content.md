@@ -1,4 +1,4 @@
-Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
+Azure provides many options for organizing your resources. In a multitenant solution, there are specific tradeoffs to consider when you plan your resource organization strategy. In this article, we review two core elements of organizing your Azure resources: tenant isolation and scale-out across multiple resources. We describe some common deployment approaches that can support different tenant isolation models. We also describe how to work with Azure's resource limits and quotas, and how to scale your solution beyond these limits.
 
 ## Key considerations and requirements
 
@@ -17,7 +17,7 @@ If you have an automated deployment process and need to scale across resources, 
 > [!TIP]
 > In the early stages of design and development, you might not choose to implement an automated scale-out process. You should still consider and clearly document the processes required to scale as you grow. By documenting the processes, you make it easier for yourself to automate them if the need arises in the future.
 
-It's also important to avoid making assumptions any assumptions throughout your code and configuration that can limit your ability to scale. For example, you might need to scale out to multiple storage accounts in the future, so ensure your application tier doesn't assume that it only connects to a single storage account for all tenants.
+It's also important to avoid making assumptions any assumptions throughout your code and configuration that can limit your ability to scale. For example, you might need to scale out to multiple storage accounts in the future, so when you build your application tier, ensure it can dynamically switch the storage account it connects to based on the active tenant.
 
 ## Approaches and patterns to consider
 
@@ -49,7 +49,7 @@ It's important that you consider how you deploy and manage these resources, incl
 
 It's a good practice to use separate resource groups for the resources you share between multiple tenants and the resources that you deploy for individual tenants. However, for some resources, [Azure limits the number of resources of a single type that can be deployed into a resource group](/azure/azure-resource-manager/management/resources-without-resource-group-limit). This limit means you might need to [scale across multiple resource groups](#resource-group-and-subscription-limits) as you grow.
 
-Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three customers, and then deploy individual databases for each tenant. In the following diagram, each customer is assigned a resource group that contains shared resources and a resource group that contains a database.
+Suppose Contoso has three customers: Adventure Works, Fabrikam, and Tailwind. They might choose to share the web application and storage account between the three customers, and then deploy individual databases for each tenant. The following diagram shows a resource group that contains shared resources and a resource group that contains each tenant's database.
 
 ![Diagram showing a resource group that contains shared resources, and another resource group that contains a database for each customer.](media/resource-organization/isolation-resource.png)
 
@@ -94,7 +94,7 @@ It's also possible to manually create individual Microsoft Entra tenants for eac
 > [!WARNING]
 > **We advise against creating multiple Microsoft Entra tenants for most multitenant solutions.** Working across Microsoft Entra tenants introduces extra complexity and reduces your ability to scale and manage your resources. Typically, this approach is only used by managed service providers (MSPs), who operate Azure environments on behalf of their customers.
 >
-> A single Microsoft Entra tenant can be used by multiple separate subscriptions and Azure resources. Before you make an effort to deploy multiple Microsoft Entra tenants, [consider whether there are other approaches that could achieve your purposes](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory).
+> Before you make an effort to deploy multiple Microsoft Entra tenants, consider whether you can achieve your requirements by using management groups or subscriptions within a single tenant instead.
 
 In situations where you need to manage Azure resources in subscriptions that are tied to multiple Microsoft Entra tenants, consider using [Azure Lighthouse](/azure/lighthouse/overview) to help manage your resources across your Microsoft Entra tenants.
 
@@ -106,7 +106,7 @@ A Microsoft Entra tenant is configured for each of Contoso's tenants, which cont
 
 ### Bin packing
 
-Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. You might need to scale your resources, as the load on your system increases, or as the number of tenants grows. Consider *bin packing* to deploy an optimal number of resources for your requirements.
+Regardless of your resource isolation model, it's important to consider when and how your solution will scale out across multiple resources. You might need to scale your resources as the load on your system increases, or as the number of tenants grows. Consider *bin packing* to deploy an optimal number of resources for your requirements.
 
 > [!TIP]
 > In many solutions, it's easier to scale your entire set of resources together, instead of scaling resources individually. Consider following the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern).
@@ -115,16 +115,16 @@ Regardless of your resource isolation model, it's important to consider when and
 
 Azure resources have [limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) that must be considered in your solution planning. For example, resources might support a maximum number of concurrent requests or tenant-specific configuration settings.
 
-The way you configure and use each resource also affects the scalability of that resource. For example, given a certain amount of compute resources, your application can successfully respond to a defined number of transactions per second. Beyond this point, you might need to scale out. Performance testing helps you to identify the point at which your resources no longer meet your requirements.
+The way you configure and use each resource also affects the scalability of that resource. For example, suppose that, given a certain amount of compute resources, your application can successfully respond to a defined number of transactions per second. Beyond this point, you might need to scale out. Performance testing helps you to identify the point at which your resources no longer meet your requirements.
 
 > [!NOTE]
 > The principle of scaling to multiple resources applies even when you work with services that support multiple instances.
 > 
-> For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits for how far you can scale a single plan. In a high-scale multitenant app, you might exceed these limits and need to deploy additional App Service resources to match your growth.
+> For example, Azure App Service supports scaling out the number of instances of your plan, but there are limits for how far you can scale a single plan. In a high-scale multitenant app, you might exceed these limits and need to deploy more App Service plans to match your growth.
 
 When you share some of your resources between tenants, you should first determine the number of tenants that the resource supports, when it's configured according to your requirements. Then, deploy as many resources as you need to serve your total number of tenants.
 
-For example, suppose you deploy an Azure Application Gateway, as part of a multitenant SaaS solution. You review your application design, test the application gateway's performance under load, and review its configuration. Then, you determine that a single application gateway resource can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 customers in your first year, so you need to plan to deploy multiple application gateways to service your expected load.
+For example, suppose you deploy Azure Application Gateway as part of a multitenant SaaS solution. You review your application design, test the application gateway's performance under load, and review its configuration. Then, you determine that a single application gateway resource can be shared among 100 customers. According to your organization's growth plan, you expect to onboard 150 customers in your first year, so you need to plan to deploy multiple application gateways to service your expected load.
 
 ![Diagram showing two application gateways. The first gateway is dedicated to customers 1 through 100, and the second is dedicated to customers 101 through 200.](media/resource-organization/bin-pack-resource.png)
 
@@ -166,8 +166,9 @@ Resource tags enable you to add custom metadata to your Azure resources, which c
 
 - **Not planning for scale.** Ensure you have a clear understanding of the limits of the resources you'll deploy, and which limits might become important, as your load or number of tenants increase. Plan how you'll deploy additional resources as you scale, and test the plan.
 - **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code, like there being a single resource when you might need to scale to multiple resources in the future.
-- **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale individual components, one by one. It's often simpler to scale your solution as a unit, by following the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern).
+- **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale each component individually. It's often simpler to scale your solution as a unit, by following the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern).
 - **Deploying isolated resources for each tenant, when not required.** In many solutions, it's more cost effective and efficient to deploy shared resources for multiple tenants.
+- **Failing to track tenant-specific resources.** If you deploy tenant-specific resources, ensure you understand which resources are allocated to which tenants. This information is important for compliance purposes, for tracking costs, and for deprovisioning resources if a tenant is offboarded. Consider using deployment stacks to group tenant-specific resources together into a logical unit regardless of the resource group or subscription they're in.
 - **Using separate Microsoft Entra tenants.** In general, it's inadvisable to provision multiple Microsoft Entra tenants. Managing resources across Microsoft Entra tenants is complex. It's simpler to scale across subscriptions linked to a single Microsoft Entra tenant.
 - **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you'll never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale&mdash;potentially at short notice.
 
