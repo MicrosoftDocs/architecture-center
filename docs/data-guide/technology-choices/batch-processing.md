@@ -22,55 +22,54 @@ ms.custom:
 
 # Choose a batch processing technology in Azure
 
-Big data solutions are often composed of discrete batch processing tasks that contribute to the overall data processing solution. Batch processing is suitable for workloads that do not require immediate access to insights and can be complementary to real-time processing requirements. It is also a great option for balancing complexity and cost for the overall implementation. 
+Big data solutions are often composed of discrete batch processing tasks that contribute to the overall data processing solution. You can use batch processing for workloads that don't require immediate access to insights. Batch processing can complement real-time processing requirements. You can also use batch processing to balance complexity and reduce cost for your overall implementation. 
 
-The fundamental requirement of such batch processing engines is to scale out computations to handle a large volume of data. Unlike real-time processing, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
+The fundamental requirement of batch processing engines is to scale out computations to handle a large volume of data. Unlike real-time processing, batch processing has latencies (the time between data ingestion and computing a result) of minutes or hours.
 
 ## Technology choices for batch processing
 
+Microsoft offers several services that you can use to do batch processing.
+
 ### Microsoft Fabric 
 
-[Fabric](/fabric/get-started/microsoft-fabric-overview) Microsoft Fabric is an all-in-one analytics and data platform designed for enterprises seeking a unified solution. It is a software as a service (SAAS) offering that simplifies provisioning, management and governance required for running an end-to-end analytics solution. It covers data movement, processing, ingestion, transformation and reporting. In the context of batch processing Fabric services include Data Engineering, Data Factory with builtin Lakehouse, Data warehouse and spark processing experiences. It is also augmented by AI-driven Copilot experiences that can ease and speed up development. 
+[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics and data platform for enterprises. It's a software as a service (SaaS) offering that simplifies the provisioning, management, and governance that runs an end-to-end analytics solution. Fabric handles data movement, processing, ingestion, transformation and reporting. Fabric features that you use for batch processing include data engineering, data warehouses, lakehouses, and Spark processing. Azure Data Factory in Fabric also supports lakehouses. To simplify and accelerate development, you can enable AI-driven Copilot. 
 
 - Languages: R, Python, Java, Scala, SQL 
-
-- Security: Managed V-net, OneLake RBAC 
-
-- Primary Storage: One Lake, Shortcuts/Mirroring options available 
-
-- Spark: Prehydrated Starter pool and Custom Spark pool with predefined node sizes 
+- Security: Managed virtual network and OneLake role-based access control (RBAC) 
+- Primary storage: OneLake, shortcuts and mirroring options available 
+- Spark: Prehydrated starter pool and custom Spark pool with predefined node sizes 
 
 ### Azure Synapse Analytics
 
-[Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that brings together both SQL and Spark technologies under a single construct of a workspace that simplifies security, governance and management. Every workspace is enabled with an integrated data pipelines experience that developers can author end to end workflows. You can also provision a Dedicated SQL pool (formerly SQLDW) for large scale analytics, a Serverless SQL end point that you can use to directly query the lake and a Spark runtime for distributed data processing. 
+[Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that brings together both SQL and Spark technologies under a single construct of a workspace. Azure Synapse Analytics simplifies security, governance, and management. Every workspace has integrated data pipelines that you can use to author end-to-end workflows. You can also provision a dedicated SQL pool (formerly SQLDW) for large-scale analytics, a Serverless SQL endpoint that you can use to directly query the lake, and a Spark runtime for distributed data processing. 
 
 - Languages: Python, Java, Scala, and SQL
-- Security: Managed V-net, RBAC and access control, Storage ACLs on ADLS Gen2 
-- Primary Storage: ADLS Gen2, Integrates with other sources 
+- Security: Managed virtual network, RBAC and access control, and storage access control lists on Azure Data Lake Storage
+- Primary storage: Data Lake Storage, integrates with other sources 
 - Spark: Custom Spark configuration setup with predefined node sizes 
 
 ### Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. It features rich and premium Spark features built on top of open-source Spark and can be considered as a premium spark offering enabling on Azure. It is offered as first party service with very tight integration with the rest of the Azure services. It features additional configurations for Spark cluster deployment and Unity Catalog that helps simplify governance of the Databricks spark objects. 
+[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. It features rich and premium Spark features built on top of open-source Spark. Azure Databricks is a Microsoft service that integrates with the rest of the Azure services. It features extra configurations for Spark cluster deployment and Unity Catalog that helps simplify governance of the Azure Databricks Spark objects. 
 
-- Languages: R, Python, Java, Scala, Spark SQL
-- Fast cluster start times, autotermination, autoscaling.
-- Built-in integration with Azure Blob Storage, Azure Data Lake Storage, Azure Synapse, and other services. For more information, see [Data Sources](/azure/databricks/data/data-sources/).
+- Languages: R, Python, Java, Scala, and Spark SQL
+- Fast cluster start times, automatic termination, and autoscaling
+- Built-in integration with Azure Blob Storage, Data Lake Storage, Azure Synapse Analytics, and other services. For more information, see [Data sources](/azure/databricks/data/data-sources/).
 - User authentication with Microsoft Entra ID.
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
 - Supports [GPU-enabled clusters](/azure/databricks/clusters/gpu)
 
 ## Key selection criteria
 
-To narrow the choices, start by answering these questions:
+To choose your technology for batch processing, consider the following questions:
 
 - Do you want a managed service rather than managing your own servers?
 
 - Do you want to author batch processing logic declaratively or imperatively?
 
-- Will you perform batch processing in bursts? If yes, consider options that let you auto-terminate the cluster or whose pricing model is per batch job.
+- Do you perform batch processing in bursts? If yes, consider options that let you automatically terminate the cluster or whose pricing model is per batch job.
 
-- Do you need to query relational data stores along with your batch processing, for example, to look up reference data? If yes, consider the options that enable the querying of external relational stores.
+- Do you need to query relational data stores along with your batch processing, for example to look up reference data? If yes, consider the options that enable the querying of external relational stores.
 
 ## Capability matrix
 
@@ -78,48 +77,50 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Microsoft Fabric | Azure Synapse Analytics | Azure Databricks |
+| Capability | Fabric | Azure Synapse Analytics | Azure Databricks |
 | --- | --- | --- | --- |
-| Is software as a service | Yes<sup>1</sup> | No | No |
-| Is managed service | No | Yes | Yes |
+| Software as a service | Yes<sup>1</sup> | No | No |
+| Managed service | No | Yes | Yes |
 | Relational data store | Yes | Yes | Yes |
-| Pricing model | Capacity units | By SQL pool/cluster hour | Databricks unit (DBU)<sup>2</sup> + cluster hour |
+| Pricing model | Capacity units | By SQL pool or cluster hour | Azure Databricks unit <sup>2</sup> and cluster hour |
 
 [1] Assigned Fabric capacity.
 
-[2] A Databricks unit (DBU) is a unit of processing capability per hour.
+[2] An Azure Databricks unit is the processing capability per hour.
 
 ### Other capabilities
 
-| Capability | Microsoft Fabric | Azure Synapse Analytics | Azure Databricks |
+| Capability | Fabric | Azure Synapse Analytics | Azure Databricks |
 | --- | --- | --- | --- |
 | Autoscaling | No | No | Yes |
-| Scale-out granularity  | Per Fabric SKU | Per cluster/per SQL pool | Per cluster |
+| Scale-out granularity  | Per Fabric SKU | Per cluster or per SQL pool | Per cluster |
 | In-memory caching of data | No | Yes | Yes |
 | Query from external relational stores | Yes | No | Yes |
-| Authentication  | Microsoft Entra ID | SQL / Microsoft Entra ID |Microsoft Entra ID |
+| Authentication  | Microsoft Entra ID | SQL or Microsoft Entra ID |Microsoft Entra ID |
 | Auditing  | Yes | Yes | Yes |
 | Row-level security | Yes | Yes <sup>1</sup> | Yes |
 | Supports firewalls | Yes | Yes | Yes |
 | Dynamic data masking | Yes | Yes | Yes |
 
-[1] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
+[1] Filter predicates only. For more information, see [Row-level security](/sql/relational-databases/security/row-level-security).
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 - [Pratima Valavala](https://www.linkedin.com/in/pratimavalavala/) | Principal Solutions Architect 
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- [What is Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) 
-- [Fabric Decision guide](/fabric/get-started/decision-guide-pipeline-dataflow-spark) 
-- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
-- [What is HdInsight](/azure/hdinsight/hdinsight-overview) 
+- [What is Fabric?](/fabric/get-started/microsoft-fabric-overview) 
+- [Fabric decision guide](/fabric/get-started/decision-guide-pipeline-dataflow-spark) 
+- [Training: Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [What is Azure HdInsight?](/azure/hdinsight/hdinsight-overview) 
 - [What is Azure Databricks?](/azure/databricks/introduction)
 
 ## Related resources
