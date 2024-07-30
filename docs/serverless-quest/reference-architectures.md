@@ -186,10 +186,6 @@ The following sections list other serverless and Azure Functions-related referen
 
 - [Gaming using Azure Cosmos DB](../solution-ideas/articles/gaming-using-cosmos-db.yml)
 
-### Automation
-
-- [Smart scaling for Azure Scale Set with Azure Functions](/samples/azure-samples/azure-scale-set-smart-downscale/smart-scaling-for-azure-scale-set-with-azure-functions/)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 

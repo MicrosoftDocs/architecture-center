@@ -126,5 +126,5 @@ If you're a managed service provider, you already use Azure Lighthouse to manage
 These articles provide service mapping and comparison between Azure and other cloud services. This reference can help you ramp up quickly on Azure.
 
 * [Containers and container orchestrators for AWS Professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
-* [AKS for Amazon EKS professionals](../../aws-professional/eks-to-aks/)
+* [AKS for Amazon EKS professionals](../../aws-professional/eks-to-aks/index.md)
 * [Containers and container orchestrators for Google Cloud Professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)
