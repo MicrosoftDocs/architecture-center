@@ -52,9 +52,9 @@ According to the [enterprise-hardened architecture](azure-data-factory-enterpris
 
 :::image type="content" source="_images/azure-data-factory-mission-critical.png" alt-text="Diagram that shows the design for a mission-critical workload." border="false"lightbox="_images/azure-data-factory-mission-critical.png":::
 
-### Design callouts
+### Workflow
 
-The design callouts for the mission-critical architecture are:
+The following workflow corresponds to the preceding diagram:
 
 1. The data platform is where the machine learning model will be developed and tested. This design change requires the following updates to the architecture:
 
