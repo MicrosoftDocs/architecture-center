@@ -9,6 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-iot
 name: Efficient Docker image deployment for low-bandwidth connectivity
 azureCategories:
   - devops

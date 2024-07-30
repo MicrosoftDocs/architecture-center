@@ -204,10 +204,9 @@ Principal author:
 
 ## Related resources
 
-You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+You might wish to review the following [Azure example scenario](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
 - [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
-- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)
 
 <!-- links -->
 

@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
-    - fcp
+    - arb-containers
     - guide
 azureCategories:
   - containers

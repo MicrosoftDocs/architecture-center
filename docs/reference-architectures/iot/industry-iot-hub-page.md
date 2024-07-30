@@ -7,10 +7,9 @@ manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
-ms.date: 01/11/2023
+ms.date: 07/09/2024
 ms.author: ansyeo
-ms.custom:
-  - internal-intro
+ms.custom: arb-iot
 categories:
   - iot
 products:

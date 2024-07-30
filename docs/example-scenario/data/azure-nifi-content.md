@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL). Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This example scenario shows how to run [Apache NiFi][Apache NiFi] on Azure. NiFi provides a system for processing and distributing data.
 
@@ -97,7 +97,7 @@ You can install ZooKeeper on Azure VMs by using official convenience binaries or
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 For information on configuring NiFi, see the [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide]. Also keep these considerations in mind when you implement this solution.
 
@@ -563,10 +563,7 @@ We recommend deploying the NiFi nodes into a single virtual machine scale set th
 
 ### Monitoring
 
-Multiple options are available for monitoring the health and performance of a NiFi cluster:
-
-- Reporting tasks.
-- [MonitoFi][Apache NiFi monitoring with MonitoFi], a separate Microsoft-developed application. MonitoFi runs externally and monitors the cluster by using the NiFi API.
+To monitor the health and performance of a NiFi cluster, use reporting tasks.
 
 #### Reporting task–based monitoring
 
@@ -936,7 +933,6 @@ For more information, see the following resources:
 
 ## Related resources
 
-- [Apache NiFi monitoring with MonitoFi][Apache NiFi monitoring with MonitoFi]
 - [Helm-based deployments for Apache NiFi][Helm-based deployments for Apache NiFi]
 - [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
 - [Hybrid extract, transform, load (ETL) with Azure Data Factory][Hybrid ETL with Azure Data Factory]
@@ -946,7 +942,6 @@ For more information, see the following resources:
 [Apache NiFi]: https://nifi.apache.org
 [Apache nifi Downloads]: https://nifi.apache.org/download.html
 [Apache nifi Mailing Lists]: https://nifi.apache.org/mailing_lists.html
-[Apache NiFi monitoring with MonitoFi]: ../../guide/data/monitor-apache-nifi-monitofi.yml
 [Apache NiFi Walkthroughs - Securing NiFi with TLS]: https://nifi.apache.org/docs/nifi-docs/html/walkthroughs.html#securing-nifi-with-tls
 [Apache Ranger documentation]: https://cwiki.apache.org/confluence/display/RANGER/NiFi+Plugin
 [Apache ZooKeeper general information]: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index

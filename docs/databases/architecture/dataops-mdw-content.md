@@ -154,7 +154,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 1. The completion of a successful build pipeline will trigger the first stage of the release pipeline. Doing so deploys the publish build artifacts into the dev environment, except for ADF.
 
-    Developers manually publish to the dev ADF from the collaboration branch (main). The manual publishing updates the Azure Resource Manager (ARM) templates in the `adf_publish` branch.
+    Developers manually publish to the dev ADF from the collaboration branch (main). The manual publishing updates the Azure Resource Manager templates in the `adf_publish` branch.
 
 1. The successful completion of the first stage triggers a manual approval gate.
 
@@ -233,4 +233,3 @@ For a detailed walk-through of the solution and key concepts, watch the followin
 ## Related resources
 
 - [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
-- [Master data management with Profisee and Azure Data Factory](./profisee-master-data-management-data-factory.yml)

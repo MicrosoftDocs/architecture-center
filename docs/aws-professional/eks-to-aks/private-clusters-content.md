@@ -51,9 +51,9 @@ For a private AKS cluster, you disable the public FQDN of the API server. To com
 The AKS resource provider exposes the following parameters to customize private AKS cluster deployment:
 
 - `authorizedIpRanges` (string) specifies allowed IP ranges in CIDR format.
-- `disableRunCommand` (boolean) specifies whether or not to disable the `run` command for the cluster.
-- `enablePrivateCluster` (boolean) specifies whether or not to create the cluster as private.
-- `enablePrivateClusterPublicFQDN` (boolean) specifies whether or not to create another, public FQDN for the private cluster.
+- `disableRunCommand` (Boolean) specifies whether or not to disable the `run` command for the cluster.
+- `enablePrivateCluster` (Boolean) specifies whether or not to create the cluster as private.
+- `enablePrivateClusterPublicFQDN` (Boolean) specifies whether or not to create another, public FQDN for the private cluster.
 - `privateDnsZone` (string) specifies a private DNS zone in the node resource group. If you don't specify a value, the resource provider creates the zone. You can specify the following values:
   - `System` is the default value.
   - `None` defaults to public DNS, so AKS doesn't create a private DNS zone.
@@ -65,7 +65,7 @@ The following table shows the DNS configuration options for deploying a private 
 |---|---|---|
 |**System**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VM uses the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
 |**None**|All the VMs, including agent nodes, use the public FQDN of the API server available via an `A` record in an Azure-managed public DNS zone.|Wrong configuration. The private AKS cluster needs at least a public or a private DNS zone for the name resolution of the API server.|
-|**\<Your own private DNS zone resource ID>**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VMs use the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
+|**Your own private DNS zone resource ID**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VMs use the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
 
 #### Private cluster connectivity and management
 

@@ -13,9 +13,7 @@ metadata:
     - hybrid
     - storage
   ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
+    - arb-hybrid
 name: Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI
 azureCategories:
   - hybrid

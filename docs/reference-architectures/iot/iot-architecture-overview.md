@@ -9,8 +9,7 @@ ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 11/21/2022
 ms.author: ansyeo
-ms.custom:
-  - internal-intro
+ms.custom: arb-iot
 categories:
   - iot
 products:

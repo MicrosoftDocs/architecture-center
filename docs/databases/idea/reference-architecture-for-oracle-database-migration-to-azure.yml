@@ -12,16 +12,7 @@ metadata:
   ms.category:
     - databases
     - migration
-  ms.custom:
-    - acom-architecture
-    - data
-    - Oracle
-    - Oracle Database
-    - Oracle DB
-    - Oracle on Azure
-    - Oracle DB architecture
-    - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure"
+  ms.custom: arb-data
 name: Oracle database migration to Azure
 azureCategories:
   - databases

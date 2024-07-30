@@ -4,7 +4,7 @@ author: robbagby
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: cloud-for-industries
+ms.service: architecture-center
 products:
   - azure-migrate
 categories:

@@ -17,6 +17,7 @@ metadata:
     - event-grid
     - azure
     - "https://azure.microsoft.com/solutions/architecture/application-integration-using-event-grid"
+    - arb-data
 name: Application integration using Azure Event Grid
 azureCategories:
   - analytics

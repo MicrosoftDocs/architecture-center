@@ -125,7 +125,7 @@ This solution is ideal for any area that monitors branding on social networks, i
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Depending on the processing tools and number of sources that you use, you might be able to streamline the solution's transformations and visualizations. If possible, consider using a basic pipeline with one sink. Instead of using multiple sources and multiple dashboards, feed that pipeline into a single dashboard.
 
@@ -185,6 +185,5 @@ Principal authors:
 
 ## Related resources
 
-- [Extract, transform, load (ETL) using HDInsight](../../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)
 - [Knowledge mining for customer feedback](../../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Apache NiFi on Azure](../data/azure-nifi.yml)

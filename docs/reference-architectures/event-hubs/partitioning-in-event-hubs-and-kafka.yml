@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - fcp
     - e2e-hybrid
+    - arb-data
 name: Partitioning in Azure Event Hubs and Kafka
 azureCategories:
   - hybrid

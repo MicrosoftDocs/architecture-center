@@ -30,7 +30,7 @@ categories:
 # Solutions for the education industry
 Help your students take hold of their futures with Microsoft Azure, a platform that provides the tools to enable, elevate, and enhance remote learning. Azure services can connect teachers to students, help you create models of smart campus buildings, deploy virtual labs, and more.
 
-Watch the following short video to get a sense of the breadth of the Azure offerings for education. It also shows how the [Cloud Adoption Framework](/azure/cloud-adoption-framework) can help you get the necessary resources for education.
+Watch the following short video to get a sense of the breadth of the Azure offerings for education. It also shows how the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get the necessary resources for education.
 <br><br>
 
 > [!VIDEO https://www.youtube.com/embed/3wgbxfm40aQ]
@@ -42,7 +42,6 @@ The following articles provide detailed analysis of architectures created and re
 
 |Architecture|Summary|Technology focus|
 |---|---|---|
-|[Build a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml) | Learn how to use Azure services to build a system that connects teachers to remote students.|Containers|
 |[Computer forensics chain of custody in Azure](../example-scenario/forensics/index.yml)|Create an infrastructure to ensure a valid digital-evidence chain of custody for computer forensics in Azure.|Management|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)|Use Azure Digital Twins to create models of smart buildings and campuses from IoT device data. View and control systems, environments, and experiences.|IoT|
 |[Enhanced-security hybrid messaging — client access](../example-scenario/hybrid/secure-hybrid-messaging-client.yml)|Learn how to enhance the security of your educational messaging infrastructure in a client access scenario by using Microsoft Entra multifactor authentication.| Hybrid|

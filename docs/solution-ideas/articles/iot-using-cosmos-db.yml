@@ -9,11 +9,7 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-    - acom-architecture
-    - iot
-    - Cosmos DB
-    - "https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db"
+  ms.custom: arb-iot
 name: Azure Cosmos DB in IoT workloads
 azureCategories:
   - iot

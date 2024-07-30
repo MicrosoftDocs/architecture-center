@@ -1,4 +1,7 @@
-This article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service enabled by Azure Arc. The apps can run on Azure Stack HCI or Windows Server. Specifically, the guidance is for deployments that use Azure Arc and GitOps.
+The information in this article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service enabled by Azure Arc. The apps can run on Azure Stack HCI or Windows Server. Specifically, the guidance is for deployments that use Azure Arc and GitOps.
+
+> [!IMPORTANT]
+> The information in this article applies to [AKS on Azure Stack HCI version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
 
 ## Architecture
 
@@ -35,7 +38,7 @@ Running containers at scale requires an orchestrator to automate scheduling, dep
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The Well-Architected Framework provides guiding principles that help with assessing and optimizing the benefits of cloud-based solutions. Given the inherent integration of on-premises AKS deployments with Azure technologies, it's appropriate to apply framework recommendations to your design and implementation of GitOps.
 

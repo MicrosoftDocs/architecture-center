@@ -19,6 +19,7 @@ metadata:
     - data warehouse analytics
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub"
+    - arb-data
 name: TimeXtender with cloud scale analytics
 azureCategories:
   - analytics

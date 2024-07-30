@@ -111,7 +111,7 @@ Automated refactoring is available for most COBOL dialects and platforms, includ
 
 ## Considerations
 
-The considerations in this section, based on the [Microsoft Well-Architected Framework](/azure/architecture/framework), apply to this solution.
+The considerations in this section, based on the [Microsoft Well-Architected Framework](/azure/well-architected/), apply to this solution.
 
 ### DevOps
 

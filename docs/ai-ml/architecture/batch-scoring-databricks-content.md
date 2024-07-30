@@ -69,7 +69,7 @@ Monitor job execution through the Databricks user interface, the data store, or 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance
 
@@ -89,7 +89,7 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 Azure Databricks is a premium Spark offering with an associated cost. In addition, there are standard and premium Databricks [pricing tiers][pricing].
 
-For this scenario, the standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the premium level could increase costs further.
+For this scenario, the Standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the Premium tier could increase costs further.
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
 
@@ -118,7 +118,6 @@ Principal author:
 
 ## Related resources
 
-- [Build a Real-time Recommendation API on Azure][aac-recommendation]
 - [Batch scoring for deep learning models using Azure Machine Learning pipelines][aac-batch-deep]
 - [Batch scoring of Python Models on Azure][aac-batch-python]
 
@@ -126,7 +125,6 @@ Principal author:
 
 [aac-batch-deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
 [aac-batch-python]: ../../ai-ml/architecture/batch-scoring-python.yml
-[aac-recommendation]: ../../reference-architectures/ai/real-time-recommendation.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
