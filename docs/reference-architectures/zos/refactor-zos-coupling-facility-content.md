@@ -43,7 +43,7 @@ The following diagram shows Azure services that provide similar functionality an
 
 1. Application servers, such as Tomcat for Java or such as CICS or information management system (IMS) transaction processing monitor for COBOL, receive the input and share application state and data via Azure Cache for Redis or Remote Direct Memory Access (RDMA). This capability is similar to CF for mainframes.
 
-1. Data services are in the application clusters so that multiple connections can persistent data sources. These data sources can include platform as a service (PaaS) data solutions like [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and Azure Cosmos DB, databases on VMs like Oracle Database or IBM Db2, or Big Data repositories like Azure Databricks and Azure Data Lake Storage. Application data services can also connect to streaming data analytics services, like Apache Kafka and Azure Stream Analytics.
+1. Data services are in the application clusters so that persistent data sources can receive multiple connections. These data sources can include platform as a service (PaaS) data solutions like [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and Azure Cosmos DB, databases on VMs like Oracle Database or IBM Db2, or Big Data repositories like Azure Databricks and Azure Data Lake Storage. Application data services can also connect to streaming data analytics services, like Apache Kafka and Azure Stream Analytics.
 
    Azure PaaS data services provide scalable and highly available data storage that multiple compute resources in a cluster can share. These services can also be geo-redundant.
 
