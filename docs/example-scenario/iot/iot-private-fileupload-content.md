@@ -45,15 +45,13 @@ Azure Application Gateway acts as the entry point and load balancer for requests
 
 By implementing this scenario, customers with internal security requirements to use Private Endpoints for many Azure PaaS services have shorter validation cycles to deploy their IoT solutions in production.
 
+For a sample that deploys a similar architecture, see [Setting up Azure IoT Hub File Upload to Azure Storage through Private Endpoint](https://github.com/Azure-Samples/azure-edge-extensions-iothub-fileupload-privatelink). This sample deploys a simulated IoT client device and shows usage of device twins for exchanging the custom domain name for the Storage account. It also contains more extensive documentation on setting up the architecture with Azure Firewall and a Hub-Spoke network topology.
+
 ### Potential use cases
 
 An industrial automation vendor offers managed connected edge controllers and sensors. These sensors need to communicate with the Azure cloud through the public internet, but vendor's security team requires the Azure Storage account to be denied public internet access. This architecture approach solves this requirement.
 
 The same use case can apply to any industry where devices need to communicate with an Azure Storage account that isn't exposed publicly.
-
-## Deploy this scenario
-
-For a sample that deploys a similar architecture, see [Setting up Azure IoT Hub File Upload to Azure Storage through Private Endpoint](https://github.com/Azure-Samples/azure-edge-extensions-iothub-fileupload-privatelink). This sample deploys a simulated client device and usage of device twins for exchanging the custom domain name for the Storage account. It also contains more extensive documentation on setting up the architecture with Azure Firewall and a Hub-Spoke network topology.
 
 ## Contributors
 
