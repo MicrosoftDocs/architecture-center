@@ -2,8 +2,8 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 07/22/2024
-ms.topic: release-notes
+ms.date: 07/30/2024
+ms.topic: conceptual
 ms.service: architecture-center
 ms.author: robbag
 categories: 
@@ -27,16 +27,34 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Azure Stack HCI baseline reference architecture](./hybrid/azure-stack-hci-baseline.yml)
+- [Azure Stack HCI three-node storage switchless architecture](./hybrid/azure-stack-hci-switchless.yml)
 - [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml)
 
 ### Updated articles
 
+- [What is the Team Data Science Process?](./data-science-process/overview.yml)  ([#cb10eaee05](https://github.com/MicrosoftDocs/architecture-center/commit/cb10eaee05))
+- [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#cb10eaee05](https://github.com/MicrosoftDocs/architecture-center/commit/cb10eaee05))
+- [Azure IoT reference architecture](./reference-architectures/iot.yml)  ([#9984ed44c0](https://github.com/MicrosoftDocs/architecture-center/commit/9984ed44c0))
 - [Create smart places by using Azure Digital Twins](./example-scenario/iot/smart-places.yml)  ([#da340d5676](https://github.com/MicrosoftDocs/architecture-center/commit/da340d5676))
 - [Oracle Database with Azure NetApp Files](./example-scenario/file-storage/oracle-azure-netapp-files.yml)  ([#9187e38cb6](https://github.com/MicrosoftDocs/architecture-center/commit/9187e38cb6))
 - [Baseline highly available zone-redundant app services web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml)  ([#2e88dba4ed](https://github.com/MicrosoftDocs/architecture-center/commit/2e88dba4ed))
 - [Basic web application](./web-apps/app-service/architectures/basic-web-app.yml)  ([#2e88dba4ed](https://github.com/MicrosoftDocs/architecture-center/commit/2e88dba4ed))
 - [Priority Queue pattern](./patterns/priority-queue.yml)  ([#d480fd13ca](https://github.com/MicrosoftDocs/architecture-center/commit/d480fd13ca))
 - [Machine learning operations v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#dba2fe1062](https://github.com/MicrosoftDocs/architecture-center/commit/dba2fe1062))
+- [Make all things redundant](./guide/design-principles/redundancy.md)  ([#525db19638](https://github.com/MicrosoftDocs/architecture-center/commit/525db19638))
+- [Design for self healing](./guide/design-principles/self-healing.md)  ([#525db19638](https://github.com/MicrosoftDocs/architecture-center/commit/525db19638))
+- [Migrate a simple app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)  ([#810d06f775](https://github.com/MicrosoftDocs/architecture-center/commit/810d06f775))
+- [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#233dc039e0](https://github.com/MicrosoftDocs/architecture-center/commit/233dc039e0))
+- [Cloud design patterns](./patterns/index.md)  ([#790ad01066](https://github.com/MicrosoftDocs/architecture-center/commit/790ad01066))
+- [Choose a cognitive services technology](./data-guide/technology-choices/cognitive-services.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
+- [Choose a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
+- [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
+- [Group manager tasks in the Team Data Science Process](./data-science-process/group-manager-tasks.md)  ([#3cf6a613d3](https://github.com/MicrosoftDocs/architecture-center/commit/3cf6a613d3))
+- [Business understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-business-understanding.md)  ([#3cf6a613d3](https://github.com/MicrosoftDocs/architecture-center/commit/3cf6a613d3))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#90a20ac702](https://github.com/MicrosoftDocs/architecture-center/commit/90a20ac702))
+- [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#9080f70ced](https://github.com/MicrosoftDocs/architecture-center/commit/9080f70ced))
+- [Run a Windows VM on Azure](./reference-architectures/n-tier/windows-vm.yml)  ([#dc428f7b59](https://github.com/MicrosoftDocs/architecture-center/commit/dc428f7b59))
 - [Microsoft partner and third-party scenarios on Azure](./guide/partner-scenarios.md)  ([#5c0d9b3b86](https://github.com/MicrosoftDocs/architecture-center/commit/5c0d9b3b86))
 - [Types of vision API services](./data-guide/cognitive-services/vision-api.md)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
@@ -44,7 +62,6 @@ The following new and updated articles have recently been published in the Azure
 - [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#955ab05fd4](https://github.com/MicrosoftDocs/architecture-center/commit/955ab05fd4))
 - [Types of language API services](./data-guide/cognitive-services/language-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
 - [Types of speech API services](./data-guide/cognitive-services/speech-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
 - [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
@@ -76,8 +93,6 @@ The following new and updated articles have recently been published in the Azure
 - [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)  ([#6de5e6f5d8](https://github.com/MicrosoftDocs/architecture-center/commit/6de5e6f5d8))
 - [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml)  ([#5d0aa22e87](https://github.com/MicrosoftDocs/architecture-center/commit/5d0aa22e87))
 - [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)  ([#2a9102b977](https://github.com/MicrosoftDocs/architecture-center/commit/2a9102b977))
-- [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#468656d555](https://github.com/MicrosoftDocs/architecture-center/commit/468656d555))
-- [Run a Windows VM on Azure](./reference-architectures/n-tier/windows-vm.yml)  ([#a594211d74](https://github.com/MicrosoftDocs/architecture-center/commit/a594211d74))
 - [Azure Private Link service considerations for multitenancy](./guide/multitenant/service/private-link.md)  ([#1aedb5d6ae](https://github.com/MicrosoftDocs/architecture-center/commit/1aedb5d6ae))
 - [Architectural approaches for a multitenant solution](./guide/multitenant/approaches/overview.yml)  ([#217fa95e83](https://github.com/MicrosoftDocs/architecture-center/commit/217fa95e83))
 - [Noisy Neighbor antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#0c1bc4ec53](https://github.com/MicrosoftDocs/architecture-center/commit/0c1bc4ec53))
