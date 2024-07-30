@@ -137,7 +137,7 @@ availability and disaster recovery can solve these issues.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability and scalability
 
@@ -160,7 +160,7 @@ Consider using a solution such as Azure DevOps or GitHub Actions.
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service)
-to estimate the costs for running AKS in Azure. To learn about other considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+to estimate the costs for running AKS in Azure. To learn about other considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Contributors
 

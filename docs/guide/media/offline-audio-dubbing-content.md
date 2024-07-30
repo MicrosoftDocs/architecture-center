@@ -464,7 +464,6 @@ Other contributors:
 - [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [Language and voice support for the Speech service](/azure/cognitive-services/speech-service/language-support)
 
-## Related resources
+## Related resource
 
 - [Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
-- [Implement custom speech-to-text](../../ai-ml/guide/custom-speech-text.yml)

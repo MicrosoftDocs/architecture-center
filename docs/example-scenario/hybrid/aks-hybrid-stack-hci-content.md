@@ -38,7 +38,7 @@ Running containers at scale requires an orchestrator to automate scheduling, dep
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The Well-Architected Framework provides guiding principles that help with assessing and optimizing the benefits of cloud-based solutions. Given the inherent integration of on-premises AKS deployments with Azure technologies, it's appropriate to apply framework recommendations to your design and implementation of GitOps.
 

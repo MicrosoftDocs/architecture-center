@@ -233,4 +233,3 @@ For a detailed walk-through of the solution and key concepts, watch the followin
 ## Related resources
 
 - [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
-- [Master data management with Profisee and Azure Data Factory](./profisee-master-data-management-data-factory.yml)

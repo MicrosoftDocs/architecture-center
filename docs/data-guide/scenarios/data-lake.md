@@ -50,7 +50,6 @@ The following table compares data lakes and data warehouses:
 
 ![A table that compares data lake features with data warehouse features.](./images/comparing-data-lakes-and-data-warehouses.png)
 
-
 ## Challenges
 
 - Lack of a schema or descriptive metadata can make the data hard to consume or query.
@@ -67,7 +66,7 @@ Build data lake solutions using the following services offered by Azure:
 
 ![A diagram that shows the key data lake services.](./images/data-lake-solution.png)
 
-- [Azure HD Insight](https://azure.microsoft.com/products/hdinsight) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
+- [Azure HD Insight](https://azure.microsoft.com/products/hdinsight) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises.
 - [Azure Data Lake Store](https://azure.microsoft.com/products/storage/data-lake-storage) is a hyperscale, Hadoop-compatible repository.
 - [Azure Data Lake Analytics](https://azure.microsoft.com/products/data-lake-analytics) is an on-demand analytics job service to simplify big data analytics.
 
