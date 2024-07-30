@@ -16,6 +16,7 @@ metadata:
     - example-scenario
     - ai-machine-learning
     - fcp
+    - arb-aiml
 name: Determine customer lifetime and churn with Azure AI services
 azureCategories:
 - ai-machine-learning

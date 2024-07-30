@@ -11,6 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
+    - arb-aiml
 name: Secure research environment for regulated data
 azureCategories:
   - ai-machine-learning

@@ -12,6 +12,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
 products:

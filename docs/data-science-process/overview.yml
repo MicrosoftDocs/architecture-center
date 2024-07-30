@@ -10,6 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ai-usage: ai-assisted
+  ms.custom: arb-aiml  
 azureCategories:
   - ai-machine-learning
 products:

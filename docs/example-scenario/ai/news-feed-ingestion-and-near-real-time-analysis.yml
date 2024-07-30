@@ -19,6 +19,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
     - arb-data
+    - arb-aiml 
 name: Analyze news feeds with near real-time analytics using image and natural language processing
 azureCategories:
   - analytics
