@@ -12,6 +12,7 @@ products:
   - azure-machine-learning
 ms.custom:
   - guide
+  - arb-aiml
 categories:
   - ai-machine-learning
 ---
