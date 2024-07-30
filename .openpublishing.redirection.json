@@ -4335,6 +4335,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/serverless/cloud-automation.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/serverless/event-processing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/healthcare-network.yml",
       "redirect_url": "/azure/architecture/networking/idea/healthcare-network",
       "redirect_document_id": true
@@ -5053,6 +5058,31 @@
     {
       "source_path": "docs/hybrid/azure-automation-hybrid.yml",
       "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/migrate-master-data-services-with-cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/profisee-master-data-management-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/profisee-mds-migration-utility.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/profisee-master-data-management-purview.yml",
+      "redirect_url": "/azure/architecture/databases/",
       "redirect_document_id": false
     },
     {
