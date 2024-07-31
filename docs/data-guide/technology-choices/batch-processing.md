@@ -6,7 +6,7 @@ author: pratimav0420
 ms.author: prvalava
 categories: azure
 ms.reviewer: tozimmergren
-ms.date: 07/30/2024
+ms.date: 07/31/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -32,7 +32,7 @@ Microsoft offers several services that you can use to do batch processing.
 
 ### Microsoft Fabric 
 
-[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics and data platform for enterprises. It's a software as a service offering that simplifies how you provision, manage, and govern an end-to-end analytics solution. Fabric handles data movement, processing, ingestion, transformation, and reporting. Fabric features that you use for batch processing include data engineering, data warehouses, lakehouses, and Apache Spark processing. Azure Data Factory in Fabric also supports lakehouses. To simplify and accelerate development, you can enable AI-driven Copilot. 
+[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics and data platform for organizations. It's a software as a service offering that simplifies how you provision, manage, and govern an end-to-end analytics solution. Fabric handles data movement, processing, ingestion, transformation, and reporting. Fabric features that you use for batch processing include data engineering, data warehouses, lakehouses, and Apache Spark processing. Azure Data Factory in Fabric also supports lakehouses. To simplify and accelerate development, you can enable AI-driven Copilot. 
 
 - *Languages:* R, Python, Java, Scala, and SQL 
 
@@ -73,7 +73,7 @@ To choose your technology for batch processing, consider the following questions
 
 - Do you want to author batch processing logic declaratively or imperatively?
 
-- Do you perform batch processing in bursts? If yes, consider options that provide the ability to automatically terminate a cluster or that have pricing models per batch job.
+- Do you perform batch processing in bursts? If yes, consider options that provide the ability to automatically terminate a cluster or that have pricing models for each batch job.
 
 - Do you need to query relational data stores along with your batch processing, for example to look up reference data? If yes, consider options that provide the ability to query external relational stores.
 
@@ -126,7 +126,7 @@ Principal authors:
 - [What is Fabric?](/fabric/get-started/microsoft-fabric-overview) 
 - [Fabric decision guide](/fabric/get-started/decision-guide-pipeline-dataflow-spark) 
 - [Training: Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
-- [What is Azure HdInsight?](/azure/hdinsight/hdinsight-overview) 
+- [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview) 
 - [What is Azure Databricks?](/azure/databricks/introduction)
 
 ## Related resources
@@ -134,4 +134,4 @@ Principal authors:
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](analysis-visualizations-reporting.md)
-- [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Analytics end-to-end with Azure Synapse Analytics](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
