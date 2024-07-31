@@ -31,9 +31,7 @@ There are several key requirements to modify and harden a medallion lakehouse:
   
   - A recovery time objective (RTO) of less than 1 day.
   
-- The platform must support the expected usage of 1,000 users across various domains with an estimated growth of 5% annually.
-
-  - Only Contoso employees can access the platform directly, but a capability to share data with third parties is required.
+- The platform must support the expected usage of 1,000 users across various domains with an estimated growth of 5% annually. Only Contoso employees can access the platform directly, but a capability to share data with other companies is required.
 
 ### Key design decisions
 
@@ -47,19 +45,17 @@ A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytic
   
     - The governance, audit, and monitoring functionality.
   
-    - The ingestion and initial processing of data into the platform.
+    - Functions to ingest and initially process data into the platform.
   
 - The domain design is anchored around a given business department's ownership of their data and the originating source system.
 
-- A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward.
-
-  - Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments.
+- A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments.
   
 - The data science capability is delivered through:
 
   - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
   
-  - [Azure Machine Learning](/azure/machine-learning/?view=azureml-api-2) and AI service offerings that support the full set of use cases and [end-user maturity](/azure/machine-learning/tutorial-first-experiment-automated-ml?view=azureml-api-2).
+  - [Azure Machine Learning](/azure/machine-learning) and AI service offerings that support the full set of use cases and [user maturity](/azure/architecture/ai-ml/guide/mlops-maturity-model).
   
   - [Azure Databricks](/azure/databricks/lakehouse-architecture/performance-efficiency/best-practices#use-parallel-computation-where-it-is-beneficial) for large enterprise volume use cases with significant processing demands.
   
@@ -68,6 +64,12 @@ A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytic
   - [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
 
   - Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/power-bi/enterprise/service-admin-azure-ad-b2b) authorization and access controls.
+
+- Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency and that source system and network infrastructure can support streaming requirements before implementation.
+
+- Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities of domain ownership](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities).
+
+- The stakeholders' data maturity, available skilling across the software development lifecycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also indicate your current position in the cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist) and highlight the steps needed to advance further.
 
 ## Architecture
 
@@ -85,9 +87,7 @@ The following workflow corresponds to the preceding diagram:
 
     - A fast path for data supports the streaming requirement. A fast path ingests data through Data Factory, and Azure Databricks structured streaming directly processes the data for analysis and use. You can use Delta Lake [change data capture](/azure/databricks/structured-streaming/delta-lake#stream-a-delta-lake-change-data-capture-cdc-feed) to create the audit history. This feature supports replay and propagating incremental changes to downstream tables in the medallion architecture.
 
-2. A model-and-serve path remains the responsibility of the central technical team in support of the enterprise-owned data solutions. The technical team is also responsible for providing the service catalog optionality for business areas that require data solutions but don't have the skilling, budget, or interest in technically managing their own domain implementation.
-
-    - Self-service is offered within the model-and-serve components that the central technical team manages.
+2. A model-and-serve path remains the responsibility of the central technical team in support of the enterprise-owned data solutions. The technical team is also responsible for providing the service catalog optionality for business areas that require data solutions but don't have the skilling, budget, or interest in technically managing their own domain implementation. Self-service is offered within the model-and-serve components that the central technical team manages.
   
 3. The central technical team manages the enterprise data science capability. This model also aligns with their support for enterprise-focused solutions, provision of service optionality, and hosting services with an enterprise pricing structure.
 
@@ -129,19 +129,9 @@ Within Data Factory, these workflows are defined in pipelines that consist of va
 
 Azure Machine Learning and Azure Databricks process data to generate machine learning predictions in different ways.
 
-
 - An [Azure Databricks notebook](/azure/databricks/notebooks/) incorporates all model scoring logic. You can use an [Azure Databricks notebook activity](/azure/data-factory/transform-data-databricks-notebook) to perform model scoring.
 
-
 - A Machine Learning [batch endpoint](/azure/machine-learning/concept-endpoints-batch) is used to incorporate all model scoring logic. You can use a [Machine Learning pipeline activity](/azure/data-factory/transform-data-machine-learning-service) to perform model scoring.
-
-## Callouts
-
-- Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency and that source system and network infrastructure can support streaming requirements before implementation.
-
-- Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities of domain ownership](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities).
-
-  - The stakeholders' data maturity, available skilling across the software development lifecycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also indicate your current position in the cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist) and highlight the steps needed to advance further.
 
 ## Alternatives
 
@@ -155,9 +145,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This architecture provides the following deltas:
+Compared to the baseline architecture, this architecture:
 
 - Meets the uplifted requirements with the default [Azure SLAs](https://www.azure.cn/support/sla/summary/) across the solution. This strategy eliminates the need for high-availability or multi-regional uplift.
 
@@ -180,19 +170,19 @@ SHIR|Same-zone high availability
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture provides the following deltas:
+Compared to the baseline architecture, this architecture:
 
-- Domain-specific data RBAC roles are created when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
+- Creates domain-specific data RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
   
-- Given the higher data sensitivity requirements for the platform, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) should be considered for all key operational support roles.
+- Considers the higher data sensitivity requirements for the platform, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) for all key operational support roles.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This architecture provides the following deltas:
+Compared to the baseline architecture, this architecture:
 
 - Provides skilling to the domain teams to ensure that they understand the discipline of [cost optimization](/azure/well-architected/cost-optimization/) and their responsibilities under the new operating model.
 
@@ -200,9 +190,9 @@ This architecture provides the following deltas:
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-This architecture provides the following deltas:
+Compared to the baseline architecture, this architecture:
 
 - Evolves the operating model to account for the new domain model, stakeholders, governance structures, persona-based training, and RACI.
 
@@ -212,21 +202,21 @@ This architecture provides the following deltas:
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This architecture provides the following deltas:
+Compared to the baseline architecture, this architecture:
 
-- Alerting and [observability](/azure/cloud-adoption-framework/manage/monitor/observability) are provided to the domain teams as part of the domain establishment and [baseline of monitoring](/azure/azure-monitor/overview).
+- Provides alerting and [observability](/azure/cloud-adoption-framework/manage/monitor/observability) to the domain teams as part of the domain establishment and [baseline of monitoring](/azure/azure-monitor/overview).
 
 - Encourages sharing knowledge and best practices between knowledge workers and offers [incentives](/power-bi/guidance/fabric-adoption-roadmap-community-of-practice#incentives) for community engagement.
 
 ## Antipatterns
 
-- **Non-collaborative transformation**: The shift to a domain model is a major undertaking that requires significant change across the organization. This shift shouldn’t be a one-sided effort where technology leadership makes decisions solely based on the technology they wish to adopt. This approach can lead to disagreements or misunderstandings between business stakeholders and technology teams further down the line if problems arise in the workload. Instead, this transformation is most effective when business stakeholders understand the necessary activities and appreciate the value of the delivered outcomes. [Deep collaboration](/azure/well-architected/reliability/principles#design-for-business-requirements) between technology and business stakeholders is the key to any successful transformation.
+- **Non-collaborative transformation:** The shift to a domain model is a major undertaking that requires significant change across the organization. This shift shouldn’t be a one-sided effort where technology leadership makes decisions solely based on the technology they wish to adopt. This approach can lead to disagreements or misunderstandings between business stakeholders and technology teams further down the line if problems arise in the workload. Instead, this transformation is most effective when business stakeholders understand the necessary activities and appreciate the value of the delivered outcomes. [Deep collaboration](/azure/well-architected/reliability/principles#design-for-business-requirements) between technology and business stakeholders is the key to any successful transformation.
 
-- **Uncritically adopting technology trends**: New ideas drive technology. New functionality, new approaches, and new designs are constantly introduced through various online forums. For example, a trending data design pattern on LinkedIn might seem like an appealing option. Resist the temptation to adopt the latest trends when you build an enterprise-class solution, and favor proven technologies and patterns. Trending solutions might lack thorough testing and proven performance in production enterprise environments. These solutions might fail in production if they have missing functionalities, insufficient documentation, or an inability to scale properly.
+- **Uncritically adopting technology trends:** New ideas drive technology. New functionality, new approaches, and new designs are constantly introduced through various online forums. For example, a trending data design pattern on LinkedIn might seem like an appealing option. Resist the temptation to adopt the latest trends when you build an enterprise-class solution, and favor proven technologies and patterns. Trending solutions might lack thorough testing and proven performance in production enterprise environments. These solutions might fail in production if they have missing functionalities, insufficient documentation, or an inability to scale properly.
 
-- **Building functionality without proper consideration**: When you identify a gap in technical functionality, it's often tempting to "build your own." While this approach might be valid in some cases, product owners should consider the effect on the overall product lifecycle that building a bespoke solution might introduce. You can build bespoke solutions to cover a gap in existing, well-supported products. This approach can significantly increase technical debt over the course of a product's lifecycle because maintaining that solution adds considerable management burden that increases over time. The amount of projected technical debt needs to be weighed against the criticality of the missing functionality. If that functionality is on the product roadmap for an off-the-shelf solution, waiting for the vendor to deliver the feature might be a better strategy in the long term.
+- **Building functionality without proper consideration:** When you identify a gap in technical functionality, it's often tempting to "build your own." While this approach might be valid in some cases, product owners should consider the effect on the overall product lifecycle that building a bespoke solution might introduce. You can build bespoke solutions to cover a gap in existing, well-supported products. This approach can significantly increase technical debt over the course of a product's lifecycle because maintaining that solution adds considerable management burden that increases over time. The amount of projected technical debt needs to be weighed against the criticality of the missing functionality. If that functionality is on the product roadmap for an off-the-shelf solution, waiting for the vendor to deliver the feature might be a better strategy in the long term.
 
 ## Next steps
 

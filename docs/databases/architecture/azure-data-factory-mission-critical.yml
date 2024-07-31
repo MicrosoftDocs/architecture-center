@@ -2,10 +2,10 @@
 metadata:
   title: Azure Data Factory mission-critical architecture
   titleSuffix: Azure Architecture Center
-  description: Learn how to design a mission-critical workload for Azure Data Factory on Azure Landing zones.
+  description: Learn how to design a mission-critical workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
   author: claytonsiemens77
   ms.author: csiemens
-  ms.date: 07/30/2024
+  ms.date: 07/31/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -21,7 +21,7 @@ products:
   - azure-sql-database
   - azure-container-apps
 name: Azure Data Factory mission-critical architecture
-summary: Learn how to design a mission-critical workload for Azure Data Factory on Azure Landing zones.
+summary: Learn how to design a mission-critical workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-mission-critical.png
 content: |
   [!include[](azure-data-factory-mission-critical-content.md)]
