@@ -154,7 +154,7 @@ GitOps shields the developer from the complexities of managing a container envir
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -225,5 +225,4 @@ Principal author:
 - [DevSecOps on Azure Kubernetes Service (AKS)](../../guide/devsecops/devsecops-on-aks.yml)
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Enterprise infrastructure as code using Bicep and Azure Container Registry](../../guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)
-- [DevSecOps with GitHub Security](../../solution-ideas/articles/devsecops-in-github.yml)
 - [Automate infrastructure reconfiguration by using Azure](../../web-apps/guides/networking/automation-application-gateway.yml)

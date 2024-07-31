@@ -65,14 +65,14 @@ This solution is also applicable to the following industries where CFD, FEA, and
 - Heavy machinery
 - Automotive
 - Heating, ventilation, and air conditioning (HVAC)
-- Oil and gas 
+- Oil and gas
 - Energy
 - Electronics manufacturing
 - Healthcare
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -130,19 +130,21 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 This architecture uses the AMD CPU-based HBv3-series VMs for CFD simulations and Nvidia GPU-based NC series VMs for visualization and DEM simulations on Azure.
 
-[HBv3 series VMs](/azure/virtual-machines/hbv3-series): These VMs are well suited for compute intensive and high-bandwidth simulations that use multi-node cluster setup to achieve scale. This architecture covers applications such as Ansys CFX, Ansys Fluent, and Siemens STAR CCM+, which scale well on HBv3. The application architecture guides [Ansys CFX](/azure/architecture/guide/hpc/ansys-cfx) and [Ansys Fluent](/azure/architecture/guide/hpc/ansys-fluent) show that in single-node configurations, the performance of these applications scales effectively up to 64 or 96 CPU cores. In multi-node configurations, the performance scales linearly as nodes are added.
+[HBv3 series VMs](/azure/virtual-machines/hbv3-series): These VMs are well suited for compute intensive and high-bandwidth simulations that use multi-node cluster setup to achieve scale. This architecture covers applications such as Ansys CFX, Ansys Fluent, and Siemens STAR CCM+, which scale well on HBv3. In single-node configurations, the performance of these applications scales effectively up to 64 or 96 CPU cores. In multi-node configurations, the performance scales linearly as nodes are added.
 
-[NCv4 series VMs](/azure/virtual-machines/nc-a100-v4-series): These VMs are well suited for compute-intensive GPU-accelerated simulations that use multi-GPU capabilities to achieve scalable performance. This architecture covers Ansys Rocky applications which scale well on NCv4 A100 GPUs. The application architecture guide [Ansys Rocky](/azure/architecture/guide/hpc/ansys-rocky) shows that in single-node configurations, the relative performance speed-up increases significantly by utilizing the GPU acceleration.
+[NCv4 series VMs](/azure/virtual-machines/nc-a100-v4-series): These VMs are well suited for compute-intensive GPU-accelerated simulations that use multi-GPU capabilities to achieve scalable performance. This architecture covers Ansys Rocky applications which scale well on NCv4 A100 GPUs. In single-node configurations, the relative performance speed-up increases significantly by utilizing the GPU acceleration.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Kalaiselvan Balaraman](http://www.linkedin.com/in/kalaiselvan-b-5a153358) | Cloud Solution Architect
 - [Wolfgang Gentzsch](https://www.linkedin.com/in/wolfganggentzsch) | President
 
 Other contributors:
+
 - [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
 - [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Program Lead

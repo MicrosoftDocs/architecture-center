@@ -7,6 +7,7 @@ metadata:
   ms.author: jocontr
   ms.date: 06/08/2022
   ms.topic: example-scenario
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -24,4 +25,4 @@ products:
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/drone-rescue.png
 content: |
-  [!include[](vision-classifier-model-with-custom-vision-content.md)]
+  [!INCLUDE[](vision-classifier-model-with-custom-vision-content.md)]

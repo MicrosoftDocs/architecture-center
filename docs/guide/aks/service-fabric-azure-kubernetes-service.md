@@ -3,10 +3,12 @@ title: Migrate your workload from Service Fabric to AKS
 description: Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS. 
 author: allyford
 ms.author: allyford
-ms.date: 04/18/2023
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - arb-containers
 products:
   - azure-kubernetes-service
   - azure-service-fabric
@@ -31,7 +33,7 @@ To start, review this [article that compares the two platforms](../technology-ch
 Both Service Fabric and AKS are container orchestrators. Service Fabric provides support for several programming models, whereas AKS supports only containers.
 
 - **Programming models:** Service Fabric supports multiple ways to write and manage your services, including Linux and Windows containers, Reliable Services, Reliable Actors, ASP.NET Core, and guest executables.  
-- **Containers on AKS:** AKS only supports containerization with Windows and Linux containers running on the container runtime [containerd](/azure/aks/cluster-configuration#container-runtime-configuration), which is managed automatically.
+- **Containers on AKS:** AKS only supports containerization with Windows and Linux containers running on the container runtime [containerd](/azure/aks/concepts-clusters-workloads#container-runtime-configuration), which is managed automatically.
 
 Both Service Fabric and AKS offer integrations with other Azure services, including Azure Pipelines, Azure Monitor, Azure Key Vault, and Microsoft Entra ID.
 

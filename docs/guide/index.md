@@ -6,7 +6,7 @@ ms.author: martinek
 ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.custom:
   - guide
 products:
@@ -88,7 +88,7 @@ Our [security best practices](/security/compass/applications-services) describe 
 
 A successful cloud application will focus on five pillars of software quality: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency.
 
-Leverage the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to assess your architecture across these five pillars.
+Leverage the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) to assess your architecture across these five pillars.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ This article provides a set of proven practices for improving the security of in
 
 [![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-main.svg)](media/sap-internet-communication-architecture-main.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article.*
 
 This solution illustrates a common production environment. You can reduce the size and scope of the configuration to fit your requirements. This reduction might apply to the SAP landscape: fewer virtual machines (VMs), no high availability, or embedded SAP Web Dispatchers instead of discrete VMs. It can also apply to alternatives to the network design, as described later in this article.
 
@@ -65,7 +65,7 @@ To address the recommendations in this article but limit the drawbacks, you can 
 
 [![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-simplified.svg)](media/sap-internet-communication-architecture-simplified.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article.*
 
 For deployments that are smaller in size and scope, the simplified architecture might be a better fit, and it still adheres to the principles of the more complex architecture. This article, unless otherwise noted, refers to the more complex architecture.
 
@@ -134,7 +134,7 @@ To implement cascading SAProuters, you can define as many as two SAProuters for 
 
 SAP Fiori and other HTTPS front ends for SAP applications are often consumed from outside of the internal corporate network. The need to be available on the internet requires a high-security solution to help protect the SAP application. Application Gateway with [Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) is the ideal service for this purpose.
 
-For users who access the public host name of the public IP that's tied to Application Gateway, the HTTPS session is terminated on Application Gateway. A back-end pool of two or more SAP Web Dispatcher VMs gets round-robin sessions from the Application Gateway. This internal traffic application gateway to Web Dispatcher can be either HTTP or HTTPS, depending on requirements. The web application firewall helps to protect the SAP Web Dispatcher from attacks coming over the internet with the [OWASP core rule set](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules). SAP NetWeaver, often tied to Microsoft Entra ID via [single sign-on](/azure/active-directory/saas-apps/sap-fiori-tutorial) (SSO), performs user authentication. For the steps needed to configure SSO for Fiori by using Application Gateway, see [Single Sign On Configuration using SAML and Microsoft Entra ID for Public and Internal URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls).
+For users who access the public host name of the public IP that's tied to Application Gateway, the HTTPS session is terminated on Application Gateway. A back-end pool of two or more SAP Web Dispatcher VMs gets round-robin sessions from the Application Gateway. This internal traffic application gateway to Web Dispatcher can be either HTTP or HTTPS, depending on requirements. The web application firewall helps to protect the SAP Web Dispatcher from attacks coming over the internet with the [OWASP core rule set](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules). SAP NetWeaver, often tied to Microsoft Entra ID via [single sign-on (SSO)](/azure/active-directory/saas-apps/sap-fiori-tutorial), performs user authentication. For the steps needed to configure SSO for Fiori by using Application Gateway, see [Single Sign On Configuration using SAML and Microsoft Entra ID for Public and Internal URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls).
 
 Keep in mind that you need to secure the SAP Web Dispatcher in any situation. Even if it's open only internally, open toward Application Gateway via public IP, or accessible through any other network means. For more information, see [Security Information for SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/489ab29948c673e8e10000000a42189b.html?version=1709.008).
 
@@ -206,7 +206,7 @@ For Linux operating systems, you can access the following repositories if you ob
 
 #### High-availability cluster management
 
-Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under management.azure.com, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
+Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under `management.azure.com`, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
 
 ## Contributors
 

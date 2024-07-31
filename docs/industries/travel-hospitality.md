@@ -65,6 +65,5 @@ The following articles provide detailed analysis of architectures created and re
 
 The following are other ideas that you can use as a starting point for your travel and hospitality solution.
 
-- [Cognizant Safe Buildings with IoT and Azure](../solution-ideas/articles/safe-buildings.yml)
 - [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)

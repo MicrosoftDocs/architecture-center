@@ -28,7 +28,7 @@ You don't need to be an expert in Functions or Event Hubs, but you should unders
 
 Fabrikam manages a fleet of drones for a drone delivery service. The application consists of two main functional areas:
 
-- **Event ingestion**. During flight, drones send status messages to a cloud endpoint. The application ingests and processes these messages, and writes the results to a back-end database (Azure Cosmos DB). The devices send messages in [protocol buffer](https://developers.google.com/protocol-buffers) (protobuf) format. Protobuf is an efficient, self-describing serialization format.
+- **Event ingestion**. During flight, drones send status messages to a cloud endpoint. The application ingests and processes these messages, and writes the results to a back-end database (Azure Cosmos DB). The devices send messages in [protocol buffer (protobuf)](https://developers.google.com/protocol-buffers) format. Protobuf is an efficient, self-describing serialization format.
 
     These messages contain partial updates. At a fixed interval, each drone sends a "key frame" message that contains all of the status fields. Between key frames, the status messages only include fields that changed since the last message. This behavior is typical of many IoT devices that need to conserve bandwidth and power.
 

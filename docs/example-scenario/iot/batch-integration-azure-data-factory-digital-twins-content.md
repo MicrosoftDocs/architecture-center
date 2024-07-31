@@ -4,7 +4,7 @@ In this example scenario, you integrate Azure Digital Twins into line-of-busines
 
 :::image type="content" alt-text="Diagram that shows the architecture of this example, including business systems, Azure Data Factory, Azure Batch, Azure Digital Twins, Azure Storage, data pipelines, and activities." source="media/batch-integration-azure-data-factory-digital-twins-diagram.png" lightbox="media/batch-integration-azure-data-factory-digital-twins-diagram.png":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azure-data-factory-digital-twins-diagram.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azure-data-factory-digital-twins-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -48,7 +48,7 @@ This solution is ideal for the manufacturing, automotive, and transportation ind
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 - Custom activities are essentially console applications.  We took some of the best practices that are outlined in [Creating an Azure Data Factory v2 Custom Activity](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity), a post by Paul Andrew on his blog, as a foundation to be able to run and debug locally.
 

@@ -20,7 +20,7 @@ This architecture consists of the following components.
 
 #### Trigger
 
-**[Azure Logic Apps][logic-apps]** triggers the workflow. When the Logic App detects that a blob has been added to the container, it triggers the Azure Machine Learning pipeline. Logic Apps is a good fit for this reference architecture because it's an easy way to detect changes to blob storage, with an easy process for changing the trigger.
+**[Azure Logic Apps][logic-apps]** triggers the workflow. When the logic app detects that a blob has been added to the container, it triggers the Azure Machine Learning pipeline. Logic Apps is a good fit for this reference architecture because it's an easy way to detect changes to blob storage, with an easy process for changing the trigger.
 
 #### Preprocess and postprocess the data
 
@@ -40,7 +40,7 @@ This reference architecture uses video footage of an orangutan in a tree.
 
 ## Solution details
 
-This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.
+This reference architecture is designed for workloads that are triggered by the presence of new media in Azure Storage.
 
 Processing involves the following steps:
 
@@ -51,11 +51,11 @@ Processing involves the following steps:
 
 ### Potential use cases
 
-A media organization has a video whose style they want to change to look like a specific painting. The organization wants to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see [Image Style Transfer Using Convolutional Neural Networks][image-style-transfer] (PDF).
+A media organization has a video whose style they want to change to look like a specific painting. The organization wants to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see [Image Style Transfer Using Convolutional Neural Networks (PDF)][image-style-transfer].
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance efficiency
 
@@ -83,7 +83,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 #### Restrict access to Azure Blob Storage
 
-In this reference architecture, Azure Blob Storage is the main storage component that needs to be protected. The baseline deployment shown in the GitHub repo uses storage account keys to access the blob storage. For further control and protection, consider using a [shared access signature (SAS)][storage-sas-overview] instead. This grants limited access to objects in storage, without needing to hard code the account keys or save them in plaintext. This approach is especially useful because account keys are visible in plaintext inside of Logic App's designer interface. Using an SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
+In this reference architecture, Azure Blob Storage is the main storage component that needs to be protected. The baseline deployment shown in the GitHub repo uses storage account keys to access the blob storage. For further control and protection, consider using a [Shared Access Signature (SAS)][storage-sas-overview] instead. This grants limited access to objects in storage, without needing to hard code the account keys or save them in plaintext. This approach is especially useful because account keys are visible in plaintext inside of logic app's designer interface. Using an SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
 
 For scenarios with more sensitive data, make sure that all of your storage keys are protected, because these keys grant full access to all input and output data from the workload.
 
@@ -99,7 +99,7 @@ When deploying your Machine Learning compute cluster, you can configure your clu
 
 In scenarios where there are multiple users, make sure that sensitive data is protected against malicious activity. If other users are given access to this deployment to customize the input data, note the following precautions and considerations:
 
-- Use [Azure role-based access control (Azure RBAC)][rbac]  to limit users' access to only the resources they need.
+- Use [Azure role-based access control (RBAC)][rbac]  to limit users' access to only the resources they need.
 - Provision two separate storage accounts. Store input and output data in the first account. External users can be given access to this account. Store executable scripts and output log files in the other account. External users should not have access to this account. This separation ensures that external users can't modify any executable files (to inject malicious code), and don't have access to log files, which could hold sensitive information.
 - Malicious users can perform a [DDoS attack][ddos] on the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors.
 
@@ -113,9 +113,9 @@ The Azure Machine Learning Compute cluster size can automatically scale up and d
 
 For work that doesn't require immediate processing, configure autoscale so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster starts with zero nodes and only scales up when it detects jobs in the queue. If the batch scoring process happens only a few times a day or less, this setting results in significant cost savings.
 
-Autoscaling may not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs.
+Autoscaling might not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs.
 
-Azure Machine Learning Compute also supports low-priority virtual machines, which allows you to run your computation on discounted virtual machines, with the caveat that they may be preempted at any time. Low-priority virtual machines are ideal for non-critical batch scoring workloads.
+Azure Machine Learning Compute also supports low-priority virtual machines, which allows you to run your computation on discounted virtual machines, with the caveat that they might be preempted at any time. Low-priority virtual machines are ideal for non-critical batch scoring workloads.
 
 ### Monitor batch jobs
 
@@ -133,15 +133,15 @@ Azure Machine Learning will automatically log all stdout/stderr to the associate
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][deployment].
 
-You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service. Follow the steps described in this [GitHub repo][deployment2].
+You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service (AKS). Follow the steps described in this [GitHub repo][deployment2].
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Jian Tang](https://www.linkedin.com/in/jian-tang-9739a814/) | Program Manager II
+- [Jian Tang](https://www.linkedin.com/in/jian-tang-9739a814/) | Program Manager II
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -149,7 +149,6 @@ Principal author:
 
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
 - [Batch scoring of Python models on Azure](batch-scoring-python.yml)
-- [Batch scoring with R models to forecast sales](batch-scoring-R-models.yml)
 
 ## Related resources
 

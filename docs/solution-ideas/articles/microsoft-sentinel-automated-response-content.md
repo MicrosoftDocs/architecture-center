@@ -58,7 +58,7 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 
 ## Considerations
 
-- The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+- The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 - Microsoft Sentinel offers more than 50 playbooks that are ready for use. You can find them on the **Playbook templates** tab of the **Microsoft Sentinel|Automation** page for your workspace.
 - [GitHub](https://github.com/azure/Azure-Sentinel/tree/master/Playbooks) has a variety of Microsoft Sentinel playbooks that are built by the community.
 
@@ -120,7 +120,7 @@ For more information about building logic apps, see [What is Azure Logic Apps](/
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 Other contributors:
 

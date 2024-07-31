@@ -84,8 +84,7 @@ The following diagram shows this approach:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
-For more information, see [Guide to migrating Big
-Data workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrating-big-data-workloads-hdinsight). That article provides a link for downloading a migration guide and also provides an email address that you can use to ask questions or make suggestions.
+For more information, see [Migrate on-premises Apache Hadoop clusters to Azure HDInsight](/azure/hdinsight/hadoop/apache-hadoop-on-premises-migration-motivation).
 
 ### Lift and shift to Azure infrastructure as a service (IaaS)
 
@@ -144,7 +143,7 @@ Other contributors:
 - [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect
 - [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
-- [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
+- [Ben Sadeghi](https://www.linkedin.com/in/bensadeghi) | Senior Specialist
 - [Sunil Sattiraju](https://www.linkedin.com/in/sunilsattiraju) | Senior Cloud Solution Architect
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004) | Principal Program Manager
 - [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Cloud Solution Architect - Engineering

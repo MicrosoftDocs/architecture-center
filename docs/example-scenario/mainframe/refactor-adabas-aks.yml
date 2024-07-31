@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.
   author: Mvrs
-  ms.author: marlon.johnson 
+  ms.author: marljohn
   ms.date: 12/01/2023
   ms.topic: example-scenario
   ms.service: architecture-center

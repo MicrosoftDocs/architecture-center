@@ -3,8 +3,9 @@ title: Microservices assessment and readiness
 description: Use this guide as a checklist of considerations to keep in mind when you move to a microservices architecture. 
 author: ovaismehboob 
 ms.author: ovmehboo
-ms.date: 09/14/2022
+ms.date: 06/07/2024
 ms.topic: conceptual
+ms.reviewer: nasiddi 
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:

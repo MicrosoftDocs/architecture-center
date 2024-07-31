@@ -41,7 +41,7 @@ Before deploying a SAS workload, ensure the following components are in place:
 
 ## Scenario details
 
-Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
+Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/well-architected/) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
 
 [As partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/), Microsoft and SAS are working to develop a roadmap for organizations that innovate in the cloud. Both companies are committed to ensuring high-quality deployments of SAS products and solutions on Azure.
 
@@ -139,7 +139,7 @@ In some cases, the locally attached disk doesn't have sufficient storage space f
 - Same specifications as the Edsv5 and Esv5 VMs
 - High throughput against remote attached disk, up to 4 GB/s, giving you as large a `SASWORK` or `CAS_CACHE` as needed at the I/O needs of SAS.
 
-If the Edsv5-series VMs offer enough storage, it's better to use them as they're more cost efficient. 
+If the Edsv5-series VMs offer enough storage, it's better to use them as they're more cost efficient.
 
 #### M-series
 
@@ -156,7 +156,7 @@ M-series VMs offer these features:
 
 #### Ls-series
 
-Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/lsv2-series) or [Lsv3-series](/azure/virtual-machines/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`. 
+Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/lsv2-series) or [Lsv3-series](/azure/virtual-machines/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`.
 
 > [!NOTE]
 > SAS optimizes its services for use with the Intel Math Kernel Library (MKL).
@@ -291,7 +291,7 @@ SAS platforms support various data sources:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -337,13 +337,15 @@ When building your environment, see quickstart reference material at [CoreCompet
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
 - [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
 
 Other contributor:
+
 - [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

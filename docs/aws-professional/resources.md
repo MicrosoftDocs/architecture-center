@@ -1,14 +1,15 @@
 ---
 title: Compare AWS and Azure resource management
-description: Compare resource management between Azure and AWS. See the difference between Azure resource groups and AWS resource groups. Explore Azure management interfaces.
-author: martinekuan
+description: Compare resource management between Azure and AWS. See the difference between Azure resource groups and AWS Resource Groups. Explore Azure management interfaces.
+author: splitfinity-zz-zz
+ms.author: yubaijna
 categories: azure
 ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
-  - analytics 
+  - analytics
   - compute
   - developer-tools
   - devops
@@ -29,7 +30,7 @@ Azure resources are deployed and managed using one of two models: [Azure Resourc
 
 ## Resource groups
 
-Both Azure and AWS have entities called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. However, [Azure resource groups](/azure/virtual-machines/windows/infrastructure-example) are not directly comparable to AWS resource groups.
+Both Azure and AWS have entities called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. However, [Azure resource groups](/azure/virtual-machines/windows/infrastructure-example) are not directly comparable to AWS Resource Groups.
 
 While AWS allows a resource to be tagged into multiple resource groups, an Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group, but can only be in one resource group at a time. Resource groups are the fundamental grouping used by Azure Resource Manager.
 
@@ -51,7 +52,7 @@ Azure offers several ways to manage your resources:
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified. This is similar to the role a "stack" plays in grouping AWS resources during CloudFormation deployments.
 
-The syntax and structure of these interfaces are different from their AWS equivalents, but they provide comparable capabilities. In addition, many third-party management tools used on AWS, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm) and [Netflix Spinnaker](https://www.spinnaker.io), are also available on Azure.
+The syntax and structure of these interfaces are different from their AWS equivalents, but they provide comparable capabilities. In addition, many third-party management tools used on AWS, like [HashiCorp Terraform](https://www.terraform.io/docs/providers/azurerm) and [Netflix Spinnaker](https://www.spinnaker.io), are also available on Azure.
 
 ## See also
 

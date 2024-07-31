@@ -1,7 +1,3 @@
----
-ms.custom:
-  - devx-track-bicep
----
 Modularizing the management of your Azure Resource Manager templates (ARM templates) enables you to reduce repetition, model best practices in infrastructure development, and have consistent standard deployments. 
 
 An example use case for implementing this kind of modularization is deployment of virtual machines (VMs) by using the metaphor of t-shirt sizes. Suppose you have deployed dozens or hundreds of VMs. Those deployments use version 1.0.0 of your templates and have a standard *medium* size of an older series. To transition to a new series might require a brief outage of service if you simply deployed new templates. However, by building version 1.5.0 and using modularization, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. By having old versions of the infrastructure available, your product and application teams have a known good configuration to rely on while upgrading to the new version as they have time.
@@ -123,7 +119,7 @@ Finally, though you might not have an index of all repositories and the code wit
 
 Principal authors:
 
-* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
+* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Technical Specialist
 
 Other contributors:
 
@@ -140,7 +136,6 @@ Other contributors:
 
 ## Related resources
 
-- [Azure DevTest Labs reference architecture for enterprises](../../../example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
 - [CI/CD pipeline for container-based workloads](../../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)

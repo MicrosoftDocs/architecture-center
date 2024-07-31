@@ -111,7 +111,7 @@ Automated refactoring is available for most COBOL dialects and platforms, includ
 
 ## Considerations
 
-The considerations in this section, based on the [Microsoft Well-Architected Framework](/azure/architecture/framework), apply to this solution.
+The considerations in this section, based on the [Microsoft Well-Architected Framework](/azure/well-architected/), apply to this solution.
 
 ### DevOps
 
@@ -120,7 +120,7 @@ Refactoring not only supports faster cloud adoption, but also promotes adoption 
 ### Reliability
 
 - The architecture uses Site Recovery to mirror VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
-- The auto-failover groups feature of SQL Database provides data protection by managing database replication and failover to the secondary region. For more information, see [Auto-failover groups overview & best practices (Azure SQL Database)](/azure/azure-sql/database/auto-failover-group-sql-db).
+- The auto-failover groups feature of SQL Database provides data protection by managing database replication and failover to the secondary region. For more information, see [Auto-failover groups overview and best practices (Azure SQL Database)](/azure/azure-sql/database/auto-failover-group-sql-db).
 - Resiliency is built into this solution by using Load Balancer. If one presentation or transaction server fails, other servers run the workloads.
 - We recommend that you create availability sets for your VMs to increase availability. For more information, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 - We recommend that you use geo-replication to increase reliability. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
@@ -179,7 +179,7 @@ Other contributor:
 
 - [High-volume batch transaction processing](process-batch-transactions.yml)
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
-- [IBM z/OS mainframe migration with Avanade AMT](asysco-zos-migration.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](avanade-amt-zos-migration.yml)
 - [IBM z/OS online transaction processing on Azure](ibm-zos-online-transaction-processing-azure.yml)
 - [Micro Focus Enterprise Server on Azure VMs](micro-focus-server.yml)
 - [Refactor IBM z/OS mainframe coupling facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)

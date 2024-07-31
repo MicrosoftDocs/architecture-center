@@ -149,7 +149,7 @@ The following services allow you to publish at scale, create and manage gateways
 
 - [Azure API Management](/azure/api-management) is a hybrid, multicloud management platform for APIs that simplifies the integration of data and services.
 - [Azure Functions](/azure/azure-functions) is a serverless solution used for the real-time stream and event processing of telemetry messages and events. It also manages file uploads and performs inference with machine learning models.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back-ends. It provides a front-end experience for mobility users.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back-ends. It provides a front-end experience for mobility users.
 - [Azure Maps](/azure/azure-maps) is a collection of geospatial services and SDKs that provide geographic context to web and mobile applications.
 
 #### Data and analytics services
@@ -201,7 +201,7 @@ Solution integrators (SIs) combine capabilities to develop segment-specific scen
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 

@@ -4,7 +4,7 @@ description: Examine performance considerations for running Apache Cassandra on 
 author: arsenvlad
 ms.author: arsenv
 categories: azure
-ms.date: 03/31/2023
+ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
@@ -12,6 +12,7 @@ ms.custom:
   - fcp
   - cse
   - best-practice
+  - arb-data
 azureCategories:
   - databases
 products:
@@ -22,6 +23,9 @@ products:
 <!-- cSpell:ignore arsenv arsenvlad DataStax mdadm -->
 
 # Run Apache Cassandra on Azure VMs
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL). Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes performance considerations for running Apache Cassandra on Azure virtual machines.
 
@@ -41,7 +45,7 @@ Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 &ndas
 
 Evaluate [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
 
-For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3][lsv3] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVMe disks.
+For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3][lsv3] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVM Express (NVMe) disks.
 
 For more information, see [Comparing performance of Azure local/ephemeral vs attached/persistent disks](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-local-attached-disks.md) (GitHub).
 
@@ -57,7 +61,7 @@ Accelerated networking requires a modern Linux distribution with the latest driv
 
 Cassandra read workloads perform best when random-access disk latency is low. We recommend using Azure managed disks with [ReadOnly](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) caching enabled. ReadOnly caching provides lower average latency, because the data is read from the cache on the host instead of going to the backend storage.
 
-Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MB/s versus uncached of 768 MB/s.)
+Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MBps versus uncached of 768 MBps.)
 
 ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data isn't constantly overwritten. For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
 
@@ -147,16 +151,16 @@ For more information, see [Observations on hinted handoff in cross-region replic
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
- 
- Other contributor:
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
- - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
- 
+Other contributor:
+
+- [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -176,7 +180,6 @@ For information on general Cassandra settings, not specific to Azure, see:
 - [Linux N-tier application in Azure with Apache Cassandra](../../databases/architecture/n-tier-cassandra.yml)
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
-
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
 [dsv3]: /azure/virtual-machines/dv3-dsv3-series

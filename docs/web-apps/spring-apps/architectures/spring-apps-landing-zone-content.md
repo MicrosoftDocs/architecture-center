@@ -6,9 +6,9 @@ In this scenario, your organization expects the workload to use federated resour
 >
 > This reference architecture is part of the [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) guidance. The best practices are intended for a **workload owner** who wants to meet the preceding expectations.
 >
-> The workload is deployed in an _Azure application landing zone_ subscription provisioned by the organization. As the workload owner, you own the resources in this subscription.
+> The workload is deployed in an *Azure application landing zone* subscription provisioned by the organization. As the workload owner, you own the resources in this subscription.
 >
-> The workload depends on _Azure platform landing zones_ subscriptions for shared resources. The platform teams own these resources. However, you're accountable for driving requirements with those team so your workload functions as expected. This guidance annotates those requirements as **Platform team**.
+> The workload depends on *Azure platform landing zones* subscriptions for shared resources. The platform teams own these resources. However, you're accountable for driving requirements with those team so your workload functions as expected. This guidance annotates those requirements as **Platform team**.
 >
 > We highly recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 

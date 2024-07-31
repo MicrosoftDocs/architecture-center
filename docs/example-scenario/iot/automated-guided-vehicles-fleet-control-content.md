@@ -12,7 +12,7 @@ original equipment manufacturer (OEM) and includes a reference architecture and 
 #### Workflow
 
 - An instance of the back end, consisting of the following components, is deployed to two Azure regions: [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview), Ingestion, [RabbitMQ](https://www.rabbitmq.com/), Mission State, Vehicle State, Job Manager, and Geo DB. IoT Hub connects to the set of applications built using a microservice architecture that can be deployed on [Azure App Service](https://azure.microsoft.com/en-in/services/app-service/#overview)
-    using the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/), [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/#overview), or [Kubernetes](https://kubernetes.io/).
+    using the [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps), [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/#overview), or [Kubernetes](https://kubernetes.io/).
 - A leader election system determines which back end controls AGVs on the shop floor at any given point in time. If the back end in charge fails, the leader election immediately transfers the control to the back end in the other region.
 - Thanks to this geo-redundant and zero-downtime failover architecture, the AGV control software that runs in Azure achieves 99.9% availability, provided that the internet connection and external subsystems, such as SAP, are not limiting factors.
 
@@ -49,7 +49,7 @@ In this architecture, you can see an overview of the different services and comp
 
 ### Components
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/#overview) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines (VMs). It manages the underlying compute infrastructure on which your apps run. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
+[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines (VMs). It manages the underlying compute infrastructure on which your apps run. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
 
 [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/#overview)
 is the fundamental building block for your private network in Azure. This service enables many types of Azure resources, such as Azure Virtual Machines, to securely communicate with each other, the internet, and on-premises networks.
@@ -137,7 +137,7 @@ availability and disaster recovery can solve these issues.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability and scalability
 
@@ -160,7 +160,7 @@ Consider using a solution such as Azure DevOps or GitHub Actions.
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service)
-to estimate the costs for running AKS in Azure. To learn about other considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+to estimate the costs for running AKS in Azure. To learn about other considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Contributors
 
@@ -210,5 +210,4 @@ Azure Architecture Center overview articles:
 Related architectures:
 
 - [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
-- [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
 - [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md)

@@ -34,7 +34,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -76,53 +76,70 @@ When using the Event Hubs trigger with Functions, catch exceptions within your p
 The following code shows how the ingestion function catches exceptions and puts unprocessed messages onto a dead-letter queue.
 
 ```csharp
-[FunctionName("RawTelemetryFunction")]
-[StorageAccount("DeadLetterStorage")]
-public static async Task RunAsync(
-    [EventHubTrigger("%EventHubName%", Connection = "EventHubConnection", ConsumerGroup ="%EventHubConsumerGroup%")]EventData[] messages,
-    [Queue("deadletterqueue")] IAsyncCollector<DeadLetterMessage> deadLetterMessages,
-    ILogger logger)
-{
-    foreach (var message in messages)
-    {
-        DeviceState deviceState = null;
+ [Function(nameof(RawTelemetryFunction))]
+ public async Task RunAsync([EventHubTrigger("%EventHubName%", Connection = "EventHubConnection")] EventData[] messages,
+     FunctionContext context)
+ {
+     _telemetryClient.GetMetric("EventHubMessageBatchSize").TrackValue(messages.Length);
+     DeviceState? deviceState = null;
+     // Create a new CosmosClient
+     var cosmosClient = new CosmosClient(Environment.GetEnvironmentVariable("COSMOSDB_CONNECTION_STRING"));
 
-        try
-        {
-            deviceState = telemetryProcessor.Deserialize(message.Body.Array, logger);
-        }
-        catch (Exception ex)
-        {
-            logger.LogError(ex, "Error deserializing message", message.SystemProperties.PartitionKey, message.SystemProperties.SequenceNumber);
-            await deadLetterMessages.AddAsync(new DeadLetterMessage { Issue = ex.Message, EventData = message });
-        }
+     // Get a reference to the database and the container
+     var database = cosmosClient.GetDatabase(Environment.GetEnvironmentVariable("COSMOSDB_DATABASE_NAME"));
+     var container = database.GetContainer(Environment.GetEnvironmentVariable("COSMOSDB_DATABASE_COL"));
 
-        try
-        {
-            await stateChangeProcessor.UpdateState(deviceState, logger);
-        }
-        catch (Exception ex)
-        {
-            logger.LogError(ex, "Error updating status document", deviceState);
-            await deadLetterMessages.AddAsync(new DeadLetterMessage { Issue = ex.Message, EventData = message, DeviceState = deviceState });
-        }
-    }
-}
+     // Create a new QueueClient
+     var queueClient = new QueueClient(Environment.GetEnvironmentVariable("DeadLetterStorage"), "deadletterqueue");
+     await queueClient.CreateIfNotExistsAsync();
+
+     foreach (var message in messages)
+     {
+         try
+         {
+             deviceState = _telemetryProcessor.Deserialize(message.Body.ToArray(), _logger);
+             try
+             {
+                 // Add the device state to Cosmos DB
+                 await container.UpsertItemAsync(deviceState, new PartitionKey(deviceState.DeviceId));
+             }
+             catch (Exception ex)
+             {
+                  _logger.LogError(ex, "Error saving on database", message.PartitionKey, message.SequenceNumber);
+                 var deadLetterMessage = new DeadLetterMessage { Issue = ex.Message, MessageBody = message.Body.ToArray(), DeviceState = deviceState };
+                 // Convert the dead letter message to a string
+                 var deadLetterMessageString = JsonConvert.SerializeObject(deadLetterMessage);
+
+                 // Send the message to the queue
+                 await queueClient.SendMessageAsync(deadLetterMessageString);
+             }
+
+         }
+         catch (Exception ex)
+         {
+             _logger.LogError(ex, "Error deserializing message", message.PartitionKey, message.SequenceNumber);
+             var deadLetterMessage = new DeadLetterMessage { Issue = ex.Message, MessageBody = message.Body.ToArray(), DeviceState = deviceState };
+             // Convert the dead letter message to a string
+             var deadLetterMessageString = JsonConvert.SerializeObject(deadLetterMessage);
+
+             // Send the message to the queue
+             await queueClient.SendMessageAsync(deadLetterMessageString);
+         }
+     }
+ }
 ```
-
-Notice that the function uses the [Queue storage output binding][queue-binding] to put items in the queue.
 
 The code shown also logs exceptions to Application Insights. You can use the partition key and sequence number to correlate dead-letter messages with the exceptions in the logs.
 
-Messages in the dead-letter queue should have enough information so that you can understand the context of the error. In this example, the `DeadLetterMessage` class contains the exception message, the original event data, and the deserialized event message (if available).
+Messages in the dead-letter queue should have enough information so that you can understand the context of the error. In this example, the `DeadLetterMessage` class contains the exception message, the original event body data, and the deserialized event message (if available).
 
 ```csharp
-public class DeadLetterMessage
-{
-    public string Issue { get; set; }
-    public EventData EventData { get; set; }
-    public DeviceState DeviceState { get; set; }
-}
+    public class DeadLetterMessage
+    {
+        public string? Issue { get; set; }
+        public byte[]? MessageBody { get; set; }
+        public DeviceState? DeviceState { get; set; }
+    }
 ```
 
 Use [Azure Monitor][monitor] to monitor the event hub. If you see there is input but no output, it means that messages aren't being processed. In that case, go into [Log Analytics][log-analytics] and look for exceptions or other errors.
@@ -133,11 +150,7 @@ Use infrastructure as code (IaC) when possible. IaC manages the infrastructure, 
 
 When creating templates, group resources as a way to organize and isolate them per workload. A common way to think about workload is a single serverless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform CI/CD.
 
-This architecture includes steps to configure the Drone Status Function App using Azure Pipelines with YAML and Azure Functions Slots.
-
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
-
-For more information, see the [DevOps checklist][AWAF-devops-checklist].
 
 ### Disaster recovery
 
@@ -194,8 +207,6 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 ## Related resources
 
 - [Code walkthrough: Serverless application with Azure Functions](../../web-apps/serverless/architectures/code.yml)
-- [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md)
-- [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml)
 - [Private link scenario in event stream processing](../../solution-ideas/articles/serverless-event-processing-private-link.yml)
 - [Azure Kubernetes in event stream processing](../../solution-ideas/articles/serverless-event-processing-aks.yml)
 
@@ -203,8 +214,7 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
-[AWAF-overview]: /azure/architecture/framework/
-[AWAF-devops-checklist]: ../../checklist/dev-ops.md
+[AWAF-overview]: /azure/well-architected/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

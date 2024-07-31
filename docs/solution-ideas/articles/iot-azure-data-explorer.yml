@@ -9,8 +9,7 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-    - fcp
+  ms.custom: arb-iot
 name: IoT analytics with Azure Data Explorer
 azureCategories:
   - analytics

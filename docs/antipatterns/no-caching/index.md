@@ -2,7 +2,8 @@
 title: No Caching antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.service: architecture-center
@@ -26,7 +27,7 @@ keywords:
 
 # No Caching antipattern
 
-Anti-patterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
+Antipatterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
 
 When data is not cached, it can cause a number of undesirable behaviors, including:
 

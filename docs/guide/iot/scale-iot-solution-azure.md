@@ -3,16 +3,17 @@ title: Scale out an Azure IoT solution to support millions of devices
 description: Learn how to scale out your Azure IoT solution to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 04/18/2023
+ms.date: 06/17/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom: arb-iot
 products:
-  - azure-iot
-  - azure-iot-hub
-  - azure-iot-sdk
+- azure-iot
+- azure-iot-hub
+- azure-iot-sdk
 categories:
-  - iot
+- iot
 ---
 
 # Scale out an Azure IoT solution to support millions of devices
@@ -41,7 +42,7 @@ Knowing how many devices you need to deploy helps you pick the right Azure IoT s
 
 **Determine data exchange requirements**. A solution that sends basic telemetry such as “current temperature” once an hour is different from a solution that uploads 1-MB sample files once every 10 minutes. A solution that's primarily a one-way, device-to-cloud (D2C) solution differs from a bidirectional device-to-cloud and cloud-to-device (C2D) solution. Also, product scalability limitations treat message size and message quantity as different dimensions.
 
-**Document expected high availability and disaster recovery requirements**. Like any production solution, full IoT solution designs include availability (uptime) requirements. The design needs to cover both planned maintenance scenarios and unplanned downtime, including user error, environmental factors, and solution bugs. Such designs also need to have a documented [recovery point objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) (RPO) and [recovery time objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) (RTO) if a disaster occurs, such as a permanent region loss or malicious actors. Because this article focuses on device scale, there’s only a limited amount of information around high availability and disaster recovery (HA/DR) concerns.
+**Document expected high availability and disaster recovery requirements**. Like any production solution, full IoT solution designs include availability (uptime) requirements. The design needs to cover both planned maintenance scenarios and unplanned downtime, including user error, environmental factors, and solution bugs. Such designs also need to have a documented [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) if a disaster occurs, such as a permanent region loss or malicious actors. Because this article focuses on device scale, there’s only a limited amount of information around high availability and disaster recovery (HA/DR) concerns.
 
 **Decide on a customer tenancy model (if appropriate)**. In a multitenant independent software vendor (ISV) solution, where the solution developer is creating a solution for external customers, the design must take into account how customer data is segregated and managed. The Azure Architecture Center discusses [general patterns](/azure/architecture/guide/multitenant/considerations/tenancy-models) and has [IoT-specific guidance](/azure/architecture/guide/multitenant/approaches/iot).
 
@@ -244,11 +245,11 @@ Scaling up an IoT solution to support millions, or even tens or hundreds of mill
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Michael C. Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer, Microsoft Azure CXP G&I
 
-**Other contributors:**
+Other contributors:
 
 - [David Crook](https://www.linkedin.com/in/drcrook/) | Principal Customer Engineer, Microsoft Azure CXP G&I
 - [Alberto Gorni](https://www.linkedin.com/in/gornialberto/) | Senior Customer Engineer

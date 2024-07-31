@@ -86,6 +86,4 @@ Example language deployments of containers in App Service:
 
 Related architectural guidance:
 
-* [CI/CD for Containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
 * [Web applications architecture design](/azure/architecture/guide/web/web-start-here)
-* [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)

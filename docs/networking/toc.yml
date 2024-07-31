@@ -41,7 +41,9 @@ items:
       - name: Network security
         items:
         - name: Segment virtual networks
-          href: guide/network-level-segmentation.yml        
+          href: guide/network-level-segmentation.yml
+        - name: Use a split-brain DNS configuration to host a web app
+          href: ../example-scenario/networking/split-brain-dns.yml        
       - name: Private link
         items:
         - name: Resolve overlapping IP address space constraints

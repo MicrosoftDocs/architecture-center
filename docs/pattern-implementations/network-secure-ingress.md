@@ -6,7 +6,7 @@ ms.author: robbag
 ms.date: 10/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
 - azure-front-door
 - azure-bastion
@@ -126,10 +126,13 @@ The diagram has three parts. The first part shows Azure Blob Storage acting as a
 :::image-end:::
 
 1. An administrator connects to the Azure Bastion instance that's deployed in the virtual network.
-2. Azure Bastion provides SSH connectivity to the jumpbox VM.
-3. The administrator on the jumpbox tries to access the storage account via the Azure CLI. The jumpbox queries DNS for the public Azure Blob Storage account endpoint: storageaccountname.blob.core.windows.net. 
 
-   Private DNS ultimately resolves to storageaccountname.privatelink.blob.core.windows.net. It returns the private IP address of the Private Link endpoint, which is 10.0.2.5 in this example.
+2. Azure Bastion provides SSH connectivity to the jumpbox VM.
+
+3. The administrator on the jumpbox tries to access the storage account via the Azure CLI. The jumpbox queries DNS for the public Azure Blob Storage account endpoint: `storageaccountname.blob.core.windows.net`.
+
+   Private DNS ultimately resolves to `storageaccountname.privatelink.blob.core.windows.net`. It returns the private IP address of the Private Link endpoint, which is 10.0.2.5 in this example.
+
 4. A private connection to the storage account is established through the Private Link endpoint.
 
 ## Considerations

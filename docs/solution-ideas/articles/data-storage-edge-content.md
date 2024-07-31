@@ -72,8 +72,6 @@ The related resources provide further information on edge solutions, including i
 ### Guidance
 
 - [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
-- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.yml)
-- [Architectural Considerations in an IIoT Analytics Solution](../../guide/iiot-guidance/iiot-considerations.md)
 
 ### Architectures
 
