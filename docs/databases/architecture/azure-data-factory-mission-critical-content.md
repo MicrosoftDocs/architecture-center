@@ -16,13 +16,9 @@ There are several key requirements to deliver a mission-critical advanced analyt
 
 - The machine learning model auditing trails must be retained for 10 years.
 
-- The machine learning model currently targets the US, Europe, and South America, with plans to expand into Asia in the future.
-
-  - The solution must adhere to data compliance requirements, like GDPR for European countries or regions.
+- The machine learning model currently targets the US, Europe, and South America, with plans to expand into Asia in the future. The solution must adhere to data compliance requirements, like GDPR for European countries or regions.
   
-- The machine learning model is expected to support up to 1,000 concurrent users in any given region during peak business hours.
-
-  - To minimize costs, the machine learning processing must scale back when not in use.
+- The machine learning model is expected to support up to 1,000 concurrent users in any given region during peak business hours. To minimize costs, the machine learning processing must scale back when not in use.
 
 ### Key design decisions
 
@@ -44,7 +40,7 @@ There are several key requirements to deliver a mission-critical advanced analyt
   
   - Service [health modeling](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling) required to measure and manage the overall health of a workload.
 
-  - Audit trails can be initially stored within a Log Analytics workspace for real-time analysis and operational support. After 30 days, or 90 days if using Microsoft Sentinel, audit trails can be automatically transferred to Azure Data Explorer for long-term retention. This approach allows for interactive queries of up to two years within the Log Analytics workspace and the ability to keep older, infrequently used data at a reduced cost for up to 12 years. Use Azure Data Explorer for data storage to enable running cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel. This approach provides a cost-effective solution for meeting long-term storage requirements while maintaining support optionality. If there's no requirement to hold excessive data, you should consider deleting it.
+- Audit trails can be initially stored within a Log Analytics workspace for real-time analysis and operational support. After 30 days, or 90 days if using Microsoft Sentinel, audit trails can be automatically transferred to Azure Data Explorer for long-term retention. This approach allows for interactive queries of up to two years within the Log Analytics workspace and the ability to keep older, infrequently used data at a reduced cost for up to 12 years. Use Azure Data Explorer for data storage to enable running cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel. This approach provides a cost-effective solution for meeting long-term storage requirements while maintaining support optionality. If there's no requirement to hold excessive data, you should consider deleting it.
   
 ## Architecture
 
@@ -120,7 +116,7 @@ For more information, see [Networking and connectivity](/azure/well-architected/
 
 ## Callouts
 
-In your use case, determine if the usage is operational, like it in this scenario, or if it's related to the data platform. If your use case includes the data platform, such as data science or analytics, it might not qualify as mission-critical. Mission-critical workloads require substantial resources and should only be defined as such if they justify the resource investment.
+In your use case, determine if the usage is operational, like it is in this scenario, or if it's related to the data platform. If your use case includes the data platform, such as data science or analytics, it might not qualify as mission-critical. Mission-critical workloads require substantial resources and should only be defined as such if they justify the resource investment.
 
 ## Alternatives
 
@@ -182,7 +178,7 @@ Compared to the baseline architecture, this architecture:
 
 - Implements the [deployment and testing guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and [operational procedures](/azure/well-architected/mission-critical/mission-critical-operational-procedures) from the mission-critical reference architecture.  
 
-- Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-cross-cutting-issues#azure-roadmap-alignment) and [regional rollouts](https://azure.microsoft.com/updates/) to account for Azure's constantly evolving services.  
+- Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-cross-cutting-issues#azure-roadmap-alignment) and [regional rollouts](https://azure.microsoft.com/updates) to account for Azure's constantly evolving services.  
 
 ### Performance efficiency
 
