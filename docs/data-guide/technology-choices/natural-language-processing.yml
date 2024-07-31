@@ -14,6 +14,7 @@ metadata:
     - fcp
     - build-2023
     - build-2023-dataai
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - analytics

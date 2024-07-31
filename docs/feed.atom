@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-07-22T18:07:25.282Z</updated>
+    <updated>2024-07-30T15:21:36.237Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Stack HCI baseline reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-hci-baseline</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-hci-baseline"/>
+        <updated>2024-07-25T00:20:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design Azure Stack hyperconverged infrastructure (HCI) for highly available virtualized and containerized workloads]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Stack HCI three-node storage switchless architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-hci-switchless</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-hci-switchless"/>
+        <updated>2024-07-25T00:20:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design Azure Stack HCI infrastructure by using a three-node storage switchless architecture.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Image classification on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/intelligent-apps-image-processing</id>
@@ -15,6 +31,30 @@
         <updated>2024-07-17T17:43:24.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What is the Team Data Science Process?]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/overview"/>
+        <updated>2024-07-29T15:04:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the Team Data Science Process provides a data science methodology to deliver predictive analytics solutions and intelligent applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process for data scientists]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists"/>
+        <updated>2024-07-29T15:04:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Team Data Science Process and Azure Machine Learning objectives that you can use to implement comprehensive data science solutions with Azure technologies.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure IoT reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/iot</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/iot"/>
+        <updated>2024-07-24T15:22:14.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the recommended architecture for IoT applications on Azure that uses platform as a service (PaaS) components.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Create smart places by using Azure Digital Twins]]></title>
@@ -62,6 +102,110 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/machine-learning-operations-v2"/>
         <updated>2024-07-11T20:59:20.000Z</updated>
         <summary type="html"><![CDATA[Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Make all things redundant]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/design-principles/redundancy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/design-principles/redundancy"/>
+        <updated>2024-07-30T15:01:42.000Z</updated>
+        <summary type="html"><![CDATA[Use these recommendations to avoid having single points of failure, by building redundancy into your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design for self healing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/design-principles/self-healing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/design-principles/self-healing"/>
+        <updated>2024-07-30T15:01:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn to design resilient applications that can recover from failures without manual intervention through self-healing.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate a simple app from Service Fabric to AKS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aks/migrate-app-service-fabric-azure-kubernetes-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aks/migrate-app-service-fabric-azure-kubernetes-service"/>
+        <updated>2024-07-30T10:36:50.000Z</updated>
+        <summary type="html"><![CDATA[Use an example to guide the migration of your application from Azure Service Fabric to Azure Kubernetes Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
+        <updated>2024-07-29T17:18:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloud design patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture//patterns"/>
+        <updated>2024-07-29T16:29:15.000Z</updated>
+        <summary type="html"><![CDATA[Learn about design patterns for building reliable, scalable, secure applications in the cloud by walking through examples based on Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a cognitive services technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/cognitive-services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/cognitive-services"/>
+        <updated>2024-07-29T14:39:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure cognitive services that you can use in AI applications and data flows. Choose the appropriate service for your use case.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a data storage technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/data-storage</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/data-storage"/>
+        <updated>2024-07-29T14:39:51.000Z</updated>
+        <summary type="html"><![CDATA[Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Natural language processing technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/natural-language-processing"/>
+        <updated>2024-07-29T14:39:51.000Z</updated>
+        <summary type="html"><![CDATA[Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Group manager tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/group-manager-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/group-manager-tasks"/>
+        <updated>2024-07-29T11:21:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a group manager performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Business understanding stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding"/>
+        <updated>2024-07-29T11:21:28.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data science projects in the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2024-07-29T07:10:18.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for storage and data in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/storage-data"/>
+        <updated>2024-07-29T04:21:40.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the storage and data components of your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Windows VM on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm"/>
+        <updated>2024-07-26T19:52:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -118,14 +262,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details"/>
         <updated>2024-07-22T15:12:08.000Z</updated>
         <summary type="html"><![CDATA[Third article in a series covering disaster recovery for an Azure data platform]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
-        <updated>2024-07-22T13:20:35.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -374,22 +510,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/compute"/>
         <updated>2024-07-11T23:39:41.000Z</updated>
         <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the compute components of your solution.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
-        <updated>2024-07-11T21:50:13.000Z</updated>
-        <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Run a Windows VM on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm"/>
-        <updated>2024-07-11T21:39:40.000Z</updated>
-        <summary type="html"><![CDATA[Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

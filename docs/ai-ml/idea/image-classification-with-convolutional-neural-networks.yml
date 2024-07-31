@@ -25,6 +25,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks"
     - ai-machine-learning
     - aml-project-improvement
+    - arb-aiml
 name: Image classification with convolutional neural networks (CNNs)
 azureCategories:
   - ai-machine-learning
