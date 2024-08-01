@@ -97,6 +97,8 @@ Or watch this short video:
 
 > [!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
 
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
+
 ### Potential use cases
 
 This solution is ideal for the healthcare industry. Risk stratification models apply to these scenarios:
@@ -107,7 +109,7 @@ This solution is ideal for the healthcare industry. Risk stratification models a
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this architecture were chosen for scalability and availability, with the aim of managing and controlling costs.
 

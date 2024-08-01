@@ -139,7 +139,7 @@ Along with this high-level functional information, an operator should be able to
 - Number of bytes written or read.
 - Middleware indicators, such as queue length.
 
-All visualizations should allow an operator to specify a time period. The displayed data might be a snapshot of the current situation and/or a historical view of the performance.
+All visualizations should allow an operator to specify a time period. The displayed data might be a snapshot of the current situation or a historical view of the performance.
 
 An operator should be able to raise an alert based on any performance measure for any specified value during any specified time interval.
 
@@ -153,7 +153,7 @@ Low-level performance data for individual components in a system might be availa
 
 ### Analyzing performance data
 
-Much of the analysis work consists of aggregating performance data by user request type and/or the subsystem or service to which each request is sent. An example of a user request is adding an item to a shopping cart or performing the checkout process in an e-commerce system.
+Much of the analysis work consists of aggregating performance data by user request type or the subsystem or service to which each request is sent. An example of a user request is adding an item to a shopping cart or performing the checkout process in an e-commerce system.
 
 Another common requirement is summarizing performance data in selected percentiles. For example, an operator might determine the response times for 99 percent of requests, 95 percent of requests, and 70 percent of requests. There might be SLA targets or other goals set for each percentile. The ongoing results should be reported in near real time to help detect immediate issues. The results should also be aggregated over the longer time for statistical purposes.
 
@@ -187,7 +187,7 @@ To support these requirements, an operator should be notified if:
 
 The information that's provided to an operator should include the host address of the source for each request. If security violations regularly arise from a particular range of addresses, these hosts might be blocked.
 
-A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed and/or successful sign-in requests can be displayed visually to help detect whether there is a spike in activity at an unusual time. (An example of this activity is users signing in at 3:00 AM and performing a large number of operations when their working day starts at 9:00 AM). This information can also be used to help configure time-based autoscaling. For example, if an operator observes that a large number of users regularly sign in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut down these additional services when the peak has passed.
+A key part in maintaining the security of a system is being able to quickly detect actions that deviate from the usual pattern. Information such as the number of failed or successful sign-in requests can be displayed visually to help detect whether there is a spike in activity at an unusual time. (An example of this activity is users signing in at 3:00 AM and performing a large number of operations when their working day starts at 9:00 AM). This information can also be used to help configure time-based autoscaling. For example, if an operator observes that a large number of users regularly sign in at a particular time of day, the operator can arrange to start additional authentication services to handle the volume of work, and then shut down these additional services when the peak has passed.
 
 ### Data sources, instrumentation, and data-collection requirements
 
@@ -224,7 +224,7 @@ At the highest level, an operator should be able to determine at a glance whethe
 Typical high-level indicators that can be depicted visually include:
 
 - The percentage of service uptime.
-- The application throughput (measured in terms of successful transactions and/or operations per second).
+- The application throughput (measured in terms of successful transactions or operations per second).
 - The number of successful/failing application requests.
 - The number of application and system faults, exceptions, and warnings.
 
@@ -406,7 +406,7 @@ The section [Instrumenting an application](#instrumenting-an-application) contai
 
 - **Application/system monitoring**. This strategy uses internal sources within the application, application frameworks, operating system, and infrastructure. The application code can generate its own monitoring data at notable points during the lifecycle of a client request. The application can include tracing statements that might be selectively enabled or disabled as circumstances dictate. It might also be possible to inject diagnostics dynamically by using a diagnostics framework. These frameworks typically provide plug-ins that can attach to various instrumentation points in your code and capture trace data at these points.
 
-    Additionally, your code and/or the underlying infrastructure might raise events at critical points. Monitoring agents that are configured to listen for these events can record the event information.
+    Additionally, your code or the underlying infrastructure might raise events at critical points. Monitoring agents that are configured to listen for these events can record the event information.
 
 - **Real user monitoring**. This approach records the interactions between a user and the application and observes the flow of each request and response. This information can have a two-fold purpose: it can be used for metering usage by each user, and it can be used to determine whether users are receiving a suitable quality of service (for example, fast response times, low latency, and minimal errors). You can use the captured data to identify areas of concern where failures occur most often. You can also use the data to identify elements where the system slows down, possibly due to hotspots in the application or some other form of bottleneck. If you implement this approach carefully, it might be possible to reconstruct users' flows through the application for debugging and testing purposes.
 
@@ -472,7 +472,7 @@ In many cases, the information that instrumentation produces is generated as a s
 
 A common schema should include fields that are common to all instrumentation events, such as the event name, the event time, the IP address of the sender, and the details that are required for correlating with other events (such as a user ID, a device ID, and an application ID). Remember that any number of devices might raise events, so the schema should not depend on the device type. Additionally, various devices might raise events for the same application; the application might support roaming or some other form of cross-device distribution.
 
-The schema might also include domain fields that are relevant to a particular scenario that's common across different applications. This might be information about exceptions, application start and end events, and success and/or failure of web service API calls. All applications that use the same set of domain fields should emit the same set of events, enabling a set of common reports and analytics to be built.
+The schema might also include domain fields that are relevant to a particular scenario that's common across different applications. This might be information about exceptions, application start and end events, and success or failure of web service API calls. All applications that use the same set of domain fields should emit the same set of events, enabling a set of common reports and analytics to be built.
 
 Finally, a schema might contain custom fields for capturing the details of application-specific events.
 
@@ -688,7 +688,7 @@ Alerting helps ensure that the system remains healthy, responsive, and secure. I
 
 Alerting usually depends on the following instrumentation data:
 
-- **Security events**. If the event logs indicate that repeated authentication and/or authorization failures are occurring, the system might be under attack and an operator should be informed.
+- **Security events**. If the event logs indicate that repeated authentication or authorization failures are occurring, the system might be under attack and an operator should be informed.
 - **Performance metrics**. The system must quickly respond if a particular performance metric exceeds a specified threshold.
 - **Availability information**. If a fault is detected, it might be necessary to quickly restart one or more subsystems, or fail over to a backup resource. Repeated faults in a subsystem might indicate more serious concerns.
 

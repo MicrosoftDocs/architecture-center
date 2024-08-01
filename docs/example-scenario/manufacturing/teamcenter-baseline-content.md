@@ -67,7 +67,7 @@ This architecture consists of the following Azure components.
 
 ## Considerations
 
-These considerations align to the pillars of the Azure Well-Architected Framework. A set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations align to the pillars of the Azure Well-Architected Framework. A set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Potential use cases
 
@@ -79,10 +79,6 @@ Teamcenter provides a broad and rich depth of many functional solutions for mana
 - Process connectivity across engineering, design, R&D and manufacturing.
 - Increase competitive advantage by increasing speed to market for new products.
 - Power digital thread and digital twins.
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). In general, consider Availability zones or Availability sets based on requirements of multisite implementations. For more information, see [High availability and disaster recovery for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery).
 
 #### Web tier and Enterprise tier reliability
 

@@ -16,6 +16,7 @@ metadata:
     - fcp
     - example-scenario
     - ai-machine-learning
+    - arb-aiml
 name: Vision classifier model with Azure Custom Vision Cognitive Service
 azureCategories:
   - ai-machine-learning
@@ -25,4 +26,4 @@ products:
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/drone-rescue.png
 content: |
-  [!include[](vision-classifier-model-with-custom-vision-content.md)]
+  [!INCLUDE[](vision-classifier-model-with-custom-vision-content.md)]

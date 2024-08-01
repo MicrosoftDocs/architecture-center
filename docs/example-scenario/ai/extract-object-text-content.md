@@ -45,7 +45,7 @@ Use cases include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Consider these points when you analyze and process documents:
 
@@ -102,5 +102,4 @@ Principal author:
 
 ## Related resources
 
-- [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../dronerescue/vision-classifier-model-with-custom-vision.yml)

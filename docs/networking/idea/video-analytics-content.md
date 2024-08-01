@@ -69,4 +69,3 @@ Principal author:
 ## Related resources
 
 - [IoT event routing](../../example-scenario/iot/event-routing.yml)
-- [Contactless IoT interfaces with Azure intelligent edge](../../solution-ideas/articles/contactless-interfaces.yml)

@@ -6,12 +6,12 @@ This article provides a sample architecture, an accompanying sample implementati
 
 :::image type="content" source="media/azure-health-data-services.svg" alt-text="Architecture diagram that shows how to deploy Health Data Services on Azure and integrate with other Azure services." lightbox="media/azure-health-data-services.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-services.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-services.vsdx) of this architecture.*
 
 ### Workflow
 
 1. Azure Application Gateway receives individual Fast Healthcare Interoperability Resources (FHIR) messages (for example, patient data) over an enhanced-security TLS connection that uses a Client Credentials Flow. Application Gateway sends the data via Azure API Management to the [Health Data Services FHIR service](/azure/healthcare-apis/fhir/overview), where it's persisted.
-1. Simultaneously, a client can read the same FHIR data over a TLS connection via Application Gateway and API Management by using a tool like Postman.
+1. Simultaneously, a client can read the same FHIR data over a TLS connection via Application Gateway and API Management.
 1. For bulk data processing, Application Gateway receives FHIR bundles over a TLS connection that uses a Client Credentials Flow and loads the data into a storage account. A [FHIR Loader](https://github.com/microsoft/fhir-loader) Azure function that's integrated with the virtual network processes FHIR bundles and loads the data into the FHIR service.
 1. If the incoming data is in HL7 version 2 or C-CDA format, you can first convert it to the FHIR format  by using the [$convert-data](/azure/healthcare-apis/fhir/convert-data) endpoint in the FHIR service. You can then post the data to the FHIR service by using Application Gateway. Azure Container Registry, connected via a private endpoint, is used to store, with enhanced security, customized Liquid templates for converting HL7 v2 or C-CDA data to FHIR data. Container Registry is shown in the architecture diagram, but HL7 v2 / C-CDA to FHIR conversion via `$convert-data` isn't implemented by the sample Bicep implementation template.
 1. FHIR to Synapse Sync Agent extracts data from the FHIR service (for data ingested via either the individual or bulk data flow), converts the extracted data to hierarchical Parquet files, and writes it to Azure Data Lake Storage. 

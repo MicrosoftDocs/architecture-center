@@ -4,12 +4,6 @@ items:
   items: 
     - name: Explore ideas about
       items:
-      - name: Cache
-        items:
-        - name: Data cache
-          href: idea/data-cache-with-redis-cache.yml        
-        - name: Messaging
-          href: idea/messaging.yml
       - name: Relational
         items:
         - name: Intelligent apps using MySQL
@@ -30,20 +24,6 @@ items:
         items:
         - name: DataOps for modern data warehouse
           href: architecture/dataops-mdw.yml
-      - name: Master data management
-        items:
-        - name: Migrate master data services with CluedIn
-          href: architecture/migrate-master-data-services-with-cluedin.yml
-        - name: Master data management with Profisee
-          href: architecture/profisee-master-data-management-data-factory.yml
-        - name: Migrate master data services with Profisee
-          href: architecture/profisee-mds-migration-utility.yml          
-      - name: Governance
-        items:
-        - name: Master data management with CluedIn
-          href: architecture/cluedin.yml        
-        - name: Data governance with Profisee
-          href: architecture/profisee-master-data-management-purview.yml
       - name: NoSQL
         items:
         - name: N-tier app with Cassandra
@@ -52,10 +32,6 @@ items:
       items:
       - name: Databases
         items:
-        - name: Relational
-          items:
-          - name: Cost savings through HTAP with Azure SQL
-            href: guide/azure-sql-htap.yml
         - name: NoSQL
           items:
           - name: Use the Transactional Outbox pattern

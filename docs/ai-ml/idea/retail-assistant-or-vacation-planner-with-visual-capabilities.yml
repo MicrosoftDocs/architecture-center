@@ -25,6 +25,7 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities"
     - ai-machine-learning
+    - arb-aiml
 name: Retail assistant with visual capabilities
 azureCategories:
   - ai-machine-learning
@@ -38,4 +39,4 @@ products:
   - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/bot-assistant-architecture.png
 content: |
-  [!include[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]
+  [!INCLUDE[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]

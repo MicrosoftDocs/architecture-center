@@ -20,11 +20,34 @@ With On-Demand Instances, you pay for compute capacity by the second, with no lo
 
 - AWS Spot Instance prices vary. AWS sets the price depending on long-term supply and demand trends for Spot Instance capacity, and you pay the price in effect for the time period the instance is up.
 
+## Azure Kubernetes Service cost analysis
+
+An [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) cluster relies on various Azure resources such as virtual machines, virtual disks, load-balancers, and public IP addresses. These resources can be utilized by multiple applications, which might be managed by different teams within an organization. The consumption patterns of these resources can vary, resulting in varying contribution toward the total cluster resource cost. Additionally, some applications may have footprints across multiple clusters, making cost attribution and management a challenge.
+
+For scenarios where a cluster contains a single workload, [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) can be used to measure cluster resource consumption under the cluster resource group. However, some scenarios are not natively covered by that solution alone, for example:
+
+- Granular breakdown of resource usage, such as compute, network, and storage.
+- Distinguishing between individual application costs and shared costs.
+- Analyzing costs across multiple clusters in the same subscription scope.
+
+To increase cost observability, AKS has integrated with Microsoft Cost Management to provide detailed cost drilldowns at Kubernetes constructs like cluster and namespace. This integration enables cost analysis at the Azure compute, network, and storage categories.
+
+The AKS cost analysis addon is built on [OpenCost](https://www.opencost.io/), an open-source project for usage data collection. It provides cost visibility by reconciling data with your Azure invoice. The post-processed data is directly visible in the Cost Management cost analysis portal. For more information, see [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis).
+
+### Cost Definitions
+
+In the Kubernetes namespaces and assets views, you will see the charges, such as:
+
+- **Idle charges:** Represents the cost of available resource capacity that wasn't used by any workloads.
+- **Service charges:** Represents the charges associated with services like Uptime service-level agreement (SLA) and Microsoft Defender for Containers.
+- **System charges:** Represents the cost of capacity reserved by AKS on each node to run system processes required by the cluster.
+- **Unallocated charges:** Represents the cost of resources that couldn't be allocated to namespaces.
+
 ## AKS cost basics
 
 Kubernetes architecture is based on two layers, the control plane and one or more nodes or node pools. The AKS pricing model is based on the two Kubernetes architecture layers.
 
-- The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components), such as the API server and `etcd`, and application workload orchestration. The Azure platform manages the AKS control plane, and for the AKS free tier, the control plane has [no cost](https://azure.microsoft.com/pricing/details/kubernetes-service).
+- The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components), such as the API server and `etcd`, and application workload orchestration. The Azure platform manages the AKS control plane, and for the AKS Free tier, the control plane has [no cost](https://azure.microsoft.com/pricing/details/kubernetes-service).
 
 - The [nodes](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools), also called *agent nodes* or *worker nodes*, host Kubernetes workloads and applications. In AKS, customers fully manage and pay all costs for the agent nodes.
 
@@ -74,9 +97,9 @@ When investigating Azure VM pricing, be aware of the following points:
 
 - There are multiple VM families, optimized for different types of workloads.
 
-- Managed disks used as OS drives are charged separately, and you must add their cost to your estimates. Managed disk size depends on the class, such as Standard HDDs, Standard SSDs, Premium SSDs, or Ultra SSDs. Input-output operations per second (IOPS) and throughput in MB/sec depend on size and class. [Ephemeral OS disks](node-pools.yml#ephemeral-os-disks) are free and are included in the VM price.
+- Managed disks used as OS drives are charged separately, and you must add their cost to your estimates. Managed disk size depends on the class, such as Standard HDDs, Standard SSDs, Premium SSDs, or Ultra Disk Storage. Input-output operations per second (IOPS) and throughput in MB/sec depend on size and class. [Ephemeral OS disks](node-pools.yml#ephemeral-os-disks) are free and are included in the VM price.
 
-- Data disks, including those created with persistent volume claims, are optional and are charged individually based on their class, such as Standard HDDs, Standard SSDs, Premium SSDs, and Ultra SSDs. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MB/sec depend on VM size and class.
+- Data disks, including those created with persistent volume claims, are optional and are charged individually based on their class, such as Standard HDDs, Standard SSDs, Premium SSDs, and Ultra Disk Storage. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MB/sec depend on VM size and class.
 
 - The more time that agent nodes are up and running, the higher the total cluster cost. Development environments don't usually need to run continuously.
 
@@ -114,9 +137,9 @@ Several Azure networking services can provide access to your applications that r
 - [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer). By default, Load Balancer uses Standard SKU. Load Balancer charges are based on:
 
   - Rules: The number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
-  - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
+  - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard load balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall functionality. Application Gateway charges are based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
@@ -177,9 +200,9 @@ The following recommendations help you optimize your AKS cluster costs:
 
 - For multitenant solutions, physical isolation is more costly and adds management overhead. Logical isolation requires more Kubernetes experience and increases the surface area for changes and security threats, but shares the costs.
 
-- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) can help you save money by committing to one-year or three-year plans for several products, such as the VMs in your AKS cluster. You get discounts by reserving capacity. Use Azure Reservations for [Storage](/azure/storage/files/files-reserve-capacity) and [Compute](https://azure.microsoft.com/pricing/reserved-vm-instances) to reduce the cost of agent nodes.
+- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) can help you save money by committing to one-year or three-year plans for several products, such as the VMs in your AKS cluster. You get discounts by reserving capacity. Use Azure reservations for [Storage](/azure/storage/files/files-reserve-capacity) and [Compute](https://azure.microsoft.com/pricing/reserved-vm-instances) to reduce the cost of agent nodes.
 
-  Reservations can reduce your resource costs by up to 72% from pay-as-you-go prices, and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources. You can purchase reservations from the Azure portal, or by using Azure REST APIs, PowerShell, or Azure CLI. If you use operational tools that rely on [Log Analytics workspaces](https://azure.microsoft.com/updates/azure-monitor-log-analytics-new-capacity-based-pricing-option-is-now-available), consider using Reservations for this storage also.
+  Reservations can reduce your resource costs by up to 72% from pay-as-you-go prices, and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources. You can purchase reservations from the Azure portal, or by using Azure REST APIs, PowerShell, or the Azure CLI. If you use operational tools that rely on [Log Analytics workspaces](https://azure.microsoft.com/updates/azure-monitor-log-analytics-new-capacity-based-pricing-option-is-now-available), consider using Reservations for this storage also.
 
 - Add one or more spot node pools to your AKS cluster. A spot node pool is a node pool backed by [Azure Spot Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/use-spot). Using spot VMs for your AKS cluster nodes takes advantage of unused Azure capacity at significant cost savings. The amount of available unused capacity varies based on several factors, including node size, region, and time of day. Azure allocates the spot nodes if there's capacity available, but there's no SLA for spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain, and offers no high-availability guarantees. When Azure needs the capacity back, the Azure infrastructure evicts the spot nodes.
 
@@ -188,10 +211,10 @@ The following recommendations help you optimize your AKS cluster costs:
 - Choose the right [VM size](/azure/virtual-machines/sizes) for your AKS cluster node pools based on your workloads' CPU and memory needs. Azure offers many different VM instance types that match a wide range of use cases, with different combinations of CPU, memory, storage, and networking capacity. Every type comes in one or more sizes, so you can easily scale your resources.
 
   You can now deploy and manage containerized applications with AKS running on Ampere Altra ARM-based processors. For more information, see [Azure Virtual Machines with Ampere Altra ARM-based processors](https://azure.microsoft.com/blog/now-in-preview-azure-virtual-machines-with-ampere-altra-armbased-processors).
-  
+
 - Create multiple node pools with different VM sizes for special purposes and workloads. Use Kubernetes [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration) and [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to place resource-intensive applications on specific node pools to avoid noisy neighbor issues. Keep these node resources available for workloads that require them, and don't schedule other workloads on these nodes. Using different VM sizes for different node pools can also optimize costs. For more information, see [Use multiple node pools in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
-- System-mode node pools must contain at least one node, while user-mode node pools can contain zero or more nodes. Whenever possible, you can configure a user-mode node pool to automatically scale from `0` to `N` nodes. You can configure your workloads to scale out and scale in by using a horizontal pod autoscaler. Base autoscaling on CPU and memory, or use [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh) to base autoscaling on the metrics of an external system like Apache Kafka, RabbitMQ, or Azure Service Bus.
+- System-mode node pools must contain at least one node, while user-mode node pools can contain zero or more nodes. Whenever possible, you can configure a user-mode node pool to automatically scale from `0` to `N` nodes. You can configure your workloads to scale out and scale in by using a Horizontal Pod Autoscaler. Base autoscaling on CPU and memory, or use [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh) to base autoscaling on the metrics of an external system like Apache Kafka, RabbitMQ, or Azure Service Bus.
 
 - Make sure to properly set [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers) for your pods to improve application density and avoid assigning too many CPU and memory resources to your workloads. Observe the average and maximum consumption of CPU and memory by using Prometheus or Container Insights. Properly configure limits and quotas for your pods in the YAML manifests, Helm charts, and Kustomize manifests for your deployments.
 
@@ -218,14 +241,22 @@ Cost governance is the process of continuously implementing policies or controls
 
 - Explore open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern AKS cluster cost. You can scope cost allocation to a deployment, service, label, pod, and namespace, which provides flexibility in showing and charging cluster users.
 
+## Reference Material
+
+Here are some reference materials that can help you further understand and utilize AKS cost analysis:
+
+- [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis)
+- [Webinar: Tools and Tips for Unparalleled Cost Transparency on AKS](https://www.youtube.com/watch?v=p15XAKy14WQ)
+- [OpenCost project on GitHub](https://github.com/opencost/opencost)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal System Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Cloud Solution Architect
 
 Other contributors:
 

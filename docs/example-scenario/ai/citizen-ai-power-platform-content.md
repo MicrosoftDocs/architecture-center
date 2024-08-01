@@ -62,7 +62,7 @@ You can use the following components.
 
 #### Platform services
 
-To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/architecture/framework). The framework consists of five pillars of architectural excellence:
+To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/well-architected/). The framework consists of five pillars of architectural excellence:
 
 - Cost optimization
 - Operational excellence
@@ -111,7 +111,7 @@ These toolkits minimize the time and effort needed to prototype the benefits of 
 
 ## Considerations
 
-When you use these services to create a proof of concept or MVP, you're not finished. There's more work to make a production solution. Frameworks such as the [Well-Architected Framework](/azure/architecture/framework) provide reference guidance and best practices to apply to your architecture.
+When you use these services to create a proof of concept or MVP, you're not finished. There's more work to make a production solution. Frameworks such as the [Well-Architected Framework](/azure/well-architected/) provide reference guidance and best practices to apply to your architecture.
 
 ### Availability
 
@@ -121,9 +121,7 @@ Apps based on ML typically require one set of resources for training and another
 
 ### DevOps
 
-DevOps practices are used to orchestrate the end-to-end approach used in this example. If your organization is new to DevOps, the [DevOps Checklist](/azure/architecture/checklist/dev-ops) can help you get started.
-
-The [Machine Learning DevOps Guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
+DevOps practices are used to orchestrate the end-to-end approach used in this example. The [Machine Learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
 
 DevOps automation can be applied to the Power Platform solution provided in this example. For more information about Power Platform DevOps, see [Power Platform Build Tools for Azure DevOps: Power Platform](/power-platform/alm/devops-build-tools).
 

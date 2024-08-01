@@ -17,7 +17,7 @@ This article describes an architecture that you can use to replace the manual an
 5. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 6. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition (OCR)) model to identify textual information in the images.
 7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
-7. Power BI provides data visualization.
+8. Power BI provides data visualization.
 
 ### Components
 
@@ -60,7 +60,7 @@ This scenario is relevant for any business that analyzes videos. Here are some s
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -120,6 +120,7 @@ Appropriate use of scaling and the implementation of PaaS offerings that have bu
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Oscar Shimabukuro Kiyan](https://www.linkedin.com/in/oscarshk) | Senior Cloud Solutions Architect – Data & AI
 
 Other contributors:

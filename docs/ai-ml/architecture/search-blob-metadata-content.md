@@ -1,8 +1,8 @@
-This article demonstrates how to create a search service that enables users to search for documents based on document content in addition to any metadata that's associated with the files.
+This article demonstrates how to create a search service that enables users to search for documents based on document content in addition to any metadata that's associated with the document.
 
 You can implement this service by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure AI Search](/azure/search/search-what-is-azure-search).
 
-This article uses an example workload to demonstrate how to create a single [search index](/azure/search/search-what-is-an-index) that's based on files in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
+This article uses an example workload to demonstrate how to create a single [search index](/azure/search/search-what-is-an-index) that's based on documents in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
 
 ## Architecture
 
@@ -12,7 +12,7 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 ### Dataflow
 
-1. Files are stored in Blob Storage, possibly together with a limited amount of metadata (for example, the document's author).
+1. Documents are stored in Blob Storage, possibly together with a limited amount of metadata (for example, the document's author).
 2. Additional metadata is stored in Table Storage, which can store significantly more information for each document.
 3. An indexer reads the contents of each file, together with any blob metadata, and stores the data in the search index.
 4. Another indexer reads the additional metadata from the table and stores it in the same search index.
@@ -20,7 +20,7 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 ### Components
 
-- [Blob Storage](https://azure.microsoft.com/products/storage/blobs/) provides cost-effective cloud storage for file data, including data in formats like PDF, HTML, and CSV, and in Microsoft 365 files.
+- [Blob Storage](https://azure.microsoft.com/products/storage/blobs/) provides cost-effective cloud storage for file data, including data in formats like PDF, HTML, and CSV, and in Microsoft 365 documents.
 - [Table Storage](https://azure.microsoft.com/products/storage/tables/) provides storage for nonrelational structured data. In this scenario, it's used to store the metadata for each document.
 - [Azure AI Search](https://azure.microsoft.com/products/search/) is a fully managed search service that provides infrastructure, APIs, and tools for building a rich search experience.
 
@@ -40,11 +40,11 @@ This solution enables users to search for documents based on both file content a
 
 [Azure AI Search](/azure/search/search-what-is-azure-search) is a fully managed search service that can create [search indexes](/azure/search/search-what-is-an-index) that contain the information you want to allow users to search for.
 
-Because the files that are searched in this scenario are binary documents, you can store them in [Blob Storage](/azure/storage/blobs/storage-blobs-overview). If you do, you can use the built-in [Blob Storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) in Azure AI Search to automatically extract text from the files and add their content to the search index.
+The documents that are searched in this scenario are stored in [Blob Storage](/azure/storage/blobs/storage-blobs-overview). Because of this, you can use the built-in [Blob Storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) in Azure AI Search to automatically extract text from the document and add their content to the search index.
 
 ### Searching file metadata
 
-If you want to include additional information about the files, you can directly associate [metadata](/azure/storage/blobs/storage-blob-properties-metadata) with the blobs, without using a separate store. The built-in [Blob Storage search indexer can even read this metadata](/azure/search/search-howto-indexing-azure-blob-storage#indexing-blob-metadata) and place it in the search index. This enables users to search for metadata along with the file content. However, the [amount of metadata is limited to 8 KB per blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources#Subheading1), so the amount of information that you can place on each blob is fairly small. You might choose to store only the most critical information directly on the blobs. In this scenario, only the document's *author* is stored on the blob.
+If you want to include additional information about the document, you can directly associate [metadata](/azure/storage/blobs/storage-blob-properties-metadata) with the blobs, without using a separate store. The built-in [Blob Storage search indexer can even read this metadata](/azure/search/search-howto-indexing-azure-blob-storage#indexing-blob-metadata) and place it in the search index. This enables users to search for metadata along with the file content. However, the [amount of metadata is limited to 8 KB per blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources#Subheading1), so the amount of information that you can place on each blob is fairly small. You might choose to store only the most critical information directly on the blobs. In this scenario, only the document's *author* is stored on the blob.
 
 To overcome this storage limitation, you can place additional metadata in another [data source that has a supported indexer](/azure/search/search-indexer-overview#supported-data-sources), like [Table Storage](/azure/storage/tables/table-storage-overview). You can add the document type, business impact, and other metadata values as separate columns in the table. If you configure the built-in [Table Storage indexer](/azure/search/search-howto-indexing-azure-tables) to target the same search index as the blob indexer, the blob and table storage metadata is combined for each document in the search index.
 
@@ -67,13 +67,13 @@ This scenario applies to applications that require the ability to search for doc
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure AI Search provides a [high service-level agreement (SLA)](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards). It provides a high SLA for *updates* (updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations.
+Azure AI Search provides a [high service-level agreement (SLA)](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards). It provides a high service-level agreement (SLA) for *updates* (updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations.
 
 [Azure Storage always stores multiple copies of your data](/azure/storage/common/storage-redundancy) to help protect it against planned and unplanned events. Azure Storage provides additional redundancy options for replicating data across regions. These safeguards apply to data in blob and table storage.
 

@@ -59,7 +59,7 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Scalability
 
@@ -109,7 +109,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
-- [Manage hybrid Azure workloads using Windows Admin Center](hybrid-server-os-mgmt.yml)
 
 [architectural-diagram]: ./images/gateway-logic-apps.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx

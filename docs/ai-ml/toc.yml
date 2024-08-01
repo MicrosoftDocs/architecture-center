@@ -6,14 +6,14 @@ items:
       items:
       - name: Document processing
         items:
-        - name: Content tagging with NLP
-          href: idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
         - name: Knowledge mining for customer feedback
           href: idea/customer-feedback-and-analytics.yml
         - name: Large-scale custom NLP
           href: idea/large-scale-custom-natural-language-processing.yml
       - name: Image processing
         items:
+        - name: Image classification
+          href: idea/intelligent-apps-image-processing.yml
         - name: Image classification with CNNs
           href: idea/image-classification-with-convolutional-neural-networks.yml
         - name: Retail assistant with visual capabilities
@@ -34,14 +34,6 @@ items:
           href: idea/customer-churn-prediction.yml
         - name: Personalized offers
           href: idea/personalized-offers.yml
-        - name: Marketing optimization
-          href: idea/optimize-marketing-with-machine-learning.yml
-        - name: Personalized marketing solutions
-          href: idea/personalized-marketing.yml
-      - name: Chat bots
-        items:
-        - name: Search and query a knowledge base
-          href: openai/idea/search-and-query-using-openai-service.yml
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
@@ -52,8 +44,8 @@ items:
           href: idea/video-ingestion-object-detection-edge-cloud.yml
       - name: Document enrichment
         items:
-        - name: AI enrichment with Azure AI Search
-          href: ../solution-ideas/articles/cognitive-search-with-skillsets.yml
+        - name: Use AI enrichment with Azure AI Search
+          href: ../solution-ideas/articles/ai-search-skillsets.yml
       - name: MLOps
         items:
         - name: Orchestrate MLOps with Azure Databricks
@@ -66,10 +58,6 @@ items:
           href: idea/many-models-machine-learning-azure-machine-learning.yml
       - name: Other ideas
         items:
-        - name: Azure Machine Learning architecture
-          href: idea/azure-machine-learning-solution-architecture.yml
-        - name: Autonomous systems
-          href: ../solution-ideas/articles/autonomous-systems.yml
         - name: Data science and machine learning
           href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
     - name: Design architectures
@@ -89,19 +77,15 @@ items:
         - name: Automate PDF form processing
           href: architecture/automate-pdf-forms-processing.yml
         - name: Build custom document processing models
-          href: architecture/build-deploy-custom-models.yml                     
+          href: architecture/build-deploy-custom-models.yml
         - name: Multiple indexers with Azure AI Search
           href: architecture/search-blob-metadata.yml
       - name: Video and image classification
         items:
         - name: Automate video analysis
           href: architecture/analyze-video-computer-vision-machine-learning.yml
-        - name: Image classification
-          href: architecture/intelligent-apps-image-processing.yml
       - name: Audio processing
         items:
-        - name: Speech transcription pipeline
-          href: architecture/speech-to-text-transcription-analytics.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
       - name: Predictive analytics
@@ -114,14 +98,10 @@ items:
           href: architecture/batch-scoring-deep-learning.yml
         - name: Batch scoring with Python
           href: architecture/batch-scoring-python.yml
-        - name: Batch scoring with R
-          href: architecture/batch-scoring-R-models.yml
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
       - name: Recommendations
         items:
-        - name: Real-time recommendation API
-          href: architecture/real-time-recommendation.yml
         - name: Social media analytics solution
           href: architecture/build-deploy-social-media-analytics-solution.yml
       - name: Monitoring
@@ -139,7 +119,7 @@ items:
       - name: Developing and evaluating RAG solutions
         items:
         - name: Getting started
-          href: guide/rag/rag-solution-design-and-evaluation-guide.yml        
+          href: guide/rag/rag-solution-design-and-evaluation-guide.yml
         - name: Preparation phase
           href: guide/rag/rag-preparation-phase.yml
         - name: Chunking phase
@@ -152,18 +132,8 @@ items:
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.yml
-      - name: Document processing
-        items:
-        - name: OpenAI GPT-3 summarization
-          href: guide/query-based-summarization.md
-        - name: Build language model pipelines
-          href: openai/guide/language-model-pipelines.yml
       - name: Audio processing
         items:
-        - name: Custom speech-to-text overview
-          href: guide/custom-speech-text.yml
-        - name: Custom speech-to-text
-          href: guide/custom-speech-text-deploy.yml
         - name: Conversation summarization
           href: guide/conversation-summarization.yml
       - name: MLOps
@@ -184,6 +154,8 @@ items:
           href: guide/azure-openai-gateway-guide.yml
         - name: A gateway for multiple Azure OpenAI backends
           href: guide/azure-openai-gateway-multi-backend.yml
+        - name: Custom authentication for a gateway in front of Azure OpenAI
+          href: guide/azure-openai-gateway-custom-authentication.yml
       - name: Team Data Science Process
         items:
         - name: Overview
@@ -218,16 +190,8 @@ items:
           items:
           - name: For data scientists
             href: ../data-science-process/team-data-science-process-for-data-scientists.md
-        - name: How To
-          items:
-          - name: Prepare data
-            href: ../data-science-process/prepare-data.md
     - name: OpenAI
-      items: 
-      - name: Explore ideas about
-        items:
-        - name: Search and query a knowledge base
-          href: openai/idea/search-and-query-using-openai-service.yml
+      items:
       - name: Design architectures
         items:
         - name: Azure OpenAI chat baseline architecture
@@ -253,18 +217,16 @@ items:
           - name: Embedding phase
             href: guide/rag/rag-generating-embeddings.yml
           - name: Information retrieval phase
-            href: guide/rag/rag-information-retrieval.yml        
+            href: guide/rag/rag-information-retrieval.yml
           - name: LLM end-to-end evaluation phase
-            href: guide/rag/rag-llm-evaluation-phase.yml            
+            href: guide/rag/rag-llm-evaluation-phase.yml
         - name: Proxy Azure OpenAI usage
           items:
           - name: Use a gateway infront of Azure OpenAI
             href: guide/azure-openai-gateway-guide.yml
           - name: A gateway for multiple Azure OpenAI backends
-            href: guide/azure-openai-gateway-multi-backend.yml        
-        - name: Build language model pipelines
-          href: openai/guide/language-model-pipelines.yml
-        - name: OpenAI GPT-3 summarization
-          href: guide/query-based-summarization.md
+            href: guide/azure-openai-gateway-multi-backend.yml
+          - name: Custom authentication for a gateway in front of Azure OpenAI
+            href: guide/azure-openai-gateway-custom-authentication.yml
         - name: Conversation summarization
           href: guide/conversation-summarization.yml

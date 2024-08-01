@@ -33,7 +33,7 @@ Consider this scenario for the following use cases:
 - This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using faster processors, solid-state drive (SSD) storage, and double the memory-to-core ratio compared to Standard.
 - Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These apps and APIs are hosted on the Isolated service plan, which also offers autoscaling, custom domains, and so on, but in a dedicated tier.
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes extra overhead from the web servers hosting the web app to decrypt traffic again.
-- [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses Open Worldwide Application Security Project (OWASP) rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
+- [Web Application Firewall (WAF)][docs-waf] is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses Open Worldwide Application Security Project (OWASP) rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
 - [Azure SQL Database][docs-sql-database] was selected because most of the data in this application is relational data, with some data as documents and Blobs.
 - [Azure Networking][azure-networking] provides various networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
 - [Azure DevOps][docs-azure-devops] is used to help teams collaborate during sprints, using features that support Agile Development, and to create build and release pipelines.
@@ -44,7 +44,7 @@ Consider this scenario for the following use cases:
 An App Service Environment can run regular web apps on Windows or, as in this example, web apps deployed inside the environment that are each running as Linux containers. An App Service Environment was selected to host these single-instance containerized applications. There are alternatives available&mdash;review the considerations below when designing your solution.
 
 - [Azure Service Fabric][docs-service-fabric]: If your environment is mostly Windows-based, and your workloads are primarily .NET Framework-based, and you aren't considering rearchitecting to .NET Core, then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java programming APIs, and for developing native microservices, the clusters can be provisioned on Windows or Linux.
-- [Azure Kubernetes Service][docs-kubernetes-service] (AKS) is an open-source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is required to support and maintain it, so hosting a handful of single-instance containerized web applications might not be the best option.
+- [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is required to support and maintain it, so hosting a handful of single-instance containerized web applications might not be the best option.
 
 Other options for the data tier include:
 
@@ -79,7 +79,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 
 ### Availability
 
-- Consider applying the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application.
+- Consider applying the [typical design patterns for availability](/azure/well-architected/reliability/design-patterns) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other considerations concerning availability, see the [availability checklist](../../checklist/resiliency-per-service.md) in the Azure Architecture Center.
 
@@ -87,7 +87,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 
 - Understand how [scale works][docs-azure-scale-ase] in App Service Environments.
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
-- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/architecture/framework/resiliency/reliability-patterns).
+- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/well-architected/performance-efficiency/design-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other scalability articles, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
@@ -102,7 +102,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 ### Resiliency
 
 - Consider using [Geo Distributed Scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
-- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns) and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and consider implementing these where appropriate.
 - You can find several [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
@@ -159,11 +159,6 @@ Principal author:
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
 [app-service-reference-architecture]: /azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant
-[availability]: ../../checklist/resiliency-per-service.md
-
-[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
-[design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
-[design-patterns-performance-efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
 [design-patterns-security]: /azure/architecture/framework/security/overview
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md

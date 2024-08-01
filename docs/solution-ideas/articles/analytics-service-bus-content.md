@@ -94,4 +94,3 @@ Other contributor:
 
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)
 - [Real-time analytics on big data architecture](real-time-analytics.yml)
-- [Create personalized marketing solutions in near real time](../../ai-ml/idea/personalized-marketing.yml)

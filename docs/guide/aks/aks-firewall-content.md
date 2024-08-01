@@ -177,7 +177,7 @@ For more information, see [Use Azure Firewall in front of an internal Standard L
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Some of the following considerations are general recommendations that aren't specific to using Azure Firewall to improve the protection of an AKS cluster. We believe they're essential requirements of this solution. This applies to the security, performance, availability and reliability, storage, service mesh, and monitoring considerations.
 
@@ -299,7 +299,7 @@ Principal author:
 
 ## Next steps
 
-Review the recommendations and best practices for AKS in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework):
+Review the recommendations and best practices for AKS in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/):
 
 - [Reliability](/azure/architecture/framework/services/compute/azure-kubernetes-service/reliability)
 - [Security](/azure/architecture/framework/services/compute/azure-kubernetes-service/security)
@@ -345,4 +345,3 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
-- [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)

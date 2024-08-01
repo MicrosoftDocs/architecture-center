@@ -18,7 +18,7 @@ This article provides an example design of a pipeline that you can use to proces
 
 1. After Blob Storage detects that a new file is uploaded, another function is invoked that converts the audio to text by using Azure AI Speech. The transcription results are stored in a text file format and uploaded to another container.
 
-1. A third function uses generative AI to detect and process the transcriptions and generate summaries, search engine-optimized (SEO) keywords, and translations.
+1. A third function uses generative AI to detect and process the transcriptions and generate summaries, search engine-optimized keywords, and translations.
 
 ### Components
 
@@ -36,13 +36,13 @@ This article provides an example design of a pipeline that you can use to proces
 
 Podcasts are an effective medium to share your ideas, stories, and perspectives. Many organizations and individuals have discovered the power of using podcasts to connect and grow their audience. To reach an even wider audience, creators can use a podcast synopsis and content localization to make their content more accessible to speakers of other languages.
 
-A podcast synopsis is a quick and easy way for creators to inform listeners what their podcast episode is about. A podcast synopsis can help listeners decide if they want to tune in. A translated synopsis makes it easier for potential international listeners to discover the podcast and learn about what it offers.
+A podcast synopsis is a quick and easy way for creators to inform listeners what their podcast episode is about. A podcast synopsis can help listeners decide whether they want to tune in. A translated synopsis makes it easier for potential international listeners to discover the podcast and learn about what it offers.
 
 Localization is the process of adapting your podcast content to a specific language and culture. Localization goes beyond translation and considers the nuances, preferences, and expectations of your target audience. Localization can help you connect with your listeners on a deeper level and increase their engagement and loyalty.
 
 Producing and publishing content is difficult. AI can help you automate processes and scale your podcast production and distribution. You can use AI and AI infrastructure to transcribe your podcast audio, translate your synopsis, and generate voice-overs in various languages and accents.
 
-This article describes how to use AI to create a podcast synopsis, localize the podcast into multiple languages, and automatically generate marketing and SEO keywords that help broaden your content audience. This solution illustrates how to use the power of GPT to automate a large part of this process with Speech and Azure OpenAI. You can use GPT to automatically transcribe audio into text, generate a synopsis in a particular style and tone, suggest catchy tag lines and SEO keywords, and translate the synopsis into multiple languages to reach a global audience, all in a matter of minutes.
+This article describes how to use AI to create a podcast synopsis, localize the podcast into multiple languages, and automatically generate marketing and search engine optimization (SEO) keywords that help broaden your content audience. This solution illustrates how to use the power of GPT to automate a large part of this process with Speech and Azure OpenAI. You can use GPT to automatically transcribe audio into text, generate a synopsis in a particular style and tone, suggest catchy tag lines and SEO keywords, and translate the synopsis into multiple languages to reach a global audience, all in a matter of minutes.
 
 ### Web app
 
@@ -55,7 +55,7 @@ A [static web application](https://learn.microsoft.com/azure/static-web-apps/) e
 
 ### Storage
 
-This solution uses a single Azure storage account with multiple containers to store raw files (audio), transcriptions (text transcriptions of audio), and the Azure OpenAI results.
+This solution uses a single Azure Storage account with multiple containers to store raw files (audio), transcriptions (text transcriptions of audio), and the Azure OpenAI results.
 
 ### Compute
 
@@ -65,8 +65,8 @@ This solution uses three Azure functions in a specific workflow to process audio
 
 The static website consumes the first HTTP-triggered function. The function has a [Flask app framework](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/) and exposes two endpoints:
 
-- _POST_ operation to upload the audio file to Blob Storage
-- _GET_ operation to retrieve the results of the generated AI insights
+- *POST* operation to upload the audio file to Blob Storage
+- *GET* operation to retrieve the results of the generated AI insights
 
 #### Blob-triggered function for the raw files container
 
@@ -103,7 +103,7 @@ Principal authors:
 
 Other contributors:
 
-- [Andy Beach](https://www.linkedin.com/in/andrewbeach/) | CTO, Media and Entertainment Worldwide
+- [Andy Beach](https://www.linkedin.com/in/andrewbeach/) | Chief Technical Officer (CTO), Media and Entertainment Worldwide
 - [Simon Powell](https://www.linkedin.com/in/asbpowell/) | Principal Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

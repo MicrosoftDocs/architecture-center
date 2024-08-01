@@ -70,7 +70,7 @@ This generalized approach is best suited for:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Before you implement this solution, some factors you might want to consider include:
 
@@ -78,7 +78,7 @@ Before you implement this solution, some factors you might want to consider incl
 
 - [Machine learning DevOps (MLOps) best practices with Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and recommendations for adopting ML operations (MLOps) in the enterprise with machine learning.
 
-- Follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/architecture/framework) to improve the quality of your Azure solutions.
+- Follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/well-architected/) to improve the quality of your Azure solutions.
 
 - When implementing a CI/CD pipeline, you can use different tools than this example uses, such as Azure Pipelines and GitHub Actions. For more information about CI/CD, see [CI/CD for microservices architectures](/azure/architecture/microservices/ci-cd).
 
@@ -96,7 +96,7 @@ A proof-of-concept implementation of this scenario is available on GitHub at [Em
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architecture.*
 
-This proof of concept (POC) illustrates:
+This proof of concept illustrates:
 
 - How to train an MLflow model for employee attrition on Azure Databricks.
 - How to package models as a web service by using open-source tools.
@@ -109,7 +109,7 @@ This proof of concept (POC) illustrates:
 
 Principal author:
 
-* [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
+- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 
 ## Next steps
 

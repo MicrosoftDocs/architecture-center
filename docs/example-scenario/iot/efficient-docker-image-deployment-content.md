@@ -13,7 +13,7 @@ The company was having problems updating devices over their recently developed A
 To address these issues, the development team created a solution that:
 
 - Minimizes the size of the deployment to each device, reducing bandwidth.
-- Implements a standardized Docker container deployment from the IoT Edge platform to heterogenous remote IoT devices.
+- Implements a standardized Docker container deployment from the IoT Edge platform to heterogeneous remote IoT devices.
 - Enables reliable deployment monitoring.
 - Takes advantage of various Azure DevOps and cloud services, and uses the customer's preferred legacy tools.
 
@@ -168,7 +168,7 @@ The following table shows how each of the above solutions measured against the e
 
 ## Considerations
 
-These considerations implement pillars of the Azure Well-Architected Framework, a set of guiding tenets that improve workload quality. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement pillars of the Azure Well-Architected Framework, a set of guiding tenets that improve workload quality. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance efficiency
 

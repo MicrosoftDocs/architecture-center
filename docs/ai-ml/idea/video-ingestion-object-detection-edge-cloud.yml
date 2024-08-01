@@ -10,6 +10,7 @@ metadata:
   ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
   - containers
@@ -22,4 +23,4 @@ name: Video ingestion and object detection on the edge and in the cloud
 summary: Learn how to use a mobile robot with a live streaming camera to implement various use cases.
 thumbnailUrl: /azure/architecture/browse/thumbs/video-ingestion.png
 content: |
-  [!include[](video-ingestion-object-detection-edge-cloud-content.md)]
+  [!INCLUDE[](video-ingestion-object-detection-edge-cloud-content.md)]
