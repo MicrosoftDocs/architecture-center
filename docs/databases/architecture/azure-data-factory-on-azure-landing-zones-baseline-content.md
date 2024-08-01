@@ -1,7 +1,7 @@
 This article describes how to implement a [medallion lakehouse](/azure/databricks/lakehouse/medallion) for a solution-focused use case.
 
 > [!IMPORTANT]
-> ![GitHub logo](_images/github.svg) This guidance is backed by an [example implementation](https://github.com/azure-samples/data-factory-to-databricks) which showcases a baseline Azure Data Factory implementation on Azure. You can use this implementation as a basis for further solution development in your first step toward production.
+> ![GitHub logo](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/azure-samples/data-factory-to-databricks) that demonstrates a baseline Azure Data Factory setup on Azure. You can use this implementation as a foundation for further solution development in your first step toward production.
 
 The solution uses a hub-and-spoke network topology with landing zones that follow the Cloud Adoption Framework for Azure best practices.
 
@@ -43,7 +43,7 @@ This initial use case involves the following scenarios:
 
 - The solution must be updated daily, based on source feeds availability with elastic compute optionality targeting sub-90 minutes for an end-to-end solution update.
 
-- The solution must support the target Service Level Agreements (SLAs) of:
+- The solution must support the target service level agreements (SLAs) of:
 
   - 99.5% target uptime (or about 1 day, 20 hours downtime within a year).
   
@@ -161,17 +161,17 @@ The following dataflow corresponds to the preceding diagram:
   
   - [Microsoft Cost Management and Billing](/azure/cost-management-billing/) provide financial governance services for Azure workloads.
 
-### Network Design
+### Network design
 
 :::image type="content" source="_images/azure-data-factory-baseline-network.png" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline.vsdx) of this architecture.*
 
-- Azure Firewalls can be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
+- You can use Azure Firewalls to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 
-- A SHIR can be deployed on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. A SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in Data Factory.
+- You cn deploy a SHIR on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. A SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in Data Factory.
 
-- PrivateLink and Private Endpoints are implemented, which allows you to bring the service into your virtual network.
+- Private Link and Private Endpoints are implemented, which allows you to bring the service into your virtual network.
 
 - In order to take advantage of ML-assisted data labeling, you must create a new storage account, different than the default storage account you created when creating the AML workspace. The new, nondefault storage account can be bound to the same virtual network as the workspace, and can reside in a separate subnet within that virtual network if you prefer to keep it separated.
   
@@ -187,11 +187,11 @@ The following dataflow corresponds to the preceding diagram:
 
 [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) has Data Factory, Azure Databricks, and Power BI built-in as a single solution. As a relatively new service, there might be some functionality that isn't currently available to match that of the services used in this scenario, and there might be a learning curve for operators.
 
-Alternative for the storage processing layer:
+The following are alternatives for the storage processing layer:
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described here because of Azure Databricks functional match, maturity, and skilling available in the market.
 
-Alternatives for the storage modeling layer:
+The following are alternatives for the storage modeling layer:
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described here because of data volumes and functional overlap with Databricks.
 

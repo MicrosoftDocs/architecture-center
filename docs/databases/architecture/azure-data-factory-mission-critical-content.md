@@ -4,7 +4,9 @@ This architecture aligns with the [Cloud Adoption Framework for Azure](/azure/cl
 
 ## Create a mission-critical architecture
 
-According to the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Contoso operates a [medallion lakehouse](/azure/databricks/lakehouse/medallion) that supports their first data workloads for the financial department. Contoso hardens and extends this system to support the analytical data needs of the enterprise. This strategy provides data science capabilities and self-service functionality.
+In the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Contoso operates a [medallion lakehouse](/azure/databricks/lakehouse/medallion) that supports their first data workloads for the financial department. Contoso hardens and extends this system to support the analytical data needs of the enterprise. This strategy provides data science capabilities and self-service functionality.
+
+In the [enterprise hardened architecture](azure-data-factory-enterprise-hardened.yml), Contoso has implemented a [medallion lakehouse architecture](/azure/databricks/lakehouse/medallion) that supports their enterprise analytical data needs and enables business users by using a domain model. As Contoso continues its global expansion, the finance department has used Azure Machine Learning to create a deal fraud model. This model now needs further refinement to function as a mission-critical, operational service.
 
 ### Key requirements
 
@@ -50,7 +52,7 @@ There are several key requirements to deliver a mission-critical advanced analyt
 
 The following workflow corresponds to the preceding diagram:
 
-1. The data platform is where the machine learning model is developed. This design change requires the following updates to the architecture:
+1. The machine learning model is developed on the data platform. This design change requires the following updates to the architecture:
 
     - [Azure Container Registry](/azure/container-registry/) enables the build, storage, and management of Docker container images and artifacts in a private registry that supports the machine learning model deployment.
 
@@ -114,9 +116,8 @@ The following workflow corresponds to the preceding diagram:
 
 For more information, see [Networking and connectivity](/azure/well-architected/mission-critical/mission-critical-networking-connectivity).
 
-## Callouts
-
-Determine whether your use case is operational, like this scenario, or if it's related to the data platform. If your use case includes the data platform, such as data science or analytics, it might not qualify as mission-critical. Mission-critical workloads require substantial resources and should only be defined as such if they justify the resource investment.
+> [!IMPORTANT]
+> Determine whether your use case is operational, like this scenario, or if it's related to the data platform. If your use case includes the data platform, such as data science or analytics, it might not qualify as mission-critical. Mission-critical workloads require substantial resources and should only be defined as such if they justify the resource investment.
 
 ## Alternatives
 
@@ -198,9 +199,12 @@ Compared to the baseline architecture, this architecture:
 
 - **Deploy and forget:** The model is deployed without continuous monitoring, updates, or support mechanisms in place. After the model is deployed, it requires little to no ongoing maintenance and is left to operate in isolation. This neglect can lead to performance degradation, drift in model accuracy, and vulnerabilities to emerging data patterns. Ultimately, neglect undermines the reliability and effectiveness of the model in serving its intended purpose.
 
-## Related resources
+## Next steps
 
 - [Well-Architected Framework mission-critical guidance](/azure/well-architected/mission-critical/)
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/)
+
+## Related resources
+
 - [Data Factory baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml)
 - [Enterprise-hardened architecture](azure-data-factory-enterprise-hardened.yml)
