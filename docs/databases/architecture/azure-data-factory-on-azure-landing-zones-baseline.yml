@@ -2,11 +2,11 @@
 metadata:
   title: Azure Data Factory on Azure landing zones baseline architecture
   titleSuffix: Azure Architecture Center
-  description: Learn how to design a baseline architecture for Azure Data Factory on Azure Landing Zones.
+  description: Learn how to design a baseline architecture for Azure Data Factory on Azure landing zones.
   author: claytonsiemens77
   ms.author: csiemens
-  ms.date: 05/30/2024
-  ms.topic: reference-architecture
+  ms.date: 08/01/2024
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
@@ -20,7 +20,7 @@ products:
   - azure-databricks
   - azure-sql-database
 name: Azure Data Factory on Azure landing zones baseline architecture
-summary: Learn how to design a baseline architecture for Azure Data Factory on Azure Landing Zones.
+summary: Learn how to design a baseline architecture for Azure Data Factory on Azure landing zones.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-baseline.png
 content: |
   [!include[](azure-data-factory-on-azure-landing-zones-baseline-content.md)]
