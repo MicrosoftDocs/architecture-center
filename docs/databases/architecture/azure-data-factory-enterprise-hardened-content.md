@@ -106,7 +106,7 @@ The following workflow corresponds to the preceding diagram:
 ### Network design
 
 :::image type="complex" source="./_images/azure-data-factory-hardened-network.png" alt-text="Diagram that shows a hardened network design for an Azure Data Factory workload." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
-    Diagram that shows an example of the workflow for a system that uses the valet key pattern. Boxes on the left show on-premises infrastructure and user connectivity. A box on the upper right shows the ingress infrastructure in the connectivity hub subscription. Below that are the main components of the design all using private endpoints. Next to the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
+    Diagram that shows an example of the workflow for a system that uses the Valet Key pattern. Boxes on the left show on-premises infrastructure and user connectivity. A box on the upper right shows the ingress infrastructure in the connectivity hub subscription. Below that are the main components of the design all using private endpoints. Next to the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-hardened.vsdx) of this architecture.*
@@ -141,7 +141,7 @@ Azure Machine Learning and Azure Databricks process data to generate machine lea
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
