@@ -13,7 +13,7 @@ The Reliable Web App pattern is a set of principles and implementation technique
 
 [!INCLUDE [intro 2](../includes/intro2.md)]
 
-## Business guidance
+## Business context
 
 The initial step replatforming a web app is to define your business objectives. You should set immediate goals, like your service level objective and cost optimization targets, and future goals, like for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
 
