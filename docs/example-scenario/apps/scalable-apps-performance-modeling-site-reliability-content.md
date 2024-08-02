@@ -72,7 +72,7 @@ This article shows how you can ensure appropriate reliability for a cloud applic
 
 ## Considerations
 
-Refer to the [Reliability](/azure/architecture/framework/resiliency) and [Performance Efficiency](/azure/architecture/framework/scalability) pillars of [Azure Well Architected Framework](/azure/architecture/framework) for guidance on building scalable and reliable applications.
+Refer to the [Reliability](/azure/architecture/framework/resiliency) and [Performance Efficiency](/azure/architecture/framework/scalability) pillars of [Azure Well Architected Framework](/azure/well-architected/) for guidance on building scalable and reliable applications.
 
 This article explores how to apply scalability and performance modeling techniques to fine-tune the solution architecture and design. These techniques identify changes to the transaction flows for optimal user experience. Base your technical decisions on non-functional requirements of the solution. The process is:
 
@@ -220,7 +220,7 @@ Reliability, performance efficiency, and cost optimization go hand in hand. The 
 
 For AKS, you can initially start with standard-sized VMs for the node pool. You can then monitor resource requirements during development or production use, and adjust accordingly.
 
-Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index). For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Contributors
 
@@ -233,7 +233,7 @@ Principal author:
 ## Next steps
 
 - [Azure documentation](/azure)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
 - [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
@@ -250,8 +250,4 @@ Principal author:
 - [Microsoft 365 documentation](/microsoft-365/?view=o365-worldwide)
 - [Site reliability engineering documentation](/azure/site-reliability-engineering)
 - [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy)
-
-## Related resources
-
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)

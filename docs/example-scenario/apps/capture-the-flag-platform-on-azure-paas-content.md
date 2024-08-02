@@ -158,4 +158,3 @@ Principal author:
 - [Web applications architecture design](../../web-apps/index.md)
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)
-- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)

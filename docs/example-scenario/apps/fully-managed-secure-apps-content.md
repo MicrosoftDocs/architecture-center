@@ -79,7 +79,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 
 ### Availability
 
-- Consider applying the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application.
+- Consider applying the [typical design patterns for availability](/azure/well-architected/reliability/design-patterns) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other considerations concerning availability, see the [availability checklist](../../checklist/resiliency-per-service.md) in the Azure Architecture Center.
 
@@ -87,7 +87,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 
 - Understand how [scale works][docs-azure-scale-ase] in App Service Environments.
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
-- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/architecture/framework/resiliency/reliability-patterns).
+- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/well-architected/performance-efficiency/design-patterns).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other scalability articles, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
@@ -102,7 +102,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 ### Resiliency
 
 - Consider using [Geo Distributed Scale with App Service Environments][design-geo-distributed-ase] for greater resiliency and scalability.
-- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns) and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency](/azure/well-architected/reliability/design-patterns) and consider implementing these where appropriate.
 - You can find several [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
@@ -159,11 +159,6 @@ Principal author:
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
 [app-service-reference-architecture]: /azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant
-[availability]: ../../checklist/resiliency-per-service.md
-
-[design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
-[design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
-[design-patterns-performance-efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
 [design-patterns-security]: /azure/architecture/framework/security/overview
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md

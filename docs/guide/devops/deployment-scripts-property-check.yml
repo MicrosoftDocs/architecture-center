@@ -10,6 +10,7 @@ metadata:
   ms.subservice: azure-guide
   ms.custom:
     - devx-track-bicep
+    - arb-devops
 azureCategories:
   - devops
   - networking

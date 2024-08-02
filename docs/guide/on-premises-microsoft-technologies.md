@@ -41,7 +41,6 @@ This article describes scenarios that feature Microsoft on-premises technologies
 For information about solutions in which Azure services integrate with the other Microsoft cloud platforms, see these articles:
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
-- [Azure and Dynamics 365 scenarios](../example-scenario/analytics/synapse-customer-insights.yml)
 
 ## Active Directory
 
@@ -115,7 +114,6 @@ For information about solutions in which Azure services integrate with the other
 |--|--|--|
 |[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml) |Provide high-security file access with on-premises Windows Server AD DS and DNS.|Hybrid|
 |[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Supports backup and restore of various resources on VMs that run Windows Server. |Hybrid|
-|[Connect standalone servers by using Azure Network Adapter](../hybrid/azure-network-adapter.yml) |Learn how to connect an on-premises standalone server to Azure virtual networks by using Azure Network Adapter. Deploy Network Adapter by using Windows Admin Center on Windows Server.|Hybrid|
 |[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about providing disaster recovery for Azure Stack Hub VMs that run Windows Server operating systems.|Hybrid|
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for WSUS.|Management|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure.|SAP|

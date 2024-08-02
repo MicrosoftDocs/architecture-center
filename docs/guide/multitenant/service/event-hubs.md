@@ -12,7 +12,9 @@ products:
   - azure
   - azure-event-hubs
 categories:
- - analytics
+  - analytics
+ms.custom:
+  - arb-saas
 ---
 
 # Multitenancy and Azure Event Hubs
@@ -160,13 +162,13 @@ For more information, see:
 
 Principal author:
 
-- [Will Velida](http://linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](https://linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-- [John Downs](http://linkedin.com/in/john-downs/) | Principal Customer Engineer, FastTrack for Azure
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

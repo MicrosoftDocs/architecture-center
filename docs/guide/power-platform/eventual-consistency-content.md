@@ -94,7 +94,6 @@ Consider the impact of any business logic on an entity that isn't hydrated yet. 
 
 Related architectures:
 
-- [CI/CD for Microsoft Power Platform](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform)
 - [Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform)
 - [Power Automate deployment at scale](/azure/architecture/example-scenario/power-automate/power-automate)
 
@@ -103,4 +102,4 @@ Guidance for Web development:
 - [Ten design principles for Azure applications](/azure/architecture/guide/design-principles)
 - [Design and implementation patterns](/azure/architecture/patterns/category/design-implementation)
 - [App Service deployment best practices](/azure/app-service/deploy-best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)

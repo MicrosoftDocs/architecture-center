@@ -8,13 +8,12 @@ ms.date: 06/06/2024
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
- - entra-external-id
+  - entra-external-id
 categories:
- - web 
-ms.category:
-  - fcp
+  - web 
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture

@@ -16,6 +16,7 @@ metadata:
     - fcp
     - cse
     - e2e-hybrid
+    - arb-aiml
 name: Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning
 azureCategories:
   - developer-tools

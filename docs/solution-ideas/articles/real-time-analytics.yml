@@ -21,6 +21,7 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/real-time-analytics"
     - internal-intro
+    - arb-data
 name: Real-time analytics on big data architecture
 azureCategories:
   - analytics

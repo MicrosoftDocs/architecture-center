@@ -2,6 +2,9 @@ This scenario illustrates how to design and implement a baseline architecture fo
 
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements. It's part of an architectural baseline guidance set of two articles. See the [recommendations for network design here](aks-network.yml).
 
+> [!IMPORTANT]
+> The information in this article applies to [AKS on Azure Stack HCI version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
+
 ## Architecture
 
 The following image shows the baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter failover clusters:
@@ -12,7 +15,7 @@ The following image shows the baseline architecture for Azure Kubernetes Service
 
 The architecture consists of the following components and capabilities:
 
-- [Azure Stack HCI (20H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
+- [Azure Stack HCI (22H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
 - [Azure Kubernetes Service (AKS) on Azure Stack HCI][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
 - [Azure Arc][]. A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - [Azure Policy](/azure/governance/policy/overview). A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. These standards also include [Azure Policy for Kubernetes][], which applies policies to the workloads running inside the cluster.
@@ -24,7 +27,7 @@ The architecture consists of the following components and capabilities:
 
 ## Components
 
-- [Azure Stack HCI (20H2)][1]
+- [Azure Stack HCI (22H2)][1]
 - [Azure Kubernetes Service (AKS) on Azure Stack HCI][]
 - [Windows Admin Center][]
 - [An Azure subscription][]
@@ -52,7 +55,7 @@ AKS simplifies on-premises Kubernetes deployment by providing wizards or PowerSh
 - **Management cluster.** Deploy the management cluster on a highly available virtual machine (VM) that's running on either Azure Stack HCI or a Windows Server 2019/2022 Datacenter failover cluster. The management cluster is responsible for deploying and managing multiple workload clusters and it includes the following components:
   - **API server.** Interacts with the management tools.
   - **Load balancer.** Manages load-balancing rules for the API server of the management cluster.
-- **Workload clusters.** Implement highly-available control plane components and worker node components. Containerized applications run on a workload cluster. To achieve application isolation, you can deploy up to eight workload clusters. The workload cluster consists of the following components:
+- **Workload clusters.** Implement highly available control plane components and worker node components. Containerized applications run on a workload cluster. To achieve application isolation, you can deploy up to eight workload clusters. The workload cluster consists of the following components:
   - **Control plane.** Runs on a Linux distribution and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster.
   - **Load balancer.** Runs on a Linux VM and provides load-balanced services for the workload cluster.
   - **Worker nodes.** Run on a Windows or Linux operating system that hosts containerized applications.
@@ -112,7 +115,7 @@ To minimize the TCO, integrate AKS deployments with Azure Arc. Consider using th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure *Well-Architected Framework*, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure *Well-Architected Framework*, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -199,7 +202,7 @@ Other contributors:
 
 - [AKS overview](/azure/aks/hybrid/overview)
 
-  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
+  [Azure Stack HCI (22H2)]: /azure-stack/hci/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service (AKS) on Azure Stack HCI]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview

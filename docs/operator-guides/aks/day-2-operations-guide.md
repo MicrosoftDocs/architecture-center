@@ -8,11 +8,12 @@ ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 products:
   - azure-kubernetes-service
   - azure-monitor
-ms.custom:
-  - e2e-aks
 categories:
   - compute
 ---
@@ -38,7 +39,7 @@ The Day-2 operations guide assumes that you've deployed the [Azure Kubernetes Se
 
 Principal author:
 
- - [Kevin Harris](https://www.linkedin.com/in/kevbhar/) | Principal Solution Spec GBB
+ - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -21,4 +21,4 @@ name: Caching guidance
 summary: Learn how caching can improve the performance and scalability of a system by copying frequently accessed data to fast storage close to the application.
 thumbnailUrl: /azure/architecture/browse/thumbs/caching-thumbnail.png
 content: |
-  [!include[](caching-content.md)]
+  [!INCLUDE[](caching-content.md)]

@@ -9,7 +9,7 @@ ms.date: 01/19/2023
 ms.topic: conceptual
 ms.service: architecture-center
 products: azure
-ms.subservice: guide
+ms.subservice: azure-guide
 azureCategories: developer-tools
 categories: developer-tools
 ms.custom:
