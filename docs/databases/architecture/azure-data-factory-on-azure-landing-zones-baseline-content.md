@@ -298,7 +298,7 @@ Monitoring is a critical part of any production-level solution. It's strongly re
 
 Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query events, and application log messages. Azure Databricks can send this monitoring data to different logging services. You can use Azure Monitor to monitor Data Factory pipelines and write diagnostic logs in Azure Monitor. Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
-Suggested alerting baseline:
+The suggested alerting baseline includes:
 
 - Cost and budget alerting for the Databricks compute cluster, the Data Factory SHIRs, and SQL server.
 
@@ -317,17 +317,17 @@ Suggested alerting baseline:
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-This architecture addresses performance efficiency with:
+This architecture addresses performance efficiency:
 
-- Based upon the requirements, the standard service tiers of the various component SKUs are acceptable, understanding that these types of resources can be scaled up, on-demand with no interruption in service levels. Autoscaling should be [rigorously tested](/azure/well-architected/performance-efficiency/performance-test) before production release.
+- Based on the requirements, the standard service tiers of the various component SKUs are acceptable. These resources can be scaled up on-demand without any interruption in service levels. Autoscaling should be [rigorously tested](/azure/well-architected/performance-efficiency/performance-test) before production release.
   
-- Selecting a baseline of compute SKU, utilizing the cloud native features to support increased demand, such as:
+- Choose a baseline compute SKU and take advantage of cloud-native features to support increased demand, such as:
 
   - Databricks [autoscaling](/azure/databricks/delta-live-tables/auto-scaling).
   
   - SQL Server [Scale up/down](/azure/azure-sql/database/scale-resources?view=azuresql).
   
-  - Configuring Data Factory jobs for [performance and scalability](/azure/data-factory/copy-activity-performance).
+  - Configuration of Data Factory jobs for [performance and scalability](/azure/data-factory/copy-activity-performance).
   
 - Apply guidance available in the following [optimization guides](/azure/well-architected/performance-efficiency/optimize-data-performance) across the solution, such as:
 
@@ -339,15 +339,15 @@ This architecture addresses performance efficiency with:
   
   - [Power BI](/power-bi/guidance/power-bi-optimization).
   
-- Understanding that the performance of data solutions generally degrades over time, establish the capacity for [continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize), along with proactive technical reviews of the solution, ensuring it remains [fit for purpose](/azure/well-architected/performance-efficiency/principles).
+- Understand that data solution performance typically degrades over time. Establish the capacity for [continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize) and conduct proactive technical reviews to ensure that the solution remains [fit for purpose](/azure/well-architected/performance-efficiency/principles).
 
 ## Antipatterns
 
-- **The on-premises mindset:** Cloud services address the traditional constraints of procurement time, functionality, and capacity, while introducing the critical requirement of cost management across the SDLC. Failure to account for this factor across people, process, and technology often leads to bill shock and stakeholder friction.
+- **The on-premises mindset:** Cloud services address traditional constraints such as procurement time, functionality, and capacity. These services also introduce the crucial need for cost management throughout the SDLC. Neglecting this factor across people, processes, and technology frequently results in bill shock and stakeholder friction.
 
-- **Boundary controls are the answer:** Cloud services and PaaS in particular have introduced Identity as the key control that must be implemented and well-governed. Networking and boundaries controls are part of the answer and not the actual answer.
+- **Boundary controls are the answer:** Cloud services, especially PaaS, have made Identity the primary control that needs to be implemented and well-governed. While networking and boundary controls are important, they are only part of the solution and not the complete answer.
 
-- **Set and forget:** Any cloud solution must have regular reviews that account for the current usage and performance, along with the functional and pricing changes in Azure. Failure to do so often results in the erosion of value and effectiveness.
+- **Set and forget:** Every cloud solution should undergo regular reviews to assess current usage and performance, and to consider functional and pricing changes in Azure. Failure to do so often results in the erosion of value and effectiveness.
 
 ## Deploy this scenario
 

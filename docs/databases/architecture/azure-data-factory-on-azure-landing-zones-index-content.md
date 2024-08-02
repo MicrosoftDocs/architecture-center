@@ -1,57 +1,60 @@
 The [medallion lakehouse](/azure/databricks/lakehouse/medallion) architecture is a popular enterprise data design pattern. It logically organizes raw data in its native form, within a large, centralized repository. Data is then incrementally enriched as it flows through each layer of the architecture, improving the structure, quality, and insight that can be derived from it. 
 
-[Azure Data Factory](/azure/data-factory) is Azure's platform as a service (PaaS) solution for scale-out serverless data integration and data transformation. Within the medallion lakehouse, it performs the (ETL) extraction, transformation, and loading processes required across the various components to generate value from the raw data source.  
+[Azure Data Factory](/azure/data-factory) is Azure's platform as a service solution for scale-out serverless data integration and data transformation. Within the medallion lakehouse, it performs the extraction, transformation, and loading (ETL) processes required across the various components to generate value from the raw data source.  
 
 This series of designs follows a typical path for an enterprise implementation from an initial implementation, followed by enterprise-wide adoption, and finally mission-critical expansion for specific solutions. This guidance is intended to support customers starting a similar journey.
 
 ## Get started
 
-If you're embarking on your journey with the Medallion Lakehouse architecture, start with these training modules on the [Learn platform](https://learn.microsoft.com).
+If you're embarking on your journey with the Medallion Lakehouse architecture, start with these training modules on the [Learn platform](https://learn.microsoft.com):
 
-- [Azure Data Factory](/training/paths/data-integration-scale-azure-data-factory) for data ingestion
-- [Azure Databricks](/training/paths/data-engineer-azure-databricks) for data processing at scale
-- [Azure SQL Server](/training/paths/azure-sql-fundamentals) for data modeling  
-- [Power BI](/credentials/certifications/power-bi-data-analyst-associate) for serving and reporting
+- [Data Factory](/training/paths/data-integration-scale-azure-data-factory) for data ingestion.
 
-Learn how to design and build secure, scalable, high-performing solutions in Azure using the pillars of the Microsoft Azure [Well-Architected Framework](https://learn.microsoft.com/training/paths/azure-well-architected-framework).  
+- [Azure Databricks](/training/paths/data-engineer-azure-databricks) for data processing at scale.
 
-This free online resource provides interactive training that includes knowledge checks to evaluate your learning.
+- [Azure SQL Server](/training/paths/azure-sql-fundamentals) for data modeling.  
 
-For product documentation:
+- [Power BI](/credentials/certifications/power-bi-data-analyst-associate) for serving and reporting.
 
-- [Azure Data Factory](/azure/data-factory/)
+Learn how to design and build secure, scalable, high-performing solutions in Azure by using the pillars of the Microsoft[Azure Well-Architected Framework](https://learn.microsoft.com/training/paths/azure-well-architected-framework). This free online resource provides interactive training that includes knowledge checks to evaluate your learning.
+
+For product documentation, see:
+
+- [Data Factory](/azure/data-factory/)
 - [Azure Databricks](/azure/databricks/)
 - [Azure SQL Server](/azure/azure-sql/)
 - [Power BI](https://learn.microsoft.com/power-bi/)
 
 ## Baseline implementation
 
-Now that you have a solid understanding of deploying Azure Data Factory for data ingestion, Azure Databricks for developing your [Medallion Architecture](/azure/databricks/lakehouse/medallion) for data processing, and serving that data to Power BI using Azure SQL as the persisted store, apply your skills in designing a simple solution, establishing the solution using an on-premises data source.  
+Now that you understand how to deploy Data Factory for data ingestion, use Azure Databricks to develop your [Medallion Lakehouse architecture](/azure/databricks/lakehouse/medallion) for data processing, and serve that data to Power BI by using Azure SQL as the persisted store, you can apply your skills to apply a simple solution. This approach uses an on-premises data source to establish the solution.
 
-Refer to the baseline architecture that deploys Azure Data Factory instances for data ingestion, Azure Databricks for data processing, and Azure SQL for storing the processed data, all within a single region with zone redundancy.  
+Refer to the baseline architecture that deploys Data Factory instances for data ingestion, Azure Databricks for data processing, and Azure SQL for storing the processed data, all within a single zone-redundant region.
 
-> [!div class="nextstepaction"] 
-> [Reference architecture: Medallion Lakehouse with Azure Data Factory baseline implementation](azure-data-factory-on-azure-landing-zones-baseline.yml)
+Refer to the foundational architecture that utilizes Data Factory for data ingestion, Azure Databricks for data processing, and Azure SQL for storing the processed data, all within a single zone-redundant region.
+
+> [!div class="nextstepaction"]
+> [Reference architecture: Medallion Lakehouse with Data Factory baseline implementation](azure-data-factory-on-azure-landing-zones-baseline.yml)
 
 ## Enterprise adoption and hardening
 
-In order to comply with common enterprise security and governance nonfunctional requirements, the baseline architecture should be expanded upon for production workloads using enterprise hardening patterns. An example of an NFR might be that the solution is required to use federated resources managed by central teams. Effective communication of your requirements with those teams is crucial to avoid disruptions.
+In order to comply with common enterprise security and governance nonfunctional requirements (NFR), the baseline architecture should be expanded upon for production workloads using enterprise hardening patterns. An example of an NFR might be that the solution is required to use federated resources managed by central teams. Effective communication of your requirements with those teams is crucial to avoid disruptions.
 
-Refer to this architecture that deploys an enterprise hardened implementation, extending the ["Hub and spoke"](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture) topology according to the principles of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).  
+Refer to this architecture that deploys an enterprise hardened implementation, extending the [Hub-and-spoke](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture) topology according to the principles of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).  
 
 Some sample requirements that should be communicated with central teams are annotated with "Platform team" notes.
 
 > [!div class="nextstepaction"]
-> [Reference architecture: Enterprise hardened workload with Azure Data Factory](azure-data-factory-enterprise-hardened.yml)
+> [Reference architecture: Enterprise hardened workload with Data Factory](azure-data-factory-enterprise-hardened.yml)
 
-## Mission Critical Uplift
+## Missions critical uplift
 
-The last step in this path is expanding an individual solution’s infrastructure and processes to support a mission-critical SLA. [Mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) is used to describe solutions that have either business-critical or safety-critical impacts when they're unavailable or underperforming.  
+The last step in this path is expanding an individual solution’s infrastructure and processes to support a mission-critical service-level agreement. [Mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) is used to describe solutions that have either business-critical or safety-critical effects when they're unavailable or underperform.  
 
-The Solution must be highly available, responsive to operational issues, have a consistent level of performance, and be highly secure. Mission-critical architectures must balance performance and resiliency requirements and targets with cost optimization.  
+The solution must be highly available, responsive to operational issues, have a consistent level of performance, and be highly secure. Mission-critical architectures must balance performance and resiliency requirements and targets with cost optimization.  
 
 > [!div class="nextstepaction"]
-> [Reference architecture: Mission critical workload with Azure Data Factory](azure-data-factory-mission-critical.yml)
+> [Reference architecture: Mission critical workload with Data Factory](azure-data-factory-mission-critical.yml)
 
 ## Contributors
 
@@ -72,8 +75,8 @@ Other contributors:
 
 ## Related links
 
-- [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/)
-- [Medallion Lakehouse Architecture](/azure/databricks/lakehouse/medallion)
-- [Azure Reference Architecture](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
-- [Azure Well-Architected Framework](/azure/well-architected/) 
-- [Azure Mission-Critical Guidance](/azure/well-architected/mission-critical/mission-critical-overview)
+- [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/)
+- [Medallion Lakehouse architecture](/azure/databricks/lakehouse/medallion)
+- [Azure Reference architecture](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+- [Well-Architected Framework](/azure/well-architected/)
+- [Azure mission-critical guidance](/azure/well-architected/mission-critical/mission-critical-overview)
