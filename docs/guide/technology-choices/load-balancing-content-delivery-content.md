@@ -25,12 +25,11 @@ The following table summarizes the Azure load-balancing services.
 | Service                   | Global/Regional | Recommended traffic |
 | -------------------       | --------------- | ------------------- |
 | Azure Front Door          | Global          | HTTP(S)             |
-| Azure Traffic Manager     | Global          | Non-HTTP(S)         |
 | Azure Application Gateway | Regional        | HTTP(S)             |
 | Azure Load Balancer       | Regional or Global | Non-HTTP(S)      |
 
 > [!NOTE]
-> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute HTTP(S) traffic, but do not have any specific features to route based on protocol data unit information higher than Layer 4. They both support HTTP(S) traffic, but only at Layer 4 functionality levels.
+> Azure Load Balancer has capabilities to distribute HTTP(S) traffic, but doesn't have any specific features to route based on protocol data unit information higher than Layer 4. It supports HTTP(S) traffic, but only at Layer 4 functionality levels.
 
 ## Azure load-balancing services
 
@@ -106,7 +105,7 @@ The following table lists various articles based on the load-balancing services 
 |---------|---------|---------|
 |Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
 |Azure Front Door    |  [Sharing location in real time by using low-cost serverless Azure services](../../example-scenario/signalr/index.yml#azure-front-door)       |   Use Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Azure Front Door to fail over to the secondary region.      |
-|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |      |
+|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
 
 ## Next steps
 
