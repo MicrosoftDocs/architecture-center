@@ -8,7 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.custom: 
+  ms.custom:
     - arb-iot
     - arb-data
 azureCategories:
@@ -22,4 +22,4 @@ name: Big data architectures
 summary: Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.
 thumbnailUrl: /azure/architecture/browse/thumbs/big-data-pipeline.png
 content: |
-  [!include[](big-data-architectures-content.md)]
+  [!INCLUDE[](big-data-architectures-content.md)]
