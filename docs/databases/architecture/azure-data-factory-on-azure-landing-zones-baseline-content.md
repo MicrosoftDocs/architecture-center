@@ -215,7 +215,7 @@ Consider the reliability targets for a BI analytical and reporting system:
   
   - SQL Server [default backups](/azure/azure-sql/database/automated-backups-overview?view=azuresql#backup-frequency).
   
-  - The Delta Lake Bronze layer that stores all ingested source data in an append-only format. This functionality enables a full replay of the solution without reingestion from the source system.
+  - The Delta Lake bronze layer that stores all ingested source data in an append-only format. This functionality enables a full replay of the solution without reingestion from the source system.
 
 > [!IMPORTANT]
 > To achieve your resilience goals, deploy multiple SHIR instances across various availability zones or regions, where possible.
