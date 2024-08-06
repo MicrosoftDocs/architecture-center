@@ -167,13 +167,13 @@ The following dataflow corresponds to the preceding diagram:
 
 - You can deploy a SHIR on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. You can use A SHIR to securely connect to on-premises data sources and perform data integration tasks in Data Factory.
 
-- Private Link and Private Endpoints are implemented, which allows you to bring the service into your virtual network.
+- Private Link and Private Endpoints are implemented, which you can use to bring the service into your virtual network.
 
-- In order to take advantage of ML-assisted data labeling, you must create a new storage account, different than the default storage account you created when creating the AML workspace. You can bind the new, nondefault storage account to the same virtual network as the workspace. If you prefer to keep the storage account separate, you can place it in a different subnet within that virtual network.
+- In order to take advantage of machine learning-assisted data labeling, you must create a new storage account, different than the default storage account you created when creating the AML workspace. You can bind the new, nondefault storage account to the same virtual network as the workspace. If you prefer to keep the storage account separate, you can place it in a different subnet within that virtual network.
   
 ## Callouts
 
-- The use of Azure Databricks Delta Lake means that you can't use the Archive tier Storage Accounts because that tier is effectivity offline storage. This design choice is a trade-off between functionality and cost.
+- The use of Azure Databricks Delta Lake means that you can't use the Archive tier Azure Storage Accounts because that tier is effectivity offline storage. This design choice is a trade-off between functionality and cost.
 
 - When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks filesystem or DBFS root) is set as Geo-redundant storage (GRS). You can change the redundancy to Locally redundant storage (LRS) if geo-redundancy isn't needed.
 
