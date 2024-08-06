@@ -123,17 +123,17 @@ Delta Lake is coupled with Power BI, which is used to create senior leadership d
 
 The following dataflow corresponds to the preceding diagram:
 
-1. Data is ingested from an on-premises source system to [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) by using [Data Factory](https://azure.microsoft.com/products/data-factory/) with a SHIR. Data Factory also provides process orchestration for [Azure Databricks](https://azure.microsoft.com/products/databricks/) notebooks to transform and load the data into Delta Lake tables stored on Data Lake Storage Gen2, along with [Azure SQL Server](/azure/azure-sql/?view=azuresql) extract, transform, load (ETL) processes.
+1. Data is ingested from an on-premises source system to [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) by using [Data Factory](https://azure.microsoft.com/products/data-factory/) with a SHIR. Data Factory also provides process orchestration for [Azure Databricks](https://azure.microsoft.com/products/databricks/) notebooks to transform and load the data into Delta Lake tables stored on Data Lake Storage Gen2, along with [Azure SQL Server](/azure/azure-sql/?view=azuresql) extract, transform, load processes.
 
 1. [Delta Lake](/azure/databricks/delta/) provides an open format layer that supports data versioning, enforces schema, enables time travel, and ensures ACID compliance. Data is organized into the following layers:
 
-- The bronze layer holds all raw data.
+    - The bronze layer holds all raw data.
 
-- The silver layer contains cleaned and filtered data.
+    - The silver layer contains cleaned and filtered data.
 
-- The gold layer stores aggregated data that is useful for business analytics.
+    - The gold layer stores aggregated data that is useful for business analytics.
 
-- Data Lake Storage Gen2 underpins the Delta Lake because of its ability to efficiently store all types of data. This flexibility supports workflows of varying speeds and maintains cost effectiveness.
+1. Data Lake Storage Gen2 underpins the Delta Lake because of its ability to efficiently store all types of data. This flexibility supports workflows of varying speeds and maintains cost effectiveness.
 
 1. SQL Server is used to support the Enterprise data modeling requirements, including hierarchical conformance.
 
@@ -141,9 +141,9 @@ The following dataflow corresponds to the preceding diagram:
   
 1. The solution adds two more components to the foundational Azure services, which enable collaboration, governance, reliability, and security:
 
-- [Microsoft Purview Data Governance](/purview/governance-home) is added to provide data discovery services, a data catalog, and governance insights across the platform.
+    - [Microsoft Purview Data Governance](/purview/governance-home) is added to provide data discovery services, a data catalog, and governance insights across the platform.
 
-- [Azure Site Recovery](/azure/site-recovery/) is added to support the backup and recovery of the VMs, which provide the compute to the Data Factory SHIR, required to ingest data from on-premises.
+    - [Azure Site Recovery](/azure/site-recovery/) is added to support the backup and recovery of the VMs, which provide the compute to the Data Factory SHIR, required to ingest data from on-premises.
 
 - The following foundation services require extension to support this solution:
 
@@ -224,7 +224,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This architecture addresses security via configuration of the infrastructure selected and the control and data plane controls implemented. These design choices are based upon the [zero-trust model](/azure/security/fundamentals/zero-trust) and [least privilege access](/entra/identity-platform/secure-least-privileged-access) principles. The security controls natively supported include:
 
-- solution components use [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, which enables consistent role-based access control.
+- Solution components use [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, which enables consistent role-based access control.
 
 - Azure [Key Vault](/azure/key-vault/) stores application secrets and certificates securely.
 
