@@ -3,7 +3,7 @@ This article describes how to implement a [medallion lakehouse](/azure/databrick
 > [!IMPORTANT]
 > ![GitHub logo](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/azure-samples/data-factory-to-databricks) that demonstrates a baseline Azure Data Factory setup on Azure. You can use this implementation as a foundation for further solution development in your first step toward production.
 
-The solution uses a hub-and-spoke network topology with landing zones that follow the [Cloud Adoption Framework for Azure best practices](azure/cloud-adoption-framework/overview).
+The solution uses a hub-and-spoke network topology with landing zones that follow the [Cloud Adoption Framework for Azure best practices](/azure/cloud-adoption-framework/overview).
 
 ## Key design decisions
 
@@ -305,7 +305,7 @@ The recommended alerting baseline includes:
 - Log Analytics workspaces for when [data collection is high](/azure/azure-monitor/logs/analyze-usage#send-alert-when-data-collection-is-high).
 
 > [!IMPORTANT]
-> Ensure that alert [action groups](azure/azure-monitor/alerts/action-groups) are created as a global resource to ensure continuity in the event of regional service issue.
+> Ensure that alert [action groups](/azure/azure-monitor/alerts/action-groups) are created as a global resource to ensure continuity in the event of regional service issue.
 
 ### Performance efficiency
 
