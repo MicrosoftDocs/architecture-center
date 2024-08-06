@@ -83,7 +83,7 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 |||
 |-----|-----|
-| [Social app for mobile and web with authentication](/azure/architecture/guide/mobile/mobile-start-here) | View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities. |
+| [Query a data lake or lakehouse by using Azure Synapse Analytics serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics) | This architecture can reduce the challenges of extract, transform, load (ETL) operations. You can use this architecture to generate business insights and then solve modeling and ETL tasks. |
 | [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
 | [Cross-cloud scaling architecture](/azure/architecture/solution-ideas/articles/cross-cloud-scaling) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 

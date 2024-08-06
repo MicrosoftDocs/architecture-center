@@ -62,7 +62,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 |||
 |----|----|
-| [Modern data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) | Explore a cloud data warehouse that uses big data. A modern data warehouse brings together all your data and scales easily as your data grows. |
+| [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) | Explore a cloud data warehouse that uses big data. An enterprise data warehouse brings together all your data and scales easily as your data grows. |
 | [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics. |
 
 [view all](../browse/index.yml?azure_categories=databases)
@@ -86,7 +86,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 |||
 |----|----|
 | [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
-| [Campaign optimization with Azure HDInsight Spark clusters](/azure/architecture/ai-ml/idea/personalized-offers) | This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions that maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server. |
+| [Personalized offers](/azure/architecture/ai-ml/idea/personalized-offers) | This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.  |
 | [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer) | Big data analytics with Azure Data Explorer demonstrates how Azure Data Explorer caters to volume, velocity, and variety of data, the three V's of big data. |
 
 [view all](../browse/index.yml?azure_categories=databases)
@@ -197,7 +197,7 @@ Here are some architectures that use AKS as the orchestrator.
 |----|----|
 | [Baseline architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks/baseline-aks) | Deploy a baseline infrastructure that deploys an AKS cluster with focus on security. |
 | [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) | Deploy a microservices architecture on Azure Kubernetes Service (AKS). |
-| [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Azure Cosmos DB, and Grafana. |
+| [CI/CD for AKS apps with GitHub Actions and GitFlow](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
 [view all](../browse/index.yml?azure_categories=containers)
 
@@ -236,7 +236,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 |||
 |----|----|
-| [Container CI/CD by using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](/azure/developer/jenkins/deploy-from-github-to-aks) | Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers. |
+| [CI/CD for AKS apps with GitHub Actions and GitFlow](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
 [view all](../browse/index.yml?azure_categories=devops)
 
