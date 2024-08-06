@@ -40,7 +40,6 @@ To comply with common enterprise security and governance nonfunctional requireme
 
 Refer to this architecture that deploys an enterprise-hardened implementation. This implementation extends the [hub-and-spoke topology](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture) according to [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) principles.  
 
-
 > [!div class="nextstepaction"]
 > [Reference architecture: Enterprise-hardened workload with Data Factory](azure-data-factory-enterprise-hardened.yml)
 
@@ -70,10 +69,13 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resources
+## Next steps
 
 - [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/)
-- [Medallion lakehouse architecture](/azure/databricks/lakehouse/medallion)
-- [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 - [Well-Architected Framework](/azure/well-architected/)
 - [Azure mission-critical guidance](/azure/well-architected/mission-critical/mission-critical-overview)
+- [Medallion lakehouse architecture](/azure/databricks/lakehouse/medallion)
+
+## Related resources
+
+- [Modern analytics architecture with Azure Databricks](azure-databricks-modern-analytics-architecture.yml)
