@@ -1,12 +1,13 @@
 ### YamlMime:Architecture
 metadata:
   title: Baseline architecture for an AKS cluster
+  titleSuffix: Azure Architecture Center
   description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
   author: PageWriter-MSFT
   ms.author: prwilk
-  ms.date: 07/23/2024
-  ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.date: 08/05/2024
+  ms.topic: conceptual
+  ms.service: azure-guide
   ms.subservice: reference-architecture
   ms.category:
     - containers
