@@ -21,6 +21,6 @@ products:
   - azure-sql-database
 name: Azure Data Factory enterprise hardened architecture
 summary: Learn how to design an enterprise-hardened workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-hardened.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-hardened-network.png
 content: |
   [!include[](azure-data-factory-enterprise-hardened-content.md)]

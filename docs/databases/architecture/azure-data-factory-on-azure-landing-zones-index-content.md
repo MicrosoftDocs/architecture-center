@@ -1,6 +1,6 @@
 The [medallion lakehouse](/azure/databricks/lakehouse/medallion) architecture is a frequently used enterprise data design pattern. You can use this design pattern to logically organize raw data in its native format within a large and centralized repository. Incrementally enrich data as it flows through each layer of the architecture. This process improves the structure, quality, and insight that you can derive from the data.
 
-[Azure Data Factory](/azure/data-factory) is an Azure platform as a service solution for scale-out serverless data integration and data transformation. Data Factory performs the extraction, transformation, and loading (ETL) processes within the medallion lakehouse that are required across the various components to generate value from the raw data source.  
+[Azure Data Factory](/azure/data-factory) is an Azure platform as a service solution for scale-out serverless data integration and data transformation. Data Factory performs the extraction, transformation, and loading processes within the medallion lakehouse that are required across the various components to generate value from the raw data source.  
 
 This article provides a series of designs that typically progress from an initial implementation to enterprise-wide adoption, and ultimately to mission-critical expansion for specific solutions. This guidance supports customers on a similar cloud adoption journey.
 
