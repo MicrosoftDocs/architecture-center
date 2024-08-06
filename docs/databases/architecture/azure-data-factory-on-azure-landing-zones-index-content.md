@@ -78,4 +78,4 @@ Other contributors:
 
 ## Related resources
 
-- [Modern analytics architecture with Azure Databricks](/azure-databricks-modern-analytics-architecture)
+- [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
