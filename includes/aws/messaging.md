@@ -15,7 +15,7 @@ ms.service: architecture-center
 
 ### Messaging architectures
 
-|||
+| Architecture | Description |
 |----|----|
 | [Scalable web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant) | Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application. |
 | [Enterprise integration by using queues and events](/azure/architecture/example-scenario/integration/queues-events) | Recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid. |

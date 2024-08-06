@@ -15,7 +15,7 @@ ms.service: architecture-center
 
 ### Database architectures
 
-|||
+| Architecture | Description |
 |----|----|
 | [Gaming by using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db) | Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. |
 

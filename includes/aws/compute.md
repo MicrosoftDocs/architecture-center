@@ -63,7 +63,7 @@ Several AWS and Azure services provide containerized application deployment and 
 
 #### Example container architectures
 
-|||
+| Architecture | Description |
 |----|----|
 | [Baseline architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks/baseline-aks) | Deploy a baseline infrastructure that deploys an AKS cluster with focus on security. |
 | [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) | Deploy a microservices architecture on Azure Kubernetes Service (AKS) |
@@ -81,7 +81,7 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 #### Example serverless architectures
 
-|||
+| Architecture | Description |
 |-----|-----|
 | [Query a data lake or lakehouse by using Azure Synapse Analytics serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics) | This architecture can reduce the challenges of extract, transform, load (ETL) operations. You can use this architecture to generate business insights and then solve modeling and ETL tasks. |
 | [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |

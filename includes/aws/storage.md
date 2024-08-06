@@ -49,7 +49,7 @@ ms.service: architecture-center
 
 #### Storage architectures
 
-|||
+| Architecture | Description |
 |----|----|
 | [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
 | [HPC log](/azure/architecture/solution-ideas/articles/azure-batch-rendering) | Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache. |

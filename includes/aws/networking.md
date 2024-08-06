@@ -24,7 +24,7 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [Ex
 
 ### Networking architectures
 
-|||
+| Architecture | Description |
 |----|----|
 | [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha) | Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both. |
 | [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke) | Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub. |
