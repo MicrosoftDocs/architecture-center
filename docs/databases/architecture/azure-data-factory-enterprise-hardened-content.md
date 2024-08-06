@@ -37,21 +37,14 @@ There are several key requirements to modify and harden a medallion lakehouse:
 
 You can modify the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) to meet these requirements without creating a new architecture.
 
-A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) that's backed by an enterprise-managed foundation works well for this scenario. A domain design supports the requirements for extending the platform across the enterprise, the self-service functionality, and the business strategic objective. The enterprise-managed foundation has:
+- A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) that's backed by an enterprise-managed foundation works well for this scenario. A domain design supports the requirements for extending the platform across the enterprise, the self-service functionality, and the business strategic objective. The foundation is defined as:
 
-    - Identity and access controls.
+  - Identity and access controls.  
+  - The underlying networking, boundary controls, and security baseline.  
+  - The governance, audit, and monitoring functionality.
+  - Functions to ingest and initially process data into the platform.
   
-    - The underlying networking, boundary controls, and security baseline.
-  
-    - The governance, audit, and monitoring functionality.
-  
-    - Functions to ingest and initially process data into the platform.
-  
-- The domain design is anchored around a given business department's ownership of their data and the originating source system.
-
-- A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments.
-  
-- The data science capability is delivered through:
+- The domain design is anchored around a given business department's ownership of their data and the originating source system. A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments. The data science capability is delivered through:
 
   - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
   
@@ -61,9 +54,9 @@ A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytic
   
   - An innovation sandbox that supports proof-of-concept work for new technologies or techniques. It provides an isolated environment that's segregated from production and preproduction.
   
-  - [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
+- [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
 
-  - Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/power-bi/enterprise/service-admin-azure-ad-b2b) authorization and access controls.
+- Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/power-bi/enterprise/service-admin-azure-ad-b2b) authorization and access controls.
 
 - Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency and that source system and network infrastructure can support streaming requirements before implementation.
 
