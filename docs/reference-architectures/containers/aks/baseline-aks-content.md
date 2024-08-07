@@ -7,7 +7,7 @@ Your business requirements influence the target architecture and it can vary bet
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline). Use it as an alternative starting point and configure the reference architecture based on your needs.
 
 > [!NOTE]
-> The reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Learn more about AKS**](#learn-more-about-aks) section for resources.
+> The reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/) training paths.
 
 :::row:::
     :::column:::
@@ -27,8 +27,8 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
     :::column:::
 
       #### Identity management
-      [Integrate Microsoft Entra ID for the cluster](#integrate-azure-active-directory-for-the-cluster)\
-      [Integrate Microsoft Entra ID for the workload](#integrate-azure-active-directory-for-the-workload)
+      [Integrate Microsoft Entra ID for the cluster](#integrate-microsoft-entra-id-for-the-cluster)\
+      [Integrate Microsoft Entra ID for the workload](#integrate-microsoft-entra-id-for-the--workload)
     :::column-end:::
 :::row-end:::
 
