@@ -869,28 +869,19 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Next steps
 
-Continue learning about the AKS baseline architecture.
-
-- Learn about hosting microservices on the AKS baseline: [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml).
-- Deploy the AKS baseline across multiple regions: [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).
-- Deploy the AKS baseline into a PCI-DSS 3.2.1 environment: [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml).
-- Learn about considerations for adding Windows containers to the reference architecture: [Windows containers on AKS baseline reference architecture](./windows-containers-on-aks.yml).
-
-### Learn more about AKS
-
-- Review the AKS product roadmap: [AKS roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
-- Get a refresher on Kubernetes with the: [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/) learning paths.
+- [Advanced AKS microservices architecture](../aks-microservices/aks-microservices-advanced.yml)
+- [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml)
+- [Windows containers on AKS baseline reference architecture](./windows-containers-on-aks.yml)
 
 ## Related resources
 
-See the following related guides.
-
-- [Azure Well-Architected Framework review for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
-- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which is an enterprise-scale implementation based on this architecture. The accelerator helps you set up your Azure environment in a consistent and repeatable manner by using IaC for an AKS deployment.
+- [AKS roadmap on GitHub](https://github.com/Azure/AKS/projects/1)
+- [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/)
+- [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/)
+- [Well-Architected Framework review for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
+- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 - [AKS day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
-
-See the following related architectures:
-
 - [Microservices architecture on AKS](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [Use Azure Firewall to help protect an AKS cluster](../../../guide/aks/aks-firewall.yml)
 - [Git operations for AKS](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
