@@ -28,7 +28,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
 
       #### Identity management
       [Integrate Microsoft Entra ID for the cluster](#integrate-microsoft-entra-id-for-the-cluster)\
-      [Integrate Microsoft Entra ID for the workload](#integrate-microsoft-entra-id-for-the--workload)
+      [Integrate Microsoft Entra ID for the workload](#integrate-microsoft-entra-id-for-the-workload)
     :::column-end:::
 :::row-end:::
 
