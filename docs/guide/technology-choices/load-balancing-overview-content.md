@@ -1,8 +1,10 @@
 The term *load balancing* refers to the distribution of workloads across multiple computing resources. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.
 
-Azure provides various load-balancing services that you can use to distribute your workloads across multiple computing resources. These resources include Azure Application Gateway, Azure Front Door, Azure Load Balancer, and Azure Traffic Manager.
+The term **content delivery** refers to the distribution of content to users based on geographic locations. Content delivery networks (CDNs) are a type of content delivery service that cache content in multiple geographic locations to improve the speed of delivery to users.
 
-This article describes some considerations to determine an appropriate load-balancing solution for your workload's needs.
+Azure provides various load-balancing and content delivery services that you can use to distribute your workloads across multiple computing resources. These resources include Azure Application Gateway, Azure Front Door, and Azure Load Balancer.
+
+This article describes some considerations to determine an appropriate load-balancing and content delivery solution for your workload's needs.
 
 ## Service categorizations
 
@@ -23,12 +25,11 @@ The following table summarizes the Azure load-balancing services.
 | Service                   | Global/Regional | Recommended traffic |
 | -------------------       | --------------- | ------------------- |
 | Azure Front Door          | Global          | HTTP(S)             |
-| Azure Traffic Manager     | Global          | Non-HTTP(S)         |
 | Azure Application Gateway | Regional        | HTTP(S)             |
 | Azure Load Balancer       | Regional or Global | Non-HTTP(S)      |
 
 > [!NOTE]
-> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute HTTP(S) traffic, but do not have any specific features to route based on protocol data unit information higher than Layer 4. They both support HTTP(S) traffic, but only at Layer 4 functionality levels.
+> Azure Load Balancer has capabilities to distribute HTTP(S) traffic, but doesn't have any specific features to route based on protocol data unit information higher than Layer 4. It supports HTTP(S) traffic, but only at Layer 4 functionality levels.
 
 ## Azure load-balancing services
 
@@ -52,9 +53,6 @@ Consider these factors such as these when you select a load balancing solution:
 - **Availability**: What's the [service-level agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)?
 - **Cost**: For more information, see [Azure pricing](https://azure.microsoft.com/pricing/). In addition to the cost of the service itself, consider the operations cost for managing a solution built on that service.
 - **Features and limits**: What capabilities are supported on each service and what are the [Service limits](/azure/azure-subscription-service-limits) of each service?
-
-> ![TIP]
-> The Azure portal offers a questionnaire-based guide similar to the following flowchart. In the Azure portal, search for '**Load balancing - help me choose**'. By answering the questions, you can narrow down your load balancing options.
 
 The following flowchart helps you to choose a load-balancing solution for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation.
 
@@ -108,10 +106,8 @@ The following table lists various articles based on the load-balancing services 
 |Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
 |Azure Front Door    |  [Sharing location in real time by using low-cost serverless Azure services](../../example-scenario/signalr/index.yml#azure-front-door)       |   Use Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Azure Front Door to fail over to the secondary region.      |
 |Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
-   |
 
 ## Next steps
 
 - [Create a public load balancer to load balance VMs](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
-- [Direct web traffic with Application Gateway](/azure/application-gateway/quick-create-portal)
 - [Configure Azure Front Door for a highly available global web application](/azure/frontdoor/quickstart-create-front-door)
