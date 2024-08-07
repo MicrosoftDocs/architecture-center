@@ -36,8 +36,6 @@ Here are the main load-balancing services currently available in Azure:
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, and caching to improve performance and high availability of your applications.
 
-- [Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load balances only at the domain level. For that reason, it can't fail over as quickly as Azure Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
-
 - [Application Gateway](/azure/application-gateway/overview) provides application delivery controller as a service, offering various Layer 7 load-balancing capabilities and web application firewall functionality. Use it to transition from public network space into your web servers hosted in private network space within a region.
 
 - [Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
@@ -109,14 +107,11 @@ The following table lists various articles based on the load-balancing services 
 |---------|---------|---------|
 |Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones to help protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
 |Azure Front Door    |  [Sharing location in real time by using low-cost serverless Azure services](../../example-scenario/signalr/index.yml#azure-front-door)       |   Use Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Azure Front Door to fail over to the secondary region.      |
-|Traffic Manager   | [Multitier web application built for high availability and disaster recovery](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)        |      Deploy resilient multitier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  |
 |Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multitenant solution that includes a combination of Azure Front Door and Application Gateway. Azure Front Door helps load balance traffic across regions. Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
-|Traffic Manager + Load Balancer    | [Multiregion N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)          |   A multiregion N-tier application that uses Traffic Manager to route incoming requests to a primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region.      |
-|Traffic Manager + Application Gateway    | [Multiregion load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)          |   Learn how to serve web workloads and deploy resilient multitier applications in multiple Azure regions to achieve high availability and a robust disaster recovery infrastructure.      |
+   |
 
 ## Next steps
 
 - [Create a public load balancer to load balance VMs](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
 - [Direct web traffic with Application Gateway](/azure/application-gateway/quick-create-portal)
-- [Configure Traffic Manager for global DNS-based load balancing](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
 - [Configure Azure Front Door for a highly available global web application](/azure/frontdoor/quickstart-create-front-door)
