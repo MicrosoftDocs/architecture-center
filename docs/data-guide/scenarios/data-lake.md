@@ -64,11 +64,11 @@ The following table compares data lakes and data warehouses:
 
 When building a comprehensive data lake solution on Azure, consider the following technologies:
 
-- [Azure Data Lake Storage Gen2](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction): It combines Azure Blob Storage with Data Lake capabilities, offering Hadoop-compatible access, hierarchical namespace, and enhanced security for efficient big data analytics.
-- [Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/introduction/): A unified platform for processing, storing, analyzing, and monetizing data, supporting ETL, dashboards, security, data exploration, machine learning, and generative AI.
-- [Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is): A unified experience to ingest, explore, prepare, manage, and serve data for immediate BI and machine learning needs. It integrates deeply with Azure Data Lake, enabling querying and analyzing large datasets efficiently.
-- [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction): A cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and transformation.
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview)- It is a comprehensive data platform that unifies data engineering, data science, data warehousing, real-time analytics, and business intelligence into a single solution.
+- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction): It combines Azure Blob Storage with Data Lake capabilities, offering Hadoop-compatible access, hierarchical namespace, and enhanced security for efficient big data analytics.
+- [Azure Databricks](/azure/databricks/introduction/): A unified platform for processing, storing, analyzing, and monetizing data, supporting ETL, dashboards, security, data exploration, machine learning, and generative AI.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): A unified experience to ingest, explore, prepare, manage, and serve data for immediate BI and machine learning needs. It integrates deeply with Azure Data Lake, enabling querying and analyzing large datasets efficiently.
+- [Azure Data Factory](/azure/data-factory/introduction): A cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and transformation.
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)- It is a comprehensive data platform that unifies data engineering, data science, data warehousing, real-time analytics, and business intelligence into a single solution.
 
 ## Contributors
 
@@ -79,15 +79,15 @@ Principal author:
  - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad%F0%9F%8C%90-96768a42) | Cloud Consultant
 
 ## Next steps
--	[What is One Lake ?](https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview)
+- [What is One Lake?](/fabric/onelake/onelake-overview)
 - [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure Data Lake Analytics Documentation](/azure/data-lake-analytics)
 - [Introduction to Azure Data Lake Storage (training module)](/training/modules/intro-to-azure-data-lake-storage)
 
 ## Related resources
--	[Integration of Hadoop and Azure Data Lake Store](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-- [Connect to Azure Data Lake Storage Gen2 and Blob Storage](https://learn.microsoft.com/en-us/azure/databricks/connect/storage/azure-storage)
-- [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/load-azure-data-lake-storage-gen2)
+-	[Integration of Hadoop and Azure Data Lake Store](/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
+- [Connect to Azure Data Lake Storage Gen2 and Blob Storage](/azure/databricks/connect/storage/azure-storage)
+- [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](/azure/data-factory/load-azure-data-lake-storage-gen2)
 - [Choose an analytical data store in Azure](../technology-choices/analytical-data-stores.md)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](../../example-scenario/data/synapse-exploratory-data-analytics.yml)
 - [Data management across Azure Data Lake with Microsoft Purview](../../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
