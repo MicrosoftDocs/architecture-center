@@ -10,6 +10,7 @@ metadata:
   ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - databases
   - ai-machine-learning

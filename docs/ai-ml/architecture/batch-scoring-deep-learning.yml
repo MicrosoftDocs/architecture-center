@@ -18,6 +18,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - aml-project-improvement
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - media

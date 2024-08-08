@@ -12,6 +12,7 @@ products:
   - azure-machine-learning
 ms.custom:
   - guide
+  - arb-aiml
 categories:
   - ai-machine-learning
 ---
@@ -235,8 +236,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
-
-- [Build a real-time recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml)
 
 ### Azure automated machine learning
 

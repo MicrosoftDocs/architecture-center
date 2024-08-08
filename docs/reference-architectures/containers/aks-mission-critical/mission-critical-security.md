@@ -7,17 +7,18 @@ ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom: arb-containers
 products:
-- azure-kubernetes-service
-- azure-front-door
-- azure-container-registry
-- azure-key-vault
-- azure-cosmos-db
+  - azure-kubernetes-service
+  - azure-front-door
+  - azure-container-registry
+  - azure-key-vault
+  - azure-cosmos-db
 ms.category:
-- containers
-- networking
-- database
-- monitoring
+  - containers
+  - networking
+  - database
+  - monitoring
 categories: featured
 ---
 

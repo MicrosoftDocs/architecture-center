@@ -94,7 +94,7 @@ The following use cases can take advantage of custom models for document process
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 For this example workload, implementing each pillar depends on optimally configuring and using each component Azure service.
 
@@ -104,7 +104,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-- See the service-level agreements for each architecture component at [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+- See the service-level agreements (SLAs) for each architecture component at [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 - For configuration options to design high-availability applications with Azure Storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
 
