@@ -187,8 +187,6 @@ In addition to the workload, the cluster might contain several other images, suc
   - You can access image pull logs to monitor activities and triage connectivity problems.
   - You can take advantage of integrated container scanning and image compliance.
 
-  Another option for you is to use Container Registry.
-
 - Pull images from authorized registries. You can enforce this restriction through Azure Policy. In this reference implementation, the cluster only pulls images from the Container Registry instance that deploys.
 
 ## Configure compute for the base cluster
@@ -265,6 +263,8 @@ For more information, see [Azure RBAC for Kubernetes authorization](/azure/aks/m
 AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). We don't recommend that you use this method to provide user access to clusters. This method is certificate-based and performed external to your primary identity provider, which makes your centralized user access control and governance difficult. Always manage access to your cluster by using Microsoft Entra ID, and configure your cluster to explicitly disable local account access.
 
 In this reference implementation, local cluster accounts access is explicitly disabled when the system deploys the cluster.
+
+<a name='integrate-azure-active-directory-for-the-workload'></a>
 
 ## Integrate Microsoft Entra ID for the workload
 
@@ -375,7 +375,7 @@ The architecture only accepts TLS encrypted requests from the client. TLS v1.2 i
 
    Application Gateway processes web application firewall inspection rules and runs routing rules that forward the traffic to the configured back end.
 
-1. As traffic moves from Application Gateway to the back end, it's encrypted again with another TLS certificate, which is a wildcard for `*.aks-ingress.contoso.com`, as it is forwarded to the internal load balancer. This re-encryption helps ensure that unsecured traffic doesn't flow into the cluster subnet.
+1. As traffic moves from Application Gateway to the back end, it's encrypted again with another TLS certificate, which is a wildcard for `*.aks-ingress.contoso.com`, as it's forwarded to the internal load balancer. This re-encryption helps ensure that unsecured traffic doesn't flow into the cluster subnet.
 
 1. The ingress controller receives the encrypted traffic through the load balancer. The controller is another TLS termination point for `*.aks-ingress.contoso.com` and forwards the traffic to the workload pods over HTTP. The certificates are stored in Key Vault, and the Container Storage Interface (CSI) driver mounts them into the cluster. For more information, see [Add secret management](#add-secret-management).
 
@@ -402,16 +402,16 @@ For information about the Windows-specific egress considerations in the Windows 
 
 By default, a pod can accept traffic from any other pod in the cluster. Use Kubernetes `NetworkPolicy` to restrict network traffic between pods. Apply policies judiciously, or you might have a situation where a critical network flow is blocked. *Only* allow specific communication paths, as needed, such as traffic between the ingress controller and workload. For more information, see [Network policies](/azure/aks/use-network-policies).
 
-Enable network policy when you provision the cluster because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. We recommend Azure network policy, which requires Azure Container Networking Interface. For more information, see the following note. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
+Enable network policy when you provision the cluster because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. We recommend Azure network policy, which requires Azure Container Networking Interface (CNI). For more information, see the following note. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For more information, see [Differences between Azure network policy engines](/azure/aks/use-network-policies#differences-between-network-policy-engines-cilium-azure-npm-and-calico).
 
 > [!NOTE]
-> AKS supports multiple networking models including kubenet, Container Networking Interface, and Azure Container Networking Interface Overlay. The Container Networking Interface models are the more advanced models, and a Container Networking Interface-based model is required for enabling Azure network policy. Both Container Networking Interface models are highly performant. The model's performance between pods is similar to the performance of VMs in a virtual network. We recommend a Container Networking Interface-based networking model.
+> AKS supports multiple networking models including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and a CNI-based model is required for enabling Azure network policy. Both CNI models are highly performant. The model's performance between pods is similar to the performance of VMs in a virtual network. We recommend a CNI-based networking model.
 >
-> In the non-overlay Container Networking Interface model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
+> In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
 >
-> Azure Container Networking Interface also offers enhanced security control because it enables the use of Azure network policy. We recommend that you use Azure Container Networking Interface Overlay for IP address-constrained deployments. Container Networking Interface Overlay only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs.
+> CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend that you use Azure CNI Overlay for IP address-constrained deployments. Azure CNI Overlay only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs.
 >
 > For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
@@ -533,7 +533,7 @@ Configure multiple replicas in the deployment to handle disruptions such as hard
 **Set resource quotas on the workload namespaces**: The resource quota on a namespace helps ensure pod requests and limits are properly set on a deployment. For more information, see [Enforce resource quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
 
 > [!NOTE]
-> If you set resources quotas at the cluster level, problems can occur if you deploy non-Microsoft workloads that don't have proper requests and limits.
+> If you set resources quotas at the cluster level, problems can occur if you deploy third-party workloads that don't have proper requests and limits.
 
 **Set pod requests and limits**: Setting requests and limits enables Kubernetes to efficiently allocate CPU and memory resources to the pods, and lets you have higher container density on a node. Requests and limits can also increase your reliability while reducing your costs because of better hardware usage.
 
@@ -641,7 +641,7 @@ For more information about Windows-specific monitoring considerations, see [Wind
 
 Basic, cluster-level networking metrics are available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). You can further use the [Network Observability add-on](/azure/aks/network-observability-overview) to expose network metrics at the node level. Most clusters should use the Network Observability add-on to provide extra network troubleshooting capabilities, and to detect unexpected network usage or problems at the node level.
 
-For workloads that are highly sensitive to Transmission Control Protocol or User Datagram Protocol packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [Advanced Network Observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't install the Advanced Network Observability add-on unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [Advanced Network Observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't install the Advanced Network Observability add-on unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Enable self-healing
 
@@ -701,7 +701,7 @@ We recommend that you avoid the [cluster automatic upgrade](/azure/aks/auto-upgr
 > [!WARNING]
 > We don't recommend automatically patching or updating a production AKS cluster, even with minor version updates, unless you test those updates in your lower environments first. For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an AKS cluster](/azure/aks/upgrade-cluster).
 
-You can receive notifications when a new AKS version is available for your cluster by using the [AKS system article for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation deploys this Event Grid system article so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution. Review the [AKS release notes](https://github.com/Azure/AKS/releases) for specific compatibility concerns, behavior changes, or feature deprecations.
+You can receive notifications when a new AKS version is available for your cluster by using the [AKS system topic for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation deploys this Event Grid system topic so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution. Review the [AKS release notes](https://github.com/Azure/AKS/releases) for specific compatibility concerns, behavior changes, or feature deprecations.
 
 You might eventually reach the point of confidence with Kubernetes releases, AKS releases, your cluster, its cluster-level components, and the workload, to explore the automatic upgrade feature. For production systems, it would be rare to ever move beyond `patch`. Also, when automatically upgrading your AKS version, also check your infrastructure as code's (IaC) AKS version setting for your cluster so that they don't get out of sync. Configure your [planned maintenance](/azure/aks/planned-maintenance) window to support the automatic upgrade operation.
 
@@ -802,7 +802,7 @@ While you can configure GitOps and Flux manually, we recommend the [GitOps with 
 
 ### Workload and cluster deployment strategies
 
-Deploy *any* change, such as architecture components, workload, and cluster configuration to at least one preproduction AKS cluster. Doing so simulates the change and might identify problems before they are deployed to production.
+Deploy *any* change, such as architecture components, workload, and cluster configuration to at least one preproduction AKS cluster. Doing so simulates the change and might identify problems before they're deployed to production.
 
 Run tests and validations at each stage before moving on to the next. It helps ensure that you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment problems. The deployment should follow a similar pattern as production, by using the same GitHub Actions pipeline or Flux operators.
 
