@@ -53,22 +53,22 @@ The following table compares data lakes and data warehouses:
 
 ## Challenges
 
-- Managing Large Volumes of Data: Handling vast amounts of raw and unstructured data can be complex and resource-intensive, requiring robust infrastructure and tools.
-- Potential Bottlenecks: Data processing can experience delays and inefficiencies, especially when dealing with high volumes and diverse data types.
-- Risk of Data Corruption: Without proper data validation and monitoring, there’s a risk of data corruption, which can compromise the integrity of the data lake.
-- Quality Control Issues: Ensuring data quality is challenging due to the variety of data sources and formats, necessitating stringent data governance practices.
-- Performance Issues: Query performance can degrade as the data lake grows, making it essential to optimize storage and processing strategies.
+- *Managing large volumes of data:* Handling vast amounts of raw and unstructured data can be complex and resource-intensive, requiring robust infrastructure and tools.
+- *Potential bottlenecks:* Data processing can experience delays and inefficiencies, especially when dealing with high volumes and diverse data types.
+- *Risk of data corruption:* Without proper data validation and monitoring, there’s a risk of data corruption, which can compromise the integrity of the data lake.
+- *Quality control issues:* Ensuring data quality is challenging due to the variety of data sources and formats, necessitating stringent data governance practices.
+- *Performance issues:* Query performance can degrade as the data lake grows, making it essential to optimize storage and processing strategies.
 
 
 ## Technology choices
 
 When building a comprehensive data lake solution on Azure, consider the following technologies:
 
-- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction): It combines Azure Blob Storage with Data Lake capabilities, offering Hadoop-compatible access, hierarchical namespace, and enhanced security for efficient big data analytics.
+- [Azure Data Lake Storage (ALDS) Gen2](/azure/storage/blobs/data-lake-storage-introduction): ALDS Gen2 combines Azure Blob Storage with Data Lake capabilities, offering Hadoop-compatible access, hierarchical namespace, and enhanced security for efficient big data analytics.
 - [Azure Databricks](/azure/databricks/introduction/): A unified platform for processing, storing, analyzing, and monetizing data, supporting ETL, dashboards, security, data exploration, machine learning, and generative AI.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): A unified experience to ingest, explore, prepare, manage, and serve data for immediate BI and machine learning needs. It integrates deeply with Azure Data Lake, enabling querying and analyzing large datasets efficiently.
 - [Azure Data Factory](/azure/data-factory/introduction): A cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and transformation.
-- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)- It is a comprehensive data platform that unifies data engineering, data science, data warehousing, real-time analytics, and business intelligence into a single solution.
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview): Fabric is a comprehensive data platform that unifies data engineering, data science, data warehousing, real-time analytics, and business intelligence into a single solution.
 
 ## Contributors
 
