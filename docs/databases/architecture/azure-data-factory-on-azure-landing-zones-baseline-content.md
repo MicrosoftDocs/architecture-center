@@ -340,6 +340,8 @@ Understand that data solution performance typically degrades over time. Establis
 
 - **Boundary controls are the answer:** Cloud services, particularly PaaS, have identity as the primary control that needs to be implemented and well-governed. While networking and boundary controls are important, they're only part of the solution and not the complete answer.
 
+- **Set and forget:** Cloud solutions require regular reviews to evaluate current usage and performance. These reviews should consider any functional and pricing changes in Azure. Without these reviews, the value and effectiveness of the solutions can diminish over time.
+
 ## Deploy this scenario
 
 To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks).
