@@ -136,7 +136,7 @@ This scenario is applicable for organizations dealing with a strict set of const
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -242,7 +242,6 @@ Other contributors:
 
 ## Next steps
 
-- [Deploy a high availability Kubernetes cluster on Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes?toc=/hybrid/app-solutions/toc.json&bc=/hybrid/breadcrumb/toc.json)
 - [High availability Kubernetes pattern using Azure and Azure Stack Hub](/hybrid/app-solutions/pattern-highly-available-kubernetes)
 - [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 

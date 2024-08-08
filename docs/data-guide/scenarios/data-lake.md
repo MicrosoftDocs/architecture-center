@@ -50,7 +50,6 @@ The following table compares data lakes and data warehouses:
 
 ![A table that compares data lake features with data warehouse features.](./images/comparing-data-lakes-and-data-warehouses.png)
 
-
 ## Challenges
 
 - *Managing large volumes of data:* Handling vast amounts of raw and unstructured data can be complex and resource-intensive, requiring robust infrastructure and tools.

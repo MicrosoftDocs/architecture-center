@@ -14,6 +14,7 @@ metadata:
     - fcp
     - cse
     - example-scenario
+    - arb-data
 name: DataOps for the modern data warehouse
 azureCategories:
   - databases
@@ -26,4 +27,4 @@ products:
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/street-parking-availability.png
 content: |
-   [!include[](dataops-mdw-content.md)]
+   [!INCLUDE[](dataops-mdw-content.md)]

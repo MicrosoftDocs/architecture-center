@@ -217,14 +217,14 @@ When you dynamically create queues for each tenant, consider how your applicatio
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Software Engineer
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
  * [Dr. Christian Geuer-Pollmann](https://www.linkedin.com/in/chgeuer) | Principal Customer Engineer, FastTrack for Azure
  * [Patrick Horn](https://www.linkedin.com/in/patrick-horn-4383531) | Senior Customer Engineering Manager, FastTrack for Azure
  * [Ben Hummerstone](https://www.linkedin.com/in/bhummerstone) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

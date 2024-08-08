@@ -56,7 +56,7 @@ A many models solution requires a different dataset for every model during train
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 - **Data partitions** Partitioning the data is the key to implementing the many models pattern. If you want one model per store, a dataset comprises all the data for one store, and there are as many datasets as there are stores. If you want to model products by store, there will be a dataset for every combination of product and store. Depending on the source data format, it might be easy to partition the data, or it might require extensive data shuffling and transformation. Spark and Synapse SQL scale very well for such tasks, while Python pandas doesn't, since it runs only on one node and process.
 - **Model management:** The training and scoring pipelines identify and invoke the right model for each dataset. To do this, they calculate tags that characterize the dataset, and then use the tags to find the matching model. The tags identify the data partition key and the model version, and might also provide other information.

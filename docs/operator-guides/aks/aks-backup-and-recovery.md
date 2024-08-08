@@ -8,12 +8,13 @@ ms.date: 12/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - e2e-aks
 ---
 
 # Backup and recovery for AKS
@@ -200,7 +201,7 @@ Other contributors:
 - [Configuring backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
 - [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
 - [Business continuity and disaster recovery best practices for AKS](/azure/aks/operator-best-practices-multi-region)
-- [Reliability patterns - cloud design patterns](/azure/well-architected/resiliency/reliability-patterns#high-availability)
+- [Reliability patterns - cloud design patterns](/azure/well-architected/reliability/design-patterns)
 
 ### Third-party AKS backup and recovery options
 

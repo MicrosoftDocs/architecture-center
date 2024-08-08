@@ -11,10 +11,7 @@ metadata:
   ms.category:
     - hybrid
     - management-and-governance
-  ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
+  ms.custom: arb-hybrid
 name: Disaster recovery for Azure Stack Hub virtual machines
 azureCategories:
   - hybrid
