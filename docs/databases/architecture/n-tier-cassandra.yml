@@ -30,4 +30,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/n-tier-cassandra.png
 content: |
-   [!include[](n-tier-cassandra-content.md)]
+   [!INCLUDE[](n-tier-cassandra-content.md)]
