@@ -52,7 +52,7 @@ Microsoft Fabric is tightly integrated with potential consumers of your mutli-so
 
 ### Components
 
-- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an analytics service that combines capabilities of data engineering, data warehousing, data science, real-time and business intelligence. In this solution:
+- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an analytics service that combines capabilities of data engineering, data warehousing, data science, real-time and business intelligence. In this solution:
 
   - [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are destributed to end consumers. 
 
