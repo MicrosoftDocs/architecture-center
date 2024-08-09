@@ -1,12 +1,12 @@
-This example workload illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric. Microsoft Fabric is a cutting-edge platform that seamlessly integrates data storage, processing, and analytics. Unlike traditional data warehouses, which often involve complex migrations and costly transformations, a greenfield lakehouse provides a clean slate for designing an efficient, future-proof data ecosystem.
+This example workload illustrates a Greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric. Microsoft Fabric is a cutting-edge platform that seamlessly integrates data storage, processing, and analytics. Unlike traditional data warehouses, which often involve complex migrations and costly transformations, a Greenfield lakehouse provides a clean slate for designing an efficient, future-proof data ecosystem.
 
-## Who may benefit from this architecure
+## Who benefits from this architecture
 
-The greenfield data lakehouse architecture with Microsoft Fabric is beneficial for a wide range of scenarios including:
+The Greenfield data lakehouse architecture with Microsoft Fabric is beneficial for a wide range of scenarios including:
 
-- Organisations looking to start fresh, unencumbered by legacy systems, when developing a data platfrom.
-- Organisations that anticipate data volumes between 0.5 to 1.5 TB.
-- Organisations with a preference for a simple and streamlined pattern that balances cost, complexity, and performance considerations.
+- Organizations looking to start fresh, unencumbered by legacy systems, when developing a data platform.
+- Organizations that anticipate data volumes between 0.5 TB to 1.5 TB.
+- Organizations with a preference for a simple and streamlined pattern that balances cost, complexity, and performance considerations.
 
 ## Architecture
 
@@ -31,10 +31,10 @@ A Lakehouse implementation typically uses [medallion architecture](https://learn
 
 ##### 1. Data ingestion using Data Factory
 
-[Data factory](https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview) experience in Fabric has been built leveraging the capabilities of Azure Data Factory, which is a widely used data integration service in the industry. While Data Factory in Azure mainly provides orchestration capabilities using pipelines, in Fabric, it includes both pipelines and dataflows.
+[Data factory](https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview) experience in Fabric has been built using the capabilities of Azure Data Factory, which is a widely used data integration service in the industry. While Data Factory in Azure mainly provides orchestration capabilities using pipelines, in Fabric, it includes both pipelines and dataflows.
 
-- Data pipelines enable you to leverage out-of-the-box rich data orchestration capabilities to compose flexible data workflows that meet your enterprise needs.
-- Dataflows enable you to leverage more than 300 transformations in the dataflows designer, allowing you to transform data using a Power Query-like graphical interface, including smart AI-based data transformations. Dataflows can also write data to native data stores in Fabric, such as Lakehouse, Warehouse, Azure SQL, and Kusto databases.
+- Data pipelines enable you to apply out-of-the-box rich data orchestration capabilities to compose flexible data workflows that meet your enterprise needs.
+- Dataflows enable you to use more than 300 transformations in the dataflows designer, allowing you to transform data using a Power Query-like graphical interface, including smart AI-based data transformations. Dataflows can also write data to native data stores in Fabric, such as Lakehouse, Warehouse, Azure SQL, and Kusto databases.
 
 Depending on your requirements, you can use either or both experiences to build a rich metadata-driven ingestion framework. You can onboard data from various source systems on a defined schedule or based on event triggers.
 
@@ -44,15 +44,15 @@ For data preparation and transformation, there are two different approaches. The
 
 [Fabric notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook) are a primary code item for developing Apache Spark jobs. They provide a web-based interactive surface used by data engineers to write code, benefiting from rich visualizations and Markdown text. Data engineers write code for data ingestion, data preparation, and data transformation. Data scientists also use notebooks to build machine learning solutions, including creating experiments and models, model tracking, and deployment.
 
-Every workspace in Fabric comes with a Spark [starter pool](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-starter-pools), which is leveraged for default Spark jobs. With starter pools, you can expect rapid Apache Spark session initialization, typically within 5 to 10 seconds, with no need for manual setup. You also get the flexibility to customize Apache Spark pools according to your specific data engineering requirements. You can size the nodes, autoscale, and dynamically allocate executors based on your Spark job requirements. For Spark runtime customizations, you have the option to [environments](https://learn.microsoft.com/en-us/fabric/data-engineering/create-and-use-environment). In an environment, you can configure compute properties, select different runtimes, and set up library package dependencies based on your workload requirements.
+Every workspace in Fabric comes with a Spark [starter pool](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-starter-pools), which is used for default Spark jobs. With starter pools, you can expect rapid Apache Spark session initialization, typically within 5 to 10 seconds, with no need for manual setup. You also get the flexibility to customize Apache Spark pools according to your specific data engineering requirements. You can size the nodes, autoscale, and dynamically allocate executors based on your Spark job requirements. For Spark runtime customizations, you have the option to [environments](https://learn.microsoft.com/en-us/fabric/data-engineering/create-and-use-environment). In an environment, you can configure compute properties, select different runtimes, and set up library package dependencies based on your workload requirements.
 
 [Dataflows](https://learn.microsoft.com/en-us/fabric/data-factory/create-first-dataflow-gen2) allow you to extract data from various sources, transform it using a wide range of transformation operations, and load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. The goal of Dataflows Gen2 is to provide an easy, reusable way to perform ETL tasks using visual cues in Power Query Online. Adding a data destination to your dataflow is optional, and the dataflow preserves all transformation steps. To perform other tasks or load data to a different destination after transformation, create a Data Pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
 
 #### Hot path - Real-time analytics
 
-Real-time data processing is vital for businesses that want to stay agile, make informed decisions quickly, and take advantage of immediate insights to improve operations and customer experiences. In Fabric, this capability is provided by the Real-Time Intelligence service. It comprises several Fabric items bundled together and made discoverable using the [Real-Time Hub](https://learn.microsoft.com/en-us/fabric/real-time-hub/real-time-hub-overview). It is the single place for all data-in-motion across your entire organization.
+Real-time data processing is vital for businesses that want to stay agile, make informed decisions quickly, and take advantage of immediate insights to improve operations and customer experiences. In Fabric, this capability is provided by the Real-Time Intelligence service. It comprises several Fabric items bundled together and made discoverable using the [Real-Time Hub](https://learn.microsoft.com/en-us/fabric/real-time-hub/real-time-hub-overview). It's the single place for all data-in-motion across your entire organization.
 
-Real-Time Intelligence in Fabric enables analysis and data visualization for event-driven scenarios, streaming data, and data logs. It connects time-based data from various sources using a catalog of no-code connectors and provides an end-to-end solution for data ingestion, transformation, storage, analytics, visualization, tracking, AI, and real-time actions. Even though it's called "real-time," your data doesn't have to be flowing at high rates and volumes. Real-Time Intelligence gives you event-driven, rather than schedule-driven, solutions.
+Real-Time Intelligence in Fabric enables analysis and data visualization for event-driven scenarios, streaming data, and data logs. It connects time-based data from various sources using a catalog of no-code connectors and provides an end-to-end solution for data ingestion, transformation, storage, analytics, visualization, tracking, AI, and real-time actions. Even though it is called "real-time," your data doesn't have to be flowing at high rates and volumes. Real-Time Intelligence gives you event-driven, rather than schedule-driven, solutions.
 
 ##### 3. Real time ingestion
 
@@ -66,7 +66,7 @@ Within the Real-Time Intelligence experience in Fabric, depending on your use ca
 
 Reflex is a Fabric item that allows you to react to the occurrence of a data condition as it happens. That 'reaction' can be a simple alert message via Email/Teams, or it can involve invoking a custom action by triggering a Power Automate flow. You can also trigger any Fabric item from your reflexes. There are many observability use cases supported by Reflex, one of which is reacting to streaming data as it arrives in Eventstreams.
 
-Eventhouse is a collection of one or more KQL databases. KQL databases are specifically engineered for time-based, streaming events with structured, semi-structured, and unstructured data. Data is automatically indexed and partitioned based on ingestion time, giving you incredibly fast and complex analytic querying capabilities, even as the data is streaming in. Data stored in Eventhouses can be made available in OneLake for consumption by other Fabric experiences. Data stored in Eventhouses can be queried using various code, low-code, or no-code options in Fabric. Data can be queried in native [KQL](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/kusto-query-set?tabs=kql-database)(Kusto Query Language) or using T-SQL in the KQL queryset.
+Eventhouse is a collection of one or more KQL databases. KQL databases are engineered for time-based, streaming events with structured, semi-structured, and unstructured data. Data is automatically indexed and partitioned based on ingestion time, giving you incredibly fast and complex analytic querying capabilities, even as the data is streaming in. Data stored in Eventhouses can be made available in OneLake for consumption by other Fabric experiences. Data stored in Eventhouses can be queried using various code, low-code, or no-code options in Fabric. Data can be queried in native [KQL](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/kusto-query-set?tabs=kql-database)(Kusto Query Language) or using T-SQL in the KQL queryset.
 
 [Real time dashboards](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/dashboard-real-time-create) are designed to provide immediate insights from data streaming into your Eventhouses. You can add various types of visuals to the dashboard, such as charts and graphs, and customize them to fit your needs. RT dashboards serve the specific use case of quickly identifying trends and anomalies in high-velocity data arriving in an Eventhouse. This is different from Power BI dashboards, which are suitable for enterprise BI reporting workloads.
 
@@ -80,11 +80,11 @@ A [SQL analytics endpoint](https://learn.microsoft.com/en-us/fabric/data-enginee
 
 ###### Spark notebooks
 
-Notebooks are a popular way to interact with Lakehouse data. Fabric provides a web-based interactive surface used by data workers to write code, leveraging rich visualizations and Markdown text. Data engineers write code for data ingestion, data preparation, and data transformation. Data scientists also use notebooks for data exploration, creating ML experiments and models, model tracking, and deployment. This option is suitable for professional data engineers and data scientists.
+Notebooks are a popular way to interact with Lakehouse data. Fabric provides a web-based interactive surface used by data workers to write code, applying rich visualizations and Markdown text. Data engineers write code for data ingestion, data preparation, and data transformation. Data scientists also use notebooks for data exploration, creating ML experiments and models, model tracking, and deployment. This option is suitable for professional data engineers and data scientists.
 
 ###### Power BI
 
-Every Lakehouse in Fabric comes with a pre-built default semantic model. It is automatically created when you set up a Lakehouse and load data into it. These models inherit business logic from the Lakehouse, making it easier to create Power BI reports and dashboards directly within the Lakehouse experience. You can also create custom semantic models on Lakehouse tables based on specific business requirements. When you create Power BI reports on a Lakehouse, you can leverage the [direct lake mode](https://learn.microsoft.com/en-us/fabric/get-started/direct-lake-overview), which does not require you to import data separately. This allows you to achieve in-memory performance on your reports without moving your data out of the Lakehouse.
+Every Lakehouse in Fabric comes with a prebuilt default semantic model. It's automatically created when you set up a Lakehouse and load data into it. These models inherit business logic from the Lakehouse, making it easier to create Power BI reports and dashboards directly within the Lakehouse experience. You can also create custom semantic models on Lakehouse tables based on specific business requirements. When you create Power BI reports on a Lakehouse, you can use the [direct lake mode](https://learn.microsoft.com/en-us/fabric/get-started/direct-lake-overview), which doesn't require you to import data separately. This allows you to achieve in-memory performance on your reports without moving your data out of the Lakehouse.
 
 ###### Custom APIs
 
@@ -106,7 +106,7 @@ The following components are used to enable this solution:
 
   - [Data Engineering](https://learn.microsoft.com/fabric/data-engineering/data-engineering-overview): Tools that enable the collection, storage, processing, and analysis of large volumes of data.
 
-  - [Data Science](https://learn.microsoft.com/fabric/data-science/data-science-overview): Tools that empower you to complete end-to-end data science workflows for the purpose of data enrichment and business insights.
+  - [Data Science](https://learn.microsoft.com/fabric/data-science/data-science-overview): Tools that empower you to complete end-to-end data science workflows in data enrichment and business insights.
 
   - [Real-Time Intelligence](https://learn.microsoft.com/fabric/real-time-intelligence/overview): Provides stream ingestion and processing capabilities. This allows you to gain insights from constantly flowing data, enabling quicker decision-making based on real-time trends and anomalies.
 
@@ -116,7 +116,7 @@ The following components are used to enable this solution:
 
 ### Alternatives
 
-Microsoft Fabric offers a robust set of tools, but depending on your specific needs, alternative services within the Azure ecosystem can be leveraged for enhanced functionality.
+Microsoft Fabric offers a robust set of tools, but depending on your specific needs, alternative services within the Azure ecosystem can be used for enhanced functionality.
 
 - [Azure Databricks](https://learn.microsoft.com/azure/databricks/introduction/) could replace or complement the Microsoft Fabric native Data Engineering capabilities. Azure Databricks offers an alternative for large-scale data processing by providing a cloud-based Apache Spark environment. Azure Databricks also extends this by providing common governance across your entire data estate, and capabilities to enable key use cases including data science, data engineering, machine learning, AI, and SQL-based analytics.
 
@@ -126,14 +126,14 @@ Microsoft Fabric offers a robust set of tools, but depending on your specific ne
 
 Several scenarios can benefit from this workload:
 
-- Organisations starting fresh without legacy system constraints.
+- Organizations starting fresh without legacy system constraints.
 - Businesses needing a simple, cost-effective, and high-performance data platform that addresses reporting, analytics, and machine learning requirements.
-- Organisations looking to integrate data from multiple sources for a unified view.
+- Organizations looking to integrate data from multiple sources for a unified view.
 
 This solution isn't recommended for:
 
 - Teams from a SQL or relational database background with limited skills on Apache Spark.
-- Organisations who are migrating from a legacy system or data warehouse to a modern platform.
+- Organizations who are migrating from a legacy system or data warehouse to a modern platform.
 
 ## Considerations
 
@@ -149,18 +149,18 @@ During a zone-wide outage, no action is required during zone recovery. Fabric ca
 
 ### Operations
 
-Microsoft Fabric provides many different components to help you manage your data platform. Each of these experiences support unique operations that can be viewed in the [Microsoft Fabric Capacity Metrics app](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app). The Microsoft Fabric Capacity Metrics app is designed to provide monitoring capabilities for Microsoft Fabric capacities. Use the app to monitor your capacity consumption and make informed decisions on how to use your capacity resources.
+Microsoft Fabric provides many different components to help you manage your data platform. Each of these experiences supports unique operations that can be viewed in the [Microsoft Fabric Capacity Metrics app](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app). The Microsoft Fabric Capacity Metrics app is designed to provide monitoring capabilities for Microsoft Fabric capacities. Use the app to monitor your capacity consumption and make informed decisions on how to use your capacity resources.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Microsoft fabric offers [capacity reservations](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/fabric-capacity) for a given number of capacity units (CUs). Capacity reservations can help you save costs by committing to a reservation for your Fabric capacity usage for a duration of one year.
+Microsoft Fabric offers [capacity reservations](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/fabric-capacity) for a given number of capacity units (CUs). Capacity reservations can help you save costs by committing to a reservation for your Fabric capacity usage for a duration of one year.
 
 Other cost optimization considerations include:
 
 - [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
-- [Microsoft Fabric](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) pricing is based on Fabric F capacity price or Premium Per Person price. Serverless capacilities would consume CPU and memory from dedicated capacity that was purchased.
+- [Microsoft Fabric](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) pricing is based on Fabric F capacity price or Premium Per Person price. Serverless capacities would consume CPU and memory from dedicated capacity that was purchased.
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) bills based on tier, throughput units provisioned, and ingress traffic received. The example assumes one throughput unit in Standard tier over one million events for a month.
 
 ## Contributors
@@ -176,7 +176,7 @@ To see non-public LinkedIn profiles, sign in to LinkedIn.
 
 ## Next steps
 
-Consult the relevent documentation to learn more about the different components and how to get started.
+Consult the relevant documentation to learn more about the different components and how to get started.
 
 - [What is OneLake?](https://learn.microsoft.com/fabric/onelake/onelake-overview)
 - [What is Data Factory?](https://learn.microsoft.com/fabric/data-factory/data-factory-overview)
