@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Industrial Edge with Azure AI on Azure
+  titleSuffix: Azure Architecture Center
+  description:
+  author: 
+  ms.author:
+  ms.reviewer:
+  ms.date: 08/07/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - storage 
+products:
+  - azure-virtual-machines
+  - azure-sql-database
+name: 
+summary:
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-ai-siemens-industrial-edge.png
+content: |
+  [!include[](teamcenter-baseline-content.md)]

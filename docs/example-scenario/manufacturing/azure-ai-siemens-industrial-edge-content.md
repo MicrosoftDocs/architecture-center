@@ -1,0 +1,238 @@
+This article shows you how to run Azure AI models on Siemens Industrial Edge IoT devices and monitor those devices from a central location in Azure. The architecture simplifies the integration process between Azure and Siemens Industrial AI services and focuses on two operational areas:
+
+- **Deploy Azure AI models to Siemens Industrial Edge devices.** This operational area includes implementing Azure Machine Learning pipelines for automated model training, evaluation, and registration. It also includes automating the secure and approved deployment of AI models trained on Azure from the cloud to the on-premises Siemens AI Model Manager.
+
+- **Centralize telemetry from Siemens Industrial Edge devices in Azure.** This operational area includes pushing inference logs and metrics to the cloud, which enables centralized monitoring of edge applications in Azure.
+
+## Architecture
+
+[ADD DIAGRAM]
+
+*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+
+### Workflow
+
+1. The data pipeline:
+
+    a. Loads raw training data from a dedicated raw data store storage container. Then the pipeline processes raw training data and shapes it to the acceptable format for model training.
+
+    b. Saves the processed data into the processed dataset storage container.
+
+1. After the raw data is processed, the model development pipeline is executed. The model development pipeline:
+
+    a. Loads processed training data from processed dataset storage container and performs model training.
+
+    b. Saves the resulting model into the model catalog.
+
+1. After the model is trained, the validate and packaging pipeline is executed. The validate and packaging pipeline:
+
+    a. Loads the model from the model catalog and performs model validation.
+
+    b. If the model passes validation, the pipeline uses the Siemens AI SDK library to package and save the model into the packaged models storage container.
+
+1. After the packaged model is saved, the tagging and delivery pipeline is executed. The tagging and delivery pipeline loads the trained model from the model catalog and tags it with more metadata, such as pipeline version or created data version. Then the pipeline saves the model in the container registry.
+
+1. The delivery pipeline initiates an exchange of messages between the Machine Learning pipeline and the Siemens AI Model Manager (AIMM) through the IoT Hub and Event Hubs. This loop is crucial for managing and coordinating the deployment of a new model:
+
+    a. The delivery pipeline sends a message through IoT Hub to inform Siemens AIMM that a new model is ready for deployment.
+
+    b. Siemens AIMM receives this notification and assesses the current state of the edge devices to determine readiness for the new model. After it's ready, Siemens AIMM responds back to the IoT Hub with a request for the new model.
+
+    c. The delivery pipeline generates a shared access signature (SAS) link for the model package in the packaged models storage container.  
+
+    d. The delivery pipeline sends this SAS link back to Siemens AIMM through IoT Hub, which enables it to download the model.
+
+1. After Siemens AIMM receives the SAS link from the delivery pipeline, it reaches out to packaged models storage container and downloads the latest packaged model.
+
+1. Siemens AIMM runs internal processes to deploy the latest packaged model to the Siemens AI Inference Server (AIIS).
+
+1. Siemens AIIS uses OpenTelemetry Collector to send metrics to the Siemens AI Model Monitor.
+
+1. Siemens AI Model Monitor aggregates all the logs and metrics from the edge devices and services and sends this information to Azure Monitor.
+
+1. Data recycling includes the following steps:  
+
+    a. The Data Collector collects inference data produced by the running model in the Siemens AIIS.  
+
+    b. The Data Collector passes the data to the Data Collector Hub to pass on to Azure Storage.  
+
+    c. The Data Collector Hub uploads the data into the data landing zone storage account for further retraining of the model.
+
+## Observability architecture
+
+To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from OpenTelemetry Collector and the Authentication Proxy. These components are deployed as integral parts of Siemens AI Model Monitor. This setup enables logs and metrics to be exported to Application Insights and an Azure Monitor workspace by using a managed identity from Microsoft Entra ID as the key authentication mechanism.
+
+Telemetry data flows from the OT layer to an instance of the OpenTelemetry Collector in the IT layer. This collector exports the data to Application Insights and uses the Authentication Proxy to acquire a Service Principal identity. This process strengthens the authentication from using a shared secret, or instrumentation key, to a fully certificate-backed Microsoft Entra ID identity. The generation and distribution of the certificates, service principals, and the association of relevant roles and permissions are automated through an Azure DevOps pipeline.  
+
+For a more generic solution, see [OpenTelemetry Collector for legacy IoT scenarios](https://techcommunity.microsoft.com/t5/azure-architecture-blog/opentelemetry-collector-for-legacy-iot-scenarios/ba-p/4082417).
+
+## Components
+
+The Siemens Industrial Edge components include:
+
+- [AI Model Monitor](https://www.dex.siemens.com/edge/build-your-solution/ai-model-monitor) collects telemetry information, logs, metrics on model performance and edge devices.
+
+- [AI Model Manager (AIMM)](https://www.dex.siemens.com/edge/build-your-solution/ai-model-manager?cclcl=de_DE) is a service that's responsible for the orchestration of edge devices and model distribution.
+
+- [AI Inference Server](https://www.dex.siemens.com/edge/manufacturing-process-industries/ai-inference-server) is an application that runs on Siemens Industrial Edge devices. It executes deployed AI models by using the built-in Python Interpreter for the inference purposes.
+
+- The [AI Software Development Kit](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations/software-development-kit.html) enables you to package your model, including preprocessing logic and post-processing logic, into a standard inference pipeline that runs on the AI Inference Server. This process is achieved by using our Python Software Development Kit by keeping your existing coding and training environment.
+
+- Siemens Data Collector collects inference data from Siemens AIIS for further processing.
+
+- The Siemens Data Collector Hub collects inference data from all Data Collectors to pass to the cloud for further processing.
+
+## Azure components
+
+For each component in the architecture, use the relevant service guide in the Well-Architected Framework where available. For more information, see the [Well-Architected Framework service guides](/azure/well-architected/service-guides).
+
+- [Azure IoT Hub](/azure/iot-hub/iot-hub-devguide) facilitates communication for model delivery between the cloud and Edge. The AI Model Manager is registered as an edge device, which enables the cloud service to send cloud-to-device messages.
+
+- [Machine Learning workspace](/azure/machine-learning/concept-workspace) acts as a central hub that streamlines the creation, organization, and hosting of machine learning artifacts and tasks for teams. It covers jobs, pipelines, data assets, models, and endpoints.
+
+- [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) is an Azure solution that provides insights into the performance and health of applications and resources. It provides tools to collect, analyze, and act on telemetry data.  
+
+- [Storage](/azure/storage/) is a cloud-based container or repository that enables users to store and manage various types of data in a scalable and accessible manner.
+
+- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that securely manages and stores sensitive information such as secrets, encryption keys, and certificates. It provides centralized control over access and audit trails.
+
+- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service for building, storing, and managing container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry. Container Registry stores Docker containers that you use to train and deploy models. The Docker containers encapsulate the environment where your machine learning training happens. This process ensures that the environment is consistent, reproducible, and isolated, which is crucial for machine learning workflows.
+
+## Alternatives
+
+We recommend that you replace IoT Hub with [Azure Event Grid’s MQTT broker feature](/azure/event-grid/mqtt-overview) as the long-term solution. [Azure Event Grid](/azure/event-grid/mqtt-overview) is a fully managed, highly scalable publish/subscribe message distribution service. It supports flexible message consumption patterns by using MQTT and HTTP protocols.
+
+- Consider using the [Azure Monitor Edge pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure) on Azure Arc for pushing logs and metrics to Azure, which replaces the OpenTelemetry components in your architecture. This approach offers seamless and secure connectivity to Azure. It also enhances the extensibility of Siemens factory IT to the Azure cloud, which simplifies identity management. This alternative results in:
+
+  - Faster commissioning for the customer.
+  - Less support from Siemens during commissioning.
+  - Lower cost to operate due to being able to give access to observability data.
+
+- You can use the [GitLab Accelerator](https://gitlab.com/rburteamicrosoft/gitlab-accelerator) to develop your machine learning pipelines. You can further develop extra functionalities in Azure with the examples provided in this implementation.
+
+## Scenario details
+
+This scenario addresses the challenge of integrating machine learning models developed in Azure with factory operations that are managed by Siemens Industrial Edge devices. The primary objective is to ensure efficient, secure, and automated deployment and monitoring of AI models in industrial environments.
+
+The development of this architecture was driven by the necessity for seamless and reliable deployment of AI-driven applications in manufacturing and stringent operational requirements. This solution minimizes manual intervention, reduces production disruptions, and enhances the visibility of machine learning models on the shop floor.
+
+## Potential use cases
+
+This architecture builds a closed-loop environment for data collection, AI modeling, training, deployment, inference, and monitoring based on Siemens and Microsoft products. It enables the scalable implementation of AI use cases across various industries, such as electronics, consumer packaged goods, automotive, and batteries.  
+
+The architecture reduces manual effort and costs by integrating cloud model preparation, cloud-to-edge model transfer, and field model execution. It also provides edge-to-cloud monitoring and creates a cost-effective solution with a low initial investment in AI hardware and software.  
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Well-Architected Framework](/azure/well-architected/).
+
+### Reliability  
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+- Use [Azure availability zones](https://azure.microsoft.com/explore/global-infrastructure/availability-zones/) for supported Azure services to improve reliability within the same Azure region.
+
+- When you use Azure Blob storage, make sure to configure the appropriate redundancy and failover configurations for your [Storage Account](/azure/storage/common/storage-disaster-recovery-guidance).
+
+- Use code level patterns, to handle transient network issues and message persistence capabilities to protect against transient software and hardware failures.
+
+  - [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) for Azure Architecture Center.
+  - [Retry pattern](/azure/architecture/patterns/retry) for Azure Architecture Center.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). This architecture applied the following commonly used Security principles:
+
+- Use Microsoft Entra ID as your primary tool for managing identity and access control.
+
+- Conduct a comprehensive Threat Modeling exercise during the planning phase of your solution to identify potential security risks and design mitigation strategies. For more information, see [Microsoft Security Development Lifecycle Threat Modeling](https://www.microsoft.com/securityengineering/sdl/threatmodeling).
+
+- Use managed identities where supported and store all other secrets in Key Vault. Enhance the security of the Key Vault by configuring settings for soft delete, enabling logging, and tightening access control.
+
+- Apply the principle of least privilege by using role-based access control (RBAC) to regulate access and permissions to resources. For more information, see [What is Azure RBAC?](/azure/role-based-access-control/overview).
+
+- Use [virtual networks](/azure/virtual-network/virtual-networks-overview) and [private endpoints](/azure/private-link/private-endpoint-overview) to secure cloud services and cloud-to-edge communication.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+- Review and optimize the volume of data stored in Log Analytics regularly by adjusting retention periods and archive policies. This strategy can significantly reduce storage costs.
+
+- Take advantage of the free 30-day retention period for ingested data. After this period, consider archiving less-critical data to lower cost storage or reduce retention periods to minimize ongoing expenses. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing).
+
+- Assess the necessity and usage of dependent resources such as Key Vault, Application Insights, Container Registry, and Storage accounts. Optimize their configurations to avoid unnecessary costs.  
+
+- Review the size and scale of these resources regularly to ensure they match your current workload requirements, which reduce any excess capacity that could lead to higher costs.  
+
+- Estimate the number of messages that your IoT Hub handles daily and select the most cost-effective tier. Avoid overprovisioning by choosing a tier that aligns closely with your actual usage.
+
+- Implement strategies to reduce the number of messages sent, such as batching or optimizing data payloads, to minimize costs.  
+
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to simulate various workload scenarios and choose the most cost-efficient configurations for your architecture. This approach helps you anticipate costs and identify areas for potential savings.
+
+- Revisit your cost estimates periodically and adjust configurations as your workloads evolve to ensure ongoing cost optimization. For more information, see [Azure pricing overview](https://azure.microsoft.com/pricing/).
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+- Build and manage your infrastructure by using infrastructure as code tools such as Bicep, Terraform, or Azure Resource Manager (ARM) templates. These tools ensure consistency, repeatability, and scalability in your infrastructure deployment.
+
+- Integrate security practices early in the application lifecycle by applying DevOps security measures. This approach minimizes the effect of vulnerabilities and brings security considerations closer to the development team, which enables faster and more secure development.
+
+- Deploy your infrastructure using continuous integration and continuous delivery processes by using Azure pipelines. This approach ensures efficient, automated, and reliable deployment of your resources, which reduces the risk of manual errors and increases deployment speed.
+
+- Implement secret detection tools as part of your CI pipelines to prevent secrets from being committed to your repository. This proactive measure safeguards your codebase and protects against potential security breaches.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- Choose the appropriate IoT Hub tier based on the volume of messages exchanged daily:
+
+  - For small to medium-scale projects with up to 5 million messages per day, select the S2 Standard tier.
+
+  - For large-scale projects requiring support for up to 300 million messages per day or an average of 3,400 messages per second, opt for the S3 Standard tier.
+  
+  - For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+
+- For production in Machine Learning, use compute clusters, not compute instances. Compute clusters enable you to scale resources dynamically in response to varying traffic demands, which ensures optimal performance and cost efficiency.
+
+- Enable diagnostic settings for Machine Learning to monitor and scale services according to business requirements. Regularly monitor the average utilization of compute instances or compute cluster nodes. As the number of experiments increases, adjust the node count of your compute cluster to ensure sufficient capacity and maintain performance.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- Neelam Saxena | [LinkedIn profile](https://www.linkedin.com/in/neelam-saxena-5195b413/) | Senior Technical Program Manager
+
+- Nick Sologoub | [LinkedIn profile](https://www.linkedin.com/in/ncksol/) | PRINCIPAL Software Engineering Lead
+
+- Colin Desmond | [LinkedIn profile](https://www.linkedin.com/in/colin-desmond-64b507a/) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- Siemens and Microsoft publish automation code examples to implement the proposed cloud-based reference architecture. For more information, see [Docs for Industrial AI](https://docs.industrial-operations-x.siemens.cloud/p/industrial-ai).
+
+- [Azure IoT Hub concepts overview](/azure/iot-hub/iot-hub-devguide)
+
+- [Get started with Machine Learning](/azure/machine-learning/tutorial-azure-ml-in-a-day?view=azureml-api-2)  
+
+- [Create a Container Registry and build images](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli)
+
+- [Storage Documentation Hub](/azure/storage)
+
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
+
+- [Siemens Industrial AI portfolio home](https://www.siemens.com/global/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations.html)
+
+- [Industrial AI-enabled operations](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations.html)
+
+- [Siemens Industrial Edge documentation](https://docs.eu1.edge.siemens.cloud/index.html)
+
+- [Siemens Industrial AI reference with Electronic Works Amberg EWA](https://references.siemens.com/en/reference/siemens-ag?id=RMW659284bf-7eb0-4686-8a01-1e40a2866b14_1696503065533)
