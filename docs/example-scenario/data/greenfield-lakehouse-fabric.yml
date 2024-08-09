@@ -1,22 +1,22 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modern data warehouse for small and medium business
+  title: Greenfiled Lakehouse on Microsoft Fabric
   titleSuffix: Azure Architecture Center
-  description: Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
-  author: nfmoore
-  ms.author: nfmoore
+  description: This example workload illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
+  author: nimoore
+  ms.author: nimoore
   ms.date: 01/08/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-  - arb-data
+    - arb-data
 azureCategories:
   - analytics
   - databases
   - storage
 products:
-  - microsoft-fabric
+  # - microsoft-fabric
   - power-bi
 name: Greenfield Lakehouse
 summary: This example workload illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
