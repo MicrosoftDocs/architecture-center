@@ -56,7 +56,7 @@ Microsoft Fabric is tightly integrated with potential consumers of your mutli-so
 
   - [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are destributed to end consumers. 
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)/[Managed Instance](https://azure.microsoft.com/en-us/products/azure-sql/managed-instance/) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)/[Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs can ingest data from anywhere, and seamlessly integrates with Azure data services.
 
