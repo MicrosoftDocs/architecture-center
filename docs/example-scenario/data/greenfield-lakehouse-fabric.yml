@@ -3,8 +3,12 @@ metadata:
   title: Greenfiled Lakehouse on Microsoft Fabric
   titleSuffix: Azure Architecture Center
   description: This example workload illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
-  author: nimoore
-  ms.author: nimoore
+  author:
+    - nimoore
+    - amitchandra
+  ms.author:
+    - nimoore
+    - amitchandra
   ms.date: 01/08/2024
   ms.topic: example-scenario
   ms.service: architecture-center
