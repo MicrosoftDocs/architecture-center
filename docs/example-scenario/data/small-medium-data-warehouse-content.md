@@ -34,7 +34,7 @@ The following dataflow demonstrates the ingestion of your chosen data type:
 
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
 
-2. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Fabric Serverless analysis tools. You can bring the fused, processed data back into Dynamics and use for further analysis inside Microsoft Fabric.
+1. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Fabric Serverless analysis tools. You can bring the fused, processed data back into Dynamics and use it for further analysis within Microsoft Fabric.
 
 3. Real-time data from streaming sources can also enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
