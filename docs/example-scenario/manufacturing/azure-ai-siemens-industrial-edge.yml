@@ -2,21 +2,20 @@
 metadata:
   title: Industrial Edge with Azure AI on Azure
   titleSuffix: Azure Architecture Center
-  description:
-  author: 
-  ms.author:
-  ms.reviewer:
-  ms.date: 08/07/2024
+  description: Learn how to run Azure AI models on Siemens Industrial Edge IoT devices and monitor those devices from a central location in Azure.
+  author: neelamsaxena4724
+  ms.author: neelamsaxena
+  ms.date: 08/12/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
-  - storage 
+  - storage
 products:
-  - azure-virtual-machines
-  - azure-sql-database
-name: 
-summary:
+  - azure-machine-learning
+  - azure-monitor
+name: Industrial Edge with Azure AI on Azure
+summary: Learn how to run Azure AI models on Siemens Industrial Edge IoT devices and monitor those devices from a central location in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-ai-siemens-industrial-edge.png
 content: |
-  [!include[](teamcenter-baseline-content.md)]
+  [!include[](azure-ai-siemens-industrial-edge-content.md)]

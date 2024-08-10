@@ -2,7 +2,7 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 - **Deploy Azure AI models to Siemens Industrial Edge devices.** This operational area includes implementing Azure Machine Learning pipelines for automated model training, evaluation, and registration. It also includes automating the secure and approved deployment of AI models trained on Azure from the cloud to the on-premises Siemens AI Model Manager.
 
-- **Centralize telemetry from Siemens Industrial Edge devices in Azure.** This operational area includes pushing inference logs and metrics to the cloud, which enables centralized monitoring of edge applications in Azure.
+- **Centralize data from Siemens Industrial Edge devices in Azure.** This operational area includes pushing inference logs and metrics to the cloud, which enables centralized monitoring of edge applications in Azure.
 
 ## Architecture
 
@@ -60,9 +60,9 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 ## Observability architecture
 
-To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from OpenTelemetry Collector and the Authentication Proxy. These components are deployed as integral parts of Siemens AI Model Monitor. This setup enables logs and metrics to be exported to Application Insights and an Azure Monitor workspace by using a managed identity from Microsoft Entra ID as the key authentication mechanism.
+To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from OpenTelemetry Collector and the Authentication Proxy. These components are deployed as integral parts of Siemens AI Model Monitor. This setup enables logs and metrics to be exported to Application Insights and an Azure Monitor workspace. It uses a managed identity from Microsoft Entra ID as the key authentication mechanism.
 
-Telemetry data flows from the OT layer to an instance of the OpenTelemetry Collector in the IT layer. This collector exports the data to Application Insights and uses the Authentication Proxy to acquire a Service Principal identity. This process strengthens the authentication from using a shared secret, or instrumentation key, to a fully certificate-backed Microsoft Entra ID identity. The generation and distribution of the certificates, service principals, and the association of relevant roles and permissions are automated through an Azure DevOps pipeline.  
+Telemetry data flows from the operational technology layer to an instance of the OpenTelemetry Collector in the information technology layer. This collector exports the data to Application Insights and uses the Authentication Proxy to acquire a Service Principal identity. This process strengthens the authentication from using a shared secret, or instrumentation key, to a fully certificate-backed Microsoft Entra ID identity. The generation and distribution of the certificates, service principals, and the association of relevant roles and permissions are automated through an Azure DevOps pipeline.  
 
 For a more generic solution, see [OpenTelemetry Collector for legacy IoT scenarios](https://techcommunity.microsoft.com/t5/azure-architecture-blog/opentelemetry-collector-for-legacy-iot-scenarios/ba-p/4082417).
 
@@ -96,11 +96,11 @@ For each component in the architecture, use the relevant service guide in the We
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that securely manages and stores sensitive information such as secrets, encryption keys, and certificates. It provides centralized control over access and audit trails.
 
-- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service for building, storing, and managing container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry. Container Registry stores Docker containers that you use to train and deploy models. The Docker containers encapsulate the environment where your machine learning training happens. This process ensures that the environment is consistent, reproducible, and isolated, which is crucial for machine learning workflows.
+- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service that you can use to build, store, and manage container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry. Container Registry stores Docker containers that you use to train and deploy models. The Docker containers encapsulate the environment where your machine learning training happens. This process ensures that the environment is consistent, reproducible, and isolated, which is crucial for machine learning workflows.
 
 ## Alternatives
 
-We recommend that you replace IoT Hub with [Azure Event Grid’s MQTT broker feature](/azure/event-grid/mqtt-overview) as the long-term solution. [Azure Event Grid](/azure/event-grid/mqtt-overview) is a fully managed, highly scalable publish/subscribe message distribution service. It supports flexible message consumption patterns by using MQTT and HTTP protocols.
+We recommend that you replace IoT Hub with [Azure Event Grid’s MQTT broker feature](/azure/event-grid/mqtt-overview) as the long-term solution. [Event Grid](/azure/event-grid/mqtt-overview) is a fully managed, highly scalable publish/subscribe message distribution service. It supports flexible message consumption patterns by using MQTT and HTTP protocols.
 
 - Consider using the [Azure Monitor Edge pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure) on Azure Arc for pushing logs and metrics to Azure, which replaces the OpenTelemetry components in your architecture. This approach offers seamless and secure connectivity to Azure. It also enhances the extensibility of Siemens factory IT to the Azure cloud, which simplifies identity management. This alternative results in:
 
@@ -114,7 +114,7 @@ We recommend that you replace IoT Hub with [Azure Event Grid’s MQTT broker fea
 
 This scenario addresses the challenge of integrating machine learning models developed in Azure with factory operations that are managed by Siemens Industrial Edge devices. The primary objective is to ensure efficient, secure, and automated deployment and monitoring of AI models in industrial environments.
 
-The development of this architecture was driven by the necessity for seamless and reliable deployment of AI-driven applications in manufacturing and stringent operational requirements. This solution minimizes manual intervention, reduces production disruptions, and enhances the visibility of machine learning models on the shop floor.
+The need for seamless and reliable deployment of AI-driven applications in manufacturing and strict operational requirements prompted the development of this architecture. This solution minimizes manual intervention, reduces production disruptions, and enhances the visibility of machine learning models on the shop floor.
 
 ## Potential use cases
 
@@ -141,7 +141,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). This architecture applied the following commonly used Security principles:
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). This architecture applied the following commonly used security principles:
 
 - Use Microsoft Entra ID as your primary tool for managing identity and access control.
 
@@ -177,13 +177,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-- Build and manage your infrastructure by using infrastructure as code tools such as Bicep, Terraform, or Azure Resource Manager (ARM) templates. These tools ensure consistency, repeatability, and scalability in your infrastructure deployment.
+- Build and manage your infrastructure by using infrastructure as code tools such as Bicep, Terraform, or Azure Resource Manager templates. These tools ensure consistency, repeatability, and scalability in your infrastructure deployment.
 
 - Integrate security practices early in the application lifecycle by applying DevOps security measures. This approach minimizes the effect of vulnerabilities and brings security considerations closer to the development team, which enables faster and more secure development.
 
-- Deploy your infrastructure using continuous integration and continuous delivery processes by using Azure pipelines. This approach ensures efficient, automated, and reliable deployment of your resources, which reduces the risk of manual errors and increases deployment speed.
+- Use Azure pipelines to deploy your infrastructure through continuous integration and continuous delivery processes. This approach ensures efficient, automated, and reliable deployment of your resources, which reduces the risk of manual errors and increases deployment speed.
 
-- Implement secret detection tools as part of your CI pipelines to prevent secrets from being committed to your repository. This proactive measure safeguards your codebase and protects against potential security breaches.
+- Integrate secret detection tools into your CI pipelines to prevent committing secrets to your repository. This proactive measure safeguards your codebase and protects against potential security breaches.
 
 ### Performance efficiency
 
@@ -193,11 +193,11 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
   - For small to medium-scale projects with up to 5 million messages per day, select the S2 Standard tier.
 
-  - For large-scale projects requiring support for up to 300 million messages per day or an average of 3,400 messages per second, opt for the S3 Standard tier.
+  - For large-scale projects that require support for up to 300 million messages per day or an average of 3,400 messages per second, opt for the S3 Standard tier.
   
   - For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-- For production in Machine Learning, use compute clusters, not compute instances. Compute clusters enable you to scale resources dynamically in response to varying traffic demands, which ensures optimal performance and cost efficiency.
+- Use compute clusters, not compute instances, for production in Machine Learning. Compute clusters enable you to scale resources dynamically in response to varying traffic demands. This approach ensures optimal performance and cost efficiency.
 
 - Enable diagnostic settings for Machine Learning to monitor and scale services according to business requirements. Regularly monitor the average utilization of compute instances or compute cluster nodes. As the number of experiments increases, adjust the node count of your compute cluster to ensure sufficient capacity and maintain performance.
 
