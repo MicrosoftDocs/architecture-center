@@ -35,7 +35,7 @@ Within each region, nodes in the AKS node pools are spread across multiple avail
 
 ### Deployment stamp considerations
 
-When you manage a multi-region AKS solution, you deploy multiple AKS clusters across multiple regions. Each one of these clusters is considered a *stamp*. In the event of a regional failure or the need to add more capacity or regional presence for your clusters, you might need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, it's important to consider the following things:
+When you manage a multi-region AKS solution, you deploy multiple AKS clusters across multiple regions. Each one of these clusters is considered a *stamp*. If there's a regional failure, or if you need to add more capacity or regional presence for your clusters, you might need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, it's important to consider the following things:
 
 - Select the appropriate technology for stamp definitions that allows for generalized configuration. The reference implementation uses Bicep for defining infrastructure as code.
 - Provide instance-specific values using a deployment input mechanism such as variables or parameter files.
@@ -82,7 +82,7 @@ As new stamps are added or removed from the global cluster, the deployment pipel
 
 Another option would be to create business logic to create clusters based on a list of desired locations or other indicating data points. For instance, the deployment pipeline could contain a list of desired regions; a step within the pipeline could then loop through this list, deploying a cluster into each region found in the list. The disadvantage to this configuration is the complexity in deployment generalization and that each cluster stamp isn't explicitly detailed in the deployment pipeline. The positive benefit is that adding or removing cluster stamps from the pipeline becomes a simple update to the list of desired regions.
 
-Also, removing a cluster stamp from the deployment pipeline doesn't always decommission the stamp's resources. Depending on your deployment solution and configuration, you might need an extra step to decommission the AKS instances and other Azure resources. Consider using [deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) to enable full lifecycle management of Azure resources, including cleanup after they're no longer needed.
+Also, removing a cluster stamp from the deployment pipeline doesn't always decommission the stamp's resources. Depending on your deployment solution and configuration, you might need an extra step to decommission the AKS instances and other Azure resources. Consider using [deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) to enable full lifecycle management of Azure resources, including cleanup when you don't need them anymore.
 
 #### Cluster bootstrapping
 
@@ -109,7 +109,7 @@ When designing policy for multiple AKS clusters, consider the following items:
 - Apply policies that should apply globally to all AKS instances to a management group or subscription.
 - Place each regional cluster in its own resource group, which allows for region-specific policies to be applied to the resource group.
 
-See [Cloud Adoption Framework resource organization](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org) for materials that will help you establish a policy management strategy.
+See [Cloud Adoption Framework resource organization](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org) for materials that help you establish a policy management strategy.
 
 #### Workload deployment
 
@@ -134,13 +134,13 @@ For more information, see [Kubernetes ReplicaSet](https://kubernetes.io/docs/con
 
 #### Datacenter hardware failures
 
-Localized failure can occasionally occur. For example, power might become unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point of failure, use Azure availability zones. By using availability zones, you ensure that AKS nodes in a one availability zone are physically separated from those defined in another availability zone.
+Localized failure can occasionally occur. For example, power might become unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point of failure, use Azure availability zones. By using availability zones, you ensure that AKS nodes in a one availability zone are physically separated from those nodes defined in another availability zone.
 
 For more information, see [AKS and Azure availability zones](/azure/aks/availability-zones).
 
 #### Azure region failures
 
-When an entire region becomes unavailable, the pods in the cluster are no longer available to serve requests. In this case, Azure Front Door routes all traffic to the remaining healthy regions. The Kubernetes clusters and pods in the healthy regions will continue to serve requests.
+When an entire region becomes unavailable, the pods in the cluster are no longer available to serve requests. In this case, Azure Front Door routes all traffic to the remaining healthy regions. The Kubernetes clusters and pods in the healthy regions continues to serve requests.
 
 Take care in this situation to compensate for increased requests and traffic to the remaining cluster. Consider the following points:
 
@@ -166,9 +166,9 @@ With the AKS baseline reference architecture, workload traffic is routed directl
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster-aks-ingress-flow.vsdx) of this diagram.*
 
-1. The user sends a request to a domain name (such as `https://contoso-web-a1bc2de3fh4ij5kl.z01.azurefd.net`), which is resolved to the Azure Front Door profile. This request is encrypted with a wildcard certificate (`*.azurefd.net`) issued for all subdomains of Azure Front Door. Azure Front Door validates the request against WAF policies, selects the fastest origin (based on health and latency), and uses public DNS to resolve the origin IP address (Azure Application Gateway instance).
+1. The user sends a request to a domain name (such as `https://contoso-web-a1bc2de3fh4ij5kl.z01.azurefd.net`), which is resolved to the Azure Front Door profile. This request is encrypted with a wildcard certificate (`*.azurefd.net`) issued for all subdomains of Azure Front Door. Azure Front Door validates the request against web application firewall policies, selects the fastest origin (based on health and latency), and uses public DNS to resolve the origin IP address (Azure Application Gateway instance).
 
-1. Azure Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door.
+1. Azure Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet. Azure Front Door ensures the traffic to the origin is encrypted.
 
    Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a network security group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the `X-Azure-FDID` header, which Azure Front Door adds to the request before sending it to the origin, to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see [Protocol support for HTTP headers in Azure Front Door](/azure/frontdoor/front-door-http-headers-protocol).
 
@@ -186,9 +186,9 @@ Position a container registry in each region in which an AKS cluster is deployed
 
 The AKS multi-region reference implementation creates a single registry and replicas into each region used for clusters. For more information on Azure Container Registry replication, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
 
-*Image showing multiple ACR replicas from within the Azure portal.*
+*Image showing multiple Azure Container Registry replicas from within the Azure portal.*
 
-![Image showing multiple ACR replicas from within the Azure portal.](./images/acr-replicas.png)
+![Image showing multiple Azure Container Registry replicas from within the Azure portal.](./images/acr-replicas.png)
 
 ##### Cluster access
 
@@ -236,11 +236,11 @@ For more information on managing AKS cluster access with Microsoft Entra ID, see
 
 ### Data, state, and cache
 
-When using a globally distributed set of AKS clusters, consider the architecture of the application, process, or other workloads that might run across the cluster. If state-based workloads are spread across the clusters, will they need to access a state store? If a process is recreated elsewhere in the cluster due to a failure, will the workload or process continue to have access to a dependent state store or caching solution? State can be stored in many ways, but it's complex to manage even in a single Kubernetes cluster. The complexity increases when adding in multiple Kubernetes clusters. Due to regional access and complexity concerns, consider designing your applications to use a globally distributed state store service.
+When using a globally distributed set of AKS clusters, consider the architecture of the application, process, or other workloads that might run across the cluster. If state-based workloads are spread across the clusters, do they need to access a state store? If a process is recreated elsewhere in the cluster due to a failure, does the workload or process continue to have access to a dependent state store or caching solution? State can be stored in many ways, but it's complex to manage even in a single Kubernetes cluster. The complexity increases when adding in multiple Kubernetes clusters. Due to regional access and complexity concerns, consider designing your applications to use a globally distributed state store service.
 
-The multi-cluster reference implementation doesn't include a demonstration or configuration for state concerns. If you run applications across clustered AKS instances, consider architecting your workload to use a globally distributed data service, such as Azure Cosmos DB. Azure Cosmos DB is a globally distributed database system that allows you to read and write data from the local replicas of your database, and the Cosmos DB service manages geo-replication for you. For more information, see [Azure Cosmos DB](/azure/cosmos-db).
+The multi-cluster reference implementation doesn't include a demonstration or configuration for state concerns. If you run a single logical application across multiple AKS clusters, consider architecting your workload to use a globally distributed data service, such as Azure Cosmos DB. Azure Cosmos DB is a globally distributed database system that allows you to read and write data from the local replicas of your database, and the Cosmos DB service manages geo-replication for you. For more information, see [Azure Cosmos DB](/azure/cosmos-db).
 
-If your workload utilizes a caching solution, ensure that it's architected so that caching services remain functional even during failover events. Ensure that the workload itself is resilient to cache-related failover, and that the caching solutions are present on all regional AKS instances.
+If your workload utilizes a caching solution, ensure that you architect your caching services so that they remain functional even during failover events. Ensure that the workload itself is resilient to cache-related failover, and that the caching solutions are present on all regional AKS instances.
 
 ### Cost optimization
 
