@@ -16,4 +16,4 @@ name: Data obfuscation on Azure with Delphix and Azure Data Factory
 summary: Learn about how to perform data obfuscation using Delphix in Azure Data Factory.
 thumbnailUrl: /azure/architecture/browse/thumbs/delphix-continuous-compliance-architecture-thumb.png
 content: |
-  [!include[](data-obfuscation-with-delphix-in-azure-data-factory-content.md)]
+  [!INCLUDE[](data-obfuscation-with-delphix-in-azure-data-factory-content.md)]
