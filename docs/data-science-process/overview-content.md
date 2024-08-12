@@ -54,7 +54,7 @@ Azure Machine Learning supports the open-source [MLflow](/azure/machine-learning
 
 MLflow consists of several key functionalities:
 
-- **Track experiments**: You can use MLflow to keep track of experiments, including parameters, code versions, metrics, and output Azure Files. This feature helps you compare different runs and efficiently manage the experimentation process.
+- **Track experiments**: You can use MLflow to keep track of experiments, including parameters, code versions, metrics, and output files. This feature helps you compare different runs and efficiently manage the experimentation process.
 
 - **Package code**: It provides a standardized format for packaging machine learning code, which includes dependencies and configurations. This packaging makes it easier to reproduce runs and share code with others.
 
@@ -194,7 +194,7 @@ These capabilities help data scientists perform complex analytics directly withi
 ##### Recommended Azure resources for big data clusters
 
 - [Apache Spark in Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts): Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
-- [Synapse Analytics](/azure/synapse-analytics/): Comprehensive documentation for Azure Synapse Analytics, which integrates big data and data warehousing.
+- [Azure Synapse Analytics](/azure/synapse-analytics/): Comprehensive documentation for Azure Synapse Analytics, which integrates big data and data warehousing.
 
 In summary, big data clusters, whether SQL or Spark, are crucial for the TDSP, because they provide the computational power and scalability necessary to efficiently handle vast amounts of data. Big data clusters enable data scientists to perform complex queries and advanced analytics on large datasets that facilitate deep insights, and accurate model development. When you use distributed computing, these clusters enable rapid data processing and analysis, which accelerates the overall data science workflow. Big data clusters also support seamless integration with various data sources and tools, which enhances the ability to ingest, process, and analyze data from multiple environments. Big data clusters also promote collaboration and reproducibility by providing a unified platform where teams can effectively share resources, workflows, and results.
 
