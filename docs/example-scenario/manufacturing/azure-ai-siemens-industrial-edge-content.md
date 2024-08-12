@@ -6,7 +6,7 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 ## Architecture
 
-:::image type="content" source="media/azure-ai-siemens-industrial-edge.svg" alt-text="Diagram that shows the workflow of the data pipeline." lightbox="media/azure-ai-siemens-industrial-edge.svg":::
+:::image type="content" source="media/azure-ai-siemens-industrial-edge.svg" alt-text="Diagram that shows the workflow of the data pipeline." lightbox="media/azure-ai-siemens-industrial-edge.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-ai-siemens-industrial-edge.vsdx) of this architecture.*
 
@@ -60,7 +60,7 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 ## Observability architecture
 
-:::image type="content" source="media/siemens-observability.svg" alt-text="Diagram that shows the workflow of the Siemens Observability architecture." lightbox="media/siemens-observability.svg":::
+:::image type="content" source="media/siemens-observability.svg" alt-text="Diagram that shows the workflow of the Siemens Observability architecture." lightbox="media/siemens-observability.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/siemens-observability.vsdx) of this architecture.*
 
