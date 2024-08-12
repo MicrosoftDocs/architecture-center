@@ -21,7 +21,7 @@ The data flows through the scenario as follows:
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is the Azure cloud extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It includes Azure Data Factory pipelines to provide data integration.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from source datastores and the masked data that will be loaded into destination data stores.
 - Optional: [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
@@ -29,7 +29,7 @@ The data flows through the scenario as follows:
 
 ### Alternatives
 
-You can also perform data obfuscation using Microsoft Presidio. Learn more about this option at [Presidio - Data Protection and De-identification SDK](https://github.com/microsoft/presidio) on GitHub.
+You can also perform data obfuscation using Microsoft Presidio. Learn more about this option at [Presidio - Data Protection and De-identification SDK](https://microsoft.github.io/presidio/).
 
 ## Scenario details
 
@@ -58,11 +58,11 @@ The movement of secure data is a challenge for all organizations. Delphix makes 
 
 By using the data source connectors offered by Data Factory, we've created two ETL pipelines that automate the following steps:
 
-- Read data from the system of record and write it to CSV Azure Files on Azure Blob Storage.
+- Read data from the system of record and write it to CSV files in Azure Blob Storage.
 
 - Provide Delphix Continuous Compliance with what it requires in order to identify columns that may contain sensitive data and assign appropriate masking algorithms.
 
-- Execute a Delphix masking job against the Azure Files to replace sensitive data elements with similar but fictitious values.
+- Execute a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values.
 
 - Load the compliant data to any Data Factory-supported datastore.
 
@@ -149,7 +149,7 @@ For optimal performance for datasets larger than 1 TB in size, [Delphix Hypersca
 1. In Data Factory, deploy both the Delphix Continuous Compliance: Profiling (Delphix CC Profiling) and Delphix Continuous Compliance: Masking (Delphix CC Masking) Data Factory templates. These templates work for both Azure Synapse Analytics and Azure Data Factory pipelines.
 1. In the Copy Data components, configure the desired source and target datastores. In the Web Activity components, input the Delphix application IP address / host name and the credentials to authenticate with Delphix CC APIs.
 1. Run the Delphix CC Profiling Data Factory template for initial setup, and anytime you would like to reidentify sensitive data (ex: if there has been a schema change). This template provides Delphix CC with the initial configuration it requires to scan for columns that may contain sensitive data.
-1. Create a [Ruleset](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/#managing-rule-sets) indicating the collection of data that you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that Rule set and assign appropriate masking algorithms.
+1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/#managing-rule-sets) indicating the collection of data that you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
 1. Review and modify results from the [Inventory screen](https://maskingdocs.delphix.com/Connecting_Data/Managing_Inventories/#the-inventory-screen) as desired. Once you're satisfied with the results and would like to mask accordingly, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
 1. Back in the Data Factory UI, open the Delphix CC Masking Data Factory template. Provide the Masking Job ID from the above step, then run the template.
 1. At the end of this step, you'll have masked data in the target datastore of your choice.
@@ -180,9 +180,9 @@ Other contributors:
 
 See the following Delphix resources:
 
-- learn about [getting set up with Delphix CC](https://maskingdocs.delphix.com/)
-- learn about [using Delphix CC to find where sensitive data resides](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Discovering_Your_Sensitive_Data_-_Intro/)
-- learn more about [customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
+- [Get set up with Delphix CC](https://maskingdocs.delphix.com/)
+- Learn about [using Delphix CC to find where sensitive data resides](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Discovering_Your_Sensitive_Data_-_Intro/)
+- See [customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
 
 Learn more about the key Azure services in this solution:
 
