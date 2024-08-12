@@ -10,9 +10,9 @@ These faults are typically self-correcting, and if the action that triggered a f
 
 In the cloud, transient faults should be expected and an application should be designed to handle them elegantly and transparently. Doing so minimizes the effects faults can have on the business tasks the application is performing. The most common design pattern to address is to introduce a retry mechanism.
 
-![Figure 1 - Invoking an operation in a hosted service using the Retry pattern](./_images/retry-pattern.png)
+![Diagram of invoking an operation in a hosted service using the Retry pattern](./_images/retry-pattern.png)
 
-The diagram above illustrates invoking an operation in a hosted service using a retry mechansim. If the request is unsuccessful after a predefined number of attempts, the application should treat the fault as an exception and handle it accordingly.
+The diagram above illustrates invoking an operation in a hosted service using a retry mechanism. If the request is unsuccessful after a predefined number of attempts, the application should treat the fault as an exception and handle it accordingly.
 
 >[!NOTE]
 >Due to the commonplace nature of transient faults, built-in retry mechanisms are now available in many client libraries and cloud services, with some degree of configurability for the number of maximum retries, the delay between retries, and other parameters. Built-in retry support for many Azure services can be found [here](../best-practices/retry-service-specific.md) and the [Microsof Entity Framework](/ef) provides facilities to retry [failed database operations](/ef/core/miscellaneous/connection-resiliency).
