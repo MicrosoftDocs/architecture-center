@@ -68,7 +68,7 @@ In this architecture, Data Factory uses the Teradata connector to connect to Van
 - Copying data by using basic, Windows, or LDAP authentication.
 - Parallel copying from a Teradata source. For more information, see  [Parallel copy from Teradata](/azure/data-factory/connector-teradata?tabs=data-factory#parallel-copy-from-teradata).
 
-This article describes how to set up linked services and datasets for the Data Factory Copy Data activity, which ingests data from Vantage and loads it into Data Lake Storage.
+This article describes how to set up linked services and datasets for the data factory Copy Data activity, which ingests data from Vantage and loads it into Data Lake Storage.
 
 ## Scenario details
 
@@ -158,7 +158,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
     - **Connect via integration runtime**: Select **AutoResolveIntegrationRuntime**.
     - **Authentication type**: Select **Account key**.
     - **Azure subscription**: Enter your Azure subscription ID.
-    - **Storage account name**: Enter your Azure storage account name.
+    - **Storage account name**: Enter your Azure Storage account name.
 
     Select **Test connection** to verify the connection, and then select **Create**.
 
@@ -199,7 +199,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
 
 9. Drag a **Copy Data** activity onto the pipeline.
 
-    > [!Note]
+    > [!NOTE]
     > The Teradata connector doesn't currently support the Data Flow activity in Data Factory. If you want to perform transformation on the data, we recommend that you add a Data Flow activity after the Copy activity.
 
 10. Configure the Copy Data activity:
@@ -277,17 +277,17 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
       - **Table name**: Select the table from the list.
       - Select **OK**.
 
-      > [!Tip]
-      > When you load the data, use a staging table with generic data types to avoid data-type mismatch errors. For example, instead of using the Decimal data type for columns, use Varchar. You can then perform data-type transformations in the Vantage database.
+      > [!TIP]
+      > When you load the data, use a staging table with generic data types to avoid data type mismatch errors. For example, instead of using the Decimal data type for columns, use Varchar. You can then perform data type transformations in the Vantage database.
 
       :::image type="content" source="_images/odbc-dataset.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="_images/odbc-dataset.png":::
 
-8. Create an Azure Blob connection to the source file that you want to load into Vantage by following steps 4 through 6 and step 8 in the first scenario. Note that you're creating this connection for the source file, so the path of the file will be different.
+8. Create an Azure Blob connection to the source file that you want to load into Vantage by following steps 4 through 6 and step 8 in the first scenario. Note that you're-creating this connection for the source file, so the path of the file will be different.
 9. Create a pipeline that contains a Copy Data activity, as described in scenario 1.
 
     - Drag a **Copy Data** activity onto the pipeline.
 
-      > [!Note]
+      > [!NOTE]
       > The Teradata ODBC connector doesn't currently support the Data Flow activity in Data Factory. If you want to perform transformation on the data, we recommend that you create a Data Flow activity before the Copy Data activity.
 
 10. Configure the Copy Data activity:
@@ -308,7 +308,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
 
 This scenario describes how to use the Vantage [Native Object Store (NOS)](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Welcome-to-Native-Object-Store) functionality to access data that's in Blob Storage. The previous scenario is ideal when you want to load data into Vantage on a continual or scheduled basis. This scenario describes how to access data in a one-off manner from Blob Storage, with or without loading the data into Vantage.
 
-> [!Note]
+> [!NOTE]
 > You can also use NOS to [export data to Blob Storage](https://quickstarts.teradata.com/create-parquet-files-in-object-storage.html).
 
 - You can use the following query to read, from Vantage, data that's been transformed and loaded into Blob Storage via Data Factory, without loading the data into Vantage. You can use Teradata SQL Editor to run queries. To access the data that's in the blob, you supply the storage account name and access key in the `Access_ID` and `Access_Key` fields. The query also returns a field called `Location` that specifies the path of the file that the record was read from.
@@ -334,7 +334,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     You can now create the foreign table to access the data. The following query creates the table for the Green Taxi data. It uses the authorization object.
 
-    > [!Note]
+    > [!NOTE]
     > When you load the Parquet file, be sure to map the data types correctly. For help with matching the data types, you can use the [READ_NOS command](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Previewing-the-Parquet-Schema-Using-READ_NOS) to preview the Parquet schema.
 
     ```sql
@@ -378,7 +378,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     |Method|Description|
     |-|-|
-    |CREATE TABLE AS…WITH DATA |Accesses table definitions and data from an existing foreign table and creates a new permanent table in the database|
+    |CREATE TABLE AS...WITH DATA |Accesses table definitions and data from an existing foreign table and creates a new permanent table in the database|
     |CREATE TABLE AS...FROM READ_NOS |Accesses data directly from the object store and creates a permanent table in the database|
     |INSERT SELECT |Stores values from external data in a persistent database table |
 
@@ -411,7 +411,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 - Optimize your pipeline activity count. Unnecessary activities increase costs and make pipelines complex.
 - Consider using [mapping data flows](/azure/data-factory/concepts-data-flow-overview) to transform Blob Storage data visually with no-code and low-code processes to prepare Vantage data for uses like Power BI reporting.
 - In addition to using schedule triggers, consider using a mix of tumbling window and event triggers to load Vantage data into destination locations. Reduce unnecessary triggers to reduce costs.
-- Use Vantage NOS for ad-hoc querying to easily supply data for upstream applications.
+- Use Vantage NOS for ad hoc querying to easily supply data for upstream applications.
 
 ## Contributors
 
