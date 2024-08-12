@@ -58,7 +58,7 @@ Azure has many resources that you can use for analytics workloads. The following
 
   - **Optimization**: Provides tools and methodologies to continuously optimize workloads. Optimization means that you use resources efficiently and manage costs effectively.
 
-- **Development and collaboration**: Use [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) to develop, test, and deploy analytics solutions and provide a collaborative environment for data scientists and engineers. We recommend that you use the Synapse Analytics platform to handle big data, such as one terabyte and more, and for machine learning and artificial intelligence (AI) modeling. Features of Azure Synapse Analytics include:
+- **Development and collaboration**: Use [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) to develop, test, and deploy analytics solutions and provide a collaborative environment for data scientists and engineers. We recommend that you use the Azure Synapse Analytics platform to handle big data, such as one terabyte and more, and for machine learning and artificial intelligence (AI) modeling. Features of Azure Synapse Analytics include:
 
   - **Unified experience**: Provides a unified experience to ingest, prepare, manage, and serve data for immediate business intelligence and machine learning needs.
 
@@ -140,7 +140,7 @@ In this stage, data scientists build and train machine learning models to addres
 
 - **Automated machine learning**: Selects the best algorithms automatically and tunes hyperparameters that speed up the model development process.
 
-- **Custom modeling**: Supports custom model development by using popular frameworks like TensorFlow, PyTorch, and Scikit-learn.
+- **Custom modeling**: Supports custom model development by using popular frameworks like TensorFlow, PyTorch, and scikit-learn.
 
 - **Experimentation and versioning**: Supports running multiple experiments in parallel, tracking results, and versioning models, which make it easier to compare and select the best model.
 
@@ -186,7 +186,7 @@ Azure has many resources that you can use for data transfer and data storage. Th
 
 - [Azure Data Box](/azure/databox/): Transfers large-scale, bulk data to Azure by using a physical device without relying on the internet. It securely transfers terabytes of data where network bandwidth is limited.
 
-- [Azure Import/Export service](/azure/import-export/): Supports transferring large amounts of data to Azure by shipping hard drives directly to Azure data centers. This service is useful for initial data migrations where uploading by way of a network is impractical.
+- [Azure Import/Export service](/azure/import-export/): Supports transferring large amounts of data to Azure by shipping hard drives directly to Azure datacenters. This service is useful for initial data migrations where uploading by way of a network is impractical.
 
 - [Azure Data Factory](/azure/data-factory/): Automates and handles data transfer. Data Factory is a cloud-based data integration service that orchestrates and automates data movement and transformation. It enables complex ETL (extract, transform, load) processes and integrates data from various sources into Azure for analytics and machine learning tasks.
 
@@ -258,7 +258,7 @@ Azure has many resources that you can use for data source documentation, includi
 
 Azure has many services you can use for analytics processing, with Machine Learning as the primary recommended service. The following list provides recommended services for Azure architectures that require features beyond Machine Learning.
 
-[**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) Enables you to process massive volumes of relational data and nonrelational data. It's an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Synapse Analytics provides the following functionality:
+[**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) Enables you to process massive volumes of relational data and nonrelational data. It's an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics provides the following functionality:
 
 - **Data integration**: Integrates data from various sources that enables seamless data ingestion and data processing.
 
