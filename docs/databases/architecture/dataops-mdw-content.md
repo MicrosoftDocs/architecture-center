@@ -10,18 +10,18 @@ The following diagram shows the overall architecture of the solution.
 
 ### Dataflow
 
-Azure Data Factory (ADF) orchestrates and Azure Data Lake Storage (ADLS) Gen2 stores the data:
+Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data:
 
 1. The Contoso city parking web service API is available to transfer data from the parking spots.
 
-1. There's an ADF copy job that transfers the data into the Landing schema.
+1. There's a data factory copy job that transfers the data into the Landing schema.
 
 1. Next, Azure Databricks cleanses and standardizes the data. It takes the raw data and conditions it so data scientists can use it.
 
 1. If validation reveals any bad data, it gets dumped into the Malformed schema.
 
     > [!IMPORTANT]
-    > People have asked why the data isn't validated before it's stored in ADLS. The reason is that the validation might introduce a bug that could corrupt the dataset. If you introduce a bug at this step, you can fix the bug and replay your pipeline. If you dumped the bad data before you added it to ADLS, then the corrupted data is useless because you can't replay your pipeline.
+    > People have asked why the data isn't validated before it's stored in Data Lake Storage. The reason is that the validation might introduce a bug that could corrupt the dataset. If you introduce a bug at this step, you can fix the bug and replay your pipeline. If you dumped the bad data before you added it to Data Lake Storage, then the corrupted data is useless because you can't replay your pipeline.
 
 1. There's a second Azure Databricks transform step that converts the data into a format that you can store in the data warehouse.
 
@@ -65,9 +65,9 @@ This article describes how a fictional city planning office could use this solut
 
 * Deploy application changes across different environments in an automated manner:
 
-  * Implement continuous integration and continuous delivery (CI/CD) pipelines.
+  - Implement continuous integration and continuous delivery (CI/CD) pipelines.
 
-  * Use deployment gates for manual approvals.
+  - Use deployment gates for manual approvals.
 
 * Pipeline as Code: ensure the CI/CD pipeline definitions are in source control.
 
@@ -79,9 +79,9 @@ This article describes how a fictional city planning office could use this solut
 
 * Support for both row-level and object-level security:
 
-  * The security feature is available in SQL Database.
+  - The security feature is available in SQL Database.
 
-  * You can also find it in Azure Synapse Analytics, Azure Analysis Services (AAS) and Power BI.
+  - You can also find it in Azure Synapse Analytics, Azure Analysis Services and Power BI.
 
 * Support for 10 concurrent dashboard users and 20 concurrent power users.
 
@@ -126,13 +126,13 @@ The following list contains the high-level steps required to set up the Parking 
 
 1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
 1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Entra service principals per environment. The script also deploys Azure Pipelines, variable groups, and service connections.
-1. **Set up git integration in dev Data Factory**: Configure git integration to work with the imported GitHub repository.
+1. **Set up Git integration in dev Data Factory**: Configure Git integration to work with the imported GitHub repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
 
 ### Deployed resources
 
-If deployment is successful, there should be three resources groups in Azure representing three environments: dev, stg, and prod. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
+If deployment is successful, there should be three resource groups in Azure representing three environments: dev, stg, and prod. There should also be end-to-end build and release pipelines in Azure DevOps that can automatically deploy changes across these three environments.
 
 For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
 
@@ -146,15 +146,15 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 
-1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived git branches. For example, `<developer_name>/<branch_name>`.
+1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived Git branches. For example, `<developer_name>/<branch_name>`.
 
 1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks-off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
 
 1. On completion of the PR validation, the commit to main will trigger a build pipeline that publishes all necessary build artifacts.
 
-1. The completion of a successful build pipeline will trigger the first stage of the release pipeline. Doing so deploys the publish build artifacts into the dev environment, except for ADF.
+1. The completion of a successful build pipeline will trigger the first stage of the release pipeline. Doing so deploys the publish build artifacts into the dev environment, except for Data Factory.
 
-    Developers manually publish to the dev ADF from the collaboration branch (main). The manual publishing updates the Azure Resource Manager templates in the `adf_publish` branch.
+    Developers manually publish to the dev Data Factory from the collaboration branch (main). The manual publishing updates the Azure Resource Manager templates in the `adf_publish` branch.
 
 1. The successful completion of the first stage triggers a manual approval gate.
 
@@ -196,7 +196,7 @@ Data Factory
 * [Monitor Azure Data Factory with Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
 * [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines)
 
-Synapse Analytics
+Azure Synapse Analytics
 
 * [Monitoring resource utilization and query activity in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity)
 * [Monitor your Azure Synapse Analytics SQL pool workload using DMVs](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor)
@@ -215,7 +215,7 @@ Data Factory
 
 * [Create and configure a self-hosted integration runtime - High availability and scalability](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 
-Synapse Analytics
+Azure Synapse Analytics
 
 * [Geo-backups and Disaster Recovery](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery)
 * [Geo-restore for SQL Pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup)
