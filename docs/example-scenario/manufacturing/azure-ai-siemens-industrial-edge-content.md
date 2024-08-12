@@ -2,13 +2,13 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 - **Deploy Azure AI models to Siemens Industrial Edge devices.** This operational area includes implementing Azure Machine Learning pipelines for automated model training, evaluation, and registration. It also includes automating the secure and approved deployment of AI models trained on Azure from the cloud to the on-premises Siemens AI Model Manager.
 
-- **Centralize data from Siemens Industrial Edge devices in Azure.** This operational area includes pushing inference logs and metrics to the cloud, which enables centralized monitoring of edge applications in Azure.
+- **Centralize telemetry from Siemens Industrial Edge devices in Azure.** This operational area includes pushing inference logs and metrics to the cloud, which enables centralized monitoring of edge applications in Azure.
 
 ## Architecture
 
-[ADD DIAGRAM]
+:::image type="content" source="media/azure-ai-siemens-industrial-edge-content.svg" alt-text="Diagram that shows the workflow of the data pipeline." lightbox="media/azure-ai-siemens-industrial-edge-content.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-ai-siemens-industrial-edge.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -30,7 +30,7 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
     b. If the model passes validation, the pipeline uses the Siemens AI SDK library to package and save the model into the packaged models storage container.
 
-1. The tagging and delivery pipeline is executed after the packaged model is saved. The tagging and delivery pipeline loads the trained model from the model catalog and tags it with more metadata, such as pipeline version or created data version. Then the pipeline saves the model in the container registry.
+1. The tagging and delivery pipeline is executed after the packaged model is saved. The tagging and delivery pipeline retrieves the trained model from the model catalog and tags it with more metadata, including pipeline version details and date created data version information. Then the pipeline saves the model in the container registry.
 
 1. The delivery pipeline initiates an exchange of messages between the Machine Learning pipeline and the Siemens AI Model Manager (AIMM) through the IoT Hub and Event Hubs. This loop is crucial for managing and coordinating the deployment of a new model:
 
@@ -59,6 +59,10 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
     c. The Data Collector Hub uploads the data into the data landing zone storage account for further retraining of the model.
 
 ## Observability architecture
+
+:::image type="content" source="media/siemens-observability.svg" alt-text="Diagram that shows the workflow of the Siemens Observability architecture." lightbox="media/siemens-observability.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/siemens-observability.vsdx) of this architecture.*
 
 To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from OpenTelemetry Collector and the Authentication Proxy. Siemens AI Model Monitor deploys these components as integral parts. This setup enables you to export logs and metrics to Application Insights and an Azure Monitor workspace. It uses a managed identity from Microsoft Entra ID as the key authentication mechanism.
 
@@ -96,7 +100,7 @@ For each component in the architecture, use the relevant service guide in the We
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that securely manages and stores sensitive information such as secrets, encryption keys, and certificates. It provides centralized control over access and audit trails.
 
-- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service that you can use to build, store, and manage container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry. Container Registry stores Docker containers that you use to train and deploy models. The Docker containers encapsulate the environment where your machine learning training happens. This process ensures a consistent, reproducible, and isolated environment, which is crucial for machine learning workflows.
+- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service that you can use to build, store, and manage container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry. Container Registry stores Docker containers that you can use to train and deploy models. The Docker containers encapsulate the environment where your machine learning training happens. This process ensures a consistent, reproducible, and isolated environment, which is crucial for machine learning workflows.
 
 ## Alternatives
 
@@ -108,7 +112,7 @@ We recommend that you replace IoT Hub with [Azure Event Grid’s MQTT broker fea
   - Reduced support from Siemens during commissioning.
   - Access to observability data lowers the cost of operation.
 
-- You can use the [GitLab Accelerator](https://gitlab.com/rburteamicrosoft/gitlab-accelerator) to develop your machine learning pipelines. You can further develop extra functionalities in Azure with the examples provided in this implementation.
+- You can use the [GitLab Accelerator](https://gitlab.com/rburteamicrosoft/gitlab-accelerator) to develop your machine learning pipelines and further develop extra functionalities in Azure with the examples provided in this implementation.
 
 ## Scenario details
 
@@ -134,7 +138,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - When you use Azure Blob storage, make sure to configure the appropriate redundancy and failover configurations for your [Storage Account](/azure/storage/common/storage-disaster-recovery-guidance).
 
-- Use code level patterns, to handle transient network issues and message persistence capabilities to protect against transient software and hardware failures.
+- Use code level patterns to handle transient network issues and message persistence capabilities to protect against transient software and hardware failures.
 
   - [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) for Azure Architecture Center.
   - [Retry pattern](/azure/architecture/patterns/retry) for Azure Architecture Center.
