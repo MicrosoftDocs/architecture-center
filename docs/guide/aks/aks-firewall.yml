@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
-    - fcp
+    - arb-containers
     - devx-track-terraform
 name: Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster
 azureCategories:

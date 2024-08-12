@@ -12,6 +12,7 @@ ms.custom:
   - fcp
   - cse
   - best-practice
+  - arb-data
 azureCategories:
   - databases
 products:

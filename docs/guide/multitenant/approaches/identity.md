@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the approaches for managing identities in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 05/24/2023
+ms.date: 07/18/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -14,10 +14,9 @@ products:
   - entra-external-id
 categories:
   - identity
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Architectural approaches for identity in multitenant solutions
@@ -82,7 +81,7 @@ Authorization is the process of determining what a user is allowed to do.
 
 Authorization data can be stored in several places, including in the following locations:
 
-- **In your identity provider.** For example, if you use Microsoft Entra ID as your identity provider, you can use features like [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) and [groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) to store authorization information. Your application can then use the associated token claims to enforce your authorization rules.
+- **In your identity provider.** For example, if you use Microsoft Entra ID as your identity provider, you can use features like [app roles](/entra/identity-platform/howto-add-app-roles-in-apps) and [groups](/entra/fundamentals/how-to-manage-groups) to store authorization information. Your application can then use the associated token claims to enforce your authorization rules.
 - **In your application.** You can build your own authorization logic, and then store information about what each user can do in a database or similar storage system. You can then design fine-grained controls for role-based or resource-level authorization.
 
 In most multitenant solutions, role and permission assignments are managed by the tenant or customer, not by you as the vendor of the multitenant system.
@@ -105,13 +104,13 @@ An alternative approach is to make the identity system agnostic to tenant identi
 
 ## Use Microsoft Entra ID or Azure AD B2C
 
-Microsoft provides Microsoft Entra ID and Azure AD B2C, which are managed identity platforms that you can use within your own multitenant solution.
+Microsoft provides Microsoft Entra ID, Microsoft Entra External ID and Azure AD B2C, which are managed identity platforms that you can use within your own multitenant solution.
 
-Many multitenant solutions are software as a service (SaaS). Your choice of whether to use Microsoft Entra ID or Azure AD B2C depends, in part, on how you define your tenants or customer base.
+Many multitenant solutions are software as a service (SaaS). Your choice of whether to use Microsoft Entra ID, Microsoft Entra External ID or Azure AD B2C depends, in part, on how you define your tenants or customer base.
 
-- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Office 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/azure/active-directory/develop/single-and-multi-tenant-apps) in your own Microsoft Entra directory, to make your solution available to other Microsoft Entra directories. You can even list your solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) and make it easily accessible to organizations who use Microsoft Entra ID.
-- If your tenants or customers don't use Microsoft Entra ID, or if they're individuals rather than organizations, then consider using Azure AD B2C. Azure AD B2C provides a set of features to control how users sign up and sign in. For example, you can restrict access to your solution just to users that you've already invited, or you might allow for self-service sign-up. Use [custom policies](/azure/active-directory-b2c/active-directory-b2c-overview-custom) in Azure AD B2C to fully control how users interact with the identity platform. You can use [custom branding](/azure/active-directory-b2c/customize-ui-overview), and you can [federate Azure AD B2C with your own Microsoft Entra tenant](/azure/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory), to enable your own staff to sign in. Azure AD B2C also enables [federation with other identity providers](/azure/active-directory-b2c/tutorial-add-identity-providers).
-- Some multitenant solutions are intended for both situations listed above. Some tenants might have their own Microsoft Entra tenants, and others might not. You can also use Azure AD B2C for this scenario, and use [custom policies to allow user sign-in from a tenant's Microsoft Entra directory](/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom). However, if you use custom policies to establish federation between tenants, ensure that you [consider the limits on the number of custom policies](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#azure-ad-b2c-configuration-limits) that a single Azure AD B2C directory can use.
+- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Office 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/entra/identity-platform/single-and-multi-tenant-apps) in your own Microsoft Entra directory, to make your solution available to other Microsoft Entra directories. You can even list your solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) and make it easily accessible to organizations who use Microsoft Entra ID.
+- If your tenants or customers don't use Microsoft Entra ID, or if they're individuals rather than organizations, then consider using Microsoft Entra External ID or Azure AD B2C. Both Microsoft Entra External ID and Azure AD B2C provide a set of features to control how users sign up and sign in. For example, you can restrict access to your solution just to users that you've already invited, or you might allow for self-service sign-up. Use [custom policies](/azure/active-directory-b2c/custom-policy-overview) in Azure AD B2C to fully control how users interact with the identity platform. You can use [custom branding](/azure/active-directory-b2c/customize-ui), and you can [federate Azure AD B2C with your own Microsoft Entra tenant](/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant), to enable your own staff to sign in. Azure AD B2C also enables [federation with other identity providers](/azure/active-directory-b2c/tutorial-add-identity-providers).
+- Some multitenant solutions are intended for both situations listed above. Some tenants might have their own Microsoft Entra tenants, and others might not. You can also use Azure AD B2C for this scenario, and use [custom policies to allow user sign-in from a tenant's Microsoft Entra directory](/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom). However, if you use custom policies to establish federation between tenants, ensure that you [consider the limits on the number of custom policies](/azure/active-directory-b2c/service-limits#azure-ad-b2c-configuration-limits) that a single Azure AD B2C directory can use.
 
 For more information, see [Considerations for using Azure Active Directory B2C in a multitenant architecture](../service/azure-ad-b2c.md).
 
@@ -155,15 +154,15 @@ Audit logs are an important tool for understanding your environment and how user
 
 Principal authors:
 
- - [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- - [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+ - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributors:
 
- - [Jelle Druyts](http://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
- - [Sander van den Hoven](http://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
- - [Nick Ward](http://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+ - [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+ - [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+ - [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 
 ## Next steps
 

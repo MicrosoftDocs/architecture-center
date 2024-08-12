@@ -289,9 +289,9 @@ Other contributor:
 - [Learn how to deploy modules and establish routes in IoT Edge](/azure/iot-edge/module-composition)
 - [Give modules access to a device's local storage](/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage)
 - [Understand IoT Edge automatic deployments for single devices or at scale](/azure/iot-edge/module-deployment-monitoring)
-- [Open Neural Network Exchange](https://github.com/onnx)
+- [Open Neural Network Exchange](https://onnx.ai/)
 - [ONNX Tutorials](https://github.com/onnx/tutorials)
-- [Deploy a machine learning model on IoT and edge devices](https://github.com/microsoft/onnxruntime/blob/gh-pages/docs/tutorials/iot-edge/index.md)
+- [Deploy a machine learning model on IoT and edge devices](https://onnxruntime.ai/docs/tutorials/iot-edge/)
 
 ## Related resources
 

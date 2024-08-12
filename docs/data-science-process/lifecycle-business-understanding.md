@@ -9,16 +9,18 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/15/2024
+ms.date: 07/12/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - arb-aiml
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
+
 # The business understanding stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
@@ -55,11 +57,11 @@ The business understanding stage has two main tasks:
 
 2. To define the project goals, ask and refine *sharp* questions that are relevant, specific, and unambiguous. Data science is a process that uses names and numbers to answer such questions. You typically use data science or machine learning to answer five types of questions:
 
-   * How much or how many? (regression)
-   * Which category? (classification)
-   * Which group? (clustering)
-   * Is this unusual? (anomaly detection)
-   * Which option should be taken? (recommendation)
+   - How much or how many? (regression)
+   - Which category? (classification)
+   - Which group? (clustering)
+   - Is this unusual? (anomaly detection)
+   - Which option should be taken? (recommendation)
 
    Determine which of these questions to ask and how answering it can help achieve your business goals.
 
@@ -67,11 +69,11 @@ The business understanding stage has two main tasks:
 
 4. You must define the success metrics. For example, you might want to meet a customer churn prediction with an accuracy rate of *x* percent by the end of a three-month project. With this data, you can offer customer promotions to reduce churn. The metrics must be **SMART**:
 
-   * **S**pecific
-   * **M**easurable
-   * **A**chievable
-   * **R**elevant
-   * **T**ime-bound
+   - **S**pecific
+   - **M**easurable
+   - **A**chievable
+   - **R**elevant
+   - **T**ime-bound
 
 ### Identify data sources
 
@@ -93,11 +95,11 @@ In this stage, your team delivers:
 * **A charter document**. The charter document is a living document. You update the document throughout the project as you make new discoveries and as business requirements change. The key is to iterate on this document. Add more detail as you progress through the discovery process. Inform the customer and other stakeholders of the changes and the reasons for them.
 
 * **Data sources**. You can use [Azure Machine Learning](/azure/machine-learning/concept-data) to handle data source management. We recommend this Azure service for active and especially large projects because it integrates with MLflow.
-* **Data dictionaries**. This document provides descriptions of the data that the client provides. These descriptions include information about the schema (the data types and information on the validation rules, if any) and the entity-relation diagrams, if available.  Your team should document some or all of this information.
+* **Data dictionaries**. This document provides descriptions of the data that the client provides. These descriptions include information about the schema (the data types and information on the validation rules, if any) and the entity-relation diagrams, if available. Your team should document some or all of this information.
 
 ## Peer-reviewed literature
 
-Researchers publish studies about the TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the business understanding lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. The [citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the business understanding lifecycle stage.
 
 ## Contributors
 

@@ -13,11 +13,9 @@ products:
   - entra-id
 categories:
   - identity
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural considerations for identity in a multitenant solution
@@ -196,15 +194,15 @@ As multitenant solutions grow, the number of users and sign-in requests that nee
 
 Principal authors:
 
- - [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- - [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+ - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
- - [Jelle Druyts](http://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
- - [Sander van den Hoven](http://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
- - [Nick Ward](http://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+ - [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+ - [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+ - [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 
 ## Next steps
 
