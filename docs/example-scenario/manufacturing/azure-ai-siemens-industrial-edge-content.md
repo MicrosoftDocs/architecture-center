@@ -18,19 +18,19 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
     b. Saves the processed data into the processed dataset storage container.
 
-1. After the raw data is processed, the model development pipeline is executed. The model development pipeline:
+1. The model development pipeline is executed after the raw data is processed. The model development pipeline:
 
     a. Loads processed training data from processed dataset storage container and performs model training.
 
     b. Saves the resulting model into the model catalog.
 
-1. After the model is trained, the validate and packaging pipeline is executed. The validate and packaging pipeline:
+1. The validate and packaging pipeline is executed after the model is trained. The validate and packaging pipeline:
 
     a. Loads the model from the model catalog and performs model validation.
 
     b. If the model passes validation, the pipeline uses the Siemens AI SDK library to package and save the model into the packaged models storage container.
 
-1. After the packaged model is saved, the tagging and delivery pipeline is executed. The tagging and delivery pipeline loads the trained model from the model catalog and tags it with more metadata, such as pipeline version or created data version. Then the pipeline saves the model in the container registry.
+1. The tagging and delivery pipeline is executed after the packaged model is saved. The tagging and delivery pipeline loads the trained model from the model catalog and tags it with more metadata, such as pipeline version or created data version. Then the pipeline saves the model in the container registry.
 
 1. The delivery pipeline initiates an exchange of messages between the Machine Learning pipeline and the Siemens AI Model Manager (AIMM) through the IoT Hub and Event Hubs. This loop is crucial for managing and coordinating the deployment of a new model:
 
@@ -42,7 +42,7 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
     d. The delivery pipeline sends this SAS link back to Siemens AIMM through IoT Hub, which enables it to download the model.
 
-1. After Siemens AIMM receives the SAS link from the delivery pipeline, it reaches out to packaged models storage container and downloads the latest packaged model.
+1. After Siemens AIMM receives the SAS link from the delivery pipeline, it reaches out to the packaged models storage container and downloads the latest packaged model.
 
 1. Siemens AIMM runs internal processes to deploy the latest packaged model to the Siemens AI Inference Server (AIIS).
 
@@ -52,7 +52,7 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 1. Data recycling includes the following steps:  
 
-    a. The Data Collector collects inference data produced by the running model in the Siemens AIIS.  
+    a. The Data Collector collects inference data that's produced by the running model in the Siemens AIIS.  
 
     b. The Data Collector passes the data to the Data Collector Hub to pass on to Azure Storage.  
 
@@ -60,9 +60,9 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 ## Observability architecture
 
-To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from OpenTelemetry Collector and the Authentication Proxy. These components are deployed as integral parts of Siemens AI Model Monitor. This setup enables logs and metrics to be exported to Application Insights and an Azure Monitor workspace. It uses a managed identity from Microsoft Entra ID as the key authentication mechanism.
+To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from OpenTelemetry Collector and the Authentication Proxy. Siemens AI Model Monitor deploys these components as integral parts. This setup enables you to export logs and metrics to Application Insights and an Azure Monitor workspace. It uses a managed identity from Microsoft Entra ID as the key authentication mechanism.
 
-Telemetry data flows from the operational technology layer to an instance of the OpenTelemetry Collector in the information technology layer. This collector exports the data to Application Insights and uses the Authentication Proxy to acquire a Service Principal identity. This process strengthens the authentication from using a shared secret, or instrumentation key, to a fully certificate-backed Microsoft Entra ID identity. The generation and distribution of the certificates, service principals, and the association of relevant roles and permissions are automated through an Azure DevOps pipeline.  
+Telemetry data flows from the operational technology layer to an instance of the OpenTelemetry Collector in the information technology layer. This collector exports the data to Application Insights and uses the Authentication Proxy to acquire a Service Principal identity. This process strengthens the authentication from using a shared secret, or instrumentation key, to a fully certificate-backed Microsoft Entra ID identity. An Azure DevOps pipeline automates the generation and distribution of the certificates, service principals, and the association of relevant roles and permissions.
 
 For a more generic solution, see [OpenTelemetry Collector for legacy IoT scenarios](https://techcommunity.microsoft.com/t5/azure-architecture-blog/opentelemetry-collector-for-legacy-iot-scenarios/ba-p/4082417).
 
@@ -74,9 +74,9 @@ The Siemens Industrial Edge components include:
 
 - [AI Model Manager (AIMM)](https://www.dex.siemens.com/edge/build-your-solution/ai-model-manager?cclcl=de_DE) is a service that's responsible for the orchestration of edge devices and model distribution.
 
-- [AI Inference Server](https://www.dex.siemens.com/edge/manufacturing-process-industries/ai-inference-server) is an application that runs on Siemens Industrial Edge devices. It executes deployed AI models by using the built-in Python Interpreter for the inference purposes.
+- [AI Inference Server](https://www.dex.siemens.com/edge/manufacturing-process-industries/ai-inference-server) runs on Siemens Industrial Edge devices and uses the built-in Python Interpreter to execute deployed AI models for inference purposes.
 
-- The [AI Software Development Kit](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations/software-development-kit.html) enables you to package your model, including preprocessing logic and post-processing logic, into a standard inference pipeline that runs on the AI Inference Server. This process is achieved by using our Python Software Development Kit by keeping your existing coding and training environment.
+- The [AI Software Development Kit](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations/software-development-kit.html) enables you to package your model, including preprocessing logic and post-processing logic, into a standard inference pipeline that runs on the AI Inference Server. You can achieve this process by using our Python Software Development Kit while maintaining your existing coding and training environment.
 
 - Siemens Data Collector collects inference data from Siemens AIIS for further processing.
 
@@ -86,7 +86,7 @@ The Siemens Industrial Edge components include:
 
 For each component in the architecture, use the relevant service guide in the Well-Architected Framework where available. For more information, see the [Well-Architected Framework service guides](/azure/well-architected/service-guides).
 
-- [Azure IoT Hub](/azure/iot-hub/iot-hub-devguide) facilitates communication for model delivery between the cloud and Edge. The AI Model Manager is registered as an edge device, which enables the cloud service to send cloud-to-device messages.
+- [Azure IoT Hub](/azure/iot-hub/iot-hub-devguide) facilitates communication for model delivery between the cloud and Edge. Registering the AI Model Manager as an edge device enables the cloud service to send cloud-to-device messages.
 
 - [Machine Learning workspace](/azure/machine-learning/concept-workspace) acts as a central hub that streamlines the creation, organization, and hosting of machine learning artifacts and tasks for teams. It covers jobs, pipelines, data assets, models, and endpoints.
 
@@ -96,23 +96,23 @@ For each component in the architecture, use the relevant service guide in the We
 
 - [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that securely manages and stores sensitive information such as secrets, encryption keys, and certificates. It provides centralized control over access and audit trails.
 
-- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service that you can use to build, store, and manage container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry. Container Registry stores Docker containers that you use to train and deploy models. The Docker containers encapsulate the environment where your machine learning training happens. This process ensures that the environment is consistent, reproducible, and isolated, which is crucial for machine learning workflows.
+- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service that you can use to build, store, and manage container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry. Container Registry stores Docker containers that you use to train and deploy models. The Docker containers encapsulate the environment where your machine learning training happens. This process ensures a consistent, reproducible, and isolated environment, which is crucial for machine learning workflows.
 
 ## Alternatives
 
-We recommend that you replace IoT Hub with [Azure Event Grid’s MQTT broker feature](/azure/event-grid/mqtt-overview) as the long-term solution. [Event Grid](/azure/event-grid/mqtt-overview) is a fully managed, highly scalable publish/subscribe message distribution service. It supports flexible message consumption patterns by using MQTT and HTTP protocols.
+We recommend that you replace IoT Hub with [Azure Event Grid’s MQTT broker feature](/azure/event-grid/mqtt-overview) as the long-term solution. [Event Grid](/azure/event-grid/mqtt-overview) is a fully managed, highly scalable publish and subscribe message distribution service. It uses MQTT and HTTP protocols to support flexible message consumption patterns.
 
 - Consider using the [Azure Monitor Edge pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure) on Azure Arc for pushing logs and metrics to Azure, which replaces the OpenTelemetry components in your architecture. This approach offers seamless and secure connectivity to Azure. It also enhances the extensibility of Siemens factory IT to the Azure cloud, which simplifies identity management. This alternative results in:
 
   - Faster commissioning for the customer.
-  - Less support from Siemens during commissioning.
-  - Lower cost to operate due to being able to give access to observability data.
+  - Reduced support from Siemens during commissioning.
+  - Access to observability data lowers the cost of operation.
 
 - You can use the [GitLab Accelerator](https://gitlab.com/rburteamicrosoft/gitlab-accelerator) to develop your machine learning pipelines. You can further develop extra functionalities in Azure with the examples provided in this implementation.
 
 ## Scenario details
 
-This scenario addresses the challenge of integrating machine learning models developed in Azure with factory operations that are managed by Siemens Industrial Edge devices. The primary objective is to ensure efficient, secure, and automated deployment and monitoring of AI models in industrial environments.
+This scenario addresses the challenge of integrating machine learning models developed in Azure with factory operations that Siemens Industrial Edge devices manages. The primary objective is to ensure efficient, secure, and automated deployment and monitoring of AI models in industrial environments.
 
 The need for seamless and reliable deployment of AI-driven applications in manufacturing and strict operational requirements prompted the development of this architecture. This solution minimizes manual intervention, reduces production disruptions, and enhances the visibility of machine learning models on the shop floor.
 
@@ -147,7 +147,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Conduct a comprehensive Threat Modeling exercise during the planning phase of your solution to identify potential security risks and design mitigation strategies. For more information, see [Microsoft Security Development Lifecycle Threat Modeling](https://www.microsoft.com/securityengineering/sdl/threatmodeling).
 
-- Use managed identities where supported and store all other secrets in Key Vault. Enhance the security of the Key Vault by configuring settings for soft delete, enabling logging, and tightening access control.
+- Use managed identities where supported and store all other secrets in Key Vault. Configure settings for soft delete, enable logging, and tighten access control to enhance the security of the Key Vault.
 
 - Apply the principle of least privilege by using role-based access control (RBAC) to regulate access and permissions to resources. For more information, see [What is Azure RBAC?](/azure/role-based-access-control/overview).
 
