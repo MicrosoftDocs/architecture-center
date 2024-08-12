@@ -16,6 +16,7 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
+    - arb-aiml
 name: Knowledge mining for customer support and feedback analysis
 azureCategories:
   - ai-machine-learning

@@ -64,9 +64,9 @@ This solution is ideal for the telecommunications industry, and it applies to th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-Consider following the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) when you implement this solution. The framework provides technical guidance across five pillars: cost optimization, security, reliability, performance efficiency, and operational excellence.
+Consider following the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) when you implement this solution. The framework provides technical guidance across five pillars: cost optimization, security, reliability, performance efficiency, and operational excellence.
 
 ### Performance
 

@@ -17,7 +17,7 @@ This architecture is a starting point for a [three-node Azure Stack HCI cluster 
 
 ## Architecture
 
-:::image type="complex" source="images/azure-stack-hci-switchless.png" lightbox="images/azure-stack-hci-switchless.png" alt-text="Diagram that shows a three-node Azure Stack HCI cluster that uses a switchless storage architecture and has dual ToR switches for external connectivity." border="false"::: 
+:::image type="complex" source="images/azure-stack-hci-switchless.png" lightbox="images/azure-stack-hci-switchless.png" alt-text="Diagram that shows a three-node Azure Stack HCI cluster that uses a switchless storage architecture and has dual ToR switches for external connectivity." border="false":::
    Diagram that illustrates a three-node Azure Stack HCI cluster that uses a switchless storage architecture and has dual Top-of-Rack (ToR) switches for external (north-south) connectivity. The cluster uses several Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Manager, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates, and Azure Site Recovery.
 :::image-end:::
 
@@ -39,7 +39,7 @@ The architecture resources remain mostly unchanged from the baseline reference a
 
 ## Cluster design choices
 
-When you determine your cluster design options, refer to the [baseline reference architecture](azure-stack-hci-baseline.yml). Use these insights and the [Azure Stack HCI Sizer Tool][azs-hci-sizer-tool] to appropriately scale an Azure Stack HCI cluster according to the workload requirements.
+When you determine your cluster design options, refer to the [baseline reference architecture](azure-stack-hci-baseline.yml). Use these insights and the [Azure Stack HCI Sizer Tool](https://azurestackhcisolutions.azure.microsoft.com/#sizer) to appropriately scale an Azure Stack HCI cluster according to the workload requirements.
 
 When you use the storage switchless design, it's crucial to remember that a three-node cluster is the maximum supported size. This limitation is a key consideration for your cluster design choices because you must ensure that your workload's capacity requirements don't exceed the physical capacity capabilities of the three-node cluster specifications. Because you can't perform an add-node gesture to expand a storage switchless cluster beyond three nodes, it's **critically important** to understand your workload capacity requirements beforehand and plan for future growth. This way you can ensure that your workload doesn't exceed the storage and compute capacity over the expected lifespan of the Azure Stack HCI cluster hardware.
 
@@ -127,8 +127,8 @@ The logical network topology provides an overview for how the network data flows
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-    :::image type="complex" source="images/three-node-logical-network.png" lightbox="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster."
-    Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity.
+    :::image type="complex" source="images/three-node-logical-network.png" lightbox="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster." border="false":::
+       Diagram that shows the logical networking topology for a three-node Azure Stack HCI cluster. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity.
     :::image-end:::
 
 #### IP address requirements
@@ -139,7 +139,7 @@ When you design and plan IP address requirements for Azure Stack HCI, remember t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 > [!IMPORTANT]
 > Review the Well-Architected Framework considerations described in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline#considerations).
@@ -220,6 +220,3 @@ Microsoft Learn modules:
 - [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
 - [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
 - [Protect your VMs by using Backup](/training/modules/protect-virtual-machines-with-azure-backup)
-
-[azure-well-architected-framework]: /azure/architecture/framework
-[azs-hci-sizer-tool]: https://azurestackhcisolutions.azure.microsoft.com/#sizer

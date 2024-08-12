@@ -200,5 +200,5 @@ Other contributors:
 ## Next steps
 
 - [Architectural considerations overview](overview.yml) 
-- [Azure Well-Architected Framework](/azure/architecture/framework)
+- [Azure Well-Architected Framework](/azure/well-architected/)
 - [Architectural approaches for control planes in multitenant solutions](../approaches/control-planes.md)

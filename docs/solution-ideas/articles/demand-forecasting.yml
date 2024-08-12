@@ -21,6 +21,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting"
     - ai-machine-learning
     - arb-data
+    - arb-aiml
 name: Demand forecasting
 azureCategories:
   - analytics

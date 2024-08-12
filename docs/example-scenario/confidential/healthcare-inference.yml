@@ -12,6 +12,7 @@ metadata:
   ms.custom:
     - arb-healthcare
     - ai-machine-learning
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - containers

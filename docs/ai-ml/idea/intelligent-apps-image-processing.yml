@@ -14,6 +14,7 @@ metadata:
     - media
   ms.custom:
     - ai-machine-learning
+    - arb-aiml
 name: Image classification on Azure
 azureCategories:
   - ai-machine-learning

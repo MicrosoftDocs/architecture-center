@@ -793,8 +793,6 @@ items:
     href: patterns/throttling.yml
   - name: Valet Key
     href: patterns/valet-key.yml
-- name: Microsoft Azure Well-Architected Framework
-  href: /azure/architecture/framework
 - name: Azure categories
   items:
   - name: AI + Machine Learning
@@ -1412,8 +1410,6 @@ items:
         href: example-scenario/data/azure-nifi.yml
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.yml
-      - name: Data governance with Profisee
-        href: databases/architecture/profisee-master-data-management-purview.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: DataOps for modern data warehouse
@@ -1422,8 +1418,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Helm-based deployments
         href: guide/data/helm-deployments-apache-nifi.yml
-      - name: Master data management with Profisee
-        href: databases/architecture/profisee-master-data-management-data-factory.yml
       - name: Measure Azure app sustainability
         href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
       - name: Modern data warehouse for small business
@@ -1572,8 +1566,6 @@ items:
             href: serverless/event-hubs-functions/observability.yml
       - name: Architectures
         items:
-        - name: Event-based cloud automation
-          href: reference-architectures/serverless/cloud-automation.yml
         - name: Multicloud with Serverless Framework
           href: example-scenario/serverless/serverless-multicloud.yml
         - name: Real-time location sharing
@@ -1642,9 +1634,6 @@ items:
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Hybrid workload in Azure
-        href: /azure/architecture/framework/hybrid/hybrid-overview
-        maintainContext: true
       - name: Hybrid app design considerations
         href: /hybrid/app-solutions/overview-app-design-considerations
         maintainContext: true
@@ -2193,7 +2182,7 @@ items:
           href: example-scenario/mainframe/deploy-ibm-power-workloads.yml  
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
-        - name: Refactor IBM z/OS mainframe CF
+        - name: Refactor an IBM z/OS mainframe CF
           href: reference-architectures/zos/refactor-zos-coupling-facility.yml
         - name: Refactor IBM z/TPF mainframe
           href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
@@ -2506,8 +2495,6 @@ items:
         href: example-scenario/mainframe/general-mainframe-refactor.yml
       - name: Migrate a web app with APIM
         href: example-scenario/apps/apim-api-scenario.yml
-      - name: Migrate master data services with Profisee
-        href: databases/architecture/profisee-mds-migration-utility.yml
       - name: Modernize mainframe and midrange data
         href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
     - name: Solution ideas
@@ -2805,10 +2792,10 @@ items:
           href: /azure/security/fundamentals/overview
           maintainContext: true
         - name: Security design principles
-          href: /azure/architecture/framework/security/security-principles
+          href: /azure/well-architected/security/principles
           maintainContext: true
         - name: Security patterns
-          href: /azure/architecture/framework/security/security-patterns
+          href: /azure/well-architected/security/design-patterns
           maintainContext: true
         - name: End-to-end security
           href: /azure/security/fundamentals/end-to-end
@@ -4163,8 +4150,6 @@ items:
         - name: Best practices for Route Service
           href: /azure/azure-maps/how-to-use-best-practices-for-routing
           maintainContext: true
-      - name: Move NYC Taxi data with SSIS
-        href: data-science-process/move-data-to-azure-blob-using-ssis.md
       - name: Single sign on for car park management
         href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
         maintainContext: true
@@ -4777,5 +4762,7 @@ items:
         - name: Stream sporting events
   - name: IoT-specific industry solutions
     href: reference-architectures/iot/industry-iot-hub-page.md
-- name: Cloud Adoption Framework
-  href: /azure/cloud-adoption-framework
+- name: Microsoft Azure Well-Architected Framework
+  href: /azure/well-architected/
+- name: Cloud Adoption Framework for Azure
+  href: /azure/cloud-adoption-framework/

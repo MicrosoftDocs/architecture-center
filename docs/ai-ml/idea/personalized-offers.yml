@@ -21,6 +21,7 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/personalized-offers"
     - ai-machine-learning
+    - arb-aiml
 name: Personalized offers
 azureCategories:
   - ai-machine-learning

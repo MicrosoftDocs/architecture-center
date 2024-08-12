@@ -43,7 +43,7 @@ These other use cases have similar design patterns:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Here are a couple of things to keep in mind as you develop this scenario, including how to configure parameters in the Azure Service Bus connection string in ServiceBusTrigger:
 
@@ -166,4 +166,3 @@ See [how to authenticate and send real-time messages](/azure/azure-functions/fun
 - [Transit hub dynamic pub-sub messaging system](/azure/architecture/solution-ideas/articles/transit-hub)
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
-- [Event-based cloud automation](/azure/architecture/reference-architectures/serverless/cloud-automation)
