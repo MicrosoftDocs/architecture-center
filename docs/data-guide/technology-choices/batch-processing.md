@@ -42,7 +42,7 @@ Microsoft offers several services that you can use to do batch processing.
 
 ### Azure Synapse Analytics
 
-[Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that brings together both SQL and Spark technologies under a single construct of a workspace. Azure Synapse Analytics simplifies security, governance, and management. Every workspace has integrated data pipelines that you can use to author end-to-end workflows. You can also provision a dedicated SQL pool (formerly an Azure Synapse Analytics) for large-scale analytics, a serverless SQL endpoint that you can use to directly query the lake, and a Spark runtime for distributed data processing.
+[Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an enterprise analytics service that brings together both SQL and Spark technologies under a single construct of a workspace. Azure Synapse Analytics simplifies security, governance, and management. Every workspace has integrated data pipelines that you can use to author end-to-end workflows. You can also provision a dedicated SQL pool for large-scale analytics, a serverless SQL endpoint that you can use to directly query the lake, and a Spark runtime for distributed data processing.
 
 - *Languages:* Python, Java, Scala, and SQL
 
