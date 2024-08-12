@@ -35,7 +35,13 @@ Cloud workloads are prone to the [fallacies of distributed computing](https://wi
 - Component versioning is simple
 - Observability implementation can be delayed
 
-Design patterns don't eliminate notions such as these but can help bring awareness, compensations, and mitigations of them. Each cloud pattern has its own trade-offs. You need to pay attention more to why you're choosing a certain pattern than to how to implement it.
+Design patterns don't eliminate notions such as these but can help bring awareness, compensations, and mitigations of them. Each cloud pattern has its own trade-offs. You need to pay attention more to why you're choosing a certain pattern than to how to implement it. In addition, you have to embrace [reactive principles](https://www.reactiveprinciples.org) from early on (not as an afterthought) to make your applications more responsive, resilient and elastic:
+
+- Always stay responsive even during times of unexpected failures
+- Embrace uncertainty in your architecture, expect failure and design for resilience
+- Design autonomous components that interact asynchronously and event-based 
+- Tailor consistency per component and use eventual consistency whenever possible
+
 
 ## Challenges in cloud development
 
