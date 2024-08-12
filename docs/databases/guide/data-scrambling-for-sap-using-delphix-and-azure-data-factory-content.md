@@ -22,15 +22,15 @@ The movement of secure data is a challenge for all organizations. Delphix makes 
 
 By using the data source connectors offered by Azure Data Factory, we've created an ETL pipeline that allows an end user to automate the following steps:
 
-1. Read data from the system of record (SAP HANA) and write it to CSV Azure Files on Azure Storage.
-1. Execute a Delphix masking job against the Azure Files to replace sensitive data elements with similar but fictitious values.
+1. Read data from the system of record (SAP HANA) and write it to CSV files on Azure Storage.
+1. Execute a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values.
 1. Load the compliant data to Azure Synapse Analytics.
 
 ## Dataflow
 
 The data flows through the scenario as follows:
 
-1. Azure Data Factory extracts data from the source datastore (SAP HANA) to a container in Azure Files using the Copy Data activity. This container is referred to as the Source Data Container and the data is in CSV format. To use the SAP HANA connector, Microsoft recommends the use of a Self Hosted Integration Runtime. Refer to this [how to guide](https://learn.microsoft.com/en-us/azure/data-factory/connector-sap-hana?tabs=data-factory) for more information.
+1. Azure Data Factory extracts data from the source datastore (SAP HANA) to a container in Azure Files using the Copy Data activity. This container is referred to as the Source Data Container and the data is in CSV format. To use the SAP HANA connector, Microsoft recommends the use of a Self Hosted Integration Runtime. Refer to this [how to guide](/azure/data-factory/connector-sap-hana?tabs=data-factory) for more information.
 1. Data factory initiates an iterator (ForEach activity) that loops through a list of masking jobs configured within Delphix. These masking jobs will be pre-configured and will mask sensitive data present in the Source Data Container.
 1. For each job in the list, the Initiate Masking activity authenticates and initiates the masking job by calling the REST API endpoints on the Delphix CC Engine.
 1. The Delphix CC Engine reads data from the Source Data Container and runs through the masking process.
@@ -41,7 +41,7 @@ The data flows through the scenario as follows:
 
 ## Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is the Azure cloud extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is an extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from sourandce datastores and the masked data that will be loaded into destination data stores.
 - [Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
 - [Self Hosted Integration Runtime](https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory) must be set up and an SAP HANA ODBC driver must be installed for data extraction from SAP HANA.
@@ -72,7 +72,7 @@ Note: These templates work for both Azure Synapse Analytics pipelines and Azure 
 1. Set up a Self Hosted Integration Runtime as detailed in this [how to guide](https://learn.microsoft.com/en-us/azure/data-factory/connector-sap-hana?tabs=data-factory) to extract data from SAP HANA.
 1. In the Copy Data components, configure the desired source as SAP HANA in the Extract step and Synapse as the desired target in the Load step. In the Web Activity components, input the Delphix application IP address /host name and the credentials to authenticate with Delphix CC APIs.
 1. Run the Sensitive Data Discovery with Delphix Azure Data Factory template for initial setup, and anytime you would like to pre-identify sensitive data (for example, if there has been a schema change). This template provides Delphix CC with the initial configuration it requires to scan for columns that might contain sensitive data. You can also use this in tandem with the Delphix Compliance Accelerator for SAP, pre-identified sensitive fields and masking algorithms to protect data in core SAP tables, for example, Finance, HR, and Logistics modules. Contact Delphix if you're interested in this option.
-1. Create a [Ruleset](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/#managing-rule-sets) indicating the collection of data you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that Rule set and assign appropriate masking algorithms.
+1. Create a [rule set](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/#managing-rule-sets) indicating the collection of data you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that rule set and assign appropriate masking algorithms.
 1. Run the template. Once completed, you'll have masked data (as preidentified for top tables/modules by the Delphix Compliance Accelerator for SAP) in Azure Synapse Analytics.
 
 ## Considerations
@@ -125,6 +125,6 @@ Other contributors:
 
 ## Next steps
 
-- learn about [getting set up with Delphix CC](https://maskingdocs.delphix.com/)
-- learn about [consistent data masking across SAP and other data sources](https://www.delphix.com/video/data-compliance-and-security-across-datasets)
-- learn more about [customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
+- [Get set up with Delphix CC](https://maskingdocs.delphix.com/)
+- Learn about [consistent data masking across SAP and other data sources](https://www.delphix.com/video/data-compliance-and-security-across-datasets)
+- See [customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
