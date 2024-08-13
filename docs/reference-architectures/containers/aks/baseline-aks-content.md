@@ -220,7 +220,7 @@ There are two ways to manage AKS to Azure access through Microsoft Entra ID: *se
 
 Of the two methods to manage AKS access to Azure, we recommend managed identities. With service principals, you must manage and rotate secrets, either manually or programmatically. With managed identities, Microsoft Entra ID manages and performs the authentication and timely rotation of secrets for you.
 
-We recommend that you enable [managed identities](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. You can only enable this setting when you create the cluster. Even if you don't use Microsoft Entra ID immediately, you can incorporate it later.
+We recommend that you enable and use [managed identities](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. Even if you don't use Microsoft Entra ID integration immediately, you can incorporate it later.
 
 By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) that are used by the cluster: the *cluster identity* and the *kubelet identity*. The AKS control plane components use the *cluster identity* to manage cluster resources including ingress load balancers, and AKS managed public IPs. The *kubelet identity* authenticates with Container Registry. Some add-ons also support authentication by using a managed identity.
 
