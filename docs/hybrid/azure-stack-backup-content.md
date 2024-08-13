@@ -2,7 +2,7 @@ Consider a situation in which Azure Stack Hub hosts virtual machines (VMs) that 
 
 ## Architecture
 
-![Diagram illustrating backup of Azure Stack Hub files and applications that are hosted on Azure VMs that run such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server that run on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.][architectural-diagram]
+[ ![Diagram illustrating backup of Azure Stack Hub files and applications that are hosted on Azure VMs that run such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server that run on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.](./images/azure-stack-backup.svg)](./images/azure-stack-backup.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -11,7 +11,7 @@ Consider a situation in which Azure Stack Hub hosts virtual machines (VMs) that 
 The cloud components include the following services:
 
 - An Azure subscription that hosts all cloud resources that are included in this solution.
-- An Azure Active Directory (Azure AD) tenant that's associated with the Azure subscription. It provides authentication of Azure AD security principals to authorize access to Azure resources.
+- A Microsoft Entra tenant that's associated with the Azure subscription. It provides authentication of Microsoft Entra security principals to authorize access to Azure resources.
 - An Azure Recovery Services vault in the Azure region that's closest to the on-premises datacenter that hosts the Azure Stack Hub deployment.
 
 Depending on the criteria presented in this article, cloud components can also include the following services:
@@ -37,7 +37,7 @@ The on-premises components include the following services:
 ### Components
 
 - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub)
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
 - [Azure storage account](https://azure.microsoft.com/products/category/storage)
 - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute)
 
@@ -52,7 +52,7 @@ The recommended solution that's described in this article isn't the only way to 
 
 ## Scenario details
 
-Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified by integrating with Microsoft Azure services. This applies not only to the workloads that run on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, the benefits of integration with Azure cloud services are evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.
+Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified by integrating with Microsoft Azure services. This applies not only to the workloads that run on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, the benefits of integration with Azure services are evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.
 
 While one of the primary strengths of Azure Stack Hub is that it supports the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads can include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs that run on hyperconverged, highly resilient clusters that have administrative and programming models that are consistent with Microsoft Azure results in minimized management and maintenance overhead.
 
@@ -184,13 +184,13 @@ Planning for and implementing backup and restore of Azure Stack Hub–based work
 
 - Azure Stack Hub operators. Azure Stack Hub operators manage Azure Stack Hub infrastructure, ensuring that there are sufficient compute, storage, and network resources for implementing a comprehensive backup and restore solution, and making these resources available to tenants. They also collaborate with application and data owners to help determine the optimal approach to deploying their workloads to Azure Stack Hub.
 - Azure administrators. Azure administrators manage the Azure resources that are needed to implement hybrid backup solutions.
-- Azure AD administrators. Azure AD administrators manage Azure AD resources, including user and group objects that are used to provision, configure, and manage Azure resources.
+- Microsoft Entra administrators. Microsoft Entra administrators manage Microsoft Entra resources, including user and group objects that are used to provision, configure, and manage Azure resources.
 - Azure Stack Hub tenant IT staff. These stakeholders design, implement, and manage MABS, including the MABS backups and restores.
 - Azure Stack Hub users. These users provide RPO and RTO requirements and submit requests to back up and restore data and applications.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -288,7 +288,7 @@ The offline-seeding process supports use of the Azure Import/Export service, whi
 The offline-seeding workflow has the following steps:
 
 1. You copy the initial backup data to one or more SATA disks by using the AzureOfflineBackupDiskPrep tool.
-1. The tool automatically generates an Azure Import job and an Azure AD app in the subscription that hosts the target Azure Storage account and Azure Recovery Services vault. The app provides Azure Backup with secure and scoped access to the Azure Import Service, as required by the offline seeding process.
+1. The tool automatically generates an Azure Import job and a Microsoft Entra app in the subscription that hosts the target Azure Storage account and Azure Recovery Services vault. The app provides Azure Backup with secure and scoped access to the Azure Import Service, as required by the offline seeding process.
 1. You ship the disks to the Azure datacenter that hosts the target Azure Storage account.
 1. The Azure datacenter staff copies data from the disks to the Azure Storage account.
 1. The workflow triggers a copy from the Azure Storage account to the Azure Recovery Services vault.
@@ -387,14 +387,12 @@ Related hybrid guidance:
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
-- [Deploy a hybrid app with on-premises data that scales cross-cloud](deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md)
 
 Related architectures:
 
 - [Disaster Recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
 - [Backup on premises applications and data to the cloud](../solution-ideas/articles/backup-archive-on-premises-applications.yml)
 
-[architectural-diagram]: ./images/azure-stack-backup.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-backup.vsdx
 [azure-backup-azure-stack]: /azure/backup/backup-mabs-install-azure-stack
 [azure-backup-dpmmabs-support]: /azure/backup/backup-support-matrix-mabs-dpm#dpmmabs-networking-support

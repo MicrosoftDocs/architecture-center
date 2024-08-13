@@ -2,7 +2,9 @@ This solution moves Azure resources across regions efficiently, securely, and se
 
 ## Architecture
 
-![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
+:::image type="content" border="false" source="../media/move-azure-resources-architecture-diagram.svg" alt-text="Diagram that shows the dataflow of moving Azure resources across regions solution." lightbox="../media/move-azure-resources-architecture-diagram.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/move-azure-resources-across-regions.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -28,10 +30,10 @@ The example architecture uses the following components:
 
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 * [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
-* [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds)
+* [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds)
 * [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-* [Azure App Service](https://azure.microsoft.com/services/app-service)
+* [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 * [Cognitive services](https://azure.microsoft.com/services/cognitive-services)
 * [Azure Automation](https://azure.microsoft.com/services/automation)
 
@@ -62,7 +64,7 @@ Since your requirements might differ from the example architecture, use the foll
 
    * Account permissions: If you created a free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need to move the resources. Verify that your Azure subscription allows you to create the necessary resource in the target region.
 
-   * Resource identification: Identify and categorize your resources based on the type of resource needed to export an [Azure Resource Manager (ARM)](https://azure.microsoft.com/features/resource-manager) template or to start replication using various technologies. For each of the resource types you want to move, the steps may be different. Refer to [Moving Azure resources across regions](/azure/azure-resource-manager/management/move-region) to identify the corresponding steps for each of the resource types.
+   * Resource identification: Identify and categorize your resources based on the type of resource needed to export an [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) template or to start replication using various technologies. For each of the resource types you want to move, the steps may be different. Refer to [Moving Azure resources across regions](/azure/azure-resource-manager/management/move-region) to identify the corresponding steps for each of the resource types.
 
 1. Move the networking components.
 
@@ -86,11 +88,11 @@ Since your requirements might differ from the example architecture, use the foll
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Consider the following points when making a cross-regional move:
 
-* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multi-cloud strategy containing private or public deployments.
+* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multicloud strategy containing private or public deployments.
 
 * Move resource types together. By combining the move of similar resource types (for example, 50 virtual machines or 20 SQL databases), you can plan the preparation step of your move more easily and ensure that long-running operations complete together, which helps reduce downtime.
 

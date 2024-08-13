@@ -4,19 +4,20 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: View a reference architecture to enable geospatial workloads on Azure by using Azure Synapse.
   author: karthick-rn
-  ms.author: kanarend, kunachim, suskuma, mandari
-  ms.date: 09/20/2022
+  ms.author: kanarend
+  ms.reviewer: kunachim
+  ms.date: 06/18/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom: arb-data
 azureCategories:
   - analytics
   - ai-machine-learning
   - integration
 products:
   - azure-synapse-analytics
-  - azure-cognitive-services
+  - ai-services
   - azure-computer-vision
   - azure-batch
   - azure-storage  

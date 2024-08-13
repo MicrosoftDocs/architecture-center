@@ -4,9 +4,9 @@ Azure public multi-access edge compute (MEC) is a great platform for hosting app
 
 ## Architecture
 
-![Diagram that shows an architecture for deploying workloads in active/standby mode to achieve high availability and disaster recovery.](./media/edge-zones-dr-architecture.png)
+![Diagram that shows an architecture for deploying workloads in active/standby mode to achieve high availability and disaster recovery.](./media/edge-zones-disaster-recovery-architecture.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/edgezones-DR-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/edge-zones-disaster-recovery-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -51,7 +51,7 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### SLA
 Microsoft supports service-level agreements (SLAs) for larger size infrastructure such as Azure and Azure regions. Azure public MEC is a smaller footprint extension of Azure and thus does not have SLA support.
@@ -113,6 +113,6 @@ Principal author:
 
 - [Azure public multi-access edge compute deployment](./public-multi-access-edge-compute-deployment.yml)
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Low-latency network connections for industry](../../solution-ideas/articles/low-latency-network.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
-- [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)
+- [Low-latency network connections for industry](../../networking/idea/low-latency-network.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)
+- [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)

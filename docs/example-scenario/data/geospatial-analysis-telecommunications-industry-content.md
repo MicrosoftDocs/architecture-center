@@ -6,9 +6,9 @@ The focus of this article is to showcase a practical architecture that uses Azur
 
 ## Architecture
 
-:::image type="content" border="false" source="media/geospatial-analysis-telecommunications-industry.png" alt-text="Diagram for an architecture that uses Azure Cloud Services to process large volumes of geospatial data." lightbox="media/geospatial-analysis-telecommunications-industry.png":::
+:::image type="content" border="false" source="media/geospatial-analysis-telecommunications-industry.svg" alt-text="Diagram for an architecture that uses Azure Cloud Services to process large volumes of geospatial data." lightbox="media/geospatial-analysis-telecommunications-industry.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1925417-geospatial-analysis-telecommunications-industry.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/geospatial-analysis-telecommunications-industry.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -64,9 +64,9 @@ This solution is ideal for the telecommunications industry, and it applies to th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-Consider following the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) when you implement this solution. The framework provides technical guidance across five pillars: cost optimization, security, reliability, performance efficiency, and operational excellence.
+Consider following the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) when you implement this solution. The framework provides technical guidance across five pillars: cost optimization, security, reliability, performance efficiency, and operational excellence.
 
 ### Performance
 
@@ -130,7 +130,6 @@ Principal author:
 - [How To Turn Visitor Cellphone Roaming Data Into Revenue?](https://customers.microsoft.com/story/nos-spgs-media-telco-azure-sql-r-server-portugal)
 - [5G positioning: What you need to know](https://www.ericsson.com/en/blog/2020/12/5g-positioning--what-you-need-to-know)
 
-## Related resources
+## Related resource
 
-- [Geospatial data processing and analytics](geospatial-data-processing-analytics-azure.yml)
 - [Solutions for the telecommunications industry](../../industries/telecommunications.md)

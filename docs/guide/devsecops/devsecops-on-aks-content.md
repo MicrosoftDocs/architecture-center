@@ -13,18 +13,18 @@ When DevSecOps is applied to Azure Kubernetes Service (AKS), different organizat
 
 This article is broken out into different DevOps lifecycle stages with considerations and recommendations for embedding security controls and security best practices. This guide includes common processes and tools to incorporate into continuous integration and continuous delivery (CI/CD) pipelines, opting for easy-to-use built-in tools where available.
 
-As a prerequisite to this article, we recommend you review [Build and deploy apps on AKS by using DevOps and GitOps](/azure/architecture/example-scenario/apps/devops-with-aks).
+As a prerequisite to this article, we recommend you review [Build and deploy apps on AKS by using DevOps and GitOps](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops).
 
 ## Process flow
 
-:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.png" lightbox="./media/devsecops-azure-aks.png":::
+:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.svg" lightbox="./media/devsecops-azure-aks.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-azure-aks.vsdx) of this architecture.*
 
 > [!NOTE]
 > While this article references AKS and GitHub, these recommendations apply to any container orchestration or CI/CD platform. While the implementation details might vary, most of the concepts and practices mentioned in each stage are still relevant and applicable.
 
-1. [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
+1. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is configured as the identity provider for GitHub. Configure multi-factor authentication (MFA) to help provide extra authentication security.
 1. Developers use [Visual Studio Code](https://code.visualstudio.com) or [Visual Studio](https://visualstudio.microsoft.com/vs/) with security extensions enabled to proactively analyze their code for security vulnerabilities.
 1. Developers commit application code to a corporate owned and governed GitHub Enterprise repository.
 1. GitHub Enterprise integrates automatic security and dependency scanning through [GitHub Advanced Security](https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).
@@ -43,7 +43,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
    1. Container insights retrieve performance metrics and application and cluster logs.
    1. Diagnostic and application logs are pulled into an Azure Log Analytics workspace to run log queries.
 1. Microsoft Sentinel, which is a security information and event management (SIEM) solution, can be used to ingest and further analyze the AKS cluster logs for any security threats based on defined patterns and rules.
-1. Open-Source tools such as Open Web Application Security Project ([OWASP ZAP](https://owasp.org/www-project-zap/)) can be used to do penetration testing for web applications and services.
+1. Open-Source tools such as Zed Attack Proxy (ZAP) ([ZAP](https://www.zaproxy.org/)) can be used to do penetration testing for web applications and services.
 1. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments including GitHub and Azure DevOps.
 
 ## Team members overview and responsibilities
@@ -192,12 +192,12 @@ During the deployment phase, developers, application operators, and cluster oper
 
 - [OpenID Connect (OIDC)](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) lets your GitHub Action workflows access resources in Azure without needing to store the Azure credentials as long-lived GitHub secrets.
 - By using environments for deployment, you can configure environments with protection rules and secrets.
-  - A pull-based approach to CI/CD with [GitOps](/azure/architecture/example-scenario/apps/devops-with-aks) lets you shift security credentials to your Kubernetes cluster, which reduces the security and risk surface by removing credentials from being stored in your external CI tooling. You can also reduce allowed inbound connections and limit admin-level access to your Kubernetes clusters.
+  - A pull-based approach to CI/CD with [GitOps](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) lets you shift security credentials to your Kubernetes cluster, which reduces the security and risk surface by removing credentials from being stored in your external CI tooling. You can also reduce allowed inbound connections and limit admin-level access to your Kubernetes clusters.
 
 #### Best practice – Run dynamic application security tests (DAST) to find vulnerabilities in your running application
 
 - Use GitHub [Actions](https://github.com/marketplace?category=testing&type=actions&query=) in deployment workflows to run dynamic application security testing (DAST) tests.
-- Use open-source tools such as [OWASP ZAP](https://owasp.org/www-project-zap/) to do penetration testing for common web application vulnerabilities.
+- Use open-source tools such as [ZAP](https://www.zaproxy.org/) to do penetration testing for common web application vulnerabilities.
 
 #### Best practice – Deploy container images from trusted registries only
 
@@ -254,7 +254,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 - Use Activity logs to monitor actions on AKS resources to view all activity and their status. Determine what operations were performed on the resources and by whom.
 - Enable [DNS query logging](/azure/aks/coredns-custom) by applying documented configuration in your CoreDNS custom ConfigMap.
 - Monitor attempts to access deactivated credentials.
-  - Integrate user authentication for AKS with Azure Active Directory (Azure AD). Create Diagnostic Settings for Azure AD, [sending](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired alerts (such as when a deactivated account attempts to sign in) within an Azure Log Analytics workspace.
+  - Integrate user authentication for AKS with Microsoft Entra ID. Create Diagnostic Settings for Microsoft Entra ID, [sending](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired alerts (such as when a deactivated account attempts to sign in) within an Azure Log Analytics workspace.
 
 #### Best Practice – Enable diagnostics on your Azure Resources
 
@@ -287,7 +287,5 @@ Other contributors:
 
 ## Related resources
 
-- [DevSecOps in GitHub](../../solution-ideas/articles/devsecops-in-github.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
-- [DevSecOps with a rolling main branching strategy](../../solution-ideas/articles/devsecops-rolling-branch.yml)
 - [Shift left](https://devops.com/devops-shift-left-avoid-failure)

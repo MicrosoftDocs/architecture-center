@@ -1,17 +1,17 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security tenant (Azure Active Directory) to a new one. This article describes how to define and implement a cross-tenant workload migration strategy.
+To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security tenant (Microsoft Entra ID) to a new one. This article describes how to define and implement a cross-tenant workload migration strategy.
 
 ## Architecture
 
 :::image type="content" source="../media/cross-tenant-migration-strategy.svg" alt-text="Diagram that shows a cross-tenant migration architecture." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. 
-   a. Extract the Azure Resource Manager (ARM) template and configuration artifacts and store them in a source code / configuration repository. This step conforms with Infrastructure as Code (IaC) practices and ensures that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
+1.
+   a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code / configuration repository. This step conforms with Infrastructure as Code (IaC) practices and ensures that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
    b. Deploy the artifacts (infrastructure and configuration) to the target resource group or groups in the new tenant subscription.
 
@@ -27,11 +27,11 @@ To address business transformations like acquisitions or divesture, teams need t
 
 ### Components
 
-* [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Your Azure AD tenant represents your organization and helps you manage an instance of cloud services for your internal and external users.
+* [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Your Microsoft Entra tenant represents your organization and helps you manage an instance of cloud services for your internal and external users.
 * [An Azure subscription](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) is a logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in adopting Azure.
 * [Azure DevOps](https://azure.microsoft.com/services/devops) provides developer services that can help your teams plan work, collaborate on code development, and build and deploy applications.
 * [Azure Backup](https://azure.microsoft.com/products/backup) provides cost-effective solutions for backing up your data and recovering it from Azure.
-* [Azure App Service](https://azure.microsoft.com/products/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities.
+* [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It provides [continuous deployment](/azure/app-service/deploy-continuous-deployment) and other DevOps capabilities.
 * [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-performance data storage layer for modern cloud applications.
 * The [Azure Storage](https://azure.microsoft.com/products/category/storage) platform is the Microsoft cloud solution for modern data storage scenarios. Azure Storage provides highly available, massively scalable, durable storage for various data objects in the cloud.
 * [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
@@ -46,9 +46,9 @@ To address business transformations like acquisitions or divesture, teams need t
 
 ## Scenario details
 
-Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize TCO by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, need to plan for the separation or joining of their cloud workloads from an existing to a new security (Azure AD) tenant. This planning can help ensure that all data and application services that rely on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries. 
+Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize TCO by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, need to plan for the separation or joining of their cloud workloads from an existing to a new security (Microsoft Entra ID) tenant. This planning can help ensure that all data and application services that rely on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries. 
 
-You can use the built-in subscription-move capability to move the entire subscription under a new Azure Active Directory (Azure AD) tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
+You can use the built-in subscription-move capability to move the entire subscription under a new Microsoft Entra tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
 
 In this scenario, a healthcare company with multiple global business units wants to divest a business. To do that, they need to define and implement a cross-tenant workload migration strategy.
 
@@ -64,7 +64,7 @@ To start, the company needs to categorize workload resources as PaaS (compute), 
 
    ![Diagram that shows the components of the PaaS and IaaS solution.](../media/paas-iaas.png)
 
-   **Solution:** Azure subscriptions can be relocated from one Azure AD tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, Azure SQL databases with Azure AD authentication integration enabled can't be moved as they are. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
+   **Solution:** Azure subscriptions can be relocated from one Microsoft Entra tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, Azure SQL databases with Microsoft Entra authentication integration enabled can't be moved as they are. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
 
 - IaaS (compute) resources that provide hosting for customized logic (for example, VMs)
 
@@ -95,7 +95,7 @@ Other contributor:
 - [Azure RBAC documentation](/azure/role-based-access-control)
 - [Migrate an Azure subscription](/azure/cost-management-billing/manage/billing-subscription-transfer#transfer-a-subscription-to-another-azure-ad-tenant-account)
 - [Query to list affected resources when transferring an Azure subscription](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-impacted-resources-when-transferring-an-azure-subscription)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Azure Backup documentation](/azure/backup)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 

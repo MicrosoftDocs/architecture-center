@@ -2,7 +2,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram showing the Teams-to-Azure Firewall flowchart." source="media/securing-bot-image-001.png" lightbox="media/securing-bot-image-001.png":::
+:::image type="content" alt-text="Diagram showing the Teams-to-Azure Firewall flowchart." source="media/securing-bot-image-001.svg" lightbox="media/securing-bot-image-001.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/Securing-bot-image-001.vsdx) of this architecture.*
 
@@ -16,7 +16,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
   - *Private Endpoint Subnet* (10.0.3.0/24), which is used to route traffic from the firewall to the bot's private endpoint.
 
-- [Azure Firewall](/azure/firewall) exposes a single public IP address that clients can use to communicate with the underlying bot services. Ordinarily, a firewall is placed in its own virtual network, which is a common pattern for [hub and spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml) architectures, but this simplified example deploys all services and resources into a single virtual network. The Azure Firewall instance is placed in its own subnet.
+- [Azure Firewall](/azure/firewall) exposes a single public IP address that clients can use to communicate with the underlying bot services. Ordinarily, a firewall is placed in its own virtual network, which is a common pattern for [hub and spoke](../../networking/architecture/hub-spoke.yml) architectures, but this simplified example deploys all services and resources into a single virtual network. The Azure Firewall instance is placed in its own subnet.
 
 - [Route table](/azure/virtual-network/virtual-networks-udr-overview) defines the routes that traffic takes within the virtual network. It ensures that traffic coming to and from the bot passes through the firewall.
 
@@ -37,7 +37,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network)
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
 - [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Private Link](https://azure.microsoft.com/services/private-link)
 
 ### Alternatives
@@ -78,7 +78,7 @@ It's a common practice to deploy web apps, API apps, and mobile apps to an Azure
 
 ### Security
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ## Deploy this scenario
 
@@ -90,7 +90,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 1. Run the following Azure CLI commands in Azure Cloud Shell or your preferred deployment shell.
 
-    This set of commands creates the necessary resource group, virtual network, and subnets that are required for this walkthrough. The IP range used by Teams is [52.112.0.0/14](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
+    This set of commands creates the necessary resource group, virtual network, and subnets that are required for this walkthrough. The IP range used by Teams is [52.112.0.0/14,52.122.0.0/15](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
 
     ```azurecli
     # Declare variables (bash syntax)
@@ -100,7 +100,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_INT_NAME='VnetIntegrationSubnet'
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
-    export TEAMS_IP_RANGE='52.112.0.0/14'
+    export TEAMS_IP_RANGE='52.112.0.0/14 52.122.0.0/15'
     export FIREWALL_NAME='afw-'${LOCATION}'-'${PREFIX}
 
     # Create a resource group
@@ -288,7 +288,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
     ![Screenshot of the rt-SecureBotRouteTable pane.](media/securing-bot-image-009.png)
 
-    After you've created the route table, you add rules to your firewall to deliver traffic from the public IP to the bot app service, and to restrict traffic from any endpoint other than Microsoft Teams. In addition, you'll allow traffic between the virtual network and Azure Bot Services or Azure Active Directory by using service tags.
+    After you've created the route table, you add rules to your firewall to deliver traffic from the public IP to the bot app service, and to restrict traffic from any endpoint other than Microsoft Teams. In addition, you'll allow traffic between the virtual network and Azure Bot Services or Microsoft Entra ID by using service tags.
 
 1. Run the following commands:
 
@@ -376,10 +376,10 @@ Principal author:
 
 - [Azure Firewall Architecture Guide - Azure Architecture Center](../firewalls/index.yml)
 
-- [Azure Active Directory IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
+- [Microsoft Entra IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
 
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios](../data/sentinel-threat-intelligence.yml)
 
 - [Confidential computing on a healthcare platform - Azure Example Scenarios](../confidential/healthcare-inference.yml)
 
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

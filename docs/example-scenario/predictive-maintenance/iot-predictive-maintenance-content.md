@@ -23,7 +23,7 @@ IoT Edge is made up of three components:
 
 - IoT Edge *modules* are containers that can run Azure, third-party, or custom components.
 
-  IoT Edge ML modules can support [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), third-party ML models, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.co/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
+  IoT Edge ML modules can support [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), third-party ML models, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.ai/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
 
 - The IoT Edge *runtime*, consisting of the *IoT Agent* and *IoT Edge Hub*, runs on the IoT Edge devices to manage and coordinate the deployed modules.
 
@@ -83,7 +83,7 @@ This solution is ideal for the transportation, telecommunications, and manufactu
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Several considerations apply to this example.
 
@@ -136,9 +136,8 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 **GitHub projects:**
 
 - [CloudEvents](https://github.com/cloudevents/spec)
-- [NVIDIA Container Toolkit](https://github.com/nvidia/nvidia-docker/wiki)
 - [Azure IoT Edge and RabbitMQ](https://github.com/idavis/iot-edge-rabbitmq)
-- [Cookiecutter Template for Azure IoT Edge Python Module](https://github.com/Azure/cookiecutter-azure-iot-edge-module)
+- [Cookiecutter template for Azure IoT Edge Python Module](https://github.com/Azure/cookiecutter-azure-iot-edge-module)
 - [Streaming at Scale](https://github.com/Azure-Samples/streaming-at-scale)
 - [ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 - [DASH for Azure Storage](https://github.com/MicrosoftDX/Dash)
@@ -156,12 +155,8 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 ## Related resources
 
 - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
-- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/predictive-maintenance.yml)
 - [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
 - [Predictive aircraft engine monitoring](../../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-- [Defect prevention with predictive maintenance using analytics and machine learning](../../solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)
-- [Anomaly detector process](../../solution-ideas/articles/anomaly-detector-process.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
-- [Connected factory signal pipeline](../iot/connected-factory-signal-pipeline.yml)
 - [Claim Check pattern](../../patterns/claim-check.yml)
 - [Command and Query Responsibility Segregation (CQRS) pattern](../../patterns/cqrs.yml)

@@ -5,7 +5,7 @@ metadata:
   description: Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
   author: bqtrinh
   ms.author: bentrin
-  ms.date: 04/02/2020
+  ms.date: 01/11/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture

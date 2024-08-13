@@ -8,7 +8,7 @@ Migrating workloads from mainframe to Azure as a part of application replatformi
 
 The following diagram shows how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data to Azure at scale.
 
-[ ![Architecture diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data.](media/mlogica-mainframe-data-migration-architecture-inline.png)](media/mlogica-mainframe-data-migration-architecture-inline.png#lightbox)
+:::image type="content" source="media/mlogica-mainframe-data-migration-architecture.svg" alt-text="Architecture diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data." lightbox="media/mlogica-mainframe-data-migration-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mlogica-mainframe-data-migration-architecture.vsdx) of this architecture.*
 
@@ -31,7 +31,7 @@ The steps to migrate mainframe data to Azure are as follows:
 
   - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider.
   - [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on–premises location over the internet.
-  - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an identity and access management service that can be synchronized with an on-premises directory.
+  - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an identity and access management service that can be synchronized with an on-premises directory.
 
 - Application
 
@@ -71,7 +71,7 @@ Follow these general recommendations unless you have a specific requirement that
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -99,7 +99,7 @@ Database services in Azure support various security options:
 - Data encryption in transit using [TLS](/azure/azure-sql/database/security-overview#transport-layer-security-encryption-in-transit)
 - Data encryption while processing using [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves)
 
-You can control authentication and access control on the mLogica data migration cluster by using Azure AD. You can configure Azure resources for authentication and authorization using Azure AD and role-based access control.
+You can control authentication and access control on the mLogica data migration cluster by using Microsoft Entra ID. You can configure Azure resources for authentication and authorization using Microsoft Entra ID and role-based access control.
 
 Data transferred between the mLogica data migration cluster and the mainframe is encrypted in transit by using TLS. TLS certificates can be stored in [Azure Key Vault](https://azure.microsoft.com/products/key-vault) for enhanced security. Data transferred from the mainframe to Azure Blob Storage is encrypted in transit using SSH.
 
@@ -170,7 +170,6 @@ For more information, contact [Azure Data Engineering - Mainframe & Midrange Mod
 
 ## Related resources
 
-- [Azure data architecture guide](../../data-guide/index.md)
 - [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Rehost Adabas & Natural applications in Azure](rehost-adabas-software-ag.yml)

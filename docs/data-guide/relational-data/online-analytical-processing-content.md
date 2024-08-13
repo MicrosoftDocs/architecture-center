@@ -71,7 +71,7 @@ Semantic models can help business users abstract relationship complexities and m
 
 For all the benefits OLAP systems provide, they do produce a few challenges:
 
-- Whereas data in OLTP systems is constantly updated through transactions flowing in from various sources, OLAP data stores are typically refreshed at a much slower intervals, depending on business needs. This means OLAP systems are better suited for strategic business decisions, rather than immediate responses to changes. Also, some level of data cleansing and orchestration needs to be planned to keep the OLAP data stores up-to-date.
+- Whereas data in OLTP systems is constantly updated through transactions flowing in from various sources, OLAP data stores are typically refreshed at much slower intervals, depending on business needs. This means OLAP systems are better suited for strategic business decisions, rather than immediate responses to changes. Also, some level of data cleansing and orchestration needs to be planned to keep the OLAP data stores up-to-date.
 - Unlike traditional, normalized, relational tables found in OLTP systems, OLAP data models tend to be multidimensional. This makes it difficult or impossible to directly map to entity-relationship or object-oriented models, where each attribute is mapped to one column. Instead, OLAP systems typically use a star or snowflake schema in place of traditional normalization.
 
 ## OLAP in Azure
@@ -86,7 +86,7 @@ In Azure, all of the following data stores will meet the core requirements for O
 
 SQL Server Analysis Services (SSAS) offers OLAP and data mining functionality for business intelligence applications. You can either install SSAS on local servers, or host within a virtual machine in Azure. Azure Analysis Services is a fully managed service that provides the same major features as SSAS. Azure Analysis Services supports connecting to [various data sources](/azure/analysis-services/analysis-services-datasource) in the cloud and on-premises in your organization.
 
-Clustered Columnstore indexes are available in SQL Server 2014 and above, as well as Azure SQL Database, and are ideal for OLAP workloads. However, beginning with SQL Server 2016 (including Azure SQL Database), you can take advantage of hybrid transactional/analytics processing (HTAP) through the use of updateable nonclustered columnstore indexes. HTAP enables you to perform OLTP and OLAP processing on the same platform, which removes the need to store multiple copies of your data, and eliminates the need for distinct OLTP and OLAP systems. For more information, see [Get started with Columnstore for real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics).
+Clustered Columnstore indexes are available in SQL Server 2014 and above, as well as Azure SQL Database, and are ideal for OLAP workloads. However, beginning with SQL Server 2016 (including Azure SQL Database), you can take advantage of hybrid transactional/analytical processing (HTAP) through the use of updateable nonclustered columnstore indexes. HTAP enables you to perform OLTP and OLAP processing on the same platform, which removes the need to store multiple copies of your data, and eliminates the need for distinct OLTP and OLAP systems. For more information, see [Get started with Columnstore for real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics).
 
 ## Key selection criteria
 
@@ -94,7 +94,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you want a managed service rather than managing your own servers?
 
-- Do you require secure authentication using Azure Active Directory (Azure AD)?
+- Do you require secure authentication using Microsoft Entra ID?
 
 - Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics.
 
@@ -119,12 +119,12 @@ The following tables summarize the key differences in capabilities.
 | Supports tabular semantic models | Yes | Yes | No | No |
 | Easily integrate multiple data sources | Yes | Yes | No <sup>1</sup> | No <sup>1</sup> |
 | Supports real-time analytics | No | No | Yes | Yes |
-| Requires process to copy data from source(s) | Yes | Yes | No | No |
-| Azure AD integration | Yes | No | No <sup>2</sup> | Yes |
+| Requires process to copy data from sources | Yes | Yes | No | No |
+| Microsoft Entra integration | Yes | No | No <sup>2</sup> | Yes |
 
 [1] Although SQL Server and Azure SQL Database cannot be used to query from and integrate multiple external data sources, you can still build a pipeline that does this for you using [SSIS](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). SQL Server hosted in an Azure VM has additional options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/polybase-guide). For more information, see [Pipeline orchestration, control flow, and data movement](../technology-choices/pipeline-orchestration-data-movement.md).
 
-[2] Connecting to SQL Server running on an Azure Virtual Machine is not supported using an Azure AD account. Use a domain Active Directory account instead.
+[2] Connecting to SQL Server running on an Azure Virtual Machine is not supported using a Microsoft Entra account. Use a domain Active Directory account instead.
 
 ### Scalability Capabilities
 
@@ -152,5 +152,4 @@ Principal author:
 ## Related resources
 
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)
 - [Online analytical processing (OLAP)](../../data-guide/relational-data/online-analytical-processing.yml)

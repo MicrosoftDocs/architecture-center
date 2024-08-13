@@ -1,7 +1,8 @@
 ---
 title: Comparing AWS and Azure regions and zones
 description: Review a comparison of the regions and zones between Azure and AWS. Explore availability sets, availability zones, and paired regions in Azure.
-author: martinekuan
+author: splitfinity-zz-zz
+ms.author: yubaijna
 ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,13 +13,13 @@ categories:
   - management-and-governance
 ---
 
-# Regions and zones on Azure and AWS
+# Regions and zones on Azure
 
-Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. Rarely, an entire region could become unavailable.
+Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, might affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. Rarely, an entire region could become unavailable.
 
 One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements&mdash;not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In Azure, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
+In Azure, some regions are further divided into three Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
 
 :::image type="complex" source="../resiliency/images/redundancy.svg" alt-text="Diagram showing availability sets, availability zones, and paired regions.":::
    The diagram has three parts. The first part shows VMs in an availability set in a virtual network. The second part shows an availability zone with two availability sets in a virtual network. The third part shows regional pairs with resources in each region.
@@ -45,15 +46,15 @@ Availability sets should be organized by the instance's role in your application
 
 ## Availability zones
 
-An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. Not all regions support availability zones.
 
 ## Paired regions
 
 To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
+Unlike Availability Zones, which are physically separate datacenters but might be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 
-Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
+Azure [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means creating a full copy of your solution in both regions.
 
 ## See also
 

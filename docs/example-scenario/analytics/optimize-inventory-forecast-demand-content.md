@@ -43,7 +43,7 @@ This article showcases a practical, scalable, and manageable solution for implem
   - The best of the SQL technologies used in enterprise data warehousing
   - Spark technologies used for big data
   - Data Explorer for log and time-series analytics
-  - Pipelines for data integration and ETL/ELT
+  - Pipelines for data integration and extract, transform, load (ETL)/extract, load, transform (ELT)
   - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Machine Learning
 
 ### Alternatives
@@ -56,7 +56,7 @@ Depending on your specific use case and your choice of analytics platform for en
 
 Instead of running the Ray framework on Kubernetes, you can use the Ray framework on a compute instance in Azure Machine Learning to perform inferencing. If you incorporate the Ray framework on Azure Machine Learning, you might find [ray-on-ml](https://github.com/microsoft/ray-on-aml), a package on GitHub, helpful.
 
-You could use [Web Apps](https://azure.microsoft.com/services/app-service/web) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
+You could use [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
 
 ## Scenario details
 
@@ -88,7 +88,7 @@ This solution is designed for the retail industry, but it also applies to the ma
 
 - Forecast the prices of commodities across locations and sales channels by using historical transaction data in a retail context.
 
-Companies can have a wide variety of inventory types, and specific types might be present only in specific locations or available from a subset of factories. Companies must also meet service level agreements and other relevant metrics. So, forecasts must account for the time at which a specific unit is available at a specific location, in addition to forecasting demand, service level agreements, and other relevant metrics. Successful inventory management requires accurate simulations for forecasting demand, utilization of distributed computing resources, and methodologies that can predict for multiple time granularities, product types, and locations.
+Companies can have a wide variety of inventory types, and specific types might be present only in specific locations or available from a subset of factories. Companies must also meet service-level agreements and other relevant metrics. So, forecasts must account for the time at which a specific unit is available at a specific location, in addition to forecasting demand, service-level agreements, and other relevant metrics. Successful inventory management requires accurate simulations for forecasting demand, utilization of distributed computing resources, and methodologies that can predict for multiple time granularities, product types, and locations.
 
 Often, the data that's required to optimize inventory is sparse and not centrally located, which makes aggregating and analyzing it difficult. Most companies rely on commercial software. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
 
@@ -112,7 +112,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider using Azure Databricks Premium for more security features. For more information, see [Azure Databricks Pricing](https://azure.microsoft.com/pricing/details/databricks).
 
-Follow the best practices for Databricks security and data governance. For more information, see [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity).
+Follow the best practices for Databricks security and data governance. For more information, see [Secure cluster connectivity (No public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity).
 
 Consider implementing the following additional security features in this architecture:
 
@@ -131,7 +131,7 @@ Depending on the volume of data and complexity of your geospatial analysis, you 
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-If the amount of input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
+If the amount of input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/data.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
 
 If you use mapping data flows in Azure Data Factory for ETL, follow [the performance and tuning guide](/azure/data-factory/concepts-data-flow-performance) to optimize your data pipeline and ensure that your dataflows meet your performance benchmarks.
 
@@ -168,4 +168,4 @@ Other contributors:
 - [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
 - [Forecast energy and power demand with machine learning](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
 - [Interactive price analytics using transaction history data](/azure/architecture/solution-ideas/articles/interactive-price-analytics)
-- [MLOps for Python models using Azure Machine Learning](/azure/architecture/reference-architectures/ai/mlops-python)
+- [MLOps for Python models using Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-python)

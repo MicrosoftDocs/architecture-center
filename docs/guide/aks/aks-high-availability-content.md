@@ -133,8 +133,6 @@ This guide focused on HA at the application level within one AKS cluster. For mo
 
 - A resource consolidation strategy directly contravenes the HA redundancy pillar. Therefore, you should carefully analyze the cost of redundancy. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can help.
 
-- The highly available Microsoft service [Project Bonsai: AI for engineers](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works) is an example of project design that exemplifies HA principles. This project motivated the Kubernetes HA constructs checklist and this guide.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -164,5 +162,4 @@ Other contributors:
 
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [Elastic demand handling with AKS](../../solution-ideas/articles/aks-demand-spikes.yml)
 - [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)

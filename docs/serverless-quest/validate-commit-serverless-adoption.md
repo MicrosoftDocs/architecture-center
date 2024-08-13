@@ -3,6 +3,7 @@ title: Plan a serverless Functions deployment
 titleSuffix: Azure Example Scenarios
 description: Perform activities to validate, commit, and plan serverless Azure Functions deployment.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center

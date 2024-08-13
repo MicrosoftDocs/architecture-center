@@ -2,13 +2,14 @@
 metadata:
   title: Architectural approaches for storage and data in multitenant solutions
   description: This article describes approaches to support multitenancy for the storage and data components of your solution.
-  author: martinekuan
-  ms.author: architectures
-  ms.date: 07/26/2022
+  author: johndowns
+  ms.author: jodowns
+  ms.date: 07/29/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.category: fcp
+  ms.custom:
+    - arb-saas
 azureCategories:
   - storage
   - databases

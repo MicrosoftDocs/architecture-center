@@ -77,7 +77,7 @@ After you've established the virtual network gateway connections, test the envir
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -149,7 +149,7 @@ Principal author:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.yml)
-- [Hub-spoke network topology in Azure](hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Connect an on-premises network to Azure](index.yml)
 - [Extend an on-premises network using ExpressRoute](expressroute.yml)

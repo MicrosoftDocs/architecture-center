@@ -6,18 +6,19 @@ ms.author: prwilk
 ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
+ms.custom: arb-containers
 products:
-- azure-kubernetes-service
-- azure-front-door
-- azure-container-registry
-- azure-key-vault
-- azure-cosmos-db
+  - azure-kubernetes-service
+  - azure-front-door
+  - azure-container-registry
+  - azure-key-vault
+  - azure-cosmos-db
 ms.category:
-- containers
-- networking
-- database
-- monitoring
+  - containers
+  - networking
+  - database
+  - monitoring
 categories: featured
 ---
 
@@ -60,7 +61,7 @@ resource "azurerm_role_assignment" "acrpull_role" {
 
 ### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Azure AD Workload Identity* feature is available, some parts of the workload use **keys** to access Azure resources, such as Azure Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Microsoft Entra Workload ID* feature is available, some parts of the workload use **keys** to access Azure resources, such as Azure Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
 > [!NOTE]
 > This workload doesn't use custom certificates, but the same principles would apply.

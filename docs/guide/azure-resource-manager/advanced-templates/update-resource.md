@@ -16,7 +16,8 @@ categories:
 products:
   - azure-resource-manager
 ms.custom:
-  - article
+  - arb-devops
+  - devx-track-arm-template
 ---
 
 <!-- cSpell:ignore subtemplate ipconfig -->

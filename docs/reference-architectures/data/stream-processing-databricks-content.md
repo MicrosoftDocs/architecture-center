@@ -1,12 +1,12 @@
 <!-- cSpell:ignore eventhubs shapefile Appender malformedrides malformedfares Dropwizard dropoff taxijob durationms timechart startofday endofday DBUs DBCU -->
 
-This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.yml) pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis.
+This reference architecture shows an end-to-end stream processing pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ## Architecture
 
-:::image type="content" source="./images/stream-processing-databricks-new.png" alt-text="[Diagram showing a reference architecture for stream processing with Azure Databricks." border="false" lightbox="./images/stream-processing-databricks-new.png" :::
+:::image type="content" source="./images/stream-processing-databricks.svg" alt-text="Diagram showing a reference architecture for stream processing with Azure Databricks." border="false" lightbox="./images/stream-processing-databricks.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx)* of this architecture.
 
@@ -50,7 +50,7 @@ Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) t
 
 In this scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
-![Diagram of stream processing with Azure Databricks and Event Hubs](./images/stream-processing-databricks-eh-new.png)
+:::image type="content" source="./images/stream-processing-databricks-event-hubs.svg" alt-text="Diagram of stream processing with Azure Databricks and Event Hubs." border="false" lightbox="./images/stream-processing-databricks-event-hubs.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks-eh.vsdx)* of this architecture.
 
@@ -100,7 +100,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](https://docs.databricks.com/user-guide/notebooks/index.html).
 
-In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, the class is specified for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic.
+In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, the class is specified for execution by the Databricks cluster. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
 
 #### Reading the stream from the two event hub instances
 
@@ -128,7 +128,7 @@ val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
 
 The ride data includes the latitude and longitude coordinates of the pick up and drop off locations. While these coordinates are useful, they are not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that is read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
 
-The shapefile format is binary and not easily parsed, but the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates.
+The shapefile format is binary and not easily parsed, but the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the pick up and drop off coordinates.
 
 ```scala
 val neighborhoodFinder = (lon: Double, lat: Double) => {
@@ -214,7 +214,7 @@ maxAvgFarePerNeighborhood
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -245,7 +245,7 @@ In code, secrets are accessed via the Azure Databricks [secrets utilities](https
 
 Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
-As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
+As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
 ```scala
     @transient val appMetrics = new AppMetrics(spark.sparkContext)
@@ -357,7 +357,7 @@ For more information, see [Azure Databricks Pricing][azure-databricks-pricing].
 
 #### Azure Cosmos DB
 
-In this architecture, a series of records are written to Azure Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve, expressed in Request Units per second (RU/s), used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
+In this architecture, a series of records is written to Azure Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve, expressed in Request Units per second (RU/s), used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
 
 For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before performing write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the minimum throughput needed for the given data plus the throughput required for the insert operation assuming no other workload is running.
 

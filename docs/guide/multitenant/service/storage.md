@@ -1,10 +1,10 @@
 ---
 title: Azure Storage considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
+description: This article describes the features of Azure Storage that are useful when working with multitenant systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/08/2022
+ms.date: 06/27/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -13,11 +13,9 @@ products:
   - azure-storage
 categories:
   - storage
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Storage
@@ -30,7 +28,7 @@ Azure Storage includes many features that support multitenancy.
 
 ### Shared access signatures
 
-When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situations, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This connection helps you improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide your client applications with access to objects in Azure Storage.
+When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situations, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This connection helps you improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature (SAS)](/azure/storage/common/storage-sas-overview) enables you to securely provide your client applications with access to objects in Azure Storage.
 
 Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and you store all of tenant A's data in a blob container named `tenanta`, you can create an SAS that only permits tenant A's users to access that container. For more information, see [Isolation models](#isolation-models) to explore the approaches you can use to isolate your tenants' data in a storage account.
 
@@ -40,7 +38,7 @@ The [Valet Key pattern](../../../patterns/valet-key.yml) is useful as a way to i
 
 ### Identity-based access control
 
-Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Azure Active Directory (Azure AD). This capability also enables you to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
+Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Microsoft Entra ID. This capability also enables you to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
 
 ### Lifecycle management
 
@@ -68,15 +66,15 @@ The [Object replication](/azure/storage/blobs/object-replication-overview) featu
 
 ### Encryption
 
-Azure Storage enables you to [provide encryption keys](/azure/storage/blobs/encryption-customer-provided-keys) for your data. In a multitenant solution, consider combining this capability with [encryption scopes](/azure/storage/blobs/encryption-scope-overview), which enable you to define different encryption keys for different tenants, even if their data is stored in the same storage account. By using these features together, you can also provide tenants with control over their own data. If they need to deactivate their account, they can delete the encryption key and their data is no longer accessible.
+Azure Storage enables you to [provide encryption keys](/azure/storage/blobs/encryption-customer-provided-keys) for your data. In a multitenant solution, consider combining this capability with [encryption scopes](/azure/storage/blobs/encryption-scope-overview), which enable you to define different encryption keys for different tenants, even if their data is stored in the same storage account. By using these features together, you can also provide tenants with control over their own data. If they need to deactivate their account, then deleting the encryption key ensures that their data is no longer accessible.
 
 ### Monitoring
 
-When working with a multitenant solution, consider whether you need to [measure the consumption for each tenant](../considerations/measure-consumption.md), and define the specific metrics you need to track, such as the amount of storage used for each tenant (the capacity), or the number of operations performed for each tenant's data.
+When working with a multitenant solution, consider whether you need to [measure the consumption for each tenant](../considerations/measure-consumption.md), and define the specific metrics you need to track, such as the amount of storage used for each tenant (the capacity), or the number of operations performed for each tenant's data. You can also use [cost allocation](../approaches/cost-management-allocation.yml) to track the cost of each tenant's usage and enable chargeback across multiple subscriptions.
 
 Azure Storage provides [built-in monitoring capabilities](/azure/storage/blobs/monitor-blob-storage). It's important to consider the services you'll use within the Azure Storage account. For example, when you work with [blobs](/azure/storage/blobs/monitor-blob-storage-reference), it's possible to view the total capacity of a storage account, but not a single container. In contrast, when you work with file shares, it's possible to see the capacity for each share, but not for each folder.
 
-You can also [log all of the requests made to Azure Storage](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#analyzing-logs), and then you can aggregate and analyze those logs. This provides more flexibility in how you aggregate and group data for each tenant. However, in solutions that create high volumes of requests to Azure Storage, it's important to consider whether the benefit you gain from this approach justifies the cost involved in capturing and processing those logs.
+You can also [log all of the requests made to Azure Storage](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#analyzing-logs), and then you can aggregate and analyze those logs. This approach provides more flexibility in how you aggregate and group data for each tenant. However, in solutions that create high volumes of requests to Azure Storage, it's important to consider whether the benefit you gain from this approach justifies the cost involved in capturing and processing those logs.
 
 [Azure Storage inventory](/azure/storage/blobs/calculate-blob-count-size) provides another approach to measure the total size of a blob container.
 
@@ -114,7 +112,7 @@ When working with blob storage, you might choose to use a shared blob container,
 | `tenant-a` | `https://contoso.blob.core.windows.net/sharedcontainer/tenant-a/blob1.mp4` |
 | `tenant-b` | `https://contoso.blob.core.windows.net/sharedcontainer/tenant-b/blob2.mp4` |
 
-While this approach is simple to implement, in many scenarios, blob paths don't provide sufficient isolation across tenants. This is because blob storage doesn't typically provide a concept of directories or folders. This means you can't assign access to all blobs within a specified path. However, Azure Storage provides a capability to [list (enumerate) blobs that begin with a specified prefix](/rest/api/storageservices/enumerating-blob-resources), which can be helpful when you work with shared blob containers and don't require directory-level access control.
+While this approach is simple to implement, in many scenarios, blob paths don't provide sufficient isolation across tenants. This is because blob storage doesn't provide a concept of directories or folders. This means you can't assign access to all blobs within a specified path. However, Azure Storage provides a capability to [list (enumerate) blobs that begin with a specified prefix](/rest/api/storageservices/enumerating-blob-resources), which can be helpful when you work with shared blob containers and don't require directory-level access control.
 
 Azure Storage's [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace#deciding-whether-to-enable-a-hierarchical-namespace) feature provides the ability to have a stronger concept of a directory or folder, including directory-specific access control. This can be useful in some multitenant scenarios where you have shared blob containers, but you want to grant access to a single tenant's data.
 
@@ -219,14 +217,15 @@ When you dynamically create queues for each tenant, consider how your applicatio
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
  * [Dr. Christian Geuer-Pollmann](https://www.linkedin.com/in/chgeuer) | Principal Customer Engineer, FastTrack for Azure
  * [Patrick Horn](https://www.linkedin.com/in/patrick-horn-4383531) | Senior Customer Engineering Manager, FastTrack for Azure
  * [Ben Hummerstone](https://www.linkedin.com/in/bhummerstone) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

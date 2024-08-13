@@ -4,14 +4,13 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
 author: martinekuan
 categories: azure
-ms.date: 11/07/2022
+ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-devops
 ms.custom:
-  - seojan19
   - guide
 ---
 
@@ -29,7 +28,7 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 **Decompose workloads by scalability requirements.**  Applications often consist of multiple workloads, with different requirements for scaling. For example, an application might have a public-facing site and a separate administration site. The public site may experience sudden surges in traffic, while the administration site has a smaller, more predictable load.
 
-**Offload naturally asycnhronous tasks.** Tasks like sending emails, actions where the user doesn't need an immediate response, and integration with other systems are all good places to make use of [asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
+**Offload naturally asynchronous tasks.** Tasks like sending emails, actions where the user doesn't need an immediate response, and integration with other systems are all good places to make use of [asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
 **Offload resource-intensive tasks.** Tasks that require a lot of CPU or I/O resources should be moved to [background jobs][background-jobs] when possible, to minimize the load on the front end that is handling user requests.
 
@@ -44,9 +43,12 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 - For long-running tasks, consider breaking up the work, using checkpoints or the [Pipes and Filters][pipes-filters-pattern] pattern.
 - Put work items on a queue so that another instance can pick up the work, if an instance is removed in the middle of processing.
 
+**Consider scaling for redundancy.** Scaling out can improve your application's reliability. For example, consider scaling out across multiple [availability zones](/azure/reliability/availability-zones-overview), such as by using zone-redundant services. This approach can improve your application's throughput as well as provide resiliency if one zone experiences an outage.
+
 ## Related resources
 
 - [Autoscaling](/azure/architecture/best-practices/auto-scaling)
+- [Asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication)
 - [Background jobs](/azure/architecture/best-practices/background-jobs)
 - [Pipes and Filters pattern](/azure/architecture/patterns/pipes-and-filters)
 

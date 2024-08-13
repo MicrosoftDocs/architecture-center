@@ -8,8 +8,6 @@ This reference architecture shows a set of proven practices for running an N-tie
 
 ### Workflow
 
-This architecture builds on the one shown in [N-tier application with SQL Server](n-tier-sql-server.yml).
-
 - **Primary and secondary regions**. Use two regions to achieve higher availability. One is the primary region. The other region is for failover.
 
 - **Azure Traffic Manager**. [Traffic Manager][traffic-manager] routes incoming requests to one of the regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](#traffic-manager-configuration).
@@ -109,7 +107,7 @@ To configure the availability group:
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
-- Create a [Windows Server Failover Clustering][wsfc] (WSFC) cluster that includes the SQL Server instances in both regions.
+- Create a [Windows Server Failover Clustering (WSFC)][wsfc] cluster that includes the SQL Server instances in both regions.
 - Create a SQL Server Always On Availability Group that includes the SQL Server instances in both the primary and secondary regions. See [Extending Always On Availability Group to Remote Azure Datacenter (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217) for the steps.
 
   - Put the primary replica in the primary region.
@@ -121,7 +119,7 @@ To configure the availability group:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -227,7 +225,6 @@ The following architecture uses some of the same technologies:
 
 - [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Multi-region load balancing](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
-- [SQL Server failover cluster in Azure](../../example-scenario/sql-failover/sql-failover-2008r2.yml)
 
 <!-- links -->
 

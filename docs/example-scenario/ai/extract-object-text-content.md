@@ -45,7 +45,7 @@ Use cases include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Consider these points when you analyze and process documents:
 
@@ -69,7 +69,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Use standard security practices for the components that you use, and for the SharePoint document library that you store the metadata in.
 
-Form Recognizer is designed with compliance, privacy, and security in mind.  It authenticates access by using an API key, encrypts data during transit and storage, and returns results by using the API key. For more information, see [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security).
+Form Recognizer is designed with compliance, privacy, and security in mind.  It authenticates access by using an API key, encrypts data during transit and storage, and returns results by using the API key. For more information, see [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/document-intelligence/data-privacy-security).
 
 AI Builder relies on environment security and Dataverse security roles and privileges to grant access to AI features in Power Apps. Privileges are set by default in Dataverse. System administrators can use the default built-in security roles without further actions. For more information, see [Security overview](/power-platform/admin/wp-security).
 
@@ -83,7 +83,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Deploy this scenario
 
-For more information on deploying this scenario, see the [Power Automate Community Blog](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705) and the [Extract Text From Objects](https://github.com/Spucelik/ExtractTextFromObjects) GitHub repo.
+For more information on deploying this scenario, see the [Power Automate Community Blog](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705) and the [Extract Text From Objects](https://github.com/microsoft/ExtractTextFromObjects) GitHub repo.
 
 ## Contributors
 
@@ -102,7 +102,4 @@ Principal author:
 
 ## Related resources
 
-- [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
-- [Knowledge mining in contract management](../../solution-ideas/articles/contract-management.yml)
-- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../dronerescue/vision-classifier-model-with-custom-vision.yml)

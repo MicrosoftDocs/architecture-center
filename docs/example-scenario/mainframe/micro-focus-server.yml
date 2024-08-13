@@ -3,9 +3,9 @@ metadata:
   title: Micro Focus Enterprise Server on Azure VMs
   titleSuffix: Azure Example Scenarios
   description: Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.
-  author: jjfrost
-  ms.author: jfrost
-  ms.date: 07/01/2022
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 07/10/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

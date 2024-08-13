@@ -4,7 +4,7 @@ description: Use Azure services to build scalable, resilient, affordable, highly
 author: nabilshams
 ms.author: nasiddi
 categories: azure
-ms.date: 06/21/2022
+ms.date: 06/27/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -14,10 +14,8 @@ azureCategories:
   - web
 products:
   - azure-cosmos-db
-  - azure-data-factory
-  - azure-data-lake-storage
   - azure-table-storage
-  - azure-web-apps
+  - azure-app-service
 ms.custom:
   - fcp
   - guide
@@ -47,7 +45,7 @@ This example isn't atypical. Data grows both as you add customers, and as your c
 
 To design a data storage system on Azure, learn about how to use the many Azure services for various applications and objectives. Meeting data storage needs might require a mix of products. For example, you could keep rarely accessed data in low-cost services, and frequently accessed data in higher-cost services with faster access times.
 
-The articles in the following table outline seven system architectures for web applications. These systems can handle massive amounts of data and are resilient to system failures. These architectures use [Azure Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), and [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage).
+The articles in the following table outline three system architectures for web applications. These systems can handle massive amounts of data and are resilient to system failures. These architectures use [Azure Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), and [Azure App Service](https://azure.microsoft.com/services/app-service).
 
 These examples can help you design a data storage system that accommodates your applications. The following capability matrix provides links to the articles, and summarizes the benefits and drawbacks of each architecture:
 
@@ -55,11 +53,7 @@ These examples can help you design a data storage system that accommodates your 
 |---------|----------|-------|
 |[Two-region web application with Table Storage failover](../../solution-ideas/articles/multi-region-web-app-azure-table-failover.yml)|Easy implementation, cost|Limited resiliency with only two Azure regions|
 |[Multi-region web application with custom Storage Table replication](../../solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml)|Resiliency|Implementation time and difficulty|
-|[Multi-region web application with Azure Cosmos DB replication](../../solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml)|Resiliency, performance, scalability|Cost|
-|[Optimized storage with logical data classification](../../solution-ideas/articles/optimized-storage-logical-data-classification.yml)|Resiliency, performance, scalability, cost|Implementation time, need to design logical data classification|
-|[Optimized Storage – time based – multi writes](../../solution-ideas/articles/optimized-storage-time-based-multi-writes.yml)|Cost|Resiliency, performance, scalability, implementation time, need to design time-based data retention|
-|[Optimized Storage – time based with Data Lake](../../solution-ideas/articles/optimized-storage-time-based-data-lake.yml)|Resiliency, performance, scalability|Implementation time, need to design time-based data retention|
-|[Minimal storage – change feed to replicate data](../../solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Scalability, implementation time|
+|[Minimal storage – change feed to replicate data](../../databases/idea/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Scalability, implementation time|
 
 ## Contributors
 
@@ -80,4 +74,3 @@ Principal author:
 - [Choose a big data storage technology in Azure](../technology-choices/data-storage.md)
 - [Select an Azure data store for your application](../../guide/technology-choices/data-store-decision-tree.md)
 - [Criteria for choosing a data store](../../guide/technology-choices/data-store-considerations.md)
-- [Time series data](time-series.yml)

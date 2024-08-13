@@ -4,21 +4,18 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/22/2022
+ms.date: 07/11/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-virtual-network
- - azure-private-link
+  - azure
+  - azure-virtual-network
+  - azure-private-link
 categories:
- - data
-ms.category:
-  - fcp
+  - networking
 ms.custom:
-  - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Private Link
@@ -51,7 +48,7 @@ When you use Private Link, it's important to consider the service that you want 
 
 You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management, which are network and API gateways.
 
-The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic.
+The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic. Review the documentation for the Azure services you use to understand their support for Private Link.
 
 ### Limits
 
@@ -59,15 +56,15 @@ Carefully consider the number of private endpoints that you can create, based on
 
 Additionally, some services require a specialized networking configuration to use Private Link. For example, if you use Private Link with Azure Application Gateway, you must [provision a dedicated subnet](/azure/application-gateway/private-link-configure), in addition to the standard subnet for the Application Gateway resource.
 
-Carefully test your solution, including your deployment and diagnostic configuration, with your Private Link configuration enabled. Some Azure services block public internet traffic, when a private endpoint is enabled, which can require that you change your deployment and management processes.
+Carefully test your solution, including your deployment and diagnostic configuration, with your Private Link configuration enabled. When private endpoints are enabled on some Azure services, public internet traffic is blocked. This behavior can require that you change your deployment and management processes.
 
 ### Private Link in combination with public-facing services
 
-You might choose to deploy your solution to be both internet-facing and also to be exposed through private endpoints. Consider your overall network topology and the paths that each tenant's traffic follows.
+You might choose to deploy your solution to be both internet-facing and also to be exposed through private endpoints. For example, some of your tenants might require private connectivity while others rely on public internet connectivity. Consider your overall network topology and the paths that each tenant's traffic follows.
 
 When your solution is based on virtual machines that are behind a standard load balancer, you can expose your endpoint via the Private Link service. In this case, a web application firewall and application routing are likely already part of your virtual machine-based workload.
 
-Many Azure PaaS services support Private Link for inbound connectivity, even across different Azure subscriptions and Azure Active Directory tenants. You can use that service's Private Link capabilities to expose your endpoint.
+Many Azure PaaS services support Private Link for inbound connectivity, even across different Azure subscriptions and Microsoft Entra tenants. You can use that service's Private Link capabilities to expose your endpoint.
 
 When you use other internet-facing services, like Azure Front Door, it's important to consider whether they support Private Link for inbound traffic. If they don't, consider how your traffic flows through each path to your solution.
 
@@ -77,7 +74,7 @@ For example, suppose you build an internet-facing application that runs on a vir
 
 ## Isolation models
 
-Private Link is designed to support scenarios where a single application tier can be used by multiple separate clients, such as your tenants. When you consider isolation for Private Link, the main concern is around the number of resources you need to deploy to support your requirements. The tenant isolation models you can use for Private Link depend on the service that you use.
+Private Link is designed to support scenarios where a single application tier can be used by multiple separate clients, such as your tenants. When you consider isolation for Private Link, the main concern is around the number of resources that must be deployed to support your requirements. The tenant isolation models you can use for Private Link depend on the service that you use.
 
 ### Isolation models for Private Link service
 
@@ -110,7 +107,7 @@ More commonly, you can deploy multiple shared Private Link services. This approa
 
 ### Isolation models for Azure PaaS services with private endpoints
 
-When you deploy Azure platform as a service (PaaS) services and want to enable tenants to access those services with private endpoints, then you need to consider the capabilities and constraints of the specific service. Additionally, you need to consider whether your application tier resources are dedicated to a specific tenant or if they're shared between tenants.
+When you deploy Azure platform as a service (PaaS) services and want to enable tenants to access those services with private endpoints, then consider the capabilities and constraints of the specific service. Additionally, consider whether your application tier resources are dedicated to a specific tenant or if they're shared between tenants.
 
 If you deploy a dedicated set of application tier resources for each tenant, it's likely that you can deploy one private endpoint for that tenant to use to access their resources. It's unlikely that you'll exhaust any Private Link-related service limits, because each tenant has their own resources dedicated to them.
 
@@ -130,7 +127,7 @@ Private Link service, and certain other Private Link-compatible Azure services, 
 
 The Private Link service enables you to [control the visibility of your private endpoint](/azure/private-link/private-link-service-overview#control-service-exposure). You might allow all Azure customers to connect to your service, if they know its alias or resource ID. Alternatively, you might restrict access to just a set of known Azure customers.
 
-You can also specify a limited number of pre-approved Azure subscription IDs that can connect to your private endpoint. If you choose to use this approach, consider how you'll collect and authorize subscription IDs. For example, you might provide an administration user interface in your application to collect a tenant's subscription ID. Then, you can dynamically reconfigure your Private Link service instance to pre-approve that subscription ID for connections.
+You can also specify a set of pre-approved Azure subscription IDs that can connect to your private endpoint. If you choose to use this approach, consider how you'll collect and authorize subscription IDs. For example, you might provide an administration user interface in your application to collect a tenant's subscription ID. Then, you can dynamically reconfigure your Private Link service instance to pre-approve that subscription ID for connections.
 
 ### Connection approvals
 
@@ -162,8 +159,8 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 Principal authors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributor:
 

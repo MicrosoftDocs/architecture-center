@@ -3,7 +3,7 @@ title: Solutions for the travel and hospitality industries
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build solutions in the travel and hospitality industries.
 author: martinekuan
-ms.author: architectures
+ms.author: robbag
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -55,9 +55,7 @@ The following articles provide detailed analysis of architectures created and re
 
 | Architecture | Summary | Technology focus
 | ------- | ------- | ------- |
-|[Build a chatbot for hotel booking](../example-scenario/ai/commerce-chatbot.yml)|Integrate a conversational chatbot into your applications. Chatbots can supplement your customer service agents, by responding to customer requests.|AI|
 |[Build a delta lake to support ad hoc queries in online leisure and travel booking](../solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml)|Make raw data easily accessible. This data is important to technical and customer support teams, data engineers, and legal teams.|Databases|
-|[Commerce chatbot for customer service](../solution-ideas/articles/commerce-chatbot.yml)|Create a conversational commerce chatbot for banking, travel, and entertainment.|AI|
 |[Custom business processes for airlines](../solution-ideas/articles/custom-business-processes.yml)|Monitor customer flight data, when a traveler selects or is assigned a flight.|Integration|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve efficiency, enhance customer experiences, and predict changes in your business with data science and machine learning.|AI|
 |[Migrate a web app using Azure API Management](../example-scenario/apps/apim-api-scenario.yml)|Migrate from your legacy web applications by using Azure API Management.|Web|
@@ -67,8 +65,5 @@ The following articles provide detailed analysis of architectures created and re
 
 The following are other ideas that you can use as a starting point for your travel and hospitality solution.
 
-- [Build web and mobile applications](../solution-ideas/articles/webapps.yml)
-- [Cognizant Safe Buildings with IoT and Azure](../solution-ideas/articles/safe-buildings.yml)
 - [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
-- [Predictive maintenance](../solution-ideas/articles/predictive-maintenance.yml)

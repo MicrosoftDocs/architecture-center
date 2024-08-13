@@ -4,21 +4,19 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Key Vault that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Key Vault in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/19/2022
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-key-vault
+  - azure
+  - azure-key-vault
 categories:
- - management-and-governance
- - security
-ms.category:
-  - fcp
+  - management-and-governance
+  - security
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Key Vault
@@ -48,8 +46,6 @@ The following table summarizes the differences between the main tenancy models f
 
 You might consider deploying a vault for each of your tenants within your (the service provider's) Azure subscription. This approach provides you with strong data isolation between each tenant's data, but it requires that you deploy and manage an increasing number of vaults, as you increase the number of tenants.
 
-This approach makes sense when you have separate application deployments for each tenant. If you have a shared application tier, it's unlikely that using separate vaults will give you much data isolation benefit, because all of the vaults need to trust the same application tier.
-
 There's no limit to the number of vaults you can deploy into an Azure subscription. However, you should consider the following limits:
 
 - [There are subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) on the number of requests in a time period. These limits apply regardless of the number of vaults in the subscription. So, it's important to follow our [throttling guidance](/azure/key-vault/general/overview-throttling), even when you have tenant-specific vaults.
@@ -57,9 +53,9 @@ There's no limit to the number of vaults you can deploy into an Azure subscripti
 
 ### Vault per tenant, in the tenant's subscription
 
-In some situations, your tenants might create vaults in their own Azure subscriptions, and they might want to grant your application access to work with secrets, certificates, or keys. This approach is appropriate when you allow *customer-managed keys* (CMKs) for encryption within your solution.
+In some situations, your tenants might create vaults in their own Azure subscriptions, and they might want to grant your application access to work with secrets, certificates, or keys. This approach is appropriate when you allow *customer-managed keys (CMKs)* for encryption within your solution.
 
-In order to access the data in your tenant's vault, the tenant must provide your application with access to their vault. This process requires that your application authenticates through their Azure AD instance. One approach is to publish a [multitenant Azure AD application](/azure/active-directory/develop/single-and-multi-tenant-apps). Your tenants must perform a one-time consent process. They first register the multitenant Azure AD application in their own Azure AD tenant. Then, they grant your multitenant Azure AD application the appropriate level of access to their vault. They also need to provide you with the full resource ID of the vault that they've created. Then, your application code can use a service principal that's associated with the multitenant Azure AD application in your own Azure AD, to access each tenant's vault.
+In order to access the data in your tenant's vault, the tenant must provide your application with access to their vault. This process requires that your application authenticates through their Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/azure/active-directory/develop/single-and-multi-tenant-apps). Your tenants must perform a one-time consent process. They first register the multitenant Microsoft Entra application in their own Microsoft Entra tenant. Then, they grant your multitenant Microsoft Entra application the appropriate level of access to their vault. They also need to provide you with the full resource ID of the vault that they've created. Then, your application code can use a service principal that's associated with the multitenant Microsoft Entra application in your own Microsoft Entra ID, to access each tenant's vault.
 
 Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. However, this approach requires that you securely store and manage credentials for each tenant, which is a potential security liability.
 
@@ -112,12 +108,12 @@ More information:
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
  * [Jack Lichwa](https://www.linkedin.com/in/jacklichwa) | Principal Product Manager, Azure Key Vault
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

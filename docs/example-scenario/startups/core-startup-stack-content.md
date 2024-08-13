@@ -68,7 +68,7 @@ The lack of repeatable and rapid deployments is one of the worst impediments to 
 
 ## Deploy this scenario
 
-You can see a sample core startup stack implementation [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). The sample uses a Ruby on Rails app. The concepts and techniques are the same for most projects you build by using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
+The concepts and techniques are the same for most projects you build by using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
 
 ## Contributors
 

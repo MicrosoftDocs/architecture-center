@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL). Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article describes the architecture and design considerations of a solution that delivers an optimized approach to the disaster recovery of workloads that run on virtual machines (VMs) that are hosted on Azure Stack Hub.
 
 ## Architecture
@@ -11,7 +14,7 @@ This article describes the architecture and design considerations of a solution 
 The cloud components of the proposed solution include the following services:
 
 - An Azure subscription that hosts all cloud resources that are part of this solution.
-- An [Azure Active Directory (Azure AD)](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Azure AD security principals to authorize access to Azure resources.
+- A [Microsoft Entra ID](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Microsoft Entra security principals to authorize access to Azure resources.
 - An [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) vault in the Azure region that's closest to an on-premises datacenter that hosts the Azure Stack Hub deployment.
 
   > [!NOTE]
@@ -40,7 +43,7 @@ The on-premises components of the proposed solution include the following servic
 
 ### Components
 
-- [Azure Active Directory](https://azure.microsoft.com/products/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network)
 - [Azure Recovery Services](https://azure.microsoft.com/products/site-recovery)
 - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute)
@@ -136,7 +139,7 @@ After the primary site becomes available again, Site Recovery supports reversing
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -327,7 +330,7 @@ Planning for and implementing disaster recovery of Azure Stack Hub VM-based work
 
 - Azure Stack Hub operators manage Azure Stack Hub infrastructure, ensuring that there are sufficient compute, storage, and network resources necessary for implementing a comprehensive disaster recovery solution and making these resources available to tenants. They also collaborate with application and data owners to help determine the optimal approach to deploying their workloads to Azure Stack Hub.
 - Azure administrators manage Azure resources necessary to implement hybrid disaster recovery solutions.
-- Azure AD administrators manage Azure AD resources, including user and group objects that are used to provision, configure, and manage Azure resources.
+- Microsoft Entra administrators manage Microsoft Entra resources, including user and group objects that are used to provision, configure, and manage Azure resources.
 - Azure Stack Hub tenant IT staff designs, implements, and manages Site Recovery, including failover and failback.
 - Azure Stack Hub users need to provide RPO and RTO requirements and submit requests to implement disaster recovery for their workloads.
 
@@ -440,7 +443,7 @@ In conclusion, Azure Stack Hub is a unique offering, which differs in many aspec
 
 It's important to note that the disaster recovery solution described here focused exclusively on VM-based workloads of Azure Stack Hub. This is only part of an overall business continuity strategy that should account for other Azure Stack Hub workload types and scenarios that affect their availability.
 
-[architectural-diagram]: ./images/azure-stack-vm-dr.png
+[architectural-diagram]: ./images/azure-stack-vm-dr.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-vm-dr.vsdx
 
 ## Next steps
@@ -449,7 +452,7 @@ Product documentation:
 
 - [About Site Recovery](/azure/site-recovery/site-recovery-overview)
 - [Azure Stack Hub overview](/azure-stack/operator/azure-stack-overview)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
@@ -457,7 +460,7 @@ Product documentation:
 Microsoft Learn modules:
 
 - [Azure Stack Hub](/training/modules/azure-stack-hub)
-- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Microsoft Entra ID](/training/modules/configure-azure-active-directory)
 - [Configure storage accounts](/training/modules/configure-storage-accounts)
 - [Configure virtual networks](/training/modules/configure-virtual-networks)
 - [Design and implement Azure ExpressRoute](/training/modules/design-implement-azure-expressroute)

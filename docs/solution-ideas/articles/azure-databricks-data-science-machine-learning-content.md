@@ -115,7 +115,7 @@ Examples include organizations in:
 [AGL achieves machine learning at scale with a standardized platform on Azure Machine Learning]: https://customers.microsoft.com/story/844796-agl-energy-azure
 [AKS]: https://azure.microsoft.com/services/kubernetes-service
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
-[Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks.yml
+[Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
 [Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores.md
 [Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Delta Lake]: https://databricks.com/product/delta-lake-on-databricks

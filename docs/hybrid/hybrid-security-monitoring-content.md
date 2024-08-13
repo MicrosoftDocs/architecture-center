@@ -2,7 +2,7 @@ This reference architecture illustrates how to use Microsoft Defender for Cloud 
 
 ## Architecture
 
-![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel][architectural-diagram]
+![Diagram that shows monitoring agent on on-premises as well as on Azure transferring data to Microsoft Defender for Cloud and Microsoft Sentinel.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -52,7 +52,7 @@ This reference architecture uses **Microsoft Defender for Cloud** to monitor on-
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -71,9 +71,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 As previously described, costs beyond your Azure subscription can include:
 
-  1. Microsoft Defender for Cloud costs. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
-  1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
-  1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
+1. Microsoft Defender for Cloud costs. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
+1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
+1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
 ### Operational excellence
 
@@ -170,9 +170,9 @@ When complete, the Log Analytics agent appears in Windows Control Panel, and you
 
 For further information about installing and configuring the agent, refer to [Install Log Analytics agent on Windows computers][azure-monitor-install-agent].
 
-The Log Analytics Agent service collects event and performance data, executes tasks, and other workflows defined in a management pack. Defender for Cloud extends its cloud workload protection platforms by integrating with **Microsoft Defender Advanced Threat Protection (ATP)** for **Servers**. Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
+The Log Analytics Agent service collects event and performance data, executes tasks, and other workflows defined in a management pack. Defender for Cloud extends its cloud workload protection platforms by integrating with **Microsoft Defender for Servers**. Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
 
-For more information about Microsoft Defender ATP, refer to [Onboard servers to the Microsoft Defender ATP service.][windows-defender-atp-onboard]
+For more information about Microsoft Defender for Servers, refer to [Onboard servers to the Microsoft Defender for Servers service.][windows-defender-atp-onboard]
 
 ### Enable Microsoft Defender for Cloud monitoring of on-premises Linux computers
 
@@ -238,7 +238,7 @@ There are two types of icons represented on the **Compute** blade:
 
 The role of Microsoft Sentinel is to ingest data from different data sources and perform data correlation across these data sources. Microsoft Sentinel leverages machine learning and AI to make threat hunting, alert detection, and threat responses smarter.
 
-To onboard Microsoft Sentinel, you need to enable it, and then connect your data sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration, including Microsoft Security Center, Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Azure Active Directory (Azure AD), Azure ATP, Microsoft Defender for Cloud Apps, and more. Additionally, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format, syslog, or the Representational State Transfer API to connect your data sources with Microsoft Sentinel.
+To onboard Microsoft Sentinel, you need to enable it, and then connect your data sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration, including Microsoft Defender for Cloud, Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Microsoft Entra ID, Microsoft Defender for Servers, Microsoft Defender for Cloud Apps, and more. Additionally, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format, syslog, or the Representational State Transfer API to connect your data sources with Microsoft Sentinel.
 
 ### Requirements for integrating Microsoft Sentinel with Microsoft Defender for Cloud
 
@@ -273,9 +273,6 @@ All three requirements should be in place if you worked through the previous sec
 
 One advantage of using Microsoft Sentinel as your SIEM is that it provides data correlation across multiple sources, which enables you to have an end-to-end visibility of your organization's security-related events.
 
-> [!NOTE]
-> To learn how to increase visibility in your data and identify potential threats, refer to [Azure playbooks on TechNet Gallery][technet-gallery-azure-playbooks], which has a collection of resources including a lab in which you can simulate attacks. You should not use this lab in a production environment.
-
 To learn more about Microsoft Sentinel, refer to the following articles:
 
 - [Quickstart][azure-sentinel-quickstart]: Get started with Microsoft Sentinel
@@ -290,7 +287,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 ### Microsoft Defender for Cloud
 
 - [Microsoft Defender for Cloud][azure-security-center]
-- [Microsoft Defender for Cloud Cloud Smart Alert Correlation][azure-security-center-cloud-smart-alert-correlation]
+- [Microsoft Defender for Cloud Smart Alert Correlation][azure-security-center-cloud-smart-alert-correlation]
 - [Microsoft Defender for Cloud Connect Data][azure-security-center-connect-data]
 - [Microsoft Defender for Cloud Coverage][azure-security-center-coverage]
 - [Microsoft Defender for Cloud Endpoint Protection][azure-security-center-endpoint-protection]
@@ -332,7 +329,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Centralized app configuration and security](../solution-ideas/articles/appconfig-key-vault.yml)
 - [Automate Sentinel integration with Azure DevOps](../example-scenario/devops/automate-sentinel-integration.yml)
 
-[architectural-diagram]: ./images/hybrid-security-monitoring.png
+[architectural-diagram]: ./images/hybrid-security-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx
 [azure-monitor]: /azure/azure-monitor/
 [azure-monitor-install-agent]: /azure/azure-monitor/platform/agent-windows#install-agent-using-setup-wizard
@@ -382,5 +379,4 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 [screenshot-overview]: ./images/hybrid-security-monitoring-asc-overview.png
 [screenshot-search]: ./images/hybrid-security-monitoring-search-sentinel.png
 [screenshot-workspace]: ./images/hybrid-security-monitoring-workspace.png
-[technet-gallery-azure-playbooks]: https://gallery.technet.microsoft.com/site/search?query=Azure%20playbook&f[1].Value=Azure%20playbook&f[1].Type=SearchText&f[0].Value=security&f[0].Type=RootCategory&ac=5
 [windows-defender-atp-onboard]: /windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints

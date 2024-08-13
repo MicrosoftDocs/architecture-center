@@ -7,7 +7,7 @@ ms.author: prwilk
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
@@ -365,8 +365,7 @@ Aided with this understanding of different data storage models, the next step is
 
 ## Related resources
 
-- [Databases architecture design](../../data-guide/databases-architecture-design.yml)
-- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.yml)
 - [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
 - [Data store decision tree](data-store-decision-tree.md)
 

@@ -6,8 +6,9 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 ## Architecture
 
-![Architecture diagram that shows how streaming data from devices is ingested, processed, and analyzed.](../media/data-streaming-scenario.png)
-*Download an [SVG](../media/data-streaming-scenario.svg) of this architecture.*
+![Architecture diagram that shows how streaming data from devices is ingested, processed, and analyzed.](../media/data-streaming-scenario.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/data-streaming-scenario.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -24,7 +25,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 The solution uses the following key technologies:
 
 - [API Management](https://azure.microsoft.com/services/api-management)
-- [App Service](https://azure.microsoft.com/services/app-service)
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 - [Container Registry](https://azure.microsoft.com/services/container-registry)
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
@@ -83,4 +84,3 @@ Microsoft training modules:
 
 - [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
 - [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml)
-- [Instant IoT data streaming with AKS](aks-iot-data-streaming.yml)

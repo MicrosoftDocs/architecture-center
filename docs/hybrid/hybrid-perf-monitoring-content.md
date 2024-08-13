@@ -2,7 +2,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 ## Architecture
 
-![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram]
+[ ![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram] ](./images/hybrid-perf-monitoring.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -95,7 +95,7 @@ For critical applications, create an **Azure Dashboard** view. Share or make you
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -202,10 +202,9 @@ Explore related architectures:
 
 - [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Unified logging for microservices applications](../example-scenario/logging/unified-logging.yml)
-- [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.yml)
+- [Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)
 
-[architectural-diagram]: ./images/hybrid-perf-monitoring.png
+[architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx
 [agents-overview]: /azure/azure-monitor/platform/log-analytics-agent
 [dependency-agent]: /azure/azure-monitor/platform/agents-overview#dependency-agent
@@ -226,7 +225,7 @@ Explore related architectures:
 [vms-by-policy]: /azure/azure-monitor/insights/vminsights-enable-at-scale-policy
 [vms-by-powershell]: /azure/azure-monitor/insights/vminsights-enable-at-scale-powershell
 [vm-by-dsc]: /azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#desired-state-configuration
-[distributed-tracing]: /azure/azure-monitor/app/distributed-tracing
+[distributed-tracing]: /azure/azure-monitor/app/distributed-tracing-telemetry-correlation
 [triage-applications]: /azure/azure-monitor/app/app-map?tabs=net
 [interactive-workbooks]: /azure/azure-monitor/insights/vminsights-workbooks
 [partner-integrations]: /azure/azure-monitor/platform/partners

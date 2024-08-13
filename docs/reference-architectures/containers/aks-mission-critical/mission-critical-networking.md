@@ -1,13 +1,15 @@
 ---
 title: Networking and connectivity for mission-critical workloads on Azure
 description: Networking decisions for the baseline reference architecture for a mission-critical workload on Azure. 
-author: sebader
+author: asudbring
 categories: networking
 ms.author: allensu
-ms.date: 06/28/2022
+ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom:
+  - arb-containers
 ms.category:
   - networking
 azureCategories:

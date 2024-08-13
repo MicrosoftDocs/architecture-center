@@ -58,8 +58,5 @@ Principal author:
 ## Related resources
 
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
-- [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-- [Interactive voice response app with bot](interactive-voice-response-bot.yml)
-- [Speech services](speech-services.yml)
+- [Build an enterprise-grade conversational bot](../../ai-ml/architecture/conversational-bot.yml)
 - [Keyword search and speech-to-text with OCR digital media](digital-media-speech-text.yml)
-- [Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)

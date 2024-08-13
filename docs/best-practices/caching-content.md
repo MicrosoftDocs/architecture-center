@@ -30,7 +30,7 @@ Think of a cache as a snapshot of the original data at some point in the past. I
 
 ![The results of using an in-memory cache in different instances of an application](./images/caching/Figure1.png)
 
-_Figure 1: Using an in-memory cache in different instances of an application._
+*Figure 1: Using an in-memory cache in different instances of an application.*
 
 ### Shared caching
 
@@ -38,7 +38,7 @@ If you use a shared cache, it can help alleviate concerns that data might differ
 
 ![The results of using a shared cache](./images/caching/Figure2.png)
 
-_Figure 2: Using a shared cache._
+*Figure 2: Using a shared cache.*
 
 An important benefit of the shared caching approach is the scalability it provides. Many shared cache services are implemented by using a cluster of servers and use software to distribute the data across the cluster transparently. An application instance simply sends a request to the cache service. The underlying infrastructure determines the location of the cached data in the cluster. You can easily scale the cache by adding more servers.
 
@@ -135,7 +135,7 @@ This approach requires careful configuration to prevent the local cache from bec
 
 ![Using a local private cache with a shared cache](./images/caching/Caching3.png)
 
-_Figure 3: Using a local private cache with a shared cache._
+*Figure 3: Using a local private cache with a shared cache.*
 
 To support large caches that hold relatively long-lived data, some cache services provide a high-availability option that implements automatic failover if the cache becomes unavailable. This approach typically involves replicating the cached data that's stored on a primary cache server to a secondary cache server, and switching to the secondary server if the primary server fails or connectivity is lost.
 
@@ -169,7 +169,7 @@ To protect data in the cache, the cache service might implement an authenticatio
 - Which identities can access data in the cache.
 - Which operations (read and write) that these identities are allowed to perform.
 
-To reduce overhead that's associated with reading and writing data, after an identity has been granted write and/or read access to the cache, that identity can use any data in the cache.
+To reduce overhead that's associated with reading and writing data, after an identity has been granted write or read access to the cache, that identity can use any data in the cache.
 
 If you need to restrict access to subsets of the cached data, you can do one of the following:
 
@@ -250,7 +250,7 @@ For more information, visit the [Redis security](https://redis.io/topics/securit
 
 Azure Cache for Redis provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
 
-The portal provides a number of predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with an SLA of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
+The portal provides a number of predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with a service-level agreement (SLA) of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
 
 Using the Azure portal, you can also configure the eviction policy of the cache, and control access to the cache by adding users to the roles provided. These roles, which define the operations that members can perform, include Owner, Contributor, and Reader. For example, members of the Owner role have complete control over the cache (including security) and its contents, members of the Contributor role can read and write information in the cache, and members of the Reader role can only retrieve data from the cache.
 
@@ -262,7 +262,7 @@ Additionally, you can create alerts that send email messages to an administrator
 
 You can also monitor the CPU, memory, and network usage for the cache.
 
-For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page [Lap around Azure Cache for Redis](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview) on the Azure blog.
+For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page Lap around Azure Cache for Redis on the Azure blog.
 
 ## Caching session state and HTML output
 
@@ -284,7 +284,7 @@ Similarly, the output cache provider for Azure Cache for Redis enables you to sa
 
 ## Building a custom Redis cache
 
-Azure Cache for Redis acts as a façade to the underlying Redis servers. If you require an advanced configuration that isn't covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure virtual machines.
+Azure Cache for Redis acts as a façade to the underlying Redis servers. If you require an advanced configuration that isn't covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure Virtual Machines.
 
 This is a potentially complex process because you might need to create several VMs to act as primary and subordinate nodes if you want to implement replication. Furthermore, if you wish to create a cluster, then you need multiple primaries and subordinate servers. A minimal clustered replication topology that provides a high degree of availability and scalability comprises at least six VMs organized as three pairs of primary/subordinate servers (a cluster must contain at least three primary nodes).
 
@@ -306,7 +306,7 @@ For a cache, the most common form of partitioning is sharding. In this strategy,
 
 To implement partitioning in a Redis cache, you can take one of the following approaches:
 
-- *Server-side query routing.* In this technique, a client application sends a request to any of the Redis servers that comprise the cache (probably the closest server). Each Redis server stores metadata that describes the partition that it holds, and also contains information about which partitions are located on other servers. The Redis server examines the client request. If it can be resolved locally, it will perform the requested operation. Otherwise it will forward the request on to the appropriate server. This model is implemented by Redis clustering, and is described in more detail on the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial) page on the Redis website. Redis clustering is transparent to client applications, and additional Redis servers can be added to the cluster (and the data re-partitioned) without requiring that you reconfigure the clients.
+- *Server-side query routing.* In this technique, a client application sends a request to any of the Redis servers that comprise the cache (probably the closest server). Each Redis server stores metadata that describes the partition that it holds, and also contains information about which partitions are located on other servers. The Redis server examines the client request. If it can be resolved locally, it will perform the requested operation. Otherwise it will forward the request on to the appropriate server. This model is implemented by Redis clustering, and is described in more detail on the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial) page on the Redis website. Redis clustering is transparent to client applications, and additional Redis servers can be added to the cluster (and the data repartitioned) without requiring that you reconfigure the clients.
 - *Client-side partitioning.* In this model, the client application contains logic (possibly in the form of a library) that routes requests to the appropriate Redis server. This approach can be used with Azure Cache for Redis. Create multiple Azure Cache for Redis (one for each data partition) and implement the client-side logic that routes the requests to the correct cache. If the partitioning scheme changes (if additional Azure Cache for Redis are created, for example), client applications might need to be reconfigured.
 - *Proxy-assisted partitioning.* In this scheme, client applications send requests to an intermediary proxy service which understands how the data is partitioned and then routes the request to the appropriate Redis server. This approach can also be used with Azure Cache for Redis; the proxy service can be implemented as an Azure cloud service. This approach requires an additional level of complexity to implement the service, and requests might take longer to perform than using client-side partitioning.
 
@@ -320,7 +320,7 @@ To connect to a Redis server you use the static `Connect` method of the `Connect
 
 You can specify the connection parameters, such as the address of the Redis host and the password. If you use Azure Cache for Redis, the password is either the primary or secondary key that is generated for Azure Cache for Redis by using the Azure portal.
 
-After you have connected to the Redis server, you can obtain a handle on the Redis database that acts as the cache. The Redis connection provides the `GetDatabase` method to do this. You can then retrieve items from the cache and store data in the cache by using the `StringGet` and `StringSet` methods. These methods expect a key as a parameter, and return the item either in the cache that has a matching value (`StringGet`) or add the item to the cache with this key (`StringSet`).
+After you have connected to the Redis server, you can obtain a handle on the Redis Database that acts as the cache. The Redis connection provides the `GetDatabase` method to do this. You can then retrieve items from the cache and store data in the cache by using the `StringGet` and `StringSet` methods. These methods expect a key as a parameter, and return the item either in the cache that has a matching value (`StringGet`) or add the item to the cache with this key (`StringSet`).
 
 Depending on the location of the Redis server, many operations might incur some latency while a request is transmitted to the server and a response is returned to the client. The StackExchange library provides asynchronous versions of many of the methods that it exposes to help client applications remain responsive. These methods support the [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in the .NET Framework.
 
@@ -382,12 +382,8 @@ public static class RedisCacheExtensions
 
         if (o != null)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                binaryFormatter.Serialize(memoryStream, o);
-                objectDataAsStream = memoryStream.ToArray();
-            }
+            var jsonString = JsonSerializer.Serialize(o);
+            objectDataAsStream = Encoding.ASCII.GetBytes(jsonString);
         }
 
         return objectDataAsStream;
@@ -399,11 +395,8 @@ public static class RedisCacheExtensions
 
         if (stream != null)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (MemoryStream memoryStream = new MemoryStream(stream))
-            {
-                result = (T)binaryFormatter.Deserialize(memoryStream);
-            }
+            var jsonString = Encoding.ASCII.GetString(stream);
+            result = JsonSerializer.Deserialize<T>(jsonString);
         }
 
         return result;
@@ -415,7 +408,6 @@ The following code illustrates a method named `RetrieveBlogPost` that uses these
 
 ```csharp
 // The BlogPost type
-[Serializable]
 public class BlogPost
 {
     private HashSet<string> tags;
@@ -462,7 +454,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-For additional information on writing client applications that can use the Azure Cache for Redis, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md).
+For additional information on writing client applications that can use the Azure Cache for Redis, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/main/docs/Basics.md).
 
 The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.
 
@@ -652,7 +644,7 @@ List<string[]> tags = new List<string[]>
 };
 
 List<BlogPost> posts = new List<BlogPost>();
-int blogKey = 1;
+int blogKey = 0;
 int numberOfPosts = 20;
 Random random = new Random();
 for (int i = 0; i < numberOfPosts; i++)
@@ -858,7 +850,7 @@ When you choose a serialization format, consider tradeoffs between performance, 
 
 Some options to consider include:
 
-- [Protocol Buffers](https://github.com/google/protobuf) (also called protobuf) is a serialization format developed by Google for serializing structured data efficiently. It uses strongly typed definition files to define message structures. These definition files are then compiled to language-specific code for serializing and deserializing messages. Protobuf can be used over existing RPC mechanisms, or it can generate an RPC service.
+- [Protocol Buffers](https://protobuf.dev) (also called protobuf) is a serialization format developed by Google for serializing structured data efficiently. It uses strongly typed definition files to define message structures. These definition files are then compiled to language-specific code for serializing and deserializing messages. Protobuf can be used over existing RPC mechanisms, or it can generate an RPC service.
 
 - [Apache Thrift](https://thrift.apache.org) uses a similar approach, with strongly typed definition files and a compilation step to generate the serialization code and RPC services.
 
@@ -866,7 +858,7 @@ Some options to consider include:
 
 - [JSON](https://json.org) is an open standard that uses human-readable text fields. It has broad cross-platform support. JSON doesn't use message schemas. Being a text-based format, it isn't very efficient over the wire. In some cases, however, you may be returning cached items directly to a client via HTTP, in which case storing JSON could save the cost of deserializing from another format and then serializing to JSON.
 
-- [BSON](http://bsonspec.org) is a binary serialization format that uses a structure similar to JSON. BSON was designed to be lightweight, easy to scan, and fast to serialize and deserialize, relative to JSON. Payloads are comparable in size to JSON. Depending on the data, a BSON payload may be smaller or larger than a JSON payload. BSON has some additional data types that aren't available in JSON, notably BinData (for byte arrays) and Date.
+- [binary JSON (BSON)](http://bsonspec.org) is a binary serialization format that uses a structure similar to JSON. BSON was designed to be lightweight, easy to scan, and fast to serialize and deserialize, relative to JSON. Payloads are comparable in size to JSON. Depending on the data, a BSON payload may be smaller or larger than a JSON payload. BSON has some additional data types that aren't available in JSON, notably BinData (for byte arrays) and Date.
 
 - [MessagePack](https://msgpack.org) is a binary serialization format that is designed to be compact for transmission over the wire. There are no message schemas or message type checking.
 

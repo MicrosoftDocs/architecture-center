@@ -4,9 +4,9 @@ This architecture illustrates an implementation of a Sterling Order Management S
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of a Sterling OMS IBM order management system on Azure." source="./media/deploy-ibm-sterling-oms-architecture.png" lightbox="./media/deploy-ibm-sterling-oms-architecture.png" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of a Sterling OMS IBM order management system on Azure." source="./media/deploy-ibm-sterling-oms-architecture.svg" lightbox="./media/deploy-ibm-sterling-oms-architecture.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-2026672-deploy-ibm-sterling-oms-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-sterling-oms-architecture.vsdx) of this architecture.*
 
 You can deploy a workload so that it's internally or externally facing. Use the configuration that best suits your requirements.
 
@@ -67,9 +67,9 @@ For more OMS use cases, see [IBM Sterling Order Management](https://www.ibm.com/
 
 ## Recommendations
 
-This guidance supports Sterling OMS 10.0 Q3 2022 and later versions. These versions provide the best integration options with Azure because they support PostgresSQL and the Azure Red Hat OpenShift container platform. Before you build out your own deployment, use [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling) to deploy Sterling OMS. When you then understand how the deployment and configuration work, you can more quickly determine your implementation's design requirements.
+This guidance supports Sterling OMS 10.0 Q3 2022 and later versions. These versions provide the best integration options with Azure because they support PostgreSQL and the Azure Red Hat OpenShift container platform. Before you build out your own deployment, use [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling) to deploy Sterling OMS. When you then understand how the deployment and configuration work, you can more quickly determine your implementation's design requirements.
 
-Microsoft works closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. These resources follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). For support beyond this documentation, contact your IBM account team.
+Microsoft works closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. These resources follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). For support beyond this documentation, contact your IBM account team.
 
 Before you proceed with your deployment, answer the following questions about your design:
 
@@ -134,7 +134,7 @@ IBM also supports other JMS-based message queuing systems, such as Apache Active
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -159,7 +159,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 The port numbers and ranges that you need to open depend on many factors. Some to consider are:
 
 - Port 443, for service-to-service communication.
-- Database-specific ports such as port 5432 for the flexible server option of Azure Database for PostgresSQL.
+- Database-specific ports such as port 5432 for the flexible server option of Azure Database for PostgreSQL.
 - Message queue ports such as port 1414 for IBM MQ.
 
 Also consider these points:
@@ -177,7 +177,7 @@ You should configure OAuth for Azure Red Hat OpenShift. For more information, se
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure Active Directory (Azure AD) tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
 
 ### Cost optimization
 
@@ -243,7 +243,7 @@ IBM offers specialized services to help you with installation. Contact your IBM 
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -278,6 +278,5 @@ Other contributors:
 ## Related resources
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
-- [JBoss deployment with Red Hat on Azure](../../solution-ideas/articles/jboss-deployment-red-hat.yml)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
-- [Run Oracle databases on Azure](../../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)
+- [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
+- [Oracle on Azure architecture design](../../solution-ideas/articles/oracle-on-azure-start-here.md)

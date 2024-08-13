@@ -4,8 +4,9 @@ Create cloud-based applications by using Azure Stack while integrating and prese
 
 ## Architecture
 
-![Architecture diagram shows user enters data to Web apps to Inter V NET data transfer to Kuberbetes to on-premises network.](../media/unlock-legacy-data.png)
-*Download an [SVG](../media/unlock-legacy-data.svg) of this architecture.*
+![Architecture diagram shows user enters data to Web apps to Inter V NET data transfer to Kuberbetes to on-premises network.](../media/unlock-legacy-data.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/unlock-legacy-data.vsdx) of this architecture.*
 
 ### Dataflow
 

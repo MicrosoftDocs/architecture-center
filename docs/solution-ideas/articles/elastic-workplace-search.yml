@@ -1,25 +1,26 @@
 ### YamlMime:Architecture
 metadata:
-  title: Elastic Workplace Search on Azure
+  title: Elastic Enterprise Search on Azure
   titleSuffix: Azure Solution Ideas
-  description: Elastic Workplace Search streamlines search for all work documents and data. Learn how to deploy it and optimize productivity.
+  description: Elastic Enterprise Search streamlines search for all work documents and data. Learn how to deploy it and optimize productivity.
   author: YenChiHo
   ms.author: yenchiho
-  ms.date: 01/06/2023
+  ms.date: 06/07/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: arb-integrations
 azureCategories:
   - developer-tools
   - migration
 products:
   - azure-kubernetes-service
   - azure-storage
-  - azure-linux-vm
+  - azure-virtual-machines
   - azure-app-service
   - azure-virtual-network
-name: Elastic Workplace Search on Azure
-summary: Elastic Workplace Search streamlines search for all work documents and data. Learn how to deploy it and optimize productivity.
+name: Elastic Enterprise Search on Azure
+summary: Elastic Enterprise Search streamlines search for all work documents and data. Learn how to deploy it and optimize productivity.
 thumbnailUrl: /azure/architecture/browse/thumbs/elastic-workplace-search.png
 content: |
   [!include[](elastic-workplace-search-content.md)]

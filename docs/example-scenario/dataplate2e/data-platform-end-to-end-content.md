@@ -4,7 +4,7 @@ The solution described in this article combines a range of Azure services that w
 
 ## Architecture
 
-[![Architecture for a modern data platform using Azure data services](./media/azure-analytics-end-to-end.png)](./media/azure-analytics-end-to-end.png#lightbox)
+[![Architecture diagram for a modern data platform using Azure data services.](./media/azure-analytics-end-to-end.svg)](./media/azure-analytics-end-to-end.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-with-azuresynapse-updated.vsdx) of this architecture*.
 
@@ -64,7 +64,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use either [data flows](/azure/data-factory/concepts-data-flow-overview), [SQL serverless queries](/training/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake), or [Spark notebooks](/training/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, and move the datasets from the Raw layer, through the Enriched layer and into your Curated layer in your data lake.
 
-    1. As part of your data transformations, you can invoke machine-traininging models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
+    1. As part of your data transformations, you can invoke machine-training models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
 ##### Serve
 
@@ -188,8 +188,8 @@ The following Azure services have been used in the architecture:
 - [Microsoft Purview](https://azure.microsoft.com/services/purview)
 - [Azure Data Share](https://azure.microsoft.com/services/data-share)
 - [Microsoft Power BI](https://powerbi.microsoft.com)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
-- [Azure Cost Management](https://azure.microsoft.com/services/cost-management)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
@@ -253,12 +253,12 @@ Data governance is a common challenge in large enterprise environments. On one h
 
 ### Platform services
 
-In order to improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/architecture/framework/index) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+In order to improve the quality of your Azure solutions, follow the recommendations and guidelines defined in the [Azure Well-Architected Framework](/azure/well-architected/) five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
 Following these recommendations, the services below should be considered as part of the design:
 
-1. [Azure Active Directory](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
-1. [Azure Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
+1. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
+1. [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
 1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 1. [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
 1. [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): strengthen and monitor the security posture of your Azure workloads.
@@ -267,7 +267,7 @@ Following these recommendations, the services below should be considered as part
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs. The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
 
@@ -351,7 +351,5 @@ Principal author:
 
 ## Related resources
 
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 - [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
-- [High throughput stream ingestion to Azure Synapse](/azure/architecture/example-scenario/data/stream-ingestion-synapse)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)

@@ -4,7 +4,7 @@ This solution brings data on the customer and seller relationship from various s
 
 ## Architecture
 
-:::image type="content" source="./media/relationship-mesh-saa-architecture.png" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.png":::
+:::image type="content" source="./media/relationship-mesh-saa-architecture.svg" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/relationship-mesh-saa-architecture.vsdx) of this architecture.*
 
@@ -13,7 +13,7 @@ This solution brings data on the customer and seller relationship from various s
 1. Microsoft Graph Data Connect and Azure Synapse Analytics pipelines bring in Microsoft 365 data, like emails and calendar events, to Azure Data Lake Storage.
 2. The raw Microsoft 365 data is processed by using Azure Synapse pipelines and saved to Data Lake Storage.
 3. Business logic for calculating relationship scores is applied on processed data and saved to a lake database in Azure Synapse.
-4. The CRM data is ingested by using Azure Synapse pipelines into Data Lake Storage.
+4. The customer relationship management (CRM) data is ingested by using Azure Synapse pipelines into Data Lake Storage.
 5. The raw CRM data is processed and saved to an Azure Synapse lake database.
 6. The prepared Microsoft 365 data is joined with CRM data, aggregated, and saved to Azure Synapse SQL pool.
 7. Power BI ingests the SQL data to visualize the relationship insights for sellers.
@@ -39,7 +39,7 @@ You can use this solution to ingest data from Microsoft 365 and other systems to
 
 ## Considerations
 
-These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -54,7 +54,7 @@ For more information about the reliability pillar, see [Overview of the reliabil
 
 ### Security
 
-This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure solutions in the architecture. You can manage permissions via Azure AD authentication or role-based access control. Follow the security guidelines in the following articles when you implement this solution:
+This solution uses Microsoft Entra ID to authenticate users to the Azure solutions in the architecture. You can manage permissions via Microsoft Entra authentication or role-based access control. Follow the security guidelines in the following articles when you implement this solution:
 
 - [Introduction to Azure security](/azure/security/fundamentals/overview)
 - [How to set up access control for your Azure Synapse workspace](/azure/synapse-analytics/security/how-to-set-up-access-control)
@@ -106,7 +106,6 @@ Review the information in this [relationship mesh solution GitHub repository](ht
 
 For more information, see these articles:
 
-- [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Azure Synapse Analytics](/azure/synapse-analytics)
 - [Microsoft Graph Data Connect](/graph)
 - [Microsoft Power BI](/power-bi)
@@ -115,4 +114,3 @@ For more information, see these articles:
 
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
 - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
-- [High throughput stream ingestion to Azure Synapse](../data/stream-ingestion-synapse.yml)

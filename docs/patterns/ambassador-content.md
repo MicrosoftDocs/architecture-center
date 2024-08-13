@@ -1,6 +1,6 @@
 Create helper services that send network requests on behalf of a consumer service or application. An ambassador service can be thought of as an out-of-process proxy that is co-located with the client.
 
-This pattern can be useful for offloading common client connectivity tasks such as monitoring, logging, routing, security (such as TLS), and [resiliency patterns](/azure/architecture/framework/resiliency/reliability-patterns) in a language agnostic way. It is often used with legacy applications, or other applications that are difficult to modify, in order to extend their networking capabilities. It can also enable a specialized team to implement those features.
+This pattern can be useful for offloading common client connectivity tasks such as monitoring, logging, routing, security (such as TLS), and [resiliency patterns](/azure/well-architected/reliability/design-patterns) in a language agnostic way. It's often used with legacy applications, or other applications that are difficult to modify, in order to extend their networking capabilities. It can also enable a specialized team to implement those features.
 
 ## Context and problem
 
@@ -22,8 +22,8 @@ Ambassador services can be deployed as a [sidecar](./sidecar.yml) to accompany t
 
 - The proxy adds some latency overhead. Consider whether a client library, invoked directly by the application, is a better approach.
 - Consider the possible impact of including generalized features in the proxy. For example, the ambassador could handle retries, but that might not be safe unless all operations are idempotent.
-- Consider a mechanism to allow the client to pass some context to the proxy, as well as back to the client. For example, include HTTP request headers to opt out of retry or specify the maximum number of times to retry.
-- Consider how you will package and deploy the proxy.
+- Consider a mechanism to allow the client to pass some context to the proxy, and back to the client. For example, include HTTP request headers to opt out of retry or specify the maximum number of times to retry.
+- Consider how you'll package and deploy the proxy.
 - Consider whether to use a single shared instance for all clients or an instance for each client.
 
 ## When to use this pattern
@@ -36,9 +36,20 @@ Use this pattern when you:
 
 This pattern may not be suitable:
 
-- When network request latency is critical. A proxy will introduce some overhead, although minimal, and in some cases this may affect the application.
+- When network request latency is critical. A proxy introduces some overhead, although minimal, and in some cases this may affect the application.
 - When client connectivity features are consumed by a single language. In that case, a better option might be a client library that is distributed to the development teams as a package.
-- When connectivity features cannot be generalized and require deeper integration with the client application.
+- When connectivity features can't be generalized and require deeper integration with the client application.
+
+## Workload design
+
+An architect should evaluate how the Ambassador pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The network communications mediation point facilitated by this pattern provides an opportunity to add reliability patterns to network communication, such as retry or buffering.<br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern provides an opportunity to augment security on network communications that couldn't have been handled by the client directly.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:07 Encryption](/azure/well-architected/security/encryption) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 

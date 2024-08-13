@@ -142,7 +142,7 @@ Note that the computation can also be expressed as a regression and, as such, mo
 
 As we can deduce from the previous formulation, optimization models are both data-driven and computation-intensive.
 
-Microsoft partners, such as Neal Analytics, have developed robust architectures to satisfy those conditions. See [SKU Max](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview?WT.mc_id=invopt-article-gmarchet). We’ll use those architectures as an example and offer a few considerations.
+Microsoft partners, such as Neal Analytics, have developed robust architectures to satisfy those conditions. See [SKU Assortment Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a). We’ll use those architectures as an example and offer a few considerations.
 
 - First, they rely on a robust and scalable data pipeline to feed the models and on a robust and scalable execution infrastructure to run them.
 - Second, the results are easily consumable by planners via a dashboard.
@@ -257,7 +257,7 @@ A solution that deals with sensitive data contains financial records, stock leve
 - You can run some of the Azure Data Factory pipeline on-premises by using Azure Integration Runtime. The runtime executes data movement activities to and from on-premises sources. It also dispatches activities for execution on-premises.
 - You can develop a custom activity to anonymize the data to transfer to Azure, and run it on premises.
 - All the services mentioned support encryption in transit and at rest. If you opt to store the data by using Azure Data Lake, encryption is enabled by default. If you use Azure SQL Data Warehouse, you can enable transparent data encryption (TDE).
-- All the services mentioned, with the exception of ML studio, support integration with Azure Active Directory for authentication and authorization. If you write your own code, you must build that integration into your application.
+- All the services mentioned, with the exception of ML studio, support integration with Microsoft Entra ID for authentication and authorization. If you write your own code, you must build that integration into your application.
 
 For more information about the General Data Protection Regulation (GDPR), a data protection and privacy regulation in the European Union, see our [compliance](https://www.microsoft.com/trustcenter?WT.mc_id=invopt-article-gmarchet) page.
 
@@ -266,7 +266,7 @@ For more information about the General Data Protection Regulation (GDPR), a data
 The following technologies were featured in this article:
 
 - [Azure Batch](https://azure.microsoft.com/products/batch/?WT.mc_id=invopt-article-gmarchet)
-- [Azure Active Directory](https://azure.microsoft.com/products/active-directory/?WT.mc_id=invopt-article-gmarchet)
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/?WT.mc_id=invopt-article-gmarchet)
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory)
 - [HDInsight](https://azure.microsoft.com/products/hdinsight/?WT.mc_id=invopt-article-gmarchet)
 - [Databricks](https://azure.microsoft.com/products/databricks/?WT.mc_id=invopt-article-gmarchet)
@@ -300,16 +300,11 @@ Principal author:
 Related retail guidance:
 
 - [Solutions for the retail industry](/azure/architecture/industries/retail)
-- [Data management in the retail industry](/azure/architecture/industries/retail/retail-data-management-overview)
 - [Migrate your e-commerce solution to Azure](/azure/architecture/industries/retail/migrate-ecommerce-solution)
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
-- [Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection)
 
 Related architectures:
 
-- [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
-- [Architect scalable e-commerce web app](/azure/architecture/solution-ideas/articles/scalable-ecommerce-web-app)
-- [Retail and e-commerce using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
+- [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app)
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
 - [Magento e-commerce platform in Azure Kubernetes Service](/azure/architecture/example-scenario/magento/magento-azure)
-- [Retail and e-commerce using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)

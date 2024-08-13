@@ -1,7 +1,7 @@
 For customers in segments that are tightly governed and restricted by compliance, it's important to have an isolated and dedicated environment, especially for line-of-business applications. While security is front and center, these critical applications also require the ability to scale and perform under scenarios of high memory utilization or high requests per second. This solution provides an example for how you can host line-of-business applications. You can use Azure App Service Environment to ensure that both security and performance can be addressed simultaneously. When deploying this solution, you'll have the flexibility to use existing resources in your [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone), which represents your resources in the hub VNet. Or, you can deploy this solution as a self-contained workload.
 
 > [!NOTE]
-> This article provides a deployable architecture that aligns to our [Landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator).
+> This article provides a deployable architecture that aligns to our [landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator).
 
 ## Architecture
 
@@ -9,7 +9,7 @@ For customers in segments that are tightly governed and restricted by compliance
    The entirety of this image is in the scope of a subscription and a private DNS Zone. It's denoted by a subscription icon and a Private DNS zone icon in the top-left corner. Below these icons, two blocks are side by side. They represent two virtual networks, with VNet peering between them. The block on the left represents the hub VNet, and the block on the right represents the spoke VNet. Within the left box, there are three smaller boxes. Each box indicates a different subnet and its associated network security group. Starting from the top left is an Azure Bastion instance within the Bastion subnet, and the top right is the jumpbox VM, which resides in the jumpbox subnet. On the bottom right is the third and last box in the hub VNet, which contains the CI/CD agent server that resides in the CI/CD subnet. The box on the right, which represents the spoke VNet, contains only one smaller box, the ASE subnet that has the App Service Environment v3 instance within it. A smaller box represents the App Service Environment. The App Service icon is inside that box. On the bottom center of the image, are shared resources that are also deployed as part of the process. Starting from the left to right, the shared resources include Azure Key Vault, Azure Log Analytics workspace, and Azure Application Insights.
 :::image-end:::
 
-_Download a [Visio file](https://arch-center.azureedge.net/app-service-environment-v3.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/app-service-environment-v3.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -34,9 +34,9 @@ There are three flows with callouts in this architecture: Operations (orange), D
 
 The solution uses the following Azure services:
 
-- **[Azure App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)** is a feature of [Azure App Service](https://azure.microsoft.com/services/app-service) and is a single-tenant service for customers that require high scale, network isolation, security, and/or high memory utilization. Apps are hosted in [App Service plans](/azure/app-service/overview-hosting-plans) that are created in ASEv3, with options of using different tiers within an Isolated v2 service plan. Compared to an earlier version of ASE, numerous improvements have been made including, but not limited to, network dependency, scale time, and the removal of the stamp fee. This solution uses an App Service Environment v3 that's configured for internal access.
+- **[Azure App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)** is a feature of [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) and is a single-tenant service for customers that require high scale, network isolation, security, and/or high memory utilization. Apps are hosted in [App Service plans](/azure/app-service/overview-hosting-plans) that are created in ASEv3, with options of using different tiers within an Isolated v2 service plan. Compared to an earlier version of ASE, numerous improvements have been made including, but not limited to, network dependency, scale time, and the removal of the stamp fee. This solution uses an App Service Environment v3 that's configured for internal access.
   
- - **[Azure Private DNS](https://azure.microsoft.com/services/dns)** allows you to manage and resolve domain names within a virtual network, without needing to implement a custom DNS solution. An [Azure Private DNS zone](/azure/dns/private-dns-privatednszone) can be aligned to one or more virtual networks through [virtual network links](/azure/dns/private-dns-virtual-network-links). Due to the internal nature of the ASEv3 that this reference architecture uses, a private DNS zone is required to resolve the domain names of applications that are hosted on the App Service Environment.
+- **[Azure Private DNS](https://azure.microsoft.com/services/dns)** allows you to manage and resolve domain names within a virtual network, without needing to implement a custom DNS solution. An [Azure Private DNS zone](/azure/dns/private-dns-privatednszone) can be aligned to one or more virtual networks through [virtual network links](/azure/dns/private-dns-virtual-network-links). Due to the internal nature of the ASEv3 that this reference architecture uses, a private DNS zone is required to resolve the domain names of applications that are hosted on the App Service Environment.
 
 - **[Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)** is a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor) that helps developers detect anomalies, diagnose issues, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. Application Insights is included as part of this reference architecture, to monitor the behaviors of the deployed application.
 
@@ -56,7 +56,7 @@ A [self-hosted GitHub runner](https://docs.github.com/enterprise-server@3.5/acti
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -78,7 +78,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Although there's no stamp fee for an ASEv3 instance, there's a charge that's levied when no App Service Plans are configured within the ASEv3 instance. This charge is levied at the same rate as one instance of a Windows I1v2 instance, for the region in which the ASEv3 instance is deployed.
 - When configured to be zone redundant, the charging model is adjusted to account for the underlying infrastructure that's deployed in this configuration. You might be liable for additional instances, as per [ASEv3 Pricing](/azure/app-service/environment/overview#pricing).
-- Consider the option of reserved instance pricing for ASEv3 App Service Plans (known as Isolated v2 App Service Plans), which is explained in [How reservation discounts apply to Isolated v2 instances](/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances).
+- For ASEv3 App Service plans (known as Isolated v2 App Service plans), use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. For more information, see [How reservation discounts apply to Isolated v2 instances](/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances).
 
 ### Operational excellence
 
@@ -95,11 +95,11 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-To get started and better understand the specifics of this implementation, review the reference implementation resources, at [User Guide for Reference Implementation Deployment](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs).
+To get started and better understand the specifics of this implementation, review the reference implementation resources, at [User Guide for Reference Implementation Deployment](https://github.com/Azure/appservice-landing-zone-accelerator/tree/main/docs).
 
 - We recommend that you clone this repo and modify the reference implementation resources to suit your requirements and your organization's specific landing zone guidelines.
 - Before deploying, ensure that the service principal that's used to deploy the solution has the required permissions to create the resource types that we listed above.
-- Consider the CI/CD service that you'll use to deploy the reference implementation. As this reference implementation is an internal ASE, you'll need a self-hosted agent to execute the deployment pipelines. You have the choice to use either a DevOps agent or a GitHub runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) on the specific configuration values that are required.
+- Consider the CI/CD service that you'll use to deploy the reference implementation. As this reference implementation is an internal ASE, you'll need a self-hosted agent to execute the deployment pipelines. You have the choice to use either a DevOps agent or a GitHub runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/main/docs) on the specific configuration values that are required.
 - Consider the region(s) to which you intend to deploy this reference implementation. Consult the [ASEv3 Regions list](/azure/app-service/environment/overview#regions) to ensure the selected region(s) are enabled for deployment.
 
 ## Contributors
@@ -130,7 +130,7 @@ Learn more about these key services:
 
 ## Related resources
 
-* [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
-* [Enterprise deployment using App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
-* [High availability enterprise deployment using App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
-* [E-commerce website running in secured App Service Environment](/azure/architecture/solution-ideas/articles/ecommerce-website-running-in-secured-ase)
+* [High-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+* [Enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment)
+* [High-availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+* [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)

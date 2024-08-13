@@ -26,21 +26,14 @@ Steps 3 and 4 demonstrate an identity-based implementation of the Zero Trust pri
 
 ### Components
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
-provides critical functionality for your Zero Trust strategy. It enables strong authentication, a point of integration for device security, and the core of your user-centric policies to guarantee least-privileged access. Azure AD Conditional Access provides the policy decision point for access to resources based on user identity, environment, device health, and risk, verified explicitly at the point of access.
-  - [Azure AD application registration](/azure/active-directory/develop/app-objects-and-service-principals#application-registration).
-To delegate identity and access management functions to Azure AD, an application must be registered with an Azure AD tenant. When you register your application with Azure AD, you create an identity configuration for your application that allows it to integrate with Azure AD.
-  - [Azure AD managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
-Managed identities provide an automatically managed identity for applications to use when they connect to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens. You don't need to manage credentials.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides critical functionality for your Zero Trust strategy. It enables strong authentication, a point of integration for device security, and the core of your user-centric policies to guarantee least-privileged access. Microsoft Entra Conditional Access provides the policy decision point for access to resources based on user identity, environment, device health, and risk, verified explicitly at the point of access.
+  - [Microsoft Entra application registration](/azure/active-directory/develop/app-objects-and-service-principals#application-registration). To delegate identity and access management functions to Microsoft Entra ID, an application must be registered with a Microsoft Entra tenant. When you register your application with Microsoft Entra ID, you create an identity configuration for your application that allows it to integrate with Microsoft Entra ID.
+  - [Microsoft Entra managed identities](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity for applications to use when they connect to resources that support Microsoft Entra authentication. Applications can use managed identities to obtain Microsoft Entra tokens. You don't need to manage credentials.
 - [API Management](https://azure.microsoft.com/services/api-management) is a hybrid, multicloud management platform for APIs.
-  - [API Management developer portal](/azure/api-management/api-management-howto-developer-portal). 
-The developer portal is a website that provides the documentation of your APIs. On the portal, API consumers can discover your APIs, learn how to use them, request access, and try them out.
-  - [API Management gateway](/azure/api-management/api-management-key-concepts#api-gateway).
-All requests from client applications first reach the API gateway, which then forwards them to appropriate back-end services. The API gateway acts as a facade to the back-end services, allowing you to abstract API implementations and evolve back-end architecture without affecting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
-- [Azure Functions](https://azure.microsoft.com/services/functions)
-is a serverless solution that enables you to write less code, maintain less infrastructure, and save money. The cloud infrastructure provides all the up-to-date resources needed to keep your applications running so you don't have to deploy and maintain servers.
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-is an always-up-to-date, fully managed relational database service built for the cloud.
+  - [API Management developer portal](/azure/api-management/api-management-howto-developer-portal). The developer portal is a website that provides the documentation of your APIs. On the portal, API consumers can discover your APIs, learn how to use them, request access, and try them out.
+  - [API Management gateway](/azure/api-management/api-management-key-concepts#api-gateway). All requests from client applications first reach the API gateway, which then forwards them to appropriate back-end services. The API gateway acts as a facade to the back-end services, allowing you to abstract API implementations and evolve back-end architecture without affecting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that enables you to write less code, maintain less infrastructure, and save money. The cloud infrastructure provides all the up-to-date resources needed to keep your applications running so you don't have to deploy and maintain servers.
+- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service built for the cloud.
 
 ### Alternatives
 
@@ -53,7 +46,7 @@ You can use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to
 
 As an alternative to deploying Azure functions from Visual Studio Code, you can use [GitHub Actions](https://github.com/features/actions) or [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) for the production environments. You can generate your GitHub Actions or Azure Pipelines from the [deployment center](/azure/azure-functions/functions-continuous-deployment) of your Azure function.
  
-Instead of using Azure AD app roles to limit access to the functions-based API back end, you can use Azure AD security groups. This configuration, however, is more sensitive. It might involve communication with the corporate Azure AD management team.
+Instead of using Microsoft Entra app roles to limit access to the functions-based API back end, you can use Microsoft Entra security groups. This configuration, however, is more sensitive. It might involve communication with the corporate Microsoft Entra management team.
 
 ## Scenario details
 
@@ -82,7 +75,7 @@ Zero Trust provides a unified approach to help the Contoso Media operations team
 - Controls user actions.
 - Validates secure configuration options.
 
-Applying protection to an API implementation and to Azure SQL, as described here, is just one facet of the *verify explicitly* Zero Trust principle. Other elements include user identity and device protection. All elements use the framework and services provided by Azure AD.
+Applying protection to an API implementation and to Azure SQL, as described here, is just one facet of the *verify explicitly* Zero Trust principle. Other elements include user identity and device protection. All elements use the framework and services provided by Microsoft Entra ID.
 
 ### Potential use cases
 
@@ -96,7 +89,7 @@ In all of these cases, the architecture needs to implement the identity-based [v
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -133,11 +126,11 @@ To implement this architecture manually and test it, you need to complete these 
 2. [Create a SQL database](/azure/azure-sql/database/single-database-create-quickstart) and add [SQL bindings to the functions.](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql)
 3. Deploy the back-end API, based on Azure Functions, into Azure [from Visual Studio Code](/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files).
 4. [Create an API Management instance](/azure/api-management/get-started-create-service-instance) and expose the [API back end by using API Management](/azure/api-management/import-function-app-as-api). 
-5. Secure the back-end API via Azure AD so that only this API Management identity can access the back-end API.
+5. Secure the back-end API via Microsoft Entra ID so that only this API Management identity can access the back-end API.
    - Be sure that your API Management instance is assigned to a [managed identity](/azure/api-management/api-management-howto-use-managed-service-identity#create-a-system-assigned-managed-identity).
-   - Configure your Azure Functions app to use Azure AD sign-in.
+   - Configure your Azure Functions app to use Microsoft Entra sign-in.
    - [Allow API Management to access the function.](/azure/api-management/api-management-authentication-policies#use-managed-identity-to-authenticate-with-a-backend-service)
-   - Allow *API Management identity only* to access your back end by [creating an app role in Azure AD for it](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#usage-scenario-of-app-roles).
+   - Allow *API Management identity only* to access your back end by [creating an app role in Microsoft Entra ID for it](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#usage-scenario-of-app-roles).
    - [Limit access to the function to only the users/roles in the app role](/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#update-the-app-to-require-user-assignment).
    - [Add your API Management managed identity to the app role.](/azure/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli#assign-a-managed-identity-access-to-another-applications-app-role)
 6. Create two API Management products with two different API key sets:
@@ -170,4 +163,4 @@ Other contributor:
 
 - [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
 - [Microsoft security best practices for identity and access management](/security/compass/identity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [What is the Microsoft Entra architecture?](/azure/active-directory/fundamentals/active-directory-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

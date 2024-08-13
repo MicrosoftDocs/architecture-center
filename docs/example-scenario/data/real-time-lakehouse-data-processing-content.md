@@ -6,9 +6,9 @@ This article describes an end-to-end solution for near real-time data processing
 
 ## Architecture
 
-[![A diagram that shows the dataflow for the end-to-end data processing solution.](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.png)](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.png#lightbox)
+[![A diagram that shows the dataflow for the end-to-end data processing solution.](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg)](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/AzureNearRealtimeDataprocessing.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-near-realtime-data-processing.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -89,7 +89,7 @@ Similar scenarios apply to retail, commerce, and healthcare sectors. Enabling th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -147,9 +147,9 @@ Other contributor:
 - [Best practices for serverless SQL pool](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool)
 - [Model, query, and explore data in Azure Synapse](/training/paths/model-query-explore-data-for-azure-synapse)
 - [Build data analytics solutions using Azure Synapse serverless SQL pools](/training/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools)
+
 ## Related resources
 
-- [High throughput stream ingestion to Azure Synapse](stream-ingestion-synapse.yml)
 - [Secure a data lakehouse with Azure Synapse Analytics](../analytics/secure-data-lakehouse-synapse.yml)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](synapse-exploratory-data-analytics.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Unlock legacy data with Azure Stack. Create cloud-based applications while integrating and preserving mainframe and core business process application data.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 06/14/2022
   ms.topic: solution-idea
   ms.service: architecture-center
@@ -21,7 +21,7 @@ metadata:
     - app modernization
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/unlock-legacy-data"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/unlock-legacy-data.png
+    - arb-data
 name: Unlock legacy data with Azure Stack
 azureCategories:
   - migration
@@ -29,7 +29,7 @@ azureCategories:
 summary: Unlock legacy data with Azure Stack. Create cloud-based applications while integrating and preserving mainframe and core business process application data.
 products:
   - azure-stack
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/unlock-legacy-data.png
 content: |
    [!include[](unlock-legacy-data-content.md)]

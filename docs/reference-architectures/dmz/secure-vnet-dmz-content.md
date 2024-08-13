@@ -65,7 +65,7 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall.
+To accept inbound traffic from the internet, add a [Destination Network Address Translation (DNAT)](/azure/firewall/tutorial-firewall-dnat) rule to Azure Firewall.
 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
@@ -80,7 +80,7 @@ Consider using Application Gateway or Azure Front Door for SSL termination.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance efficiency
 
@@ -132,7 +132,7 @@ Traffic to and from resource subnets in spoke virtual networks is restricted by 
 
 #### DDoS protection
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Use AVNM to create baseline Security Admin rules
 
@@ -234,7 +234,7 @@ For detailed information and additional deployment options, see the Azure Resour
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
-[azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
+[azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances

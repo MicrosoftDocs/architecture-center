@@ -46,7 +46,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 ## Considerations
 
-These considerations implement the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework), which is a set of guiding tenets for improving the quality of a workload.
+These considerations implement the pillars of the [Azure Well-Architected Framework](/azure/well-architected/), which is a set of guiding tenets for improving the quality of a workload.
 
 ### Design considerations
 
@@ -124,7 +124,7 @@ We recommend Azure API Management for most scenarios, but [Traefik](https://docs
 
   For information on how to set up Traefik for service ingress and as the reverse proxy within the cluster, see [Azure Service Fabric Provider](https://docs.traefik.io/v1.7/configuration/backends/servicefabric) on the Traefik website. For more information about using Traefik with Service Fabric, see the blog post [Intelligent routing on Service Fabric with Traefik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik).
 
-Traefik, unlike Azure API Management, does not have functionality to resolve the partition of a stateful service (with more than one partition) to which a request is routed. For more information, see [Add a matcher for partitioning services](https://github.com/containous/traefik/issues/3224).
+Traefik, unlike Azure API Management, does not have functionality to resolve the partition of a stateful service (with more than one partition) to which a request is routed. For more information, see [Add a matcher for partitioning services](https://github.com/traefik/traefik/issues/3224).
 
 Other API management options include [Azure Application Gateway](/azure/application-gateway) and [Azure Front Door](/azure/frontdoor). You can use these services in conjunction with API Management to perform tasks such as routing, SSL termination, and firewall.
 
@@ -143,7 +143,7 @@ Other options for interservice communication include:
 
 - [Traefik](https://docs.traefik.io) for advanced routing.
 - [DNS](/azure/dns) for compatibility scenarios where a service expects to use DNS.
-- The [ServicePartitionClient<TCommunicationClient>](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class, which caches service endpoints. It can enable better performance, because calls go directly between services without intermediaries or custom protocols.
+- The [ServicePartitionClient\<TCommunicationClient\>](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class, which caches service endpoints. It can enable better performance, because calls go directly between services without intermediaries or custom protocols.
 
 ### Scalability
 
@@ -300,7 +300,7 @@ To access the secret, specify the secret name in the built configuration.
        }
 ```
 
-Don't use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). See [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
+Don't use client certificates to access Service Fabric Explorer. Instead, use Microsoft Entra ID. See [Azure services that support Microsoft Entra authentication](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
 
 Don't use self-signed certificates for production.
 
@@ -353,7 +353,7 @@ Application Insights provides a lot of built-in telemetry: requests, traces, eve
 - [Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet)
 - [Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 - [Application Insights .NET SDK](/azure/application-insights/app-insights-api-custom-events-metrics)
-- [Application Insights SDK for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)
+- [Application Insights SDK for Service Fabric](https://github.com/microsoft/ApplicationInsights-ServiceFabric)
 
 To view the traces and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of the sinks for structured logging. Configure Application Insights with your instrumentation key by calling the `AddApplicationInsights` extension method. In this example, the instrumentation key is stored as a secret in the key vault.
 
@@ -366,12 +366,12 @@ To view the traces and event logs, use [Application Insights](/azure/service-fab
 
 If your service doesn't expose HTTP endpoints, you need to write a custom extension that sends traces to Application Insights. For an example, see the Workflow service in the [reference implementation](https://github.com/mspnp/microservices-reference-implementation-servicefabric).
 
-ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/tree/master/src/ILogger#aspnet-core-application). Application Insights can add correlation properties to `ILogger` events, which is useful for visualizing distributed tracing.
+ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. Application Insights can add correlation properties to `ILogger` events, which is useful for visualizing distributed tracing.
 
 For more information, see:
 
 - [Application logging](/azure/service-fabric/service-fabric-diagnostics-event-generation-app)
-- [Add logging to your Service Fabric application](/azure/azure-monitor/app/correlation)
+- [Add logging to your Service Fabric application](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
 
 #### Service Fabric health and event data
 
@@ -419,7 +419,7 @@ It's also important to correlate tasks that are dispatched asynchronously by usi
 For more information, see:
 
 - [Performing a query across multiple resources](/azure/azure-monitor/log-query/cross-workspace-query#performing-a-query-across-multiple-resources)
-- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation)
+- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
 
 #### Alerts and dashboards
 

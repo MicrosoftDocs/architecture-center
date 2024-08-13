@@ -1,9 +1,7 @@
-
-
 When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain. When an application needs to use access and refresh tokens indefinitely, typically in offline access scenarios, it's critical to store the refresh tokens securely.
 
 > [!WARNING]
-> Carefully consider the risk and responsibility involved in storing any security tokens, since these tokens can give a malicious actor access to resources protected by the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
+> Carefully consider the risk and responsibility involved in storing any security tokens, since these tokens can give a malicious actor access to resources protected by the organization's Microsoft Entra ID. A security breach of an application that targets **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant)** can be especially disastrous.
 >
 > Storing access tokens poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is not to store access tokens, but get the access tokens as needed. Securely store only the refresh tokens, with as much rigor as if they were access tokens.
 >
@@ -15,11 +13,13 @@ This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securel
 
 ## Architecture
 
-![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
+:::image type="content" source="./media/refresh-diagram.svg" alt-text="Diagram showing the key and token refresh processes." lightbox="./media/refresh-diagram.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-OBO-refresh-tokens.vsdx) of this architecture.*
 
 ### Dataflow
 
-- Azure [Key Vault](https://azure.microsoft.com/services/key-vault) holds secret encryption keys for each [Azure AD](https://azure.microsoft.com/services/active-directory) tenant.
+- Azure [Key Vault](https://azure.microsoft.com/services/key-vault) holds secret encryption keys for each [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) tenant.
 - An [Azure Functions](https://azure.microsoft.com/services/functions) timer-triggered function gets the latest secret key from Key Vault. Another Azure Functions function retrieves the refresh token from the Microsoft identity platform and saves it with the latest secret key version.
 - A database stores the latest encrypted key and opaque data.
 - An [Azure DevOps](https://azure.microsoft.com/services/devops) continuous delivery pipeline manages and syncs the secret rotation and token refresh processes.
@@ -36,7 +36,7 @@ After you set up Azure Pipelines to create and update keys, you can schedule the
 
 ## Managed identity
 
-The preferred way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
+The preferred way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager template (ARM template) for IaC scenarios.
 
 ### Azure portal
 
@@ -127,9 +127,11 @@ The following sequence diagram illustrates the process of syncing the token refr
 
 ## User and access control
 
-Microsoft Identity Platform offers the ability to revoke refresh tokens in case of compromise. See [Token revocation](/azure/active-directory/develop/access-tokens#token-revocation) and [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+Microsoft identity platform offers the ability to revoke refresh tokens in case of compromise. See [Token revocation](/azure/active-directory/develop/access-tokens#token-revocation) and [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
-To remove a user from Azure AD, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
+[!INCLUDE [Azure AD PowerShell deprecation note](~/../docs/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+
+To remove a user from Microsoft Entra ID, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
 
 To remove access for a group of users, such as all users in a target tenant, you can use Azure Pipelines to delete the group's secret based on `secretId()`.
 

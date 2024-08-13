@@ -12,7 +12,7 @@ original equipment manufacturer (OEM) and includes a reference architecture and 
 #### Workflow
 
 - An instance of the back end, consisting of the following components, is deployed to two Azure regions: [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview), Ingestion, [RabbitMQ](https://www.rabbitmq.com/), Mission State, Vehicle State, Job Manager, and Geo DB. IoT Hub connects to the set of applications built using a microservice architecture that can be deployed on [Azure App Service](https://azure.microsoft.com/en-in/services/app-service/#overview)
-    using the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/), [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/#overview), or [Kubernetes](https://kubernetes.io/).
+    using the [Web Apps feature of Azure App Service](/azure/well-architected/service-guides/app-service-web-apps), [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/#overview), or [Kubernetes](https://kubernetes.io/).
 - A leader election system determines which back end controls AGVs on the shop floor at any given point in time. If the back end in charge fails, the leader election immediately transfers the control to the back end in the other region.
 - Thanks to this geo-redundant and zero-downtime failover architecture, the AGV control software that runs in Azure achieves 99.9% availability, provided that the internet connection and external subsystems, such as SAP, are not limiting factors.
 
@@ -37,7 +37,6 @@ Thanks to compliance with the [VDA 5050 vehicle connector specification](https:/
 In this architecture, you can see an overview of the different services and components used to run the back-end AGV fleet control solution in Azure:
 
 - When developers commit new code, [GitHub Actions](https://github.com/features/actions) automatically scans the code to quickly find vulnerabilities and coding errors. It can also be used to deploy applications and infrastructure components automatically.
-- All Azure instances are deployed using [Terraform](https://www.terraform.io/) scripts.
 - A [container registry](/azure/container-registry/container-registry-intro)
     stores the container images used for the different services of the AGV fleet control back end.
 - Back-end services are deployed to [Web App for Containers](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux).
@@ -46,24 +45,23 @@ In this architecture, you can see an overview of the different services and comp
 - Azure Key Vault stores passwords, keys, and certificates.
 - Application Insights implements logging and monitoring for the applications that run as back-end services.
 - [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview)
-    connect to the different services and resources in Azure, eliminating the need for developers to manage credentials. They provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
+    connect to the different services and resources in Azure, eliminating the need for developers to manage credentials. They provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication.
 
 ### Components
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/#overview) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines (VMs). It manages the underlying compute infrastructure on which your apps run. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
+[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines (VMs). It manages the underlying compute infrastructure on which your apps run. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
 
 [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/#overview)
 is the fundamental building block for your private network in Azure. This service enables many types of Azure resources, such as Azure Virtual Machines, to securely communicate with each other, the internet, and on-premises networks.
 
 [IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview) is a PaaS managed service, hosted in the cloud, that acts as a central message hub for bidirectional communication between an IoT application and the devices it manages.
 
-[Azure Container Instances](https://azure.microsoft.com/services/container-instances/#overview)
-offers the fastest and simplest way to run a container in Azure, without having to manage any VMs and without having to adopt a higher-level service.
+[Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed serverless container service for building and deploying containers at scale.
 
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/#overview)
 is a managed, private Docker registry service based on the open-source Docker Registry 2.0. You can use Azure container registries with your existing container development and deployment pipelines, or you can use Azure Container Registry Tasks to build container images in Azure. Build on demand, or fully automate builds with triggers, such as source code commits and base image updates.
 
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/#overview)
+[Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/#overview)
 is the cloud-based identity and access management service that authenticates users, services, and applications.
 
 [Azure Storage](https://azure.microsoft.com/services/storage/) offers a durable, highly available, and massively scalable cloud storage solution. It includes object, file, disk, queue, and table storage capabilities.
@@ -91,7 +89,7 @@ Another option to run these services is in [Azure Kubernetes Service (AKS)](/azu
 
 Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) in combination with Application Insights to analyze and optimize the performance of your applications, containers, databases, and other resources and to monitor and diagnose networking issues.
 
-This architecture uses RabbitMQ as the message broker. Microsoft Azure also has native support for messaging solutions, such as [Azure Queue Storage](/azure/storage/queues/storage-dotnet-how-to-use-queues?tabs=dotnet)
+This architecture uses RabbitMQ as the message broker. Microsoft Azure also has native support for messaging solutions, such as [Azure Queue Storage](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 or [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 For a comparison, see [Azure Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
@@ -139,7 +137,7 @@ availability and disaster recovery can solve these issues.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability and scalability
 
@@ -150,20 +148,19 @@ The applications and services that make up the AGV fleet control solution are de
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Use Azure Active Directory for identity and access control and use Azure Key Vault to manage keys and secrets.
+Use Microsoft Entra ID for identity and access control and use Azure Key Vault to manage keys and secrets.
 
 ### DevOps
 
-For deploying the microservices to Kubernetes or Azure App Service automatically, it's best to use [CI/CD processes](/azure/architecture/example-scenario/apps/devops-with-aks).
-Consider using a solution such as Azure DevOps or GitHub Actions, as described in the [Azure DevOps Starter](/azure/devops-project/overview)
-documentation.
+For deploying the microservices to Kubernetes or Azure App Service automatically, it's best to use [CI/CD processes](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops).
+Consider using a solution such as Azure DevOps or GitHub Actions.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service)
-to estimate the costs for running AKS in Azure. To learn about other considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+to estimate the costs for running AKS in Azure. To learn about other considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Contributors
 
@@ -178,7 +175,7 @@ Principal author:
 Product documentation:
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
-- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Azure App Service](/azure/app-service/overview)
 - [Azure Container Instances](/azure/container-instances/container-instances-overview)
 - [Azure Container Registry](/azure/container-registry/container-registry-intro)
@@ -205,12 +202,12 @@ Azure Architecture Center overview articles:
 
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Baseline zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
-- [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 
 Related architectures:
 
 - [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
-- [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
-- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md)

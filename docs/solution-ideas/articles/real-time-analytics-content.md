@@ -4,7 +4,7 @@ This solution idea describes how you can get insights from live streaming data. 
 
 ## Architecture
 
-:::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real-time analytics solution on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hubs, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
+:::image type="content" source="../media/real-time-analytics.svg" alt-text="Diagram of a real-time analytics solution on a big data architecture that uses Azure Synapse Analytics with Azure Data Lake Storage, Event Hubs, Azure Analysis Services, Azure Cosmos DB, and Power BI." lightbox="../media/real-time-analytics.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/real-time-analytics.vsdx) of this architecture.*
 
@@ -45,7 +45,7 @@ This solution is ideal for the media and entertainment industry. The scenario is
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Cost optimization
 
@@ -70,5 +70,4 @@ You can use the [Azure pricing calculator](https://azure.com/e/f8f5bc2de0b64aa0a
 * [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
 * [Geospatial analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
 * [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
-* [High throughput stream ingestion to Azure Synapse](/azure/architecture/example-scenario/data/stream-ingestion-synapse)
 * [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)

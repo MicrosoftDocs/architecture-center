@@ -4,7 +4,7 @@
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram demonstrating the reservoir simulation architecture." source="./media/architecture-hpc-reservoir-simulation.png" lightbox="./media/architecture-hpc-reservoir-simulation.png":::
+:::image type="content" alt-text="Diagram demonstrating the reservoir simulation architecture." source="./media/architecture-hpc-reservoir-simulation.svg" lightbox="./media/architecture-hpc-reservoir-simulation.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-hpc-reservoir-simulation.vsdx) of this architecture.*
 
@@ -53,7 +53,7 @@ Using an Azure VM spares the expense of a high-end visualization workstation. Th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 This example uses the HB-series of [high-performance VMs][vm-size]. The HB-series is optimized for applications driven by memory bandwidth, such as computational fluid dynamics (CFD), and the Standard_HB120rs_v2 VM is the latest in the series. For Intel-based hardware, the [Standard_HC44rs][hc-series] VM is an option.
 
@@ -85,7 +85,7 @@ The following approaches are common in the oil and gas industry. Choose the solu
 
 - **Medium to large-scale read-intensive workloads:** Consider using [Avere vFXT for Azure][avere-vfxt] (6 to 24 nodes). This solution works for workloads of up to 50,000 cores, throughput up to 2 GiB/s for writes and up to 14 GiB/s for reads, a cache of up to 192 TB, and a file server of up to 2 petabytes (PB).
 
-- **Balanced or write-intensive medium-scale workloads:** Consider using [Azure NetApps Files][azure-naf] for workloads of up to 4,000 cores, with a throughput up to 6.5 GiB/s, storage up to 100 TB/volume, and a maximize file size of 12 TB.
+- **Balanced or write-intensive medium-scale workloads:** Consider using [Azure NetApp Files][azure-naf] for workloads of up to 4,000 cores, with a throughput up to 6.5 GiB/s, storage up to 100 TB/volume, and a maximize file size of 12 TB.
 
 - **Large-scale workloads:** Use an orchestrated parallel file service, such as Lustre or BeeGFS. This approach works for up to 50,000 cores, with read/write rates up to 50 GiB/s, and 500 TB storage. For even larger clusters, a bare-metal approach may be more cost-effective. For example, Cray ClusterStor is a managed HPC storage solution with the flexibility to support larger elastic clusters on the fly.
 
@@ -105,7 +105,6 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 
 - [Solutions for the energy and environment industries](../../industries/energy-environment.md)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
-- [Run CFD simulations](hpc-cfd.yml)
 
 <!-- links -->
 

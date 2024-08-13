@@ -4,9 +4,9 @@ This article describes how to automate Microsoft Sentinel integration and deploy
 
 The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
-:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram of the Architecture for automating a Microsoft Sentinel infrastructure as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
+:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram showing the architecture for automating a Microsoft Sentinel infrastructure as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -16,7 +16,7 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
    * Artifacts and source control maintain the extensions and update packages or components of the DevSecOps workflow that are used in the solution, such as Azure Resource Manager Template Toolkit and PowerShell Pester.
 2. Microsoft Sentinel artifacts:
    * Policies. SIEM engineers use Azure policies in the reference architecture, to configure and scale the diagnostic settings of the Azure services. The policies help automate deployment of the Microsoft Sentinel data connectors, such as Azure Key Vault. The policies are dependent on the OMSIntegration API.
-   * Connectors. Microsoft Sentinel uses logical connectors, the Azure Data Connectors, to ingest security data, as in audits or metrics, from supported data sources, such as Azure Active Directory (Azure AD), Azure resources, Microsoft Defender, or third-party solutions. The main list of data connectors is managed by the SecurityInsights API. Others rely on the OMSIntegration API and are managed with the Azure Policy diagnostic settings.
+   * Connectors. Microsoft Sentinel uses logical connectors, the Azure Data Connectors, to ingest security data, as in audits or metrics, from supported data sources, such as Microsoft Entra ID, Azure resources, Microsoft Defender, or third-party solutions. The main list of data connectors is managed by the SecurityInsights API. Others rely on the OMSIntegration API and are managed with the Azure Policy diagnostic settings.
    * Managed identity. Microsoft Sentinel uses managed identity to act on behalf of the Managed service identity (MSI) while interacting with playbooks, logic apps, or automation runbooks and the key vault.
    * Automation. SOC teams use automation during investigations. SOC teams run digital forensics data acquisition procedures with Azure Automation, such as Azure virtual machine (VM) chain of custody or eDiscovery (Premium) for Microsoft Defender.
    * Analytics. SOC analysts or threat hunters use built-in or custom analytics rules to analyze and correlate data in Microsoft Sentinel or to trigger playbooks if a threat and incident are identified.
@@ -24,9 +24,9 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
    * Threat hunting. Threat hunters use proactive threat hunting capabilities that can be coupled with Jupyter notebooks for advanced use cases, such as data processing, data manipulation, data visualization, machine learning, or deep learning.
    * Workbooks. SIEM engineers use Workbooks dashboards to visualize trends and statistics and to view the status of a Microsoft Sentinel instance and its subcomponents.
    * Threat intelligence. A specific data connector that fuses threat intelligence platforms feeds into Microsoft Sentinel. Two connectivity methods are supported: TAXII and Graph API. Both methods serve as *tiIndicators*, or threat intelligence indicators, in security APIs.
-3. Azure AD. Identity and access management capabilities are delivered to components that are used in the reference architecture, such as managed identities, service principals, Azure role-based access controls (RBACs) for Microsoft Sentinel, logic apps, and automation runbooks.
+3. Microsoft Entra ID. Identity and access management capabilities are delivered to components that are used in the reference architecture, such as managed identities, service principals, Azure role-based access controls (RBACs) for Microsoft Sentinel, logic apps, and automation runbooks.
 4. Azure Pipelines. DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions like the sandbox and production environments with continuous integration and continuous delivery (CI/CD) pipelines. We recommend using approval workflows to prevent unexpected deployments and separated service principals if you target multiple subscriptions per Azure environment.
-5. Azure Key Vault. SOC engineers use the key vault to securely store service principal secrets and certificates. This component of the architecture helps enforce the DevSecOps principle of _no secrets in code_ when used by Azure Pipeline service connections.
+5. Azure Key Vault. SOC engineers use the key vault to securely store service principal secrets and certificates. This component of the architecture helps enforce the DevSecOps principle of *no secrets in code* when used by Azure Pipeline service connections.
 6. Azure subscription. The SOC teams use two instances of Microsoft Sentinel in this reference architecture, separated within two logical Azure subscriptions to simulate production and sandbox environments. You can scale for your needs with other environments, such as testing, dev, preproduction, and so on.
 
 #### Dataflow example
@@ -38,7 +38,7 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
 ### Components
 
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based service to manage your identity and access controls.
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based service to manage your identity and access controls.
 * [Azure DevOps](https://azure.microsoft.com/services/devops) is a cloud service to collaborate on code, build and deploy apps, or plan and track your work.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
 * [Azure Policy](https://azure.microsoft.com/services/azure-policy) is a service to create, assign, and manage policy definitions in your Azure environment.
@@ -72,7 +72,7 @@ The following illustration shows a MITRE Att&ck cloud scenario.
 
 :::image type="content" border="false" source="./media/mitre-attack-in-sentinel-artifacts-dev.svg" alt-text="Diagram of a MITRE Att&ck cloud scenario." lightbox="./media/mitre-attack-in-sentinel-artifacts-dev.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 ## Threat definition attack scenarios based on MITRE
 
@@ -91,24 +91,24 @@ This table shows you the terms, definitions, and details of important aspects of
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-With security, in general terms, automation increases operations efficiency while saving time for more complex use cases, such as threat detection engineering, threat intelligence, SOC, and SOAR use cases. DevOps teams need to know where they can use IaC securely in the context of Microsoft Sentinel CI/CD. This process introduces the use of specific identities that are used by non-human accounts in Azure AD called [service principals](/azure/active-directory/develop/app-objects-and-service-principals) and [managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
+With security, in general terms, automation increases operations efficiency while saving time for more complex use cases, such as threat detection engineering, threat intelligence, SOC, and SOAR use cases. DevOps teams need to know where they can use IaC securely in the context of Microsoft Sentinel CI/CD. This process introduces the use of specific identities that are used by non-human accounts in Microsoft Entra ID called [service principals](/azure/active-directory/develop/app-objects-and-service-principals) and [managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
 
 The following table summarizes security considerations for service principals and the main use cases that are covered by Microsoft Sentinel and Azure DevOps release pipelines.
 
 | Use case | Requirements (least privilege) | Role assignment duration | Permission scope | Trustee| Security considerations |
 | -- | --- | --- | --- | --- | ---------- |
-| Enable Microsoft Sentinel connectors | Security administrator** <br><br> Owner* <br><br> Microsoft Sentinel contributor <br><br> Reader | JIT (one-time activation) <br><br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | Use the key vault to store service principal name (SPN) secrets and certificate. <br><br> Enable SPN auditing. <br><br> Periodically, review the permission assignment (Azure Privileged Identity Management for SPN) or suspicious activity for SPN. <br><br>Use Azure AD certificate authorities and multifactor authentication (when supported) for privileged accounts. <br><br> Use Azure AD Custom Roles for more granularity. |
+| Enable Microsoft Sentinel connectors | Security administrator** <br><br> Owner* <br><br> Microsoft Sentinel contributor <br><br> Reader | JIT (one-time activation) <br><br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | Use the key vault to store service principal name (SPN) secrets and certificate. <br><br> Enable SPN auditing. <br><br> Periodically, review the permission assignment (Azure Privileged Identity Management for SPN) or suspicious activity for SPN. <br><br>Use Microsoft Entra certificate authorities and multifactor authentication (when supported) for privileged accounts. <br><br> Use Microsoft Entra Custom Roles for more granularity. |
 | Deploy Microsoft Sentinel artifacts, such as workbooks, analytics, rules, threat hunting queries, notebooks, and playbooks | Microsoft Sentinel Contributor <br> Logic Apps contributor  | Permanent | Microsoft Sentinel's Workspace or Resource Group | SPN | Use Azure DevOps (ADO) workflow approval and checks to secure pipeline deployment with this SPN. |
-| Assign a policy to configure log streaming features to Microsoft Sentinel|  Resource Policy Contributor ** | On purpose (every time a new subscription and connector deploys) | All subscriptions to be monitored| SPN | Use Microsoft Azure Active Directory (Azure AD), CA, and MFA, when supported, for privileged accounts. |
+| Assign a policy to configure log streaming features to Microsoft Sentinel|  Resource Policy Contributor ** | On purpose (every time a new subscription and connector deploys) | All subscriptions to be monitored| SPN | Use Microsoft Entra ID, CA, and MFA, when supported, for privileged accounts. |
 
-\* Only concerns Azure AD diagnostics settings. <br>
-\** Specific connectors need additional permissions like "security administrator" or "resource policy contributor" to allow streaming data to Microsoft Sentinel workspace, Azure AD, Microsoft 365 or Microsoft Defender, and Platform as a service (PaaS) resources like Azure Key Vault.
+\* Only concerns Microsoft Entra diagnostics settings. <br>
+\** Specific connectors need additional permissions like "security administrator" or "resource policy contributor" to allow streaming data to Microsoft Sentinel workspace, Microsoft Entra ID, Microsoft 365 or Microsoft Defender, and Platform as a service (PaaS) resources like Azure Key Vault.
 
 #### Privileged access model
 
@@ -121,8 +121,6 @@ Security of privileged access is critically important because it's foundational 
 For that reason, we recommend logically spreading the service principals into different levels or tiers by following a minimum privilege principle. The following illustration shows how to classify the service principals, depending on the type of access and where the access is required.
 
 ![Diagram of the layered architecture for a privileged access model in a pipeline.](./media/sentinel-layered-architecture.png)
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.pptx) of this architecture.*
 
 ##### Level 0 service principals
 
@@ -288,7 +286,7 @@ Organizations that want environments on demand for testing and development and t
 
 #### Microsoft Sentinel connectors automatic configuration  
 
-Microsoft Sentinel connectors are an essential part of the solution that supports connecting with different elements in the enterprise architecture landscape, like Azure AD, Microsoft 365, Microsoft Defender, threat intelligence platform solutions, and so on.  
+Microsoft Sentinel connectors are an essential part of the solution that supports connecting with different elements in the enterprise architecture landscape, like Microsoft Entra ID, Microsoft 365, Microsoft Defender, threat intelligence platform solutions, and so on.  
 
 When you define an environment, you can use the connectors configuration to set up environments with homogeneous configurations.
 
@@ -296,12 +294,12 @@ Enabling connectors as part of the DevOps model must be supported by the service
 
 | Connector scenario | Privilege access model level | Azure least privilege | Requires workflow approval  |
 | ---- | --- | --- | --- |
-| Azure AD | Level 0 | global admin or security admin | Recommended |
-| Azure AD identity protection | Level 0 | global admin or security admin | Recommended |
+| Microsoft Entra ID | Level 0 | global admin or security admin | Recommended |
+| Microsoft Entra ID Protection | Level 0 | global admin or security admin | Recommended |
 | Microsoft Defender for Identity | Level 0 | global Admin or security admin | Recommended |
 | Microsoft Office 365 | Level 0 | global admin or security admin | Recommended |
 | Microsoft Cloud App Security | Level 0 | global admin or security admin | Recommended |
-| Microsoft 365 Defender | Level 0 | global admin or security admin | Recommended |
+| Microsoft Defender XDR | Level 0 | global admin or security admin | Recommended |
 | Microsoft Defender for IOT | Level 2 | Contributor | Recommended |
 | Microsoft Defender for Cloud | Level 2 | Security Reader | Optional |
 | Azure Activity | Level 2 | Subscription Reader | Optional |
@@ -326,7 +324,7 @@ You can also implement your repository by using PowerShell.
 
 If your team uses MITRE, consider classifying the different artifacts and specifying the tactics and techniques for each one. Be sure you include a corresponding metadata file for each artifact type.
 
-For example, if you're creating a new playbook by using an Azure ARM template and the file name is _Playbook.arm.json_, you add a JSON file named _Playbook.arm.mitre.json_. The metadata for this file then includes the CSV, JSON, or YAML formats that correspond to the MITRE tactics or techniques that you're using.
+For example, if you're creating a new playbook by using an Azure ARM template and the file name is *Playbook.arm.json*, you add a JSON file named *Playbook.arm.mitre.json*. The metadata for this file then includes the CSV, JSON, or YAML formats that correspond to the MITRE tactics or techniques that you're using.
 
 By following this practice, your team can evaluate your MITRE coverage based on the jobs that are done during setup for the different artifact types that you use.
 
@@ -334,9 +332,9 @@ By following this practice, your team can evaluate your MITRE coverage based on 
 
 The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions that you can take.
 
-:::image type="content" source="./media/build-artifact-process-lightbox.png" alt-text="Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.png":::
+:::image type="content" source="./media/build-artifact-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 * You can base your artifact definition on a descriptive schema in JSON or YAML format and then validate the schema to avoid syntax errors.  
   * Validate your ARM templates by using [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit).
@@ -356,9 +354,9 @@ Usually, multiple teams work over several Microsoft Sentinel instances to genera
 
 The following diagram shows an example artifact extraction process.
 
-:::image type="content" source="./media/artifact-extraction-process-lightbox.png" alt-text="Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.png":::
+:::image type="content" source="./media/artifact-extraction-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 #### Deploy artifacts
 
@@ -372,9 +370,9 @@ Development teams use the process to ensure they can deploy, test, and validate 
 
 The following diagram shows the deployment process sequence that ensures your artifacts are deployed in the right order.
 
-:::image type="content" source="./media/artifact-deployment-process-lightbox.png" alt-text="Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.png":::
+:::image type="content" source="./media/artifact-deployment-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 Managing Sentinel artifacts as code offers you flexible ways to maintain your operations and automate the deployment in a CI/CD DevOps pipeline.
 
@@ -402,17 +400,17 @@ Depending on the automation language you choose, some automation capabilities mi
 
 The following diagram shows the components of simplifying Microsoft Sentinel access with managed service identity.
 
-![Diagram of simplifying Microsoft Sentinel access with managed service identity.](./media/azure-sentinel-managed-service-identity.png)
+![Diagram of simplifying Microsoft Sentinel access with managed service identity.](./media/azure-sentinel-managed-service-identity.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 If you need to grant access to other resources, use managed identity, which ensures a unique identity for all critical operations.
 
 Use Azure Automation for setting up playbooks. Use PowerShell scripts for the following complex tasks and automation features:
 
-* Integrating with third-party solutions, where different levels of credentials are required and based on Azure AD or custom credentials:
-  * Azure AD user credentials
-  * Azure AD service principal credentials
+* Integrating with third-party solutions, where different levels of credentials are required and based on Microsoft Entra ID or custom credentials:
+  * Microsoft Entra user credentials
+  * Microsoft Entra service principal credentials
   * Certificate authentication
   * Custom credentials
   * Managed identity
@@ -438,8 +436,8 @@ To support choosing the solution that fits your team's needs, the following tabl
 | We need to integrate gates and branching for supervising integration, before allowing developers to trigger deployment pipelines, such as source control, coding review, rollback, workflow approval, and so on. | Supported | Partially supported |
 | We have a customized Git or repository structure. | Supported | Supported |
 | We don't use Resource Manager or Bicep IaC languages to build artifacts. | Supported | Not supported |
-| We want to centrally manage the deployment of artifacts to multiple Microsoft Sentinel workspaces in a single Azure AD tenant. | Supported | Supported |
-| We want to integrate or extend CI/CD pipelines across multiple Azure AD tenants. | Supported | Supported |
+| We want to centrally manage the deployment of artifacts to multiple Microsoft Sentinel workspaces in a single Microsoft Entra tenant. | Supported | Supported |
+| We want to integrate or extend CI/CD pipelines across multiple Microsoft Entra tenants. | Supported | Supported |
 | We have playbooks with different parameterization depending on subscription, location, environment, and so on. | Supported | TBD, guidelines to be documented |
 | We want to integrate different artifacts on the same repository to compose use cases. | Supported | Supported |
 | We want the ability to bulk remove artifacts. | Supported | Not Supported |
@@ -457,7 +455,7 @@ Organizations can create their own images for agents based on containers. For mo
 
 #### Microsoft Sentinel cross-tenant management with Azure DevOps
 
-As a global SOC or MSSP, you might have to manage multiple tenants. Azure Lighthouse supports scaled operations across several Azure AD tenants at the same time, making your management tasks more efficient. For more information, see [Azure Lighthouse Overview](/azure/lighthouse/overview).
+As a global SOC or MSSP, you might have to manage multiple tenants. Azure Lighthouse supports scaled operations across several Microsoft Entra tenants at the same time, making your management tasks more efficient. For more information, see [Azure Lighthouse Overview](/azure/lighthouse/overview).
 
 Cross-tenant management is especially effective in the following scenarios:
 
@@ -491,13 +489,15 @@ For more information on how to create an ARM template, see [Create and deploy AR
 
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 
-:::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg" alt-text="Diagram of a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg":::
+:::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg" alt-text="Diagram showing a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 1. An MSP offering is integrated through an ARM template or an Azure Marketplace service offering.
 1. Azure delegated resource management checks that the request is from a partner tenant and calls a managed service resource provider.
 1. The managed service resource provider uses RBAC to control the MSP's access.
 1. The MSP completes SecOps actions on a customer resource.
-1. The billing process treats expenses as customer charges. Split billing is possible if customer entities have separate workspaces in the same Azure AD tenant.
+1. The billing process treats expenses as customer charges. Split billing is possible if customer entities have separate workspaces in the same Microsoft Entra tenant.
 1. The security and sovereignty of the data is dependent on the customer's tenant boundary.
 
 ###### Identity across multiple tenants
@@ -823,7 +823,6 @@ Principal author:
 
 ## Related resources
 
-* [Dev SecOps in GitHub](../../solution-ideas/articles/devsecops-in-github.yml)
 * [Hybrid security monitoring using Microsoft Defender for cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 * [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
 * [Advanced ARM template functionality](../../guide/azure-resource-manager/advanced-templates/index.md)

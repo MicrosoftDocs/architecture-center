@@ -4,9 +4,9 @@ Event Grid connects your app with other services. This article describes how to 
 
 ## Architecture
 
-![Architecture Diagram](../media/application-integration-using-event-grid.png)
+![Diagram showing application integration using Azure Event Grid.](../media/application-integration-using-event-grid.svg)
 
-*Download an [SVG](../media/application-integration-using-event-grid.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/application-integration-using-event-grid.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -44,7 +44,7 @@ Organizations can use Event Grid to assist with:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Cost optimization
 

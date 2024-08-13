@@ -2,7 +2,7 @@ This architecture uses Azure Files, Azure File Sync, and Azure Virtual Desktop t
 
 ## Architecture
 
-:::image type="content" source="media/hybrid-file-share-dr-remote-local-branch-workers.png" alt-text="Azure architecture to provide desktops, both on-premises and cloud-based, for a company with many branches." lightbox="media/hybrid-file-share-dr-remote-local-branch-workers.png":::
+:::image type="content" source="media/hybrid-file-share-dr-remote-local-branch-workers.svg" alt-text="Azure architecture to provide desktops, both on-premises and cloud-based, for a company with many branches." lightbox="media/hybrid-file-share-dr-remote-local-branch-workers.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874694-hybrid-file-share-dr-remote-local-branch-workers.vsdx) of this architecture.*
 
@@ -21,13 +21,13 @@ This architecture uses Azure Files, Azure File Sync, and Azure Virtual Desktop t
 
 ### Components
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) provides fully-managed file shares in the cloud. Azure File Sync is a feature of Azure Files that can provide caches of a file share on the cloud and on-premises on Windows Server.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) provides fully managed file shares in the cloud. Azure File Sync is a feature of Azure Files that can provide caches of a file share on the cloud and on-premises on Windows Server.
 - [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Azure Files](https://azure.microsoft.com/products/storage/files), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues).
 
 ### Alternatives
 
-- For more details on Active Directory and network integration with Virtual Desktop, see [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml).
+- For more details on Active Directory and network integration with Virtual Desktop, see [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml).
 - To see an example of direct access to file shares in a hybrid environment see [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services).
 
 ## Scenario details
@@ -54,7 +54,7 @@ Typical situations for this architecture include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -68,7 +68,7 @@ Virtual Desktop host pools can span availability zones and have spare capacity i
 
 #### Resiliency
 
-Azure Files supports Azure Backup, and its use is highly recommended. This workload shows the value of Azure File Sync as a disaster recovery tool. However, for locally-redundant storage (LRS) and zone-redundant storage (ZRS) workloads, backup snapshots are stored locally. Therefore, for large shares, 100 TB or greater, that don't support geo-redundant storage (GRS), there's limited resiliency for a disaster. Backup supports 200 snapshots of a file share.
+Azure Files supports Azure Backup, and its use is highly recommended. This workload shows the value of Azure File Sync as a disaster recovery tool. However, for locally redundant storage (LRS) and zone-redundant storage (ZRS) workloads, backup snapshots are stored locally. Therefore, for large shares, 100 TB or greater, that don't support geo-redundant storage (GRS), there's limited resiliency for a disaster. Backup supports 200 snapshots of a file share.
 
 ### Security
 
@@ -88,7 +88,7 @@ Azure Files supports Azure Backup, and its use is highly recommended. This workl
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Azure Files has a fully-integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure Devops and Azure Pipelines.
+Azure Files has a fully integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure Devops and Azure Pipelines.
 
 ### Performance efficiency
 
@@ -109,8 +109,8 @@ the amount of storage for a file share, and the number of input/output operation
 
 ## Related resources
 
-- [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 - [Hybrid file services](../../hybrid/hybrid-file-services.yml)
-- [FSLogix for the enterprise](../wvd/windows-virtual-desktop-fslogix.yml)
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
 - [Azure enterprise cloud file share](../../hybrid/azure-files-private.yml)
 - [Using Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)

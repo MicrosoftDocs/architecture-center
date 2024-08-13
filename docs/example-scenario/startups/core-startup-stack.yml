@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: See an example and understand the components of a simple core startup stack architecture for an initial MVP or prototype.
   author: mootpointer
-  ms.author: anharvey
+  ms.author: pnp
   ms.date: 08/13/2024
   ms.topic: example-scenario
   ms.service: architecture-center

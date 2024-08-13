@@ -2,10 +2,10 @@
 title: Azure mainframe and midrange architecture concepts and patterns
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
-author: bhbandam
-ms.author: bhbandam
-ms.date: 08/19/2022
-ms.topic: reference-architecture
+author: Venkat-Github-Account
+ms.author: vramakrishna
+ms.date: 07/10/2024
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
@@ -23,15 +23,15 @@ ms.custom:
 
 Mainframe and midrange  hardware is composed of a family of systems from various vendors (all with a history and goal of high performance, high throughput, and sometimes high availability). These systems were often *scale-up* and monolithic, meaning they were a single, large frame with multiple processing units, shared memory, and shared storage.
 
-On the application side, programs were often written in one of two flavors: either transactional or batch. In both cases, there were a variety of programming languages that were used, including COBOL, PL/I, Natural, Fortran, REXX, and so on.  Despite the age and complexity of these systems, there are many migration pathways to Azure.
+On the application side, programs were often written in one of two flavors: either transactional or batch. In both cases, there were several programming languages that were used, including COBOL, PL/I, Natural, Fortran, REXX, and so on. Despite the age and complexity of these systems, there are many migration pathways to Azure.
 
-On the data side, data is usually stored in files and in databases. Mainframe and midrange databases commonly come in a variety of possible structures, such as relational, hierarchical, and network, among others. There are different types of file organizational systems, where some of them can be indexed and can act as a key-value stores. Further, data encoding in mainframes can be different from the encoding usually handled in non-mainframe systems. Therefore, data migrations should be handled with upfront planning. There are many options for migrating to the Azure data platform.
+On the data side, data is usually stored in files and in databases. Mainframe and midrange databases commonly come in various structures, such as relational, hierarchical, and network, among others. There are different types of file organizational systems, where some of them can be indexed and can act as a key-value stores. Further, data encoding in mainframes can be different from the encoding that's typically handled in non-mainframe systems. Therefore, data migrations should be handled with upfront planning. There are many options for migrating to the Azure data platform.
 
 ![Mainframe + Midrange Overview](images/main-types.png "Mainframe + Midrange Overview")
 
 ## Migrating legacy systems to Azure
 
-In many cases, mainframe, midrange, and other server-based workloads can be replicated in Azure with little to no loss of functionality. Sometimes users do not notice changes in their underlying systems. In other situations, there are options for refactoring and re-engineering the legacy solution into an architecture that is in alignment with the cloud. This is done while still maintaining the same or very similar functionality. The architectures in this content set (plus the additional white papers and other resources provided below) will help guide you through this process.
+In many cases, mainframe, midrange, and other server-based workloads can be replicated in Azure with little to no loss of functionality. Sometimes users don't notice changes in their underlying systems. In other situations, there are options for refactoring and re-engineering the legacy solution into an architecture that is in alignment with the cloud. This is done while still maintaining the same or similar functionality. The architectures in this content set (plus the white papers and other resources provided later in this article) help guide you through this process.
 
 ## Mainframe and midrange concepts
 
@@ -43,18 +43,18 @@ In our mainframe architectures, we use the following terms.
 
 #### Mainframe storage
 
-Part of demystifying mainframes involves decoding various overlapping terms. For example, central storage, real memory, real storage, and main storage generally all refer to storage that is attached directly to the mainframe processor.  Mainframe hardware includes processors and many other devices, such as direct-access storage devices (DASDs), magnetic tape drives, and several types of user consoles. Tapes and DASDs are used for system functions and by user programs.
+Part of demystifying mainframes involves decoding various overlapping terms. For example, central storage, real memory, real storage, and main storage all refer to storage that is attached directly to the mainframe processor. Mainframe hardware includes processors and many other devices, such as direct-access storage devices (DASDs), magnetic tape drives, and several types of user consoles. Tapes and DASDs are used for system functions and by user programs.
 
 *Types of physical storage:*
 
-- **Central storage**. Located directly on the mainframe processor, it's also known as *processor storage* or *real storage*.
-- **Auxiliary storage**. Located separately from the mainframe, it includes storage on DASDs, which is also known as *paging storage*.
+- **Central storage** is located directly on the mainframe processor. It's also known as *processor storage* or *real storage*.
+- **Auxiliary storage** is located separately from the mainframe. It includes storage on DASDs, which is also known as *paging storage*.
 
 #### MIPS
 
 The measurement of millions of instructions per second (MIPS) provides a constant value of the number of cycles per second, for a given machine. MIPS are used to measure the overall compute power of a mainframe. Mainframe vendors charge customers, based on MIPS usage. Customers can increase mainframe capacity to meet specific requirements. IBM maintains a [processor capacity index](https://www.ibm.com/docs/en/cma/2.1.1?topic=211-capacity-management-analytics-terminology), which shows the relative capacity across different mainframes.
 
-The table below shows typical MIPS thresholds across small, medium, and large enterprise organizations (SORGs, MORGs, and LORGs).
+The following table shows typical MIPS thresholds across small, medium, and large enterprise organizations (SORGs, MORGs, and LORGs).
 
 |Customer size |Typical MIPS usage |
 |--------------|-------------------|
@@ -64,7 +64,7 @@ The table below shows typical MIPS thresholds across small, medium, and large en
 
 #### Mainframe data
 
-Mainframe data is stored and organized in a variety of ways, from relational and hierarchical databases to high throughput file systems. Some of the common data systems are z/OS Db2 for relational data and IMS DB for hierarchical data. For high throughput file storage, you might see VSAM (IBM Virtual Storage Access Method). The following table provides a mapping of some of the more common mainframe data systems, and their possible migration targets into Azure.
+Mainframe data is stored and organized in various ways, from relational and hierarchical databases to high throughput file systems. Some of the common data systems are z/OS Db2 for relational data and IMS DB for hierarchical data. For high throughput file storage, you might see VSAM (IBM Virtual Storage Access Method). The following table provides a mapping of some of the more common mainframe data systems, and their possible migration targets into Azure.
 
 | Data source    |Target platform in Azure|
 |---------------|------------------------|
@@ -102,7 +102,7 @@ Consider the following details about endianness:
 
 - RISC and x86 processors differ in *endianness*, a term used to describe how a system stores bytes in computer memory.
 - RISC-based computers are known as big endian systems, because they store the most significant ("big") value first—that is, in the lowest storage address.
-- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant ("little") value) first.
+- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant ("little") value first.
 
 The following figure visually shows you the difference between big endian and little endian.
 
@@ -132,7 +132,7 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 
 ### Refactor
 
-Refactoring requires minimal changes to applications. This often enables the application architecture to leverage Azure platform as a service (PaaS) and to leverage additional cloud offerings. For example, you could migrate compute components of existing applications to Azure App Service or to Azure Kubernetes Service (AKS).  You could also refactor relational and nonrelational databases into various options, such as Azure SQL Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Cosmos DB.
+Refactoring requires minimal changes to applications. This often enables the application architecture to take advantage of Azure platform as a service (PaaS) and other cloud offerings. For example, you could migrate compute components of existing applications to Azure App Service or to Azure Kubernetes Service (AKS). You could also refactor relational and nonrelational databases into various options, such as Azure SQL Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Cosmos DB.
 
 #### Refactor architectures
 
@@ -147,22 +147,22 @@ Refactoring requires minimal changes to applications. This often enables the app
 <ul class="grid">
 
 [!INCLUDE [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](../../includes/cards/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus-card.md)]  
-[!INCLUDE [Unisys mainframe migration with Asysco](../../includes/cards/unisys-mainframe-migration-card.md)]
+[!INCLUDE [Unisys mainframe migration with Avanade AMT](../../includes/cards/unisys-mainframe-migration-card.md)]
 [!INCLUDE [IBM System i to Azure using Infinite i](../../includes/cards/ibm-system-i-azure-infinite-i-card.md)]
 
 </ul>
 
 <ul class="grid">
 
-[!INCLUDE [IBM z/OS mainframe migration with Asysco AMT](../../includes/cards/asysco-zos-migration-card.md)] 
-[!INCLUDE [Refactor mainframe applications to Azure with Raincode compilers](../../includes/cards/raincode-reference-architecture-card.md)]  
+[!INCLUDE [IBM z/OS mainframe migration with Avanade AMT](../../includes/cards/avanade-amt-zos-migration-card.md)] 
+[!INCLUDE [Rehost mainframe applications to Azure with Raincode compilers](../../includes/cards/raincode-reference-architecture-card.md)]  
 [!INCLUDE [IBM z/OS online transaction processing on Azure](../../includes/cards/ibm-zos-online-transaction-processing-azure-card.md)]
 
 </ul>
 
 ### Re-engineer
 
-Re-engineering for migration focuses on modifying and extending application functionality and the code base to optimize the application architecture for cloud scalability.  For example, you could break down a monolithic application into a group of microservices that work together and scale easily.  You could also rearchitect relational and nonrelational databases to a fully managed database solution, such as SQL Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Cosmos DB.
+Re-engineering for migration focuses on modifying and extending application functionality and the code base to optimize the application architecture for cloud scalability. For example, you could break down a monolithic application into a group of microservices that work together and scale easily. You could also rearchitect relational and nonrelational databases to a fully managed database solution, such as SQL Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Cosmos DB.
 
 #### Re-engineer architectures
 
@@ -210,7 +210,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Related resources
 
@@ -218,22 +218,18 @@ The white papers, blogs, webinars, and other resources are available to help you
 
 ### Whitepapers
 
-- [Stromasys Charon-SSP Solaris Emulator: Azure Setup Guide](https://azure.microsoft.com/resources/stromasys-charon-ssp-solaris-emulator-azure-setup-guide)
-- [Stromasys legacy server emulation on Azure: Running applications designed for SPARC, Alpha, VAX, PDP-11, and HP 3000](https://azure.microsoft.com/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
 - [Deploy Db2 pureScale on Azure (Whitepaper)](https://azure.microsoft.com/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
 - [Install IBM DB2 pureScale on Azure (Azure Docs)](/azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration)
-- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications)
 - [Set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-micro-focus-enterprise-server-4-0-and-enterprise/ba-p/306502)
 - [Set up IBM Z Development and Test Environment 12.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-ibm-z-development-and-test-environment-12-0-in-azure/ba-p/306506)
-- [Move mainframe compute and storage to Azure](https://azure.microsoft.com/resources/move-mainframe-compute-and-storage-to-azure)
-- [E-Book: Install TmaxSoft OpenFrame on Azure](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure)
+- [Move mainframe compute and storage to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
+- [E-Book: Install TmaxSoft OpenFrame on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/tmaxsoft/install-openframe-azure)
 
 ### Webinars
 
 - [Angelbeat - Retail Industry Legacy Webinar](https://youtu.be/UXgcz94d_1s)
 - [Mainframe Transformation to Azure](https://www.youtube.com/watch?v=30um4RI1c_M&list=PLW5Fjy7MTRY74fcCN5Z4S9VvgFuQZunf5&index=2)
-- [Mainframe Transformation: Azure is the New Mainframe](https://www.astadia.com/videos/mainframe-modernization-to-microsoft-azure-with-bob-ellsworth-live-stream)
+- [Mainframe Transformation: Azure is the New Mainframe](https://www.astadia.com/podcast/microsoft-cloud-show-azure-is-the-new-mainframe-with-steve-steuart)
 - [ClearPath MCP Software Series For Azure](https://www.youtube.com/watch?v=TPe8fBCgQ7k&feature=youtu.be)
 - [Leverage the Power of Azure with Steve Read](https://www.astadia.com/podcast/leverage-the-power-of-azure-with-steve-read)
 - [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
@@ -256,7 +252,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 
 ### Customer stories
 
-Different industries are migrating from legacy mainframe and midrange systems in innovative and inspiring ways. Following are a number of customer case studies and success stories:
+Different industries are migrating from legacy mainframe and midrange systems in innovative and inspiring ways. See the following customer case studies and success stories:
 
 - [Mainframe to Azure: A Real World Modernization Case Study (GEICO and AIS)](https://www.ais.com/mainframe-to-azure-a-real-world-modernization-case-study)
 - [Jefferson County, Alabama](https://www.jccal.org/Default.asp?ID=2096&pg=Mainframe%20Migration)

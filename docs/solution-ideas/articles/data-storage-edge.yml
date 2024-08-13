@@ -5,15 +5,13 @@ metadata:
   description: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
   author: falloutxAY
   ms.author: ansyeo
-  ms.date: 12/15/2022
+  ms.date: 07/09/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
-  ms.custom:
-    - fcp
-    - solution-idea
+  ms.custom: arb-iot
 name: IoT Edge data storage and processing
 azureCategories:
   - iot

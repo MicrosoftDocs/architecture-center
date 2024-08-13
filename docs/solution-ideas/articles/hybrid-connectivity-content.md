@@ -4,8 +4,9 @@ In this solution idea, use a hybrid connection for Azure Stack Hub solutions wit
 
 ## Architecture
 
-![Architecture diagram](../media/hybrid-connectivity.png)
-*Download an [SVG](../media/hybrid-connectivity.svg) of this architecture.*
+![Diagram that shows a hybrid connection for Azure Stack Hub.](../media/hybrid-connectivity.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-connectivity.vsdx) of this architecture.*
 
 ### Dataflow
 

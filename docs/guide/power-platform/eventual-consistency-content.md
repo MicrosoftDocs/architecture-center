@@ -14,7 +14,7 @@ This solution can be built with several [plugin](/power-apps/developer/data-plat
 
 1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
 2. The Contoso LOB app reads the main account entities from the **US Instance**. It intends to submit an API call that references an account entity that wasn't replicated to the **Europe Instance**. As it stands, the API call would fail because the record doesn't exist, due to the sync not working.
-3. However, a **PreValidation**/**PreCreate** plugin first performs an _upsert_ based on the provided entity GUID and provided reference data. If it exists already, then nothing is changed. If it doesn't exist, a new account is created, with most of the fields blank.
+3. However, a **PreValidation**/**PreCreate** plugin first performs an *upsert* based on the provided entity GUID and provided reference data. If it exists already, then nothing is changed. If it doesn't exist, a new account is created, with most of the fields blank.
 4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully. The report from the LOB application is generated successfully.
 
 >[!NOTE]
@@ -94,7 +94,6 @@ Consider the impact of any business logic on an entity that isn't hydrated yet. 
 
 Related architectures:
 
-- [CI/CD for Microsoft Power Platform](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform)
 - [Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform)
 - [Power Automate deployment at scale](/azure/architecture/example-scenario/power-automate/power-automate)
 
@@ -103,4 +102,4 @@ Guidance for Web development:
 - [Ten design principles for Azure applications](/azure/architecture/guide/design-principles)
 - [Design and implementation patterns](/azure/architecture/patterns/category/design-implementation)
 - [App Service deployment best practices](/azure/app-service/deploy-best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)

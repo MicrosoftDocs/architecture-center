@@ -14,7 +14,7 @@ azureCategories:
   - databases
   - storage
 products:
-  - azure-application-insights
+  - azure-monitor
   - azure-automation
   - azure-logic-apps
   - azure-table-storage

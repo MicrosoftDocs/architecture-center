@@ -2,14 +2,14 @@
 title: Transient fault handling
 titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults caused by loss of network connectivity, temporary unavailability, or timeouts.
-author: martinekuan
-ms.author: architectures
+ms.author: robbag
+author: RobBagby
 categories: azure
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: best-practice
-azureCategories: 
+azureCategories:
   - databases
   - security
   - web
@@ -88,7 +88,7 @@ The following guidelines can help you design suitable transient fault handling m
 
 - As a general guideline, use an exponential back-off strategy for background operations, and use immediate or regular interval retry strategies for interactive operations. In both cases, you should choose the delay and the retry count so that the maximum latency for all retry attempts is within the required end-to-end latency requirement.
 
-- Take into account the combination of all factors that contribute to the overall maximum timeout for a retried operation. These factors include the time it takes for a failed connection to produce a response (typically set by a timeout value in the client), the delay between retry attempts, and the maximum number of retries. The total of all these times can result in long overall operation times, especially when you use an exponential delay strategy where the interval between retries grows rapidly after each failure. If a process must meet a specific service level agreement (SLA), the overall operation time, including all timeouts and delays, must be within the limits defined in the SLA.
+- Take into account the combination of all factors that contribute to the overall maximum timeout for a retried operation. These factors include the time it takes for a failed connection to produce a response (typically set by a timeout value in the client), the delay between retry attempts, and the maximum number of retries. The total of all these times can result in long overall operation times, especially when you use an exponential delay strategy where the interval between retries grows rapidly after each failure. If a process must meet a specific service-level agreement (SLA), the overall operation time, including all timeouts and delays, must be within the limits defined in the SLA.
 
 - Don't implement overly aggressive retry strategies. These are strategies that have intervals that are too short or retries that are too frequent. They can have an adverse effect on the target resource or service. These strategies might prevent the resource or service from recovering from its overloaded state, and it will continue to block or refuse requests. This scenario results in a vicious circle, where more and more requests are sent to the resource or service. Consequently, its ability to recover is further reduced.
 
@@ -96,7 +96,7 @@ The following guidelines can help you design suitable transient fault handling m
 
 - Use the type of the exception and any data it contains, or the error codes and messages returned from the service, to optimize the number of retries and the interval between them. For example, some exceptions or error codes (like the HTTP code 503, Service Unavailable, with a Retry-After header in the response) might indicate how long the error might last, or that the service failed and won't respond to any subsequent attempt.
 
-### Avoid anti-patterns
+### Avoid antipatterns
 
 - In most cases, avoid implementations that include duplicated layers of retry code. Avoid designs that include cascading retry mechanisms or that implement retry at every stage of an operation that involves a hierarchy of requests, unless you have specific requirements that require doing so. In these exceptional circumstances, use policies that prevent excessive numbers of retries and delay periods, and make sure you understand the consequences. For example, say one component makes a request to another, which then accesses the target service. If you implement retry with a count of three on both calls, there are nine retry attempts in total against the service. Many services and resources implement a built-in retry mechanism. You should investigate how you can disable or modify these mechanisms if you need to implement retries at a higher level.
 
@@ -118,7 +118,7 @@ The following guidelines can help you design suitable transient fault handling m
 
   - For custom services that you create and deploy, force transient errors to occur by temporarily disabling or overloading the service. (Don't attempt to overload any shared resources or shared services in Azure.)
 
-  - For HTTP-based APIs, consider using the FiddlerCore library in your automated tests to change the outcome of HTTP requests, either by adding extra roundtrip times or by changing the response (like the HTTP status code, headers, body, or other factors). Doing so enables deterministic testing of a subset of the failure conditions, for transient faults and other types of failures. For more information, see [FiddlerCore](https://www.telerik.com/fiddler/fiddlercore). For examples of how to use the library, particularly the **HttpMangler** class, examine the [source code for the Azure Storage SDK](https://github.com/Azure/azure-storage-net/tree/master/Test).
+  - For HTTP-based APIs, consider using a library in your automated tests to change the outcome of HTTP requests, either by adding extra roundtrip times or by changing the response (like the HTTP status code, headers, body, or other factors). Doing so enables deterministic testing of a subset of the failure conditions, for transient faults and other types of failures.
 
   - Perform high load factor and concurrent tests to ensure that the retry mechanism and strategy works correctly under these conditions. These tests will also help ensure that the retry doesn't have an adverse effect on the operation of the client or cause cross-contamination between requests.
 
@@ -146,8 +146,8 @@ The following guidelines can help you design suitable transient fault handling m
 
 ### Manage operations that continually fail
 
-- Consider how you'll handle operations that continue to fail at every attempt. Situations like this are inevitable. 
-    
+- Consider how you'll handle operations that continue to fail at every attempt. Situations like this are inevitable.
+
   - Although a retry strategy defines the maximum number of times that an operation should be retried, it doesn't prevent the application from repeating the operation again with the same number of retries. For example, if an order processing service fails with a fatal error that puts it out of action permanently, the retry strategy might detect a connection timeout and consider it to be a transient fault. The code retries the operation a specified number of times and then gives up. However, when another customer places an order, the operation is attempted again, even though it will fail every time.
 
   - To prevent continual retries for operations that continually fail, you should consider implementing the [Circuit Breaker pattern](../patterns/circuit-breaker.yml). When you use this pattern, if the number of failures within a specified time window exceeds a threshold, requests return to the caller immediately as errors, and there's no attempt to access the failed resource or service.

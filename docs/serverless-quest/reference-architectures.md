@@ -3,6 +3,7 @@ title: Serverless Functions reference architectures
 titleSuffix: Azure Example Scenarios
 description: Learn about serverless reference architectures.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -26,8 +27,8 @@ A reference architecture is a template of required components and the technical 
 
 Common serverless architecture patterns include:
 
-- Serverless APIs, mobile and web backends.
-- Event and stream processing, Internet of Things (IoT) data processing, big data and machine learning pipelines.
+- Serverless APIs, mobile backends, and web backends.
+- Event and stream processing, Internet of Things (IoT) data processing, big data, and machine learning pipelines.
 - Integration and enterprise service bus to connect line-of-business systems, publish and subscribe (Pub/Sub) to business events.
 - Automation and digital transformation and process automation.
 - Middleware, software-as-a-Service (SaaS) like Dynamics, and big data projects.
@@ -59,7 +60,7 @@ Common serverless architecture patterns include:
         IoT-connected backends in the manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and that triggers a message to the service department when a repair is required.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, and are then routed for processing by using Zendesk.":::
+        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram that shows IOT devices that produce requests for repair, which are sent to the IOT Hub, and are then routed for processing by using Zendesk.":::
     :::column-end:::
 :::row-end:::
 
@@ -78,7 +79,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        Real-time file processing for the healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, by processes it using OCR detection, and it adds the data to a database for easy queries.
+        Real-time file processing for the healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, by processes it using optical character recognition (OCR) detection, and it adds the data to a database for easy queries.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/real-time-file-processing.png" alt-text="Diagram shows patient records uploaded, which is then decomposed and sent to Cognitive Services to be structured into a database.":::
@@ -131,15 +132,11 @@ The [serverless microservices reference architecture](/samples/azure-samples/ser
 This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve the messages to get the latest device status.
 
 - You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
-- The article [Code walkthrough: Serverless application with Azure Functions](../serverless/code.yml) walks you through the code and the design processes.
-
-### Event-based cloud automation
-
-Automating workflows and repetitive tasks on the cloud can dramatically improve a DevOps team's productivity. A serverless model is best suited for event-driven automation scenarios. This [event-based automation reference architecture](../reference-architectures/serverless/cloud-automation.yml) illustrates two cloud automation scenarios: cost center tagging and throttling response.
+- The article [Code walkthrough: Serverless application with Azure Functions](../web-apps/serverless/architectures/code.yml) walks you through the code and the design processes.
 
 ### Multicloud with Serverless Framework
 
-The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
+The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
 
 ## More serverless Functions reference architectures
 
@@ -148,32 +145,23 @@ The following sections list other serverless and Azure Functions-related referen
 ### General
 
 - [Serverless application architectures using Event Grid](../solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)
-- [Serverless apps using Azure Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
-- [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml)
-- [Serverless Asynchronous Multiplayer Reference Architecture](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
+- [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml)
 - [Instant Broadcasting on Serverless Architecture](/azure/architecture/serverless-quest/serverless-overview)
-- [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 
 ### Web and mobile backend
 
-- [An e-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
-- [Architect scalable e-commerce web app](../solution-ideas/articles/scalable-ecommerce-web-app.yml)
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
+- [Architect scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
+- [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Uploading and CDN-preloading static content with Azure Functions](/samples/azure-samples/functions-java-push-static-contents-to-cdn/functions-java-push-static-contents-to-cdn/)
 - [Cross Cloud Scaling Architecture](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Social App for Mobile and Web with Authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 
 ### AI + Machine Learning
 
 - [Image classification for insurance claims](../example-scenario/ai/intelligent-apps-image-processing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
-- [Personalized marketing solutions](../solution-ideas/articles/personalized-marketing.yml)
-- [Speech transcription with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
-- [Training a Model with AzureML and Azure Functions](/samples/azure-samples/functions-python-azureml-azurefunctions-deeplearning/training-a-model-with-azureml-and-azure-functions/)
-- [Customer Reviews App with Cognitive Services](/samples/azure-samples/functions-customer-reviews/customer-reviews-cognitive-services/)
-- [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
+- [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 - [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.yml)
 - [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
 - [HIPAA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
@@ -196,20 +184,7 @@ The following sections list other serverless and Azure Functions-related referen
 
 ### Gaming
 
-- [Custom Game Server Scaling](/gaming/azure/reference-architectures/multiplayer-custom-server-scaling)
-- [Non-real Time Dashboard](/gaming/azure/reference-architectures/analytics-non-real-time-dashboard)
-- [In-editor Debugging Telemetry](/gaming/azure/reference-architectures/analytics-in-editor-debugging)
-- [Multiplayer Serverless Matchmaker](/gaming/azure/reference-architectures/multiplayer-matchmaker-serverless)
-- [Advanced leaderboard for large scale](/gaming/azure/reference-architectures/leaderboard-non-relational#advanced-leaderboard-for-large-scale)
-- [Relational Leaderboard](/gaming/azure/reference-architectures/leaderboard-relational)
-- [Content Moderation](/gaming/azure/reference-architectures/cognitive-content-moderation)
-- [Text Translation](/gaming/azure/reference-architectures/cognitive-text-translation)
-- [Text to Speech](/gaming/azure/reference-architectures/cognitive-text-to-speech)
 - [Gaming using Azure Cosmos DB](../solution-ideas/articles/gaming-using-cosmos-db.yml)
-
-### Automation
-
-- [Smart scaling for Azure Scale Set with Azure Functions](/samples/azure-samples/azure-scale-set-smart-downscale/smart-scaling-for-azure-scale-set-with-azure-functions/)
 
 ## Contributors
 

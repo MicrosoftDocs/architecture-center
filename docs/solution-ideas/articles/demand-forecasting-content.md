@@ -4,8 +4,9 @@ Almost every business needs to predict the future to make better decisions and a
 
 ## Architecture
 
-![Architecture diagram showing the flow of sample data to Power BI: demand forecasting](../media/demand-forecasting.png)
-*Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
+![Architecture diagram showing the flow of sample data to Power BI: demand forecasting.](../media/demand-forecasting.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/demand-forecasting.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -13,12 +14,12 @@ The Microsoft AI Platform provides advanced analytics tools through Microsoft Az
 
 This solution combines several Azure services to provide actionable predictions:
 
-  1. Event Hubs collects real-time consumption data.
-  1. Stream Analytics aggregates the streaming data and makes it available for visualization.
-  1. Azure SQL Database stores and transforms the consumption data.
-  1. Machine Learning implements and executes the forecasting model.
-  1. Power BI visualizes the real-time energy consumption and the forecast results.
-  1. Finally, Data Factory orchestrates and schedules the entire dataflow.
+1. Event Hubs collects real-time consumption data.
+1. Stream Analytics aggregates the streaming data and makes it available for visualization.
+1. Azure SQL Database stores and transforms the consumption data.
+1. Machine Learning implements and executes the forecasting model.
+1. Power BI visualizes the real-time energy consumption and the forecast results.
+1. Finally, Data Factory orchestrates and schedules the entire dataflow.
 
 ### Components
 
@@ -45,11 +46,9 @@ The following scenarios are ways an organization can utilize demand forecasting:
 
 ## Next steps
 
-  - [Forecasting Best Practices (on GitHub)](https://github.com/microsoft/forecasting)
-  - [AutoML For Forecasting (on GitHub)](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
-  - [Azure Machine Learning documentation](/azure/machine-learning)
-  - [Training: Get started with Azure Stream Analytics](/training/modules/introduction-to-data-streaming)
-  - [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [Training: Get started with Azure Stream Analytics](/training/modules/introduction-to-data-streaming)
+- [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
   
 ## Related resources
 

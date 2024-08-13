@@ -8,6 +8,7 @@ metadata:
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
+  ms.custom: arb-containers
 name: Configure networking of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 3 of 9)
 azureCategories:
   - containers
@@ -18,8 +19,8 @@ products:
   - azure-kubernetes-service
   - azure-firewall
   - azure-application-gateway
-  - azure-active-directory
-  - azure-security-center
+  - entra-id
+  - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci-network.png
 content: |
    [!include[](aks-pci-network-content.md)]

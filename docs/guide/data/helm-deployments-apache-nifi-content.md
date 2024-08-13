@@ -4,7 +4,9 @@ This solution shows you how to use Helm charts when you deploy NiFi on Azure Kub
 
 ## Architecture
 
-:::image type="content" source="./media/helm-deployments-apache-nifi-architecture.png" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture-lightbox.png":::
+:::image type="content" source="./media/helm-deployments-apache-nifi-architecture.svg" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/helm-deployments-apache-nifi.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -90,7 +92,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Data disks
 
@@ -179,7 +181,6 @@ Principal author:
 ## Related resources
 
 - [Apache NiFi on Azure][Apache NiFi on Azure]
-- [Apache NiFi monitoring with MonitoFi][Apache NiFi monitoring with MonitoFi]
 - [Microservices architecture on Azure Kubernetes Service (AKS)][Microservices architecture on Azure Kubernetes Service (AKS)]
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture][Advanced Azure Kubernetes Service (AKS) microservices architecture]
 
@@ -188,7 +189,6 @@ Principal author:
 [Apache NiFi on Azure]: ../../example-scenario/data/azure-nifi.yml
 [Apache NiFi Docker Image]: https://hub.docker.com/r/apache/nifi
 [Apache NiFi Dockerfile on GitHub]: https://github.com/apache/nifi/blob/main/nifi-docker/dockerhub/Dockerfile
-[Apache NiFi monitoring with MonitoFi]: ./monitor-apache-nifi-monitofi.yml
 [Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
 [Helm]: https://helm.sh/docs
 [Helm charts]: https://helm.sh/docs/chart_template_guide/getting_started

@@ -13,7 +13,7 @@ azureCategories:
   - developer-tools
 products:
   - aspnet
-name: Migrate a monolith application to microservices using domain-driven design
+name: Migrate a monolithic application to microservices using domain-driven design
 summary: Learn to use a domain-driven design approach to migrate a monolithic application to microservices.
 thumbnailUrl: /azure/architecture/browse/thumbs/glue-code-communicate-monolith.png
 content: |

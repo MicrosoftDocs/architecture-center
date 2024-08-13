@@ -54,7 +54,7 @@ This solution is ideal for use in the finance industry. The following are some p
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Murex MX.3 is a complex workload with high memory, low latency, and high availability requirements. This section outlines some of the technical considerations that need to be analyzed while implementing a Murex MX.3 workload in Azure.
 
@@ -97,7 +97,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - You can host infrastructure resources for VDI solutions like Citrix in Azure. The client tier uses VDI solutions to access the application tier and optimize the overall cost and performance of the solution.
-- If the minimum capacity of the VMs is known, you can use the **Reserved Instances** option for all the VMs. This option reduces the costs of the VMs.
+- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and receive significant savings off pay-as-you-go prices.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs.
 
@@ -125,7 +125,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 A key consideration when you implement MX.3 workloads in Azure is defining the landing zone architecture. This architecture contains the subscription, resource group, virtual network isolation, and connectivity between various components of the solution. This section covers the [landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone) to implement an MX.3 workload on Azure, based on the Microsoft Cloud Adoption Framework.
 
-The diagram below shows a high-level view of a landing zone that uses the [hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml).
+The diagram below shows a high-level view of a landing zone that uses the [hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml).
 
 :::image type="content" source="./media/azure-hub-and-spoke-model.png" alt-text="Diagram that shows an example of a hub-and-spoke model with Azure services." lightbox="./media/azure-hub-and-spoke-model.png":::
 
@@ -139,15 +139,15 @@ Each component in the landing zone is discussed below.
 
 **Spoke**: The spokes are virtual networks that host MX.3’s Azure workloads and connect to the central hub through virtual network peering.
 
-**Virtual network peering**: Hub and spoke virtual networks are connected using virtual network peering, which supports low latency connections between the virtual networks.
+**Virtual network peering**: Hub-and-spoke virtual networks are connected using virtual network peering, which supports low latency connections between the virtual networks.
 
 **Gateway**: A gateway is used to send traffic from an MX.3 client’s on-premises network to the Azure virtual network. You can encrypt the traffic before it's sent.
 
-**Gateway Subnet**: The gateway that sends traffic from on-premises to Azure uses a specific subnet called the gateway subnet. The gateway subnet is part of the virtual network IP address range that you specify when configuring your virtual network. It contains the IP addresses that the virtual network gateway resources and services use.
+**Gateway subnet**: The gateway that sends traffic from on-premises to Azure uses a specific subnet called the gateway subnet. The gateway subnet is part of the virtual network IP address range that you specify when configuring your virtual network. It contains the IP addresses that the virtual network gateway resources and services use.
 
 **Azure Jumpbox VM**: Jumpbox connects Azure VMs of the application and persistence tiers by using dynamic IP. Jumpbox prevents all the application and database VMs from being exposed to the public. This connection is your entry point to connect through an RDP from the on-premises network.
 
-**Azure Firewall**: You should route any inbound and outbound connectivity between MX.3 VMs and the internet through Azure Firewall. Typical examples of such connectivity are time sync and anti-virus definition update.
+**Azure Firewall**: You should route any inbound and outbound connectivity between MX.3 VMs and the internet through Azure Firewall. Typical examples of such connectivity are time sync and antivirus definition update.
 
 **Azure Bastion**: By using Azure Bastion, you can securely connect the application and database VMs through Azure portal. Deploy the Azure Bastion host inside the hub virtual network, and then access the VMs in the peered spoke virtual networks. This component is optional, and you can use it as needed.
 
@@ -157,9 +157,9 @@ Each component in the landing zone is discussed below.
 
 **Application subnet**: You can place all the components under the application tier here. Having a dedicated application subnet also helps in controlling traffic to the business, orchestration, and technical services layers through NSGs.
 
-**Database Subnet**: You can place the components in the database subnet in a dedicated subnet to manage traffic around the database.
+**Database subnet**: You can place the components in the database subnet in a dedicated subnet to manage traffic around the database.
 
-**Private Link**: Azure services like Recovery Services vaults, Azure Cache for Redis, and Azure Files are all connected through a private link to the virtual network. Having a private link between these services and the virtual network secures the connection between endpoints in Azure by eliminating data exposure to the internet.
+**Private link**: Azure services like Recovery Services vaults, Azure Cache for Redis, and Azure Files are all connected through a private link to the virtual network. Having a private link between these services and the virtual network secures the connection between endpoints in Azure by eliminating data exposure to the internet.
 
 ## Contributors
 
@@ -186,10 +186,10 @@ Other contributors:
 - [Murex MX.3 architecture](https://www.murex.com/solutions/technology/mx3-architecture)
 - [Recommended Practices for Success with Oracle on Azure IaaS](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 - [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture)
-- [Running Oracle workloads on Azure using NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
+- [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
 
 ## Related resources
 
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml)
-- [Run Oracle databases on Azure](../../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)
+- [Oracle on Azure architecture design](../../solution-ideas/articles/oracle-on-azure-start-here.md)

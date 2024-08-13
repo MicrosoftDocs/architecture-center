@@ -15,12 +15,8 @@ ms.service: architecture-center
 
 ### Database architectures
 
-<ul class="grid">
-
-[!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-[!INCLUDE [Oracle Database Migration to Azure](../../includes/cards/reference-architecture-for-oracle-database-migration-to-azure.md)]
-[!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Gaming by using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db) | Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. |
 
 [view all](/azure/architecture/browse/#databases)

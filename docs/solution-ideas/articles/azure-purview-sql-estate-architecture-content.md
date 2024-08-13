@@ -4,9 +4,9 @@ This article describes how you can improve your organization's governance proces
 
 ## Architecture
 
-[![Architecture diagram shows how Azure Purview scans and classifies data and data lake storage](../media/azure-purview-sql-estate-architecture.png)](../media/azure-purview-sql-estate-architecture.png#lightbox)
+[![Architecture diagram shows how Azure Purview scans and classifies data and data lake storage.](../media/azure-purview-sql-estate-architecture.svg)](../media/azure-purview-sql-estate-architecture.svg#lightbox)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -52,7 +52,7 @@ The solution uses the following components:
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
@@ -97,12 +97,7 @@ Principal author:
 - [Microsoft Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
 - [What is Microsoft Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Key Vault](https://azure.microsoft.com/services/key-vault)
-
-## Related resources
-
-- [Data governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
-- [Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)
