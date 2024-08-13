@@ -15,7 +15,7 @@ To address business transformations like acquisitions or divesture, teams need t
 
    b. Deploy the artifacts (infrastructure and configuration) to the target resource group or groups in the new tenant subscription.
 
-2. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have an cloud platform team that can create this subscription.
+2. Create a sidecar subscription in the existing tenant to host cloned data service resources and backups of virtual machines (VMs). Most organizations have a cloud platform team or subscription vending process that can create this subscription.
 
 3. Clone the resources by using a tool like Azure Data Factory, AzCopy for data migration, or native backup and restore.
 
