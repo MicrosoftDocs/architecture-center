@@ -213,7 +213,7 @@ Principal authors:
 
 - Neelam Saxena | [LinkedIn profile](https://www.linkedin.com/in/neelam-saxena-5195b413/) | Senior Technical Program Manager
 
-- Nick Sologoub | [LinkedIn profile](https://www.linkedin.com/in/ncksol/) | PRINCIPAL Software Engineering Lead
+- Nick Sologoub | [LinkedIn profile](https://www.linkedin.com/in/ncksol/) | Principal Software Engineering Lead
 
 - Colin Desmond | [LinkedIn profile](https://www.linkedin.com/in/colin-desmond-64b507a/) | Senior Software Engineer
 
