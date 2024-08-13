@@ -29,7 +29,8 @@ The following new and updated articles have recently been published in the Azure
 
 - [AWS to Azure services comparison](./aws-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
 - [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#90a20ac702](https://github.com/MicrosoftDocs/architecture-center/commit/90a20ac702))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#cfdf99ab37](https://github.com/MicrosoftDocs/architecture-center/commit/cfdf99ab37))
+- [Retry pattern](./patterns/retry.yml)  ([#ea612ee4ab](https://github.com/MicrosoftDocs/architecture-center/commit/ea612ee4ab))
 - [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
 - [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
 - [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./databases/guide/teradata-vantage-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
