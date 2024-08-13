@@ -78,6 +78,9 @@ Principal author:
 
  * [Andrew Harvey](https://www.linkedin.com/in/andrewharvey) | CTO and Startup Advocate
 
+Reviewer:
+ * [Nick Ward](https://www.linkedin.com/in/nickward13) | Cloud Solution Architect
+
 ## Next steps
 
 - [Automate your workflow with GitHub Actions](/training/paths/automate-workflow-github-actions)
