@@ -222,7 +222,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-Use the [step-by-step tutorial](https://github.com/microsoft/adx-automotive-demos/tree/main/mdf42adx) to deploy this scenario. The guide shows how to deploy a free instance, parse MDF files, ingest data, and perform several basic queries.
+Use the [step-by-step tutorial](https://github.com/microsoft/adx-automotive-demos/) to deploy this scenario. The guide shows how to deploy a free instance, parse MDF files, ingest data, and perform several basic queries.
 
 ## Contributors
 
