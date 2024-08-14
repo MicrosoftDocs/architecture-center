@@ -34,21 +34,21 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 1. The delivery pipeline initiates an exchange of messages between the Machine Learning pipeline and the Siemens AI Model Manager (AIMM) through the IoT Hub and Event Hubs. This loop is crucial for managing and coordinating the deployment of a new model:
 
-    a. The delivery pipeline sends a message through IoT Hub to inform Siemens AIMM that a new model is ready for deployment.
+    a. The delivery pipeline sends a message through IoT Hub to inform the Siemens AIMM that a new model is ready for deployment.
 
-    b. Siemens AIMM receives this notification and assesses the current state of the edge devices to determine readiness for the new model. After it's ready, Siemens AIMM responds back to the IoT Hub with a request for the new model.
+    b. The Siemens AIMM receives this notification and assesses the current state of the edge devices to determine readiness for the new model. After it's ready, the Siemens AIMM responds back to the IoT Hub with a request for the new model.
 
     c. The delivery pipeline generates a shared access signature (SAS) link for the model package in the packaged models storage container.  
 
-    d. The delivery pipeline sends this SAS link back to Siemens AIMM through IoT Hub, which enables it to download the model.
+    d. The delivery pipeline sends this SAS link back to the Siemens AIMM through IoT Hub, which enables it to download the model.
 
-1. After Siemens AIMM receives the SAS link from the delivery pipeline, it reaches out to the packaged models storage container and downloads the latest packaged model.
+1. After the Siemens AIMM receives the SAS link from the delivery pipeline, it reaches out to the packaged models storage container and downloads the latest packaged model.
 
-1. Siemens AIMM runs internal processes to deploy the latest packaged model to the Siemens AI Inference Server (AIIS).
+1. The Siemens AIMM runs internal processes to deploy the latest packaged model to the Siemens AI Inference Server (AIIS).
 
-1. Siemens AIIS uses OpenTelemetry Collector to send metrics to the Siemens AI Model Monitor.
+1. The Siemens AIIS uses the OpenTelemetry Collector to send metrics to the Siemens AI Model Monitor.
 
-1. Siemens AI Model Monitor aggregates all the logs and metrics from the edge devices and services and sends this information to Azure Monitor.
+1. The Siemens AI Model Monitor aggregates all the logs and metrics from the edge devices and services and sends this information to Azure Monitor.
 
 1. Data recycling includes the following steps:  
 
@@ -64,7 +64,7 @@ This article shows you how to run Azure AI models on Siemens Industrial Edge IoT
 
 *Download a [Visio file](https://arch-center.azureedge.net/siemens-observability.vsdx) of this architecture.*
 
-To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from OpenTelemetry Collector and the Authentication Proxy. Siemens AI Model Monitor deploys these components as integral parts. This setup enables you to export logs and metrics to Application Insights and an Azure Monitor workspace. It uses a managed identity from Microsoft Entra ID as the key authentication mechanism.
+To ensure the smooth transfer of logs and metrics from Siemens Industrial Edge devices to Azure, the architecture uses the Azure Monitor Exporter from the OpenTelemetry Collector and the Authentication Proxy. The Siemens AI Model Monitor deploys these components as integral parts. This setup enables you to export logs and metrics to Application Insights and an Azure Monitor workspace. It uses a managed identity from Microsoft Entra ID as the key authentication mechanism.
 
 Telemetry data flows from the operational technology layer to an instance of the OpenTelemetry Collector in the information technology layer. This collector exports the data to Application Insights and uses the Authentication Proxy to acquire a Service Principal identity. This process strengthens the authentication from using a shared secret, or instrumentation key, to a fully certificate-backed Microsoft Entra ID identity. An Azure DevOps pipeline automates the generation and distribution of the certificates, service principals, and the association of relevant roles and permissions.
 
@@ -82,7 +82,7 @@ The Siemens Industrial Edge components include:
 
 - The [AI Software Development Kit](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations/software-development-kit.html) enables you to package your model, including preprocessing logic and post-processing logic, into a standard inference pipeline that runs on the AI Inference Server. You can achieve this process by using our Python Software Development Kit while maintaining your existing coding and training environment.
 
-- Siemens Data Collector collects inference data from Siemens AIIS for further processing.
+- Siemens Data Collector collects inference data from the Siemens AIIS for further processing.
 
 - The Siemens Data Collector Hub collects inference data from all Data Collectors to pass to the cloud for further processing.
 
