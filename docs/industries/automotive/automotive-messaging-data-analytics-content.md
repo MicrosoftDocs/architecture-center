@@ -191,7 +191,7 @@ This reference architecture allows automotive manufacturers and mobility provide
 * Use feedback data as part of the **digital engineering** process to drive continuous product improvement, proactively address root causes of problems and create new customer value.
 * Provide new **digital products and services** and digitalize operations with **business integration** with back-end systems like Enterprise Resource Planning (ERP) and Customer Relationship Management (CRM).
 * Share data securely and addressing country/region-specific requirements for user consent with the broader **smart mobility ecosystems**.
-* Integrate with back-end systems for vehicle lifecycle management and consent management simplifies and accelerate the deployment and management of connected vehicle solutions using a **[Software Defined Vehicle DevOps toolchain](./software-defined-vehicle-reference-architecture)**.
+* Integrate with back-end systems for vehicle lifecycle management and consent management simplifies and accelerate the deployment and management of connected vehicle solutions using a **Software Defined Vehicle DevOps toolchain**.
 * Store and provide compute at scale for **vehicle and analytics**.
 * Manage **vehicle connectivity** to millions of devices in a cost-effective way.
 
@@ -200,13 +200,13 @@ This reference architecture allows automotive manufacturers and mobility provide
 *OEM Automotive use cases* are about enhancing vehicle performance, safety, and user experience.
 
 * **Continuous product improvement**: Enhancing vehicle performance by analyzing real-time data and applying updates remotely.
-* **[Engineering Test Fleet Validation](./automotive-telemetry-analytics)**: Ensuring vehicle safety and reliability by collecting and analyzing data from test fleets.
+* **Engineering Test Fleet Validation**: Ensuring vehicle safety and reliability by collecting and analyzing data from test fleets.
 * **Companion App & User Portal**: Enabling remote vehicle access and control through a personalized app and web portal.
 * **Proactive Repair & Maintenance**: Predicting and scheduling vehicle maintenance based on data-driven insights.
 
 *Broader ecosystem use cases* expand connected vehicle applications to improve fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape.
 
-* **[Connected commercial fleet operations](./automotive-connected-fleets)**: Optimizing fleet management through real-time monitoring and data-driven decision-making.
+* **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making.
 * **Digital Vehicle Insurance**: Customizing insurance premiums based on driving behavior and providing immediate accident reporting.
 * **Location-Based Marketing**: Delivering targeted marketing campaigns to drivers based on their location and preferences.
 * **Road Assistance**: Providing real-time support and assistance to drivers in need, using vehicle location and diagnostic data.
