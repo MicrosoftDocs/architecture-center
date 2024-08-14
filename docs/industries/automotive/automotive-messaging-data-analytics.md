@@ -8,16 +8,16 @@ The high level architecture diagram shows the main logical blocks and services o
 
 * The **vehicle** contains a collection of devices. Some of these devices are *Software Defined*, and can execute software workloads managed from the cloud. The vehicle collects and processes a wide variety of data, from sensor information from electro-mechanical devices such as the battery management system to software log files.
 * **Mobile devices** provide digital experiences to the driver / user and can receive and send messages to the vehicles.
-* Additional **infrastructure** such as battery charging stations also receive and send messages to the vehicles.
+* Mobility **infrastructure** such as battery charging stations also receive and send messages to the vehicles.
 * The **vehicle messaging services** manages the communication to and from the vehicle. It is in charge of processing messages, executing commands using workflows and  mediating the vehicle, user and device management backend. It also keeps track of vehicle, device, and certificate registration and provisioning.
 * The **vehicle and device management backend** are the OEM systems that keep track of vehicle configuration from factory to after-sales.
 * The operator has **IT & operations** to ensure availability and performance of both vehicles and backend.  
 * The **data & analytics services** provides data storage and enables processing and analytics for all data users. It turns data into insights that drive better business decisions.
 * The vehicle manufacturer provides **digital services** as value add to the end customer, from companion apps to repair and maintenance applications.
-* Several digital services require **business integration** to backend systems such as Dealer Management (DMS), Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP) systems.
+* Several digital services require **business integration** to backend systems such as Dealer Management (DMS), Customer Relationship Management (CRM), or Enterprise Resource Planning (ERP) systems.
 * The **consent management** backend is part of customer management and keeps track of user authorization for data collection according to geographical country/region legislation.
 * Data collected from vehicles is an input to the **digital engineering** process, with the goal of continuous product improvements using analytics and machine learning.
-* The **smart mobility ecosystem** consists of partner companies that provide additional products and services such as connected insurance based on user consent. They can subscribe and consume events and aggregated insights.
+* The **smart mobility ecosystem** consists of partner companies that provide other products and services such as connected insurance based on user consent. They can subscribe and consume events and aggregated insights.
 
 *Microsoft is a member of the [Eclipse Software Defined Vehicle](https://www.eclipse.org/org/workinggroups/sdv-charter.php) working group, a forum for open collaboration using open source for vehicle software platforms.*
 
@@ -42,7 +42,7 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 1. Low priority messages are stored directly to a **storage account** using [event capture](../stream-analytics/event-hubs-parquet-capture-tutorial.md). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
 1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device, and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
-    2. Verifies that the user has given consent for the message topic.
+    2. Verifies that the user gave consent for the message topic.
     3. Decodes and enriches the payload.
     4. Adds more routing information.
 1. The Live Telemetry **Eventstream** in the *data & analytics solution* receives the decoded messages. **Eventhouse** processes and store messages as they're received.
@@ -88,7 +88,7 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 :::image type="content" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
 
-1. The **Factory System** commissions the vehicle device to the desired construction state. It can include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
+1. The **Factory System** commissions the vehicle device to the desired construction state. It can include firmware & software initial installation and configuration. As part of this process, the factory system writes the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
 1. The factory system triggers the **device provisioning client** to connect to the *device registration*  and provision the device. The device retrieves connection information to the *MQTT broker*.
 1. The *device registration* application creates the device identity with MQTT broker.
@@ -114,12 +114,12 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 1. Different applications consume refined and aggregated data.
     1. Visualization using Power BI or real time dashboards
     1. Business integration using Logic Apps for connections to the Dataverse and Dynamics 365
-1. Generated Training Data is consumed by tools such as ML Studio to generate ML models.
-1. Data engineers use Notebooks and KQL Query sets to analyze the data and create data products supported by (Microsoft Copilot in Fabric)[/fabric/get-started/copilot-fabric-overview].
+1. ML Studio consumes generated training data to create or update ML models.
+1. Data engineers use Notebooks and Kusto Query Language (KQL) Query sets to analyze the data and create data products supported by [Microsoft Copilot in Fabric](/fabric/get-started/copilot-fabric-overview).
 
 ### Scalability
 
-A connected vehicle and data solution can scale to millions of vehicles and thousands of services. It's recommended to use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
+A connected vehicle and data solution can scale to millions of vehicles and thousands of services. Use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
 :::image type="content" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false"lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
 
@@ -130,12 +130,12 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 1. If necessary, the vehicle is provisioned using the [Vehicle and device Provisioning](#vehicle-and-device-provisioning) workflow.
 1. The vehicle publishes a message to the *MQTT broker*.
 1. **Event Grid** routes the message using the subscription information.
-    1. For messages that don't require processing and claims check, it's routed to an ingress hub on the corresponding application scale unit.
+    1. Messages that don't require processing and claims check are routed to an ingress hub on the corresponding application scale unit.
     1. Messages that require processing are routed to the [D2C processing logic](#vehicle-to-cloud-messages) for decoding and authorization (user consent).
 1. Applications consume events from their **app ingress** event hubs instance.
 1. Applications publish messages for the vehicle.
     1. Messages that don't require more processing are published to the *MQTT broker*.
-    1. Messages that require more processing, workflow control and authorization are routed to the relevant [C2D Processing Logic](#cloud-to-vehicle-messages) over an Event Hubs instance.
+    1. Messages that require more processing, workflow control, and authorization are routed to the relevant [C2D Processing Logic](#cloud-to-vehicle-messages) over an Event Hubs instance.
 
 ### Components
 
@@ -149,13 +149,12 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 * [Azure Cosmos DB](../cosmos-db/introduction.md) stores the vehicle, device, and user consent settings.
 * [Azure API Management](../api-management/api-management-key-concepts.md) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
 * [Azure Batch](../batch/batch-technical-overview.md) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
+* [Azure Event Hubs](../event-hubs/event-hubs-about.md) enables processing and ingesting massive amounts of telemetry data.
 
 #### Data and Analytics
 
-* [Azure Event Hubs](../event-hubs/event-hubs-about.md) enables processing and ingesting massive amounts of telemetry data.
-* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) provides exploration, curation, and analytics of time-series based vehicle telemetry data.
 * [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) stores large documents (such as videos and can traces) and curated vehicle data.
-* [Azure Databricks](/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.
+* [Microsoft Fabric](/fabric) is a unified platform for data analytics that includes data movement, processing, ingestion, transformation, event routing, and report building.
 
 #### Backend Integration
 
@@ -175,6 +174,11 @@ Examples:
 * **Azure Kubernetes Service** for managed, full fledge orchestration of complex logic such as command & control workflow management.
 
 As an alternative to event-based data sharing, it's also possible to use [Azure Data Share](../data-share/overview.md) if the objective is to perform batch synchronization at the data lake level.
+
+For data analytics, it is possible to use:
+
+* [Azure Databricks](/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.
+* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) provides exploration, curation, and analytics of time-series based vehicle telemetry data.
 
 ## Scenario details
 
@@ -215,7 +219,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-* Consider horizontal scaling to add reliability.
+* Increase reliability with horizontal scaling.
 * Use scale units to isolate geographical regions with different regulations.
 * Auto scale and reserved instances: manage compute resources by dynamically scaling based on demand and optimizing costs with preallocated instances.
 * Geo redundancy: replicate data across multiple geographic locations for fault tolerance and disaster recovery.
@@ -230,16 +234,16 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-* Cost-per vehicle considerations: the communication costs should be dependent on the number of digital services offered. Calculate the RoI of the digital services against the operation costs.
+* Cost per vehicle considerations: the communication costs should be dependent on the number of digital services offered. Calculate the RoI of the digital services against the operation costs.
 * Establish practices for cost analysis based on message traffic. Connected vehicle traffic tends to increase with time as more services are added.
 * Consider networking & mobile costs
   * Use MQTT topic alias to reduce traffic volume.
   * Use an efficient method to encode and compress payload messages.
 * Traffic handling
-  * Message priority: vehicles tend to have repeating usage patterns that create daily / weekly demand peaks. Use message properties to delay processing of non-critical or analytic messages to smooth the load and optimize resource usage.
+  * Message priority: vehicles tend to have repeating usage patterns that create daily / weekly demand peaks. Use message properties to delay processing of non critical or analytic messages to smooth the load and optimize resource usage.
   * Autoscale based on demand.
 * Consider how long the data should be stored hot/warm/cold.
-* Consider the use of reserved instances to optimize costs.
+* Optimize costs by using reserved instances.
 
 ### Operational excellence
 
@@ -255,10 +259,34 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 * Carefully consider the best way to ingest data (messaging, streaming or batched).
 * Consider the best way to analyze the data based on use case.
 
+## Deploy this scenario
+
+The tutorial for the [Connected Fleet Reference Architecture](https://github.com/microsoft/connected-fleet-refarch) contains a sample implementation of the message processing pipeline.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Peter Miller](https://www.linkedin.com/in/peter-miller-ba642776/) | Principal Engineering Manager
+* [Mario Ortegon-Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager
+* [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect
+* [Max Zilberman](https://www.linkedin.com/in/maxzilberman/) | Principal Software Engineering Manager
+
+Other contributors:
+
+* [Jeff Beman](https://www.linkedin.com/in/jeff-beman-4730726/) | Principal Program Manager
+* [Frederick Chong](https://www.linkedin.com/in/frederick-chong-5a00224) | Principal PM Manager
+* [Felipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager
+* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
+* [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager, Azure Data Explorer (Kusto)
+* [Rajagopal Ravipati](https://www.linkedin.com/in/rajagopal-ravipati-79020a4/) | Partner Software Engineering Manager, Azure Messaging
 
 ## Next steps
 
 * [Create an Autonomous Vehicle Operations (AVOps) solution](/azure/architecture/solution-ideas/articles/avops-architecture) for a broader look into automotive digital engineering for autonomous and assisted driving.
+* [Software-defined vehicle DevOps toolchain](software-defined-vehicle-reference-architecture.yml) to understand how to build, validate and deploy workloads to the vehicle.
 
 ## Related resources
 
@@ -272,3 +300,5 @@ The following articles describe interactions between components in the architect
 
 * [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming)
 * [Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics](../stream-analytics/event-hubs-parquet-capture-tutorial.md)
+
+* [Data analytics for automotive test fleets](automotive-telemetry-analytics.yml) is a dedicated  scenario where the collected data is used for engineering validation and root cause analysis.
