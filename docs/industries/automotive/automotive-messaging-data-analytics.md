@@ -2,20 +2,22 @@ This reference architecture is designed to support automotive OEMs and Mobility 
 
 ## Architecture
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png" alt-text="Diagram of the high-level architecture." border="false" lightbox="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png":::
+:::image type="content" source="images/automotive-connectivity-and-data-solution-high-level-overview.svg" alt-text="Diagram of the high-level architecture." border="false" lightbox="images/automotive-connectivity-and-data-solution-high-level-overview.svg":::
 
 The high level architecture diagram shows the main logical blocks and services of an automotive messaging, data & analytics solution. Further details can be found in the following sections.
 
 * The **vehicle** contains a collection of devices. Some of these devices are *Software Defined*, and can execute software workloads managed from the cloud. The vehicle collects and processes a wide variety of data, from sensor information from electro-mechanical devices such as the battery management system to software log files.
+* **Mobile devices** provide digital experiences to the driver / user and can receive and send messages to the vehicles.
+* Additional **infrastructure** such as battery charging stations also receive and send messages to the vehicles.
 * The **vehicle messaging services** manages the communication to and from the vehicle. It is in charge of processing messages, executing commands using workflows and  mediating the vehicle, user and device management backend. It also keeps track of vehicle, device, and certificate registration and provisioning.
-* The **vehicle and device management backend** are the OEM systems that keep track of vehicle configuration from factory to repair and maintenance.
+* The **vehicle and device management backend** are the OEM systems that keep track of vehicle configuration from factory to after-sales.
 * The operator has **IT & operations** to ensure availability and performance of both vehicles and backend.  
 * The **data & analytics services** provides data storage and enables processing and analytics for all data users. It turns data into insights that drive better business decisions.
 * The vehicle manufacturer provides **digital services** as value add to the end customer, from companion apps to repair and maintenance applications.
 * Several digital services require **business integration** to backend systems such as Dealer Management (DMS), Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP) systems.
 * The **consent management** backend is part of customer management and keeps track of user authorization for data collection according to geographical country/region legislation.
 * Data collected from vehicles is an input to the **digital engineering** process, with the goal of continuous product improvements using analytics and machine learning.
-* The **smart mobility ecosystem** can subscribe and consume both live telemetry as well as aggregated insights to provide more products and services.
+* The **smart mobility ecosystem** consists of partner companies that provide additional products and services such as connected insurance based on user consent. They can subscribe and consume events and aggregated insights.
 
 *Microsoft is a member of the [Eclipse Software Defined Vehicle](https://www.eclipse.org/org/workinggroups/sdv-charter.php) working group, a forum for open collaboration using open source for vehicle software platforms.*
 
@@ -27,7 +29,7 @@ The architecture uses the [publisher/subscriber](/azure/architecture/patterns/pu
 
 The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be sent periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action).
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/messaging-dataflow.png" alt-text="Diagram of the messaging dataflow." border="false" lightbox="media/mqtt-automotive-connectivity-and-data-solution/messaging-dataflow.png":::
+:::image type="content" source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
 
 1. The *vehicle* is configured for a customer based on the selected options using the **Management APIs**. The configuration contains:
     1. **Provisioning** information for vehicles and devices.
@@ -37,14 +39,14 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 1. The **Event Grid** routes messages to different subscribers based on the topic and message attributes.
     1. Low priority messages that don't require immediate processing (for example, analytics messages) are routed directly to storage using an Event Hubs instance for buffering.
     1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
-1. Low priority messages are stored directly in the **data lake** using [event capture](../stream-analytics/event-hubs-parquet-capture-tutorial.md). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
+1. Low priority messages are stored directly to a **storage account** using [event capture](../stream-analytics/event-hubs-parquet-capture-tutorial.md). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
 1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device, and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
     2. Verifies that the user has given consent for the message topic.
     3. Decodes and enriches the payload.
     4. Adds more routing information.
-1. The Live Telemetry **Event Hub** in the *data & analytics solution* receives the decoded messages. **Azure Data Explorer** uses [streaming ingestion](/azure/data-explorer/ingest-data-streaming) to process and store messages as they're received.
-1. The *digital Services* layer receives decoded messages. **Service Bus** provides notifications to applications on important changes / events on the state of the vehicle. **Azure Data Explorer** provides the last-known-state of the vehicle and the short term history.
+1. The Live Telemetry **Eventstream** in the *data & analytics solution* receives the decoded messages. **Eventhouse** processes and store messages as they're received.
+1. The *digital Services* layer receives decoded messages. **Service Bus** provides notifications to applications on important changes / events on the state of the vehicle. **Eventhouse** provides the last-known-state of the vehicle and the short term history.
 
 #### Cloud to vehicle messages
 
@@ -57,7 +59,7 @@ Depending on the vehicle capabilities and type of action, there are multiple pos
 
 The following dataflow users commands issued from a companion app digital services as an example.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/command-and-control-dataflow.png" alt-text="Diagram of the command and control dataflow." border="false" lightbox="media/mqtt-automotive-connectivity-and-data-solution/command-and-control-dataflow.png":::
+:::image type="content" source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the command and control dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
 
 Direct messages are executed with the minimum amount of hops for the best possible performance **(A)**:
 
@@ -84,7 +86,7 @@ When vehicle state-dependent commands require user consent **(B)**:
 
 This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png":::
+:::image type="content" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
 
 1. The **Factory System** commissions the vehicle device to the desired construction state. It can include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
@@ -102,24 +104,24 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 This dataflow covers analytics for vehicle data. You can use other data sources such as factory or workshop operators to enrich and provide context to vehicle data.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png" alt-text="Diagram of the data analytics." border="false"lightbox="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png":::
+:::image type="content" source="images/automotive-connectivity-and-data-solution-data-analytics.svg" alt-text="Diagram of the data analytics." border="false"lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
 
 1. The *vehicle messaging services* layer provides telemetry, events, commands, and configuration messages from the bidirectional communication to the vehicle.
 1. The *IT & Operations* layer provides information about the software running on the vehicle and the associated cloud services.
-1. Several pipelines provide processing of the data into a more refined state
-    * Processing from raw data to enriched and deduplicated vehicle data.
-    * Vehicle Data Aggregation, key performance indicators and insights.
-    * Generation of training data for machine learning.
+1. Raw data from the vehicle is processed to create insights and actions.
+    1. Pipelines process messages into a more refined state. Pipelines enrich and deduplicate the messages, create key performance indicators and prepare training data sets for Machine Learning
+    2. Enriched vehicle data is analyzed to create events such predictive maintenance requests.
 1. Different applications consume refined and aggregated data.
-    - Visualization using Power BI.
-    - Business Integration workflows using Logic Apps with integration into the Dataverse.
+    1. Visualization using Power BI or real time dashboards
+    1. Business integration using Logic Apps for connections to the Dataverse and Dynamics 365
 1. Generated Training Data is consumed by tools such as ML Studio to generate ML models.
+1. Data engineers use Notebooks and KQL Query sets to analyze the data and create data products supported by (Microsoft Copilot in Fabric)[/fabric/get-started/copilot-fabric-overview].
 
 ### Scalability
 
 A connected vehicle and data solution can scale to millions of vehicles and thousands of services. It's recommended to use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/scalability.png" alt-text="Diagram of the scalability concept." border="false"lightbox="media/mqtt-automotive-connectivity-and-data-solution/scalability.png":::
+:::image type="content" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false"lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
 
 Each *vehicle messaging scale unit* supports a defined vehicle population (for example, vehicles in a specific geographical region, partitioned by model year). The *applications scale unit* is used to scale the services that require sending or receiving messages to the vehicles. The *common service* is accessible from any scale unit and provides device management and subscription services for applications and devices.
 
@@ -176,7 +178,7 @@ As an alternative to event-based data sharing, it's also possible to use [Azure 
 
 ## Scenario details
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-view.png" alt-text="Diagram of the high level view." border="false"lightbox="media/mqtt-automotive-connectivity-and-data-solution/high-level-view.png":::
+:::image type="content" source="images/automotive-connectivity-and-data-solution-scenario.svg" alt-text="Diagram of the high level view." border="false"lightbox="images/automotive-connectivity-and-data-solution-scenario.svg":::
 
 Automotive OEMs are undergoing a significant transformation as they shift from producing fixed products to offering connected, software-defined vehicles. Vehicles offer a range of features, such as over-the-air updates, remote diagnostics, and personalized user experiences. This transition enables OEMs to continuously improve their products based on real-time data and insights while also expanding their business models to include new services and revenue streams.
 
