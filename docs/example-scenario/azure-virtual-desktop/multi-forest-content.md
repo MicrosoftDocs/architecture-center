@@ -15,7 +15,7 @@ In this architecture, the identity flow works as follows:
 1. Microsoft Entra Connect syncs users from both CompanyA.com and CompanyB.com to a Microsoft Entra tenant (NewCompanyAB.onmicrosoft.com).
 1. Host pools, workspaces, and app groups are created in separate subscriptions and spoke virtual networks.
 1. Users are assigned to the app groups.
-1. Azure Virtual Desktop session hosts in the host pools join the domains CompanyA.com and CompanyB.com by using the domain controllers in Azure.
+1. Azure Virtual Desktop session hosts in the host pools join the domains CompanyA.com and CompanyB.com by using the domain controllers (DCs) in Azure.
 1. Users sign in by using either the [Azure Virtual Desktop application](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or the [web client](/azure/virtual-desktop/connect-web) with a User Principal Name (UPN) in the following format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on their configured UPN suffix.
 1. Users are presented with their respective virtual desktops or applications. For example, users in CompanyA are presented with a virtual desktop or application in Workspace A, host pool 1 or 2.
 1. FSLogix user profiles are created in Azure Files shares on the corresponding storage accounts.
@@ -49,7 +49,7 @@ This architecture diagram represents a typical scenario that contains the follow
 - Azure storage accounts can use [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, CompanyA.local and CompanyB.local), and the account is joined to the corresponding domain.
 
 > [!NOTE]
-> Active Directory Domain Services is a self-managed, on-premises component in many hybrid environments, and Microsoft Entra Domain Services (Microsoft Entra Domain Services) provides managed domain services with a subset of fully compatible, traditional AD DS features such as domain join, group policy, LDAP, and Kerberos/NTLM authentication. For a detailed comparison of these components, see [Compare self-managed AD DS, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
+> Active Directory Domain Services is a self-managed, on-premises component in many hybrid environments, and Microsoft Entra Domain Services provides managed domain services with a subset of fully compatible, traditional AD DS features such as domain join, group policy, LDAP, and Kerberos/NTLM authentication. For a detailed comparison of these components, see [Compare self-managed AD DS, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
 > 
 > The solution idea [Multiple Azure Virtual Desktop forests using Microsoft Entra Domain Services](./multi-forest-azure-managed.yml) discusses architecture that uses cloud-managed [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview).
 
@@ -114,7 +114,7 @@ Principal author:
 For more information, see the following articles:
 
 - [Microsoft Entra Connect topology](/azure/active-directory/hybrid/plan-connect-topologies)
-- [Compare different identity options: Self-managed Active Directory Domain Services (AD DS), Microsoft Entra ID, and Microsoft Entra Domain Services (Microsoft Entra Domain Services)](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Compare different identity options: Self-managed Active Directory Domain Services (AD DS), Microsoft Entra ID, and Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions)
 - [Azure Virtual Desktop documentation](/azure/virtual-desktop)
 
 ## Related resources

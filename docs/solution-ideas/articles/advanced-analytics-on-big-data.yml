@@ -21,6 +21,7 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data"
     - internal-intro
+    - arb-data
 name: Advanced analytics architecture
 azureCategories:
   - analytics

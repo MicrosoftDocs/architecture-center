@@ -7,6 +7,7 @@ metadata:
   ms.author: bleik
   ms.date: 02/03/2023
   ms.topic: reference-architecture
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
@@ -18,6 +19,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - devx-track-python
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - developer-tools

@@ -57,7 +57,7 @@ The platform team owns and maintains these centralized resources. This architect
 
 - **Azure Bastion in the hub network** provides secure operational access to workload VMs. In the baseline architecture, the workload team owns this component.
 - The **spoke virtual network** is where the workload is deployed.
-- **User-defined routes** (UDRs) are used to force tunneling to the hub network.
+- **User-defined routes (UDRs)** are used to force tunneling to the hub network.
 - **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies are part of the workload subscription.
 
 > [!IMPORTANT]

@@ -68,7 +68,7 @@ Use this solution to automate data integration tasks that you perform in respons
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -89,7 +89,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - You can also use one of these authorization schemes to limit access to your logic app:
 
     - [Shared access signatures (SAS)][Generate shared access signatures (SAS)].
-    - [OAuth 2.0 with Microsoft Entra ID][Enable Azure Active Directory Open Authentication (Azure AD OAuth)].
+    - [OAuth 2.0 with Microsoft Entra ID][Enable Azure Active Directory Open Authentication (OAuth)].
 
 - Consider using [Azure role-based access control (Azure RBAC)][What is Azure role-based access control (Azure RBAC)?] to only [permit specific users or groups to manage, edit, and view your logic apps][Access to logic app operations].
 
@@ -175,7 +175,7 @@ Principal authors:
 [Compare Microsoft Power Automate and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-microsoft-power-automate-and-azure-logic-apps
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
 [Disable or enable logic apps]: /azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-logic-apps
-[Enable Azure Active Directory Open Authentication (Azure AD OAuth)]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#enable-azure-active-directory-open-authentication-azure-ad-oauth
+[Enable Azure Active Directory Open Authentication (OAuth)]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#enable-azure-active-directory-open-authentication-azure-ad-oauth
 [Enterprise integration using queues and events]: ./queues-events.yml
 [Get started with Power Automate]: /power-automate/getting-started
 [Import a Logic App as an API]: /azure/api-management/import-logic-app-as-api

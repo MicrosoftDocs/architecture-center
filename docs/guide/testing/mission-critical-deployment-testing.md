@@ -6,7 +6,7 @@ ms.author: msimecek
 ms.date: 11/29/2023
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.custom: mission-critical
 categories: azure
 products:

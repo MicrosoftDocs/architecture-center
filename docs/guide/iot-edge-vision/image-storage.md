@@ -12,9 +12,7 @@ categories: iot
 products:
   - azure-iot-edge
   - azure-blob-storage
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 ---
 
 # Image storage in Azure IoT Edge vision AI

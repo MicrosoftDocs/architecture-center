@@ -13,7 +13,7 @@ This solution brings data on the customer and seller relationship from various s
 1. Microsoft Graph Data Connect and Azure Synapse Analytics pipelines bring in Microsoft 365 data, like emails and calendar events, to Azure Data Lake Storage.
 2. The raw Microsoft 365 data is processed by using Azure Synapse pipelines and saved to Data Lake Storage.
 3. Business logic for calculating relationship scores is applied on processed data and saved to a lake database in Azure Synapse.
-4. The CRM data is ingested by using Azure Synapse pipelines into Data Lake Storage.
+4. The customer relationship management (CRM) data is ingested by using Azure Synapse pipelines into Data Lake Storage.
 5. The raw CRM data is processed and saved to an Azure Synapse lake database.
 6. The prepared Microsoft 365 data is joined with CRM data, aggregated, and saved to Azure Synapse SQL pool.
 7. Power BI ingests the SQL data to visualize the relationship insights for sellers.
@@ -39,7 +39,7 @@ You can use this solution to ingest data from Microsoft 365 and other systems to
 
 ## Considerations
 
-These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 

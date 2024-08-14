@@ -64,7 +64,9 @@ You might find it beneficial to manage clusters and cluster bootstrapping by usi
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). Provides the managed cluster infrastructure.
 
-#### Open-source software (OSS)
+<a name='open-source-software-oss'></a>
+
+#### Open-source software
 
 - [Kubernetes](https://kubernetes.io). CNCF. Automates deployment, scaling, and management of containerized applications.
 - [Flux](https://fluxcd.io/). CNCF. GitOps provider for infrastructure delivery.
@@ -95,7 +97,7 @@ This project uses CNCF graduated and incubated projects. There could be multiple
 
 You can consider various Azure services as alternatives. For example, Web Application Routing, Azure Container Registry, Azure Container Storage, Azure Monitor, Azure Monitor managed service for Prometheus, Azure Managed Grafana.
 
-Microsoft also supports OSS projects as Managed Addons/Derived projects in AKS, including Nginx, Istio, Prometheus, Grafana and OpenEBS.
+Microsoft also supports open-source software projects as Managed Addons/Derived projects in AKS, including Nginx, Istio, Prometheus, Grafana and OpenEBS.
 
 ## Scenario details
 
@@ -112,7 +114,7 @@ These other uses cases have similar design patterns:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 * For the Kubernetes cluster, you need at least a 3-node user-node pool with virtual machine (VM) SKU DS2_v2 or larger.
 * Volumes that use Azure managed disks can't be attached across zones. They must be located in the same zone.

@@ -8,11 +8,13 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.collection: ce-skilling-ai-copilot
+ms.date: 07/12/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - arb-aiml
 products:
   - azure-machine-learning
 categories:
@@ -55,19 +57,19 @@ Group managers can delegate their tasks to surrogates, but the tasks that are as
 
 ## Key tasks for the group manager
 
--   **Develop and review project plans**:
-    -   Review and approve project plans. Ensure that they're viable, well-structured, and aligned with business objectives.
+- **Develop and review project plans**:
+    - Review and approve project plans. Ensure that they're viable, well-structured, and aligned with business objectives.
 
--   **Monitor project progress**:
-    -   Regularly monitor the progress of projects. Offer guidance and support to help meet milestones and deliverable objectives.
--   **Facilitate cross-team collaboration**:
-    -   Facilitate collaboration and communication among various teams and departments to ensure cohesive and integrated efforts.
--   **Evaluate team performance**:
-    -   Evaluate the performance of the team. Provide feedback and identify areas for improvement.
--   **Manage stakeholder expectations**:
-    -   Manage expectations of stakeholders, negotiate priorities, and communicate the value and limitations of the data science projects.
--   **Ensure compliance and ethical standards**:
-    -   Ensure that all projects comply with legal, ethical, and company standards, particularly regarding data usage and privacy.
+- **Monitor project progress**:
+    - Regularly monitor the progress of projects. Offer guidance and support to help meet milestones and deliverable objectives.
+- **Facilitate cross-team collaboration**:
+    - Facilitate collaboration and communication among various teams and departments to ensure cohesive and integrated efforts.
+- **Evaluate team performance**:
+    - Evaluate the performance of the team. Provide feedback and identify areas for improvement.
+- **Manage stakeholder expectations**:
+    - Manage expectations of stakeholders, negotiate priorities, and communicate the value and limitations of the data science projects.
+- **Ensure compliance and ethical standards**:
+    - Ensure that all projects comply with legal, ethical, and company standards, particularly regarding data usage and privacy.
 
 ## Use language models and copilots
 
@@ -76,43 +78,43 @@ The group manager can use language models and copilots to help manage data scien
 - **Strategic planning and decision-making**
 
   - *Market analysis and trend identification*: Use language models to analyze market trends, extract insights from large volumes of industry reports, and stay updated on the latest advancements in data science and technology.
-  
+
   - *Strategic decision support*: Use language models to provide comprehensive overviews or summaries of complex strategic options to help inform decision-making.
 
 - **Resource and portfolio management**
 
   - *Resource optimization*: Incorporate copilots to help optimize resource allocation plans, forecast project needs, and identify potential skill gaps in teams.
-  
+
   - *Project portfolio analysis*: Use language models to analyze and evaluate the performance of various projects within a portfolio. Identify areas for improvement or strategic realignment.
 
 - **Team development and leadership**
 
   - *Leadership communication*: Use language models to draft clear and effective communications for internal stakeholders. Create strategic messages to ensure alignment and clarity.
-  
+
   - *Training and development*: Use language models to curate or create customized training materials and resources for team skill development.
 
 - **Risk management and quality assurance**
 
   - *Risk assessment*: Use language models to analyze historical data and similar project outcomes to identify potential risks and suggest mitigation strategies for current projects.
-  
+
   - *Quality standards enforcement*: Incorporate language models to help develop and maintain quality standards and best practices documentation, ensuring consistency across projects.
 
 - **Stakeholder engagement and reporting**
 
   - *Stakeholder reports*: Use language models to generate comprehensive and understandable reports for stakeholders, summarizing project progress, challenges, and successes.
-  
+
   - *Meeting preparation*: Use language models for preparing meeting agendas, key talking points, and presentations to effectively communicate with stakeholders.
 
 - **Innovation and best practices**
 
   - *Research and innovation insights*: Use language models to stay abreast of cutting-edge research, new methodologies, and tools in data science. Translate this information into actionable insights for the team.
-  
+
   - *Best practices compilation*: Incorporate language models to compile and update a repository of best practices, lessons learned, and case studies from completed projects.
 
 - **Collaboration and workflow enhancement**
 
   - *Workflow optimization*: Employ copilots and language models to streamline managerial workflows, automate routine tasks, and enhance efficiency in team management.
-  
+
   - *Collaborative tool integration*: Use language models and copilots to integrate and optimize collaborative tools and platforms that the team uses.
 
 The group manager should foster innovation that aligns with the TDSP framework. These tools can provide valuable support for decision-making, reporting, and maintaining high standards of quality and efficiency in data science projects.

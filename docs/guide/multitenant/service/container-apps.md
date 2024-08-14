@@ -3,20 +3,18 @@ title: Considerations for using Azure Container Apps in a multitenant solution
 description: Learn about Azure Container Apps features that are useful in multitenant systems. Get links to additional guidance.
 author: landonpierce
 ms.author: landonpierce
-ms.date: 12/16/2022
+ms.date: 06/05/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-container-apps
+  - azure-container-apps
 categories:
- - management-and-governance
- - compute
-ms.category:
-  - fcp
+  - management-and-governance
+  - compute
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Considerations for using Container Apps in a multitenant solution
@@ -69,8 +67,6 @@ This isolation model provides logical isolation between each tenant. It provides
 - **Resource isolation**. Each container app within your environment is allocated its own CPU and memory resources. If a specific tenant requires more resources, you can allocate more CPU and memory to that tenant's specific container app. Keep in mind that there are [limits on total CPU and memory allocations](/azure/container-apps/containers#configuration) on container apps.
 
 However, this approach provides no hardware or network isolation between tenants. All container apps in a single environment share the same virtual network. You need to be able to trust that the workloads deployed to the apps won't misuse the shared resources.
-
-There are also [limits on how many container apps you can deploy into a single environment](/azure/container-apps/quotas). Take into account the expected growth in the number of tenants before you implement this isolation model.
 
 Container Apps has built-in support for Dapr, which uses a modular design to deliver functionality as [components](/azure/container-apps/dapr-overview). In Container Apps, Dapr components are environment-level resources. When you share a single environment across multiple tenants, ensure that you properly scope the Dapr components to the correct tenant-specific container app to guarantee isolation and avoid the risk of data leakage.
 
@@ -127,18 +123,18 @@ For more information, see [Managed identities in Azure Container Apps](/azure/co
 
 Principal authors:
 
- * [Daniel Larsen](http://linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
- * [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+ * [Daniel Larsen](https://linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
+ * [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
  
 Other contributors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
  * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer, Microsoft
  * [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b) | Senior Service Engineer, FastTrack for Azure
  * [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan) | Senior Program Manager, CS Tech Strategy App Innovation
  * [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior Program Manager, Azure Container Apps
- * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

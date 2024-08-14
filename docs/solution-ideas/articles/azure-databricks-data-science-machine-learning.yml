@@ -9,7 +9,9 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom: fcp
+  ms.custom:
+    - arb-data
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - analytics

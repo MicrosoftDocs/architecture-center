@@ -74,7 +74,7 @@ This pattern is useful for the following situations:
 
 - When the application has limited compute resources available, either due to hosting limitations or cost considerations. In this scenario, the pattern is even more helpful if there are many concurrent data uploads or downloads because it relieves the application from handling the data transfer.
 
-- When the data is stored in a remote data store or a different datacenter. If the application was required to act as a gatekeeper, there might be a charge for the additional bandwidth of transferring the data between datacenters, or across public or private networks between the client and the application, and then between the application and the data store.
+- When the data is stored in a remote data store or a different region. If the application was required to act as a gatekeeper, there might be a charge for the additional bandwidth of transferring the data between regions, or across public or private networks between the client and the application, and then between the application and the data store.
 
 This pattern might not be useful in the following situations:
 
@@ -122,11 +122,11 @@ Using the Valet Key pattern addresses the security, cost optimization, and perfo
    - Which storage account to use. Meaning, the client doesn't need to know this information ahead of time.
    - A specific container and filename to use; ensuring that the token can be used with, at most, one file.
    - A short, window of operation, such as three minutes. This short time period ensures that tokens have a TTL that doesn't extend past its utility.
-   - Permissions to only _create_ a blob; not download, update, or delete.
+   - Permissions to only *create* a blob; not download, update, or delete.
 
 1. That token is then used by the client, within the narrow time window, to upload the file directly to the storage account.
 
-The API generates these tokens to authorized clients using a _user delegation key_ based on the API's own Microsoft Entra ID managed identity. Logging is enabled on both the storage account(s) and the token generation API allow correlation between token requests and token usage. The API can use client authentication information or other data available to it to decide which storage account or container to use, such as in a multitenant situation.
+The API generates these tokens to authorized clients using a *user delegation key* based on the API's own Microsoft Entra ID managed identity. Logging is enabled on both the storage account(s) and the token generation API allow correlation between token requests and token usage. The API can use client authentication information or other data available to it to decide which storage account or container to use, such as in a multitenant situation.
 
 A complete sample is available on GitHub at [Valet Key pattern example](https://github.com/mspnp/cloud-design-patterns/tree/main/valet-key). The following code snippets are adapted from that example. This first one shows how the Azure Function (found in **ValetKey.Web**) generates a user delegated shared access signature token using the Azure Function's own managed identity.
 

@@ -7,8 +7,10 @@ metadata:
   ms.author: kkraus
   ms.date: 03/23/2023
   ms.topic: conceptual
+  ms.collection: ce-skilling-ai-copilot
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:

@@ -7,11 +7,13 @@ ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 products:
   - azure-kubernetes-service
 categories:
   - containers
-ms.custom: fcp
 ---
 
 # Troubleshoot network problems in AKS clusters

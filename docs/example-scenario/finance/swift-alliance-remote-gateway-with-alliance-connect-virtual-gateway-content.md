@@ -85,7 +85,7 @@ This solution is optimal for the finance industry. It's for existing SWIFT custo
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/). 
 
 The following considerations apply to this solution. For more information, contact your account team at Microsoft to help guide your Azure implementation for SWIFT.
 

@@ -7,6 +7,7 @@ metadata:
   ms.author: pnp
   ms.date: 07/27/2022
   ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,6 +22,7 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/visual-assistant"
     - ai-machine-learning
+    - arb-aiml
 name: Visual assistant
 azureCategories:
   - ai-machine-learning
@@ -31,4 +33,4 @@ products:
   - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/visual-assistant.png
 content: |
-  [!include[](visual-assistant-content.md)]
+  [!INCLUDE[](visual-assistant-content.md)]

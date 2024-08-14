@@ -12,6 +12,7 @@ metadata:
   ms.category:
     - mobile
     - functions
+  ms.custom: arb-integrations
 name: Line of business extension
 azureCategories:
   - mobile

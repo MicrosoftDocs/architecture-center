@@ -10,8 +10,9 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-    - fcp
+    - arb-healthcare
     - ai-machine-learning
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - containers

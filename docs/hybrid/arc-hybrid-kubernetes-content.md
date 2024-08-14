@@ -42,7 +42,7 @@ The following sections offer recommendations that apply to most scenarios. Micro
 
 ### Cluster registration
 
-You can register any active CNCF Kubernetes cluster. You need a **kubeconfig** file to access the cluster and a cluster-admin role on the cluster to deploy Arc-enabled Kubernetes agents. You use the Azure Command-Line Interface (Azure CLI) to perform cluster registration tasks. The user or service principal that you use for the **az login** and **az connectedk8s connect** commands requires Read and Write permissions on the Microsoft.Kubernetes/connectedClusters resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required for onboarding the cluster that uses the connectedk8s extension. Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes command-line interface extensions.
+You can register any active CNCF Kubernetes cluster. You need a **kubeconfig** file to access the cluster and a cluster-admin role on the cluster to deploy Arc-enabled Kubernetes agents. You use the Azure command-line interface (CLI) to perform cluster registration tasks. The user or service principal that you use for the **az login** and **az connectedk8s connect** commands requires Read and Write permissions on the Microsoft.Kubernetes/connectedClusters resource type. The Kubernetes Cluster - Azure Arc Onboarding role has these permissions and can be used for role assignments on either the user principal or the service principal. Helm 3 is required for onboarding the cluster that uses the connectedk8s extension. Azure CLI version 2.3 or later is required to install the Azure Arc-enabled Kubernetes command-line interface extensions.
 
 #### Azure Arc agents for Kubernetes
 
@@ -113,7 +113,7 @@ For a complete list of URLs across Azure Arc services, see [Azure Arc network re
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -169,7 +169,6 @@ Related hybrid guidance:
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
-- [Deploy a hybrid app with on-premises data that scales cross-cloud](deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md)
 
 Related architectures:
 

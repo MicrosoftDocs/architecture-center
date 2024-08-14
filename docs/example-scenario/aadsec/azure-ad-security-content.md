@@ -8,9 +8,9 @@ Securing identities in the cloud is a high priority.
 
 - A 2019 IBM [study of data breach incidents](https://newsroom.ibm.com/2019-07-23-IBM-Study-Shows-Data-Breach-Costs-on-the-Rise-Financial-Impact-Felt-for-Years) reported that the average global cost of a data breach was $3.9M, with the US average cost closer to $8.2M.
 
-- The [Microsoft 2019 security intelligence report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December of 2018.
+- The [Microsoft 2019 Security Intelligence Report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December of 2018.
 
-The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication, authorization, and encryption, while also providing compartmentalized access and better operational agility.
+The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication (AuthN), authorization, and encryption, while also providing compartmentalized access and better operational agility.
 
 Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive security combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
 
@@ -38,7 +38,7 @@ This article advances the zero-trust, adaptive security approach to IDaaS, empha
 1. If authorized, the user or device gains access per *conditional access policies and controls*.
 1. If authorization fails, users can do *real-time remediation* to unblock themselves.
 1. All session data is *logged* for analysis and reporting.
-1. The SOC team's *security information and event management system (SIEM)* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
+1. The SOC team's *security information and event management (SIEM) system (security information and event management (SIEM))* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
 
 ### Components
 
@@ -78,9 +78,9 @@ A [conditional access policy](/azure/active-directory/conditional-access/concept
 
 Microsoft Entra ID can use the following conditional access controls with conditional access policies:
 
-- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
+- [Azure role-based access control (RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
 
-- [Privileged identity management (PIM)](/azure/active-directory/privileged-identity-management) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Microsoft Entra PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Microsoft Entra ID, and other Microsoft 365 services with [just-in-time (JIT) access and just-enough-administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
+- [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Microsoft Entra PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Microsoft Entra ID, and other Microsoft 365 services with [just-in-time (JIT) access and just enough administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
@@ -163,5 +163,4 @@ Microsoft Entra pricing ranges from free, for features like SSO and MFA, to Prem
 ## Related resources
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
-- [Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+- [Security considerations for highly sensitive infrastructure as a service (IaaS) apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)

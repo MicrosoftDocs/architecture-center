@@ -67,7 +67,7 @@ The resources deployed on the spoke network are as follows:
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) can be used instead of Azure Batch service for a similar configuration for containerized applications.
 
-- [Azure CycleCloud](/azure/cyclecloud) can be used to manage HPC clusters on Azure. Such HPC clusters can be set up to run workloads similar to the ones targeted by this article.
+- [Azure CycleCloud](/azure/cyclecloud) can be used to manage high-performance computing (HPC) clusters on Azure. Such HPC clusters can be set up to run workloads similar to the ones targeted by this article.
 
 ## Scenario details
 
@@ -86,7 +86,7 @@ This architecture can be used to run a wide variety of FSI workloads. Some examp
 
 ### Network topology
 
-This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, vpn gateways, and jumpboxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
+This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, VPN gateways, and jump boxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
 
 Here are some highlights of the network topology:
 
@@ -130,7 +130,7 @@ The architecture provides two options to connect to the network so you can submi
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 In this example workflow, we rely on manual data transfer and submission of jobs as a good starting point for workloads that aren't yet ready for automation. However, for production workloads, we recommend automating the data transfer and job submission, which can be done using [Azure Data Factory](/azure/data-factory) or other workflow orchestration tools.
 

@@ -19,6 +19,7 @@ products:
 ms.custom:
   - guide
   - e2e-hybrid
+  - arb-data
 ---
 
 # Extend on-premises data solutions to the cloud
@@ -84,7 +85,7 @@ If you run SQL Server on-premises, you can use Azure Blob Storage for backup and
 
 [Azure SQL Database](/azure/sql-database) is a managed relational database-as-a service. Because SQL Database uses the Microsoft SQL Server engine, applications can access data in the same way with both technologies. SQL Database can also be combined with SQL Server in useful ways. For example, the [SQL Server Stretch Database](/sql/sql-server/stretch-database/stretch-database) feature lets an application access what looks like a single table in a SQL Server database while some or all rows of that table might be stored in SQL Database. This technology automatically moves data that's not accessed for a defined period of time to the cloud. Applications that read this data are unaware that any data has been moved to the cloud.
 
-Maintaining data stores on-premises and in the cloud can be challenging when you desire to keep the data synchronized. You can address this challenge with [SQL Data Sync](/azure/sql-database/sql-database-sync-data), a service built on SQL Database that lets you synchronize the data you select, bi-directionally across multiple Azure SQL databases and SQL Server instances. While Data Sync makes it easy to keep your data up to date across these various data stores, it shouldn't be used for disaster recovery or for migrating from on-premises SQL Server to SQL Database.
+Maintaining data stores on-premises and in the cloud can be challenging when you desire to keep the data synchronized. You can address this challenge with [SQL Data Sync](/azure/sql-database/sql-database-sync-data), a service built on SQL Database that lets you synchronize the data you select, bidirectionally across multiple Azure SQL databases and SQL Server instances. While Data Sync makes it easy to keep your data up to date across these various data stores, it shouldn't be used for disaster recovery or for migrating from on-premises SQL Server to SQL Database.
 
 For disaster recovery and business continuity, you can use [AlwaysOn Availability Groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) to replicate data across two or more instances of SQL Server, some of which can be running on Azure VMs in another geographic region.
 

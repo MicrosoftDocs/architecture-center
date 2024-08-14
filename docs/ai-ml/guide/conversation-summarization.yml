@@ -6,11 +6,13 @@ metadata:
   ms.author: mejani
   ms.date: 05/10/2023
   ms.topic: conceptual
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
     - build-2023
     - build-2023-dataai
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
 products:

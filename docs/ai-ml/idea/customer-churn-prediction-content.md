@@ -14,7 +14,7 @@ Customer Churn Prediction uses Azure AI platform to predict churn probability, a
 
 1. Process real-time data using [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics). Stream Analytics can output processed data into [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) . This allows customers to combine existing and historical data to create dashboards and reports in Power BI.
 
-1. Ingest historical data at scale into [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) using [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) or another extract, transform, and load (ETL) tool.
+1. Ingest historical data at scale into [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) using [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) or another extract, transform, load (ETL) tool.
 
 1. Use [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) to combine streaming data with historical data for reporting or experimentation in [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning).
 
@@ -78,4 +78,3 @@ Reference architectures:
 
 - [Batch scoring for deep learning models](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
 - [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
-- [Build a speech to text transcription pipeline](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)

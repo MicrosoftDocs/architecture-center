@@ -9,7 +9,9 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.custom: devx-track-python
+  ms.custom:
+    - devx-track-python
+    - arb-devops
 products:
   - azure-event-hubs
   - azure-functions

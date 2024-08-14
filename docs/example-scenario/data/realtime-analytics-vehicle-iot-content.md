@@ -32,8 +32,7 @@ The data flows through the solution as follows:
 
     - Azure IoT Edge modules are containerized applications managed by IoT Edge and can run Azure services (such as Azure Stream Analytics), custom ML models or your own solution-specific code.
 
-1. A service technician, wearing a HoloLens, can subscribe to the MQTT topic (`devices/{sphere_deviceid}/messages/events/`) and securely view OBD-II data using a HoloLens application containing an MQTT client. The HoloLens MQTT client must be [authorized to connect and subscribe](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization) to the topic. By connecting the HoloLens directly to the IoT Edge gateway, the service technician can view the vehicle's data in near real-time, avoiding the latency of sending the data to the cloud and back. The service technician can also interact with the vehicle's OBD-II port (for example, clear "check engine"
-    light) even when the service center is disconnected from the cloud.
+1. A service technician, wearing a HoloLens, can subscribe to the MQTT topic (`devices/{sphere_deviceid}/messages/events/`) and securely view OBD-II data using a HoloLens application containing an MQTT client. The HoloLens MQTT client must be [authorized to connect and subscribe](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization) to the topic. By connecting the HoloLens directly to the IoT Edge gateway, the service technician can view the vehicle's data in near real-time, avoiding the latency of sending the data to the cloud and back. The service technician can also interact with the vehicle's OBD-II port (for example, clear "check engine" light) even when the service center is disconnected from the cloud.
 
 ### Components
 
@@ -46,7 +45,7 @@ The data flows through the solution as follows:
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time, serverless stream processing that can run the same queries in the cloud and on the edge. ASA on Azure IoT Edge can filter or aggregate data locally, enabling intelligent decisions about which data needs to be sent to the cloud for further processing or storage.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure SQL Database and Azure Synapse Analytics](https://azure.microsoft.com/services/azure-sql/) are in the Serving storage layer. Azure Stream Analytics can write messages directly to Azure Cosmos DB using an
-    [output](/azure/stream-analytics/stream-analytics-define-outputs). Data can be aggregated and moved from Azure Cosmos DB and Azure SQL to Azure Synapse using [Azure Data Factory](/azure/data-factory/).
+    [Output](/azure/stream-analytics/stream-analytics-define-outputs). Data can be aggregated and moved from Azure Cosmos DB and Azure SQL to Azure Synapse using [Azure Data Factory](/azure/data-factory/).
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
 
@@ -99,7 +98,7 @@ Principal author:
 
 - Review [Publish and subscribe with Azure IoT Edge](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11) to understand how to configure general-purpose MQTT brokering in IoT Edge.
 
-- Review [Set up up Azure IoT Edge for Azure Sphere](/azure-sphere/app-development/setup-iot-edge) to learn how to use Azure Sphere Device Certificate for IoT Edge.
+- Review [Set up Azure IoT Edge for Azure Sphere](/azure-sphere/app-development/setup-iot-edge) to learn how to use Azure Sphere Device Certificate for IoT Edge.
 
 ## Related resources
 

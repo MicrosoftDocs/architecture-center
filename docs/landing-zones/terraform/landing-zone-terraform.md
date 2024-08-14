@@ -6,7 +6,7 @@ ms.author: robbag
 ms.date: 07/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 categories:
   - management-and-governance
   - devops
@@ -32,7 +32,7 @@ products:
 
 This article discusses important areas to consider when using the [Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). The module provides an opinionated approach to deploy and operate an Azure platform based on the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF).
 
-Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking. 
+Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking.
 
 <br/>
 
@@ -44,17 +44,17 @@ Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiC
 > [!NOTE]
 > There are [implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
 
-### ALZ Terraform Accelerator
+## ALZ Terraform Accelerator
 
 To quickly get started deploying ALZ with Terraform you can leverage the [ALZ Terraform Accelerator](https://aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template. This repository provides a supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
 
 The [ALZ Terraform Accelerator](https://github.com/Azure/alz-terraform-accelerator/wiki "ALZ Terraform Accelerator") follows a 3 phase approach:
-1.	Pre-requisites: Instructions to configure credentials and subscriptions.
-2.	Bootstrap: Run the PowerShell script to generate the continuous delivery environment.
-3.	Run: Update the module (if needed) to suit the needs of your organisation and deploy via continuous delivery.
+
+1. Prerequisites: Instructions to configure credentials and subscriptions.
+2. Bootstrap: Run the PowerShell script to generate the continuous delivery environment.
+3. Run: Update the module (if needed) to suit the needs of your organization and deploy via continuous delivery.
 
 Start with user guide with a step by step to get your Azure Landing Zone environment up and running.
-
 
 ## Design
 
@@ -63,7 +63,6 @@ Start with user guide with a step by step to get your Azure Landing Zone environ
 The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. For example, you can deploy just a hub network, or just the Azure DDoS Protection, or just the DNS resources. When doing so, you need to take into account that the capabilities have dependencies.
 
 The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration
-
 
 ## Modules
 
@@ -84,7 +83,7 @@ The implementation focuses on the central resource hierarchy of the [Azure landi
 
 The module groups resources into these capabilities as they are intended to be deployed together. These groups form logical stages of the implementation.
 
-You control the deployment of each of these capabilities by using feature flags. A benefit of this approach is the ability to add to your environment incrementally over time. For example, you can start with a small number of capabilities. You can add the remaining capabilities at a later stage when you’re ready.
+You control the deployment of each of these capabilities by using feature flags. A benefit of this approach is the ability to add to your environment incrementally over time. For example, you can start with a small number of capabilities. You can add the remaining capabilities at a later stage when you're ready.
 
 ### Core resources
 
@@ -205,5 +204,3 @@ The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/l
 The [Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest) can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
 
 ![GitHub logo](../../_images/github.png) Information on customizing the modules is available in the GitHub repo wiki [GitHub: Azure landing zones Terraform module - Wiki](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki). You can use it as a starting point and configure it as per your needs.
-
-

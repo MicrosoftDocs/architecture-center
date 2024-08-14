@@ -66,16 +66,6 @@ This pattern explains how to manage and protect multiple virtual networks, which
 
 While AVNM is a great solution for protecting an organization's entire network with a minimum set of network rules, NSGs and ASGs still need to be used to apply granular network rules to each virtual network, in addition to AVNM. This process can vary from system, to system based on their security requirements.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
-- [Tre Mansdoerfer](https://www.linkedin.com/in/tremansdoerfer) | Program Manager for Azure Networking
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 Learn more about the component technologies:
@@ -91,5 +81,4 @@ Explore related architectures:
 
 - [Azure firewall architecture guide](../../networking/guide/network-virtual-appliances-architecture.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
-- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)

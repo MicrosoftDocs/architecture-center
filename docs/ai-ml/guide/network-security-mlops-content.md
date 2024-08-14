@@ -101,7 +101,7 @@ You can use all or part of this example for any similar scenario that has an MLO
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that improve the quality of a workload when applied. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that improve the quality of a workload when applied. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -267,12 +267,12 @@ You can link a private DNS zone to a virtual network to resolve specific domains
 
 The Terraform snippet in [Private Link and Azure Private Endpoint](#private-link-and-azure-private-endpoint) creates two private DNS zones by using the zone names that are recommended in [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration):
 
-- privatelink.api.azureml.ms
-- privatelink.notebooks.azure.net
+- `privatelink.api.azureml.ms`
+- `privatelink.notebooks.azure.net`
 
 #### Virtual Network peering
 
-Virtual network peering enables the access of the jump-host virtual machine (VM) or self-hosted agent VMs in Azure Bastion virtual network to the resources in Azure Machine Learning virtual network. For connectivity purposes, the two virtual networks work as one. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Azure backbone infrastructure. Traffic between the virtual networks is routed through Azure's private network.
+Virtual network peering enables the access of the jump-host virtual machine (VM) or self-hosted agent VMs in Azure Bastion virtual network to the resources in Azure Machine Learning virtual network. For connectivity purposes, the two virtual networks work as one. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Azure backbone infrastructure. Traffic between the virtual networks is routed through the Azure private network.
 
 The following Terraform snippet sets up virtual network peering between Azure Machine Learning virtual network and Azure Bastion virtual network.
 
@@ -378,10 +378,12 @@ As shown in the preceding code block, the Terraform script calls *agent_init.sh*
 ...
 
 # Creates directory and downloads Azure DevOps agent installation files
+# Find more agent versions at https://github.com/microsoft/azure-pipelines-agent/releases
+AGENT_VERSION="3.240.1"
 sudo mkdir /myagent 
 cd /myagent
-sudo wget https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-linux-x64-2.194.0.tar.gz
-sudo tar zxvf ./vsts-agent-linux-x64-2.194.0.tar.gz
+sudo wget https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz
+sudo tar zxvf ./vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz
 sudo chmod -R 777 /myagent
 
 # Unattended installation
@@ -398,7 +400,7 @@ sudo ./svc.sh start
 
 There are some prerequisites for securing an Azure Machine Learning workspace in a virtual network. For more information, see [Prerequisites](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites). Container Registry is a required service when you use an Azure Machine Learning workspace to train and deploy the models.
 
-In this example scenario, to ensure the self-hosted agent can access the container registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, privatelink.azurecr.io, to Azure Bastion virtual network. The following Terraform snippet shows the implementation.
+In this example scenario, to ensure the self-hosted agent can access the container registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, `privatelink.azurecr.io`, to Azure Bastion virtual network. The following Terraform snippet shows the implementation.
 
 ```terraform
 # Azure Machine Learning Container Registry is for private access 
@@ -444,7 +446,7 @@ resource "azurerm_private_endpoint" "acr_ep" {
 }
 ```
 
-This example scenario also ensures that the container registry has a contributor role for the system-assigned managed identity of the Azure Machine Learning workspace.
+This example scenario also ensures that the container registry has a Contributor role for the system-assigned managed identity of the Azure Machine Learning workspace.
 
 #### Use a compute cluster or instance in the virtual network
 

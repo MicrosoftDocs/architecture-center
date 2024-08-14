@@ -16,7 +16,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 1. The Spark pools use the following services:
    - AI Language, for named entity recognition (NER), key phrase extraction, and sentiment analysis
-   - Azure AI services Translator, to translate text
+   - Azure AI Translator, to translate text
    - Azure Maps, to link data to geographical coordinates
 
 1. The enriched data is stored in Data Lake.
@@ -112,7 +112,7 @@ Marketing is an integral part of every organization. As a result, you can use th
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -189,5 +189,4 @@ Principal author:
 
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
-- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
 - [Spaceborne data analysis with Azure Synapse Analytics](../../industries/aerospace/geospatial-processing-analytics.yml)

@@ -77,7 +77,7 @@ This architecture also applies to the following industries, in which advanced co
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -185,7 +185,6 @@ Other contributors:
 - [DeepSim training platform](https://minds.ai/platform/)
 - [Vestas supercharges its wind farm control models for sustainable energy with Azure HPC](https://customers.microsoft.com/story/1430379358742351454-vestas-energy-azure-hpc)
 
-## Related resources
+## Related resource
 
 - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
-- [Use subject matter expertise in machine teaching and reinforcement learning](../../solution-ideas/articles/machine-teaching.yml)
