@@ -96,17 +96,17 @@ The Siemens Industrial Edge components include:
 
 For each component in the architecture, use the relevant service guide in the Well-Architected Framework where available. For more information, see [Well-Architected Framework service guides](/azure/well-architected/service-guides).
 
-- [IoT Hub](/azure/iot-hub/iot-hub-devguide) facilitates communication for model delivery between the cloud and the edge. IoT Hub registers the AIMM as an edge device, so cloud services can send cloud-to-device messages.
+- [IoT Hub](https://azure.microsoft.com/products/iot-hub/) facilitates communication for model delivery between the cloud and the edge. IoT Hub registers the AIMM as an edge device, so cloud services can send cloud-to-device messages.
 
-- The [Machine Learning workspace](/azure/machine-learning/concept-workspace) acts as a central hub that you can use to efficiently create, organize, and host machine learning artifacts and tasks for teams. For example, you can create jobs, pipelines, data assets, models, and endpoints.
+- The [Machine Learning workspace](https://azure.microsoft.com/products/machine-learning/) acts as a central hub that you can use to efficiently create, organize, and host machine learning artifacts and tasks for teams. For example, you can create jobs, pipelines, data assets, models, and endpoints.
 
-- [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) is an Azure solution that provides insights into the performance and health of applications and resources. It provides tools to collect, analyze, and act on telemetry data.  
+- [Azure Monitor](https://azure.microsoft.com/products/monitor/) is an Azure solution that provides insights into the performance and health of applications and resources. It provides tools to collect, analyze, and act on telemetry data.  
 
-- [Storage](/azure/storage/) is a cloud-based container or repository that you can use to store and manage various types of data in a scalable and accessible manner.
+- [Storage](https://azure.microsoft.com/products/category/storage/) is a cloud-based container or repository that you can use to store and manage various types of data in a scalable and accessible manner.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service that securely manages and stores sensitive information such as secrets, encryption keys, and certificates. It provides centralized control over access and audit trails.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) is a cloud service that securely manages and stores sensitive information such as secrets, encryption keys, and certificates. It provides centralized control over access and audit trails.
 
-- [Azure Container Registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli) is a managed, private registry service that you can use to build, store, and manage container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry instance. Container Registry stores Docker containers that you can use to train and deploy models. The Docker containers encapsulate your machine learning training environment. This feature ensures a consistent, reproducible, and isolated environment, which is crucial for machine learning workflows.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is a managed, private registry service that you can use to build, store, and manage container images and related artifacts. When you create a new Machine Learning workspace, it automatically creates a Container Registry instance. Container Registry stores Docker containers that you can use to train and deploy models. The Docker containers encapsulate your machine learning training environment. This feature ensures a consistent, reproducible, and isolated environment, which is crucial for machine learning workflows.
 
 ## Alternatives
 
@@ -218,9 +218,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 Principal authors:
 
 - [Neelam Saxena](https://www.linkedin.com/in/neelam-saxena-5195b413/) | Senior Technical Program Manager
-
 - [Nick Sologoub](https://www.linkedin.com/in/ncksol/) | Principal Software Engineering Lead
-
 - [Colin Desmond](https://www.linkedin.com/in/colin-desmond-64b507a/) | Senior Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -228,21 +226,12 @@ Principal authors:
 ## Next steps
 
 - Siemens and Microsoft publish automation code examples to implement the proposed cloud-based reference architecture. For more information, see [Docs for Industrial AI](https://docs.industrial-operations-x.siemens.cloud/p/industrial-ai).
-
 - [Azure IoT Hub concepts overview](/azure/iot-hub/iot-hub-devguide)
-
 - [Get started with Machine Learning](/azure/machine-learning/tutorial-azure-ml-in-a-day)  
-
 - [Tutorial: Create a container registry and build images](/azure/aks/tutorial-kubernetes-prepare-acr)
-
 - [Storage documentation hub](/azure/storage)
-
 - [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
-
 - [Siemens Industrial AI portfolio home](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations.html)
-
 - [Industrial AI-enabled operations](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations.html)
-
 - [Siemens Industrial Edge documentation](https://docs.eu1.edge.siemens.cloud/index.html)
-
 - [Siemens Industrial AI reference with Electronic Works Amberg](https://references.siemens.com/reference/siemens-ag?id=RMW659284bf-7eb0-4686-8a01-1e40a2866b14_1696503065533)
