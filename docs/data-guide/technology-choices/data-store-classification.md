@@ -27,11 +27,11 @@ ai-usage: ai-assisted
 
 # Choosing a Data Store - Classification
 
-Storage for **IoT (Internet of things)** scenarios is intentionally not covered in this document. For more information on IoT related storage see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT Architectures](../../reference-architectures/iot/iot-architecture-overview.md). Also, AI Search, AI databases and vector databases aren't covered in this article.
+Storage for **IoT (Internet of things)** scenarios is intentionally not covered in this document. For more information on IoT related storage see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT Architectures](../../reference-architectures/iot/iot-architecture-overview.md). Workloads that use vectorized data, like most AI workloads, are not covered in this article. For guidance in choosing the right vector search database for your workload, see [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
 
 We can generally divide Azure storage into two general categories (unofficial classification, for the purposes of architecture only): **Database/Analytics storage** and more **simple storage** options.
 
-**Simple storage options** include products like [Blob storage](/azure/storage/files/storage-files-introduction) (excluding Data Lake), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [queue storage](/azure/storage/queues/), and [Table storage](/azure/storage/tables/). These options are good for use cases where you need to store large amounts of data that don’t necessarily need [ACID](/windows/win32/cossdk/acid-properties) capabilities. Simple storage options usually have lower costs than databases or analytics services. Examples of these use cases are files shares, data that doesn’t require as much structured querying or transactional capabilities, and long-term file retention.
+**Simple storage options** include products like [Blob storage](/azure/storage/files/storage-files-introduction) (excluding Data Lake), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [queue storage](/azure/storage/queues/), [Azure NetApp Files](azure/azure-netapp-files/) and [Table storage](/azure/storage/tables/). These options are good for use cases where you need to store large amounts of data that don’t necessarily need [ACID](/windows/win32/cossdk/acid-properties) capabilities. Simple storage options usually have lower costs than databases or analytics services. Examples of these use cases are files shares, data that doesn’t require as much structured querying or transactional capabilities, and long-term file retention.
 
 ![Diagram that explains data store classifications in Azure.](../images/AzureStorageOptions.png)
 
@@ -50,7 +50,7 @@ For cases when you need [ACID](/windows/win32/cossdk/acid-properties) capabiliti
 - PostgreSQL and [Azure Database for PostgreSQL](/azure/postgresql/) 
 - MySQL and [Azure Database for MySQL](/azure/mysql) both in their IaaS and PaaS versions.
 
-**NoSQL databases**, also known as "nonrelational" or "non-SQL" databases, are designed to store, manage, and retrieve data that isn't necessarily structured in a tabular form like relational databases. They can handle a wide variety of data types, including structured, semi-structured, and unstructured data. Examples of these databases in Azure are [Azure Cosmos DB](/azure/cosmos-db), [Azure Managed Instance for Cassandra](/azure/managed-instance-apache-cassandra/), etc.
+**NoSQL databases**, also known as "nonrelational" or "non-SQL" databases, are designed to store, manage, and retrieve data that isn't necessarily structured in a tabular form like relational databases. They can handle a wide variety of data types, including structured, semi-structured, and unstructured data. Examples of these databases in Azure are [Azure Cosmos DB](/azure/cosmos-db) and [Azure Managed Instance for Cassandra](/azure/managed-instance-apache-cassandra/).
 
 ![Diagram that contrasts relational database management system and big data solutions.](../images/choosedatastore.png)
 
