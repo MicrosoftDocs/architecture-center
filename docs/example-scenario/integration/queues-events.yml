@@ -16,6 +16,7 @@ metadata:
     - integration-services
     - example-scenario
     - internal-intro
+    - arb-integrations
 name: Enterprise integration using message broker and events
 azureCategories:
   - integration

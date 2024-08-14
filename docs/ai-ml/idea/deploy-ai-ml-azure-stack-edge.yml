@@ -13,12 +13,8 @@ metadata:
     - hybrid
     - ai-machine-learning
   ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
-    - internal-intro
-    - ai-machine-learning
-    - aml-project-improvement
+    - arb-iot
+    - arb-aiml
 name: Deploy AI and machine learning computing on-premises and to the edge
 azureCategories:
   - hybrid

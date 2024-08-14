@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes considerations for updating your multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/28/2023
+ms.date: 07/22/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -16,15 +16,14 @@ products:
 categories:
   - management-and-governance
   - devops
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Considerations for updating a multitenant solution
 
-One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your Azure infrastructure, your code/applications, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy because some of your tenants might be reluctant to allow changes to their environments, or they might have requirements that limit the conditions under which you can update their service.
+One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your application code, your Azure infrastructure, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy because some of your tenants might be reluctant to allow changes to their environments, or they might have requirements that limit the conditions under which you can update their service.
 
 When planning a strategy to update your solution, you need to:
 
@@ -37,14 +36,14 @@ In this article, we provide guidance for technical decision-makers about the app
 
 ## Your customers' requirements
 
-Consider the following questions:
+Customers often have explicit or implicit requirements that can affect how your system is updated. Consider the following aspects to build up a picture of any points of concern that customers might raise:
 
-- **Expectations and requirements:** Do your customers have expectations or requirements about when they can be updated? These might be formally communicated to you in contracts or service-level agreements, or they might be informal.
-- **Maintenance windows:** Do your customers expect service-defined or even self-defined maintenance windows? They might need to communicate to their own customers about any potential outages.
-- **Regulations:** Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solution that includes IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
-- **Sensitivity:** Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a physical store or a retail website, they might want to avoid updates around Black Friday, because the risks are higher than potential benefits.
-- **History:** What's your track record of successfully completing updates without any impact to your customers? You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
-- **Rollback:** Will customers want to roll back updates if there's a breaking change?
+- **Expectations and requirements:** Uncover any expectations or requirements that customers might have about when their solution can be updated. These might be formally communicated to you in contracts or service-level agreements, or they might be informal.
+- **Maintenance windows:** Understand whether your customers expect service-defined or even self-defined maintenance windows. They might need to communicate to their users about any potential outages, or they might need to test important aspects of your service after the update is complete.
+- **Regulations:** Clarify whether customers have any regulatory concerns that require additional approval before updates can be applied. For example, if you provide a health solution that includes IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
+- **Sensitivity:** Understand whether any of your customers are particularly sensitive or resistant to having updates applied. If they are, try to understand why. For example, if they run a physical store or a retail website, they might want to avoid updates around Black Friday, because the risks are higher than potential benefits.
+- **History:** Review your own track record of successfully completing updates without any impact to your customers. You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
+- **Rollback:** Consider whether customers want to roll back updates if there's a breaking change, and who would trigger such a rollback request.
 
 ## Your requirements
 
@@ -68,14 +67,14 @@ If you leave cadence of your service updates entirely to your tenants' discretio
 
 One approach that can work well is to roll out updates on a tenant-by-tenant basis, using [one of the approaches described below](#deployment-strategies-to-support-updates). Give your customer notice of planned updates. Allow customers to temporarily opt out, but not forever; put a reasonable limit on when you will require the update to be applied.
 
-Also, consider allowing yourself the ability to deploy security patches, or other critical hotfixes, with minimal or no advance notice.
+Also, consider allowing yourself the ability to deploy security patches, or other critical hotfixes, with minimal or no advance notice. Ensure that tenants understand this practice and its importance in safeguarding their data.
 
 Another approach can be to allow tenants to initiate their own updates, at a time of their choosing. Again, you should provide a deadline, at which point you apply the update on their behalf.
 
 > [!WARNING]
-> Be careful about enabling tenants to initiate their own updates. This is complex to implement, and it will require significant development and testing effort to deliver and maintain.
+> Be careful about enabling tenants to initiate their own updates. This is complex to implement, and it requires significant development and testing effort to deliver and maintain.
 
-Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
+Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called *live-site incidents*) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Recommendations for designing and creating a monitoring system](/azure/well-architected/operational-excellence/observability).
 
 ## Communicate with your customers
 
@@ -86,15 +85,15 @@ Consider the following questions:
 - Will you notify customers of upcoming updates?
 - If you do, will you implicitly request permission by providing an opt-out process, and what are the limits on opting out?
 - Do you have a scheduled maintenance window that you use when you apply updates?
-- What if you have an emergency update, like a critical security patch? Can you force updates in those situations?
+- What happens if you have an emergency update, like a critical security patch? Can you force updates in those situations?
 - If you can't proactively notify customer of upcoming updates, can you provide retrospective notifications? For example, can you update a page on your website with the list of updates that you've applied?
 - How many separate versions of your system will you maintain in production?
 
 ## Communicate with your customer support team
 
-It's important that your own support team has full visibility into updates that have been applied to each tenant. Customer support representatives should be able to easily answer the following questions:
+It's important that your own support team has full visibility into updates that have been applied to each tenant's infrastructure. Customer support representatives should be able to easily answer the following questions:
 
-- Have updates recently been applied to a tenant's infrastructure?
+- Have updates recently been applied to a tenant's infrastructure or to shared components?
 - What was the nature of those updates?
 - What was the previous version?
 - How frequently are updates applied to this tenant?
@@ -132,7 +131,7 @@ You can determine how many rings to create and what each ring means for your own
 
 - **Canary:** A canary ring includes your own test tenants and customers who want to have updates as soon as they are available, with the understanding that they may receive more frequent updates, and that updates might not have been through as comprehensive a validation process as in the other things.
 - **Early adopter:** An early adopter ring contains tenants who are slightly more risk-averse, but who are still prepared to receive regular updates.
-- **Users:** Most of your tenants will belong to the _users_ ring, which receives less frequent and more highly tested updates.
+- **Users:** Most of your tenants will belong to the *users* ring, which receives less frequent and more highly tested updates.
 
 ### API versions
 
@@ -144,17 +143,16 @@ If your service exposes an external API, consider that any updates you apply mig
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
  * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
- * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
-- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).
-- Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.
+Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).

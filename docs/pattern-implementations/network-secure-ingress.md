@@ -6,7 +6,7 @@ ms.author: robbag
 ms.date: 10/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
 - azure-front-door
 - azure-bastion

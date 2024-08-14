@@ -8,13 +8,14 @@ ms.date: 12/28/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom:
+  - e2e-aks
+  - devx-track-azurecli
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - e2e-aks
-  - devx-track-azurecli
 ---
 
 # Azure Kubernetes Service patch and upgrade guidance
@@ -69,12 +70,12 @@ To ensure the smooth operation of your AKS cluster during maintenance, follow th
 
 Microsoft creates a new node image for AKS nodes approximately once per week. A node image contains up-to-date OS security patches, OS kernel updates, Kubernetes security updates, updated versions of binaries like kubelet, and component version updates that are listed in the [release notes](https://github.com/Azure/AKS/releases).
 
-When a node image is updated, a _cordon and drain_ action is triggered on the target node pool's nodes:
+When a node image is updated, a *cordon and drain* action is triggered on the target node pool's nodes:
 
-- A node with the updated image is added to the node pool. The number of nodes added at a time is governed by the surge value.
-- One of the existing nodes is _cordoned_ and _drained_. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
-- After the node is fully drained, it's removed from the node pool. The updated node added by the surge replaces it.
-- This process is repeated for each node that needs to be updated in the node pool.
+- A node with the updated image is added to the node pool. The number of nodes added at the same time is governed by the surge value.
+- Depending on the surge value, a batch of existing nodes are *cordoned* and *drained*. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
+- After these nodes are fully drained, they are removed from the node pool. The updated nodes added by the surge replace them.
+- This process is repeated for each remaining batch of nodes that needs to be updated in the node pool.
 
 A similar process occurs during a cluster upgrade.
 

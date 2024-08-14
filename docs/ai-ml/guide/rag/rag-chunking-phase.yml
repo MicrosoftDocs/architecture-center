@@ -6,8 +6,10 @@ metadata:
   ms.author: robbag
   ms.date: 04/18/2024 
   ms.topic: conceptual
+  ms.collection: ce-skilling-ai-copilot
   ms.service: architecture-center
   ms.subservice: azure-guide
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:

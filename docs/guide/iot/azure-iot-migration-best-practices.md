@@ -3,10 +3,11 @@ title: IoT solution to Azure IoT migration best practices
 description: Review recommendations and best practices to plan your IoT migration to Azure IoT, such as analyzing your current solution and creating a migration strategy.
 author: armandoblanco
 ms.author: armbla
-ms.date: 11/09/2022
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom: arb-iot
 products:
   - azure-iot
   - azure-iot-hub

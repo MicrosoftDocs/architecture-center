@@ -9,16 +9,18 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/15/2024
+ms.date: 07/12/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - arb-aiml
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
+
 # Modeling stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
@@ -80,28 +82,28 @@ After you train the model, a data scientist on your team focuses on model evalua
 
 * **Make a determination**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
 
-  * Does the model answer the question with sufficient confidence given the test data?
+  - Does the model answer the question with sufficient confidence given the test data?
 
-  * Should you try any alternative approaches?
-  * Should you collect more data, do more feature engineering, or experiment with other algorithms?
+  - Should you try any alternative approaches?
+  - Should you collect more data, do more feature engineering, or experiment with other algorithms?
 
-* **Interpret the model**: Use [the Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
-   * Explain the entire model behavior or individual predictions on your personal machine locally.
+* **Interpret the model**: Use the [Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
+   - Explain the entire model behavior or individual predictions on your personal machine locally.
 
-   * Enable interpretability techniques for engineered features.
-   * Explain the behavior for the entire model and individual predictions in Azure.
-   * Upload explanations to the Machine Learning run history.
-   * Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Machine Learning workspace.
-   * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
+   - Enable interpretability techniques for engineered features.
+   - Explain the behavior for the entire model and individual predictions in Azure.
+   - Upload explanations to the Machine Learning run history.
+   - Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Machine Learning workspace.
+   - Deploy a scoring explainer alongside your model to observe explanations during inferencing.
 * **Assess fairness**: Use the [fairlearn open-source Python package with Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) to perform the following tasks:
-   * Assess the fairness of your model predictions. This process helps your team learn more about fairness in machine learning.
+   - Assess the fairness of your model predictions. This process helps your team learn more about fairness in machine learning.
 
-   * Upload, list, and download fairness assessment insights to and from Machine Learning studio.  
-   * See the fairness assessment dashboard in Machine Learning studio to interact with your models' fairness insights.
+   - Upload, list, and download fairness assessment insights to and from Machine Learning studio.
+   - See the fairness assessment dashboard in Machine Learning studio to interact with your models' fairness insights.
 
 ## Integrate with MLflow
 
-Machine Learning integrates with MLflow to support the modeling lifecycle. It uses MLflow’s tracking for experiments, project deployment, model management, and a model registry. This integration ensures a seamless and efficient machine learning workflow. The following features in Machine Learning help support this modeling lifecycle element:
+Machine Learning integrates with MLflow to support the modeling lifecycle. It uses MLflow's tracking for experiments, project deployment, model management, and a model registry. This integration ensures a seamless and efficient machine learning workflow. The following features in Machine Learning help support this modeling lifecycle element:
 
 - [Track experiments](/azure/machine-learning/how-to-track-monitor-analyze-runs): MLflow's core functionality is extensively used in the modeling stage to track various experiments, parameters, metrics, and artifacts.
 
@@ -111,11 +113,11 @@ Machine Learning integrates with MLflow to support the modeling lifecycle. It us
 
 ## Peer-reviewed literature
 
-Researchers publish studies about the TDSP in peer-reviewed literature. [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the modeling lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. The [citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the modeling lifecycle stage.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 

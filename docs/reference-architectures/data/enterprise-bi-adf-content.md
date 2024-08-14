@@ -41,9 +41,9 @@ The architecture consists of the following services and components.
 
 #### Authentication
 
-**Microsoft Entra ID** (Microsoft Entra ID) authenticates users who connect to the Analysis Services server through Power BI.
+**Microsoft Entra ID** authenticates users who connect to the Analysis Services server through Power BI.
 
-Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). 
+Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI).
 
 ### Components
 
@@ -137,7 +137,7 @@ For each Sales fact, you want to associate that fact with a single row in City d
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Security
 

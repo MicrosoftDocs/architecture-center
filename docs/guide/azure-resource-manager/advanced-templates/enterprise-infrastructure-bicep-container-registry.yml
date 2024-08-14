@@ -5,10 +5,10 @@ metadata:
   author: tjsullivan1
   ms.author: tisulliv
   ms.custom:
-    - fcp
+    - arb-devops
     - devx-track-arm-template
     - devx-track-bicep
-  ms.date: 04/18/2023
+  ms.date: 06/18/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

@@ -21,6 +21,7 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/personalized-offers"
     - ai-machine-learning
+    - arb-aiml
 name: Personalized offers
 azureCategories:
   - ai-machine-learning
@@ -33,4 +34,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/personalized-offers.png
 content: |
-  [!include[](personalized-offers-content.md)]
+  [!INCLUDE[](personalized-offers-content.md)]

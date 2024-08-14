@@ -62,4 +62,3 @@ Elastic site:
 
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](../../example-scenario/magento/magento-azure.yml)
 - [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
-- [Compliance risk analysis by using Azure Cognitive Search](../../guide/ai/compliance-risk-analysis.yml)

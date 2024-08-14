@@ -9,11 +9,12 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/15/2024
+ms.date: 07/12/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - arb-aiml
 products:
   - azure-machine-learning
 categories:
@@ -26,36 +27,36 @@ This article outlines the tasks that an *individual contributor* completes to se
 
 ## Major roles of the individual contributor
 
--  **Technical management**:
-    -   Manage the technical aspects of the project, including data collection, processing, analysis, modeling, and deployment.
-    -   Use specialized skills in areas like machine learning, statistics, programming, and data engineering.
+- **Technical management**:
+    - Manage the technical aspects of the project, including data collection, processing, analysis, modeling, and deployment.
+    - Use specialized skills in areas like machine learning, statistics, programming, and data engineering.
 
--  **Collaboration and communication**:
-    -   Collaborate with other team members, sharing insights and knowledge.
-    -   Communicate technical details and progress to the project lead and the rest of the team.
--  **Problem solving**:
-    -   Address and solve technical challenges within their area of expertise.
-    -   Continuously adapt and apply innovative solutions to complex data problems.
--  **Quality assurance**:
-    -   Ensure the quality and integrity of work, from data handling to model development.
-    -   Adhere to best practices and standards in data science and programming.
--  **Learning and development**:
-    -   Continuously learn and stay updated with the latest trends and techniques in data science.
-    -   Contribute to the team's knowledge base by sharing new findings and insights.
--  **Documentation**:
-    -   Document work thoroughly, including data preparation, analysis steps, model development, and results.
+- **Collaboration and communication**:
+    - Collaborate with other team members, sharing insights and knowledge.
+    - Communicate technical details and progress to the project lead and the rest of the team.
+- **Problem solving**:
+    - Address and solve technical challenges within their area of expertise.
+    - Continuously adapt and apply innovative solutions to complex data problems.
+- **Quality assurance**:
+    - Ensure the quality and integrity of work, from data handling to model development.
+    - Adhere to best practices and standards in data science and programming.
+- **Learning and development**:
+    - Continuously learn and stay updated with the latest trends and techniques in data science.
+    - Contribute to the team's knowledge base by sharing new findings and insights.
+- **Documentation**:
+    - Document work thoroughly, including data preparation, analysis steps, model development, and results.
 
 ## Key tasks for the individual contributor
 
--   **Process and analyze data**: Perform data cleaning, preprocessing, and exploratory data analysis.
+- **Process and analyze data**: Perform data cleaning, preprocessing, and exploratory data analysis.
 
--   **Develop models**: Build, train, and evaluate predictive models or algorithms.
--   **Code and develop**: Write and maintain the code necessary for data analysis and model development.
--   **Experiment and test**: Conduct experiments and tests to validate models and analyses.
--   **Create reports and visualizations**: Create reports and visualizations to communicate findings and results.
--   **Collaborate and review with others**: Participate in peer reviews and collaborative sessions to improve project quality.
--   **Provide feedback**: Provide feedback on project processes and adapt to changes in project requirements or direction.
--   **Comply with ethical standards**: Ensure compliance with ethical guidelines and data privacy standards.
+- **Develop models**: Build, train, and evaluate predictive models or algorithms.
+- **Code and develop**: Write and maintain the code necessary for data analysis and model development.
+- **Experiment and test**: Conduct experiments and tests to validate models and analyses.
+- **Create reports and visualizations**: Create reports and visualizations to communicate findings and results.
+- **Collaborate and review with others**: Participate in peer reviews and collaborative sessions to improve project quality.
+- **Provide feedback**: Provide feedback on project processes and adapt to changes in project requirements or direction.
+- **Comply with ethical standards**: Ensure compliance with ethical guidelines and data privacy standards.
 
 ## Use language models and copilots
 
@@ -63,43 +64,43 @@ In the context of the TDSP, the project individual contributor, such as a data s
 
 - **Develop and manage technical tasks**
 
-   -   *Coding assistance*: Use copilots for coding support, including writing, reviewing, and optimizing code for data processing, analysis, and model development.
+   - *Coding assistance*: Use copilots for coding support, including writing, reviewing, and optimizing code for data processing, analysis, and model development.
 
-   -   *Algorithm selection and optimization*: Use language models to explore and select appropriate algorithms, and get suggestions for optimizing model performance.
+   - *Algorithm selection and optimization*: Use language models to explore and select appropriate algorithms, and get suggestions for optimizing model performance.
 
 - **Analyze and manage data**
 
-  -   *Data exploration and visualization*: Use language models to get insights on effective data exploration techniques and creating meaningful visualizations.
+  - *Data exploration and visualization*: Use language models to get insights on effective data exploration techniques and creating meaningful visualizations.
 
-  -   *Data cleaning and preprocessing*: Employ copilots to automate routine data cleaning and preprocessing tasks, ensuring data quality and consistency.
+  - *Data cleaning and preprocessing*: Employ copilots to automate routine data cleaning and preprocessing tasks, ensuring data quality and consistency.
 
 - **Build and evaluate models**
 
-  -   *Model development guidance*: Use language models for guidance on building and refining predictive models, including feature engineering and hyperparameter tuning.
+  - *Model development guidance*: Use language models for guidance on building and refining predictive models, including feature engineering and hyperparameter tuning.
 
-  -   *Model evaluation and interpretation*: Use language models to understand and apply appropriate model evaluation metrics, and interpret the results.
+  - *Model evaluation and interpretation*: Use language models to understand and apply appropriate model evaluation metrics, and interpret the results.
 
 - **Problem solve and innovate**
 
-  -   *Technical problem solving*: Use language models to brainstorm solutions for technical challenges that are encountered during the project.
+  - *Technical problem solving*: Use language models to brainstorm solutions for technical challenges that are encountered during the project.
 
-  -   *Innovative approaches*: Use language models to stay updated on the latest data science techniques and tools, applying innovative approaches to the project.
+  - *Innovative approaches*: Use language models to stay updated on the latest data science techniques and tools, applying innovative approaches to the project.
 
 - **Document and report**
 
-  -   *Documentation automation*: Employ copilots to help generate and maintain thorough documentation of work, including data dictionaries, model descriptions, and analysis summaries.
+  - *Documentation automation*: Employ copilots to help generate and maintain thorough documentation of work, including data dictionaries, model descriptions, and analysis summaries.
 
-  -   *Insights and findings*: Use language models to create clear and comprehensive reports or presentations of analytical findings for both technical and nontechnical audiences.
+  - *Insights and findings*: Use language models to create clear and comprehensive reports or presentations of analytical findings for both technical and nontechnical audiences.
 
 - **Collaborate and learn**
 
-  -   *Collaborative workflows*: Use copilots to streamline collaboration with other team members, including sharing code, results, and insights.
+  - *Collaborative workflows*: Use copilots to streamline collaboration with other team members, including sharing code, results, and insights.
 
-  -   *Continuous learning*: Use language models to access the latest research, tutorials, and resources for continuous skill development and to stay current in the field.
+  - *Continuous learning*: Use language models to access the latest research, tutorials, and resources for continuous skill development and to stay current in the field.
 
 - **Comply with ethical standards**
 
-  -   *Compliance checks*: Employ language models to ensure adherence to data privacy, ethical standards, and organizational policies in data handling and analysis.
+  - *Compliance checks*: Employ language models to ensure adherence to data privacy, ethical standards, and organizational policies in data handling and analysis.
 
 ## Summary
 
@@ -107,7 +108,7 @@ In the TDSP, the project individual contributor is responsible for specific task
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 

@@ -3,18 +3,15 @@ metadata:
   title: Process real-time vehicle data using IoT
   titleSuffix: Azure Example Scenarios
   description: Build a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.
-  author: khilscher
-  ms.author: pnp
+  author: asergaz
+  ms.author: sergaz
   ms.date: 07/14/2022
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - iot
-  ms.custom:
-    - IoT
-    - fcp
-    - example-scenario
+  ms.custom: arb-iot
 name: Process real-time vehicle data using IoT
 azureCategories:
   - iot

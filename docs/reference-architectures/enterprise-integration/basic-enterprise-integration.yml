@@ -18,6 +18,7 @@ metadata:
     - integration-services
     - reference-architecture
     - internal-intro
+    - arb-integrations
 name: Basic enterprise integration on Azure
 azureCategories:
   - integration

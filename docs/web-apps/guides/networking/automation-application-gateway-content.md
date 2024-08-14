@@ -70,11 +70,13 @@ This architecture works best for:
 
 The preceding scenario updates a backend pool for Application Gateway. As an alternative, you could use an Azure private DNS zone as a target backend for Application Gateway and use Azure functions to update a record instead of making changes on Application Gateway. This alternative would reduce deployment time. On the other hand, Application Gateway metrics wouldn't be able to identify the host count because it would be abstracted by DNS. So this automation would need to be triggered through an application monitoring solution like Application Insights or Azure Monitor directly.
 
-Azure provides multiple options to host container-based workloads, like [Azure Kubernetes Service](/azure/aks/intro-kubernetes) and [Azure App Service](/azure/app-service/quickstart-custom-container).
+Azure provides multiple options to host container-based workloads, like [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Azure App Service](/azure/app-service/quickstart-custom-container), and [Azure Container Apps](/azure/container-apps/overview).
 
 Azure Kubernetes Service provides advanced container orchestration and network capabilities like the [Service resource](https://kubernetes.io/docs/concepts/services-networking/service), which isn't available in Container Instances. This reference architecture addresses this requirement.
 
 App Service can also host container workloads, and [App Service Environment](/azure/app-service/environment/intro) allows developers to deploy App Service in Azure Virtual Network. The pricing structure of Container Instances, as compared to App Service, makes it compelling for small workloads.
+
+Azure Container Apps is a serverless container platform based on Kubernetes. It allows developers to build Kubernetes-style application who doesn't require direct access to all the native Kubernetes APIs and cluster management. Azure Container Apps provides fully managed experience based on best-practices.
 
 ## Considerations
 
@@ -101,12 +103,6 @@ The ability to deploy PaaS into a virtual network (VNet injection) doesn't impro
 Private Link projects a private endpoint into the virtual network, which allows the application to access Azure PaaS directly via a private IP address. At the same time, admins can further control who can access the relevant Azure PaaS.
 
 If you store container images in [Azure Container Registry](/azure/container-registry), you can enable [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) to perform container image vulnerability scans.
-
-## Deploy this scenario
-
-Sample source code, with Azure Functions performing automation, is available on [GitHub](https://github.com/mspnp/aci-auto-healing).
-
-You'll need a service principal (client ID and secret). It will be used by Azure Functions to perform Azure Resource Manager operations. This service principal requires at least owner rights in the resource group so it can update Application Gateway and create Azure container instances. The sample creates a simple Python application, containerized and stored in Container Registry. Update the registry with your own application.
 
 ## Pricing
 

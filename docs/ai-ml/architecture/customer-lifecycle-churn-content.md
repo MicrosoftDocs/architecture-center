@@ -24,7 +24,7 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 1. **Machine learning registry:** An Azure Data Factory pipeline registers the best machine learning model in the Azure Machine Learning Service according to the metrics chosen. The machine learning model is deployed by using the [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service).
 
-1. **Serving phase:** In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI and Azure Analyses Services.
+1. **Serving phase:** In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI and Azure Analysis Services.
 
 ### Components
 
@@ -72,7 +72,7 @@ This solution is ideal for the retail industry. It's helpful in the following us
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -84,7 +84,7 @@ Azure components offer availability through redundancy and as specified in servi
 
 ### Scalability
 
-This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (GB/s). Processing runs at near-constant per-request latencies. Latencies are measured at the service, account, and file levels.
+This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (Gbp). Processing runs at near-constant per-request latencies. Latencies are measured at the service, account, and file levels.
 
 This scenario uses Azure Databricks clusters, which enable autoscaling by default. Autoscaling enables Databricks during runtime to dynamically reallocate resources. With autoscaling, you don't need to start a cluster to match a workload, which makes it easier to achieve high cluster usage.
 
@@ -104,7 +104,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Azure Databricks is a premium Apache Spark offering with an associated cost.
 
-There are standard and premium Databricks pricing tiers. For this scenario, the standard pricing tier is sufficient. If your application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, you might need the premium tier.
+There are standard and premium Databricks pricing tiers. For this scenario, the Standard pricing tier is sufficient. If your application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, you might need the Premium tier.
 
 Costs related to this use case depend on the standard pricing for the following services for your usage:
 
@@ -136,3 +136,4 @@ Principal author:
 - [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
 - [Customer churn prediction using real-time analytics](../../solution-ideas/articles/customer-churn-prediction.yml)
 - [Predict Length of Stay and Patient Flow](../../example-scenario/digital-health/predict-patient-length-of-stay.yml)
+- [Create, evaluate, and score a churn prediction model in Microsoft Fabric](/fabric/data-science/customer-churn)

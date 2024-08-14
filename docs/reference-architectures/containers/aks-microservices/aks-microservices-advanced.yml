@@ -12,7 +12,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - microservices
-    - fcp
+    - arb-containers
 name: Advanced Azure Kubernetes Service (AKS) microservices architecture
 azureCategories:
   - containers

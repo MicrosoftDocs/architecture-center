@@ -231,7 +231,7 @@ In this scenario, the job controller and all compute nodes live in Azure as show
 
 ### Hybrid network connectivity resources
 
-Several configurations may be applicable in your situation. To help with decisions and architectural guidance regarding connecting network connectivity to Azure, see the article _[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)_ by the patterns & practices group.
+Several configurations may be applicable in your situation. To help with decisions and architectural guidance regarding connecting network connectivity to Azure, see the article *[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)* by the patterns & practices group.
 
 - [See this article](/azure/vpn-gateway/vpn-gateway-about-vpngateways?WT.mc_id=gridbanksg-docs-dastarr) for VPN Gateway configuration alternatives.
 - Learn about [ExpressRoute connectivity models](/azure/expressroute/expressroute-connectivity-models?WT.mc_id=gridbanksg-docs-dastarr).
@@ -333,4 +333,3 @@ Product documentation:
 ## Related resources
 
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
-- [Actuarial risk analysis and financial modeling](./actuarial-risk-analysis-financial-model.yml)

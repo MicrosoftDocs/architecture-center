@@ -6,16 +6,18 @@ manager: marktab
 editor: marktab
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/15/2024
+ms.date: 07/12/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - arb-aiml
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
+
 # Data acquisition and understanding stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
@@ -53,7 +55,7 @@ Set up a process to move data from the source locations to the target locations 
 
 ### Explore data
 
-Before you train your models, you need to develop a sound understanding of the data. Real-world datasets are often noisy, are missing values, or have a host of other discrepancies. You can use data summarization and visualization to audit the quality of your data and gather information for processing the data before it's ready for modeling. This process is often iterative. For guidance on cleaning the data, see [Tasks to prepare data for enhanced machine learning](prepare-data.md).
+Before you train your models, you need to develop a sound understanding of the data. Real-world datasets are often noisy, are missing values, or have a host of other discrepancies. You can use data summarization and visualization to audit the quality of your data and gather information for processing the data before it's ready for modeling. This process is often iterative.
 
 After you're satisfied with the quality of the cleansed data, the next step is to better understand the patterns in the data. This data analysis helps you choose and develop an appropriate predictive model for your target. Determine how much the data corresponds to the target. Then decide whether your team has sufficient data to move forward with the next modeling steps. Again, this process is often iterative. You might need to find new data sources with more accurate or more relevant data to adjust the dataset initially identified in the previous stage.
 
@@ -82,7 +84,7 @@ In this stage, your team delivers:
 
 ## Peer-reviewed literature
 
-Researchers publish studies about the TDSP in peer-reviewed literature. [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the data acquisition and understanding lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. The [citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the data acquisition and understanding lifecycle stage.
 
 ## Contributors
 

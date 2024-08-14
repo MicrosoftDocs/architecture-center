@@ -77,7 +77,7 @@ This solution is ideal for the sports industry, and applies to the following sce
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Follow MLOps guidelines to standardize and manage end-to-end Machine Learning lifecycles that are scalable across multiple workspaces. Before going into production, ensure the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models.
 
@@ -89,7 +89,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider using the following security resources in this architecture:
 
-- [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity)
+- [Secure cluster connectivity (No Public IP (NPIP)](/azure/databricks/security/secure-cluster-connectivity)
 - [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Azure Databricks Premium](https://azure.microsoft.com/pricing/details/databricks)
@@ -107,7 +107,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-If you use Azure Data Factory Mapping Data Flows for extract, transform, and load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
+If you use Azure Data Factory Mapping Data Flows for extract, transform, load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
 
 ## Deploy this scenario
 

@@ -4,7 +4,7 @@ This article describes how to create a data store to search and filter medical d
 
 :::image type="content" source="./media/data-factory-ingestion-pipeline.svg" alt-text="Diagram that shows the process of ingesting and indexing medical files." border="false" lightbox="./media/data-factory-ingestion-pipeline.svg":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/data-factory-ingestion-pipeline.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/data-factory-ingestion-pipeline.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -44,7 +44,7 @@ This solution applies to medical data ingestion. You can apply the high-level de
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -85,7 +85,7 @@ For efficient operation of this solution, consider the telemetry, performance co
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 

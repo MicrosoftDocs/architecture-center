@@ -22,6 +22,8 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/interactive-price-analytics"
     - ai-machine-learning
     - aml-project-improvement
+    - arb-data
+    - arb-aiml
 name: Interactive price analytics using transaction history data
 azureCategories:
   - analytics

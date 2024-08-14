@@ -9,8 +9,8 @@ ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
-azureCategories: 
-  - analytics 
+azureCategories:
+  - analytics
   - storage
   - web
 products:
@@ -113,7 +113,7 @@ Look for correlations between increased response times and increased database ac
 
 ### Identify which data stores are accessed during those periods
 
-The next graph shows the utilization of database throughput units (DTU) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where throughput peaked in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
+The next graph shows the utilization of database throughput units (DTUs) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where throughput peaked in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
 
 ![The database monitor in the Azure classic portal showing resource utilization of the database][MonolithicDatabaseUtilization]
 
