@@ -50,7 +50,7 @@ There has been a surge in the health and life sciences space, including genomic 
 
 In summary, cloud engineers must consider cost implications before deploying GPU nodes in AKS clusters, and understand GPU optimization for compute-intensive tasks like computer vision, video processing, high-performance computing, and genomic analysis. This highlights the nuanced decision-making process for selecting GPU versus CPU resources in AKS clusters.
 
-### Large Language Models
+### Generative AI models
 
 Large language models like [OpenAI GPT](https://platform.openai.com/docs/models), [Meta Llama](https://llama.meta.com/llama3/), [Falcon](https://falconllm.tii.ae/), or [Mistral](https://mistral.ai/news/mistral-large/), can take advantage of GPUs through parallel processing, leading to significant improvements in performance.
 
