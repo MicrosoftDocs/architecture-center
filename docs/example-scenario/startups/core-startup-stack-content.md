@@ -29,7 +29,7 @@ In this core startup stack architecture:
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) segments network traffic and keeps internal services protected from internet threats. Your app servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposure to the internet.
 - [GitHub Actions](https://docs.github.com/actions) builds continuous integration and continuous deployment (CI/CD) into your source code management. GitHub Actions has extensive support for different languages, and strong integration with Azure services.
 - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) stores static assets and moves load away from the app servers.
-- [Azure Content Delivery Network (CDN)](/azure/cdn/cdn-overview) accelerates content delivery to users through a global network.
+- [Azure Front Door with WAF](/azure/frontdoor/front-door-overview) accelerates and secures content delivery to users through a global content delivery network (CDN) and web application firewall.
 - [Azure Monitor](/azure/azure-monitor/overview) monitors and analyzes what's happening across your application's infrastructure.
 
 ## Core startup stack components
