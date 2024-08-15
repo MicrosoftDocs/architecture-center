@@ -192,7 +192,7 @@ The following resources provide practical recommendations and information for sp
 [Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
-[Explore Event Grid integration]: /training/modules/explore-event-grid-integration
+[Explore Event Grid integration]: /training/browse/?products=azure&terms=event%20grid
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Forecast energy and power demand with machine learning]: ../solution-ideas/articles/forecast-energy-power-demand.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
