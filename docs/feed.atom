@@ -2,12 +2,140 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-08-05T16:17:08.071Z</updated>
+    <updated>2024-08-13T14:47:52.990Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/services"/>
+        <updated>2024-08-12T14:57:11.000Z</updated>
+        <summary type="html"><![CDATA[Compare Microsoft Azure services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Google Cloud to Azure services comparison]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/gcp-professional/services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/gcp-professional/services"/>
+        <updated>2024-08-12T14:57:11.000Z</updated>
+        <summary type="html"><![CDATA[Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2024-08-12T18:15:55.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retry pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/retry</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/retry"/>
+        <updated>2024-08-12T18:08:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when the app tries to connect to a service or network resource.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run Apache Cassandra on Azure VMs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/cassandra</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/cassandra"/>
+        <updated>2024-08-12T15:06:10.000Z</updated>
+        <summary type="html"><![CDATA[Examine performance considerations for running Apache Cassandra on Azure Virtual Machines. Use these recommendations as a baseline to test against your workload.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory"/>
+        <updated>2024-08-12T15:06:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about how to perform data obfuscation using Delphix in Azure Data Factory.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate Teradata VantageCloud Enterprise with Azure Data Factory]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/teradata-vantage-data-factory</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/teradata-vantage-data-factory"/>
+        <updated>2024-08-12T15:06:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Individual contributor tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/project-ic-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/project-ic-tasks"/>
+        <updated>2024-08-12T15:03:16.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that an individual contributor performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project lead tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/project-lead-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/project-lead-tasks"/>
+        <updated>2024-08-12T15:03:16.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a project lead performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team lead tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/team-lead-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/team-lead-tasks"/>
+        <updated>2024-08-12T15:03:16.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a team lead performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DataOps for the modern data warehouse]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/architecture/dataops-mdw"/>
+        <updated>2024-08-12T15:03:16.000Z</updated>
+        <summary type="html"><![CDATA[How to apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[N-tier application with Apache Cassandra]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/architecture/n-tier-cassandra</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/architecture/n-tier-cassandra"/>
+        <updated>2024-08-12T15:03:16.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Linux virtual machines and a virtual network configured for an N-tier architecture with Apache Cassandra in Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory"/>
+        <updated>2024-08-12T15:00:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn about how to perform data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a batch processing technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/batch-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/batch-processing"/>
+        <updated>2024-08-12T13:26:02.000Z</updated>
+        <summary type="html"><![CDATA[Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modeling stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling"/>
+        <updated>2024-08-12T13:26:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS baseline for multiregion clusters]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster"/>
+        <updated>2024-08-12T07:22:11.000Z</updated>
+        <summary type="html"><![CDATA[Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure Stack HCI baseline reference architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-hci-baseline</id>
@@ -237,7 +365,7 @@
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
         <updated>2024-07-29T07:10:18.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <summary type="html"><![CDATA[Learn about the reference architecture for the recommended baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -917,7 +1045,7 @@
         <id>https://learn.microsoft.com/azure/architecture/databases/guide/cassandra</id>
         <link href="https://learn.microsoft.com/azure/architecture/databases/guide/cassandra"/>
         <updated>2024-06-11T20:25:05.000Z</updated>
-        <summary type="html"><![CDATA[Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.]]></summary>
+        <summary type="html"><![CDATA[Examine performance considerations for running Apache Cassandra on Azure Virtual Machines. Use these recommendations as a baseline to test against your workload.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
