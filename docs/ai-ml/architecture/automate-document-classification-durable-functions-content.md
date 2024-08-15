@@ -32,7 +32,6 @@ This article describes an architecture for processing documents of various types
 
 - This solution stores metadata in Azure Cosmos DB to facilitate global distribution. [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is another option for persistent storage of document metadata and information.
 - You can use other messaging platforms, including [Azure Service Bus](https://azure.microsoft.com/products/service-bus), to trigger Durable Functions instances.
-- For a solution accelerator that helps in clustering and segregating data into templates, see [Azure/form-recognizer-accelerator (github.com)](https://github.com/Azure/form-recognizer-accelerator).
 
 ### Scenario details
 
