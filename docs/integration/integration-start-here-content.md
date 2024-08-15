@@ -131,7 +131,6 @@ These resources can help you spot-check your design against current recommended 
 These reference architectures provide baseline implementations for various scenarios:
 
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
-- [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)][Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: Build logic apps that run in ISEs and access protected resources.
 - [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
 - [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
