@@ -60,7 +60,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 A reliable workload is one that's both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is a measure of whether your users can access your workload when they need to.
 
@@ -70,7 +70,7 @@ For reliability information about solution components, see the following resourc
 
 ### Cost optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/well-architected/cost-optimization/).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The most significant costs for this architecture will potentially come from the storage of images in the storage account, Azure AI services image processing, and index capacity requirements in the Azure AI Search service.
 
@@ -84,7 +84,7 @@ Here are some guidelines for optimizing costs:
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale in an efficient manner to meet the demands that users place on it. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/performance-efficiency).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 Periods when this solution processes high volumes can expose performance bottlenecks. Make sure that you understand and plan for the [scaling options for Azure Functions](/azure/azure-functions/functions-scale#scale), [Azure AI services autoscaling](/azure/ai-services/autoscale?tabs=portal), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview) to ensure proper performance efficiency for your solution.
 
