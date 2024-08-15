@@ -5,8 +5,9 @@ metadata:
   author: stephen-sumner
   ms.author: ssumner
   ms.date: 1/12/2023
-  ms.topic: reference-architecture
+  ms.topic: azure-guide
   ms.service: architecture-center
+  ms.subservice: azure-guide
 name: SAP on Azure architecture center
 summary: Overview of SAP guidance and resources that links to platform, workload, and architecture guidance
 products: 

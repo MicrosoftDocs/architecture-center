@@ -5,6 +5,7 @@ ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 products:
   - azure-migrate
 categories:

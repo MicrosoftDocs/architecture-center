@@ -7,6 +7,7 @@ author: RobBagby
 ms.reviewer: chkittel
 ms.date: 07/12/2024
 ms.service: architecture-center
+ms.subservice: azure-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
