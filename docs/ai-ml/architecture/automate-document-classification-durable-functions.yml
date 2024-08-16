@@ -18,6 +18,7 @@ products:
   - azure-app-service
   - ai-services
   - azure-cognitive-search
+  - document-intelligence
 name: Automate document identification, classification, and search using Azure AI Services
 summary: Use Durable Functions, a feature of Azure Functions, as an automated document processing pipeline to classify documents using Azure AI Document Intelligence.
 thumbnailUrl: /azure/architecture/browse/thumbs/automate-document-classification-durable-functions-thumb.png
