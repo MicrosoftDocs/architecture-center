@@ -12,7 +12,8 @@ This article presents an example of a simple core startup stack, and discusses i
 
 A startup, Contoso, has built an application prototype with a [Ruby on Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). The Contoso team has been running demos on their laptops. Now they want to deploy their app for their first customer sales meetings.
 
-> **_NOTE:_**  The technology choices here of Ruby, React and TypeScript are just illustrative.  This startup architecture equally applies to many other languages and frameworks.
+> [!NOTE]
+> The technology choices here of Ruby, React and TypeScript are just illustrative.  This startup architecture equally applies to many other languages and frameworks.
 
 While the app is ambitious, it doesn't yet need a complex, microservice-driven architecture. Contoso opted for a simple monolithic design that includes the recommended startup stack components.
 
