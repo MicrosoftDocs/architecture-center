@@ -207,6 +207,14 @@ For the user node pool, here are some considerations:
 
 - Set the maximum pods per node based on your capacity planning. If you're trying to establish a capacity baseline, start with a value of 30. Adjust that value based on the requirements of the workload, the node size, and your IP constraints.
 
+### Select an operating system
+
+Most AKS clusters use Linux as the operating system for their node pools. In this reference architecture, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet.
+
+AKS also supports node pools that run the Windows Server operating system. There are special requirements for some aspects of a cluster that runs Windows. Throughout this article, we link to information about Windows where there are differences.
+
+You can use different operating systems in different node pools, if you have workloads that need a mixture of technologies.
+
 ## Integrate Microsoft Entra ID for the cluster
 
 Securing access to and from the cluster is critical. Think of it from the cluster's perspective when you're making security choices:
