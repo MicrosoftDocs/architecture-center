@@ -209,7 +209,7 @@ For the user node pool, here are some considerations:
 
 ### Select an operating system
 
-Most AKS clusters use Linux as the operating system for their node pools. In this reference architecture, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet.
+Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet.
 
 AKS also supports node pools that run the Windows Server operating system. There are special requirements for some aspects of a cluster that runs Windows. Throughout this article, we link to information about Windows where there are differences.
 
@@ -279,6 +279,16 @@ In this reference implementation, local cluster accounts access is explicitly di
 Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity enables the hosted workload to access resources through Microsoft Entra ID. For example, the workload stores files in Azure Storage. When it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity.
 
 In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview) provides the managed identities for pods. This approach integrates with the Kubernetes native capabilities to federate with external identity providers. For more information about Microsoft Entra Workload ID federation, see [Workload identity federation](/entra/workload-id/workload-identity-federation).
+
+## Select a networking model
+
+AKS supports multiple networking models including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and are highly performant. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+
+In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
+
+In this reference implementation, we use [Azure CNI Overlay](/azure/aks/azure-cni-overlay), which only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
+
+For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
@@ -413,15 +423,6 @@ By default, a pod can accept traffic from any other pod in the cluster. Use Kube
 Enable network policy when you provision the cluster because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. We recommend Azure network policy, which requires Azure Container Networking Interface (CNI). For more information, see the following note. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For more information, see [Differences between Azure network policy engines](/azure/aks/use-network-policies#differences-between-network-policy-engines-cilium-azure-npm-and-calico).
-
-> [!NOTE]
-> AKS supports multiple networking models including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and a CNI-based model is required for enabling Azure network policy. Both CNI models are highly performant. The model's performance between pods is similar to the performance of VMs in a virtual network. We recommend a CNI-based networking model.
->
-> In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
->
-> CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend that you use Azure CNI Overlay for IP address-constrained deployments. Azure CNI Overlay only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs.
->
-> For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ### Management traffic
 
