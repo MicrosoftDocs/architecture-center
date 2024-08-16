@@ -10,6 +10,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - arb-data
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
 products:
