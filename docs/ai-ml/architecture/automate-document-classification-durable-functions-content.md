@@ -78,7 +78,7 @@ Here are some guidelines for optimizing costs:
 
 - Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed rather than investing in large-scale resources at the start.
 - Consider opportunity costs in your architecture, and the balance between first-mover advantage versus fast follow. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the initial cost and operational costs.
-- Establish [budgets, and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution, and utilize [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets?tabs=psbudget) to set up forecasting and actual cost alerts.
+- Establish [budgets and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution, and utilize [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets?tabs=psbudget) to set up forecasting and actual cost alerts.
 
 ### Performance efficiency
 
