@@ -66,7 +66,7 @@ Microsoft Fabric is tightly integrated with potential consumers of your mutli-so
 
 - You can use [Fabric Data Pipeline](/fabric/data-factory/activity-overview) for data integration instead of Data Factory pipelines. The choice depends on several factors. Full list of considerations can be found [here](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory). 
 
-- You can use [Fabric Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing) for storing enterprise data, instead of using Azure SQL Database/Managed Instance. This article pririotizes time to market for customer who want to modernise, so ASQLDB/MI was offered. Please see data store options for Fabric described [here](https://learn.microsoft.com/en-us/fabric/get-started/decision-guide-data-store) and check articles for [TODO: link to datalake greenhouse]
+- You can use [Fabric Warehouse](/fabric/data-warehouse/data-warehousing) for storing enterprise data, instead of using Azure SQL Database/Managed Instance. This article prioritizes time to market for customer who want to modernize, so ASQLDB/MI was offered. Please see data store options for Fabric described [here](/fabric/get-started/decision-guide-data-store) and check articles for [TODO: link to datalake greenhouse]
 
 ## Scenario details
 
