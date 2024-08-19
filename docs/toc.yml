@@ -167,9 +167,9 @@ items:
           maintainContext: true
     - name: Choose a data store
       items:
-      - name: Understanding data stores in Azure
+      - name: Understand data stores in Azure
         href: data-guide/technology-choices/data-store-classification.md
-      - name: Understanding data store models
+      - name: Understand data store models
         items:
           - name: Types of data store models
             href: guide/technology-choices/data-store-overview.md
