@@ -44,7 +44,7 @@ The following dataflow demonstrates the ingestion of your chosen data type:
 
    Serverless analysis tools are ideal for:
    - ETL/ELT on OneLake data.
-   - Serving gold layer of medallion architecture to PBI reports via DirectLake capability.
+   - Serving gold layer of medallion architecture to Power BI reports via DirectLake capability.
    - Ad hoc data science explorations in T-SQL format or Python.
    - Early prototyping for data warehouse entities.
 
