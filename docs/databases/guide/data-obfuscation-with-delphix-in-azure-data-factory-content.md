@@ -58,11 +58,11 @@ The movement of secure data is a challenge for all organizations. Delphix makes 
 
 By using the data source connectors offered by Data Factory, we've created two ETL pipelines that automate the following steps:
 
-- Read data from the system of record and write it to CSV files in Azure Blob Storage.
+- Read data from the system of record and write it to CSV Azure Files in Azure Blob Storage.
 
 - Provide Delphix Continuous Compliance with what it requires in order to identify columns that may contain sensitive data and assign appropriate masking algorithms.
 
-- Execute a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values.
+- Execute a Delphix masking job against the Azure Files to replace sensitive data elements with similar but fictitious values.
 
 - Load the compliant data to any Data Factory-supported datastore.
 
@@ -182,7 +182,7 @@ See the following Delphix resources:
 
 - [Get set up with Delphix CC](https://maskingdocs.delphix.com/)
 - Learn about [using Delphix CC to find where sensitive data resides](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Discovering_Your_Sensitive_Data_-_Intro/)
-- See [customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
+- See [Customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
 
 Learn more about the key Azure services in this solution:
 
