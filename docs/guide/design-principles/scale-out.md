@@ -30,6 +30,8 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 **Design autonomous and decoupled components that communicate through asynchronous communication protocols** Components should ideally use events to communicate with each other. This helps to independently scale only the overloaded component with minimal complexity. 
 
+**Avoid needless communication, coordination, and waiting.**
+
 **Offload naturally asynchronous tasks.** Tasks like sending emails, actions where the user doesn't need an immediate response, and integration with other systems are all good places to make use of [asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
 **Offload resource-intensive tasks.** Tasks that require a lot of CPU or I/O resources should be moved to [background jobs][background-jobs] when possible, to minimize the load on the front end that is handling user requests.
