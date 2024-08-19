@@ -44,7 +44,7 @@ A complete data lake solution consists of both storage and processing. Data lake
 
 We recommend that you use a data lake for data exploration, data analytics, and machine learning.
 
-A data lake can act as the data source for a data warehouse. When you use this method, the data lake ingests raw data and then transforms it into a structured queryable format. Typically, this transformation uses an [extract, load, and transform (extract, load, transform (ELT))](../relational-data/etl.yml#extract-load-and-transform-elt) pipeline in which the data is ingested and transformed in place. Relational source data might go directly into the data warehouse via an ETL process and skip the data lake.
+A data lake can act as the data source for a data warehouse. When you use this method, the data lake ingests raw data and then transforms it into a structured queryable format. Typically, this transformation uses an [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt) pipeline in which the data is ingested and transformed in place. Relational source data might go directly into the data warehouse via an ETL process and skip the data lake.
 
 You can use data lake stores in event streaming or IoT scenarios because data lakes can persist large amounts of relational and nonrelational data without transformation or schema definition. Data lakes can handle high volumes of small writes at low latency and are optimized for massive throughput.
 
