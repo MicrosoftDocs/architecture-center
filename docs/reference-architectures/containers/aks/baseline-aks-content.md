@@ -213,9 +213,9 @@ For the user node pool, here are some considerations:
 
 Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet.
 
-AKS also supports node pools that run the Windows Server operating system. There are special requirements for some aspects of a cluster that runs Windows. To learn more about Windows nodepool architecture, see [Running Windows containers on AKS](./windows-containers-on-aks.yml).
+AKS also supports node pools that run the Windows Server operating system. There are special requirements for some aspects of a cluster that runs Windows. To learn more about Windows node pool architecture, see [Running Windows containers on AKS](./windows-containers-on-aks.yml).
 
-You can use different operating systems in different node pools, if you have a workload that is composed of a mixture of technologies. If you do not need the different operating systems for your workload, it's recommended you use a single OS for all your workload's node pools.
+If you have a workload that is composed of a mixture of technologies, you can use different operating systems in different node pools. However, if you don't need different operating systems for your workload, we recommend that you use a single operating system for all your workload's node pools.
 
 ## Integrate Microsoft Entra ID for the cluster
 
