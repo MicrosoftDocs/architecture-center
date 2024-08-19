@@ -61,7 +61,7 @@ There are two types of transactional databases. These databases are relational d
 
 - Nonrelational databases, also known as *NoSQL databases*, store, manage, and retrieve data that isn't necessarily structured in a tabular form like relational databases. NoSQL databases can handle a wide variety of data types, including structured, semi-structured, and unstructured data. Examples of these databases in Azure are [Azure Cosmos DB](/azure/cosmos-db) and [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/).
 
-You might need a hybrid database or data store for analytics and transactional purposes. These use cases are known as *hybrid transactional analytical processing*. Products like [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) or [Azure SQL Hyperscale](/azure/azure-sql/database/service-tier-hyperscale) are good choices for these use cases.
+You might need a hybrid database or data store for analytics and transactional purposes. These use cases are known as *hybrid transactional analytical processing*. For these use cases, use products like [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) or [Azure SQL Hyperscale](/azure/azure-sql/database/service-tier-hyperscale).
 
 ## Next step
 
