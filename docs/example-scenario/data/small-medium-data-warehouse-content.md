@@ -52,11 +52,11 @@ Microsoft Fabric is tightly integrated with potential consumers of your mutli-so
 
 ### Components
 
-- [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) is an analytics service that combines capabilities of data engineering, data warehousing, data science, real-time and business intelligence. In this solution:
+- [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an analytics service that combines capabilities of data engineering, data warehousing, data science, real-time and business intelligence. In this solution:
 
   - [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are destributed to end consumers. 
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)/[Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
+- [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)/[Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs can ingest data from anywhere, and seamlessly integrates with Azure data services.
 
@@ -64,7 +64,7 @@ Microsoft Fabric is tightly integrated with potential consumers of your mutli-so
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) could replace or complement Event Hubs. The solution you choose depends on the source of your streaming data, and whether you need cloning and bidirectional communication with the reporting devices.
 
-- You can use [Fabric Data Pipeline](https://learn.microsoft.com/en-us/fabric/data-factory/activity-overview) for data integration instead of Data Factory pipelines. The choice depends on several factors. Full list of considerations can be found [here](https://learn.microsoft.com/en-us/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory). 
+- You can use [Fabric Data Pipeline](/fabric/data-factory/activity-overview) for data integration instead of Data Factory pipelines. The choice depends on several factors. Full list of considerations can be found [here](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory). 
 
 - You can use [Fabric Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing) for storing enterprise data, instead of using Azure SQL Database/Managed Instance. This article pririotizes time to market for customer who want to modernise, so ASQLDB/MI was offered. Please see data store options for Fabric described [here](https://learn.microsoft.com/en-us/fabric/get-started/decision-guide-data-store) and check articles for [TODO: link to datalake greenhouse]
 
@@ -118,7 +118,7 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 - [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
 
-- [Microsoft Fabric](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) pricing is based on Fabric F capacity price or Premium Per Person price. Serverless capacilities would consume CPU and memory from dedicated capacity that was purchased. 
+- [Microsoft Fabric](https://azure.microsoft.com/pricing/details/microsoft-fabric/) pricing is based on Fabric F capacity price or Premium Per Person price. Serverless capabilities would consume CPU and memory from dedicated capacity that was purchased. 
 
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) bills based on tier, throughput units provisioned, and ingress traffic received. The example assumes one throughput unit in Standard tier over one million events for a month.
 
@@ -134,10 +134,10 @@ Principal author:
 ## Next steps
 
 - For training content and labs, see the [Data Engineer Learning Paths](/training/roles/data-engineer).
-- [Microsoft Fabric - Get Started MSLearn Path](https://learn.microsoft.com/en-us/training/fabric/)
-- [Microsoft Fabric - MSLearn modules](https://learn.microsoft.com/en-us/training/browse/?products=fabric&resource_type=module)
+- [Microsoft Fabric - Get Started MSLearn Path](/training/fabric/)
+- [Microsoft Fabric - MSLearn modules](/training/browse/?products=fabric&resource_type=module)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
-- [Create an instance - Azure SQL MI](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&tabs=azure-portal)
+- [Create an instance - Azure SQL MI](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&tabs=azure-portal)
 - [Create a storage account for Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account)
 - [Azure Event Hubs Quickstart - Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create)
 
