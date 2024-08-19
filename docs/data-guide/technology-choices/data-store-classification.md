@@ -35,7 +35,7 @@ For this architecture specifically, we can generally divide Azure storage into t
 
 ## Simple storage solutions
 
-Use simple storage solutions like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) (Azure Data Lake Storage excluded), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [Azure Queue Storage](/azure/storage/queues/), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), and [Azure Table Storage](/azure/storage/tables/). These solutions are ideal for storing large amounts of data that don’t require [atomicity, consistency, isolation, and durability (ACID)](/windows/win32/cossdk/acid-properties) capabilities. Simple storage solutions usually cost less than databases or analytics services. Use cases include file shares, data that doesn’t need as much structured querying or transactional capabilities, and long-term file retention.
+Use simple storage solutions like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) (Azure Data Lake Storage excluded), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [Azure Queue Storage](/azure/storage/queues/), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), and [Azure Table Storage](/azure/storage/tables/). These solutions are ideal for storing large amounts of data that don’t require [atomicity, consistency, isolation, and durability (ACID) capabilities](/windows/win32/cossdk/acid-properties). Simple storage solutions usually cost less than databases or analytics services. Use cases include file shares, data that doesn’t need as much structured querying or transactional capabilities, and long-term file retention.
 
 ## Databases in Azure
 
@@ -59,7 +59,7 @@ There are two types of transactional databases. These databases are relational d
   
   - [Azure Database for MySQL](/azure/mysql) and MySQL in their infrastructure as a service and platform as a service versions.
 
-- NoSQL databases, also known as *nonrelational databases* or *non-SQL databases*, store, manage, and retrieve data that isn't necessarily structured in a tabular form like relational databases. NoSQL databases can handle a wide variety of data types, including structured, semi-structured, and unstructured data. Examples of these databases in Azure are [Azure Cosmos DB](/azure/cosmos-db) and [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/).
+- Nonrelational databases, also known as *NoSQL databases*, store, manage, and retrieve data that isn't necessarily structured in a tabular form like relational databases. NoSQL databases can handle a wide variety of data types, including structured, semi-structured, and unstructured data. Examples of these databases in Azure are [Azure Cosmos DB](/azure/cosmos-db) and [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/).
 
 You might need a hybrid database or data store for analytics and transactional purposes. These use cases are known as *hybrid transactional analytical processing*. Products like [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) or [Azure SQL Hyperscale](/azure/azure-sql/database/service-tier-hyperscale) are good choices for these use cases.
 
