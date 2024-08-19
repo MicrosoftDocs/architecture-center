@@ -54,7 +54,7 @@ Microsoft Fabric is tightly integrated with potential consumers of your mutli-so
 
 - [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an analytics service that combines capabilities of data engineering, data warehousing, data science, real-time and business intelligence. In this solution:
 
-  - [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are destributed to end consumers. 
+  - [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are distributed to end consumers. 
 
 - [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)/[Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
 
