@@ -182,7 +182,7 @@ See the following Delphix resources:
 
 - [Get set up with Delphix CC](https://maskingdocs.delphix.com/)
 - Learn about [using Delphix CC to find where sensitive data resides](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Discovering_Your_Sensitive_Data_-_Intro/)
-- See [customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
+- See [Customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
 
 Learn more about the key Azure services in this solution:
 
