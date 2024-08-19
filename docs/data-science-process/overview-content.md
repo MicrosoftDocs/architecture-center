@@ -54,7 +54,7 @@ Azure Machine Learning supports the open-source [MLflow](/azure/machine-learning
 
 MLflow consists of several key functionalities:
 
-- **Track experiments**: You can use MLflow to keep track of experiments, including parameters, code versions, metrics, and output Azure Files. This feature helps you compare different runs and efficiently manage the experimentation process.
+- **Track experiments**: You can use MLflow to keep track of experiments, including parameters, code versions, metrics, and output files. This feature helps you compare different runs and efficiently manage the experimentation process.
 
 - **Package code**: It provides a standardized format for packaging machine learning code, which includes dependencies and configurations. This packaging makes it easier to reproduce runs and share code with others.
 
