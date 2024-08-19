@@ -4,7 +4,6 @@ What all of these data stores have in common is that they don't use a [relationa
 
 The term *NoSQL* refers to data stores that do not use SQL for queries. Instead, the data stores use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional relational database management system (RDBMS) would execute the same SQL query.
 
-
 There are variations in implementations and specializations of NoSQL databases, like there are variations in capabilities of relational databases. These variations give each implementation their own primary strengths and come with their own learning curve and usage recommendations. The following sections describe the major categories of non-relational or NoSQL database.
 
 ## Document data stores
@@ -95,13 +94,13 @@ Relevant Azure services:
 
 ## Object data stores
 
-Object data stores are optimized for storing and retrieving large binary objects or blobs such as images, text files, video and audio streams, large application data objects and documents, and virtual machine disk images. An object consists of the stored data, some metadata, and a unique ID for accessing the object. Object stores are designed to support files that are individually very large, as well provide large amounts of total storage to manage all files.
+Object data stores are optimized for storing and retrieving large binary objects or blobs such as images, text Azure Files, video and audio streams, large application data objects and documents, and virtual machine disk images. An object consists of the stored data, some metadata, and a unique ID for accessing the object. Object stores are designed to support Azure Files that are individually very large, as well provide large amounts of total storage to manage all Azure Files.
 
 ![Example of object data](./images/object.png)
 
-Some object data stores replicate a given blob across multiple server nodes, which enables fast parallel reads. This process, in turn, enables the scale-out querying of data contained in large files, because multiple processes, typically running on different servers, can each query the large data file simultaneously.
+Some object data stores replicate a given blob across multiple server nodes, which enables fast parallel reads. This process, in turn, enables the scale-out querying of data contained in large Azure Files, because multiple processes, typically running on different servers, can each query the large data file simultaneously.
 
-One special case of object data stores is the network file share. Using file shares enables files to be accessed across a network using standard networking protocols like server message block (SMB). Given appropriate security and concurrent access control mechanisms, sharing data in this way can enable distributed services to provide highly scalable data access for basic, low-level operations such as simple read and write requests.
+One special case of object data stores is the network file share. Using file shares enables Azure Files to be accessed across a network using standard networking protocols like server message block (SMB). Given appropriate security and concurrent access control mechanisms, sharing data in this way can enable distributed services to provide highly scalable data access for basic, low-level operations such as simple read and write requests.
 
 Relevant Azure services:
 
@@ -113,7 +112,7 @@ Relevant Azure services:
 
 External index data stores provide the ability to search for information held in other data stores and services. An external index acts as a secondary index for any data store, and can be used to index massive volumes of data and provide near real-time access to these indexes.
 
-For example, you might have text files stored in a file system. Finding a file by its file path is quick, but searching based on the contents of the file would require a scan of all of the files, which is slow. An external index lets you create secondary search indexes and then quickly find the path to the files that match your criteria. Another example application of an external index is with key/value stores that only index by the key. You can build a secondary index based on the values in the data, and quickly look up the key that uniquely identifies each matched item.
+For example, you might have text Azure Files stored in a file system. Finding a file by its file path is quick, but searching based on the contents of the file would require a scan of all of the Azure Files, which is slow. An external index lets you create secondary search indexes and then quickly find the path to the Azure Files that match your criteria. Another example application of an external index is with key/value stores that only index by the key. You can build a secondary index based on the values in the data, and quickly look up the key that uniquely identifies each matched item.
 
 ![Example of search data](./images/search.png)
 

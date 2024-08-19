@@ -1,16 +1,16 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides an example design of a pipeline that you can use to process audio files. The pipeline uses Azure AI services for speech to text and Azure OpenAI Service for analysis. The architecture consists of a static web application that provides an operational dashboard and three Azure functions that orchestrate and process the media files. You can use this solution for media workloads that require automated and scalable AI analysis.
+This article provides an example design of a pipeline that you can use to process audio Azure Files. The pipeline uses Azure AI services for speech to text and Azure OpenAI Service for analysis. The architecture consists of a static web application that provides an operational dashboard and three Azure functions that orchestrate and process the media Azure Files. You can use this solution for media workloads that require automated and scalable AI analysis.
 
 ## Architecture
 
-:::image type="content" source="_images/podcast-abstract-architecture.svg" alt-text="Diagram that shows the architecture for processing audio files using Azure OpenAI for analysis." lightbox="_images/podcast-abstract-architecture.svg" border="false":::
+:::image type="content" source="_images/podcast-abstract-architecture.svg" alt-text="Diagram that shows the architecture for processing audio Azure Files using Azure OpenAI for analysis." lightbox="_images/podcast-abstract-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/podcast-abstract-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
-1. The user goes to a web page that has a UI for uploading audio files.
+1. The user goes to a web page that has a UI for uploading audio Azure Files.
 
 1. The static web app contains code that uploads the audio file to Azure Blob Storage.
 
@@ -46,7 +46,7 @@ This article describes how to use AI to create a podcast synopsis, localize the 
 
 ### Web app
 
-A [static web application](https://learn.microsoft.com/azure/static-web-apps/) exposes this application's functionality. The application is written by using the [React web library](https://react.dev/). You can use the React web library to upload audio files. After the audio files are processed, React generates viewable and downloadable results that include:
+A [static web application](https://learn.microsoft.com/azure/static-web-apps/) exposes this application's functionality. The application is written by using the [React web library](https://react.dev/). You can use the React web library to upload audio Azure Files. After the audio Azure Files are processed, React generates viewable and downloadable results that include:
 
 - A synopsis.
 - A translated synopsis.
@@ -55,11 +55,11 @@ A [static web application](https://learn.microsoft.com/azure/static-web-apps/) e
 
 ### Storage
 
-This solution uses a single Azure Storage account with multiple containers to store raw files (audio), transcriptions (text transcriptions of audio), and the Azure OpenAI results.
+This solution uses a single Azure Storage account with multiple containers to store raw Azure Files (audio), transcriptions (text transcriptions of audio), and the Azure OpenAI results.
 
 ### Compute
 
-This solution uses three Azure functions in a specific workflow to process audio files. All three functions are written in Python.
+This solution uses three Azure functions in a specific workflow to process audio Azure Files. All three functions are written in Python.
 
 #### HTTP-triggered function
 
@@ -68,9 +68,9 @@ The static website consumes the first HTTP-triggered function. The function has 
 - *POST* operation to upload the audio file to Blob Storage
 - *GET* operation to retrieve the results of the generated AI insights
 
-#### Blob-triggered function for the raw files container
+#### Blob-triggered function for the raw Azure Files container
 
-The second function is a blob-triggered function that has [bindings](/azure/azure-functions/functions-bindings-storage-blob-trigger) set to use the storage account's raw files container. The function triggers automatically when a file is uploaded to this container. This function also takes advantage of the [`ffmpeg`](https://ffmpeg.org/) CLI tool that's [mounted by using Azure Files](/azure/app-service/configure-connect-to-azure-storage) to convert audio files to WAV. [Speech](https://azure.microsoft.com/products/ai-services/ai-speech) uses the WAV format. After the file is converted to WAV file format, it's then passed to Speech. Speech creates a text transcription of the audio file. The text transcription is then uploaded to the transcriptions container within the storage account.
+The second function is a blob-triggered function that has [bindings](/azure/azure-functions/functions-bindings-storage-blob-trigger) set to use the storage account's raw Azure Files container. The function triggers automatically when a file is uploaded to this container. This function also takes advantage of the [`ffmpeg`](https://ffmpeg.org/) CLI tool that's [mounted by using Azure Files](/azure/app-service/configure-connect-to-azure-storage) to convert audio Azure Files to WAV. [Speech](https://azure.microsoft.com/products/ai-services/ai-speech) uses the WAV format. After the file is converted to WAV file format, it's then passed to Speech. Speech creates a text transcription of the audio file. The text transcription is then uploaded to the transcriptions container within the storage account.
 
 #### Blob-triggered function for the transcriptions container
 
