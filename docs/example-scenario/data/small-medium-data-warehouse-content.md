@@ -14,7 +14,7 @@ Conceptual modernization opportunity is to move legacy Data Warehousing solution
 
 ## Architecture
 
-[ ![Diagram that shows expanded architecture, cataring for future needs](media/small-medium-data-warehouse/MDWSMB_3.svg)](media/small-medium-data-warehouse/MDWSMB_3.svg#lightbox)
+[ ![Diagram that shows expanded architecture, catering for future needs](media/small-medium-data-warehouse/MDWSMB_3.svg)](media/small-medium-data-warehouse/MDWSMB_3.svg#lightbox)
 
 //todo
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
@@ -36,11 +36,11 @@ The following dataflow demonstrates the ingestion of your chosen data type:
 
 1. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Fabric Serverless analysis tools. You can bring the fused, processed data back into Dynamics and use it for further analysis within Microsoft Fabric.
 
-3. Real-time data from streaming sources can also enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
+1. Real-time data from streaming sources can also enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
 1. The data can also be ingested into the centralized Fabric OneLake for further analysis, storage, and reporting using ADLS (Azure Data Lake Storage) shortcuts. This enables in-place analysis and facilitates downstream consumption.
 
-5. Serverless analysis tools (SQL Analytics endpoint and Fabric Spark capabilities) are available inside Microsoft Fabric on demand and do not require any provisioned resources.
+1. Serverless analysis tools (SQL Analytics endpoint and Fabric Spark capabilities) are available inside Microsoft Fabric on demand and do not require any provisioned resources.
 
    Serverless analysis tools are ideal for:
    - ETL/ELT on OneLake data.
