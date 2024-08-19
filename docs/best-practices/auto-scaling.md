@@ -40,7 +40,7 @@ An autoscaling strategy typically involves the following pieces:
 
 - Instrumentation and monitoring systems at the application, service, and infrastructure levels. These systems capture key metrics, such as response times, queue lengths, CPU utilization, and memory usage.
 - Decision-making logic that evaluates these metrics against predefined thresholds or schedules, and decides whether to scale.
-- Components that scale the system.
+- Components that scale the system. Ideally, components should be autonomous, decoupled from other components and communicate through asynchronous communication protocols. This helps to independently scale only the overloaded component with minimal complexity. Components should auto-scale based on live usage metrics.
 - Testing, monitoring, and tuning of the autoscaling strategy to ensure that it functions as expected.
 
 Azure provides built-in autoscaling mechanisms that address common scenarios. If a particular service or technology does not have built-in autoscaling functionality, or if you have specific autoscaling requirements beyond its capabilities, you might consider a custom implementation. A custom implementation would collect operational and system metrics, analyze the metrics, and then scale resources accordingly.
