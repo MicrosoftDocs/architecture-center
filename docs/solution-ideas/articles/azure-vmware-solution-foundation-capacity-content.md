@@ -16,6 +16,7 @@ Azure VMware Solution capacity planning covers the following key phases:
 
 - Discovery: This phase focuses on gathering inventory from an on-premises VMware site.
 - Grouping: This phase helps you group logically related VMs (such as an app and database).
+- Building a business case: This helps in cost planning and to estimate savings on moving to Azure.
 - Assessment: This phase assesses grouped VMs for Azure VMware Solution suitability and for potential remediation.
 - Reporting: This phase consolidates the assessment score and reports estimated costs.
 
@@ -23,11 +24,15 @@ Each phase is discussed in detail below.
 
 #### Discovery
 
-[Discovery](/azure/migrate/tutorial-discover-VMware): You can use Azure Migrate in two modes. In the first mode, Azure Migrate generates an OVA (Open Virtualization Appliance) template. This template can be used to bootstrap an Azure Migrate VM in an on-premises VMware site. Once the Azure Migrate instance is configured, it will send on-premises inventory data in Azure. In the second mode, a CSV file with a [pre-defined format](/azure/migrate/tutorial-discover-import#prepare-the-csv) can be used to upload on-premises inventory data. The CSV file expects four mandatory fields (VM/Server Name, No. of Cores, Memory, and [Eligible](/azure/migrate/tutorial-discover-import#supported-operating-system-names) OS Name). Other remaining optional fields (such as No. of disks, Disk IOPS, Throughput, and so on) can be added to improve the accuracy of sizing. Output from VMware utilities, such as [RVTools](https://www.robware.net/rvtools), can be used to create a CSV file.
+[Discovery](/azure/migrate/tutorial-discover-VMware): You can use Azure Migrate in two modes. In the first mode, Azure Migrate generates an OVA (Open Virtualization Appliance) template. This template can be used to bootstrap an Azure Migrate VM in an on-premises VMware site. Once the Azure Migrate instance is configured, it will send on-premises inventory data in Azure. In the second mode, a CSV file with a [pre-defined format](/azure/migrate/tutorial-discover-import#prepare-the-csv) can be used to upload on-premises inventory data. The CSV file expects four mandatory fields (VM/Server Name, No. of Cores, Memory, and [Eligible](/azure/migrate/tutorial-discover-import#supported-operating-system-names) OS Name). Other remaining optional fields (such as No. of disks, Disk IOPS, Throughput, and so on) can be added to improve the accuracy of sizing. Output from VMware utilities, such as [RVTools](https://www.robware.net/rvtools), can be used to create a CSV file. [Learn more](/azure/migrate/vmware/tutorial-import-vmware-using-rvtools-xlsx).
 
 #### Grouping
 
 After VMware inventory details are gathered, it can be grouped together. [Grouping](/azure/migrate/how-to-create-a-group) helps you easily organize and manage a large number of VMs that are captured after discovery. Grouping can be done based on, but not limited to, a workload (HR, eCommerce application, and so on), an environment (prod versus non. Prod), location (such as US, EU, and so on), or criticality (mission critical, small-scale, and so on). Azure Migrate provides [dependency analysis](/azure/migrate/how-to-create-group-machine-dependencies-agentless) in VMware environments. Information obtained via dependency analysis can also be used for grouping related VMs together.
+
+#### Business case
+
+A business case provides a view of the technical and financial timeline of your environment. Build a business case using Azure Migrate for servers and workloads running in your VMware environment depending on your migration strategy. This report provides information regarding savings, discovery insights, support status of licenses involved, footprint of workloads for migrating to Azure, etc. and helps in cost planning. Learn how to [build](/azure/migrate/how-to-build-a-business-case) and [view](/azure/migrate/how-to-view-a-business-case) a business case in Azure Migrate.
 
 #### Assessment
 
