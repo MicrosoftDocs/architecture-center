@@ -28,7 +28,7 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 **Decompose workloads by scalability requirements.**  Applications often consist of multiple workloads, with different requirements for scaling. For example, an application might have a public-facing site and a separate administration site. The public site may experience sudden surges in traffic, while the administration site has a smaller, more predictable load.
 
-**Design autonomous and decoupled components that communicate through asynchronous communication protocols** Components should ideally use events to communicate with each other. This helps to independently scale only the overloaded component with minimal complexity. 
+**Design autonomous and decoupled components that communicate through asynchronous communication protocols.** Components should ideally use events to communicate with each other. This helps to independently scale only the overloaded component.
 
 **Avoid needless communication, coordination, and waiting.**
 
