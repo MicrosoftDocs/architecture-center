@@ -1,4 +1,4 @@
-This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end data warehousing solutions integrate easily with tools like Azure Machine Learning, Azure AI Services, Power Platform, Microsoft Dynamics, and other Microsoft technologies, but offer an easy entry point to the fully managed SaaS data platfrom on Microsoft Fabric that can be expanded at a later stage. 
+This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end data warehousing solutions integrate easily with tools like Azure Machine Learning, Azure AI Services, Power Platform, Microsoft Dynamics, and other Microsoft technologies, but offer an easy entry point to the fully managed SaaS data platform on Microsoft Fabric that can be expanded at a later stage. 
 
 ## Who may benefit from this architecture
 
@@ -9,7 +9,7 @@ Most small-medium business customers who would benefit from implementing this pa
 
 [ ![Diagram that shows simplified architecture.](media/small-medium-data-warehouse/MDWSMB3_Brief.svg)](media/small-medium-data-warehouse/MDWSMB3_Brief.svg#lightbox)
 
-Conceptual modernization opportunity is to move legacy Data Warehousing solution into a combination of Azure SQL Database/Managed Instance and Microsoft Fabric. This approach ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS), provides appealing lift-and-shift options for existing processes, and requires minimal upskilling for the support team. This solution can serve as an initial step towards full-flegded modernization, enabling the organization to fully adopt a lakehouse approach as the data warehouse grows and the team's skillset expands. See the comparisons [Article Lakehouse, greenfield, scenario 5]
+Conceptual modernization opportunity is to move legacy Data Warehousing solution into a combination of Azure SQL Database/Managed Instance and Microsoft Fabric. This approach ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS), provides appealing lift-and-shift options for existing processes, and requires minimal upskilling for the support team. This solution can serve as an initial step towards full-fledged modernization, enabling the organization to fully adopt a lakehouse approach as the data warehouse grows and the team's skillset expands. See the comparisons [Article Lakehouse, greenfield, scenario 5]
 
 
 ## Architecture
@@ -48,15 +48,15 @@ The following dataflow demonstrates the ingestion of your chosen data type:
    - Ad hoc data science explorations in T-SQL format or Python.
    - Early prototyping for data warehouse entities.
 
-Microsoft Fabric is tightly integrated with potential consumers of your mutli-source datasets, such as Power BI frond-end reports, Azure Machine Learning, Power Apps, Azure Logic Apps, Azure Functions, and Azure App Service web apps.
+Microsoft Fabric is tightly integrated with potential consumers of your multi-source datasets, such as Power BI frond-end reports, Azure Machine Learning, Power Apps, Azure Logic Apps, Azure Functions, and Azure App Service web apps.
 
 ### Components
 
 - [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an analytics service that combines capabilities of data engineering, data warehousing, data science, real-time and business intelligence. In this solution:
 
-  - [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are distributed to end consumers. 
+  - [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide a collaborative platform for data engineers, data scientists, data analysts, and business intelligence (BI) professionals to do their job. Powered by serverless compute engines, this is the key component that brings business value producing insights that are distributed to end consumers. 
 
-- [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)[Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
+- [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) [Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) is a relational database service built for the cloud. In this solution, it holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures or externals packages. 
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs can ingest data from anywhere, and seamlessly integrates with Azure data services.
 
