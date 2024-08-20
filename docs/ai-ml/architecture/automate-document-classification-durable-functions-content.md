@@ -1,36 +1,39 @@
 
-This article describes an architecture for processing documents of various types. It uses the Durable Functions extension of Azure Functions to implement the pipelines that process the documents using Azure AI Document Intelligence.
+This article describes an architecture that you can use to process various documents. The architecture uses the durable functions feature of Azure Functions to implement the pipelines that process the documents via Azure AI Document Intelligence.
 
 ## Architecture
 
-:::image type="content" source="_images/automate-document-classification-durable-functions.png" alt-text="Diagram of the architecture for identifying, classifying, and searching documents."  lightbox="_images/automate-document-classification-durable-functions.png" border="false":::
+:::image type="content" source="_images/automate-document-classification-durable-functions.png" alt-text="Diagram that shows the architecture for identifying, classifying, and searching documents."  lightbox="_images/automate-document-classification-durable-functions.png" border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/US-2015210-automate-document-classification-durable-functions.vsdx) of this architecture.*
 
 ### Workflow
 
-1. The user provides a document file that the web app uploads. The file contains multiple embedded documents of various types. It can, for instance, be a PDF or multipage TIFF file.
+1. The user provides a document file that the web app uploads. The file contains multiple embedded documents of various types, such as a PDF or multipage TIFF file.
    - a - The document file is stored in Azure Blob Storage.
    - b - The web app adds a command message to a storage queue to initiate pipeline processing.
-1. Durable Functions orchestration is triggered by the command message. The message contains metadata that identifies the location in Blob Storage of the document file to be processed. Each Durable Functions instance processes only one document file.
-1. The _analyze_ activity function calls the Document Intelligence Analyze Document API, passing in the location in storage of the document file to be processed. Analysis will read and identify each known document contained within the document file. The name, type, page ranges, and content of each embedded document is returned to the orchestration.
+
+1. The command message triggers the durable functions orchestration. The message contains metadata that identifies the Blob Storage location of the document file to be processed. Each durable functions instance processes only one document file.
+1. The _analyze_ activity function calls the Document Intelligence Analyze Document API, passing in the location in storage of the document file to be processed. Analysis reads and identifies each known document contained within the document file. The name, type, page ranges, and content of each embedded document is returned to the orchestration.
 1. The _metadata store_ activity function saves the document type, location, and page range information for each identified document in an Azure Cosmos DB store.
-1. The _indexing_ activity function creates a new search document in the Azure AI Search service for each identified document and uses the [Azure AI Search libraries for .NET](/dotnet/api/overview/azure/search?view=azure-dotnet) to include in the search document the full OCR results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
-1. End users can search for documents by contents and metadata. Correlation IDs in the search result set can be used to look up document records that are in Azure Cosmos DB. The records include links to the original document file in Blob Storage.
+1. The _indexing_ activity function creates a new search document in the Azure AI Search service for each identified document and uses the [Azure AI Search libraries for .NET](/dotnet/api/overview/azure/search) to include in the search document the full optical character recognition (OCR) results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
+1. Users can use contents and metadata to search for documents. Correlation IDs in the search result set can be used to look up document records that are in Azure Cosmos DB. The records include links to the original document file in Blob Storage.
 
 ### Components
 
-- [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) is an extension of [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) that makes it possible for you write stateful functions in a serverless compute environment. In this architecture, an instance of a durable function is triggered by a message in a storage queue and initiates and orchestrates the document processing pipeline.
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that makes it possible for your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. In this architecture, Cosmos DB is being used as the metadata store for the document classification information.
-- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables), and [Azure Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability). In this architecture, Blob Storage is used to store the document files that are uploaded by the user and processed by the Durable Function pipeline.
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps. The Web Apps feature is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document processing system through a web app hosted on Azure App Service.
-- [Azure AI Document Intelligence](https://azure.microsoft.com/services/cognitive-services/document-intelligence) is a set of services that enable you to extract insights from your documents, forms, and images. In this architecture, the Document Intelligence service is used to analyze the document files and extract the embedded documents along with content and metadata information.
-- [Azure AI Search](https://azure.microsoft.com/products/search) provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. In this architecture, Azure AI Search is used to index the extracted document content and metadata information for search and retrieval by end users.
+- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](https://azure.microsoft.com/products/functions/) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a storage queue triggers an instance of a durable function, which initiates and orchestrates the document processing pipeline.
+
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/) is a globally distributed, multi-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Cosmos DB as the metadata store for the document classification information.
+- [Azure Storage](https://azure.microsoft.com/products/category/storage/) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](https://azure.microsoft.com/products/storage/blobs/), [Azure Files](https://azure.microsoft.com/products/storage/files/), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables/), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues/). This architecture uses Blob Storage to store the document files that the user uploads and the durable functions pipeline processes.
+- [Azure App Service](https://azure.microsoft.com/products/app-service/) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document processing system through an App Service-hosted web app.
+- [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is a service that you can use to extract insights from your documents, forms, and images. This architecture uses Document Intelligence to analyze the document files and extract the embedded documents along with content and metadata information.
+- [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. This architecture uses Azure AI Search to index the extracted document content and metadata information so that users can search and retrieve documents.
 
 ### Alternatives
 
 - This solution stores metadata in Azure Cosmos DB to facilitate global distribution. [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is another option for persistent storage of document metadata and information.
-- You can use other messaging platforms, including [Azure Service Bus](https://azure.microsoft.com/products/service-bus), to trigger Durable Functions instances.
+
+- You can use other messaging platforms, including [Azure Service Bus](https://azure.microsoft.com/products/service-bus), to trigger durable functions instances.
 
 ### Scenario details
 
@@ -49,6 +52,7 @@ Organizations are looking for reliable, scalable, and resilient solutions for pr
 This solution applies to many areas:
 
 - **Title reporting.** Many government agencies and municipalities manage paper records that haven't been migrated to digital form. An effective automated solution can generate a file that contains all the documents that are required to satisfy a document request.
+
 - **Maintenance records.** Aircraft, locomotive, and machinery maintenance records still exist in paper form that require scanning and sending to outside organizations.
 - **Permit processing.** City and county permitting departments still maintain paper documents that are generated for permit inspection reporting. The ability to take a picture of several inspection documents and automatically identify, classify, and search across these records can be highly beneficial.
 
@@ -62,9 +66,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 A reliable workload is one that's both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is a measure of whether your users can access your workload when they need to.
 
-For reliability information about solution components, see the following resources:
-
-- [SLA Information for Azure Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
+For reliability information about solution components, see [SLA information for Azure online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 ### Cost optimization
 
@@ -77,6 +79,7 @@ Costs can be optimized by [right sizing](/azure/well-architected/service-guides/
 Here are some guidelines for optimizing costs:
 
 - Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed rather than investing in large-scale resources at the start.
+
 - Consider opportunity costs in your architecture, and the balance between first-mover advantage versus fast follow. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the initial cost and operational costs.
 - Establish [budgets and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution, and utilize [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets?tabs=psbudget) to set up forecasting and actual cost alerts.
 
@@ -90,7 +93,7 @@ Periods when this solution processes high volumes can expose performance bottlen
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Kevin Kraus](https://www.linkedin.com/in/kevin-w-kraus) | Principal Azure Technical Specialist
 
@@ -101,8 +104,8 @@ Principal authors:
 Introductory articles:
 
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
-- [What are Durable Functions?](/azure/azure-functions/durable/durable-functions-overview)
-- [What are Azure AI services?](/azure/ai-services/what-are-ai-services)
+- [What are durable functions?](/azure/azure-functions/durable/durable-functions-overview)
+- [What is Azure AI services?](/azure/ai-services/what-are-ai-services)
 - [What is Document Intelligence?](/azure/ai-services/document-intelligence/overview)
 - [What's Azure AI Search?](/azure/search/search-what-is-azure-search)
 - [App Service overview](/azure/app-service/overview)
@@ -112,7 +115,7 @@ Introductory articles:
 Product documentation:
 
 - [Azure documentation (all products)](/azure?product=all)
-- [Durable Functions documentation](/azure/azure-functions/durable)
+- [Durable functions documentation](/azure/azure-functions/durable)
 - [Azure AI services documentation](/azure/ai-services)
 - [Azure AI Search documentation](/azure/search)
 
@@ -120,4 +123,4 @@ Product documentation:
 
 - [Custom document processing models on Azure](../../example-scenario/document-processing/build-deploy-custom-models.yml)
 - [Automate document processing by using AI Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
-- [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing)
+- [Image classification on Azure](../../ai-ml/idea/intelligent-apps-image-processing.yml)
