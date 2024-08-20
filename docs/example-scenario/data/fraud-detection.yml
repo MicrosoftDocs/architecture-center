@@ -13,8 +13,8 @@ metadata:
     - security
     - analytics
   ms.custom:
-    - ai-ml
-    - example-scenario
+    - arb-aiml
+    - arb-data
 name: Real-time fraud detection
 azureCategories:
   - security

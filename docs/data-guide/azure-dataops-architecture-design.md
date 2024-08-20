@@ -71,18 +71,11 @@ Depending on the DataOps technology you use, see the following best practices re
 - [Deploying and Managing Power BI Premium Capacities](/power-bi/guidance/whitepaper-powerbi-premium-deployment)
 - [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery)
 
-You can also learn about the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+You can also learn about the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Specific implementations
 
 To learn about scenario-specific architectures, see the solutions in the following areas.
-
-### Data governance
-
-You can integrate Profisee data management with Azure Microsoft Purview to build a foundation for data governance and management.
-
-> [!div class="nextstepaction"]
-> [Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)
 
 ### Modern data warehouse
 

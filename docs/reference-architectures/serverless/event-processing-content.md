@@ -34,7 +34,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -214,7 +214,7 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
-[AWAF-overview]: /azure/architecture/framework/
+[AWAF-overview]: /azure/well-architected/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

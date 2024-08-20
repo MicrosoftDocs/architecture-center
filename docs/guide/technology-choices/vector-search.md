@@ -10,6 +10,7 @@ products: azure-machine-learning
 categories: ai-machine-learning
 ms.topic: product-comparison
 ms.collection: ce-skilling-ai-copilot
+ms.custom: arb-aiml
 ms.date: 03/28/2024
 ---
 

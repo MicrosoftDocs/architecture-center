@@ -1,6 +1,6 @@
 Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events, an important part of supporting [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). To accomplish this, you'll use Azure Cosmos DB transactional batches and change feed in combination with Azure Service Bus.
 
-## Overview 
+## Overview
 
 Microservice architectures are becoming increasingly popular and show promise in solving problems like scalability, maintainability, and agility, especially in large applications. But this architectural pattern also introduces challenges when it comes to data handling. In distributed applications, each service independently maintains the data it needs to operate in a dedicated service-owned datastore. To support such a scenario, you typically use a messaging solution like RabbitMQ, Kafka, or Azure Service Bus that distributes data (events) from one service via a messaging bus to other services of the application. Internal or external consumers can then subscribe to those messages and get notified of changes as soon as data is manipulated.
 
@@ -33,7 +33,6 @@ This approach works well until an error occurs between saving the order object a
 Whatever the error is, the result is that the `OrderCreated` event can't be published to the message bus. Other services won't be notified that an order has been created. The `Ordering` service now has to take care of various things that don't relate to the actual business process. It needs to keep track of events that still need to be put on the message bus as soon as it's back online. Even the worst case can happen: data inconsistencies in the application because of lost events.
 
 :::image source="_images/event-handling-before-pattern.png" alt-text="Diagram that shows event handling without the Transactional Outbox pattern.":::
-
 
 ## Solution
 
@@ -300,7 +299,7 @@ private async Task<List<IDataObject<Entity>>> SaveInTransactionalBatchAsync(
     }
 
     // Return copy of current list as result.
-    var result = new List<IDataObject<Entity>>(DataObjects); 
+    var result = new List<IDataObject<Entity>>(DataObjects);
 
     // Work has been successfully done. Reset DataObjects list.
     DataObjects.Clear();
@@ -560,7 +559,7 @@ You can find the source code, deployment files, and instructions to test this sc
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
  - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Senior Software Engineer
 

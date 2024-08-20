@@ -9,7 +9,10 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: arb-healthcare
+  ms.custom: 
+    - arb-healthcare
+    - arb-data
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - analytics

@@ -5,7 +5,7 @@ description: Learn about the retry mechanism features for many Azure services. R
 ms.author: robbag
 author: RobBagby
 ms.date: 09/16/2020
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: best-practice
 categories:
