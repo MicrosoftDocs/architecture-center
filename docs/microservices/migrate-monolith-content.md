@@ -67,7 +67,7 @@ While this investigative work is carried out to inventory the monolithic applica
 
 ![An anti-corruption layer to allow a monolith to interact with a new service](./images/monolith/figure4.png)
 
-The  [anti-corruption layer](https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer) (adapter pattern) effectively acts as an anti-corruption layer, ensuring that the new service is not polluted by data models required by the monolithic application. The anti-corruption layer helps to mediate interactions between the two and ensures that only data required by the new service is passed to enable compatibility.
+The [anti-corruption layer](/azure/architecture/patterns/anti-corruption-layer) (adapter pattern) effectively acts as an anti-corruption layer, ensuring that the new service is not polluted by data models required by the monolithic application. The anti-corruption layer helps to mediate interactions between the two and ensures that only data required by the new service is passed to enable compatibility.
 
 Through the process of refactoring, teams can inventory the monolithic application and identify candidates for microservices refactoring while also establishing new functionality with new services.
 
