@@ -361,15 +361,18 @@ For more information, see:
 
 ### Managed identity support
 
-Applications with assigned managed identities can access Azure resources without passwords. All container services mentioned in this guide support managed identities.
+Managed Identity can be leveraged by applications to authenticate to Azure services without having to use keys or secrets. Container Apps and Web App for Container offer built-in, Azure Native support for App-level managed identity. App-level managed idenity support for AKS is accomplished through [Entra Workload ID](/azure/aks/workload-identity-overview). AKS also requires infrastructure-related managed identity to allow cluster operations for the Kubelet, Control Plane, and various AKS add-ons. 
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Managed identity support** | ✅ | ✅ | ✅ |
+| **Infrastructure managed identity support** | N/A | ✅ | N/A |
+| **Container-pull managed identity support** | ✅ | ✅ | ✅ |
+| **Application managed identity support** | ✅ | ✅ | ✅ |
 
 For more information, see:
 
 - [Use a managed identity in AKS](/azure/aks/use-managed-identity)
+- [Microsoft Entra Workload ID with AKS](articles/aks/workload-identity-overview.md)
 - [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity)
 - [How to use managed identities for App Service](/azure/app-service/overview-managed-identity)
 
