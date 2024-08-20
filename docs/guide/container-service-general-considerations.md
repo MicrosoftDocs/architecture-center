@@ -328,18 +328,16 @@ In all scenarios, you can regulate networking communication within the wider vir
 |---|--|--|--|
 | **Network security groups** | Consumption plan: ✅<br>Dedicated plan: ✅ | ✅ | ✅ VNet-integrated apps: egress only |
 
-#### IP restrictions for ingress
+#### Built-in IP restrictions for ingress
 
-Typically network traffic restrictions are applied via Layer 4 rules described above. However, in PaaS scenarios of applications *without* virtual network integration, it can be useful to restrict traffic on the application layer.
-
-Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic on individual applications.
+Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic for individual applications. AKS can achieve the same functionality, but requires  kubernetes native functionality through the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#service-v1-core) where you can set values for _loadBalancerSourceRanges_.
 
 | | Container Apps| AKS | Web App for Containers|
 |---|--|--|--|
-| **Ingress IP restrictions on application layer** | Out of the box | Self-managed or via managed add-on | Out of the box |
-| **Resource consumption** | - | Consumes cluster resources | - |
+| Built-in ingress IP restrictions | ✅ | ❌* | ✅ |
 
-For AKS workloads, implementation depends on the chosen ingress controller. Both self-managed and the Azure managed [application routing add-on](/azure/aks/app-routing) consume cluster resources.
+> [!note]
+> AKS offers ingress IP restrictions, but it's a Kubernetes Native feature and not Azure Native like the other services. 
 
 ## Application-level security
 
