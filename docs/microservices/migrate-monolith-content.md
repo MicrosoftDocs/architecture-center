@@ -61,11 +61,11 @@ The bounded contexts identified in step 4 are candidates for refactoring into sm
 
 For more information about using a DDD approach for microservices architectures, see [Using domain analysis to model microservices](./model/domain-analysis.md).
 
-## Anti-corruption layer (glue code )
+## Anti-corruption layer (glue code)
 
 While this investigative work is carried out to inventory the monolithic application, new functionality can be added by applying the principles of DDD as separate services. "Glue code" allows the monolithic application to proxy calls to the new service to obtain new functionality.
 
-![ anti-corruption layer to allow a monolith to interact with a new service](./images/monolith/figure4.png)
+![An anti-corruption layer to allow a monolith to interact with a new service](./images/monolith/figure4.png)
 
 The  [anti-corruption layer](https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer) (adapter pattern) effectively acts as an anti-corruption layer, ensuring that the new service is not polluted by data models required by the monolithic application. The anti-corruption layer helps to mediate interactions between the two and ensures that only data required by the new service is passed to enable compatibility.
 
