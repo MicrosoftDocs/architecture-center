@@ -126,7 +126,7 @@ Many managed ML services don't require model training or data, so there's usuall
 Consider the scale requirements for the components in your solution. For example, many of the APIs within Azure AI Services support a maximum number of requests per second. If you deploy a single AI Services resource to share across your tenants, then as the number of tenants increases, you might need to [scale to multiple resources](resource-organization.yml).
 
 > [!NOTE]
-> Some managed services enable you to train with your own data, including the [Custom Vision service](/azure/ai-services/custom-vision-service/overview), the [Face API](/azure/ai-services/face/face-api-how-to-topics/how-to-add-faces), [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom), and some [OpenAI models that support customization and fine-tunning](/azure/ai-services/openai/how-to/fine-tuning). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
+> Some managed services enable you to train with your own data, including the [Custom Vision service](/azure/ai-services/custom-vision-service/overview), the [Face API](/azure/ai-services/computer-vision/how-to/add-faces), [Document Intelligence custom models](/azure/ai-services/document-intelligence/concept-custom), and some [OpenAI models that support customization and fine-tunning](/azure/ai-services/openai/how-to/fine-tuning). When you work with these services, it's important to consider the [isolation requirements](#tenant-isolation) for your tenants' data.
 
 ### Custom AI/ML architecture
 
@@ -148,7 +148,7 @@ You can consider using these platforms for AI/ML, when you need to scale your ML
 
 ## ML operational model
 
-When adopting AI and Machine Learning including Generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and MLOps for LLMs or simply, LLMOps objectively provides a framework to continually expand capabilities of your AI and ML practices in your organization. Review [MLOps Maturity Model](https://learn.microsoft.com/azure/architecture/ai-ml/guide/mlops-maturity-model) and [LLMOps Maturity model](https://learn.microsoft.com/azure/machine-learning/prompt-flow/concept-llmops-maturity) for reference. 
+When adopting AI and Machine Learning including Generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and MLOps for LLMs or simply, LLMOps objectively provides a framework to continually expand capabilities of your AI and ML practices in your organization. Review [MLOps Maturity Model](/azure/architecture/ai-ml/guide/mlops-maturity-model) and [LLMOps Maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) for reference. 
 
 ## Antipatterns to avoid
 
