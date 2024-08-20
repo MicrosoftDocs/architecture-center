@@ -1,7 +1,5 @@
 This example workload illustrates a Greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric. Microsoft Fabric is a cutting-edge platform that seamlessly integrates data storage, processing, and analytics. Unlike traditional data warehouses, which often involve complex migrations and costly transformations, a Greenfield lakehouse provides a clean slate for designing an efficient, future-proof data ecosystem.
 
-## Who benefits from this architecture
-
 The Greenfield data lakehouse architecture with Microsoft Fabric is beneficial for a wide range of scenarios including:
 
 - Organizations looking to start fresh, unencumbered by legacy systems, when developing a data platform.
@@ -10,11 +8,11 @@ The Greenfield data lakehouse architecture with Microsoft Fabric is beneficial f
 
 ## Architecture
 
-[![Diagram illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png)](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png#lightbox)
+![Diagram illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png)
 
-_Download a [Visio file](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.vsdx) of this architecture._
+*Download a [Visio file](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 This design reflects the Lambda architecture, which separates data processing into two layers:
 
@@ -141,15 +139,27 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 The following considerations apply to this scenario.
 
-### Availability
+### Reliability
 
 Fabric makes commercially reasonable efforts to support zone-redundant availability zones, where resources automatically replicate across zones, without any need for you to set up or configure.
 
 During a zone-wide outage, no action is required during zone recovery. Fabric capabilities in regions listed in [supported regions](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric#supported-regions) self-heal and rebalance automatically to take advantage of the healthy zone.
 
-### Operations
+### Security
 
-Microsoft Fabric provides many different components to help you manage your data platform. Each of these experiences supports unique operations that can be viewed in the [Microsoft Fabric Capacity Metrics app](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app). The Microsoft Fabric Capacity Metrics app is designed to provide monitoring capabilities for Microsoft Fabric capacities. Use the app to monitor your capacity consumption and make informed decisions on how to use your capacity resources.
+Fabric has many robust security features to ensure network security, data protection, regulatory compliance, and more. You can use the expertise and resources of Microsoft to keep your data secure, patch vulnerabilities, monitor threats, and comply with regulations. Fabric also allows you to manage, control and audit your security settings, in line with your changing needs and demands.
+
+Key security considerations in Fabric include: 
+
+- Authentication: Microsoft Entra Every is used for authenticated in Microsoft Fabric, providing secure, single sign-on (SSO) access across various devices and locations.
+
+- Role-Based Access Control (RBAC): Fabric’s workspace-based access control allows for precise management of who can access and interact with specific datasets. This ensures that users only access what they're authorized to.
+
+- Network Security: Microsoft Fabric provides inbound and outbound network security controls when connecting to data or services in your own network or outside of your network. These include: [Conditional Access](https://learn.microsoft.com/en-us/fabric/security/security-conditional-access), [Private Links](https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview), [Trusted Workspace Access](https://learn.microsoft.com/en-us/fabric/security/security-trusted-workspace-access), [Managed Private Endpoints](https://learn.microsoft.com/en-us/fabric/security/security-managed-private-endpoints-overview), and more.
+
+- Audit Logs: Fabric provides detailed audit logs for tracking user activities and ensuring accountability across the platform.
+
+For a complete overview of Security in Microsoft Fabric, see the [documentation](https://learn.microsoft.com/en-us/fabric/security/security-overview). 
 
 ### Cost optimization
 
@@ -162,6 +172,22 @@ Other cost optimization considerations include:
 - [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
 - [Microsoft Fabric](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) pricing is based on Fabric F capacity price or Premium Per Person price. Serverless capacities would consume CPU and memory from dedicated capacity that was purchased.
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) bills based on tier, throughput units provisioned, and ingress traffic received. The example assumes one throughput unit in Standard tier over one million events for a month.
+
+### Operational excellence
+
+Microsoft Fabric provides many different components to help you manage your data platform. Each of these experiences supports unique operations that can be viewed in the [Microsoft Fabric Capacity Metrics app](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app). The Microsoft Fabric Capacity Metrics app is designed to provide monitoring capabilities for Microsoft Fabric capacities. Use the app to monitor your capacity consumption and make informed decisions on how to use your capacity resources.
+
+### Performance efficiency
+
+Microsoft Fabric provides several features to optimize performance across its components. These tools help manage compute resources effectively, prevent overloads, and guide scaling decisions. These tools and practices help you manage compute resources effectively, prevent overloading, and make informed decisions on scaling and optimizing workloads.
+
+Some key performance efficiency capabilities in Fabric include:
+
+- [Bursting and smoothing](https://blog.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming?ft=All#BurstSmooth) ensures that CPU-intensive activities are completed quickly without requiring a higher SKU (and can be run at any time of the day).
+
+- [Throttling](https://learn.microsoft.com/en-us/fabric/enterprise/throttling) delays or rejects operations when a capacity experiences sustained and high demand for CPU (above the SKU limit).
+
+- [Fabric Capacity Metrics App](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app) to enable monitoring and visualization of capacity usage, provide granular insights to help optimize performance of artifacts, helping identify and optimize high-compute items. It differentiates between interactive operations (like DAX queries) and background operations (like semantic model refreshes), allowing targeted optimizations.
 
 ## Contributors
 
