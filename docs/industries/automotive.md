@@ -25,7 +25,9 @@ categories:
 
 The automotive, mobility, and transportation industries work to satisfy the ever-present need to move people and things safely, quickly, and efficiently. Powerful new technologies like cloud computing, IoT, Generative AI, and machine learning can help companies meet that need. Azure provides services to help companies exploit the opportunities and meet the challenges that come with rapidly evolving digital technology.
 
-[Microsoft works closely with partners to redefine mobility](/industry/mobility/overview). We empower every player in the ecosystem to develop innovative digital and physical products and services, support the development of software-defined vehicles, develop autonomous driving and improve business operations with connectivity, data, and AI.
+Microsoft works closely with partners to redefine mobility. We empower every player in the ecosystem to develop innovative digital and physical products and services, support the development of software-defined vehicles, develop autonomous driving, and improve business operations with connectivity, data, and AI. To learn more, see [How does Microsoft support mobility?](/industry/mobility/overview)
+
+Our Azure services address the varied needs of the automotive, mobility  & transportation value chain:
 
 * [Azure high-performance computing (HPC)](https://azure.microsoft.com/solutions/high-performance-computing) addresses the demanding automotive computing needs. It supports areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software with specialized virtual machines.
 * The automotive industry includes truck and automobile manufacturing and sales, and related parts industries. The design and manufacturing aspects of the industry can take advantage of solutions that address those aspects for many industries, solutions such as [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing).
