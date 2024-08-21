@@ -31,8 +31,8 @@ Azure services address the varied needs of the automotive, mobility and transpor
 
 * [High-performance computing (HPC) on Azure](https://azure.microsoft.com/solutions/high-performance-computing) addresses the demanding automotive computing needs. HPC uses specialized virtual machines to support areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software.
 
-* The automotive industry includes truck and automobile manufacturing and sales, and related parts industries. You can take advantage of solutions that address design and manufacturing aspects of the automotive industry and other related industries. For example, you can use [Microsoft Cloud for Manufacturing solutions](https://azure.microsoft.com/industries/discrete-manufacturing).
-* The mobility services industry improves urban mobility with multi-modal route planning, mobile payment and ticketing, vehicle tracking, and analytics for planning and optimization. For more information about related solutions on Azure, see [Emerging mobility services](https://www.microsoft.com/industry/automotive/emerging-mobility-services).
+* The automotive industry includes truck and automobile manufacturing and sales, and related parts industries. You can take advantage of solutions that address design and manufacturing aspects of the automotive industry and other related industries. For example, you can use [Microsoft Cloud for Manufacturing solutions](https://www.microsoft.com/industry/manufacturing/microsoft-cloud-for-manufacturing).
+* The mobility services industry improves urban mobility with multi-modal route planning, mobile payment and ticketing, vehicle tracking, and analytics for planning and optimization. For more information about related solutions on Azure, see [Emerging mobility services](https://www.microsoft.com/industry/mobility).
 
 The following video describes how digital transformation revolutionizes the automotive and mobility services industry.
 
@@ -61,17 +61,3 @@ Consider other ideas that you can use as a starting point for your energy or env
 |[Building blocks for autonomous-driving simulation environments](automotive/building-blocks-autonomous-driving-simulation-environments.yml)| Provides an example architecture to automate driving tests, develop control systems, record vehicle data, and simulate complex driving scenarios |Containers|
 | [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)| Describes a warehouse management scenario that monitors environmental conditions | IoT |
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Mario Alberto Ortegón-Cabrera](https://www.linkedin.com/in/marioortegon/) | Principal Program Manager
-
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
-## Next steps
-
-## Related resources
