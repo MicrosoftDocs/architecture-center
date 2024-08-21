@@ -30,9 +30,11 @@ ai-usage: ai-assisted
 
 This article describes Azure storage options. It doesn't cover Internet of Things (IoT) storage options. For more information about IoT-related storage, see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT architectures](../../reference-architectures/iot/iot-architecture-overview.md). This article also doesn’t cover workloads that use vectorized data, like most AI workloads. For more information, see [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
 
-For this architecture specifically, we can generally divide Azure storage into two unofficial categories. These categories are *simple storage solutions* and *database and analytics storage*.
+Azure storage categories include *simple storage solutions*, *database and analytics storage*, and *IoT storage*. The following sections describe simple storage and database and analytics storage.
 
-:::image type="content" source="../images/azure-storage-options.png" alt-text="Diagram that illustrates data store classifications in Azure." lightbox="../images/azure-storage-options.png" border="false":::
+:::image type="content" source="../images/azure-storage-options.svg" alt-text="Diagram that illustrates data store classifications in Azure." lightbox="../images/azure-storage-options.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-storage-options.vsdx) of this architecture.*
 
 ## Simple storage solutions
 
@@ -40,15 +42,17 @@ Use simple storage solutions like [Azure Blob Storage](/azure/storage/blobs/stor
 
 ## Database and analytics storage
 
-:::image type="content" source="../images/choose-data-store.png" alt-text="Diagram that compares relational database management systems and big data solutions." lightbox="../images/choose-data-store.png" border="false":::
-
 Use databases when you need [ACID capabilities](/windows/win32/cossdk/acid-properties). Azure databases include *analytical databases or data stores* and *transactional databases or data stores*.
 
-- Azure analytical databases and data stores support online analytical processing (OLAP) workloads. These specialized services store, manage, and analyze large volumes of data. These services provide the infrastructure for data warehousing, big data analytics, and real-time analytics. These workloads are optimized for reading large amounts of data and often use columnar storage. For more information about how to perform analytics with your workloads, see [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores).
+- Azure analytical databases and data stores, also known as online analytical processing (OLAP) workloads, are specialized services designed to store, manage, and analyze large volumes of data. These specialized tools store, manage, and analyze large volumes of data. Analytical databases provide the infrastructure for data warehousing, big data analytics, and real-time analytics. They are optimized for reading large amounts of data and often use columnar storage. For more information, see [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores).
 
 - Transactional databases in Azure, also known as *online transaction processing (OLTP) systems*, support workloads that need quick, reliable, and secure transaction processing. Transactional databases are optimized for reading and writing data and typically use row storage, but there are exceptions. This optimization ensures data integrity and consistency. For more information about how to deploy a transactional database, see [OLTP solutions](/azure/architecture/data-guide/relational-data/online-transaction-processing).
 
 The two types of transactional databases include relational databases, also known as *SQL databases*, and nonrelational databases, also known as *NoSQL databases*.
+
+:::image type="content" source="../images/choose-data-store.svg" alt-text="Diagram that compares relational database management systems and big data solutions." lightbox="../images/choose-data-store.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/choose-data-store.vsdx) of this architecture.*
 
 - Use relational databases to store and organize data points that have defined relationships for quick and easy access. These databases have tables that represent predefined categories. The rows and columns contain information about each entity. This structure provides efficient and flexible access to data. Examples of these databases in Azure include:
 
