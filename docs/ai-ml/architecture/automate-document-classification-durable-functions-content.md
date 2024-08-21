@@ -5,14 +5,14 @@ This article describes an architecture that you can use to process various docum
 
 :::image type="content" source="_images/automate-document-classification-durable-functions.svg" alt-text="Diagram that shows an architecture to identify, classify, and search documents."  lightbox="_images/automate-document-classification-durable-functions.svg" border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/automate-document-classification-durable-functions.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-document-classification-durable-functions.vsdx) of this architecture.*
 
 ### Workflow
 
 1. A user uploads a document file to a web app. The file contains multiple embedded documents of various types, such as PDF or multipage Tag Image File Format (TIFF) files. The document file is stored in Azure Blob Storage (**1a**). To initiate pipeline processing, the web app adds a command message to a storage queue (**1b**).
 
 1. The command message triggers the durable functions orchestration. The message contains metadata that identifies the Blob Storage location of the document file to be processed. Each durable functions instance processes only one document file.
-1. The _analyze_ activity function calls the Document Intelligence Analyze Document API, which passes the storage location of the document file to be processed. Analysis reads and identifies each document within the document file. This function returns the name, type, page ranges, and content of each embedded document to the orchestration.
+1. The _analyze_ activity function calls the Document Intelligence Analyze Document API, which passes the storage location of the document file to be processed. The analyze function reads and identifies each document within the document file. This function returns the name, type, page ranges, and content of each embedded document to the orchestration.
 1. The _metadata store_ activity function saves the document type, location, and page range information for each document in an Azure Cosmos DB store.
 1. The _indexing_ activity function creates a new search document in Azure AI Search for each document. In the search document, this function uses the [AI Search libraries for .NET](/dotnet/api/overview/azure/search) to include the full optical character recognition (OCR) results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
 1. Users can search for documents by using contents and metadata. To look up document records that are in Azure Cosmos DB, they can use correlation IDs in the search result set. The records include links to the original document file in Blob Storage.
@@ -22,7 +22,7 @@ This article describes an architecture that you can use to process various docum
 - [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](https://azure.microsoft.com/products/functions/) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a storage queue triggers a durable functions instance, which initiates and orchestrates the document-processing pipeline.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/) is a globally distributed, multi-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Azure Cosmos DB as the metadata store for the document classification information.
-- [Azure Storage](https://azure.microsoft.com/products/category/storage/) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](https://azure.microsoft.com/products/storage/blobs/), [Azure Files](https://azure.microsoft.com/products/storage/files/), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables/), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues/). This architecture uses Blob Storage to store the document files that the user uploads and the durable functions pipeline processes.
+- [Azure Storage](https://azure.microsoft.com/products/category/storage/) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](https://azure.microsoft.com/products/storage/blobs/), [Azure Files](https://azure.microsoft.com/products/storage/files/), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables/), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues/). This architecture uses Blob Storage to store the document files that the user uploads and that the durable functions pipeline processes.
 - [Azure App Service](https://azure.microsoft.com/products/app-service/) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
 - [AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is a service that you can use to extract insights from your documents, forms, and images. This architecture uses AI Document Intelligence to analyze the document files and extract the embedded documents along with content and metadata information.
 - [AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search to index the extracted document content and metadata information so that users can search and retrieve documents.
@@ -41,7 +41,7 @@ Many companies need to manage and process documents that they scan in bulk and t
 
 Given these constraints, organizations must build their own document-parsing solutions that can include custom technology and manual processes. For example, someone might manually separate individual document types and add classification qualifiers for each document.
 
-Many of these custom solutions are based on the state machine workflow pattern. The solutions use database systems to persist workflow state and use polling services that check for the states that they need to process. Maintaining and enhancing such solutions can increase complexity and effort.
+Many of these custom solutions are based on the state machine workflow pattern. The solutions use database systems to persist workflow state and use polling services that check for the states that they need to process. Maintaining and enhancing these solutions can increase complexity and effort.
 
 Organizations need reliable, scalable, and resilient solutions to process and manage document identification and classification for their organization's document types. This solution can process millions of documents each day with full observability into the success or failure of the processing pipeline.
 
@@ -51,7 +51,7 @@ You can use this solution to:
 
 - **Report titles.** Many government agencies and municipalities manage paper records that don't have a digital form. An effective automated solution can generate a file that contains all the documents that you need to satisfy a document request.
 
-- **Manage maintenance records.** You might need to scan and send records, such as aircraft, locomotive, and machinery maintenance records, that are in paper form to outside organizations.
+- **Manage maintenance records.** You might need to scan and send paper records, such as aircraft, locomotive, and machinery maintenance records, to outside organizations.
 - **Process permits.** City and county permitting departments maintain paper documents that they generate for permit inspection reporting. You can take a picture of several inspection documents and automatically identify, classify, and search across these records.
 
 ## Considerations
@@ -82,7 +82,7 @@ To optimize costs:
 
 - Use the pay-as-you-go strategy for your architecture and [scale out](/azure/well-architected/cost-optimization/optimize-scaling-costs) as needed rather than investing in large-scale resources at the start.
 
-- Consider opportunity costs in your architecture and balance first-mover advantage versus fast follow. To estimate the initial cost and operational costs, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator).
+- Consider opportunity costs in your architecture and balance a first-mover advantage strategy versus a fast-follow strategy. To estimate the initial cost and operational costs, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator).
 - Establish [budgets and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution. To set up forecasting and actual cost alerts, use [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets).
 
 ### Performance efficiency
