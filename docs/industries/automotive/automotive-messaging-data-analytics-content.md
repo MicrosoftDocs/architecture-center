@@ -50,37 +50,32 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 
 #### Cloud to vehicle messages
 
-The *cloud to vehicle* dataflow is often used to execute remote commands in the vehicle from a digital service. These commands include use cases such as lock/unlock door, climate control (set preferred cabin temperature) or configuration changes. The successful execution depends on vehicle state and might require some time to complete.
+##### Broadcast dataflow
 
-Depending on the vehicle capabilities and type of action, there are multiple possible approaches for command execution. We cover two variations:
+The *broadcast* dataflow is used by digital services that provide notification or messages to multiple vehicles over a common topic. Common examples include traffic and weather services
 
-* Direct cloud to device messages **(A)** that don't require a user consent check and with a predictable response time. This covers messages to both individual and multiple vehicles. An example includes weather notifications.
-* Vehicle commands **(B)** that use vehicle state to determine success and require user consent. The messaging solution must have a command workflow logic that checks user consent, keeps track of the command execution state and notifies the digital service when done.
+:::image type="content" source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics." border="false"lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
 
-The following dataflow users commands issued from a companion app digital services as an example.
+##### Command and Control dataflow
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the command and control dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
+The *command and control* dataflow is used to execute remote commands in the vehicle from a digital service such as a *companion app*. These commands include use cases such as lock/unlock door, climate control (set preferred cabin temperature) or configuration changes. The successful execution depends on vehicle state and might require some time to complete.
 
-Direct messages are executed with the minimum amount of hops for the best possible performance **(A)**:
+Vehicle commands often require user consent because they control vehicle functionality. These commands also use the vehicle state to store intermediate results and evaluate succesful execution. The messaging solution must have a command workflow logic that checks user consent, keeps track of the command execution state and notifies the digital service when done.
 
-1. Companion app is an authenticated service that can publish messages to **Event Grid**.
-1. **Event Grid** checks for authorization for the Companion app Service to determine if it can send messages to the provided topics.
-1. Companion app subscribes to responses from the specific vehicle / command combination.
+The following dataflow users commands issued from a companion app digital services as an example. As in the previous example, companion app is an authenticated service that can publish messages to **Event Grid**.
 
-When vehicle state-dependent commands require user consent **(B)**:
+:::image type="content" source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg" alt-text="Diagram of the command and control dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
 
-1. The vehicle owner / user provides consent for the execution of command and control functions to a **digital service** (in this example a companion app). It's normally done when the user downloads/activate the app and the OEM activates their account. It triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
-2. The **companion app** uses the command and control managed API to request execution of a remote command.
-    1. The command execution might have more parameters to configure options such as timeout, store and forward options, etc.
-    1. The command logic decides how to process the command based on the topic and other properties.
-    1. The workflow logic creates a state to keep track of the status of the execution
-3. The command **workflow logic** checks against user consent information to determine if the message can be executed.
-4. The command workflow logic publishes a message to **Event Grid** with the command and the parameter values.
-5. The **messaging module** in the vehicle is subscribed to the command topic and receives the notification. It routes the command to the right workload.
-6. The messaging module monitors the **workload** for completion (or error). A workload is in charge of the (physical) execution of the command.
-7. The messaging module publishes command status reports to **Event Grid**.
-8. The **workflow module** is subscribed to command status updates and updates the internal state of command execution.
-9. Once the command execution is complete, the service app receives the execution result over the command and control API.
+1. The vehicle owner / user provides consent for the execution of command and control functions using a **digital service** (in this example a companion app). It's normally done when the user downloads/activate the app and the OEM activates their account. It triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
+1. The **companion app** uses the command and control managed API to request execution of a remote command. The command execution might have more parameters to configure options such as timeout, store and forward options, etc. The *workflow logic* processes the API call.
+1. The *workflow logic* decides how to process the command based on the topic and other properties. It creates a state to keep track of the status of the execution. The command **workflow logic** checks against user consent information to determine if the message can be executed. 
+1. The command workflow logic publishes a message to **Event Grid** with the command and the parameter values.
+1. **Event Grid** checks that the workflow logic is authorized to send messages to the provided topics.
+1. The **messaging module** in the vehicle is subscribed to the command topic and receives the notification. It routes the command to the right workload.
+1. The messaging module monitors the **workload** for completion (or error). A workload is in charge of the (physical) execution of the command.
+1. The messaging module publishes command status reports to **Event Grid**.
+1. The **workflow module** is subscribed to command status updates and updates the internal state of command execution.
+1. Once the command execution is complete, the service app receives the execution result over the command and control API.
 
 #### Vehicle and Device Provisioning
 
