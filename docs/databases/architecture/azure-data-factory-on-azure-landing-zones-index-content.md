@@ -18,12 +18,12 @@ If you're embarking on your cloud adoption journey with the medallion lakehouse 
 
 Learn how to design and build secure, scalable, and high-performing solutions in Azure by using the pillars of the [Azure Well-Architected Framework](/training/paths/azure-well-architected-framework). This free online resource provides interactive training that includes knowledge checks to evaluate your learning.
 
-For product documentation, see:
+For product documentation, see the following resources:
 
-- [Data Factory](/azure/data-factory/).
-- [Azure Databricks](/azure/databricks/).
-- [SQL Server](/azure/azure-sql/).
-- [Power BI](/power-bi/).
+- [Data Factory](/azure/data-factory/)
+- [Azure Databricks](/azure/databricks/)
+- [SQL Server](/azure/azure-sql/)
+- [Power BI](/power-bi/)
 
 ## Baseline implementation
 

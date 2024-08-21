@@ -1,7 +1,7 @@
 This article describes how to implement a [medallion lakehouse](/azure/databricks/lakehouse/medallion) design pattern for a solution-focused use case. The solution uses a hub-and-spoke network topology with landing zones that follow the [Cloud Adoption Framework for Azure best practices](/azure/cloud-adoption-framework/overview).
 
 > [!IMPORTANT]
-> ![GitHub logo](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/azure-samples/data-factory-to-databricks) that demonstrates a baseline Azure Data Factory setup on Azure. You can use this implementation as a foundation for further solution development in your first step toward production.
+> ![GitHub logo.](_images/github.svg) This guidance is supported by an [example implementation](https://github.com/azure-samples/data-factory-to-databricks) that demonstrates a baseline Azure Data Factory setup on Azure. You can use this implementation as a foundation for further solution development in your first step toward production.
 
 
 ## Key design decisions
