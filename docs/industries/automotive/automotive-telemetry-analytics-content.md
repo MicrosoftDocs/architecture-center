@@ -233,7 +233,7 @@ Principal authors:
 - [Boris Scholl](https://www.linkedin.com/in/bscholl) | Partner, Chief Architect
 - [Frank Kaleck](https://www.linkedin.com/in/frank-kaleck) | Industry Advisor Automotive
 - [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager
-- [Mario Ortegon-Cabrera](https://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI Software-Defined Vehicle and Mobility
+- [Mario Ortegon-Cabrera](https://www.linkedin.com/in/marioortegon) | Principal Program Manager
 
 Other contributors:
 
@@ -253,7 +253,7 @@ Other contributors:
 - [Create Data Activator alerts from a real-time dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
 - [Power BI report](/fabric/real-time-intelligence/create-powerbi-report)
 - [Visualize data from Azure Data Explorer in Grafana](/azure/data-explorer/grafana)
-- [Automotive messaging, data, and analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)
+- [Automotive messaging, data, and analytics reference architecture](./automotive-connected-fleets.yml)
 
 ## Related resources
 

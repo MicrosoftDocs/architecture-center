@@ -13,11 +13,11 @@ azureCategories:
   - analytics
   - iot
 products:
-  - azure-blob-storage
+  - fabric
   - azure-data-explorer
+  - azure-event-grid
   - azure-event-hubs
   - azure-functions
-  - azure-iot-hub
 name: Automotive messaging, data & analytics
 summary: The automotive messaging, data & analytics reference architecture provides a comprehensive guide for developing advanced connected vehicle applications and digital services.
 thumbnailUrl: /azure/architecture/browse/thumbs/automotive-connected-fleets.png

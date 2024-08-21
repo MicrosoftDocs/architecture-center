@@ -270,16 +270,16 @@ The tutorial for the [Connected Fleet Reference Architecture](https://github.com
 Principal authors:
 
 * [Peter Miller](https://www.linkedin.com/in/peter-miller-ba642776/) | Principal Engineering Manager
-* [Mario Ortegon-Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager
+* [Mario Ortegon-Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI SDV & Mobility
 * [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect
 * [Max Zilberman](https://www.linkedin.com/in/maxzilberman/) | Principal Software Engineering Manager
 
 Other contributors:
 
 * [Jeff Beman](https://www.linkedin.com/in/jeff-beman-4730726/) | Principal Program Manager
-* [Frederick Chong](https://www.linkedin.com/in/frederick-chong-5a00224) | Principal PM Manager
-* [Felipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager
-* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
+* [Frederick Chong](https://www.linkedin.com/in/frederick-chong-5a00224) | Principal PM Manager, MCI SDV & Mobility
+* [Felipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobility
+* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal PM Manager, Azure Messaging
 * [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager, Azure Data Explorer (Kusto)
 * [Rajagopal Ravipati](https://www.linkedin.com/in/rajagopal-ravipati-79020a4/) | Partner Software Engineering Manager, Azure Messaging
 
