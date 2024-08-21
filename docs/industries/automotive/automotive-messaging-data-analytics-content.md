@@ -56,6 +56,11 @@ The *broadcast* dataflow is used by digital services that provide notification o
 
 :::image type="content" source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics." border="false"lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
 
+1. The *notification service* is registered and authorized to publish messages to specific topics in the **Event Grid** local registry.
+1. The *notification service* publishes an update. For example, a weather warning to topic /weather/warning/
+1. The vehicle *messaging* module is subscribed to the weather alerts and receives the notification.
+1. The *messaging* module notifies a vehicle workload. For example, it notifies the infotainment system to display the content of the weather alert.
+
 ##### Command and Control dataflow
 
 The *command and control* dataflow is used to execute remote commands in the vehicle from a digital service such as a *companion app*. These commands include use cases such as lock/unlock door, climate control (set preferred cabin temperature) or configuration changes. The successful execution depends on vehicle state and might require some time to complete.
@@ -68,22 +73,22 @@ The following dataflow users commands issued from a companion app digital servic
 
 1. The vehicle owner / user provides consent for the execution of command and control functions using a **digital service** (in this example a companion app). It's normally done when the user downloads/activate the app and the OEM activates their account. It triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
 1. The **companion app** uses the command and control managed API to request execution of a remote command. The command execution might have more parameters to configure options such as timeout, store and forward options, etc. The *workflow logic* processes the API call.
-1. The *workflow logic* decides how to process the command based on the topic and other properties. It creates a state to keep track of the status of the execution. The command **workflow logic** checks against user consent information to determine if the message can be executed. 
-1. The command workflow logic publishes a message to **Event Grid** with the command and the parameter values.
-1. **Event Grid** checks that the workflow logic is authorized to send messages to the provided topics.
+1. The *workflow logic* decides how to process the command based on the topic and other properties. It creates a state to keep track of the status of the execution. The command *workflow logic** checks against user consent information to determine if the message can be executed.
+1. The command *workflow logic* publishes a message to **Event Grid** with the command and the parameter values.
+1. **Event Grid** checks that the *workflow logic* is authorized to send messages to the provided topics.
 1. The **messaging module** in the vehicle is subscribed to the command topic and receives the notification. It routes the command to the right workload.
-1. The messaging module monitors the **workload** for completion (or error). A workload is in charge of the (physical) execution of the command.
+1. The messaging module monitors the **workload** for completion (or error). The workload is in charge of the (physical) execution of the command.
 1. The messaging module publishes command status reports to **Event Grid**.
-1. The **workflow module** is subscribed to command status updates and updates the internal state of command execution.
+1. The *workflow logic* is subscribed to command status updates and updates the internal state of command execution.
 1. Once the command execution is complete, the service app receives the execution result over the command and control API.
 
 #### Vehicle and Device Provisioning
 
-This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing.
+This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing. In automotive, vehicle devices are usually authenticated using X.509 certificates. **Event Grid** requires a root or intermediate X.509 to authenticate client devices. You can read the article [client authentication](/azure/event-grid/mqtt-client-authentication) for additional details.
 
 :::image type="content" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
 
-1. The **Factory System** commissions the vehicle device to the desired construction state. It can include firmware & software initial installation and configuration. As part of this process, the factory system writes the device *certificate*, created from the **Public Key Infrastructure** provider.
+1. The **Factory System** commissions the vehicle device to the desired construction state. It can include firmware & software initial installation and configuration. As part of this process, the factory system writes the device *X.509 certificate*, issued by a **Public Key Infrastructure** Certificate Authority (CA).
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
 1. The factory system triggers the **device provisioning client** to connect to the *device registration*  and provision the device. The device retrieves connection information to the *MQTT broker*.
 1. The *device registration* application creates the device identity with MQTT broker.
@@ -102,15 +107,13 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 :::image type="content" source="images/automotive-connectivity-and-data-solution-data-analytics.svg" alt-text="Diagram of the data analytics." border="false"lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
 
 1. The *vehicle messaging services* layer provides telemetry, events, commands, and configuration messages from the bidirectional communication to the vehicle.
-1. The *IT & Operations* layer provides information about the software running on the vehicle and the associated cloud services.
-1. Raw data from the vehicle is processed to create insights and actions.
-    1. Pipelines process messages into a more refined state. Pipelines enrich and deduplicate the messages, create key performance indicators and prepare training data sets for Machine Learning
-    2. Enriched vehicle data is analyzed to create events such predictive maintenance requests.
-1. Different applications consume refined and aggregated data.
-    1. Visualization using Power BI or real time dashboards
-    1. Business integration using Logic Apps for connections to the Dataverse and Dynamics 365
-1. ML Studio consumes generated training data to create or update ML models.
-1. Data engineers use Notebooks and Kusto Query Language (KQL) Query sets to analyze the data and create data products supported by [Microsoft Copilot in Fabric](/fabric/get-started/copilot-fabric-overview).
+1. The *IT & Operations* layer provides information about the software running on the vehicle and the associated cloud *digital services*.
+1. Data engineers use **Notebooks** and **Kusto Query Language (KQL) Query sets** to analyze the data; create data products, and configure pipelines. [Microsoft Copilot in Fabric](/fabric/get-started/copilot-fabric-overview) supports the development process.
+1. **Pipelines** process messages into a more refined state. Pipelines enrich and deduplicate the messages, create key performance indicators and prepare training data sets for Machine Learning
+1. Engineers and Business users visualize the data using **Power BI** or **real time dashboards**.
+1. Data engineers use **reflex** to analyze enriched vehicle data in near-real time to create events such as predictive maintenance requests.
+1. Data Engineers configure business integration of eevents and insights with with **Logic Apps**. The workflows update systems of record such as Dynamics 365 and the dataverse.
+1. **ML Studio** consumes generated training data to create or update ML models.
 
 ### Scalability
 
