@@ -4177,7 +4177,7 @@ items:
         href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml        
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
-      - name: Automotive messaging, data and analytics
+      - name: Automotive messaging, data, and analytics
         href: /azure/event-grid/mqtt-automotive-connectivity-and-data-solution
       - name: Automotive connected fleets
         href: industries/automotive/automotive-connected-fleets.yml
