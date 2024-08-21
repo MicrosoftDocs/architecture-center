@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the automotive, mobility, and transportation industries.
 author: msmarioo
 ms.author: marioo
-ms.date: 08/12/2024
+ms.date: 08/21/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -23,39 +23,55 @@ categories:
 
 # Solutions for the automotive, mobility, and transportation industries
 
-The automotive, mobility, and transportation industries work to satisfy the ever-present need to move people and things safely, quickly, and efficiently. Powerful new technologies like cloud computing, IoT, Generative AI, and machine learning can help companies meet that need. Azure provides services to help companies exploit the opportunities and meet the challenges that come with rapidly evolving digital technology.
+The automotive, mobility, and transportation industries strive to satisfy the ever-present need to move people and things safely, quickly, and efficiently. Powerful new technologies like cloud computing, Internet of Things (IoT), generative AI, and machine learning can help companies meet that need. Azure provides services to help companies take advantage of opportunities and meet challenges that come with rapidly evolving digital technology.
 
-Microsoft works closely with partners to redefine mobility. We empower every player in the ecosystem to develop innovative digital and physical products and services, support the development of software-defined vehicles, develop autonomous driving, and improve business operations with connectivity, data, and AI. To learn more, see [How does Microsoft support mobility?](/industry/mobility/overview)
+Microsoft works closely with partners to redefine mobility. Organizations can use Azure services to develop innovative digital and physical products and services, support the development of software-defined vehicles, develop autonomous driving, and improve business operations with connectivity, data, and AI. For more information, see [How does Microsoft support mobility?](/industry/mobility/overview)
 
-Our Azure services address the varied needs of the automotive, mobility  & transportation value chain:
+Azure services address the varied needs of the automotive, mobility and transportation value chain:
 
-* [Azure high-performance computing (HPC)](https://azure.microsoft.com/solutions/high-performance-computing) addresses the demanding automotive computing needs. It supports areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software with specialized virtual machines.
-* The automotive industry includes truck and automobile manufacturing and sales, and related parts industries. The design and manufacturing aspects of the industry can take advantage of solutions that address those aspects for many industries, solutions such as [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing).
-* The mobility services industry improves urban mobility with multi-modal route planning, mobile payment and ticketing, vehicle tracking, and analytics for planning and optimization. For related solutions on Azure, see [Emerging mobility services](https://www.microsoft.com/industry/automotive/emerging-mobility-services).
+* [High-performance computing (HPC) on Azure](https://azure.microsoft.com/solutions/high-performance-computing) addresses the demanding automotive computing needs. HPC uses specialized virtual machines to support areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software.
 
-View the ways that the digital transformation is revolutionizing the automotive and mobility services industry:
+* The automotive industry includes truck and automobile manufacturing and sales, and related parts industries. You can take advantage of solutions that address design and manufacturing aspects of the automotive industry and other related industries. For example, you can use [Microsoft Cloud for Manufacturing solutions](https://azure.microsoft.com/industries/discrete-manufacturing).
+* The mobility services industry improves urban mobility with multi-modal route planning, mobile payment and ticketing, vehicle tracking, and analytics for planning and optimization. For more information about related solutions on Azure, see [Emerging mobility services](https://www.microsoft.com/industry/automotive/emerging-mobility-services).
+
+The following video describes how digital transformation revolutionizes the automotive and mobility services industry.
 
 > [!VIDEO https://www.youtube.com/embed/jZtckoQ6HmY]
 
-## Architectures for automotive, mobility, and transportation
+## Architectures
 
-The following articles provide detailed analysis of architectures created and recommended for the automotive, mobility, and transportation industries.
+The articles in the following table provide detailed architecture analyses that you can use in the automotive, mobility, and transportation industries.
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Software-defined vehicle DevOps toolchain](automotive/software-defined-vehicle-reference-architecture.yml) | Describes how to use GitHub and Azure services to develop an end-to-end automotive software stack. It includes software in the loop (SIL) testing,  orchestration of hardware in the loop (HIL) testing and vehicle fleet validation. | DevOps |
-| [Data Analytics for automotive test fleets](automotive/automotive-telemetry-analytics.yml) | Describes how to collect high resolution telemetry and test drive recordings and perform root cause analysis and vehicle behavior validation with Microsoft Fabric. | IoT, Analytics |
-| [Automotive Messaging, Data, and Analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) | Describes how to use Azure services to implement advance connected vehicle applications and digital services. | IoT, Analytics |
-| [Automotive Connected Fleets](automotive/automotive-connected-fleets.yml) | Describes how to create composable, data-centric solutions for mobility providers and commercial vehicle operators  | IoT, Analytics, BizApps |
+| [Software-defined vehicle DevOps toolchain](automotive/software-defined-vehicle-reference-architecture.yml) | Describes how to use GitHub and Azure services to develop an end-to-end automotive software stack. This architecture includes software-in-the-loop testing, orchestration of hardware-in-the-loop testing, and vehicle fleet validation. | DevOps |
+| [Data analytics for automotive test fleets](automotive/automotive-telemetry-analytics.yml) | Describes how to collect high-resolution telemetry and test drive recordings. It also describes how to perform root cause analysis and vehicle behavior validation with Microsoft Fabric. | IoT, analytics |
+| [Automotive messaging, data, and analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) | Describes how to use Azure services to implement advanced connected vehicle applications and digital services. | IoT, analytics |
+| [Automotive connected fleets](automotive/automotive-connected-fleets.yml) | Describes how to create composable, data-centric solutions for mobility providers and commercial vehicle operators.  | IoT, analytics, business applications |
 
-## Solution ideas for the automotive, mobility, and transportation industries
+## Solution ideas
 
-The following are other ideas that you can use as a starting point for your energy or environment solution.
+Consider other ideas that you can use as a starting point for your energy or environment solution.
 
-| Solution Idea | Summary | Technology focus |
+| Solution idea | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Autonomous Vehicle Operations design guide](../guide/machine-learning/avops-design-guide.md) | Provides an overview on creating a back end to enable an autonomous vehicle development solution at scale | AVOps |
-| [Data operations for autonomous vehicle development](../example-scenario/automotive/autonomous-vehicle-operations-dataops.yml) | presents a solution and guidance for offline data operations and management (DataOps) for an automated driving system. | DataOps|
-|[Autonomous Vehicle Development solution](../solution-ideas/articles/avops-architecture.yml) | Provides guidance and recommendations for developing an automated driving development solution | AVOps |
-|[Building blocks for autonomous-driving simulation environments](automotive/building-blocks-autonomous-driving-simulation-environments.yml)|An example architecture for automating driving tests, developing control systems, recording vehicle data, and simulating complex driving scenarios.|Containers|
+| [Autonomous vehicle operations design guide](../guide/machine-learning/avops-design-guide.md) | Provides an overview about how to create a back end to enable an autonomous vehicle development solution at scale | Autonomous vehicle operations |
+| [Data operations for autonomous vehicle development](../example-scenario/automotive/autonomous-vehicle-operations-dataops.yml) | Presents a solution and guidance for offline data operations and management for an automated driving system | Data operations|
+|[Autonomous vehicle development solution](../solution-ideas/articles/avops-architecture.yml) | Provides guidance and recommendations about how to develop an automated driving development solution | Autonomous vehicle operations |
+|[Building blocks for autonomous-driving simulation environments](automotive/building-blocks-autonomous-driving-simulation-environments.yml)| Provides an example architecture to automate driving tests, develop control systems, record vehicle data, and simulate complex driving scenarios |Containers|
 | [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)| Describes a warehouse management scenario that monitors environmental conditions | IoT |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Mario Alberto Ortegón-Cabrera](https://www.linkedin.com/in/marioortegon/) | Principal Program Manager
+
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+## Related resources
