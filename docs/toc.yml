@@ -4140,6 +4140,8 @@ items:
       - name: Autonomous Vehicle Operations solution idea
         href: /azure/architecture/solution-ideas/articles/avops-architecture
         maintainContext: true
+      - name: Dynamics 365 automotive accelerator
+        href: /dynamics365/industry/accelerators/automotive
       - name: Azure Maps guidance
         items:
         - name: Azure Maps traffic coverage
@@ -4151,10 +4153,25 @@ items:
         - name: Best practices for Route Service
           href: /azure/azure-maps/how-to-use-best-practices-for-routing
           maintainContext: true
+        - name: Single sign on for car park management
+          href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
+          maintainContext: true
     - name: Architectures
       items:
       - name: All automotive architectures
         href: /azure/architecture/browse/?terms=automotive
+      - name: Automated guided vehicles fleet control
+        href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
+      - name: IoT Edge railroad maintenance and safety
+        href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance 
+      - name: Predictive insights with vehicle telematics
+        href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
+      - name: Process vehicle data using IoT
+        href: example-scenario/data/realtime-analytics-vehicle-iot.yml
+      - name: Real-time asset tracking for vehicles
+        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
+      - name: Real-time ML to estimate a car's value
+        href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
       - name: Software-defined vehicle DevOps toolchain
         href: industries/automotive/software-defined-vehicle-reference-architecture.yml
       - name: DataOps for autonomous vehicle operations
