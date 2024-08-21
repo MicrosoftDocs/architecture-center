@@ -27,7 +27,7 @@ The automotive, mobility, and transportation industries work to satisfy the ever
 
 [Microsoft works closely with partners to redefine mobility](/industry/mobility/overview). We empower every player in the ecosystem to develop innovative digital and physical products and services, support the development of software-defined vehicles, develop autonomous driving and improve business operations with connectivity, data, and AI.
 
-* [Azure high-performance computing (HPC) for automotive](https://azure.microsoft.com/solutions/high-performance-computing/automotive) addresses demanding computing needs specific to automotive. It supports areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software with specialized virtual machines.
+* [Azure high-performance computing (HPC)](https://azure.microsoft.com/solutions/high-performance-computing) addresses the demanding automotive computing needs. It supports areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software with specialized virtual machines.
 * The automotive industry includes truck and automobile manufacturing and sales, and related parts industries. The design and manufacturing aspects of the industry can take advantage of solutions that address those aspects for many industries, solutions such as [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing).
 * The mobility services industry improves urban mobility with multi-modal route planning, mobile payment and ticketing, vehicle tracking, and analytics for planning and optimization. For related solutions on Azure, see [Emerging mobility services](https://www.microsoft.com/industry/automotive/emerging-mobility-services).
 
@@ -41,7 +41,7 @@ The following articles provide detailed analysis of architectures created and re
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Software-defined vehicle DevOps toolchain](automotive/software-defined-vehicle-reference-architecture.yml) | Describes how to use GitHub and Azure services to develop an end-to-end automotive software stack. It inclusdes software in the loop (SIL) testing,  orchestration of hardware in the loop (HIL) testing and vehicle fleet validation. | DevOps |
+| [Software-defined vehicle DevOps toolchain](automotive/software-defined-vehicle-reference-architecture.yml) | Describes how to use GitHub and Azure services to develop an end-to-end automotive software stack. It includes software in the loop (SIL) testing,  orchestration of hardware in the loop (HIL) testing and vehicle fleet validation. | DevOps |
 | [Data Analytics for automotive test fleets](automotive/automotive-telemetry-analytics.yml) | Describes how to collect high resolution telemetry and test drive recordings and perform root cause analysis and vehicle behavior validation with Microsoft Fabric. | IoT, Analytics |
 | [Automotive Messaging, Data, and Analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) | Describes how to use Azure services to implement advance connected vehicle applications and digital services. | IoT, Analytics |
 | [Automotive Connected Fleets](automotive/automotive-connected-fleets.yml) | Describes how to create composable, data-centric solutions for mobility providers and commercial vehicle operators  | IoT, Analytics, BizApps |
