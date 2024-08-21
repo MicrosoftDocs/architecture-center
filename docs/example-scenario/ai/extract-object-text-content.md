@@ -100,6 +100,3 @@ Principal author:
 - Define an information architecture that can receive and process your metadata. For more information, see [Cognitive Search skill set](../../solution-ideas/articles/cognitive-search-with-skillsets.yml).
 - For information on how the solution works and whether it's suitable for your use cases, see [Extract text from objects](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705).
 
-## Related resources
-
-- [Vision classifier model with Azure Custom Vision Cognitive Service](../dronerescue/vision-classifier-model-with-custom-vision.yml)

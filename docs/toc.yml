@@ -939,8 +939,6 @@ items:
           href: solution-ideas/articles/iot-azure-data-explorer.yml
         - name: Augmented security, observability, and analytics
           href: solution-ideas/articles/monitor-azure-data-explorer.yml
-      - name: Big data analytics with enterprise security
-        href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
       - name: Content Delivery Network analytics
         href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
       - name: Data management with Azure Purview
@@ -1041,10 +1039,6 @@ items:
         href: guide/sas/sas-overview.yml
       - name: SAS Grid on Azure NetApp Files
         href: guide/hpc/netapp-files-sas.yml
-      - name: Industry guidance
-        items:
-        - name: Risk grid computing solution
-          href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: VM security baselines
         items:
         - name: Security baseline for scale sets
@@ -2878,8 +2872,6 @@ items:
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.yml
-      - name: Secure OBO refresh tokens
-        href: example-scenario/secrets/secure-refresh-tokens.yml
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.yml
       - name: Secure a Microsoft Teams channel bot
@@ -3408,8 +3400,6 @@ items:
       - name: Financial institutions with data mesh
         href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
         maintainContext: true
-      - name: Risk grid computing solution
-        href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: Big compute for financial risk modeling
         href: guide/architecture-styles/big-compute.yml
     - name: Architectures
@@ -4715,8 +4705,6 @@ items:
           href: web-apps/serverless/architectures/web-app.yml
         - name: Spaceborne data analysis
           href: industries/aerospace/geospatial-processing-analytics.yml
-        - name: Vision classifier - simulated drone
-          href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
     - name: Agriculture
       items:
       - name: Guides

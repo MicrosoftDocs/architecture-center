@@ -309,7 +309,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine learning components like TensorFlow.|Containers|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models. Azure Databricks uses pre-installed, optimized machine learning frameworks, including TensorFlow.|AI|
-|[Vision classifier model with Azure Cognitive Services Custom Vision](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)|Create an image classifier with a solution architecture that includes Microsoft AirSim Drones simulator, Azure Cognitive Services Custom Vision, and TensorFlow.|AI|
 
 ## Terraform
 
