@@ -193,4 +193,3 @@ See the following related guides:
 - [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](/azure/machine-learning/how-to-deploy-kubernetes-extension?view=azureml-api-2&tabs=deploy-extension-with-cli)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Model Catalog and Collections on Azure](/azure/machine-learning/concept-model-catalog?view=azureml-api-2)
-- 
