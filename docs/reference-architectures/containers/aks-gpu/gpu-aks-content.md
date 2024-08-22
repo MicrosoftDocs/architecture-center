@@ -149,7 +149,7 @@ Selecting a GPU-enabled VM size is an important process that can significantly a
 
 ### Idle cost
 
-After you create a GPU-enabled node pool, you begin incurring costs on the Azure resource even if you haven't run a GPU workload. Idle costs represent the cost of available resource capacity that isn’t used by any workload. This cost adds up quickly if you have many unused nodes. To avoid high idle costs, only create node pools when you’re ready to run your workload and use methods such as [cluster stop](https://learn.microsoft.com/azure/aks/start-stop-cluster?tabs=azure-cli) when you’re not running a workload. AKS Cost Analysis displays idle costs for each of your nodes.
+After you create a GPU-enabled node pool, you begin incurring costs on the Azure resource even if you haven't run a GPU workload. Idle costs represent the cost of available resource capacity that isn’t used by any workload. This cost adds up quickly if you have many unused nodes. To avoid high idle costs, only create node pools when you’re ready to run your workload and use methods such as [cluster stop](/azure/aks/start-stop-cluster?tabs=azure-cli) when you’re not running a workload. AKS Cost Analysis displays idle costs for each of your nodes.
 
 ### Overprovisioning and underutilization
 
