@@ -77,13 +77,6 @@ You can also learn about the pillars of the Azure Well-Architected Framework, wh
 
 To learn about scenario-specific architectures, see the solutions in the following areas.
 
-### Data governance
-
-You can integrate Profisee data management with Azure Microsoft Purview to build a foundation for data governance and management.
-
-> [!div class="nextstepaction"]
-> [Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)
-
 ### Modern data warehouse
 
 Apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.

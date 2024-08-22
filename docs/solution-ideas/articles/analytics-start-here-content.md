@@ -88,8 +88,6 @@ Here are a few sample implementations of analytics on Azure to consider:
 
 -   [Modern analytics architecture with Azure Databricks](./azure-databricks-modern-analytics-architecture.yml)
 
--   [Big data analytics with enterprise-grade security using Azure Synapse](./big-data-analytics-enterprise-grade-security.yml)
-
 -   [Browse more analytics examples in the Azure Architecture Center](../../browse/index.yml?azure_categories=analytics)
 
 ## AWS or Google Cloud professionals

@@ -20,6 +20,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
     - arb-data
+    - arb-aiml
 name: Use a demand forecasting model for price optimization
 azureCategories:
   - analytics

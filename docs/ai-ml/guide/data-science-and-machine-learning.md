@@ -13,6 +13,7 @@ products:
   - azure-machine-learning
 ms.custom:
   - guide
+  - arb-aiml
 ---
 
 # Compare Microsoft machine learning products and technologies

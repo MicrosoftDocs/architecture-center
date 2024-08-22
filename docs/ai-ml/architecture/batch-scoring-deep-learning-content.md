@@ -145,10 +145,9 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
-- [Batch scoring of Python models on Azure](batch-scoring-python.yml)
 
 ## Related resources
 

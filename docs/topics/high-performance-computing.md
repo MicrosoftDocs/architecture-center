@@ -1,8 +1,8 @@
 ---
 title: "High-performance computing (HPC) on Azure"
 description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
-author: SMBrook
-ms.author: sibrook
+author: RobBagby
+ms.author: pnp
 ms.date: 08/08/2022
 ms.topic: reference-architecture
 ms.service: architecture-center

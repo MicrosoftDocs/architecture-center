@@ -22,7 +22,6 @@ This solution idea describes how to extend your on-premises big data investments
 - Local edge router
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) circuit
 - Microsoft Edge router
-- Data replication (WANdisco's [LiveData Migrator for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma) and [LiveData Plane for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=PlansAndPrice))
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
 

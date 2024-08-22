@@ -146,8 +146,8 @@ Principal author:
 
 ## Related resources
 
-- [Data lakes](../../data-guide/scenarios/data-lake.md)
-- [Data warehousing and analytics](data-warehouse.yml)  
-- [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
- <!--TODO: links to Fabric lakehouse greenfield
-  - TODO: link to Fabric enterprise with DW* -->
+- Learn more about:
+  - [Data lakes](../../data-guide/scenarios/data-lake.md)
+  - [Data warehousing and analytics](data-warehouse.yml)
+  - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
+  - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

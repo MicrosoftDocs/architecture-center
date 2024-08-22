@@ -167,7 +167,9 @@ items:
           maintainContext: true
     - name: Choose a data store
       items:
-      - name: Understanding data store models
+      - name: Understand data stores in Azure
+        href: data-guide/technology-choices/data-store-classification.md
+      - name: Understand data store models
         items:
           - name: Types of data store models
             href: guide/technology-choices/data-store-overview.md
@@ -213,10 +215,6 @@ items:
         href: data-guide/scenarios/advanced-analytics.md
       - name: Analytical data stores
         href: data-guide/technology-choices/analytical-data-stores.md
-      - name: Analytics and reporting
-        href: data-guide/technology-choices/analysis-visualizations-reporting.md
-      - name: Batch processing
-        href: data-guide/technology-choices/batch-processing.md
       - name: Microsoft Fabric deployment patterns
         href: analytics/architecture/fabric-deployment-patterns.yml
       - name: Stream processing
@@ -805,18 +803,10 @@ items:
       items:
       - name: Technology choices
         items:
-        - name: Analytical data stores
-          href: data-guide/technology-choices/analytical-data-stores.md
         - name: Analytics and reporting
           href: data-guide/technology-choices/analysis-visualizations-reporting.md
         - name: Batch processing
           href: data-guide/technology-choices/batch-processing.md
-        - name: Extract, transform, and load
-          href: data-guide/relational-data/etl.yml
-        - name: Online analytical processing
-          href: data-guide/relational-data/online-analytical-processing.yml
-        - name: Stream processing
-          href: /azure/architecture/data-guide/technology-choices/stream-processing
       - name: Disaster recovery for Azure data platform
         items:
         - name: Overview
@@ -831,22 +821,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml
         - name: Summary
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml
-      - name: Industry guidance
-        items:
-        - name: Financial institutions with data mesh
-          href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
-          maintainContext: true
-      - name: Analytics security baselines
-        items:
-        - name: Security baseline for Azure Data Factory
-          href: /security/benchmark/azure/baselines/data-factory-security-baseline
-          maintainContext: true
-        - name: Security baseline for Azure Databricks
-          href: /security/benchmark/azure/baselines/databricks-security-baseline
-          maintainContext: true
-        - name: Security baseline for Azure Purview
-          href: /security/benchmark/azure/baselines/purview-security-baseline
-          maintainContext: true
       - name: Monitor Azure Databricks jobs
         items:
         - name: Overview
@@ -863,14 +837,6 @@ items:
       items:
       - name: Analytics end to end
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
-      - name: Analyze MongoDB Atlas data
-        href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Apache NiFi on Azure
-        href: example-scenario/data/azure-nifi.yml
-      - name: Automated enterprise BI
-        href: reference-architectures/data/enterprise-bi-adf.yml
-      - name: Automotive test data analytics
-        href: industries/automotive/automotive-telemetry-analytics.yml
       - name: Azure Synapse for landing zones
         href: example-scenario/analytics/synapse-analytics-landing-zone.yml
       - name: Big data on confidential computing
@@ -879,30 +845,12 @@ items:
         href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
       - name: Data lake queries via Synapse serverless
         href: example-scenario/data/synapse-exploratory-data-analytics.yml
-      - name: Data warehouse for small business
-        href: example-scenario/data/small-medium-data-warehouse.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
-      - name: Disaster recovery for data analytics pipelines
-        href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Employee retention with Databricks and AKS
         href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
       - name: Enterprise business intelligence
         href: example-scenario/analytics/enterprise-bi-synapse.yml
-      - name: Geospatial analysis for telecommunications
-        href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
-      - name: Geospatial analysis with Azure Synapse
-        href: industries/aerospace/geospatial-processing-analytics.yml
-      - name: Helm-based deployments for Apache NiFi
-        href: guide/data/helm-deployments-apache-nifi.yml
-      - name: Ingest FAA content to analyze flight data
-        href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml
-      - name: Ingestion and analysis of news feeds
-        href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
-      - name: Interactive price analytics
-        href: solution-ideas/articles/interactive-price-analytics.yml
-      - name: Long-term security logs in Data Explorer
-        href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Partitioning in Event Hubs and Kafka
@@ -935,12 +883,6 @@ items:
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
         - name: Interactive analytics with Data Explorer
           href: solution-ideas/articles/interactive-azure-data-explorer.yml
-        - name: IoT analytics with Data Explorer
-          href: solution-ideas/articles/iot-azure-data-explorer.yml
-        - name: Augmented security, observability, and analytics
-          href: solution-ideas/articles/monitor-azure-data-explorer.yml
-      - name: Big data analytics with enterprise security
-        href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
       - name: Content Delivery Network analytics
         href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
       - name: Data management with Azure Purview
@@ -971,10 +913,6 @@ items:
         href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
-      - name: Oil and Gas tank level forecasting
-        href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-      - name: Predictive aircraft engine monitoring
-        href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
       - name: Real-time analytics on big data
         href: solution-ideas/articles/real-time-analytics.yml
       - name: Real-time analytics with Azure Data Explorer
@@ -1041,10 +979,6 @@ items:
         href: guide/sas/sas-overview.yml
       - name: SAS Grid on Azure NetApp Files
         href: guide/hpc/netapp-files-sas.yml
-      - name: Industry guidance
-        items:
-        - name: Risk grid computing solution
-          href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: VM security baselines
         items:
         - name: Security baseline for scale sets
@@ -1410,18 +1344,12 @@ items:
         href: example-scenario/data/azure-nifi.yml
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.yml
-      - name: Data governance with Profisee
-        href: databases/architecture/profisee-master-data-management-purview.yml
-      - name: Data warehousing and analytics
-        href: example-scenario/data/data-warehouse.yml
       - name: DataOps for modern data warehouse
         href: databases/architecture/dataops-mdw.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Helm-based deployments
         href: guide/data/helm-deployments-apache-nifi.yml
-      - name: Master data management with Profisee
-        href: databases/architecture/profisee-master-data-management-data-factory.yml
       - name: Measure Azure app sustainability
         href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
       - name: Modern data warehouse for small business
@@ -1440,8 +1368,6 @@ items:
         href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
       - name: Discovery Hub for analytics
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-      - name: Ingestion, ETL, and stream processing
-        href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Tier applications for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Developer Options
@@ -1570,8 +1496,6 @@ items:
             href: serverless/event-hubs-functions/observability.yml
       - name: Architectures
         items:
-        - name: Event-based cloud automation
-          href: reference-architectures/serverless/cloud-automation.yml
         - name: Multicloud with Serverless Framework
           href: example-scenario/serverless/serverless-multicloud.yml
         - name: Real-time location sharing
@@ -1582,8 +1506,6 @@ items:
         items:
         - name: AKS in event stream processing
           href: solution-ideas/articles/serverless-event-processing-aks.yml
-        - name: Big data analytics with Data Explorer
-          href: solution-ideas/articles/big-data-azure-data-explorer.yml
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: Serverless applications using Event Grid
@@ -1640,9 +1562,6 @@ items:
       href: hybrid/hybrid-start-here.md
     - name: Guides
       items:
-      - name: Hybrid workload in Azure
-        href: /azure/well-architected/hybrid/hybrid-overview
-        maintainContext: true
       - name: Hybrid app design considerations
         href: /hybrid/app-solutions/overview-app-design-considerations
         maintainContext: true
@@ -2191,7 +2110,7 @@ items:
           href: example-scenario/mainframe/deploy-ibm-power-workloads.yml  
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
-        - name: Refactor IBM z/OS mainframe CF
+        - name: Refactor an IBM z/OS mainframe CF
           href: reference-architectures/zos/refactor-zos-coupling-facility.yml
         - name: Refactor IBM z/TPF mainframe
           href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
@@ -2504,8 +2423,6 @@ items:
         href: example-scenario/mainframe/general-mainframe-refactor.yml
       - name: Migrate a web app with APIM
         href: example-scenario/apps/apim-api-scenario.yml
-      - name: Migrate master data services with Profisee
-        href: databases/architecture/profisee-mds-migration-utility.yml
       - name: Modernize mainframe and midrange data
         href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
     - name: Solution ideas
@@ -2889,8 +2806,6 @@ items:
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.yml
-      - name: Secure OBO refresh tokens
-        href: example-scenario/secrets/secure-refresh-tokens.yml
       - name: Securely managed web apps
         href: example-scenario/apps/fully-managed-secure-apps.yml
       - name: Secure a Microsoft Teams channel bot
@@ -3419,8 +3334,6 @@ items:
       - name: Financial institutions with data mesh
         href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
         maintainContext: true
-      - name: Risk grid computing solution
-        href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: Big compute for financial risk modeling
         href: guide/architecture-styles/big-compute.yml
     - name: Architectures
@@ -3982,12 +3895,14 @@ items:
       items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
-      - name: Siemens Teamcenter
+      - name: Siemens
         items:
         - name: Teamcenter baseline architecture
           href: example-scenario/manufacturing/teamcenter-baseline.yml
         - name: Teamcenter with Azure NetApp Files
           href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
+        - name: Industrial Edge with Azure AI
+          href: example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Automated fab scheduling and dispatching
@@ -4724,8 +4639,6 @@ items:
           href: web-apps/serverless/architectures/web-app.yml
         - name: Spaceborne data analysis
           href: industries/aerospace/geospatial-processing-analytics.yml
-        - name: Vision classifier - simulated drone
-          href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
     - name: Agriculture
       items:
       - name: Guides

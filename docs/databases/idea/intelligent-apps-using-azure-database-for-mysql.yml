@@ -34,4 +34,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/intelligent-apps-using-azure-database-for-mysql.png
 content: |
-  [!include[](intelligent-apps-using-azure-database-for-mysql-content.md)]
+  [!INCLUDE[](intelligent-apps-using-azure-database-for-mysql-content.md)]

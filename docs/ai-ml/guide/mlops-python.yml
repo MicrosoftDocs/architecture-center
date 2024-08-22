@@ -21,6 +21,7 @@ metadata:
     - build-2023
     - build-2023-dataai
     - devx-track-python
+    - arb-aiml
 name: MLOps for Python models using Azure Machine Learning
 azureCategories:
   - ai-machine-learning

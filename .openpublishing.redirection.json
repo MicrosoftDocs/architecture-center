@@ -1845,22 +1845,22 @@
     },
     {
       "source_path": "docs/patterns/category/resiliency.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/reliability/design-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/category/availability.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/reliability/design-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/category/performance-scalability.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/performance-efficiency/design-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/category/security.md",
-      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_url": "/azure/well-architected/security/design-patterns",
       "redirect_document_id": false
     },
     {
@@ -4335,6 +4335,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/serverless/cloud-automation.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/serverless/event-processing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/healthcare-network.yml",
       "redirect_url": "/azure/architecture/networking/idea/healthcare-network",
       "redirect_document_id": true
@@ -5056,6 +5061,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/databases/architecture/migrate-master-data-services-with-cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/profisee-master-data-management-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/profisee-mds-migration-utility.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/profisee-master-data-management-purview.yml",
+      "redirect_url": "/azure/architecture/databases/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/data/monitor-apache-nifi-monitofi.yml",
       "redirect_url": "/azure/architecture/example-scenario/data/azure-nifi",
       "redirect_document_id": false
@@ -5193,6 +5223,31 @@
     {
       "source_path": "docs/industries/telecommunications/carrier-grade.yml",
       "redirect_url": "/azure/architecture/browse/?terms=telecommunications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/batch-scoring-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance/risk-grid-banking-solution-guide.yml",
+      "redirect_url": "/azure/architecture/guide/architecture-styles/big-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/secrets/secure-refresh-tokens.yml",
+      "redirect_url": "/azure/architecture/guide/security/security-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/vision-classifier-model-with-custom-vision.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
       "redirect_document_id": false
     }
   ]
