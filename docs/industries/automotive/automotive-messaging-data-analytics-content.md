@@ -58,6 +58,7 @@ The *broadcast* dataflow is used by digital services that provide notification o
 
 1. The *notification service* is registered and authorized to publish messages to specific topics in the **Event Grid** local registry.
 1. The *notification service* publishes an update. For example, a weather warning to topic /weather/warning/
+1. *Event Grid* verifies if the service is authorized to publish to the provided topic.
 1. The vehicle *messaging* module is subscribed to the weather alerts and receives the notification.
 1. The *messaging* module notifies a vehicle workload. For example, it notifies the infotainment system to display the content of the weather alert.
 
@@ -81,6 +82,8 @@ The following dataflow users commands issued from a companion app digital servic
 1. The messaging module publishes command status reports to **Event Grid**.
 1. The *workflow logic* is subscribed to command status updates and updates the internal state of command execution.
 1. Once the command execution is complete, the service app receives the execution result over the command and control API.
+
+The command and control *workflow logic* can fail if the vehicle loses connectivity. The **Event Grid** MQTT broker feature supports [Last Will and Testament (LWT)](/azure/event-grid/mqtt-support#last-will-and-testament-lwt-messages) messages.  The MQTT broker will distribute a will message to all subscribers if the device disconnects abruptly. The *workflow logic* registers to the *will* message to handle the disconnect, interrupt the processing and notify the client with a suitable error code.
 
 #### Vehicle and Device Provisioning
 
@@ -121,19 +124,26 @@ A connected vehicle and data solution can scale to millions of vehicles and thou
 
 :::image type="content" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false"lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
 
-Each *vehicle messaging scale unit* supports a defined vehicle population (for example, vehicles in a specific geographical region, partitioned by model year). The *applications scale unit* is used to scale the services that require sending or receiving messages to the vehicles. The *common service* is accessible from any scale unit and provides device management and subscription services for applications and devices.
+Each *vehicle messaging scale unit* supports a defined vehicle population (for example, vehicles in a specific geographical region, partitioned by model year). The *application scale unit* is used to scale the services that require sending or receiving messages to the vehicles. The *common service* is accessible from any scale unit and provides *vehicle and device management* and *subscription* services for applications and devices.
 
 1. The **application scale unit** subscribes applications to messages of interest. The common service handles subscription to the **vehicle messaging scale unit** components.
-1. The vehicle uses the **device management service** to discover its assignment to a vehicle messaging scale unit.
-1. If necessary, the vehicle is provisioned using the [Vehicle and device Provisioning](#vehicle-and-device-provisioning) workflow.
-1. The vehicle publishes a message to the *MQTT broker*.
-1. **Event Grid** routes the message using the subscription information.
-    1. Messages that don't require processing and claims check are routed to an ingress hub on the corresponding application scale unit.
-    1. Messages that require processing are routed to the [D2C processing logic](#vehicle-to-cloud-messages) for decoding and authorization (user consent).
-1. Applications consume events from their **app ingress** event hubs instance.
-1. Applications publish messages for the vehicle.
-    1. Messages that don't require more processing are published to the *MQTT broker*.
-    1. Messages that require more processing, workflow control, and authorization are routed to the relevant [C2D Processing Logic](#cloud-to-vehicle-messages) over an Event Hubs instance.
+1. The vehicle uses the **device management service** to discover its assignment to a *vehicle messaging scale unit*.
+1. If necessary, the vehicle is provisioned using the [Vehicle and device Provisioning](#vehicle-and-device-provisioning) workflow into a vehicle messaging scale unit.
+1. The vehicle can now publish messages and subscribe to topics to the *MQTT broker*. **Event Grid** routes the message using the subscription information.
+
+To illustrate the communication, we will use a variation of two previously discussed patterns.
+
+**(A)** [Basic telemetry with no intermediate processing](#vehicle-to-cloud-messages)
+
+1. Messages that don't require processing and claims check are routed to an ingress hub on the corresponding application scale unit.
+1. Applications consume messages from their **app ingress** event hubs instance.
+
+**(B)** [Command and control](#command-and-control-dataflow)
+
+1. Applications publish commands to the vehicle over an Event Hubs instance. These commands require  processing, workflow control, and authorization using the relevant *workflow logic*.
+1. Status messages that require processing are routed to the **workflow logic** for processing.
+1. When the command is complete, the workflow logic will forward the notification to the corresponding event hub in the application scale unit for consumption by the application.
+1. The application consumes events from the associated event hub.
 
 ### Components
 
@@ -235,7 +245,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 * Cost per vehicle considerations: the communication costs should be dependent on the number of digital services offered. Calculate the RoI of the digital services against the operation costs.
 * Establish practices for cost analysis based on message traffic. Connected vehicle traffic tends to increase with time as more services are added.
 * Consider networking & mobile costs
-  * Use MQTT topic alias to reduce traffic volume.
+  * Use [MQTT topic alias](/azure/event-grid/mqtt-support#topic-aliases) to reduce traffic volume.
   * Use an efficient method to encode and compress payload messages.
 * Traffic handling
   * Message priority: vehicles tend to have repeating usage patterns that create daily / weekly demand peaks. Use message properties to delay processing of non critical or analytic messages to smooth the load and optimize resource usage.
@@ -279,6 +289,7 @@ Other contributors:
 * [Felipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobility
 * [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal PM Manager, Azure Messaging
 * [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager, Azure Data Explorer (Kusto)
+* [Seth Shanmugam](https://www.linkedin.com/in/henning-rauch-adx) | Senior Product Manager, Messaging
 * [Rajagopal Ravipati](https://www.linkedin.com/in/rajagopal-ravipati-79020a4/) | Partner Software Engineering Manager, Azure Messaging
 
 ## Next steps
