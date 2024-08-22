@@ -158,9 +158,6 @@ conceptualContent:
       - text: AI architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
-      - text: Batch scoring of Python models
-        itemType: architecture
-        url: ./ai-ml/architecture/batch-scoring-python.yml
       - text: Conversational bot
         itemType: architecture
         url: ./ai-ml/architecture/conversational-bot.yml

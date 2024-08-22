@@ -73,6 +73,5 @@ See the following documentation about the services featured in this architecture
 
 * [Secure a data lakehouse with Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/secure-data-lakehouse-synapse)
 * [Analyze operational data on MongoDB Atlas using Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas)
-* [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
 * [Spaceborne data analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
 * [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
