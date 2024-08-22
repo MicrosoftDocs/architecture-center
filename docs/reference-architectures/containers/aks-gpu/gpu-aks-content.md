@@ -128,7 +128,7 @@ To learn more about KAITO, see the following resources:
 
 - [KAITO](https://github.com/Azure/Kaito) open source project
 - [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](https://learn.microsoft.com/en-us/azure/aks/ai-toolchain-operator)
-- [Fine tune your language models with open-source KAITO](https://learn.microsoft.com/en-us/azure/aks/concepts-fine-tune-language-models)
+- [Fine tune your language models with open-source KAITO](/azure/aks/concepts-fine-tune-language-models)
 - [Deploy Kaito on AKS using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 
 ## Workload and cluster scaling
