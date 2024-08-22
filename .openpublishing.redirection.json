@@ -5269,6 +5269,31 @@
       "source_path": "docs/industries/telecommunications/carrier-grade.yml",
       "redirect_url": "/azure/architecture/browse/?terms=telecommunications",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/batch-scoring-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance/risk-grid-banking-solution-guide.yml",
+      "redirect_url": "/azure/architecture/guide/architecture-styles/big-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/secrets/secure-refresh-tokens.yml",
+      "redirect_url": "/azure/architecture/guide/security/security-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/vision-classifier-model-with-custom-vision.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
+      "redirect_document_id": false
     }
   ]
 }
