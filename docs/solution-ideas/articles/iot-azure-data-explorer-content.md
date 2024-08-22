@@ -94,4 +94,4 @@ Principal author:
 
 - [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-- [Real-time analytics on big data architecture](real-time-analytics.yml)
+

@@ -53,9 +53,3 @@ Learn about:
 
 * [Demand forecasting for shipping and distribution solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) in the Azure AI Gallery
 
-## Related resources
-
-Read related Azure Architecture Center articles:
-
-* [Demand forecasting and price optimization](./demand-forecasting-price-optimization-marketing.yml)
-* [Demand forecasting with Azure Stream Analytics and Machine Learning](./demand-forecasting.yml)

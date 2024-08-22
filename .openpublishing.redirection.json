@@ -5249,6 +5249,51 @@
       "source_path": "docs/ai-ml/idea/vision-classifier-model-with-custom-vision.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/enterprise-data-warehouse.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/erp-customer-service.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml",
+      "redirect_url": "/azure/hdinsight/hdinsight-virtual-network-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-purview-sql-estate-architecture.yml",
+      "redirect_url": "/purview/register-scan-azure-sql-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/real-time-analytics.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
     }
   ]
 }

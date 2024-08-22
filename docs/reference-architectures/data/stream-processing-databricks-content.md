@@ -379,11 +379,9 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
-## Next steps
+## Next step
 
 - [Stream processing with Azure Stream Analytics](./stream-processing-stream-analytics.yml)
-- [Demand Forecasting](../../solution-ideas/articles/demand-forecasting.yml)
-- [Real Time Analytics on Big Data Architecture](../../solution-ideas/articles/real-time-analytics.yml)
 
 <!-- links -->
 

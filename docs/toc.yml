@@ -891,34 +891,16 @@ items:
         href: solution-ideas/articles/sync-framework-metadata-ingestion.yml
       - name: Demand forecasting for shipping
         href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
-      - name: Demand forecasting for pricing
-        href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml
-      - name: Demand forecasting with Stream Analytics
-        href: solution-ideas/articles/demand-forecasting.yml
-      - name: Discovery Hub for analytics
-        href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-      - name: Enterprise data warehouse
-        href: solution-ideas/articles/enterprise-data-warehouse.yml
-      - name: Highly scalable customer service and ERP
-        href: solution-ideas/articles/erp-customer-service.yml
-      - name: Hybrid big data with HDInsight
-        href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Logical data warehouse with Azure Synapse
         href: solution-ideas/articles/logical-data-warehouse.yml
-      - name: Manage data across the Azure SQL estate
-        href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
       - name: Manage event data with HDInsight and Delta Lake
         href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
-      - name: Real-time analytics on big data
-        href: solution-ideas/articles/real-time-analytics.yml
       - name: Real-time analytics with Azure Data Explorer
         href: solution-ideas/articles/analytics-service-bus.yml
-      - name: Tier applications and data for analytics
-        href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Blockchain + Multiparty Compute
     items:
     - name: Get started
@@ -1366,10 +1348,6 @@ items:
         href: solution-ideas/articles/monitor-azure-data-explorer.yml
       - name: Data management with Azure Purview
         href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
-      - name: Discovery Hub for analytics
-        href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-      - name: Tier applications for analytics
-        href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Developer Options
     items:
     - name: Microservices

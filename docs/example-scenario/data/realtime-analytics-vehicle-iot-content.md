@@ -106,4 +106,3 @@ Principal author:
 
 - Review the [Advanced analytics architecture](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) to get a peek on how different Azure components can help build a big data pipeline.
 
-- Review the [Real-time analytics architecture](/azure/architecture/solution-ideas/articles/real-time-analytics) that includes a big data pipeline flow.
