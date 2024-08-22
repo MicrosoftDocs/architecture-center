@@ -2,10 +2,9 @@
 metadata:
   title: Modern data warehouse for small and medium business
   titleSuffix: Azure Architecture Center
-  description: Use Microsoft Fabric, Azure SQL Database/Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
-  author: galinagpolyakova
+  description: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data.
   ms.author: gapolyak
-  ms.date: 08/21/2024
+  ms.date: 08/23/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
