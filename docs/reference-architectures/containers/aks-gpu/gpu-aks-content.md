@@ -139,7 +139,7 @@ Alternatively, many organizations use pretrained, open-source AI/ML models for i
 
 ## Cost Management of GPU workloads
 
-Using GPUs can be expensive. Proper monitoring helps you understand drivers of GPU costs and identify optimization opportunities. You can use the [AKS Cost Analysis](https://learn.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis) add-on to increase cost visibility.
+Using GPUs can be expensive. Proper monitoring helps you understand drivers of GPU costs and identify optimization opportunities. You can use the [AKS Cost Analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis) add-on to increase cost visibility.
 
 Here are three scenarios where cost visibility might be advantageous:
 
