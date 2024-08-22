@@ -24,4 +24,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
 content: |
-   [!INCLUDE[](reference-architecture-for-oracle-database-migration-to-azure-content.md)]
+   [!include[](reference-architecture-for-oracle-database-migration-to-azure-content.md)]
