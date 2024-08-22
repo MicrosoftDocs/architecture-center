@@ -52,7 +52,7 @@ Building a custom solution to handle these issues is unlikely to be cost-competi
 
 ## Scenario details
 
-This example scenario was built during the COVID-19 pandemic, when a customer had an immediate requirement to collaborate with other organizations. This meant providing identity and governance controls for external users.
+This example scenario was built for a customer that had an immediate requirement to collaborate with other organizations. This meant providing identity and governance controls for external users.
 
 Microsoft Teams was the customer's primary tool for company communications. Users collaborated by using Teams chat, meetings, and calling. Teams channels provided them access to files and conversations.
 
@@ -106,7 +106,7 @@ An important implementation step is configuring tenant settings to allow for ext
 :::image type="content" source="media/governance-teams-guest-users-settings.svg" alt-text="A list of seven settings that require verification." lightbox="media/governance-teams-guest-users-settings.svg" border="false" :::
 
 1. **Enable catalog for external users** - Make sure the catalog has **Enabled for external users** set to **Yes**. By default, when you create a new catalog in Microsoft Entra entitlement management, it's enabled to allow external users to request access to packages in the catalog.
-1. **Microsoft Entra B2B external collaboration settings** - The Azure B2B external collaboration settings can affect whether you can use Microsoft Entra entitlement management to invite external users to resources. Verify these settings:
+1. **Microsoft Entra B2B external collaboration settings** - The Microsoft Entra B2B external collaboration settings can affect whether you can use Microsoft Entra entitlement management to invite external users to resources. Verify these settings:
    - Check whether guests are allowed to invite other guests to your directory. We recommend setting **Guests can invite** to **No** to only allow governed invitations.
    - Make sure that you're allowing or blocking invitations appropriately. For more information, see [Allow or block invitations to B2B users from specific organizations](/azure/active-directory/external-identities/allow-deny-list).
 1. **Review your Conditional Access policies** - Verify Conditional Access to make sure guest users are excluded from any Conditional Access policies that they can't satisfy. Otherwise they can't sign in to your directory and won't have access to the resource.

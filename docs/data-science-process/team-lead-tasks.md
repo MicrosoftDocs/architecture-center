@@ -14,6 +14,7 @@ ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - arb-aiml
 products:
   - azure-machine-learning
 categories:
@@ -30,52 +31,52 @@ A team lead manages a team that consists of several data scientists in the data 
 
 ## Major roles of the team lead
 
--  **Project coordination and management**:
-    -   Oversee the day-to-day management of data science projects, ensuring they are on track and aligned with the project goals.
-    -   Coordinate tasks among team members and ensure efficient workflow.
+- **Project coordination and management**:
+    - Oversee the day-to-day management of data science projects, ensuring they are on track and aligned with the project goals.
+    - Coordinate tasks among team members and ensure efficient workflow.
 
--  **Technical leadership**:
-    -   Provide technical guidance and expertise to the team.
-    -   Make key decisions on technical approaches, tools, and methodologies.
--  **Team collaboration and communication**:
-    -   Foster a collaborative environment and ensure effective communication within the team.
-    -   Act as the main point of contact for the project, facilitating communication between team members and other stakeholders.
--  **Resource allocation**:
-    -   Ensure the right allocation of resources (personnel, technology, data) for the project.
-    -   Identify and address resource gaps.
--  **Quality assurance**:
-    -   Uphold high standards of quality in project deliverables.
-    -   Implement quality control measures and ensure adherence to best practices.
--  **Mentorship and team development**:
-    -   Mentor team members, helping them grow their skills and capabilities.
-    -   Encourage continuous learning and professional development within the team.
--  **Stakeholder engagement**:
-    -   Engage with stakeholders to understand their needs and expectations.
-    -   Communicate progress, challenges, and results effectively to stakeholders.
--  **Risk management**:
-    -   Identify and mitigate project risks.
-    -   Develop contingency plans to address potential challenges.
+- **Technical leadership**:
+    - Provide technical guidance and expertise to the team.
+    - Make key decisions on technical approaches, tools, and methodologies.
+- **Team collaboration and communication**:
+    - Foster a collaborative environment and ensure effective communication within the team.
+    - Act as the main point of contact for the project, facilitating communication between team members and other stakeholders.
+- **Resource allocation**:
+    - Ensure the right allocation of resources (personnel, technology, data) for the project.
+    - Identify and address resource gaps.
+- **Quality assurance**:
+    - Uphold high standards of quality in project deliverables.
+    - Implement quality control measures and ensure adherence to best practices.
+- **Mentorship and team development**:
+    - Mentor team members, helping them grow their skills and capabilities.
+    - Encourage continuous learning and professional development within the team.
+- **Stakeholder engagement**:
+    - Engage with stakeholders to understand their needs and expectations.
+    - Communicate progress, challenges, and results effectively to stakeholders.
+- **Risk management**:
+    - Identify and mitigate project risks.
+    - Develop contingency plans to address potential challenges.
 
 ## Key tasks for the team lead
 
--   **Plan and track projects**:
-    -   Develop detailed project plans, including timelines, milestones, and deliverables.
-    -   Track project progress and make adjustments as needed.
--   **Solve technical problems**:
-    -   Lead the team in solving complex technical problems.
-    -   Ensure the application of appropriate data science methodologies and techniques.
--   **Perform team meetings and reviews**:
-    -   Conduct regular team meetings to discuss progress, challenges, and next steps.
-    -   Lead project review sessions to assess the quality and impact of the work.
--   **Monitor performance**:
-    -   Monitor the performance of individual team members.
-    -   Provide feedback and guidance to improve performance and efficiency.
--   **Document and report**:
-    -   Ensure comprehensive documentation of the project's progress and outcomes.
-    -   Prepare reports and presentations for stakeholders.
--   **Comply with standards**:
-    -   Ensure compliance with data governance, privacy, and ethical standards.
-    -   Adhere to organizational and industry best practices.
+- **Plan and track projects**:
+    - Develop detailed project plans, including timelines, milestones, and deliverables.
+    - Track project progress and make adjustments as needed.
+- **Solve technical problems**:
+    - Lead the team in solving complex technical problems.
+    - Ensure the application of appropriate data science methodologies and techniques.
+- **Perform team meetings and reviews**:
+    - Conduct regular team meetings to discuss progress, challenges, and next steps.
+    - Lead project review sessions to assess the quality and impact of the work.
+- **Monitor performance**:
+    - Monitor the performance of individual team members.
+    - Provide feedback and guidance to improve performance and efficiency.
+- **Document and report**:
+    - Ensure comprehensive documentation of the project's progress and outcomes.
+    - Prepare reports and presentations for stakeholders.
+- **Comply with standards**:
+    - Ensure compliance with data governance, privacy, and ethical standards.
+    - Adhere to organizational and industry best practices.
 
 ## Use language models and copilots
 
@@ -83,43 +84,43 @@ In the TDSP, the team lead plays a crucial role in guiding the project team and 
 
 - **Manage and coordinate models**
 
-  -   *Project planning assistance*: Use language models to aid in developing comprehensive project plans, including timelines, resource allocation, and risk assessment.
-  -   *Task assignment and progress tracking*: Use copilots for efficient task management and progress tracking, ensuring that team members are on track with their responsibilities.
+  - *Project planning assistance*: Use language models to aid in developing comprehensive project plans, including timelines, resource allocation, and risk assessment.
+  - *Task assignment and progress tracking*: Use copilots for efficient task management and progress tracking, ensuring that team members are on track with their responsibilities.
 
 - **Provide technical leadership and guidance**
 
-  -   *Technical research and insights*: Use language models to stay abreast of the latest data science techniques, tools, and best practices relevant to the project.
-  -   *Algorithm and tool selection*: Use the knowledge base of language models for recommendations on the best algorithms, tools, and technologies to use in specific project contexts.
+  - *Technical research and insights*: Use language models to stay abreast of the latest data science techniques, tools, and best practices relevant to the project.
+  - *Algorithm and tool selection*: Use the knowledge base of language models for recommendations on the best algorithms, tools, and technologies to use in specific project contexts.
 
 - **Improve team collaboration and communication**
 
-  -   *Effective communication*: Employ language models to draft and refine communication with team members and other stakeholders, ensuring clarity and effectiveness.
-  -   *Collaboration enhancement*: Use copilots to streamline collaborative efforts, schedule meetings, and manage team discussions and brainstorming sessions.
+  - *Effective communication*: Employ language models to draft and refine communication with team members and other stakeholders, ensuring clarity and effectiveness.
+  - *Collaboration enhancement*: Use copilots to streamline collaborative efforts, schedule meetings, and manage team discussions and brainstorming sessions.
 
 - **Provide quality assurance and reviews**
 
-  -   *Code review and quality checks*: Use language models for automated code reviews, ensuring adherence to best practices and identifying potential issues.
-  -   *Documentation review*: Use language models to help review and enhance project documentation, ensuring comprehensiveness and clarity.
+  - *Code review and quality checks*: Use language models for automated code reviews, ensuring adherence to best practices and identifying potential issues.
+  - *Documentation review*: Use language models to help review and enhance project documentation, ensuring comprehensiveness and clarity.
 
 - **Train and mentor**
 
-  -   *Skill development resources*: Use language models to generate or curate training materials and resources for the team, addressing skill gaps and promoting continuous learning.
-  -   *Mentoring guidance*: Employ language models for insights on effective mentoring techniques and personalized development plans for team members.
+  - *Skill development resources*: Use language models to generate or curate training materials and resources for the team, addressing skill gaps and promoting continuous learning.
+  - *Mentoring guidance*: Employ language models for insights on effective mentoring techniques and personalized development plans for team members.
 
 - **Manage risks and problem solve**
 
-  -   *Risk identification and mitigation*: Use language models for identifying potential project risks and generating strategies for mitigation.
-  -   *Problem-solving assistance*: Use copilots and language models for brainstorming and developing solutions to technical and project-related challenges.
+  - *Risk identification and mitigation*: Use language models for identifying potential project risks and generating strategies for mitigation.
+  - *Problem-solving assistance*: Use copilots and language models for brainstorming and developing solutions to technical and project-related challenges.
 
 - **Engage stakeholders**
 
-  -   *Stakeholder reporting*: Use language models to create comprehensive and understandable reports for stakeholders, detailing project progress, challenges, and achievements.
-  -   *Meeting preparation*: Employ language models for preparing agendas, presentations, and key talking points for stakeholder meetings.
+  - *Stakeholder reporting*: Use language models to create comprehensive and understandable reports for stakeholders, detailing project progress, challenges, and achievements.
+  - *Meeting preparation*: Employ language models for preparing agendas, presentations, and key talking points for stakeholder meetings.
 
 - **Continuously Improve**
 
-  -   *Feedback analysis*: Use language models to analyze feedback from team members and stakeholders, identifying areas for improvement and action points.
-  -   *Process optimization*: Use copilots to continuously refine and optimize project workflows and team processes.
+  - *Feedback analysis*: Use language models to analyze feedback from team members and stakeholders, identifying areas for improvement and action points.
+  - *Process optimization*: Use copilots to continuously refine and optimize project workflows and team processes.
 
 ## Summary
 
@@ -127,7 +128,7 @@ In the TDSP, the team lead plays a critical role in project management, technica
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 

@@ -12,6 +12,7 @@ products:
   - azure-machine-learning
 ms.custom:
   - guide
+  - arb-aiml
 categories:
   - ai-machine-learning
 ---
@@ -225,8 +226,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml) General orientation with links to many learning resources, SDKs, documentation, and more
 
 #### Machine learning reference architectures for Azure
-
-- [Batch scoring of Python machine learning models on Azure](../ai-ml/architecture/batch-scoring-python.yml)
 
 - [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 

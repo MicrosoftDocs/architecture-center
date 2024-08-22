@@ -142,6 +142,14 @@ Principal author:
 
 ## Related resources
 
+<<<<<<< HEAD
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Data warehousing and analytics](data-warehouse.yml)  
 - [Enterprise business intelligence](../analytics/enterprise-bi-synapse.yml)
+=======
+- Learn more about:
+  - [Data lakes](../../data-guide/scenarios/data-lake.md)
+  - [Data warehousing and analytics](data-warehouse.yml)
+  - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
+  - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
+>>>>>>> 5dd800bd80303ffc5416ce14c9630b3a0b705c2c
