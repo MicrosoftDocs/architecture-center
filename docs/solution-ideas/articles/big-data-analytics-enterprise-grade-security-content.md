@@ -156,6 +156,4 @@ Refer to these articles when planning and deploying solutions using Azure Synaps
 
 -   [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
 
--   [Advanced Analytics Architecture](./advanced-analytics-on-big-data.yml)
-
 -   [Real-time analytics on big data architecture](./real-time-analytics.yml)

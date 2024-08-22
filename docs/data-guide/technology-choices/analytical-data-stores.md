@@ -127,6 +127,5 @@ Principal author:
 ## Related resources
 
 - [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Analyze operational data on MongoDB Atlas using Azure Synapse Analytics](../../example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml)
 - [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)

@@ -905,18 +905,12 @@ items:
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
-      - name: Partitioning in Event Hubs and Kafka
-        href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
       - name: Relationship mesh solution on Azure
         href: example-scenario/analytics/relationship-mesh-solution-azure.yml
       - name: Secure a data lakehouse
         href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
-      - name: Sentiment analysis and face recognition
-        href: example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml
-      - name: Sports analytics on Azure
-        href: example-scenario/analytics/sports-analytics-architecture-azure.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
@@ -925,16 +919,10 @@ items:
         href: example-scenario/data/open-source-data-engine-stream-processing.yml
     - name: Solution ideas
       items:
-      - name: Advanced analytics
-        href: solution-ideas/articles/advanced-analytics-on-big-data.yml
-      - name: App integration using Event Grid
-        href: solution-ideas/articles/application-integration-using-event-grid.yml
       - name: Azure Data Explorer solutions
         items:
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-        - name: Interactive analytics with Data Explorer
-          href: solution-ideas/articles/interactive-azure-data-explorer.yml
         - name: IoT analytics with Data Explorer
           href: solution-ideas/articles/iot-azure-data-explorer.yml
         - name: Augmented security, observability, and analytics
@@ -943,12 +931,6 @@ items:
         href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
       - name: Content Delivery Network analytics
         href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
-      - name: Data management with Azure Purview
-        href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
-      - name: Metadata ingestion from external catalogs to Microsoft Purview
-        href: solution-ideas/articles/sync-framework-metadata-ingestion.yml
-      - name: Demand forecasting for shipping
-        href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
       - name: Demand forecasting for pricing
         href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml
       - name: Demand forecasting with Stream Analytics
@@ -1432,8 +1414,6 @@ items:
       items:
       - name: Azure Data Explorer monitoring
         href: solution-ideas/articles/monitor-azure-data-explorer.yml
-      - name: Data management with Azure Purview
-        href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
       - name: Discovery Hub for analytics
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
       - name: Ingestion, ETL, and stream processing
@@ -4759,8 +4739,6 @@ items:
           href: /azure/architecture/browse/?terms=sports
         - name: Create smart stadiums
           href: example-scenario/iot/smart-places.yml
-        - name: Sports analytics on Azure
-          href: example-scenario/analytics/sports-analytics-architecture-azure.yml
         - name: Stream sporting events
   - name: IoT-specific industry solutions
     href: reference-architectures/iot/industry-iot-hub-page.md

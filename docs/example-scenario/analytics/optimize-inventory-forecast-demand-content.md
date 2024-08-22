@@ -163,7 +163,6 @@ Other contributors:
 
 ## Related resources
 
-- [Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)
 - [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
 - [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
 - [Forecast energy and power demand with machine learning](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)

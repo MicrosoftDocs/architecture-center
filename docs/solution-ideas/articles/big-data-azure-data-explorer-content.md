@@ -58,4 +58,3 @@ Principal author:
 
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

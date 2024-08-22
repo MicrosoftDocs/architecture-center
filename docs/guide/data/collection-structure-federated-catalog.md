@@ -82,6 +82,5 @@ Other contributor:
 
 ## Related resources
 
-- [Ingest metadata from external catalogs to Microsoft Purview](../../solution-ideas/articles/sync-framework-metadata-ingestion.yml)
 - [Classification best practices in the Microsoft Purview governance portal](/azure/purview/concept-best-practices-classification)
 - [Business processes for managing data effectively](/azure/purview/concept-best-practices-asset-lifecycle)
