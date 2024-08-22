@@ -185,7 +185,7 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 - [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](/azure/aks/ai-toolchain-operator)
 - [Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)](/azure/aks/open-ai-quickstart?tabs=aoai)
 - [Deploy Kaito on AKS using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
-- [Bring Your Own AI Models to Intelligent Apps on AKS with Kaito](https://learn.microsoft.com/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
+- [Bring Your Own AI Models to Intelligent Apps on AKS with Kaito](/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-kaito)
 - [Open-Source Models on AKS with Kaito](https://moaw.dev/workshop/?src=gh:pauldotyu/moaw/learnlive/workshops/opensource-models-on-aks-with-kaito)
 
 ## Related resources
