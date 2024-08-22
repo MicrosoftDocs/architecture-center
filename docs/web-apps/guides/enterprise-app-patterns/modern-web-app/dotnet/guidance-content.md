@@ -328,6 +328,45 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications to r
 
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 
+### Implement distributed tracing
+
+As applications become more service-oriented and their components are decoupled, monitoring the execution flow between services is crucial. The Modern Web App pattern uses Azure Application Insights and Azure Monitor for visibility into application health and performance through OpenTelemetry APIs, which support distributed tracing.
+
+Distributed tracing tracks a user request as it traverses multiple services. When a request is received, it is tagged with a trace identifier, which is passed to other components via HTTP headers, and Service Bus properties during dependencies invocation. Traces and logs then include both the trace identifier and an activity identifier (or span identifier), which corresponds to the specific component and its parent activity. Monitoring tools like Application Insights use this to display a tree of activities and logs across different services, crucial for monitoring distributed applications.
+
+- *Install OpenTelemetry libraries.* Use Instrumentation Libraries to enable tracing and metrics from common components. Add custom instrumentation with `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` if necessary. Use Exporter Libraries to listen for OpenTelemetry diagnostics and record them in persistent stores. Utilize existing exporters or create your own with `System.Diagnostics.ActivityListener`.
+
+- *Set Up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (Azure.Monitor.OpenTelemetry.AspNetCore). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include additional OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
+
+The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (Azure.Monitor.OpenTelemetry.AspNetCore), which exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Additional instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket rendering service like this:
+
+```c#
+builder.Logging.AddOpenTelemetry(o => 
+{ 
+    o.IncludeFormattedMessage = true; 
+    o.IncludeScopes = true; 
+}); 
+
+builder.Services.AddOpenTelemetry() 
+    .UseAzureMonitor(o => o.ConnectionString = appInsightsConnectionString) 
+    .WithMetrics(metrics => 
+    { 
+        metrics.AddAspNetCoreInstrumentation() 
+                .AddHttpClientInstrumentation() 
+                .AddRuntimeInstrumentation(); 
+    }) 
+    .WithTracing(tracing => 
+    { 
+        tracing.AddAspNetCoreInstrumentation() 
+                .AddHttpClientInstrumentation() 
+                .AddSource("Azure.*"); 
+    }); 
+```
+
+The `builder.Logging.AddOpenTelemetry` method routes all logging through OpenTelemetry, ensuring consistent tracing and logging across the application. By registering OpenTelemetry services with `builder.Services.AddOpenTelemetry`, the application is set up to collect and export diagnostics, which are then sent to Azure Application Insights via `UseAzureMonitor`. Additionally, client instrumentation for components like Azure Service Bus and HTTP clients is configured through `WithMetrics` and `WithTracing`, enabling automatic metrics and trace collection without requiring changes to the existing client usage, only an update to the configuration.
+
+- *Monitor and Analyze.* After configuring, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included, allowing Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services effectively.
+
 ## Configuration guidance
 
 The following sections provide guidance on implementing the configuration updates. Each section aligns with one or more pillars of the Well-Architected Framework.
