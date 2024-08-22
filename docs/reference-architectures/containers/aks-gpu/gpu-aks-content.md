@@ -153,7 +153,7 @@ After you create a GPU-enabled node pool, you begin incurring costs on the Azure
 
 ### Overprovisioning and underutilization
 
-Overprovisioning, which is when more resources are allocated than necessary for a pod, leads to resource wastage and underutilization. The excess resources remain reserved for the node even if it isn't used. To reduce overprovisioning, use [vertical pod autoscaler](https://learn.microsoft.com/azure/aks/vertical-pod-autoscaler) to set accurate requests and limits based on historical usage patterns.
+Overprovisioning, which is when more resources are allocated than necessary for a pod, leads to resource wastage and underutilization. The excess resources remain reserved for the node even if it isn't used. To reduce overprovisioning, use [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to set accurate requests and limits based on historical usage patterns.
 
 Underutilization can occur when the GPUs aren't fully utilized by your workloads. Consider advanced GPU sharing and partitioning techniques. Rather than using multiple nodes, you might be able to use a single node with partitioning to maximize GPU utilization. These techniques can help you allocate the appropriate amount of GPU acceleration for each workload, which can enhance utilization and lower the operational costs of deployment.
 
