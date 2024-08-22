@@ -1,8 +1,8 @@
 ---
 title: "High-performance computing (HPC) on Azure"
 description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
-author: SMBrook
-ms.author: sibrook
+author: RobBagby
+ms.author: pnp
 ms.date: 08/08/2022
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -88,24 +88,6 @@ The following scenarios outline a few of the common ways HPC solutions are built
                  </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.</p>
-                    </div>
-                </div>
-            </article>
-    </li>
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <article class="card has-outline-hover is-relative is-fullheight">
-            <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-               <a class="is-undecorated is-full-height is-block"
-                 href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
-                 <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.svg">
-                </a>
-                </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computational fluid dynamics (CFD) simulations on Azure</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Execute computational fluid dynamics (CFD) simulations on Azure.</p>
                     </div>
                 </div>
             </article>

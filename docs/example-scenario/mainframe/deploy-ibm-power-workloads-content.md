@@ -56,7 +56,7 @@ You can use Azure NetApp Files for scenarios that need network file storage in t
 
 ## Considerations
 
-Azure NetApp Files contains a set of features that provide design considerations based on the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework), which is a set of guiding tenets used to improve the quality of a workload.
+Azure NetApp Files contains a set of features that provide design considerations based on the pillars of the [Azure Well-Architected Framework](/azure/well-architected/), which is a set of guiding tenets used to improve the quality of a workload.
 
 ### Reliability
 
@@ -96,7 +96,7 @@ If your capacity pool size requirements are consistent but performance requireme
 
 #### Automatically tier cold data
 
-Azure NetApp Files has a Standard storage service level with [cool access](https://learn.microsoft.com/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce S3 object storage cost. Cool access automatically moves cold blocks to S3 object storage and automatically returns them to the active file system when a client requests them.
+Azure NetApp Files has a Standard storage service level with [cool access](https://learn.microsoft.com/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce object storage cost. Cool access automatically moves cold blocks to Azure Blob storage and automatically returns them to the active file system when a client requests them.
 
 You can also provision and deprovision various types of capacity pools throughout the month to provide just-in-time performance and reduce costs during periods when you don't need high performance.
 

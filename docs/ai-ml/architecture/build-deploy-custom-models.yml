@@ -5,11 +5,12 @@ metadata:
   description: See Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
   author: jyravi
   ms.author: jyravi
-  ms.date: 07/08/2022
+  ms.date: 07/11/2024
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
 products:

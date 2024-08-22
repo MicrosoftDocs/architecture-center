@@ -39,7 +39,7 @@ You can use this solution to ingest data from Microsoft 365 and other systems to
 
 ## Considerations
 
-These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations use the pillars of the Azure Well-Architected Framework. This framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -110,7 +110,6 @@ For more information, see these articles:
 - [Microsoft Graph Data Connect](/graph)
 - [Microsoft Power BI](/power-bi)
 
-## Related resources
+## Related resource
 
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
-- [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)

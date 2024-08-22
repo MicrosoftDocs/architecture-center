@@ -7,6 +7,7 @@ ms.author: vanesa
 ms.date: 08/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 categories:
   - mixed-reality
 products:

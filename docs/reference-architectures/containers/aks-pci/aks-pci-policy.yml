@@ -8,6 +8,7 @@ metadata:
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
+  ms.custom: arb-containers
 name: Governance, risk, and compliance of for a PCI-DSS 3.2.1 infrastructure  (Part 8 of 9)
 azureCategories:
   - containers

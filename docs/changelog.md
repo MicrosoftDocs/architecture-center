@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 06/24/2024
+ms.date: 08/19/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: robbag
@@ -23,18 +23,149 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## August 2024
+
+### New articles
+
+- [Industrial Edge with Azure AI on Azure](./example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml)
+
+### Updated articles
+
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
+- [Intelligent apps using Azure Database for MySQL](./databases/idea/intelligent-apps-using-azure-database-for-mysql.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
+- [Azure Database for PostgreSQL intelligent apps](./databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
+- [Oracle database migration to Azure](./databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
+- [Azure VMware Solution capacity planning](./solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml)  ([#df27cc8f56](https://github.com/MicrosoftDocs/architecture-center/commit/df27cc8f56))
+- [Core startup stack architecture](./example-scenario/startups/core-startup-stack.yml)  ([#f1791cb942](https://github.com/MicrosoftDocs/architecture-center/commit/f1791cb942))
+- [Migrate your e-commerce solution to Azure](./industries/retail/migrate-ecommerce-solution.md)  ([#20635de1aa](https://github.com/MicrosoftDocs/architecture-center/commit/20635de1aa))
+- [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#623e62824f](https://github.com/MicrosoftDocs/architecture-center/commit/623e62824f))
+- [Building the first layer of defense with Azure security services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)  ([#ff50fd224f](https://github.com/MicrosoftDocs/architecture-center/commit/ff50fd224f))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#cfdf99ab37](https://github.com/MicrosoftDocs/architecture-center/commit/cfdf99ab37))
+- [Retry pattern](./patterns/retry.yml)  ([#ea612ee4ab](https://github.com/MicrosoftDocs/architecture-center/commit/ea612ee4ab))
+- [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
+- [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
+- [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./databases/guide/teradata-vantage-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
+- [Individual contributor tasks in the Team Data Science Process](./data-science-process/project-ic-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [Project lead tasks in the Team Data Science Process](./data-science-process/project-lead-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [Team lead tasks in the Team Data Science Process](./data-science-process/team-lead-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [DataOps for the modern data warehouse](./databases/architecture/dataops-mdw.yml)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [N-tier application with Apache Cassandra](./databases/architecture/n-tier-cassandra.yml)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics](./databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)  ([#7317a1b530](https://github.com/MicrosoftDocs/architecture-center/commit/7317a1b530))
+- [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md)  ([#3865a10040](https://github.com/MicrosoftDocs/architecture-center/commit/3865a10040))
+- [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#3865a10040](https://github.com/MicrosoftDocs/architecture-center/commit/3865a10040))
+- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#7a47bacb93](https://github.com/MicrosoftDocs/architecture-center/commit/7a47bacb93))
+
+## July 2024
+
+### New articles
+
+- [Azure Stack HCI baseline reference architecture](./hybrid/azure-stack-hci-baseline.yml)
+- [Azure Stack HCI three-node storage switchless architecture](./hybrid/azure-stack-hci-switchless.yml)
+- [Image classification on Azure](./ai-ml/idea/intelligent-apps-image-processing.yml)
+- [Use Azure API Management in a multitenant solution](./guide/multitenant/service/api-management.md)
+
+### Updated articles
+
+- [Azure Kubernetes Service (AKS) - planning](./reference-architectures/containers/aks-start-here.md)  ([#71cb524347](https://github.com/MicrosoftDocs/architecture-center/commit/71cb524347))
+- [Protect APIs with Azure Application Gateway and Azure API Management](./web-apps/api-management/architectures/protect-apis.yml)  ([#71cb524347](https://github.com/MicrosoftDocs/architecture-center/commit/71cb524347))
+- [What is the Team Data Science Process?](./data-science-process/overview.yml)  ([#cb10eaee05](https://github.com/MicrosoftDocs/architecture-center/commit/cb10eaee05))
+- [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#cb10eaee05](https://github.com/MicrosoftDocs/architecture-center/commit/cb10eaee05))
+- [Azure IoT reference architecture](./reference-architectures/iot.yml)  ([#9984ed44c0](https://github.com/MicrosoftDocs/architecture-center/commit/9984ed44c0))
+- [Create smart places by using Azure Digital Twins](./example-scenario/iot/smart-places.yml)  ([#da340d5676](https://github.com/MicrosoftDocs/architecture-center/commit/da340d5676))
+- [Oracle Database with Azure NetApp Files](./example-scenario/file-storage/oracle-azure-netapp-files.yml)  ([#9187e38cb6](https://github.com/MicrosoftDocs/architecture-center/commit/9187e38cb6))
+- [Baseline highly available zone-redundant app services web application](./web-apps/app-service/architectures/baseline-zone-redundant.yml)  ([#2e88dba4ed](https://github.com/MicrosoftDocs/architecture-center/commit/2e88dba4ed))
+- [Basic web application](./web-apps/app-service/architectures/basic-web-app.yml)  ([#2e88dba4ed](https://github.com/MicrosoftDocs/architecture-center/commit/2e88dba4ed))
+- [Priority Queue pattern](./patterns/priority-queue.yml)  ([#d480fd13ca](https://github.com/MicrosoftDocs/architecture-center/commit/d480fd13ca))
+- [Machine learning operations v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#dba2fe1062](https://github.com/MicrosoftDocs/architecture-center/commit/dba2fe1062))
+- [Azure resource organization in multitenant solutions](./guide/multitenant/approaches/resource-organization.yml)  ([#aeb4906fe3](https://github.com/MicrosoftDocs/architecture-center/commit/aeb4906fe3))
+- [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md)  ([#c4a5c1824a](https://github.com/MicrosoftDocs/architecture-center/commit/c4a5c1824a))
+- [Refactor an IBM z/OS coupling facility](./reference-architectures/zos/refactor-zos-coupling-facility.yml)  ([#134d0d3225](https://github.com/MicrosoftDocs/architecture-center/commit/134d0d3225))
+- [Make all things redundant](./guide/design-principles/redundancy.md)  ([#525db19638](https://github.com/MicrosoftDocs/architecture-center/commit/525db19638))
+- [Design for self healing](./guide/design-principles/self-healing.md)  ([#525db19638](https://github.com/MicrosoftDocs/architecture-center/commit/525db19638))
+- [Migrate a simple app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)  ([#810d06f775](https://github.com/MicrosoftDocs/architecture-center/commit/810d06f775))
+- [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#233dc039e0](https://github.com/MicrosoftDocs/architecture-center/commit/233dc039e0))
+- [Cloud design patterns](./patterns/index.md)  ([#790ad01066](https://github.com/MicrosoftDocs/architecture-center/commit/790ad01066))
+- [Choose a cognitive services technology](./data-guide/technology-choices/cognitive-services.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
+- [Choose a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
+- [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
+- [Group manager tasks in the Team Data Science Process](./data-science-process/group-manager-tasks.md)  ([#3cf6a613d3](https://github.com/MicrosoftDocs/architecture-center/commit/3cf6a613d3))
+- [Business understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-business-understanding.md)  ([#3cf6a613d3](https://github.com/MicrosoftDocs/architecture-center/commit/3cf6a613d3))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#90a20ac702](https://github.com/MicrosoftDocs/architecture-center/commit/90a20ac702))
+- [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#9080f70ced](https://github.com/MicrosoftDocs/architecture-center/commit/9080f70ced))
+- [Run a Windows VM on Azure](./reference-architectures/n-tier/windows-vm.yml)  ([#dc428f7b59](https://github.com/MicrosoftDocs/architecture-center/commit/dc428f7b59))
+- [Microsoft partner and third-party scenarios on Azure](./guide/partner-scenarios.md)  ([#5c0d9b3b86](https://github.com/MicrosoftDocs/architecture-center/commit/5c0d9b3b86))
+- [Types of vision API services](./data-guide/cognitive-services/vision-api.md)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
+- [Types of language API services](./data-guide/cognitive-services/language-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
+- [Types of speech API services](./data-guide/cognitive-services/speech-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural approaches for governance and compliance in multitenant solutions](./guide/multitenant/approaches/governance-compliance.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural approaches for tenant integration and data access](./guide/multitenant/approaches/integration.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Architectural considerations for identity in a multitenant solution](./guide/multitenant/considerations/identity.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Tenant lifecycle considerations in a multitenant solution](./guide/multitenant/considerations/tenant-lifecycle.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Use Azure Front Door in a multitenant solution](./guide/multitenant/service/front-door.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
+- [Deploy SAS Grid 9.4 on Azure NetApp Files](./guide/hpc/netapp-files-sas.yml)  ([#a9e1aa18b6](https://github.com/MicrosoftDocs/architecture-center/commit/a9e1aa18b6))
+- [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)  ([#4044caa69b](https://github.com/MicrosoftDocs/architecture-center/commit/4044caa69b))
+- [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#4044caa69b](https://github.com/MicrosoftDocs/architecture-center/commit/4044caa69b))
+- [Security considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-security.md)  ([#4044caa69b](https://github.com/MicrosoftDocs/architecture-center/commit/4044caa69b))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#a3bf6fecb0](https://github.com/MicrosoftDocs/architecture-center/commit/a3bf6fecb0))
+- [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#01c5ce83cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c5ce83cb))
+- [Considerations when using domain names in a multitenant solution](./guide/multitenant/considerations/domain-names.yml)  ([#fab01daa64](https://github.com/MicrosoftDocs/architecture-center/commit/fab01daa64))
+- [Architectural considerations for a multitenant solution](./guide/multitenant/considerations/overview.yml)  ([#fab01daa64](https://github.com/MicrosoftDocs/architecture-center/commit/fab01daa64))
+- [Build and deploy custom document processing models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#feb90625fa](https://github.com/MicrosoftDocs/architecture-center/commit/feb90625fa))
+- [Index file content and metadata by using Azure AI Search](./ai-ml/architecture/search-blob-metadata.yml)  ([#7767b45a83](https://github.com/MicrosoftDocs/architecture-center/commit/7767b45a83))
+- [Resiliency checklist for services](./checklist/resiliency-per-service.md)  ([#d622b44e5e](https://github.com/MicrosoftDocs/architecture-center/commit/d622b44e5e))
+- [CDN guidance](./best-practices/cdn.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Host name preservation](./best-practices/host-name-preservation.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Monitoring and diagnostics guidance](./best-practices/monitoring.yml)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Azure service retry guidance](./best-practices/retry-service-specific.md)  ([#d29f5f7d24](https://github.com/MicrosoftDocs/architecture-center/commit/d29f5f7d24))
+- [Architectural approaches for control planes in multitenant solutions](./guide/multitenant/approaches/control-planes.md)  ([#6de5e6f5d8](https://github.com/MicrosoftDocs/architecture-center/commit/6de5e6f5d8))
+- [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)  ([#6de5e6f5d8](https://github.com/MicrosoftDocs/architecture-center/commit/6de5e6f5d8))
+- [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml)  ([#5d0aa22e87](https://github.com/MicrosoftDocs/architecture-center/commit/5d0aa22e87))
+- [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)  ([#2a9102b977](https://github.com/MicrosoftDocs/architecture-center/commit/2a9102b977))
+- [Azure Private Link service considerations for multitenancy](./guide/multitenant/service/private-link.md)  ([#1aedb5d6ae](https://github.com/MicrosoftDocs/architecture-center/commit/1aedb5d6ae))
+- [Architectural approaches for a multitenant solution](./guide/multitenant/approaches/overview.yml)  ([#217fa95e83](https://github.com/MicrosoftDocs/architecture-center/commit/217fa95e83))
+- [Noisy Neighbor antipattern](./antipatterns/noisy-neighbor/noisy-neighbor.yml)  ([#0c1bc4ec53](https://github.com/MicrosoftDocs/architecture-center/commit/0c1bc4ec53))
+- [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#5b31def6dc](https://github.com/MicrosoftDocs/architecture-center/commit/5b31def6dc))
+- [Azure Cache for Redis considerations for multitenancy](./guide/multitenant/service/cache-redis.md)  ([#85599ed745](https://github.com/MicrosoftDocs/architecture-center/commit/85599ed745))
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#24b1156b1c](https://github.com/MicrosoftDocs/architecture-center/commit/24b1156b1c))
+- [Cost management for Kubernetes](./aws-professional/eks-to-aks/cost-management.yml)  ([#0296b7c2d5](https://github.com/MicrosoftDocs/architecture-center/commit/0296b7c2d5))
+- [Storage options for a Kubernetes cluster](./aws-professional/eks-to-aks/storage.md)  ([#add9c4d6dc](https://github.com/MicrosoftDocs/architecture-center/commit/add9c4d6dc))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#e7375957b9](https://github.com/MicrosoftDocs/architecture-center/commit/e7375957b9))
+- [Performance and scale guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.yml)  ([#6113dcf9a0](https://github.com/MicrosoftDocs/architecture-center/commit/6113dcf9a0))
+- [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md)  ([#6113dcf9a0](https://github.com/MicrosoftDocs/architecture-center/commit/6113dcf9a0))
+- [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI](./example-scenario/hybrid/aks-baseline.yml)  ([#269a89f7a8](https://github.com/MicrosoftDocs/architecture-center/commit/269a89f7a8))
+- [Multiparty computing architecture design](./guide/blockchain/multiparty-compute.yml)  ([#35d48de602](https://github.com/MicrosoftDocs/architecture-center/commit/35d48de602))
+- [Analyze observational patient data by using OHDSI with the OMOP CDM](./example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml)  ([#a22c7975e2](https://github.com/MicrosoftDocs/architecture-center/commit/a22c7975e2))
+
 ## June 2024
 
 ### New articles
 
+- [Use AI enrichment with image and text processing](./solution-ideas/articles/ai-search-skillsets.yml)
 - [Use Azure Front Door to secure AKS workloads](./example-scenario/aks-front-door/aks-front-door.yml)
+- [Provide alternative authentication to Azure OpenAI services through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)
 - [Use Azure Red Hat OpenShift in the financial services industry](./reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml)
 - [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure](./example-scenario/mainframe/deploy-ibm-power-workloads.yml)
 - [Use Azure OpenAI to process podcast audio files](./ai-ml/idea/process-audio-files.yml)
 
 ### Updated articles
 
+- [Load-balancing options](./guide/technology-choices/load-balancing-overview.yml)  ([#fedcb8a570](https://github.com/MicrosoftDocs/architecture-center/commit/fedcb8a570))
 - [Run a Capture the Flag game service with CTFd on Azure PaaS](./example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml)  ([#a67e0fa22b](https://github.com/MicrosoftDocs/architecture-center/commit/a67e0fa22b))
+- [Azure Resource Manager considerations for multitenancy](./guide/multitenant/service/resource-manager.md)  ([#340e821068](https://github.com/MicrosoftDocs/architecture-center/commit/340e821068))
+- [Tenancy models for a multitenant solution](./guide/multitenant/considerations/tenancy-models.yml)  ([#9065e2bdea](https://github.com/MicrosoftDocs/architecture-center/commit/9065e2bdea))
+- [Artificial intelligence (AI) architecture](./ai-ml/index.md)  ([#5cfe865d6c](https://github.com/MicrosoftDocs/architecture-center/commit/5cfe865d6c))
+- [Implement logging and monitoring for Azure OpenAI language models](./ai-ml/openai/architecture/log-monitor-azure-openai.yml)  ([#5cfe865d6c](https://github.com/MicrosoftDocs/architecture-center/commit/5cfe865d6c))
 - [Build and deploy custom document processing models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#41812da656](https://github.com/MicrosoftDocs/architecture-center/commit/41812da656))
 - [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)  ([#70a52e7f1f](https://github.com/MicrosoftDocs/architecture-center/commit/70a52e7f1f))
 - [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#d5ffd66a10](https://github.com/MicrosoftDocs/architecture-center/commit/d5ffd66a10))
@@ -74,7 +205,6 @@ The following new and updated articles have recently been published in the Azure
 - [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./databases/guide/teradata-vantage-data-factory.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Azure Synapse Analytics for landing zones](./example-scenario/analytics/synapse-analytics-landing-zone.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
-- [Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](./example-scenario/analytics/synapse-customer-insights.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Refactor mainframe architecture by using CloudFrame Renovate](./example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
@@ -129,7 +259,6 @@ The following new and updated articles have recently been published in the Azure
 - [N-tier application with Apache Cassandra](./databases/architecture/n-tier-cassandra.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
 - [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
 - [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml)  ([#84a2e94497](https://github.com/MicrosoftDocs/architecture-center/commit/84a2e94497))
-- [Enable the financial services risk lifecycle with Azure and R](./industries/finance/financial-risk-model.md)  ([#be1be29555](https://github.com/MicrosoftDocs/architecture-center/commit/be1be29555))
 - [AKS triage—Workload deployments](./operator-guides/aks/aks-triage-deployment.md)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
 - [AKS triage—Node health](./operator-guides/aks/aks-triage-node-health.md)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
 - [Quarantine pattern](./patterns/quarantine.yml)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))

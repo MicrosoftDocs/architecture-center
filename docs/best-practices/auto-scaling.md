@@ -5,7 +5,7 @@ description: Review autoscaling guidance. Autoscaling is the process of dynamica
 ms.author: robbag
 author: RobBagby
 ms.date: 10/11/2022
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: best-practice
 categories:
@@ -39,8 +39,8 @@ Many cloud-based systems, including Microsoft Azure, support automatic horizonta
 An autoscaling strategy typically involves the following pieces:
 
 - Instrumentation and monitoring systems at the application, service, and infrastructure levels. These systems capture key metrics, such as response times, queue lengths, CPU utilization, and memory usage.
-- Decision-making logic that evaluates these metrics against predefined thresholds or schedules, and decides whether to scale.
-- Components that scale the system.
+- Decision-making logic that evaluates these live usage metrics against predefined thresholds or schedules and decides whether to scale.
+- Components and mechanisms that perform the scaling action. Ideally, these components and mechanisms should be decoupled from the workload code itself and managed as an external process. Code that is idle or being overwhelmed should not be responsible for scaling itself.
 - Testing, monitoring, and tuning of the autoscaling strategy to ensure that it functions as expected.
 
 Azure provides built-in autoscaling mechanisms that address common scenarios. If a particular service or technology does not have built-in autoscaling functionality, or if you have specific autoscaling requirements beyond its capabilities, you might consider a custom implementation. A custom implementation would collect operational and system metrics, analyze the metrics, and then scale resources accordingly.
@@ -53,7 +53,7 @@ Azure provides built-in autoscaling for most compute options.
 
 - **Service Fabric** also supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. That way, each node type can be scaled in or out independently. See [Scale a Service Fabric cluster in or out using autoscale rules][service-fabric-autoscale].
 
-- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up).
+- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an app service. For more information, see [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up).
 
 These compute options all use [Azure Monitor autoscale][monitoring] to provide a common set of autoscaling functionality.
 
@@ -126,8 +126,8 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 - When background tasks run on separate compute instances, such as in worker roles of a cloud-services&ndash;hosted application, you may need to scale different parts of the application using different scaling policies. For example, you may need to deploy additional user interface (UI) compute instances without increasing the number of background compute instances, or the opposite of this. If you offer different levels of service (such as basic and premium service packages), you may need to scale out the compute resources for premium service packages more aggressively than those for basic service packages in order to meet SLAs.
 
-- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This is one possible indicator of an imbalance or difference between the current load and the processing capacity of the background task. There is a slightly more complex, but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it is unnecessary to scale, even if the queue length is long. 
-  - For example, there could be 50,000 messages in a queue, but the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a 3rd-party web service for sending out emails. It is likely that business stakeholders would consider that to be a period of time that wouldn't justify spending extra money for scaling. 
+- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This is one possible indicator of an imbalance or difference between the current load and the processing capacity of the background task. There is a slightly more complex, but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it is unnecessary to scale, even if the queue length is long.
+  - For example, there could be 50,000 messages in a queue, but the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a third-party web service for sending out emails. It is likely that business stakeholders would consider that to be a period of time that wouldn't justify spending extra money for scaling.
   - On the other hand, there could be 500 messages in a queue, with the same 500 ms critical time, but the endpoint is part of the critical path in some real-time online game, where business stakeholders defined a 100 ms or less response time. In that case, scaling out would make sense.
   - In order to make use of critical time in auto-scaling decisions, it's helpful to have a library automatically add the relevant information to the headers of messages, while they are sent and processed. One such library that provides this functionality is [NServiceBus](https://docs.particular.net/monitoring/metrics/definitions#metrics-captured-critical-time).
 

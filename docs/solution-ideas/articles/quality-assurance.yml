@@ -21,6 +21,7 @@ metadata:
     - anomaly-detection
     - "https://azure.microsoft.com/solutions/architecture/quality-assurance"
     - ai-machine-learning
+    - arb-aiml
 name: Quality assurance
 azureCategories:
   - ai-machine-learning

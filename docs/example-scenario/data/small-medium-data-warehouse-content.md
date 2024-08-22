@@ -96,7 +96,7 @@ This solution isn't recommended for:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The following considerations apply to this scenario.
 
@@ -152,5 +152,4 @@ Principal author:
   - [Data lakes](../../data-guide/scenarios/data-lake.md)
   - [Data warehousing and analytics](data-warehouse.yml)
   - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
-  - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
   - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

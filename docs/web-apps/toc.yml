@@ -66,10 +66,6 @@ items:
         items:
         - name: Single-page application authorization
           href: guides/security/secure-single-page-application-authorization.yml
-      - name: Monitoring guidance for web apps
-        items:
-        - name: Monitoring a web application
-          href: guides/monitoring/app-monitoring.yml
       - name: Application development guidance for web apps
         items:
         - name: Enterprise Web App Patterns

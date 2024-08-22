@@ -49,7 +49,6 @@ The following articles provide detailed analysis of architectures created and re
 |[Efficient Docker image deployment for intermittent low-bandwidth connectivity](../example-scenario/iot/efficient-docker-image-deployment.yml)|An example architecture for situations where containers are part of the solution and connectivity is intermittent with low bandwidth. Possible uses are over-the-air automotive updates and other mobile scenarios.|IoT|
 |[Process real-time vehicle data using IoT](../example-scenario/data/realtime-analytics-vehicle-iot.yml)|An example architecture for capturing, analyzing, and visualizing data from sensors and IoT devices—key capabilities for creating connected-car solutions.|IoT|
 |[Real-time IoT updates](../example-scenario/iot/real-time-iot-updates-cloud-apps.yml)|An example architecture that outlines a way for clients like web pages or mobile apps to receive updates from devices in real time without HTTP polling. Instead, Azure SignalR Service pushes content to clients as soon as it's available. |IoT|
-|[Run CFD simulations](../example-scenario/infrastructure/hpc-cfd.yml)|An example architecture that runs Computational Fluid Dynamics (CFD) simulations. It uses Azure to address the high-compute issues of cost, spare capacity, and long queue times.|Compute|
 
 ## Solution ideas for the automotive, mobility, and transportation industries
 

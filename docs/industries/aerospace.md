@@ -50,10 +50,8 @@ The following articles provide detailed analysis of architectures created and re
 |[Serverless web application](../web-apps/serverless/architectures/web-app.yml) |Review a reference architecture that shows a serverless web application that serves static content from Azure Blob Storage.  An example scenario describes a company that uses a drone-based delivery service.|Serverless|
 |[Spaceborne data analysis with Azure Synapse Analytics](./aerospace/geospatial-processing-analytics.yml) |View a reference architecture that enables geospatial workloads on Azure by using Azure Synapse.|Analytics|
 
-## Solution ideas for aerospace
+## Solution idea for aerospace
 
-Following are some other ideas that you can use as a starting point for your aerospace solution.
+Use the following idea as a starting point for your aerospace solution.
 
-- [Data cache](../databases/idea/data-cache-with-redis-cache.yml)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-- [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)

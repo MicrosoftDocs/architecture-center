@@ -129,7 +129,7 @@ This solution applies to many areas:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this solution were chosen for their scalability and availability, with the aim of managing and controlling the costs.
 
@@ -221,7 +221,6 @@ Other contributors:
 ## Related resources
 
 - [Solutions for the education industry](../../industries/education.md)
-- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

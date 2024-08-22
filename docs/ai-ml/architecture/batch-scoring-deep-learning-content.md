@@ -55,7 +55,7 @@ A media organization has a video whose style they want to change to look like a 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance efficiency
 
@@ -145,10 +145,9 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Next step
 
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
-- [Batch scoring of Python models on Azure](batch-scoring-python.yml)
 
 ## Related resources
 

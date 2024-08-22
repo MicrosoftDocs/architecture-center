@@ -5,12 +5,12 @@ description: Icons for use in building architecture diagrams for Azure
 ms.author: robbag
 author: RobBagby
 ms.reviewer: chkittel
-ms.date: 02/14/2024
+ms.date: 07/12/2024
 ms.service: architecture-center
+ms.subservice: azure-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
-ms.custom: engagement-fy23
 ---
 
 # Azure architecture icons
@@ -43,6 +43,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 |Month|Change description|
 |--------------|--------------|
+|July 2024|Rebranded more Microsoft Entra ID icons. Added new icons such as AI Content Safety, AKS Automatic, Application Gateway for Containers, and Azure Monitor Pipeline.|
 |February 2024|Over 40 new icons for various services and components such as AI (including Azure OpenAI), Azure Operator, Microsoft Entra ID, and Azure networking.|
 |August 2023|Added new Microsoft Entra ID icon. Reorganized folder structure of some icons.|
 |June 2023|General updates.|
@@ -62,10 +63,11 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V18.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V19.zip)
 
 ## More icon sets from Microsoft
 
-- [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
 - [Dynamics 365 icons](/dynamics365/get-started/icons)
+- [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
+- [Microsoft Entra ID architecture icons](/entra/architecture/architecture-icons)
 - [Microsoft Power Platform icons](/power-platform/guidance/icons)

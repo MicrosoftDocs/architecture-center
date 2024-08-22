@@ -17,6 +17,7 @@ metadata:
     - acom-architecture
     - speech
     - ai-machine-learning
+    - arb-aiml
 name: Use Azure OpenAI to process podcast audio files
 azureCategories:
   - ai-machine-learning

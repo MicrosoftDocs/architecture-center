@@ -62,5 +62,4 @@ The following articles provide detailed analysis of architectures developed and 
 The following are other ideas that you can use as a starting point for your media and entertainment solution.
 
 - [HPC Media Rendering](../solution-ideas/articles/azure-batch-rendering.yml)
-- [Suggest content tags with deep learning and NLP](../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
 - [Keyword search/speech-to-text/OCR digital media](../solution-ideas/articles/digital-media-speech-text.yml)

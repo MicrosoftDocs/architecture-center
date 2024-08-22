@@ -101,7 +101,7 @@ You can use all or part of this example for any similar scenario that has an MLO
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that improve the quality of a workload when applied. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that improve the quality of a workload when applied. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -446,7 +446,7 @@ resource "azurerm_private_endpoint" "acr_ep" {
 }
 ```
 
-This example scenario also ensures that the container registry has a contributor role for the system-assigned managed identity of the Azure Machine Learning workspace.
+This example scenario also ensures that the container registry has a Contributor role for the system-assigned managed identity of the Azure Machine Learning workspace.
 
 #### Use a compute cluster or instance in the virtual network
 

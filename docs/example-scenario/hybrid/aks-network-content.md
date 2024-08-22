@@ -2,6 +2,9 @@ This scenario illustrates how to design and implement network concepts for deplo
 
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers. It's part of an architectural baseline guidance set of two articles. See the [baseline architecture recommendations here](aks-baseline.yml).
 
+> [!IMPORTANT]
+> The information in this article applies to [AKS on Azure Stack HCI version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
+
 ## Architecture
 
 The following image shows the network architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter clusters:
@@ -12,7 +15,7 @@ The following image shows the network architecture for Azure Kubernetes Service 
 
 The scenario consists of the following components and capabilities:
 
-- [Azure Stack HCI (20H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Stack HCI cluster is implemented as a 2-4 node cluster.
+- [Azure Stack HCI (22H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Stack HCI cluster is implemented as a 2-4 node cluster.
 - Windows Server 2019/2022 datacenter failover cluster is a group of independent computers that work together to increase the availability and scalability of clustered roles.
 - [Azure Kubernetes Service on Azure Stack HCI][] is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale.
 - [Active Directory Domain Services][] is a hierarchical structure that stores information about objects on the network. It provides identity and access solution for identities associated with users, computers, applications, or other resources that are included in a security boundary.
@@ -330,7 +333,7 @@ Other contributors:
 
 - [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)
 
-[Azure Stack HCI (20H2)]: /azure-stack/hci/overview
+[Azure Stack HCI (22H2)]: /azure-stack/hci/overview
 [Azure Kubernetes Service on Azure Stack HCI]: /azure/aks/hybrid/aks-hybrid-options-overview
 [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
 [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
@@ -354,10 +357,10 @@ Other contributors:
 [Dynamic Virtual Machine Multi-Queue]: https://techcommunity.microsoft.com/t5/networking-blog/synthetic-accelerations-in-a-nutshell-windows-server-2019/ba-p/653976
 [Network ATC]: /azure-stack/hci/concepts/network-atc-overview
 [Azure Arc–enabled Kubernetes service]: /azure/azure-arc/kubernetes/
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
+[Microsoft Azure Well-Architected Framework]: /azure/well-architected/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [cost optimization]: /azure/architecture/framework/cost/overview
-[Microsoft Azure Well-Architected Framework.]: /azure/architecture/framework/
+[Microsoft Azure Well-Architected Framework.]: /azure/well-architected/
 [manage your Kubernetes cluster using GitOps]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: /azure/architecture/hybrid/arc-hybrid-kubernetes
 [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac

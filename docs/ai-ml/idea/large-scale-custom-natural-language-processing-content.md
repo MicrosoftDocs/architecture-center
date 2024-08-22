@@ -48,7 +48,7 @@ For customized NLP workloads, the open-source library Spark NLP serves as an eff
 
   - Text preprocessing in Spark NLP and machine learning algorithms that are based on Spark ML
   - Text preprocessing and word embedding in Spark NLP and machine learning algorithms such as GloVe, BERT, and ELMo
-  - Text preprocessing and sentence embedding in spark NLP and machine learning algorithms and models such as the Universal Sentence Encoder
+  - Text preprocessing and sentence embedding in Spark NLP and machine learning algorithms and models such as the Universal Sentence Encoder
   - Text preprocessing and classification in Spark NLP that uses the ClassifierDL annotator and is based on TensorFlow
 
 - **Name entity extraction (NER):** In Spark NLP, with a few lines of code, you can train a NER model that uses BERT, and you can achieve state-of-the-art accuracy. NER is a subtask of information extraction. NER locates named entities in unstructured text and classifies them into predefined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, and percentages. Spark NLP uses a state-of-the-art NER model with BERT. The model is inspired by a former NER model, bidirectional LSTM-CNN. That former model uses a novel neural network architecture that automatically detects word-level and character-level features. For this purpose, the model uses a hybrid bidirectional LSTM and CNN architecture, so it eliminates the need for most feature engineering.
@@ -104,4 +104,3 @@ Principal author:
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 - [Analyze news feeds with near real-time analytics using image and natural language processing](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
-- [Suggest content tags with NLP using deep learning](./website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
