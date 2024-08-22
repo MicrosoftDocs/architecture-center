@@ -159,7 +159,7 @@ Underutilization can occur when the GPUs aren't fully utilized by your workloads
 
 [Multi-instance GPUs](https://learn.microsoft.com/azure/aks/gpu-multi-instance?tabs=azure-cli) are supported for Linux GPU workload deployments on AKS. This feature allows you to partition NVIDIA's A100 GPU into seven independent instances. Each instance has its own memory and Stream Multiprocessor (SM).
 
-NVIDIA supports other partitioning techniques, such as time-slicing and MPS. You can [manually apply these configurations](https://learn.microsoft.com/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool#:~:text=Skip%20GPU%20driver%20installation%20%28preview%29) using the NVIDIA GPU Operator.
+NVIDIA supports other partitioning techniques, such as time-slicing and MPS. You can [manually apply these configurations](/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool#:~:text=Skip%20GPU%20driver%20installation%20%28preview%29) using the NVIDIA GPU Operator.
 
 For advanced scenarios, you can improve resource bin-packing on your nodes with the help of scheduler configurations and running a second scheduler. Learn more about configuring and maintaining a secondary scheduler that can use alternative workload placement strategies from the default AKS scheduler, see [Configure Multiple Schedulers on Kubernetes](https://kubernetes.io/docs/tasks/extend-kubernetes/configure-multiple-schedulers/).
 
