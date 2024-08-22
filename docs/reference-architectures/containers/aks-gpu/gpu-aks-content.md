@@ -157,7 +157,7 @@ Overprovisioning, which is when more resources are allocated than necessary for 
 
 Underutilization can occur when the GPUs aren't fully utilized by your workloads. Consider advanced GPU sharing and partitioning techniques. Rather than using multiple nodes, you might be able to use a single node with partitioning to maximize GPU utilization. These techniques can help you allocate the appropriate amount of GPU acceleration for each workload, which can enhance utilization and lower the operational costs of deployment.
 
-[Multi-instance GPUs](https://learn.microsoft.com/azure/aks/gpu-multi-instance?tabs=azure-cli) are supported for Linux GPU workload deployments on AKS. This feature allows you to partition NVIDIA's A100 GPU into seven independent instances. Each instance has its own memory and Stream Multiprocessor (SM).
+[Multi-instance GPUs](/azure/aks/gpu-multi-instance?tabs=azure-cli) are supported for Linux GPU workload deployments on AKS. This feature allows you to partition NVIDIA's A100 GPU into seven independent instances. Each instance has its own memory and Stream Multiprocessor (SM).
 
 NVIDIA supports other partitioning techniques, such as time-slicing and MPS. You can [manually apply these configurations](/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool#:~:text=Skip%20GPU%20driver%20installation%20%28preview%29) using the NVIDIA GPU Operator.
 
