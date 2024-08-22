@@ -1197,10 +1197,12 @@ items:
             href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Firewall protection for an AKS cluster
             href: guide/aks/aks-firewall.yml
-          - name: Overview of migration from Service Fabric to AKS
-            href: guide/aks/service-fabric-azure-kubernetes-service.md
+          - name: Secure AKS workloads with Azure Front Door
+            href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Multitenancy with AKS and AGIC
             href: example-scenario/aks-agic/aks-agic.yml
+          - name: Overview of migration from Service Fabric to AKS
+            href: guide/aks/service-fabric-azure-kubernetes-service.md
           - name: AKS data protection on Azure NetApp Files
             href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
           - name: AKS dual-stack network traffic
