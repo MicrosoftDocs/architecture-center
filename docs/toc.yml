@@ -871,8 +871,6 @@ items:
         items:
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-        - name: Interactive analytics with Data Explorer
-          href: solution-ideas/articles/interactive-azure-data-explorer.yml
       - name: Content Delivery Network analytics
         href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
       - name: Demand forecasting for pricing

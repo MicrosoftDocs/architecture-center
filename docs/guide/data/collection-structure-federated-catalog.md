@@ -55,7 +55,7 @@ The preceding structure enables the creation of a federated catalog for two type
    > [!Note] 
    > When inherited permissions are restricted, with the exception of Collection Administrator role, assignments from higher levels aren't inherited. Inheritance can't be broken for the Collection Administrator role. 
 
-- **Type 2.** Subdivisions that use different catalogs and import their metadata to the federated data catalog in other ways. (For an example architecture, see [Ingest metadata from external catalogs to Microsoft Purview](../../solution-ideas/articles/sync-framework-metadata-ingestion.yml).) These catalogs are represented by collections under *External catalogs root collection* in the first diagram. 
+- **Type 2.** Subdivisions that use different catalogs and import their metadata to the federated data catalog in other ways. These catalogs are represented by collections under *External catalogs root collection* in the first diagram. 
    - Members of these subdivisions aren't granted permissions to create subcollections. Each subdivision gets its own root collection, but only the **Data reader** role is assigned to the users. Collection Administrator and Data Source Administrator roles aren't assigned. These roles are assigned only to the administrator of the catalog. 
    - All users of the federated catalog can read the metadata that members of these divisions import.
 
