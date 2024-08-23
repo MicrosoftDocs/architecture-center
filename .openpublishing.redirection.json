@@ -3278,7 +3278,7 @@
     {
       "source_path": "docs/solution-ideas/articles/application-integration-using-event-grid.yml",
       "redirect_url": "/azure/event-grid/overview",
-      "redirect_document_id": false  
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/interactive-azure-data-explorer.yml",
@@ -3293,12 +3293,12 @@
     {
       "source_path": "docs/solution-ideas/articles/sync-framework-metadata-ingestion.yml",
       "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
-      "redirect_document_id": false   
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
-      "redirect_document_id": false               
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
