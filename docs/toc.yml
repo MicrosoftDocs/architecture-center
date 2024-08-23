@@ -610,10 +610,10 @@ items:
         items:
         - name: Azure security for AWS
           href: guide/aws/aws-azure-security-solutions.yml
-        - name: Connect AWS to Microsoft Sentinel
+        - name: Defender recommendations for AWS
           href: /azure/sentinel/connect-aws
           maintainContext: true
-        - name: Microsoft Defender for AWS
+        - name: Defender for Cloud security policies for AWS
           items:
           - name: Protect AWS with Microsoft Defender
             href: /defender-cloud-apps/protect-aws
