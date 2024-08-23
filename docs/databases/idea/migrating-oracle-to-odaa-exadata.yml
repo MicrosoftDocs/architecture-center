@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Oracle database migration to Azure
+  title: Oracle database migration to Oracle Database@Azure, Exadata Database Service
   titleSuffix: Azure Architecture
-  description: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
-  author: martinekuan
-  ms.author: pnp
-  ms.date: 07/13/2022
+  description: Migrate an Oracle database to Oracle Database@Azure, Exadata Database Service, leveraging Oracle ZDM and Azure networking.
+  author: jfaurskov
+  ms.author: janfaurs
+  ms.date: 08/23/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -13,15 +13,14 @@ metadata:
     - databases
     - migration
   ms.custom: arb-data
-name: Oracle database migration to Azure
+name: Oracle database migration to Oracle Database@Azure, Exadata Database Service
 azureCategories:
   - databases
   - migration
-summary: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
+summary: Migrate an Oracle database to Oracle Database@Azure, Exadata Database Service, leveraging Oracle ZDM and Azure networking.
 products:
-  - azure-load-balancer
   - azure-expressroute
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
 content: |
-   [!include[](reference-architecture-for-oracle-database-migration-to-azure-content.md)]
+   [!include[](migrating-oracle-to-odaa-exadata.md)]

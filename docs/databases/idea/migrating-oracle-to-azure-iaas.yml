@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Oracle database migration to Azure
+  title: Oracle database migration to Azure virtual machines
   titleSuffix: Azure Architecture
-  description: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
+  description: Migrate an Oracle database to Azure virtual machines leveraging Oracle Data Guard and Azure networking. 
   author: martinekuan
   ms.author: pnp
   ms.date: 07/13/2022
@@ -17,11 +17,11 @@ name: Oracle database migration to Azure
 azureCategories:
   - databases
   - migration
-summary: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
+summary: Migrate an Oracle database to Azure virtual machines leveraging Oracle Data Guard and Azure networking. 
 products:
-  - azure-load-balancer
+  - azure-virtual-machines  
   - azure-expressroute
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
 content: |
-   [!include[](reference-architecture-for-oracle-database-migration-to-azure-content.md)]
+   [!include[](migrating-oracle-to-azure-iaas.md)]
