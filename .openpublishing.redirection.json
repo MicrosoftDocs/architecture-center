@@ -5257,7 +5257,7 @@
     },
     {
       "source_path": "docs/databases/idea/reference-architecture-for-oracle-database-migration-to-azure.md",
-      "redirect_url": "docs/databases/idea/migrating-oracle-to-iaas",
+      "redirect_url": "docs/databases/idea/migrating-oracle-to-iaas-content",
       "redirect_document_id": false
     }
   ]

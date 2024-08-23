@@ -24,9 +24,9 @@ To use ZDM for migration, you need to ensure that the source and target database
 ### Route table configuration
 
 - Create an Azure Route Table with the following configuration and associate to the Client subnet:
-        - Address prefix: <the IP range of the on-premises network>
+        - Address prefix: \<the IP range of the on-premises network\>
         - Next hop type: Virtual appliance
-        - Next hop IP address: <HUB NVA private IP>
+        - Next hop IP address: \<HUB NVA private IP\>
         - Name: NVA-RT
 
 For an example of the updated network configuration, see the following diagram:

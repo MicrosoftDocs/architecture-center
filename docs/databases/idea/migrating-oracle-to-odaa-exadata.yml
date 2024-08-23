@@ -23,4 +23,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
 content: |
-   [!include[](migrating-oracle-to-odaa-exadata.md)]
+   [!include[](migrating-oracle-to-odaa-exadata-content.md)]
