@@ -336,7 +336,7 @@ Distributed tracing tracks a user request as it traverses multiple services. Whe
 
 - *Install OpenTelemetry libraries.* Use Instrumentation Libraries to enable tracing and metrics from common components. Add custom instrumentation with `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` if necessary. Use Exporter Libraries to listen for OpenTelemetry diagnostics and record them in persistent stores. Utilize existing exporters or create your own with `System.Diagnostics.ActivityListener`.
 
-- *Set Up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (Azure.Monitor.OpenTelemetry.AspNetCore). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include additional OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
+- *Set up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include additional OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
 
 The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (Azure.Monitor.OpenTelemetry.AspNetCore), which exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Additional instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket rendering service like this:
 
@@ -365,7 +365,7 @@ builder.Services.AddOpenTelemetry()
 
 The `builder.Logging.AddOpenTelemetry` method routes all logging through OpenTelemetry, ensuring consistent tracing and logging across the application. By registering OpenTelemetry services with `builder.Services.AddOpenTelemetry`, the application is set up to collect and export diagnostics, which are then sent to Azure Application Insights via `UseAzureMonitor`. Additionally, client instrumentation for components like Azure Service Bus and HTTP clients is configured through `WithMetrics` and `WithTracing`, enabling automatic metrics and trace collection without requiring changes to the existing client usage, only an update to the configuration.
 
-- *Monitor and Analyze.* After configuring, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included, allowing Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services effectively.
+- *Monitor and analyze.* After configuring, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included, allowing Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services effectively.
 
 ## Configuration guidance
 
