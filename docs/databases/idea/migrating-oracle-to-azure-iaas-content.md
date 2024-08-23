@@ -7,7 +7,7 @@ ms.date: 8/21/2024
 
 # Introduction
 
-This article describes considerations and recommendations when doing a physical online migration of an Oracle Database from an on-premises Oracle Database implementation to Azure virtual machines using Oracle Data Guard. The article assumes that you have a basic understanding of Oracle Database technologies as well as Azure Compute and networking. The article builds on the scenario described in the article [Migrating Oracle database workloads to Azure](./topic-migrating-oracle-to-azure-content.md).
+This article describes considerations and recommendations when doing a physical online migration of an Oracle Database from an on-premises Oracle Database implementation to Azure virtual machines using Oracle Data Guard. The article assumes that you have a basic understanding of Oracle Database technologies as well as Azure Compute and networking. The article builds on the scenario described in the article [Migrating Oracle database workloads to Azure](topic-migrating-oracle-to-azure-content.md).
 
 ## Scenario
 

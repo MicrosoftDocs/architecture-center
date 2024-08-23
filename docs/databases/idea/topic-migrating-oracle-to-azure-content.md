@@ -22,8 +22,8 @@ Consider the following initial scenario. You have one or more Oracle databases r
 
 ## Implementation checklist
 
-- If you will be migrating to Azure virtual machines, review [Migrating Oracle database workloads to Azure virtual machines](./migrating-oracle-to-azure-iaas-content.md).
-- If you will be migrating to Oracle Database@Azure, Exadata Database Service, review [Migrating Oracle database workloads to Oracle Database@Azure, Exadata Database Service](./migrating-oracle-to-odaa-exadata-content.md).
+- If you will be migrating to Azure virtual machines, review [Migrating Oracle database workloads to Azure virtual machines](migrating-oracle-to-azure-iaas-content.md).
+- If you will be migrating to Oracle Database@Azure, Exadata Database Service, review [Migrating Oracle database workloads to Oracle Database@Azure, Exadata Database Service](migrating-oracle-to-odaa-exadata-content.md).
 
 ## Next steps
 TBD
