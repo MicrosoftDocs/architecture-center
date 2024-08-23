@@ -17,7 +17,7 @@ You have conducted an assessment of your on-premises Oracle Database and applica
 
 You need to migrate the on-premises database to the the Azure VM with the minimum amount of downtime. You have decided to leverage Oracle Data Guard as well as Oracle Recovery Manager (RMAN) for the migration.
 
-fixme diagram to show current setup.
+![Diagram1](_images/oracle-database-migration-to-azure-iaas-01.svg)
 
 ## Network connectivity
 
@@ -33,7 +33,7 @@ To use Oracle Data Guard for migration, you need to ensure that the source and t
 
 For an example of the updated network configuration, see the following diagram:
 
-![Diagram2](media/datamig2.jpg) fixme verify that this is the correct diagram
+![Diagram2](_images/oracle-database-migration-to-azure-iaas-02.svg)
 
 ### Verify connectivity
 
