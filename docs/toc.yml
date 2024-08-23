@@ -4139,8 +4139,6 @@ items:
         maintainContext: true
       - name: Autonomous Vehicle Operations solution idea
         href: /azure/architecture/solution-ideas/articles/avops-architecture
-      - name: Dynamics 365 automotive accelerator
-        href: /dynamics365/industry/accelerators/automotive
       - name: Azure Maps guidance
         items:
         - name: Azure Maps traffic coverage
@@ -4151,9 +4149,6 @@ items:
           maintainContext: true
         - name: Best practices for Route Service
           href: /azure/azure-maps/how-to-use-best-practices-for-routing
-          maintainContext: true
-        - name: Single sign-on for car park management
-          href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
           maintainContext: true
     - name: Architectures
       items:
