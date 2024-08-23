@@ -5251,11 +5251,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/ai-ml/idea/vision-classifier-model-with-custom-vision.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml",
       "redirect_url": "docs/databases/idea/migrating-oracle-to-iaas",
       "redirect_document_id": false
