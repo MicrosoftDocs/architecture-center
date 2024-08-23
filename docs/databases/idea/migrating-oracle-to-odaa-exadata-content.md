@@ -15,7 +15,7 @@ Consider the following scenario: You have deployed Oracle Database@Azure into yo
 
 You need to migrate the database to Oracle Database@Azure with the minimum amount of downtime. You have been asked to leverage Oracle Zero-Downtime Migration tool to orchestrate the migration.
 
-![Diagram1](_images/oracle-database-migration-to-azure-odaa-01.svg)
+![Diagram1](_images/oracle-database-migration-to-azure-odaa-01.jpg)
 
 ## Network connectivity
 
@@ -24,14 +24,14 @@ To use ZDM for migration, you need to ensure that the source and target database
 ### Route table configuration
 
 - Create an Azure Route Table with the following configuration and associate to the Client subnet:
-        - Address prefix: \<the IP range of the on-premises network\>
-        - Next hop type: Virtual appliance
-        - Next hop IP address: \<HUB NVA private IP\>
-        - Name: NVA-RT
+  - Address prefix: \<the IP range of the on-premises network\>
+  - Next hop type: Virtual appliance
+  - Next hop IP address: \<HUB NVA private IP\>
+  - Name: NVA-RT
 
 For an example of the updated network configuration, see the following diagram:
 
-![Diagram2](_images/oracle-database-migration-to-azure-odaa-02.svg)
+![Diagram2](_images/oracle-database-migration-to-azure-odaa-02.jpg)
 
 ### Verify connectivity
 

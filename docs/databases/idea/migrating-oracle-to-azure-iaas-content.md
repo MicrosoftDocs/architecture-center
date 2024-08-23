@@ -17,7 +17,7 @@ You have conducted an assessment of your on-premises Oracle Database and applica
 
 You need to migrate the on-premises database to the the Azure VM with the minimum amount of downtime. You have decided to leverage Oracle Data Guard as well as Oracle Recovery Manager (RMAN) for the migration.
 
-![Diagram1](_images/oracle-database-migration-to-azure-iaas-01.svg)
+![Diagram1](_images/oracle-database-migration-to-azure-iaas-01.jpg)
 
 ## Network connectivity
 
@@ -26,14 +26,14 @@ To use Oracle Data Guard for migration, you need to ensure that the source and t
 ### Route table configuration
 
 - Create an Azure Route Table with the following configuration and associate to the database subnet:
-        - Address prefix: \<the IP range of the on-premises network\>
-        - Next hop type: Virtual appliance
-        - Next hop IP address: \<HUB NVA private IP\>
-        - Name: NVA-RT
+  - Address prefix: \<the IP range of the on-premises network\>
+  - Next hop type: Virtual appliance
+  - Next hop IP address: \<HUB NVA private IP\>
+  - Name: NVA-RT
 
 For an example of the updated network configuration, see the following diagram:
 
-![Diagram2](_images/oracle-database-migration-to-azure-iaas-02.svg)
+![Diagram2](_images/oracle-database-migration-to-azure-iaas-02.jpg)
 
 ### Verify connectivity
 
