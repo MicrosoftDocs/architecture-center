@@ -1,6 +1,8 @@
 <!--cSpell:ignore CQRS Etags -->
 
-## Minimize coordination between application services to achieve scalability
+## Minimize coordination to achieve scalability
+
+Generally speaking in cloud, uncoordinated systems, wherein work items can be handled independently without the need to pass messages between machines, scale the best. Note that coordination is not a binary feature but a spectrum. Coordination can occur at different layers: data, compute, etc.
 
 Most cloud applications consist of multiple application services &mdash; web front ends, databases, business processes, reporting and analysis, and so on. To achieve scalability and reliability, each of those services should run on multiple instances.
 
@@ -18,6 +20,8 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 
 ## Recommendations
 
+**Use decoupled components that communicate asynchronously.** Components should ideally use events to communicate with each other. 
+
 **Embrace eventual consistency.** When data is distributed, it takes coordination to enforce strong consistency guarantees. For example, suppose an operation updates two databases. Instead of putting it into a single transaction scope, it's better if the system can accommodate eventual consistency, perhaps by using the [Compensating Transaction][compensating-transaction] pattern to logically roll back after a failure.
 
 **Use domain events to synchronize state.** A [domain event][domain-event] is an event that records when something happens that has significance within the domain. Interested services can listen for the event, rather than using a global transaction to coordinate across multiple services. If this approach is used, the system must tolerate eventual consistency (see previous item).
@@ -29,8 +33,6 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 - In the [Event Sourcing pattern][event-sourcing], state changes are recorded as a series of events to an append-only data store. Appending an event to the stream is an atomic operation, requiring minimal locking.
 
 These two patterns complement each other. If the write-only store in CQRS uses event sourcing, the read-only store can listen for the same events to create a readable snapshot of the current state, optimized for queries. Before adopting CQRS or event sourcing, however, be aware of the challenges of this approach.
-
-**Partition data.** Avoid putting all of your data into one data schema that is shared across many application services. A microservices architecture enforces this principle by making each service responsible for its own data store. Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard.
 
 **Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item. If the worker needs to update data as well as emit other messages as a part of its logic, the [idempotent message processing pattern][idempotent] should be used.
 
