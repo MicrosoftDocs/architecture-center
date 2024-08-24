@@ -16,7 +16,7 @@ This architecture shows a secure research environment intended to allow research
 
 4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
-5. The secure environment has [Azure Machine Learning](/azure/machine-learning) compute that can access the dataset through a private endpoint for users for Azure Machine Learning capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is de-identified by removing personal information.
+5. The secure environment has [Azure Machine Learning](/azure/machine-learning) and/or [Azure Synapse Analytics](synapse-analytics) that can access the dataset through a private endpoint for users for Azure Machine Learning or Azure Synapse Analytics capabilities, such as to train, deploy, automate, and manage machine learning models or utilize Azure Synapse analytics service. At this point, models are created that meet regulatory guidelines. All model data is de-identified by removing personal information.
 
 6. Models or de-identified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a logic app is triggered. In this architecture, the logic app is outside the secure environment because no data is sent to the logic app. Its only function is to send notification and start the manual approval process.
 
@@ -47,6 +47,8 @@ Here are the core components that move and process research data.
 
 - [**Azure Data Factory:**](https://azure.microsoft.com/services/data-factory) Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
+- [**Azure Data Factory:**](https://azure.microsoft.com/services/synapse-analytics) Analytical tools for big data as well as Pipelines for data integration and ETL/ELT.
+- 
 - [**Azure Virtual Desktop**](https://azure.microsoft.com/free/virtual-desktop) is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use [Azure Bastion](https://azure.microsoft.com/services/azure-bastion). But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
   - Ability to stream an app like Microsoft Visual Studio Code to run notebooks against the machine learning compute resources.
