@@ -141,6 +141,8 @@ This reference architecture uses two different kinds of networks:
 - Your Azure virtual network, which is used for resources like cluster nodes, private endpoints, and Application Gateway.
 - The cluster uses [Azure CNI Overlay](/azure/aks/azure-cni-overlay), which allocates IP addresses to pods from a separate address space to your Azure virtual network.
 
+### Virtual network IP address space
+
 The address space of your Azure virtual network should be large enough to hold all of your subnets. Account for all entities that receive traffic. Kubernetes allocates IP addresses for those entities from the subnet address space. Consider these points when you plan your Azure virtual network's IP addresses.
 
 - Upgrades
@@ -165,9 +167,19 @@ The preceding list isn't exhaustive. If your design has other resources that aff
 
 This architecture is designed for a single workload. In a production AKS cluster, always separate the system node pool from the user node pool. When you run multiple workloads on the cluster, you might want to isolate the user node pools from each other. When you do that, it results in more subnets that are smaller in size. Also, the ingress resource might be more complex, and as a result you might need multiple ingress controllers that require extra IP addresses.
 
-For the complete set of considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md).
+### Pod IP address space
 
-For information related to planning IP for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
+Azure CNI Overlay assigns IP addresses to pods by using a dedicated address space, which is separate from the address space you use in your virtual network. Use an IP address space that doesn't overlap with your virtual network or any peered virtual networks. However, if you create multiple AKS clusters, you can safely use the same pod address space on each cluster.
+
+Each node is assigned a /24 address space for its pods, so it's important to ensure that the pod address space is sufficiently large to allow for as many /24 blocks as you need for the number of nodes in your cluster. Remember to include any temporary nodes created during upgrades or scale-out operations. For example, if you use a /16 address space for your CIDR range, your cluster can grow to a maximum of about 250 nodes.
+
+Each node supports up to 250 pods, and this limit includes any pods that are temporarily created during upgrades.
+
+For more information, see [the guidance about IP address planning for Azure CNI Overlay](/azure/aks/azure-cni-overlay#ip-address-planning)
+
+### Other IP address space considerations
+
+For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md). For information related to planning IP addressing for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
 For more information on the IP address planning considerations included in the Windows containers on AKS baseline reference architecture, see [Windows containers on AKS](./windows-containers-on-aks.yml#ip-address-planning).
 
