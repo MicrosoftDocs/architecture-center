@@ -136,7 +136,7 @@ For more information, see [Private Link deployment options](../../../networking/
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
 
-This reference architecture uses mulitple networking approaches, which each require an IP address space:
+This reference architecture uses multiple networking approaches, which each requires an IP address space:
 
 - Your Azure virtual network, which is used for resources like cluster nodes, private endpoints, and Application Gateway.
 - The cluster uses [Azure CNI Overlay](/azure/aks/azure-cni-overlay), which allocates IP addresses to pods from a separate address space to your Azure virtual network.
