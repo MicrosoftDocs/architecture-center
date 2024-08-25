@@ -145,23 +145,17 @@ This reference architecture uses two different kinds of networks:
 
 The address space of your Azure virtual network should be large enough to hold all of your subnets. Account for all entities that receive traffic. Kubernetes allocates IP addresses for those entities from the subnet address space. Consider these points when you plan your Azure virtual network's IP addresses.
 
-- Upgrades
+- **Upgrades:** AKS updates nodes regularly to make sure the underlying VMs are up to date on security features and other system patches. During an upgrade process, AKS creates a node that temporarily hosts the pods, while the upgrade node is cordoned and drained. That temporary node is assigned an IP address from the cluster subnet. Ensure you have enough address space for these temporary node IP addresses.
 
-    AKS updates nodes regularly to make sure the underlying VMs are up to date on security features and other system patches. During an upgrade process, AKS creates a node that temporarily hosts the pods, while the upgrade node is cordoned and drained. That temporary node is assigned an IP address from the cluster subnet. Ensure you have enough address space for these temporary node IP addresses.
+  In this architecture, pods are allocated IP addresses from within the Azure CNI Overlay pod address space, including during rolling updates. This approach reduces the overall number of IP addresses used from your Azure virtual network compared to other Kubernetes networking approaches.
 
-    In this architecture, pods are allocated IP addresses from within the Azure CNI Overlay pod address space, including during rolling updates. This approach reduces the overall number of IP addresses used from your Azure virtual network compared to other Kubernetes networking approaches.
+- **Scalability:** Take into consideration the node count of all system and user nodes and their maximum scalability limit. Suppose you want to scale out by 400%. You need four times the number of addresses for all those scaled-out nodes.
 
-- Scalability
+  Because this architecture uses Azure CNI Overlay, the scalability of your pods doesn't affect your virtual network's address space.
 
-    Take into consideration the node count of all system and user nodes and their maximum scalability limit. Suppose you want to scale out by 400%. You need four times the number of addresses for all those scaled-out nodes.
+- **Private Link addresses:** Factor in the addresses that are required for communication with other Azure services over Private Link. This architecture has two addresses assigned for the links to Container Registry and Key Vault.
 
-    Because this architecture uses Azure CNI Overlay, the scalability of your pods doesn't affect your virtual network's address space.
-
-- Private Link addresses
-
-    Factor in the addresses that are required for communication with other Azure services over Private Link. This architecture has two addresses assigned for the links to Container Registry and Key Vault.
-
-- Azure reserves [certain addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
+- **Reserved IP addresses:** Azure reserves [certain addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
 
 The preceding list isn't exhaustive. If your design has other resources that affect the number of available IP addresses, accommodate those addresses.
 
