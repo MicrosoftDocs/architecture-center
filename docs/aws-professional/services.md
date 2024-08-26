@@ -90,7 +90,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Architecture | Description |
 |----|----|
 | [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) | Explore a cloud data warehouse that uses big data. An enterprise data warehouse brings together all your data and scales easily as your data grows. |
-| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -100,12 +100,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
-### Time series architectures
+### Time series architecture
 
 | Architecture | Description |
 |----|----|
 | [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide variety of streaming data from IoT devices. |
-| [Azure Data Explorer interactive analytics](/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer) | Interactive analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem. |
 
 ### Big data processing
 
@@ -147,8 +146,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | Architecture | Description |
 |----|----|
-| [Advanced analytics architecture](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) | Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning. |
-| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
 | [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
@@ -277,7 +275,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Architecture | Description |
 |----|----|
 | [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection) | Detect fraudulent activity in real-time by using Azure Event Hubs and Stream Analytics. |
-| [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
+| [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
 | [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel. |
 
 [view all](../browse/index.yml?azure_categories=security)
@@ -304,7 +302,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Architecture | Description |
 |----|----|
 | [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app) | The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure. |
-| [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) | Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency. |
+| [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) | Deploy an application on Azure Virtual Machines in multiple regions for high availability and resiliency. |
 | [Serverless web application](/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API by using Azure Functions. |
 
 [view all](../browse/index.yml?azure_categories=web)

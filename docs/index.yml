@@ -158,9 +158,6 @@ conceptualContent:
       - text: AI architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
-      - text: Batch scoring of Python models
-        itemType: architecture
-        url: ./ai-ml/architecture/batch-scoring-python.yml
       - text: Conversational bot
         itemType: architecture
         url: ./ai-ml/architecture/conversational-bot.yml
@@ -201,9 +198,6 @@ conceptualContent:
         - url: ./databricks-monitoring/index.md
           itemType: deploy
           text: Databricks monitoring
-        - text: Advanced analytics architecture
-          itemType: architecture
-          url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
         - text: Real-time fraud detection
           itemType: architecture
           url: example-scenario/data/fraud-detection.yml

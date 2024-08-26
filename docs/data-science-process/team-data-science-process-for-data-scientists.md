@@ -10,6 +10,7 @@ ms.subservice: azure-guide
 ms.topic: conceptual
 ms.date: 07/12/2024
 ms.author: tdsp
+ms.custom: arb-aiml
 ai-usage: ai-assisted
 products:
   - azure-machine-learning

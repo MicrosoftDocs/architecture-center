@@ -188,7 +188,6 @@ Other contributors:
 - [Many models machine learning at scale with Azure Machine Learning](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)
 - [Solutions for the energy and environment industries](../../industries/energy-environment.md)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
-- [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml) 
 - [Forecast energy and power demand with machine learning](../../solution-ideas/articles/forecast-energy-power-demand.yml)
 - [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
 - [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

@@ -32,7 +32,7 @@ The development of an autonomous driving (AD) solution typically involves three 
 
 AVOps implements an autonomous driving development lifecycle:  
 
-:::image type="content" source="media\autonomous-driving-development-lifecycle.png" alt-text="Diagram that shows the autonomous driving development lifecycle." lightbox="media\autonomous-driving-development-lifecycle.png" border="false":::
+:::image type="content" source="media/autonomous-driving-development-lifecycle.png" alt-text="Diagram that shows the autonomous driving development lifecycle." lightbox="media/autonomous-driving-development-lifecycle.png" border="false":::
 
 ## Elements of the architecture
 
@@ -43,7 +43,7 @@ The AVOps architecture consists of the following four main elements. The next ar
 - **ValOps.** Validate autonomous driving functions based on trained models and raw ground truth data.
 - **AVOps centralized functions.** Provide overarching functionalities like metadata search, data catalog, overall orchestration, platform governance, and standardized infrastructure templates.
 
-:::image type="content" source="media\avops-design.png" alt-text="Diagram that shows the elements of an AVOps architecture." lightbox="media\avops-design.png" border="false":::
+:::image type="content" source="media/avops-design.png" alt-text="Diagram that shows the elements of an AVOps architecture." lightbox="media/avops-design.png" border="false":::
 
 ## Challenges
 
