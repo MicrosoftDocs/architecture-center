@@ -62,7 +62,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Architecture | Description |
 |----|----|
-| [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) | Explore a cloud data warehouse that uses big data. An enterprise data warehouse brings together all your data and scales easily as your data grows. |
 | [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics. |
 
 [view all](../browse/index.yml?azure_categories=databases)

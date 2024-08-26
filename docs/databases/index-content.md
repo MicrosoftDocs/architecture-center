@@ -98,9 +98,8 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 
 ### Example solutions
 
-These solution ideas are some of the example approaches that you can adapt to your needs.
+This solution idea provides example approaches that you can adapt to your needs.
 
-- [Enterprise data warehouse](../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Serverless apps using Azure Cosmos DB](../databases/idea/serverless-apps-using-cosmos-db.yml)
 
 ### Similar database products

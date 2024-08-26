@@ -341,5 +341,4 @@ Other contributors:
 
 - [Big data architectures](../../databases/guide/big-data-architectures.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
-- [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)

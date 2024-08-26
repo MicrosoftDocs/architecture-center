@@ -35,7 +35,7 @@ To learn more about communicating design intent, see [Architecture design diagra
 
 ## Example architecture diagrams
 
-![Diagram that shows real-time analytics on big data architecture.](../browse/thumbs/real-time-analytics.png)
+![Diagram that shows real-time analytics on big data architecture.](./images/real-time-analytics.png)
 
 [Browse all Azure architectures](../browse/index.yml) to view other examples.
 
