@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 08/05/2024
+ms.date: 08/19/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: robbag
@@ -22,6 +22,39 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## August 2024
+
+### New articles
+
+- [Industrial Edge with Azure AI on Azure](./example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml)
+
+### Updated articles
+
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
+- [Intelligent apps using Azure Database for MySQL](./databases/idea/intelligent-apps-using-azure-database-for-mysql.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
+- [Azure Database for PostgreSQL intelligent apps](./databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
+- [Oracle database migration to Azure](./databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
+- [Azure VMware Solution capacity planning](./solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml)  ([#df27cc8f56](https://github.com/MicrosoftDocs/architecture-center/commit/df27cc8f56))
+- [Core startup stack architecture](./example-scenario/startups/core-startup-stack.yml)  ([#f1791cb942](https://github.com/MicrosoftDocs/architecture-center/commit/f1791cb942))
+- [Migrate your e-commerce solution to Azure](./industries/retail/migrate-ecommerce-solution.md)  ([#20635de1aa](https://github.com/MicrosoftDocs/architecture-center/commit/20635de1aa))
+- [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#623e62824f](https://github.com/MicrosoftDocs/architecture-center/commit/623e62824f))
+- [Building the first layer of defense with Azure security services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)  ([#ff50fd224f](https://github.com/MicrosoftDocs/architecture-center/commit/ff50fd224f))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#cfdf99ab37](https://github.com/MicrosoftDocs/architecture-center/commit/cfdf99ab37))
+- [Retry pattern](./patterns/retry.yml)  ([#ea612ee4ab](https://github.com/MicrosoftDocs/architecture-center/commit/ea612ee4ab))
+- [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
+- [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
+- [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./databases/guide/teradata-vantage-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
+- [Individual contributor tasks in the Team Data Science Process](./data-science-process/project-ic-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [Project lead tasks in the Team Data Science Process](./data-science-process/project-lead-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [Team lead tasks in the Team Data Science Process](./data-science-process/team-lead-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [DataOps for the modern data warehouse](./databases/architecture/dataops-mdw.yml)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [N-tier application with Apache Cassandra](./databases/architecture/n-tier-cassandra.yml)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
+- [Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics](./databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)  ([#7317a1b530](https://github.com/MicrosoftDocs/architecture-center/commit/7317a1b530))
+- [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md)  ([#3865a10040](https://github.com/MicrosoftDocs/architecture-center/commit/3865a10040))
+- [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#3865a10040](https://github.com/MicrosoftDocs/architecture-center/commit/3865a10040))
+- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#7a47bacb93](https://github.com/MicrosoftDocs/architecture-center/commit/7a47bacb93))
 
 ## July 2024
 

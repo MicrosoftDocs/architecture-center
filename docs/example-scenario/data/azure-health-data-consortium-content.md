@@ -243,7 +243,6 @@ Product documentation:
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Azure API for FHIR]: https://azure.microsoft.com/services/azure-api-for-fhir/
-[Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Disk Encryption for virtual machines and virtual machine scale sets]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [Azure IoT Connector]: /azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/

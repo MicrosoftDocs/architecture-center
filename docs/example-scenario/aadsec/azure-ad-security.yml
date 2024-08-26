@@ -23,4 +23,4 @@ products:
   - microsoft-sentinel
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture.png
 content: |
-   [!include[](azure-ad-security-content.md)]
+   [!INCLUDE[](azure-ad-security-content.md)]

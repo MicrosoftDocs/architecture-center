@@ -112,7 +112,6 @@ Principal author:
 - [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
-## Related resources
+## Related resource
 
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)

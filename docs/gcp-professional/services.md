@@ -46,11 +46,9 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 #### Database architectures
 
-<ul class="grid">
-
-[!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Gaming by using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db) | Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. |
 
 [view all](/azure/architecture/browse/#databases)
 
@@ -62,12 +60,10 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 #### Data warehouse architectures
 
-<ul class="grid">
-
-[!INCLUDE [Modern Data Warehouse Architecture](../../includes/cards/modern-data-warehouse.md)]
-[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) | Explore a cloud data warehouse that uses big data. An enterprise data warehouse brings together all your data and scales easily as your data grows. |
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -87,13 +83,11 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 #### Big data architectures
 
-<ul class="grid">
-
-[!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
-[!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
-[!INCLUDE [Big data analytics with Azure Data Explorer](../../includes/cards/big-data-azure-data-explorer.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
+| [Personalized offers](/azure/architecture/ai-ml/idea/personalized-offers) | This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.  |
+| [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer) | Big data analytics with Azure Data Explorer demonstrates how Azure Data Explorer caters to volume, velocity, and variety of data, the three V's of big data. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -108,13 +102,10 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 #### Analytics architectures
 
-<ul class="grid">
-
-[!INCLUDE [Advanced Analytics Architecture](../../includes/cards/advanced-analytics-on-big-data.md)]
-[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
-[!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/news-feed-ingestion-and-near-real-time-analysis.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, and transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
+| [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
@@ -125,14 +116,11 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns)<br><br> [Microsoft Fabric Real Time Intelligence](/fabric/real-time-hub/real-time-hub-overview)| Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
 
-#### Time series architectures
+#### Time series architecture
 
-<ul class="grid">
-
-[!INCLUDE [IoT analytics with Azure Data Explorer](../../includes/cards/iot-azure-data-explorer.md)]
-[!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide variety of streaming data from IoT devices. |
 
 ## AI and machine learning
 
@@ -163,12 +151,10 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 ### AI and machine learning architectures
 
-<ul class="grid">
-
-[!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
-[!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization-with-content-based-recommendation-system.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing) | Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions. |
+| [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search) | This architecture describes how to use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. |
 
 [view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
@@ -204,13 +190,12 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 #### Container architectures
 
 Here are some architectures that use AKS as the orchestrator.
-<ul class="grid">
 
-[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
-[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
-[!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Baseline architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks/baseline-aks) | Deploy a baseline infrastructure that deploys an AKS cluster with focus on security. |
+| [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) | Deploy a microservices architecture on Azure Kubernetes Service (AKS). |
+| [CI/CD for AKS apps with GitHub Actions and GitFlow](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
 [view all](../browse/index.yml?azure_categories=containers)
 
@@ -222,12 +207,10 @@ Here are some architectures that use AKS as the orchestrator.
 
 #### Serverless architectures
 
-<ul class="grid">
-
-[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
-[!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
+| [Cross-cloud scaling architecture](/azure/architecture/solution-ideas/articles/cross-cloud-scaling) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 ## DevOps and application monitoring
 
@@ -249,12 +232,9 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### DevOps architectures
 
-<ul class="grid">
-
-[!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
-[!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [CI/CD for AKS apps with GitHub Actions and GitFlow](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
 [view all](../browse/index.yml?azure_categories=devops)
 
@@ -268,13 +248,10 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### IoT architectures
 
-<ul class="grid">
-
-[!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
-[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
-[!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot) | A recommended architecture for IoT applications on Azure by using platform as a service (PaaS) components. |
+| [Process real-time vehicle data by using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot) | This example builds a real-time data ingestion and processing pipeline to ingest and process messages from IoT devices into a big data analytic platform on Azure. |
 
 [view all](../browse/index.yml?azure_categories=iot)
 
@@ -297,12 +274,10 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### Messaging architectures
 
-<ul class="grid">
-
-[!INCLUDE [Scalable Web App](../../includes/cards/scalable-web-app.md)]
-[!INCLUDE [Enterprise integration](../../includes/cards/queues-events.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Scalable web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant) | Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application. |
+| [Enterprise integration by using queues and events](/azure/architecture/example-scenario/integration/queues-events) | A recommended architecture for implementing an enterprise integration pattern with Azure Logic Apps, Azure API Management, Azure Service Bus, and Azure Event Grid. |
 
 ## Networking
 
@@ -337,13 +312,11 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### Networking architectures
 
-<ul class="grid">
-
-[!INCLUDE [Deploy highly available NVAs](../../includes/cards/nva-ha.md)]
-[!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
-[!INCLUDE [Implement a secure hybrid network](../../includes/cards/secure-vnet-dmz.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha) | Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both. |
+| [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke) | Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub. |
+| [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) | See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network. |
 
 [view all](/azure/architecture/browse/#networking)
 
@@ -371,13 +344,11 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### Security architectures
 
-<ul class="grid">
-
-[!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
-[!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
-[!INCLUDE [Threat indicators for cyber threat intelligence in Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection) | Detect fraudulent activity in real-time by using Azure Event Hubs and Stream Analytics. |
+| [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
+| [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel. |
 
 [view all](../browse/index.yml?azure_categories=security)
 
@@ -404,13 +375,11 @@ Here are some architectures that use AKS as the orchestrator.
 
 #### Storage architectures
 
-<ul class="grid">
-
-[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
-[!INCLUDE [Media Rendering – HPC Solution Architecture](../../includes/cards/azure-batch-rendering.md)]
-[!INCLUDE [Medical Data Storage Solutions](../../includes/cards/medical-data-storage.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
+| [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering) | Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache. |
+| [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage) | Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. |
 
 [view all](/azure/architecture/browse/#storage)
 
@@ -430,13 +399,11 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### Web architectures
 
-<ul class="grid">
-
-[!INCLUDE [Architect scalable e-commerce web app](../../includes/cards/scalable-ecommerce-web-app.md)]
-[!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
-[!INCLUDE [Serverless web application](../../includes/cards/web-app.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app) | The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure. |
+| [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) | Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency. |
+| [Serverless web application](/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions. |
 
 [view all](../browse/index.yml?azure_categories=web)
 

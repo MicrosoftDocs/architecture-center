@@ -116,15 +116,13 @@ Principal author:
 - [Deploy batch inference pipelines with Azure Machine Learning][learn2]
 - [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][aml-tut]
 
-## Related resources
+## Related resource
 
 - [Batch scoring for deep learning models using Azure Machine Learning pipelines][aac-batch-deep]
-- [Batch scoring of Python Models on Azure][aac-batch-python]
 
 <!-- links -->
 
 [aac-batch-deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
-[aac-batch-python]: ../../ai-ml/architecture/batch-scoring-python.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification

@@ -213,7 +213,6 @@ Other contributors:
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Unleash the power of predictive analytics in Azure Synapse Analytics with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
@@ -221,7 +220,6 @@ Other contributors:
 ## Related resources
 
 - [Solutions for the education industry](../../industries/education.md)
-- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

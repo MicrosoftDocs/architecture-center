@@ -30,7 +30,7 @@ The diagram doesn't contain all the Azure security services that are available, 
 
 This section describes the components and services that appear in the diagram. Many of those are labeled with their ASB control codes, in addition to their abbreviated labels. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
 
-1.  **AZURE SECURITY BENCHMARK**
+1. **AZURE SECURITY BENCHMARK**
 
     Each security control refers to one or more specific Azure security services. The architecture reference in this article shows some of them and their control numbers according to the ASB documentation. The controls include:
 
@@ -49,7 +49,7 @@ This section describes the components and services that appear in the diagram. M
 
     For more information about security controls, see [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview).
 
-2.  **NETWORK**
+1. **NETWORK**
 
     The following table describes the network services in the diagram.
     
@@ -65,7 +65,7 @@ This section describes the components and services that appear in the diagram. M
     | **PRIVATE LINK** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link](/azure/private-link/private-link-overview)? |
     | **PRIVATE ENDPOINT** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. | [What is a private endpoint](/azure/private-link/private-endpoint-overview)? |
 
-3.  **INFRASTRUCTURE AND ENDPOINTS**
+1. **INFRASTRUCTURE AND ENDPOINTS**
 
     The following table describes infrastructure and endpoint services that are shown in the diagram.
 
@@ -78,7 +78,7 @@ This section describes the components and services that appear in the diagram. M
     | **RDP SHORT** | Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. | [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath) |
     | **REVERSE CONNECT** | A built-in security feature from Azure Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach the host VMs. | [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity) |
 
-4.  **APPLICATION AND DATA**
+1. **APPLICATION AND DATA**
 
     The following table describes application and data services that are shown in the diagram.
 
@@ -95,7 +95,7 @@ This section describes the components and services that appear in the diagram. M
     | **VULNERABILITY ASSESSMENT** | Service that helps you discover, track, and remediate potential database vulnerabilities. | [SQL vulnerability assessment helps you identify database vulnerabilities](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) |
     | **ENCRYPTION**<br/>(Azure SQL) | Transparent data encryption (TDE) helps protect Azure SQL database services by encrypting data at rest. | [Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal) |
 
-5.  **IDENTITY**
+1. **IDENTITY**
 
     The following table describes identity services that are shown in the diagram.
 
@@ -104,7 +104,7 @@ This section describes the components and services that appear in the diagram. M
     | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials. | [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)? |
     | **MFA** | Multifactor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Microsoft Entra multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) |
     | **ID PROTECTION** | Identity Protection, a security service from Microsoft Entra ID, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)? |
-    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). | [What is Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
+    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administorator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
     | **COND ACC** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
 
 ### Components
@@ -134,15 +134,14 @@ The example architecture in this article uses the following Azure components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
 - [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
-Other contributors: 
+Other contributors:
 
- * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
-
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 
 ## Next steps
 
