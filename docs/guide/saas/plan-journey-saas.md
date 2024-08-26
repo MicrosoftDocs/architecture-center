@@ -52,7 +52,7 @@ After deciding what your business requirements are, the next stage in the journe
 - [Multitenant architecture considerations](../multitenant/considerations/overview.yml) - Key considerations of designing a multitenant architecture.
 - [Tenancy models](../multitenant/considerations/tenancy-models.yml) - An overview of the main tenancy models and the differences between them.
 - [Independent software vendor (ISV) considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone) - A comparison between different landing zones for ISV scenarios.
-- [Azure Well-Architected Framework](/azure/architecture/framework) - A set of guiding tenets that help improve the quality of a workload.
+- [Azure Well-Architected Framework](/azure/well-architected/) - A set of guiding tenets that help improve the quality of a workload.
 - [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) -  An assessment of your SaaS product examining your knowledge of multitenant architecture.
 - [Technical guide to building SaaS apps on Azure](https://azure.microsoft.com/resources/technical-guide-to-building-saas-apps-on-azure/) - An E-book created for ISVs, technical professionals, and technical business leaders that outlines several SaaS technical decision points.
 - [Architecture for startups](../startups/startup-architecture.md) - An introduction to architectures for startups.
@@ -108,7 +108,7 @@ Other contributors:
 
 - [Foundations of SaaS](/training/saas/saas-foundations/)
 - [Technical guide to building SaaS apps on Azure](https://azure.microsoft.com/resources/technical-guide-to-building-saas-apps-on-azure/)
-- [Azure Well-Architected Framework](/azure/architecture/framework)
+- [Azure Well-Architected Framework](/azure/well-architected/)
 
 ## Related resources
 

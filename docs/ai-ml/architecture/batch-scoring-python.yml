@@ -19,6 +19,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - devx-track-python
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - developer-tools

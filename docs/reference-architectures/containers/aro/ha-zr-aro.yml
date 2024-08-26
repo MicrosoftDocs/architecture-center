@@ -14,9 +14,8 @@ metadata:
     - web
     - management-and-governance
   ms.custom:
-    - reference-architecture
-    - internal-intro
     - linux-related-content
+    - arb-containers
 azureCategories:
   - containers
   - web

@@ -121,7 +121,6 @@ A secondary benefit of blue-green deployment is the ability to use the failover 
 
 ## Next steps
 
-- [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub
 - [Serverless Framework](https://serverless.com)
 - [Training: Introduction to Azure Functions](/training/modules/intro-azure-functions)
 - [Overview of Azure Functions](/azure/azure-functions/functions-overview)

@@ -1,14 +1,5 @@
-Moodle is one of the most popular and widely adopted free, open-source learning management systems. With more than 30% of the global market share, there are more than [200,000 Moodle users](https://moodle.com/news/200-million-education-resources-on-moodle-sites/) worldwide.
 
-Moodle customers vary across industry verticals spanning educational institutions, enterprises, IT companies, FSI Institutions, and more.
- 
-Moodle has seen a surge in growth during thee COVID-19 pandemic and is now the market leader in Learning Management Systems. This growth has forced Moodle to explore options to grow the business quickly and to allow customers to deploy their Moodle instances in the cloud quickly and efficiently. Moodle architecture relies on NFSv3 for content storage. 
-
-Azure NetApp Files is a first-party Azure service for migrating and running the most demanding enterprise file-workloads in the cloud: native SMB3 and NFSv3 and NFSv4.1 file shares, databases, data warehouse, and high-performance computing applications. Moodle requires high throughput, low latency access to storage. For scaling to larger numbers of concurrent users there's strong desire to autoscale the performance of the setup to keep up with the high expectations of users.
-
-## Potential use cases
-
-This article explains how Moodle can be deployed using Azure Services on Azure Virtual Machine Scale Sets and using Azure NetApp Files to store the user accessible learning data files in:
+Moodle is an open-source learning management system that requires high throughput, low latency access to storage. Many Moodle deployments require easy scalability to adapt to growing demand. This article explains how Moodle can be deployed using Azure Services on Azure Virtual Machine Scale Sets and Azure NetApp Files to store the user-accessible learning data files in:
 
 - a highly availability setup in a single Azure region,
 - a disaster recovery setup between two Azure regions, and
@@ -16,15 +7,9 @@ This article explains how Moodle can be deployed using Azure Services on Azure V
 
 ## Architecture
 
-Students access the Moodle application data through an Azure Application Gateway where Virtual Machine Scale Sets can be used to build a scalable compute platform running the Moodle app to host users. Azure NetApp Files serves the content data to the Moodle app; a Redis Cache is used for user session caching, locking, and key awareness. The learning content, student progress, and internal data are stored in a MySQL database.
+For the best user experience, Moodle requires consistent low latency access to scalable shared storage to meet the demands of office and home workers using the service. Virtual Machine Scale Sets and Azure NetApp Files capacity pools and volumes can be sized up and down as the demand changes.
 
-For the best user (learner) experience, Moodle requires consistent low latency access to scalable shared storage to meet the demands of office and home workers using the service. Virtual Machine Scale Sets and Azure NetApp Files capacity pools and volumes can be sized up and down as the demand changes.
-
-- Learning content is inserted through a secure VPN gateway directly from the customer datacenter.
-- Students access the content through the application that is deployed on a [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/overview) through a secure application gateway. 
-- The solution can be scaled up or down as demand dictates by adding or removing VMs in the scale set and by adjusting the Azure NetApp Files volume [service level](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
-
-The following diagram captures an example of a single-region deployment:
+This diagram captures an example of a single-region deployment:
 
 :::image type="complex" source="./media/azure-netapp-files-moodle-architecture.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle." lightbox="./media/azure-netapp-files-moodle-architecture.png" border="false":::
     A black-lined rectangle denotes an Azure region that contains a virtual network. The virtual network has multiple three smaller rectangles inside of it: two stacked, and one to the right. The top rectangle denotes a network security group the Moodle, a PHP application, an HTTP server, as well as a Redis Cache connected to the third rectangle: the MySQL database. The network security group also includes with a DNS router connected to an application gateway for the Virtual Machine Scale Sets, which is attached to the Azure other rectangle below representing the Azure NetApp Files delegated subnet that contains three volumes and related snapshots. Student access the Moodle through the DNS, while the Azure VPN gateway securely connects the resources to the customer data center.
@@ -32,7 +17,32 @@ The following diagram captures an example of a single-region deployment:
 
 This single-region setup provides highly available access to the Moodle application and other components of the configuration with an uptime of 99.99%. If you require higher uptime and desire protection against unlikely Azure region failure, you can choose to replicate the Azure NetApp Files data volumes to a second region where only the Azure NetApp Files volumes need to be present.
 
-### Disaster recovery with cross-region replication
+### Workflow
+
+Students access the Moodle application data through an Azure Application Gateway where Virtual Machine Scale Sets can be used to build a scalable compute platform running the Moodle app to host users. Azure NetApp Files serves the content data to the Moodle app; a Redis Cache is used for user session caching, locking, and key awareness. The learning content, student progress, and internal data are stored in a MySQL database.
+
+1. Learning content is inserted through a secure VPN gateway directly from the customer datacenter.
+1. Students access the content through the application that is deployed on a [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/overview) through a secure application gateway. 
+1. The solution can be scaled up or down as demand dictates by adding or removing VMs in the scale set and by adjusting the Azure NetApp Files volume [service level](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
+
+### Components
+
+- [Moodle](https://moodle.com/moodlecloud) is one of the most popular and widely adopted free, open-source learning management systems.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is a relational database service powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to host a MySQL database in Azure.
+- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence) is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
+- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
+- [Azure NetApp Files](/azure/azure-netapp-files) is a first-party Azure service for migrating and running the most demanding enterprise file-workloads in the cloud: native SMB3 and NFSv3 and NFSv4.1 file shares, databases, data warehouse, and high-performance computing applications.
+    - [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) uses snapshot technology, enabling you to replicate your Azure NetApp Files across designated Azure regions to protect your data from unforeseeable regional failures.
+    - [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) use availability zones and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.
+- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) operates at the DNS layer to quickly and efficiently direct incoming DNS requests based on the routing method of your choice. 
+
+### Alternatives
+
+The Moodle service can be deployed using any NFS based shared file service if requirements for very low latency, high IOPS, and throughput are met, especially for higher numbers of concurrent users. Although an NFS service built on top of a set of Linux VMs can be used, this leaves challenges in the realm of manageability, scalability, and performance. Ultimately Azure NetApp Files offers the lowest latency, best performance and scalability, and secure access to NFS shared storage.
+
+Azure NetApp Files also offers alternative deployment methods with cross-region and cross-zone replication that improve the disaster preparedness of your deployment. 
+
+#### Alternative deployments with Azure NetApp Files
 
 The following diagram captures a setup with cross-region replication:
 
@@ -48,59 +58,74 @@ Only in a disaster recovery scenario do the components need be started and scale
 
 Once the primary region has been recovered, the replication direction is reversed, so the primary region is updated with the changes applied during the failover, and the service can be failed back. Users are redirected to the failover region through [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
 
-### Disaster recovery using multi-zone configuration
-
-If you require high availability within a region, you can use Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. The same benefits apply regarding the presence of compute and ancillary services which only need to be started up and scaled up in failover situations.
-
 :::image type="complex" source="./media/azure-netapp-files-moodle-zonal.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="./media/azure-netapp-files-moodle-zonal.png" border="false":::
     A diagram that replicates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes DR versions of the Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
 :::image-end:::
 
-### Components
+If you require high availability within a region, you can use Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. The same benefits apply regarding the presence of compute and ancillary services which only need to be started up and scaled up in failover situations.
 
-- [Moodle](https://moodle.com/moodlecloud)
-- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization)
-- [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence)
-- [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines)
-- [Azure NetApp Files](/azure/azure-netapp-files)
-    - [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction)
-    - [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction)
-- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability)
+## Scenario details
 
-## Alternatives
+This article outlines a solution that meets Moodle's needs. At the core of the solution is Azure NetApp Files, a first-party storage service. You can use this service to migrate and run the most demanding enterprise-scale file workloads in the cloud:
 
-The Moodle service can be deployed using any NFS based shared file service if requirements for very low latency, high IOPS, and throughput are met, especially for higher numbers of concurrent users. Although an NFS service built on top of a set of Linux VMs can be used, this leaves challenges in the realm of manageability, scalability, and performance. Ultimately Azure NetApp Files offers the lowest latency, best performance and scalability, and secure access to NFS shared storage.
+- Native Server Message Block (SMB) version 3, NFSv3, and NFSv4.1 file shares
+- Database workloads
+- Data warehouse workloads
+- High-performance computing applications
 
-## Considerations (pillars)
+### Potential use cases
 
-- **Scalability**
-    The solution is scaled up or down using the Virtual Machine Scale Sets automatic scaling of resources, while the Azure NetApp Files data storage can be easily scaled up and down for both capacity and performance.
+This solution applies to Moodle deployments. Organizations that use Moodle span industries including education, business, IT, and finance.
 
-- **Availability** 
-    Azure NetApp Files has a guaranteed availability of 99.99%.
+## Considerations
 
-- **Security**
-    All deployment options require you to provide a valid SSH protocol 2 (SSH-2) RSA public-private key pairs with a minimum length of 2,048 bits. Other key formats such as ED25519 and ECDSA aren't supported. For more information, see [Azure NetApp Files secuirty FAQs](/azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-- **Resiliency**
-    Azure NetApp Files is built on a bare metal fleet of redundant solid-state hardware and is designed to operate with interruption even during maintenance operations. Read more about fault tolerance, high availability and resiliency in Azure NetApp Files here.
+Keep the following points in mind when you implement this solution.
 
-- **Disaster Recovery**
-    The total solution can be built to be more resilient by adding a secondary region. This solution uses Azure NetApp Files cross-region replication to efficiently replicate the NFS volumes to a secondary passive region where the application can be started in the unlikely event of a complete region failure. See [Disaster recovery with cross-region replication](#disaster-recovery-with-cross-region-replication) for more information. 
+### Reliability
 
-## Deploy the solution
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-For a deployment guide for Moodle on Azure NetApp Files, see [Azure NetApp Files for NFS storage with Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630).
+Azure NetApp Files is built on a bare-metal fleet of redundant, solid-state hardware. The service operates without interruption, even during maintenance operations. For more information about resiliency, see [Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files][Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files].
 
-## Pricing
+Azure NetApp Files has a guaranteed availability of 99.99%. For the Azure NetApp Files availability guarantee, see the [SLA for Azure NetApp Files][SLA for Azure NetApp Files].
 
-For a medium-to-large sized Moodle deployment of approximately 5,000 users with a 10% concurrency ratio, the recommended throughput is approximately 500 MB/s. This deployment can be built on a Linux based Standard_D32s_v4 VM infrastructure using 8 TB of P60 managed disk.
+As the [Alternative deployments with Azure NetApp Files section](#alternative-deployments-with-azure-netapp-files) explains, you can make the solution more resilient. You can provide disaster recovery by adding a secondary region and using Azure NetApp Files cross-region replication. This functionality efficiently replicates the NFS volumes to a secondary passive region. During the unlikely event of a complete region failure, the application runs in that secondary region.
 
-Azure NetApp Files offers a more cost-effective solution using 4 TB of Ultra-service level capacity. In case the scale of the application is larger thus requiring more Azure NetApp Files capacity, it's likely that either the Azure NetApp Files Premium or Standard service levels provide sufficient performance, further improving the cost effectiveness.
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer- and platform-managed keys. These solutions provide unrestrained access to stored data, meet compliance requirements, and enhance data security. For information and best practices about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+For a medium-to-large sized Moodle deployment of approximately 5,000 users with a 10% concurrency ratio, the recommended throughput is approximately 500 MB/s. This deployment can be built on a Linux based Standard_D32s_v4 VM infrastructure using 8 TB of P60-managed disk.
+
+Azure NetApp Files offers a more cost-effective solution using 4 TiB of Ultra-service level capacity. If the scale of application is larger, thus requiring more Azure NetApp Files capacity, either the Azure NetApp Files Premium or Standard service levels provide sufficient performance. Using the Premium or Standard service level improves the cost effectiveness.
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources for your specific requirements. More information  is available in the [Azure NetApp Files cost model](/azure/azure-netapp-files/azure-netapp-files-cost-model).
 
+For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files Performance Calculator](https://aka.ms/anfcalc). Use this calculator to find the optimal balance between capacity, performance, and cost.
+
 Azure NetApp Files also offers [a performance and TCO calculator](https://aka.ms/anfcalc), which you can use to find the most optimal balance between capacity, performance, and cost.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+This solution scales up or down as needed:
+
+- Virtual Machine Scale Sets provides automatic scaling of resources. For more information, see [Overview of autoscale with Azure Virtual Machine Scale Sets][Overview of autoscale with Azure virtual machine scale sets].
+- You can easily and non-intrusively scale the Azure NetApp Files capacity pools and volumes up and down to meet demand. For more information, see [Resize a capacity pool or a volume][Resize a capacity pool or a volume].
+- You can adjust the Azure NetApp Files volume service level, which can be either Standard, Premium, or Ultra. The level that you select affects the throughput limit of volumes with automatic quality of service (QoS). For more information, see [Performance considerations for Azure NetApp Files][Performance considerations for Azure NetApp Files].
+
+## Deploy this scenario
+
+For a deployment guide for Moodle on Azure NetApp Files, see [Azure NetApp Files for NFS storage with Moodle][Azure NetApp Files for NFS storage with Moodle].
 
 ## Contributors
 
@@ -112,7 +137,8 @@ Principal author:
 
 ## Next steps
 
-You can consume Moodle in various models, where typically customers start using the [Moodle Cloud option](https://moodle.com/moodlecloud/). When scaling up or deploying Moodle in Azure quickly and efficiently, use the [Azure Moodle directions on GitHub](https://github.com/Azure/Moodle).
+* [Moodle Cloud option](https://moodle.com/moodlecloud/)
+* [Azure Moodle directions on GitHub](https://github.com/Azure/Moodle)
 
 ## Related resources
 

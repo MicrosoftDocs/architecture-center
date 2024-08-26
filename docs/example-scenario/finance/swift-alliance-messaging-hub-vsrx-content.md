@@ -85,7 +85,7 @@ It can provide benefits for existing and new SWIFT customers. You can use it for
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 If you want more information about the following considerations, contact your account team at Microsoft, which can help guide your Azure implementation of SWIFT.
 
