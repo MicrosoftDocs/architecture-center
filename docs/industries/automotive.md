@@ -46,7 +46,7 @@ The articles in the following table provide detailed architecture analyses that 
 | ------- | ------- | ------- |
 | [Software-defined vehicle DevOps toolchain](automotive/software-defined-vehicle-reference-architecture.yml) | Describes how to use GitHub and Azure services to develop an end-to-end automotive software stack. This architecture includes software-in-the-loop testing, orchestration of hardware-in-the-loop testing, and vehicle fleet validation. | DevOps |
 | [Data analytics for automotive test fleets](automotive/automotive-telemetry-analytics.yml) | Describes how to collect high-resolution telemetry and test drive recordings. It also describes how to perform root cause analysis and vehicle behavior validation with Microsoft Fabric. | IoT, analytics |
-| [Automotive messaging, data, and analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) | Describes how to use Azure services to implement advanced connected vehicle applications and digital services. | IoT, analytics |
+| [Automotive messaging, data, and analytics](automotive/automotive-messaging-data-analytics.yml) | Describes how to use Azure services to implement advanced connected vehicle applications and digital services. | IoT, analytics |
 | [Automotive connected fleets](automotive/automotive-connected-fleets.yml) | Describes how to create composable, data-centric solutions for mobility providers and commercial vehicle operators.  | IoT, analytics, business applications |
 
 ## Solution ideas

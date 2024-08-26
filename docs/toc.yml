@@ -4076,10 +4076,10 @@ items:
         href: industries/automotive/software-defined-vehicle-reference-architecture.yml
       - name: DataOps for autonomous vehicle operations
         href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml        
-      - name: Automotive test data analytics
+      - name: Automotive engineering test fleet data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
       - name: Automotive messaging, data, and analytics
-        href: /azure/event-grid/mqtt-automotive-connectivity-and-data-solution
+        href: industries/automotive/automotive-messaging-data-analytics.yml
       - name: Automotive connected fleets
         href: industries/automotive/automotive-connected-fleets.yml
     - name: Datasets
