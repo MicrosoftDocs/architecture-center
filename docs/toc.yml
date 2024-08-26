@@ -853,18 +853,12 @@ items:
         href: example-scenario/analytics/enterprise-bi-synapse.yml
       - name: Near real-time lakehouse processing
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
-      - name: Partitioning in Event Hubs and Kafka
-        href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
       - name: Relationship mesh solution on Azure
         href: example-scenario/analytics/relationship-mesh-solution-azure.yml
       - name: Secure a data lakehouse
         href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
-      - name: Sentiment analysis and face recognition
-        href: example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml
-      - name: Sports analytics on Azure
-        href: example-scenario/analytics/sports-analytics-architecture-azure.yml
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.yml
       - name: Stream processing with Stream Analytics
@@ -873,52 +867,22 @@ items:
         href: example-scenario/data/open-source-data-engine-stream-processing.yml
     - name: Solution ideas
       items:
-      - name: Advanced analytics
-        href: solution-ideas/articles/advanced-analytics-on-big-data.yml
-      - name: App integration using Event Grid
-        href: solution-ideas/articles/application-integration-using-event-grid.yml
       - name: Azure Data Explorer solutions
         items:
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-        - name: Interactive analytics with Data Explorer
-          href: solution-ideas/articles/interactive-azure-data-explorer.yml
       - name: Content Delivery Network analytics
         href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
-      - name: Data management with Azure Purview
-        href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
-      - name: Metadata ingestion from external catalogs to Microsoft Purview
-        href: solution-ideas/articles/sync-framework-metadata-ingestion.yml
-      - name: Demand forecasting for shipping
-        href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
-      - name: Demand forecasting for pricing
-        href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml
-      - name: Demand forecasting with Stream Analytics
-        href: solution-ideas/articles/demand-forecasting.yml
-      - name: Discovery Hub for analytics
-        href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-      - name: Enterprise data warehouse
-        href: solution-ideas/articles/enterprise-data-warehouse.yml
-      - name: Highly scalable customer service and ERP
-        href: solution-ideas/articles/erp-customer-service.yml
-      - name: Hybrid big data with HDInsight
-        href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Logical data warehouse with Azure Synapse
         href: solution-ideas/articles/logical-data-warehouse.yml
-      - name: Manage data across the Azure SQL estate
-        href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
       - name: Manage event data with HDInsight and Delta Lake
         href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
-      - name: Real-time analytics on big data
-        href: solution-ideas/articles/real-time-analytics.yml
       - name: Real-time analytics with Azure Data Explorer
         href: solution-ideas/articles/analytics-service-bus.yml
-      - name: Tier applications and data for analytics
-        href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Blockchain + Multiparty Compute
     items:
     - name: Get started
@@ -1366,12 +1330,6 @@ items:
       items:
       - name: Azure Data Explorer monitoring
         href: solution-ideas/articles/monitor-azure-data-explorer.yml
-      - name: Data management with Azure Purview
-        href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
-      - name: Discovery Hub for analytics
-        href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-      - name: Tier applications for analytics
-        href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Developer Options
     items:
     - name: Microservices
@@ -4680,8 +4638,6 @@ items:
           href: /azure/architecture/browse/?terms=sports
         - name: Create smart stadiums
           href: example-scenario/iot/smart-places.yml
-        - name: Sports analytics on Azure
-          href: example-scenario/analytics/sports-analytics-architecture-azure.yml
         - name: Stream sporting events
   - name: IoT-specific industry solutions
     href: reference-architectures/iot/industry-iot-hub-page.md

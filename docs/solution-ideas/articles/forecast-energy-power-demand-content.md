@@ -83,4 +83,3 @@ Learn more:
 
 * [Solutions for the energy and environment industries](/azure/architecture/industries/energy-environment)
 * [Oil and gas tank level forecasting](/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting)
-* [Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)

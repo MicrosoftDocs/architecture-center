@@ -116,6 +116,3 @@ Principal author:
 
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 
-## Related resources
-
-- [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)

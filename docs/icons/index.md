@@ -33,9 +33,9 @@ To learn more about communicating design intent, see [Architecture design diagra
 - Don't distort or change icon shape in any way.
 - Don't use Microsoft product icons to represent your product or service.
 
-## Example architecture diagram
+## Example architecture diagrams
 
-![Example architecture diagram showing multiple services connected together with numbered steps.](../browse/thumbs/advanced-analytics-on-big-data.png)
+![Diagram that shows real-time analytics on big data architecture.](./images/real-time-analytics.png)
 
 [Browse all Azure architectures](../browse/index.yml) to view other examples.
 
