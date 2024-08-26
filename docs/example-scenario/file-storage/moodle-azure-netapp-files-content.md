@@ -15,7 +15,7 @@ This diagram captures an example of a single-region deployment:
     A black-lined rectangle denotes an Azure region that contains a virtual network. The virtual network has multiple three smaller rectangles inside of it: two stacked, and one to the right. The top rectangle denotes a network security group the Moodle, a PHP application, an HTTP server, as well as a Redis Cache connected to the third rectangle: the MySQL database. The network security group also includes with a DNS router connected to an application gateway for the Virtual Machine Scale Sets, which is attached to the Azure other rectangle below representing the Azure NetApp Files delegated subnet that contains three volumes and related snapshots. Student access the Moodle through the DNS, while the Azure VPN gateway securely connects the resources to the customer data center.
 :::image-end:::
 
-This single-region setup provides highly available access to the Moodle application and other components of the configuration with an uptime of 99.99%. If you require higher uptime and desire protection against unlikely Azure region failure, you can choose to replicate the Azure NetApp Files data volumes to a second region where only the Azure NetApp Files volumes need to be present.
+This single-region setup provides highly available access to the Moodle application and other components of the configuration. If you desire protection against unlikely Azure region failure, you can choose to replicate the Azure NetApp Files data volumes to a second region where only the Azure NetApp Files volumes need to be present.
 
 ### Workflow
 
