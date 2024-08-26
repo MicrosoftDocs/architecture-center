@@ -25,7 +25,7 @@ The high level architecture diagram shows the main logical blocks and services o
 
 The architecture uses the [publisher/subscriber](/azure/architecture/patterns/publisher-subscriber) messaging pattern to decouple vehicles from services.
 
-**Event Grid** enables messaging between vehicles and services. It can also route MQTT messages to Azure Services. To learn more about the routing functionality read [routing MQTT messages in Azure Event Grid](/azure/event-grid/mqtt-routing) 
+**Event Grid** enables messaging between vehicles and services. It can also route MQTT messages to Azure Services. To learn more about the routing functionality read [routing MQTT messages in Azure Event Grid](/azure/event-grid/mqtt-routing).
 
 #### Vehicle to cloud messages
 
@@ -41,7 +41,7 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 1. The **Event Grid** routes messages to different subscribers based on *topic*, message attributes, or payload. To learn more about filtering read [Filtering of MQTT routed messages](/azure/event-grid/mqtt-routing-filtering).
     1. High-volume, low priority messages that don't require immediate processing (for example, messages only used for analytics) are routed directly to storage using an Event Hubs instance for buffering. For performance reasons, avoid payload filtering for these messages.
     1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
-1. Low priority messages are stored directly to a **storage account** using [event capture](/azure/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
+1. Low priority messages are stored directly to a **lakehouse** using [event capture](/azure/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
 1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device, and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
     2. Verifies that the user gave consent for the message topic.
@@ -151,7 +151,9 @@ The following previously used messaging examples illustrate the communication be
 
 #### Event Grid custom domain names
 
-The Event Grid namespace has an automatically assigned HTTP hostname. Use [custom domain names](/azure/event-grid/custom-domains-namespaces) to simplify device configuration and migration scenarios.
+You can assign your custom domain names to your Event Grid namespace’s MQTT and HTTP host names, along with the default host names. Custom domain configurations eliminate the need to modify client devices that are already linked to your domain and help you meet your security and compliance requirements.
+
+Use [custom domain names](/azure/event-grid/custom-domains-namespaces) to simplify device configuration and migration scenarios.
 
 ### Components
 
@@ -160,16 +162,15 @@ The Event Grid namespace has an automatically assigned HTTP hostname. Use [custo
 #### Connectivity
 
 * [Azure Event Grid](/azure/event-grid) allows for device onboarding, AuthN/Z, and pub-sub using MQTT.
+* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) enables processing and ingesting massive amounts of telemetry data.
 * [Azure Functions](/azure/azure-functions/functions-overview) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
 * [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is an alternative when the functionality behind the Managed APIs consists of complex workloads deployed as containerized applications.
 * [Azure Cosmos DB](/azure/cosmos-db/introduction) stores the vehicle, device, and user consent settings.
 * [Azure API Management](/azure/api-management/api-management-key-concepts) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
 * [Azure Batch](/azure/batch/batch-technical-overview) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
-* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) enables processing and ingesting massive amounts of telemetry data.
 
 #### Data and Analytics
 
-* [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) stores large documents (such as videos and can traces) and curated vehicle data.
 * [Microsoft Fabric](/fabric) is a unified platform for data analytics that includes data movement, processing, ingestion, transformation, event routing, and report building.
 
 #### Backend Integration
