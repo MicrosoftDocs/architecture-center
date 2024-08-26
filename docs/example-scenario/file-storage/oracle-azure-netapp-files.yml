@@ -3,8 +3,8 @@ metadata:
   title: Oracle Database with Azure NetApp Files
   titleSuffix: Azure Example Scenarios
   description: Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
-  author: deannag
-  ms.author: deannag
+  author: gvanteylingen
+  ms.author: b-gevant
   ms.date: 07/17/2024
   ms.topic: example-scenario
   ms.service: architecture-center
