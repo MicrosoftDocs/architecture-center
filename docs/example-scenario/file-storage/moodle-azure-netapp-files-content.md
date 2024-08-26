@@ -56,6 +56,8 @@ With this approach, some of the components of the setup, like compute and ancill
 
 Only in a disaster recovery scenario do the components need be started and scaled up where required to continue the service using the replicated data volumes. At this time, the service level of the destination Azure NetApp Files volumes can be upgraded to the Premium or Ultra service level if required.
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 Once the primary region has been recovered, the replication direction is reversed, so the primary region is updated with the changes applied during the failover, and the service can be failed back. Users are redirected to the failover region through [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
 
 :::image type="complex" source="./media/azure-netapp-files-moodle-zonal.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="./media/azure-netapp-files-moodle-zonal.png" border="false":::
