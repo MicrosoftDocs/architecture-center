@@ -4,7 +4,7 @@ Small to medium-sized businesses that use on-premises SQL Server for data wareho
 
 ## Simplified architecture
 
-:::image type="content" source="_media/small-medium-data-warehouse/simplified-architecture.svg" alt-text="Diagram that illustrates a simplified SMB architecture." lightbox="media/small-medium-data-warehouse/simplified-architecture.svg" border="false":::
+:::image type="content" source="media/small-medium-data-warehouse/simplified-architecture.svg" alt-text="Diagram that illustrates a simplified SMB architecture." lightbox="media/small-medium-data-warehouse/simplified-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
@@ -13,7 +13,7 @@ A conceptual modernization opportunity involves transitioning the legacy Data Wa
 
 ## Architecture
 
-:::image type="content" source="media/small-medium-data-warehouse/small-medium-data-warehouse .svg" alt-text="Diagram that illustrates an expanded architecture designed to meet future needs." lightbox="_media/small-medium-data-warehouse/small-medium-data-warehouse.svg" border="false":::
+:::image type="content" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that illustrates an expanded architecture designed to meet future needs." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
@@ -71,7 +71,7 @@ Fabric is tightly integrated with potential consumers of your multi-source datas
 
 - You can use [Fabric data pipelines](/fabric/data-factory/activity-overview) instead of Data Factory pipelines for data integration. Your decision will depend on several factors. For more information, see [Getting from Azure Data Factory to Data Factory in Fabric](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory).
 
-- You can use [Fabric Warehouse](/fabric/data-warehouse/data-warehousing) instead of SQL Database or SQL Managed Instance to store enterprise data. This article prioritizes time to market for customers who want to modernize their data warehouses. For more information about data store options for Fabric, see [Fabric decision guide](fabric/get-started/decision-guide-data-store) and check articles for [TODO: link to datalake greenhouse]
+- You can use [Fabric Warehouse](https://learn.microsoft.com/fabric/data-warehouse/data-warehousing) instead of SQL Database or SQL Managed Instance to store enterprise data. This article prioritizes time to market for customers who want to modernize their data warehouses. For more information about data store options for Fabric, see [Fabric decision guide](fabric/get-started/decision-guide-data-store) and check articles for [TODO: link to datalake greenhouse]
 
 ## Scenario details
 
@@ -103,7 +103,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- [Azure pricing calculator](/pricing/calculator/) enables you to adjust the values to see how your requirements affect costs. You can see a pricing sample for a SMB data warehousing scenario in the Azure pricing calculator.
+- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) enables you to adjust the values to see how your requirements affect costs. You can see a pricing sample for a SMB data warehousing scenario in the Azure pricing calculator.
 
 - [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) pricing depends on the compute and service tiers that you choose and the number of vCores and database transaction units. The example describes a single database with provisioned compute and eight vCores, and assumes that you need to run stored procedures in SQL Database.
 
