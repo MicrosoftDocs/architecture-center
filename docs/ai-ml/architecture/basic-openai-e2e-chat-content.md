@@ -15,3 +15,13 @@ This article provides a basic architecture intended for learning about running c
 
 *Download a [Visio file](https://arch-center.azureedge.net/openai-end-to-end-basic.vsdx) of this architecture.*
 
+### Workflow
+
+1. A user issues an HTTPS request to the App Service's default domain on azurewebsites.net. This domain automatically points to the App Service's built-in public IP. The TLS connection is established from the client directly to app service. The certificate is managed completely by Azure.
+1. Easy Auth, a feature of Azure App Service, ensures that the user accessing the site is authenticated with Microsoft Entra ID.
+1. The client application code deployed to App Service handles the request. The code connects to an Azure Machine Learning managed online endpoint.
+1. The managed online endpoint routes the request to an Azure Machine Learning compute instance where the Azure Machine Learning prompt flow orchestration logic is deployed.
+1. The Azure Machine Learning prompt flow orchestration code begins executing. Among other things, the logic extracts the query from the request.
+1. The orchestration logic connects to Azure AI Search to fetch grounding data for the query. The grounding data is added to the prompt that will be sent to Azure OpenAI in the next step.
+1. The orchestration logic connects to Azure OpenAI and sends the prompt that includes the relevant grounding data.
+1. The information about original request to App Service and the call to the managed online endpoint (LA), and the call to Azure OpenAI are logged in Application Insights.
