@@ -38,7 +38,7 @@ Microsoft Entra Permissions Management is a cloud infrastructure entitlement ma
 
 - Get a multi-dimensional view of yout risk by assessing identities, permissions, and resources. 
 
-- Auotmate the enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) policy in your entire multicloud infrastructure.
+- Auotmate the enforcement of the least privilege policy in your entire multicloud infrastructure.
 
 - Use anomaly and outlier detection to prevent data breaches that are caused by misuse and malicious exploitation of permissions.
 
@@ -62,7 +62,12 @@ Microsoft Defender for Cloud Apps delivers full protection for SaaS applications
 
 Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities, notifying on possible brute force attacks, malicious use of a privileged user account, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps protects AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. 
 
-     ·  [Detect cloud threats, compromised accounts, and malicious insiders](/defender-cloud-apps/best-practices)
+```
+ · https://learn.microsoft.com/en-us/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware
+```
+```
+
+```
 
 - [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices)
 
