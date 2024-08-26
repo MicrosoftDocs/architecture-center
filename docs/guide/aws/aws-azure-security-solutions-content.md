@@ -42,9 +42,7 @@ Microsoft Entra Permissions Management is a cloud infrastructure entitlement ma
 
 - Use anomaly and outlier detection to prevent data breaches that are caused by misuse and malicious exploitation of permissions.
 
-For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws).
-
- 
+For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws). 
 
 ### __Microsoft Defender for Cloud Apps__
 
@@ -62,12 +60,7 @@ Microsoft Defender for Cloud Apps delivers full protection for SaaS applications
 
 Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities, notifying on possible brute force attacks, malicious use of a privileged user account, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps protects AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. 
 
-```
- · https://learn.microsoft.com/en-us/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware
-```
-```
-
-```
+- [Detect cloud threats, compromised accounts, and malicious insiders](/defender-cloud-apps/best-practices)
 
 - [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices)
 
@@ -111,9 +104,7 @@ The CWP support for SQL servers running on AWS EC2, AWS RDS Custom for SQL Serve
 
 Security standards provide support for assessing resources and workloads in AWS against regulatory compliance standards such as Center for Internet Security (CIS) and payment card industry (PCI) standards, and for the AWS Foundational Security Best Practices standard.
 
-For more information how to protect workloads in AWS, see [Connect your AWS account - Microsoft Defender for Cloud | Microsoft Learn](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn](/azure/defender-for-cloud/update-regulatory-compliance-packages)
-
- 
+For more information how to protect workloads in AWS, see [Connect your AWS account - Microsoft Defender for Cloud | Microsoft Learn](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn](/azure/defender-for-cloud/update-regulatory-compliance-packages) 
 
 ### __Microsoft Sentinel__
 
