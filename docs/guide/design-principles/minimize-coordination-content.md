@@ -2,9 +2,9 @@
 
 ## Minimize coordination to achieve scalability
 
-Generally speaking in cloud, uncoordinated systems, wherein work items can be handled independently without the need to pass messages between machines, scale the best. Note that coordination is not a binary feature but a spectrum. Coordination can occur at different layers: data, compute, etc.
-
 Most cloud applications consist of multiple application services &mdash; web front ends, databases, business processes, reporting and analysis, and so on. To achieve scalability and reliability, each of those services should run on multiple instances.
+
+Uncoordinated systems, where work can be handled independently without the need to pass messages between machines, are generally simpler to scale. Coordination is usually not a binary state, but a spectrum. Coordination occurs at different layers; such as, data or compute.
 
 What happens when two instances try to perform concurrent operations that affect some shared state? In some cases, there must be coordination across nodes, for example to preserve ACID guarantees. In this diagram, `Node2` is waiting for `Node1` to release a database lock:
 
@@ -34,7 +34,7 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 
 These two patterns complement each other. If the write-only store in CQRS uses event sourcing, the read-only store can listen for the same events to create a readable snapshot of the current state, optimized for queries. Before adopting CQRS or event sourcing, however, be aware of the challenges of this approach.
 
-**Partition data and state.** Even though partitioning adds some degree of coordination, you can use partitioning to leverage parallelism for better scalability. You can partition your monolithic state into smaller chunks which are managed independently from each other. This helps with scalability and fault tolerance but at the cost of consistency and simplicity. You can also partition data to improve concurrency. Avoid putting all of your data into one data schema that is shared across many application services. A microservices architecture enforces this principle by making each service responsible for its own data store. Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard.
+**Partition data and state.** Avoid putting all of your data into one data schema that is shared across many application services. A microservices architecture enforces this principle by making each service responsible for its own data store. Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard. Even though partitioning adds some degree of coordination, you can use partitioning to increase parallelism for better scalability. Partition monolithic state into smaller chunks so the data can be managed independently.
 
 **Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item. If the worker needs to update data as well as emit other messages as a part of its logic, the [idempotent message processing pattern][idempotent] should be used.
 
