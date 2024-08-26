@@ -169,7 +169,6 @@ The following sections list other serverless and Azure Functions-related referen
 
 ### Data and analytics
 
-- [Application integration using Event Grid](../solution-ideas/articles/application-integration-using-event-grid.yml)
 - [Mass ingestion and analysis of news feeds](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
 - [Operational analysis and driving process efficiency](/azure/time-series-insights/time-series-insights-update-use-cases#operational-analysis-and-driving-process-efficiency)
 

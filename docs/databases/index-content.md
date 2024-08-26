@@ -24,7 +24,7 @@ We also provide solution ideas for you to build on, which include links to all t
 
 As you start thinking about possible architectures for your solution, it's vital that you choose the correct data store. If you're new to databases on Azure, the best place to start is Microsoft Learn. This free online platform provides videos and tutorials for hands-on learning. Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
 
-You can start with a general description of the [different databases](https://azure.microsoft.com/products/category/databases) in Azure and their use. You can also browse [Azure data modules](/training/browse/?products=azure&terms=database) and [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure). These articles help you understand your choices in Azure data solutions and learn why some solutions are recommended in specific scenarios.  
+You can start with a general description of the [different databases](https://azure.microsoft.com/products/category/databases) in Azure and their use. You can also browse [Azure data modules](/training/browse/?products=azure&terms=database) and [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure). These articles help you understand your choices in Azure data solutions and learn why some solutions are recommended in specific scenarios.
 
 Here are some Learn modules you might find useful:
 

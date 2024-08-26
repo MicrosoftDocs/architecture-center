@@ -99,12 +99,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
-### Time series architectures
+### Time series architecture
 
 | Architecture | Description |
 |----|----|
 | [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide variety of streaming data from IoT devices. |
-| [Azure Data Explorer interactive analytics](/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer) | Interactive analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem. |
 
 ### Big data processing
 
@@ -146,7 +145,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | Architecture | Description |
 |----|----|
-| [Advanced analytics architecture](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) | Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning. |
 | [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
 | [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 

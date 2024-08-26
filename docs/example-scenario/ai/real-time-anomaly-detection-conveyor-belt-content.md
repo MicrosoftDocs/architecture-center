@@ -210,4 +210,3 @@ Other contributors:
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
