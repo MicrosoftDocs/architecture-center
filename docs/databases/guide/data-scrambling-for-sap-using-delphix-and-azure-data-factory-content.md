@@ -22,8 +22,8 @@ The movement of secure data is a challenge for all organizations. Delphix makes 
 
 By using the data source connectors offered by Azure Data Factory, we've created an ETL pipeline that allows an end user to automate the following steps:
 
-1. Read data from the system of record (SAP HANA) and write it to CSV files on Azure Storage.
-1. Execute a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values.
+1. Read data from the system of record (SAP HANA) and write it to CSV Azure Files on Azure Storage.
+1. Execute a Delphix masking job against the Azure Files to replace sensitive data elements with similar but fictitious values.
 1. Load the compliant data to Azure Synapse Analytics.
 
 ## Dataflow

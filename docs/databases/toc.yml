@@ -1,7 +1,7 @@
 items:
 - name: Databases
   href: index.yml
-  items: 
+  items:
     - name: Explore ideas about
       items:
       - name: Relational
@@ -11,13 +11,13 @@ items:
         - name: Intelligent apps using PostgreSQL
           href: idea/intelligent-apps-using-azure-database-for-postgresql.yml
         - name: Oracle migration to Azure
-          href: idea/reference-architecture-for-oracle-database-migration-to-azure.yml          
+          href: idea/reference-architecture-for-oracle-database-migration-to-azure.yml
       - name: NoSQL
         items:
         - name: Serverless apps using Azure Cosmos DB
           href: idea/serverless-apps-using-cosmos-db.yml
         - name: Minimal storage – change feed replication
-          href: idea/minimal-storage-change-feed-replicate-data.yml          
+          href: idea/minimal-storage-change-feed-replicate-data.yml
     - name: Design architectures
       items:
       - name: Data warehouse
@@ -49,10 +49,10 @@ items:
       - name: Data transform
         items:
         - name: VantageCloud integration with Azure Data Factory
-          href: guide/teradata-vantage-data-factory.yml     
+          href: guide/teradata-vantage-data-factory.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix
           href: guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
         - name: Data scrambling for SAP with Delphix
-          href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml       
+          href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
