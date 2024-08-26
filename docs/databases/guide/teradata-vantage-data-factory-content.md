@@ -282,7 +282,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
 
       :::image type="content" source="_images/odbc-dataset.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="_images/odbc-dataset.png":::
 
-8. Create an Azure Blob connection to the source file that you want to load into Vantage by following steps 4 through 6 and step 8 in the first scenario. Note that you're-creating this connection for the source file, so the path of the file will be different.
+8. Create an Azure Blob connection to the source file that you want to load into Vantage by following steps 4 through 6 and step 8 in the first scenario. Note that you're creating this connection for the source file, so the path of the file will be different.
 9. Create a pipeline that contains a Copy Data activity, as described in scenario 1.
 
     - Drag a **Copy Data** activity onto the pipeline.
@@ -378,7 +378,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     |Method|Description|
     |-|-|
-    | CREATE TABLE AS...WITH DATA | Accesses table definitions and data from an existing foreign table and creates a new permanent table in the database |
+    | CREATE TABLE AS…WITH DATA | Accesses table definitions and data from an existing foreign table and creates a new permanent table in the database |
     |CREATE TABLE AS...FROM READ_NOS |Accesses data directly from the object store and creates a permanent table in the database|
     |INSERT SELECT |Stores values from external data in a persistent database table |
 
