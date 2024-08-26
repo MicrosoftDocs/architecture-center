@@ -47,8 +47,8 @@ Here are the core components that move and process research data.
 
 - [**Azure Data Factory:**](https://azure.microsoft.com/services/data-factory) Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
-- [**Azure Data Factory:**](https://azure.microsoft.com/services/synapse-analytics) Analytical tools for big data as well as Pipelines for data integration and ETL/ELT.
-- 
+- [**Azure Synapse:**](https://azure.microsoft.com/services/synapse-analytics) Analytical tools for big data as well as Pipelines for data integration and ETL/ELT.
+
 - [**Azure Virtual Desktop**](https://azure.microsoft.com/free/virtual-desktop) is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use [Azure Bastion](https://azure.microsoft.com/services/azure-bastion). But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
   - Ability to stream an app like Microsoft Visual Studio Code to run notebooks against the machine learning compute resources.
