@@ -61,7 +61,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Azure Public IPs
 
-**Select Standard SKU.** Standard Public IPs provide availability zones and zone resiliency unlike Basic Public IPs. If using a service that needs a Public IP, select a zone-redundant Public IP. For existing IPs, upgrade them from Basic to Standard to get the benefits of [zone-redundant by default](/azure/virtual-network/ip-services/public-ip-addresses.md#availability-zone)
+**Select Standard SKU.** Standard Public IPs provide availability zones and zone resiliency unlike Basic Public IPs. If using a service that needs a Public IP, select a zone-redundant Public IP. For existing IPs, upgrade them from Basic to Standard to get the benefits of [zone-redundant by default](https://learn.microsoft.co/azure/virtual-network/ip-services/public-ip-addresses#availability-zone)
 
 ## Application Gateway
 
