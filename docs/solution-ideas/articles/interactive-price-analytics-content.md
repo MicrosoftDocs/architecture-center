@@ -145,11 +145,6 @@ Learn more about pricing solutions:
 
 Explore related architectures:
 
-<<<<<<< HEAD
-- [Demand forecasting for shipping and distribution](./demand-forecasting-for-shipping-and-distribution.yml)
-=======
-- [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
->>>>>>> dbc049e7b8f881202bb3bb0aafa89cc72e842781
 - [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
 - [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
