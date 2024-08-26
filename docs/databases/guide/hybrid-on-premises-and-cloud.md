@@ -49,7 +49,7 @@ Consider using a hybrid solution in the following scenarios:
 
 ## On-premises data stores
 
-On-premises data stores include databases and files. There can be several reasons to keep these data stores local. There might be regulations or policies that don't permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns might favor on-premises placement. During a migration, you might want to keep some data local to an application that hasn't been migrated yet.
+On-premises data stores include databases and Azure Files. There can be several reasons to keep these data stores local. There might be regulations or policies that don't permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns might favor on-premises placement. During a migration, you might want to keep some data local to an application that hasn't been migrated yet.
 
 Considerations in placing application data in a public cloud include:
 
@@ -91,15 +91,15 @@ For disaster recovery and business continuity, you can use [AlwaysOn Availabilit
 
 ## Network shares and file-based data stores
 
-In a hybrid cloud architecture, it's common for an organization to keep newer files on-premises while archiving older files to the cloud. This practice is sometimes called file tiering. It provides seamless access to both on-premises and cloud-hosted files. This approach helps to minimize network bandwidth usage and access times for newer files, which are likely to be accessed the most often. At the same time, you get the benefits of cloud-based storage for archived data.
+In a hybrid cloud architecture, it's common for an organization to keep newer Azure Files on-premises while archiving older Azure Files to the cloud. This practice is sometimes called file tiering. It provides seamless access to both on-premises and cloud-hosted Azure Files. This approach helps to minimize network bandwidth usage and access times for newer Azure Files, which are likely to be accessed the most often. At the same time, you get the benefits of cloud-based storage for archived data.
 
 Organizations might also wish to move their network shares entirely to the cloud, for example, if the applications that access them are also located in the cloud. This procedure can be done using [data orchestration](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md) tools.
 
 [Azure StorSimple](/azure/storsimple) offers the most complete integrated storage solution for managing storage tasks between your on-premises devices and Azure cloud storage. StorSimple is an efficient, cost-effective, and easily manageable storage area network (SAN) solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of integrated management tools.
 
-Another way to use on-premises network shares alongside cloud-based file storage is with [Azure Files](/azure/storage/files/storage-files-introduction). Azure Files offers fully managed file shares that you can access with the standard [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview?f=255&MSPPError=-2147217396) protocol (sometimes referred to as CIFS). You can mount Azure Files as a file share on your local computer, or use them with existing applications that access local or network share files.
+Another way to use on-premises network shares alongside cloud-based file storage is with [Azure Files](/azure/storage/files/storage-files-introduction). Azure Files offers fully managed file shares that you can access with the standard [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview?f=255&MSPPError=-2147217396) protocol (sometimes referred to as CIFS). You can mount Azure Files as a file share on your local computer, or use them with existing applications that access local or network share Azure Files.
 
-To synchronize file shares in Azure Files with your on-premises Windows Servers, use [Azure File Sync](/azure/storage/files/storage-sync-files-planning). One major benefit of Azure File Sync is the ability to tier files between your on-premises file server and Azure Files. This capability lets you keep only the newest and most recently accessed files locally.
+To synchronize file shares in Azure Files with your on-premises Windows servers, use [Azure File Sync](/azure/storage/files/storage-sync-files-planning). One major benefit of Azure file Sync is the ability to tier Azure Files between your on-premises file server and Azure Files. This capability lets you keep only the newest and most recently accessed Azure Files locally.
 
 For more information, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](/azure/storage/common/storage-decide-blobs-files-disks).
 
