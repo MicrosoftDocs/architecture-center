@@ -100,7 +100,7 @@ AKS provides different options to deploy GPU-enabled Linux and Windows node pool
 
 The NVIDIA GPU Operator is a tool designed to streamline the deployment and management of GPU resources within Kubernetes clusters. It automates the installation, configuration, and maintenance of the necessary software components to ensure optimal utilization of NVIDIA GPUs for demanding workloads such as artificial intelligence (AI) and machine learning (ML). The [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html) automates the management of all NVIDIA software components needed to deploy GPU including driver installation, the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), the NVIDIA container runtime, and more. For more information, see [NVIDIA documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html).
 
-For more advanced GPU workloads where you may want increased control and flexibility, you can use the NVIDIA GPU Operator with your GPU-enabled nodes on AKS. Instructions can be found in the [AKS documentation](https://learn.microsoft.com/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool#:~:text=Use%20NVIDIA%20GPU%20Operator%20with%20AKS).
+For more advanced GPU workloads where you may want increased control and flexibility, you can use the NVIDIA GPU Operator with your GPU-enabled nodes on AKS. Instructions can be found in the [AKS documentation](/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool#:~:text=Use%20NVIDIA%20GPU%20Operator%20with%20AKS).
 
 Keep in mind the following best practices:
 * NVIDIA GPU Operator does not support Windows GPUs.
@@ -113,7 +113,6 @@ Keep in mind the following best practices:
 
 ### Deploying GPU Workloads for Large Language Models (LLMs)
 
-#### Kubernetes AI Toolchain Operator (KAITO) add-on for AKS
 
 The [Kubernetes AI toolchain operator (KAITO)](/azure/aks/ai-toolchain-operator) is a Kubernetes operator that simplifies the experience of running open-source large language models (LLMs) like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama) on your Kubernetes cluster. You can deploy KAITO on your AKS cluster as a managed add-on for [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). KAITO leverages [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification provided in the Workspace custom resource definition (CRD) of your chosen model. KAITO creates the inference server as an endpoint for your LLM, reduces overall onboarding time, and allows you to focus on ML operations rather than infrastructure setup and maintenance.
 
@@ -127,7 +126,7 @@ KAITO improves your ML operations with the following capabilities:
 To learn more about KAITO, see the following resources:
 
 - [KAITO](https://github.com/Azure/Kaito) open source project
-- [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](https://learn.microsoft.com/en-us/azure/aks/ai-toolchain-operator)
+- [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](/azure/aks/ai-toolchain-operator)
 - [Fine tune your language models with open-source KAITO](/azure/aks/concepts-fine-tune-language-models)
 - [Deploy Kaito on AKS using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 
