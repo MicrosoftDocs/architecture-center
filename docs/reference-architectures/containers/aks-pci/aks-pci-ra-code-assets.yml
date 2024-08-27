@@ -2,8 +2,8 @@
 metadata:
   title: Architecture of an AKS regulated cluster for PCI-DSS 3.2.1
   description: Learn about architectural recommendations and code assets from the accompanying reference implementation.
-  author: PageWriter-MSFT
-  ms.author: prwilk 
+  author: francisnazareth
+  ms.author: fnazaret
   ms.date: 11/02/2023
   ms.topic: reference-architecture
   ms.service: architecture-center

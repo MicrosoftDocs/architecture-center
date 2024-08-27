@@ -2,7 +2,7 @@
 title: Choose a Kubernetes at the edge compute option
 titleSuffix: Azure Architecture Center
 description: Learn about trade-offs for various options available for extending compute on the edge.
-author: martinekuan
+author: prabhkaur1977
 ms.author: prkau
 ms.date: 06/07/2024
 ms.topic: conceptual
