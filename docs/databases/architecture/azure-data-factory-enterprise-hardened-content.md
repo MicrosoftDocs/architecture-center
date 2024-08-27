@@ -15,7 +15,7 @@ There are several key requirements to modify and harden a medallion lakehouse:
 
 - The solution must be hardened to operate as an enterprise data and analytics platform. The solution must also extend to support other corporate functions and adhere to Contoso's data access policy requirements.  
 
-- The platform must be able to ingest, store, process, and serve data in near real-time. The performance target is defined as a sub-one minute processing time from ingestion to availability in the reporting layer.
+- The platform must be able to ingest, store, process, and serve data in near real-time. The performance target is defined as less than one minute of processing time from ingestion to availability in the reporting layer.
 
 - The platform must deliver economies of scale savings and efficiency while driving reuse.
 
