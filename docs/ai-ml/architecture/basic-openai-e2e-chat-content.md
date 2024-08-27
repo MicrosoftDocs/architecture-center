@@ -26,13 +26,31 @@ This article provides a basic architecture intended for learning about running c
 1. The orchestration logic connects to Azure OpenAI and sends the prompt that includes the relevant grounding data.
 1. The information about original request to App Service and the call to the managed online endpoint (LA), and the call to Azure OpenAI are logged in Application Insights.
 
-## Components
+### Machine Learning prompt flow
+
+The workflow above includes the flow for the chat application, however the list below outlines a typical prompt flow in a more detail.
+
+- The user enters a prompt in a custom chat user interface (UI).
+- That prompt is sent to the back end by the interface code.
+- The user intent, either question or directive, is extracted from the prompt by the back end.
+- Optionally, the back end determines the data stores that hold data that's relevant to the user prompt
+- The back end queries the relevant data stores.
+- The back end sends the intent, the relevant grounding data, and any history provided in the prompt to the language model.
+- The back end returns the result so that it can be displayed on the UI.
+
+The back end could be implemented in any number of languages and deployed to various Azure services. This architecture uses Machine Learning prompt flow because it provides a [streamlined experience](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) to build, test, and deploy flows that orchestrate between prompts, back end data stores, and language models.
+
+### Components
 
 Many of the components of this architecture are the same as the resources in the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the method that you use to host the chat UI is the same in both architectures. The components highlighted in this section focus on the components used to build and orchestrate chat flows, data services, and the services that expose the language models.
 
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses several other features of Machine Learning that are used to develop and deploy executable flows for AI applications that are powered by language models:
 
-  - [Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. Prompt flow is used in this architecture as the layer that orchestrates flows between the prompt, different data stores, and the language model.
+  - [Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. Prompt flow is used in this architecture as the layer that orchestrates flows between the prompt, different data stores, and the language model. Machine Learning can directly host two types of prompt flow runtimes.
+
+    - **Automatic runtime:** A serverless compute option that manages the lifecycle and performance characteristics of the compute and allows flow-driven customization of the environment.
+
+    - **Compute instance runtime:** An always-on compute option in which the workload team must select the performance characteristics. This runtime offers more customization and control of the environment.
 
   - [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference) let you deploy a flow for real-time inference. In this architecture, they're used as a PaaS endpoint for the chat UI to invoke the prompt flows hosted by Machine Learning.
 
