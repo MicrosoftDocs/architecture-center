@@ -8,11 +8,11 @@ Small to medium-sized businesses that use on-premises SQL Server for data wareho
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
-A conceptual modernization opportunity involves transitioning the legacy Data Warehousing solution to a combination of Azure SQL Database, Azure SQL Managed Instance, and Fabric. This strategy ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS). It also provides lift-and-shift options for existing processes and requires minimal upskilling for the support team. This solution serves as an initial step toward comprehensive modernization, which enables the organization to fully adopt a lakehouse approach as the data warehouse expands and the team’s skill set grows.
+A conceptual modernization opportunity involves transitioning the legacy data warehousing solution to a combination of Azure SQL Database, Azure SQL Managed Instance, and Fabric. This strategy ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS). It also provides lift-and-shift options for existing processes and requires minimal upskilling for the support team. This solution serves as an initial step toward comprehensive modernization, which enables the organization to fully adopt a lakehouse approach as the data warehouse expands and the team’s skill set grows.
 
 ## Architecture
 
-:::image type="content" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that illustrates an expanded architecture designed to meet future needs." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" border="false":::
+:::image type="content" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that illustrates an expanded architecture that's designed to meet future needs." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
@@ -28,13 +28,13 @@ Legacy SMB data warehouses can contain several types of data:
 
 The following dataflow corresponds to the preceding diagram. It demonstrates the ingestion of the data type that you choose:
 
-1. Fabric data pipelines or Data Factory pipelines orchestrate the ingestion of transactional data into the Data Warehousing solution.
+1. Fabric data pipelines or Data Factory pipelines orchestrate the ingestion of transactional data into the data warehousing solution.
 
-   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into SQL Database and SQL Managed Instance. This lift-and-shift approach is the quickest to implement and provides a seamless transition from an on-premises SQL solution to a future Fabric SaaS environment. You can modernize databases incrementally after the lift and shift.
+   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into SQL Database and SQL Managed Instance. You can quickly implement this lift-and-shift approach, which ensures a seamless transition from an on-premises SQL solution to a future Fabric SaaS environment. You can modernize databases incrementally after the lift and shift.
 
    - The pipelines can pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than replatforming the data.
 
-1. You can use Microsoft Dynamics data sources to build centralized business intelligence (BI) dashboards on augmented datasets by using Fabric serverless analysis tools. You can bring the fused and processed data back into Dynamics and use it for further analysis within Fabric.
+1. Use Microsoft Dynamics data sources to build centralized business intelligence (BI) dashboards on augmented datasets by using Fabric serverless analysis tools. You can bring the fused and processed data back into Dynamics and use it for further analysis within Fabric.
 
 1. Real-time data from streaming sources can enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
@@ -56,11 +56,11 @@ Fabric is tightly integrated with potential consumers of your multi-source datas
 
 ### Components
 
-- [Fabric](/fabric/get-started/microsoft-fabric-overview) is an analytics service that combines data engineering, data warehousing, data science, and real-time data and BI capabilities. In this solution, [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide a collaborative platform for data engineers, data scientists, data analysts, and BI professionals to do their job. Powered by serverless compute engines, this key component delivers business value by generating insights that are distributed to customers.
+- [Fabric](/fabric/get-started/microsoft-fabric-overview) is an analytics service that combines data engineering, data warehousing, data science, and real-time data and BI capabilities. In this solution, [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide a collaborative platform for data engineers, data scientists, data analysts, and BI professionals. Powered by serverless compute engines, this key component delivers business value by generating insights that are distributed to customers.
 
-- [SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) are cloud-based relational database services. SQL Database and Managed Instance use [SSMS](/sql/ssms/sql-server-management-studio-ssms) to develop and maintain legacy artifacts like stored procedures. In this solution, these services host the enterprise data warehouse and perform ETL and ELT activities by using stored procedures or external packages. SQL Database and SQL Managed Instance are PaaS services that you can use to meet high availability and disaster recovery requirements. Make sure to choose the SKU that meets your requirements. For more information, see [High availability for SQL Database](/azure/azure-sql/database/high-availability-sla) and [High availability for SQL Managed Instance](/azure/azure-sql/managed-instance/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql).
+- [SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) are cloud-based relational database services. SQL Database and SQL Managed Instance use [SSMS](/sql/ssms/sql-server-management-studio-ssms) to develop and maintain legacy artifacts like stored procedures. In this solution, these services host the enterprise data warehouse and perform ETL and ELT activities by using stored procedures or external packages. SQL Database and SQL Managed Instance are PaaS services that you can use to meet high availability and disaster recovery requirements. Make sure to choose the SKU that meets your requirements. For more information, see [High availability for SQL Database](/azure/azure-sql/database/high-availability-sla) and [High availability for SQL Managed Instance](/azure/azure-sql/managed-instance/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql).
 
-- [SSMS](/sql/ssms/sql-server-management-studio-ssms) is an integrated environment for managing SQL infrastructure that's used to develop and maintain legacy artifacts, such as stored procedures.
+- [SSMS](/sql/ssms/sql-server-management-studio-ssms) is an integrated environment for managing SQL infrastructure that you can use to develop and maintain legacy artifacts, such as stored procedures.
 
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs seamlessly integrates with Azure data services and can ingest data from anywhere.
 
@@ -74,9 +74,9 @@ Fabric is tightly integrated with potential consumers of your multi-source datas
 
 ## Scenario details
 
-When SMBs modernize their on-premises data warehouses for the cloud, they can either adopt big data tools for future scalability or stick with traditional SQL-based solutions for cost efficiency, ease of maintenance, and a smooth transition. A hybrid approach provides the best of both worlds and enables easy migration of existing data estates while using modern tools and AI capabilities. SMBs can keep their SQL-based data sources running in the cloud and modernize them as needed.
+When SMBs modernize their on-premises data warehouses for the cloud, they can either adopt big data tools for future scalability or use traditional SQL-based solutions for cost efficiency, ease of maintenance, and a smooth transition. A hybrid approach provides the best of both worlds and enables easy migration of existing data estates while using modern tools and AI capabilities. SMBs can keep their SQL-based data sources running in the cloud and modernize them as needed.
 
-The guidance in this article describes several strategies for SMBs to modernize legacy data stores and explore big data tools and capabilities without stretching current budgets and skill sets. These comprehensive Azure data warehousing solutions seamlessly integrate with Azure and Microsoft services, including Azure AI services, Microsoft Dynamics, and Microsoft Power Platform.
+This article describes several strategies for SMBs to modernize legacy data stores and explore big data tools and capabilities without stretching current budgets and skill sets. These comprehensive Azure data warehousing solutions seamlessly integrate with Azure and Microsoft services, including Azure AI services, Microsoft Dynamics, and Microsoft Power Platform.
 
 ### Potential use cases
 
@@ -108,7 +108,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data that you store and how often you use the data. The sample pricing covers 1 TB of data storage and other transactional assumptions. The 1 TB refers to the size of the data lake and not the size of the original legacy database.
 
-- [Fabric](https://azure.microsoft.com/pricing/details/microsoft-fabric/) pricing depends on either the Fabric F capacity price or the Premium Per Person price. Serverless capabilities consume CPU and memory from purchased dedicated capacity.
+- [Fabric](https://azure.microsoft.com/pricing/details/microsoft-fabric/) pricing depends on either the Fabric F capacity price or the Premium Per Person price. Serverless capabilities use CPU and memory from your purchased dedicated capacity.
 
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pricing depends on the tier that you choose, the number of throughput units provisioned, and the ingress traffic received. The example assumes one throughput unit in the Standard tier handling over one million events per month.
 
