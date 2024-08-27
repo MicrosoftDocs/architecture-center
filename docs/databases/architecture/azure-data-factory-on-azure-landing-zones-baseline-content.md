@@ -160,7 +160,7 @@ The following foundation services require extension to support this solution:
 
 :::image type="content" source="_images/azure-data-factory-baseline-network.png" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.vsdx) of this architecture.*
 
 - You can use Azure firewalls to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 
