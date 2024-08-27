@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 08/19/2024
+ms.date: 08/26/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: robbag
@@ -27,21 +27,31 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Data store classification for Azure workloads](./data-guide/technology-choices/data-store-classification.md)
 - [Industrial Edge with Azure AI on Azure](./example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml)
 
 ### Updated articles
 
+- [Automate document classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#c74d654229](https://github.com/MicrosoftDocs/architecture-center/commit/c74d654229))
 - [AWS to Azure services comparison](./aws-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
 - [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#5eeb594831](https://github.com/MicrosoftDocs/architecture-center/commit/5eeb594831))
+- [Resiliency checklist for services](./checklist/resiliency-per-service.md)  ([#ac288a264e](https://github.com/MicrosoftDocs/architecture-center/commit/ac288a264e))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#9fee7d4947](https://github.com/MicrosoftDocs/architecture-center/commit/9fee7d4947))
+- [Minimize coordination](./guide/design-principles/minimize-coordination.yml)  ([#f5798d3145](https://github.com/MicrosoftDocs/architecture-center/commit/f5798d3145))
+- [Dashboards to visualize Azure Databricks metrics](./databricks-monitoring/dashboards.md)  ([#dbc049e7b8](https://github.com/MicrosoftDocs/architecture-center/commit/dbc049e7b8))
+- [Observability patterns and metrics](./databricks-monitoring/databricks-observability.yml)  ([#dbc049e7b8](https://github.com/MicrosoftDocs/architecture-center/commit/dbc049e7b8))
+- [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#5ff80ddd61](https://github.com/MicrosoftDocs/architecture-center/commit/5ff80ddd61))
+- [Solutions for the automotive, mobility, and transportation industries](./industries/automotive.md)  ([#1f6b02c2e0](https://github.com/MicrosoftDocs/architecture-center/commit/1f6b02c2e0))
+- [Use Azure Front Door in a multitenant solution](./guide/multitenant/service/front-door.md)  ([#89fc4f1a30](https://github.com/MicrosoftDocs/architecture-center/commit/89fc4f1a30))
+- [Architecture for startups](./guide/startups/startup-architecture.md)  ([#2800748ec3](https://github.com/MicrosoftDocs/architecture-center/commit/2800748ec3))
 - [Intelligent apps using Azure Database for MySQL](./databases/idea/intelligent-apps-using-azure-database-for-mysql.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
 - [Azure Database for PostgreSQL intelligent apps](./databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
-- [Oracle database migration to Azure](./databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
+- [Oracle Database migration to Azure](./databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)  ([#96e5acf54a](https://github.com/MicrosoftDocs/architecture-center/commit/96e5acf54a))
 - [Azure VMware Solution capacity planning](./solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml)  ([#df27cc8f56](https://github.com/MicrosoftDocs/architecture-center/commit/df27cc8f56))
 - [Core startup stack architecture](./example-scenario/startups/core-startup-stack.yml)  ([#f1791cb942](https://github.com/MicrosoftDocs/architecture-center/commit/f1791cb942))
 - [Migrate your e-commerce solution to Azure](./industries/retail/migrate-ecommerce-solution.md)  ([#20635de1aa](https://github.com/MicrosoftDocs/architecture-center/commit/20635de1aa))
 - [What is a data lake?](./data-guide/scenarios/data-lake.md)  ([#623e62824f](https://github.com/MicrosoftDocs/architecture-center/commit/623e62824f))
 - [Building the first layer of defense with Azure security services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)  ([#ff50fd224f](https://github.com/MicrosoftDocs/architecture-center/commit/ff50fd224f))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#cfdf99ab37](https://github.com/MicrosoftDocs/architecture-center/commit/cfdf99ab37))
 - [Retry pattern](./patterns/retry.yml)  ([#ea612ee4ab](https://github.com/MicrosoftDocs/architecture-center/commit/ea612ee4ab))
 - [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
 - [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
