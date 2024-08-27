@@ -55,13 +55,13 @@ The tables in this section summarize the key differences in capabilities.
 
 Native support for vector data types, artificial neural network (ANN) vector indexes, vector dimension limits, multiple vector fields, and multiple vector indexes are sometimes different between the services. Your workload requirements might require some of these specific features. Understand the basic vector features of each Azure service, as shown in the following table.
 
-| Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-| :----- | :---------- | :---------- | :---------- | :---------- | :---------- | :---------- |
-| Built-in vector search | Yes <a href="#a1"><sup>1</sup></a> | Yes | Yes <a href="#a2"><sup>2</sup></a> | Yes <a href="#a1"><sup>1</sup></a> | Yes <a href="#a3"><sup>3</sup></a> | Yes <a href="#a4"><sup>4</sup></a> |
-| Vector data type | Yes | Yes | Yes | Yes | Yes | No  |
-| Dimension limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 505<a href="#a8"><sup>8</sup></a> or 4096 | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 3,072 | 1998 (preview)<a href="#a5"><sup>5</sup></a> |
-| Multiple vector fields | Yes | Yes | No | Yes | Yes | Yes |
-| Multiple vector indexes | Yes | Yes | No | Yes | Yes | Yes |
+| Capability                                      | Azure Cosmos DB for PostgreSQL                | Azure Cosmos DB for NoSQL                 | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex)          | Azure AI Search                    | Azure SQL Database                           |
+| :---------------------------------------------- | :-------------------------------------------- | :---------------------------------------- | :---------------------------------- | :-------------------------------------------- | :--------------------------------- | :------------------------------------------- |
+| Built-in vector search                          | Yes <a href="#a1"><sup>1</sup></a>            | Yes                                       | Yes <a href="#a2"><sup>2</sup></a>  | Yes <a href="#a1"><sup>1</sup></a>            | Yes <a href="#a3"><sup>3</sup></a> | Yes <a href="#a4"><sup>4</sup></a>           |
+| Vector data type                                | Yes                                           | Yes                                       | Yes                                 | Yes                                           | Yes                                | No                                           |
+| Dimension limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 505<a href="#a8"><sup>8</sup></a> or 4096 | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 3,072                              | 1998 (preview)<a href="#a5"><sup>5</sup></a> |
+| Multiple vector fields                          | Yes                                           | Yes                                       | No                                  | Yes                                           | Yes                                | Yes                                          |
+| Multiple vector indexes                         | Yes                                           | Yes                                       | No                                  | Yes                                           | Yes                                | Yes                                          |
 
 1. <span id="a1">"pgvector" supports vector search, which is the [extension of PostgreSQL](/azure/postgresql/flexible-server/how-to-use-pgvector).</span>
 1. <span id="a2">[Use vector search on embeddings](/azure/cosmos-db/mongodb/vcore/vector-search) in Azure Cosmos DB for MongoDB vCore</span>
@@ -76,11 +76,11 @@ Native support for vector data types, artificial neural network (ANN) vector ind
 
 Workloads often need to combine vector search with full text search or even a hybrid search (full text search or semantic search plus vector search). The combination of hybrid search and reranking achieves high accuracy for workloads. You can manually implement hybrid search and reranking with your own code, or you can consider how your vector store supports this workload requirement.
 
-| Search method | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-| :---------- | :---------- | :---------- | :---------- | :---------- | :---------- | :---------- |
-| Full text search       | Yes <a href="#b1"><sup>1</sup></a> | No | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
-| Hybrid search | Yes <a href="#b5"><sup>5</sup></a>  | No | No                                  | Yes <a href="#b5"><sup>5</sup></a>    | Yes <a href="#b6"><sup>6</sup></a> | Yes <a href="#b7"><sup>7</sup></a>                                 |
-| Built-in reranking | No | No | No | No | Yes <a href="#b8"><sup>8</sup></a> | No |
+| Search method      | Azure Cosmos DB for PostgreSQL     | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search                    | Azure SQL Database                 |
+| :----------------- | :--------------------------------- | :------------------------ | :---------------------------------- | :----------------------------------- | :--------------------------------- | :--------------------------------- |
+| Full text search   | Yes <a href="#b1"><sup>1</sup></a> | No                        | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
+| Hybrid search      | Yes <a href="#b5"><sup>5</sup></a> | No                        | No                                  | Yes <a href="#b5"><sup>5</sup></a>   | Yes <a href="#b6"><sup>6</sup></a> | Yes <a href="#b7"><sup>7</sup></a> |
+| Built-in reranking | No                                 | No                        | No                                  | No                                   | Yes <a href="#b8"><sup>8</sup></a> | No                                 |
 
 1. <span id="b1">PostgreSQL [Full Text Search](https://www.postgresql.org/docs/current/textsearch-intro.html)</span>
 1. <span id="b2">[Search and query with text indexes](/azure/cosmos-db/mongodb/vcore/how-to-create-text-index) in Azure Cosmos DB for MongoDB vCore</span>
@@ -97,25 +97,23 @@ Vector data indexing is the ability to efficiently store and retrieve vectors. T
 
 Indexes are typically based on an exhaustive k-nearest neighbor (Ek-NN) or an ANN algorithm. Ek-NN does an exhaustive search on all data points one by one and returns the accurate *K* nearest neighbors. Ek-NN works in milliseconds with a small amount of data but can cause latency for large amounts of data.
 
-[HNSW](https://en.wikipedia.org/wiki/Hierarchical_Navigable_Small_World_graphs) and [IVFFlat](https://en.wikipedia.org/wiki/Nearest_neighbor_search) are ANN algorithm indexes. Selecting the appropriate indexing strategy involves a careful consideration of various factors such as the nature of the dataset, the specific requirements of the queries, and the available resources. IVFFlat is effective in environments where hardware resources are limited or query volumes aren't high. HNSW excels in systems that require fast query responses and can adapt to changes in the dataset.
+[DiskANN](https://www.microsoft.com/en-us/research/project/project-akupara-approximate-nearest-neighbor-search-for-large-scale-semantic-search/), [HNSW](https://en.wikipedia.org/wiki/Hierarchical_Navigable_Small_World_graphs) and [IVFFlat](https://en.wikipedia.org/wiki/Nearest_neighbor_search) are ANN algorithm indexes. Selecting the appropriate indexing strategy involves a careful consideration of various factors such as the nature of the dataset, the specific requirements of the queries, and the available resources. DiskANN can adapt to change in the dataset, and save computational resources. HNSW excels in systems that require fast query responses and can adapt to changes in the dataset. IVFFlat is effective in environments where hardware resources are limited or query volumes aren't high.
 
 Understand what kinds of vector data indexing are provided from the following table.
 
-| Indexing approach | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-|---|---|---|---|---|---|---|
-| Exhaustive K-nearest Neighbor (EKNN) | Yes | Yes | Yes | Yes | Yes | Yes |
-| Hierarchical Navigable Small World (HNSW) | Yes | No | Yes (preview)<a href="#e1"><sup>1</sup></a> | Yes | Yes | No |
-| IVFflat | Yes | No | Yes | Yes | No | No |
-| Other | - | flat, quantizedFlat, diskANN<a href="#e2"><sup>2</sup></a> | Vector field limitation <a href="#e3"><sup>3</sup></a> </br> Vector index limitation <a href="#e4"><sup>4</sup></a> | - | - | External libraries are available<a href="#e5"><sup>5</sup></a> |
+| Indexing approach                         | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL                         | Azure Cosmos DB for MongoDB (vCore)                                                                                 | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database                                             |
+| ----------------------------------------- | ------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | --------------- | -------------------------------------------------------------- |
+| DiskANN                                   | No                             | Yes                                               | No                                                                                                                  | No                                   | No              | No                                                             |
+| Exhaustive K-nearest Neighbor (EKNN)      | Yes                            | Yes                                               | Yes                                                                                                                 | Yes                                  | Yes             | Yes                                                            |
+| Hierarchical Navigable Small World (HNSW) | Yes                            | No                                                | Yes (preview)<a href="#e1"><sup>1</sup></a>                                                                         | Yes                                  | Yes             | No                                                             |
+| IVFflat                                   | Yes                            | No                                                | Yes                                                                                                                 | Yes                                  | No              | No                                                             |
+| Other                                     | -                              | flat, quantizedFlat<a href="#e2"><sup>2</sup></a> | Vector field limitation <a href="#e3"><sup>3</sup></a> </br> Vector index limitation <a href="#e4"><sup>4</sup></a> | -                                    | -               | External libraries are available<a href="#e5"><sup>5</sup></a> |
 
 1. <span id="e1">[Azure Cosmos DB for MongoDB - Vector search overview](/azure/cosmos-db/mongodb/vcore/vector-search)</span>
 1. <span id="e2">[Vector indexing policies](/azure/cosmos-db/nosql/vector-search#vector-indexing-policies)</span>
 1. <span id="e3">Only one vector field is available per container.</span>
 1. <span id="e4">Only one vector index is available per container.</span>
-1. <span id="e5">Index can be created with the aid of external libraries like [Scikit Learn](
-https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans
-) or [FAISS](
-https://github.com/Azure-Samples/azure-sql-db-vectors-faiss)</span>
+1. <span id="e5">Index can be created with the aid of external libraries like [Scikit Learn](https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans) or [FAISS](https://github.com/Azure-Samples/azure-sql-db-vectors-faiss)</span>
 
 ### Similarity and distance calculation capabilities
 
@@ -125,25 +123,25 @@ Preliminary data analysis benefits from both metrics and Euclidean distances, wh
 
 Azure OpenAI Service embeddings rely on cosine similarity to compute similarity between documents and a query.
 
-| Built-in vector comparison calculation | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-| ---- | ---- | ---- | ---- | ---- | ---- | --- |
-| Cosine similarity | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e2"><sup>2</sup></a> |
-| Euclidean distance (L2 distance) | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e2"><sup>2</sup></a> |
-| Dot product | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e2"><sup>2</sup></a> |
+| Built-in vector comparison calculation | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL         | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database                 |
+| -------------------------------------- | ------------------------------ | --------------------------------- | ----------------------------------- | ------------------------------------ | --------------- | ---------------------------------- |
+| Cosine similarity                      | Yes                            | Yes<a href="#e1"><sup>1</sup></a> | Yes                                 | Yes                                  | Yes             | Yes <a href="#e2"><sup>2</sup></a> |
+| Euclidean distance (L2 distance)       | Yes                            | Yes<a href="#e1"><sup>1</sup></a> | Yes                                 | Yes                                  | Yes             | Yes <a href="#e2"><sup>2</sup></a> |
+| Dot product                            | Yes                            | Yes<a href="#e1"><sup>1</sup></a> | Yes                                 | Yes                                  | Yes             | Yes <a href="#e2"><sup>2</sup></a> |
 
 1. <span id="e1">[Vector Distance Calculation](/azure/cosmos-db/nosql/query/vectordistance) for Azure Cosmos DB for NoSQL. </span>
 1. <span id="e2">Distance calculation [examples](https://github.com/Azure-Samples/azure-sql-db-openai/blob/main/distance-calculations-in-tsql.md) for Azure SQL database and SQL Server.</span>
 
 ### Integration with Azure OpenAI and other components
 
-When implementing vector search, you can also consider linking with other Microsoft components. For example, Azure OpenAI Service helps you create vectors for your data and input queries for vector similarity search.  
+When implementing vector search, you can also consider linking with other Microsoft components. For example, Azure OpenAI Service helps you create vectors for your data and input queries for vector similarity search.
 
-| Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-|---|---|---|---|---|---|---|
-| Azure OpenAI Service - add your own data | No | No | Yes <a href="#g1"><sup>1</sup></a> | No | Yes <a href="#g2"><sup>2</sup></a>| No |
-| Vector embedding with Azure OpenAI | No | No | No | Yes <a href="#g3"><sup>3</sup></a>| Yes <a href="#g4"><sup>4</sup></a>| Yes <a href="#g5"><sup>5</sup></a> |
-| Integration with prompt flow | No | No | No | No | Yes <a href="#g6"><sup>6</sup></a>| No |
-| Integration with Semantic Kernel | Yes <a href="#g7"><sup>7</sup></a> | Yes<a href="#g8"><sup>8</sup></a> | Yes<a href="#g9"><sup>9</sup></a>| Yes <a href="#g7"><sup>7</sup></a>| Yes <a href="#g10"><sup>10</sup></a> | Yes <a href="#g11"><sup>11</sup></a> |
+| Capability                               | Azure Cosmos DB for PostgreSQL     | Azure Cosmos DB for NoSQL         | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search                      | Azure SQL Database                   |
+| ---------------------------------------- | ---------------------------------- | --------------------------------- | ----------------------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Azure OpenAI Service - add your own data | No                                 | No                                | Yes <a href="#g1"><sup>1</sup></a>  | No                                   | Yes <a href="#g2"><sup>2</sup></a>   | No                                   |
+| Vector embedding with Azure OpenAI       | No                                 | No                                | No                                  | Yes <a href="#g3"><sup>3</sup></a>   | Yes <a href="#g4"><sup>4</sup></a>   | Yes <a href="#g5"><sup>5</sup></a>   |
+| Integration with prompt flow             | No                                 | No                                | No                                  | No                                   | Yes <a href="#g6"><sup>6</sup></a>   | No                                   |
+| Integration with Semantic Kernel         | Yes <a href="#g7"><sup>7</sup></a> | Yes<a href="#g8"><sup>8</sup></a> | Yes<a href="#g9"><sup>9</sup></a>   | Yes <a href="#g7"><sup>7</sup></a>   | Yes <a href="#g10"><sup>10</sup></a> | Yes <a href="#g11"><sup>11</sup></a> |
 
 1. <span id="g1">Azure Cosmos DB for MongoDB (vCore) is [supported as a data source](/azure/ai-services/openai/concepts/use-your-data?tabs=mongo-db#supported-data-sources) for Azure OpenAI on Your Data.</span>
 2. <span id="g2">Azure AI Search is [supported as a data source](/azure/ai-services/openai/concepts/use-your-data?tabs=mongo-db#supported-data-sources) for Azure OpenAI on Your Data.</span>
@@ -152,8 +150,8 @@ When implementing vector search, you can also consider linking with other Micros
 5. <span id="g5">You can create a [stored procedure for your embedding model deployment](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).</span>
 6. <span id="g6">Supported as a vector database in [Vector DB Lookup](https://microsoft.github.io/promptflow/reference/tools-reference/vector_db_lookup_tool.html#vector-db-lookup) tool.</span>
 7. <span id="g7">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.Postgres)).</span>
-8. <span id="g8">[Azure Cosmos DB in Semantic Kernel](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/).</span>
-9. <span id="g9">Supported as a vector database connector ([Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)).</span>
+8. <span id="g8">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBNoSQL), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb_no_sql)).</span>
+9. <span id="g9">Supported as a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBMongoDB), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)).</span>
 10. <span id="g10">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureAISearch), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cognitive_search)).</span>
 11. <span id="g11">Supported as a [memory connector](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).</span>
 
