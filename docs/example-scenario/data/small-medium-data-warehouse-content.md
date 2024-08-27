@@ -54,7 +54,7 @@ Fabric is tightly integrated with potential consumers of your multi-source datas
 
 ### Components
 
-- [Fabric](/fabric/get-started/microsoft-fabric-overview) is an analytics service that combines data engineering, data warehousing, data science, and real-time data and BI capabilities. In this solution, [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide a collaborative platform for data engineers, data scientists, data analysts, and BI professionals. Powered by serverless compute engines, this key component delivers business value by generating insights that are distributed to customers.
+- [Fabric](/fabric/get-started/microsoft-fabric-overview) is an analytics service that combines data engineering, data warehousing, data science, and real-time data and BI capabilities. In this solution, [Fabric data engineering capabilities](/fabric/data-engineering/data-engineering-overview) provide a collaborative platform for data engineers, data scientists, data analysts, and BI professionals. This key component is powered by serverless compute engines and delivers business value by generating insights that are distributed to customers.
 
 - [SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) are cloud-based relational database services. SQL Database and SQL Managed Instance use [SSMS](/sql/ssms/sql-server-management-studio-ssms) to develop and maintain legacy artifacts like stored procedures. In this solution, these services host the enterprise data warehouse and perform ETL and ELT activities by using stored procedures or external packages. SQL Database and SQL Managed Instance are PaaS services that you can use to meet high availability and disaster recovery requirements. Make sure to choose the SKU that meets your requirements. For more information, see [High availability for SQL Database](/azure/azure-sql/database/high-availability-sla) and [High availability for SQL Managed Instance](/azure/azure-sql/managed-instance/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql).
 
@@ -100,7 +100,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) enables you to modify values to understand how your specific requirements affect costs. You can see a pricing sample for a SMB data warehousing scenario in the Azure pricing calculator.
+- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) enables you to modify values to understand how your specific requirements affect costs. You can see a pricing sample for an SMB data warehousing scenario in the Azure pricing calculator.
 
 - [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) pricing depends on the compute and service tiers that you choose and the number of vCores and database transaction units. The example describes a single database with provisioned compute and eight vCores, and assumes that you need to run stored procedures in SQL Database.
 
