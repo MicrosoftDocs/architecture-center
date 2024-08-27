@@ -1,4 +1,4 @@
-The guidance in this article describes several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skill sets. These comprehensive data warehousing solutions seamlessly integrate with Azure Machine Learning, Azure AI services, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies. These solutions provide an easy entry point to the fully managed software as a service (SaaS) data platform on Microsoft Fabric that can expand as your needs grow.
+This article describes several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skill sets. These comprehensive data warehousing solutions seamlessly integrate with Azure Machine Learning, Azure AI services, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies. These solutions provide an easy entry point to the fully managed software as a service (SaaS) data platform on Microsoft Fabric that can expand as your needs grow.
 
 Small to medium-sized businesses that use on-premises SQL Server for data warehousing solutions under 500 GB might benefit from using this pattern. They use various tools for data ingestion into their data warehousing solution, including SQL Server Integration Services (SSIS), SQL Server Analysis Services (SSAS), SQL Server Reporting Services (SSRS), common SQL stored procedures, external ETL and ELT tools, SQL Server Agent jobs, and SQL snapshot replication. Data synchronization operations are typically snapshot-based, performed once a day, and don't have real-time reporting requirements.
 
@@ -8,8 +8,7 @@ Small to medium-sized businesses that use on-premises SQL Server for data wareho
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
-A conceptual modernization opportunity involves transitioning the legacy Data Warehousing solution to a combination of Azure SQL Database, Azure SQL Managed Instance, and Fabric. This strategy ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS). It provides lift-and-shift options for existing processes and requires minimal upskilling for the support team. This solution serves as an initial step toward comprehensive modernization, which enables the organization to fully adopt a lakehouse approach as the data warehouse expands and the team’s skill set grows.
-**See the comparisons [Article Lakehouse, greenfield, scenario 5]**
+A conceptual modernization opportunity involves transitioning the legacy Data Warehousing solution to a combination of Azure SQL Database, Azure SQL Managed Instance, and Fabric. This strategy ensures broad compatibility with traditional SQL Server and SQL client tools like SQL Server Management Studio (SSMS). It also provides lift-and-shift options for existing processes and requires minimal upskilling for the support team. This solution serves as an initial step toward comprehensive modernization, which enables the organization to fully adopt a lakehouse approach as the data warehouse expands and the team’s skill set grows.
 
 ## Architecture
 
@@ -71,7 +70,7 @@ Fabric is tightly integrated with potential consumers of your multi-source datas
 
 - You can use [Fabric data pipelines](/fabric/data-factory/activity-overview) instead of Data Factory pipelines for data integration. Your decision will depend on several factors. For more information, see [Getting from Azure Data Factory to Data Factory in Fabric](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory).
 
-- You can use [Fabric Warehouse](https://learn.microsoft.com/fabric/data-warehouse/data-warehousing) instead of SQL Database or SQL Managed Instance to store enterprise data. This article prioritizes time to market for customers who want to modernize their data warehouses. For more information about data store options for Fabric, see [Fabric decision guide](fabric/get-started/decision-guide-data-store) and check articles for [TODO: link to datalake greenhouse]
+- You can use [Fabric Warehouse](https://learn.microsoft.com/fabric/data-warehouse/data-warehousing) instead of SQL Database or SQL Managed Instance to store enterprise data. This article prioritizes time to market for customers who want to modernize their data warehouses. For more information about data store options for Fabric, see [Fabric decision guide](fabric/get-started/decision-guide-data-store).
 
 ## Scenario details
 
@@ -119,7 +118,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Principal author:
 
-- Galina Polyakova | Senior Cloud Solution Architect
+- [Galina Polyakova](https://www.linkedin.com/in/galinagpolyakova/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
