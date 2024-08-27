@@ -144,17 +144,17 @@ Data Lake Storage underpins Delta Lake because of its ability to efficiently sto
 
     - [Site Recovery](/azure/site-recovery/) supports the backup and recovery of the VMs, which provide the compute to the Data Factory SHIR, required to ingest data from on-premises.
 
-  - The following foundation services require extension to support this solution:
+The following foundation services require extension to support this solution:
 
-  - [Azure DevOps](/azure/devops/) offers continuous integration and continuous delivery (CI/CD) and other integrated version control features.
+- [Azure DevOps](/azure/devops/) offers continuous integration and continuous delivery (CI/CD) and other integrated version control features.
   
-  - [Azure Key Vault](/azure/key-vault/general/) securely manages secrets, keys, and certificates.
+- [Azure Key Vault](/azure/key-vault/general/) securely manages secrets, keys, and certificates.
   
-  - [Microsoft Entra ID](/entra/identity/) provides single sign-on (SSO) across the stack, including Azure Databricks and Power BI users.
+- [Microsoft Entra ID](/entra/identity/) provides single sign-on (SSO) across the stack, including Azure Databricks and Power BI users.
   
-  - [Azure Monitor](/azure/azure-monitor/) collects and analyzes Azure resource telemetry, which provides audit and alerting. This service maximizes performance and reliability by proactively identifying problems.
+- [Azure Monitor](/azure/azure-monitor/) collects and analyzes Azure resource telemetry, which provides audit and alerting. This service maximizes performance and reliability by proactively identifying problems.
   
-  - [Microsoft Cost Management](/azure/cost-management-billing/) provides financial governance services for Azure workloads.
+- [Microsoft Cost Management](/azure/cost-management-billing/) provides financial governance services for Azure workloads.
 
 ### Network design
 
