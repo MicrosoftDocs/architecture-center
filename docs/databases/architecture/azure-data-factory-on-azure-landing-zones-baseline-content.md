@@ -168,15 +168,15 @@ Data Lake Storage underpins Delta Lake because of its ability to efficiently sto
 
 - A private link and private endpoints are implemented, which you can use to bring the service into your virtual network.
 
-- In order to take advantage of machine learning-assisted data labeling, you must create a new storage account, different than the default storage account you created for the Azure Machine Learning workspace. You can bind the new, nondefault storage account to the same virtual network as the workspace. If you prefer to keep the storage account separate, you can place it in a different subnet within that virtual network.
+- To take advantage of machine learning-assisted data labeling, you must create a new storage account that is different than the default storage account you created for the Azure Machine Learning workspace. You can bind the new, nondefault storage account to the same virtual network as the workspace. If you prefer to keep the storage account separate, you can place it in a different subnet within that virtual network.
   
 ## Design considerations
 
 - The use of Azure Databricks Delta Lake means that you can't use the Archive tier Azure Storage accounts because that tier is effectivity offline storage. This design choice is a tradeoff between functionality and cost.
 
-- When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks filesystem or DBFS root) is set as geo-redundant storage (GRS). You can change the redundancy to locally redundant storage (LRS) if geo-redundancy isn't needed.
+- When you create a new Azure Databricks workspace, the default redundancy for the managed storage account (Azure Databricks File system or Databricks File system root) is set as geo-redundant storage (GRS). You can change the redundancy to locally redundant storage (LRS) if geo-redundancy isn't needed.
 
-- As a general rule, data warehouses that are less than one TB perform better on Azure SQL Database than on Synapse. Synapse starts to show performance gains when the data warehouse is more than 1 to 5 TB. This performance difference is the main factor for selecting [Azure SQL over Synapse](/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
+- As a general rule, data warehouses that are less than one TB perform better on Azure SQL Database than on Synapse. Synapse starts to show performance gains when the data warehouse is more than 1 to 5 TB. This performance difference is the main factor for selecting [Azure SQL rather than Synapse](https://learn.microsoft.com/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
 
 ## Alternatives
 
@@ -310,7 +310,7 @@ The recommended alerting baseline includes:
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-To addresses performance efficiency, this architecture has :
+To addresses performance efficiency, this architecture has:
 
 - The standard service tiers of various component versions based on the requirements. You can scale up these resources on-demand without any interruption in service levels. You should [rigorously test](/azure/well-architected/performance-efficiency/performance-test) autoscaling before production release.
   
@@ -346,7 +346,7 @@ Understand that data solution performance typically degrades over time. Establis
 
 To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks).
 
-To deploy a SHIR on an Azure VM, use the [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime).
+To deploy a SHIR on an Azure VM, use the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime).
 
 ## Next steps
 
