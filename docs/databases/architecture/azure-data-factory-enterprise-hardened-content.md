@@ -112,7 +112,7 @@ The following workflow corresponds to the preceding diagram:
 
 - [Private endpoints](/azure/private-link/private-endpoint-overview) provide a private IP address from your virtual network to an Azure service. This process effectively brings the service into your virtual network. This functionality makes the service accessible only from your virtual network or connected networks, which ensures a more secure and private connection.
 
-  - Private endpoints use [Azure Private Link](/azure/private-link/private-link-overview), which secures the connection to the platform as a service (PaaS) solution. If your workload uses any resources that don't support private endpoints, you might be able to use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview). We recommend that you use private endpoints for mission-critical workloads whenever possible.
+  Private endpoints use [Azure Private Link](/azure/private-link/private-link-overview), which secures the connection to the platform as a service (PaaS) solution. If your workload uses any resources that don't support private endpoints, you might be able to use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview). We recommend that you use private endpoints for mission-critical workloads whenever possible.
 
 ### Data science capability
 
@@ -142,14 +142,14 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Compared to the baseline architecture, this architecture:
 
-- Meets the uplifted requirements with the default [Azure SLAs](https://www.azure.cn/support/sla/summary/) across the solution. This strategy eliminates the need for high-availability or multi-regional uplift.
+- Meets the uplifted requirements with the default [Azure SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) across the solution. This strategy eliminates the need for high-availability or multi-regional uplift.
 
 - Uplifts the [disaster recovery strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and updated target metrics. This strategy must be tested regularly to ensure that it remains fit for purpose.
 
 - Uses zone-redundancy features in solution components to protect against localized service problems. The following table shows the resiliency types for the services or features in this architecture.
 
-Service or feature|Resiliency type
-:-----:|:-----:
+|Service or feature|Resiliency type|
+| :---------- | :---------- |
 Data Factory|Zone redundant
 Azure Databricks|Zone redundant
 Azure Data Lake Storage Gen2 |Zone redundant
