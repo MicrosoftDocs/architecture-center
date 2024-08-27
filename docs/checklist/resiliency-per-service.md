@@ -53,11 +53,15 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Azure Load Balancer
 
-**Select Standard SKU.** Standard load balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be affected. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not affected by region failures either.
+**Select Standard SKU.** Standard Load Balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be affected. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not affected by region failures either.
 
-**Provision at least two instances.** Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair LB with Virtual Machine Scale Sets.
+**Provision at least two instances.** Deploy Azure load balancer with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you should pair load balancer with Virtual Machine Scale Sets.
 
 **Use outbound rules.** Outbound rules ensure that you are not faced with connection failures as a result of Source Network Address Translation (SNAT) port exhaustion. Learn more about [outbound connectivity](/azure/load-balancer/outbound-rules). While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard load balancer or any subnet deployment with [VNet network address translation (NAT)](/azure/virtual-network/nat-overview).
+
+## Azure Public IPs
+
+**Select Standard SKU.** Standard Public IPs provide availability zones and zone resiliency unlike Basic Public IPs. If using a service that needs a Public IP, select a zone-redundant Public IP. For existing IPs, upgrade them from Basic to Standard to get the benefits of [zone-redundant by default](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone).
 
 ## Application Gateway
 

@@ -16,6 +16,7 @@ metadata:
     - fcp
     - cse
     - e2e-hybrid
+    - arb-aiml
 name: Machine Learning operations maturity model
 azureCategories:
   - developer-tools

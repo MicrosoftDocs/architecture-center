@@ -21,6 +21,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
     - arb-data
+    - arb-aiml
 name: Predictive aircraft engine monitoring
 azureCategories:
   - analytics

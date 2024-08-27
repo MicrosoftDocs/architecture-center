@@ -175,4 +175,4 @@ Principal author:
 - [Big data architectures](../big-data/index.yml)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+

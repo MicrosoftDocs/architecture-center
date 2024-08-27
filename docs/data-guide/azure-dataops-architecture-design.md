@@ -110,7 +110,6 @@ DataOps uses many tools and techniques to deliver data. The following resources 
 
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
-- [Data management across Azure Data Lake with Azure Purview](../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 
 ### Amazon Web Services (AWS) or Google Cloud professionals

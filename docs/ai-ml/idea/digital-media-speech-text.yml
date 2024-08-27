@@ -18,6 +18,7 @@ metadata:
     - speech
     - "https://azure.microsoft.com/solutions/architecture/digital-media-speech-text"
     - ai-machine-learning
+    - arb-aiml
 name: Keyword search and speech to text
 azureCategories:
   - ai-machine-learning

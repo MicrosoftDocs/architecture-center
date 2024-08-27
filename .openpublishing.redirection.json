@@ -3256,6 +3256,51 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml",
+      "redirect_url": "/azure/event-hubs/azure-event-hubs-kafka-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml",
+      "redirect_url": "/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/sports-analytics-architecture-azure.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/advanced-analytics-on-big-data.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/application-integration-using-event-grid.yml",
+      "redirect_url": "/azure/event-grid/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml",
+      "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sync-framework-metadata-ingestion.yml",
+      "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
       "redirect_document_id": true
@@ -5223,6 +5268,76 @@
     {
       "source_path": "docs/industries/telecommunications/carrier-grade.yml",
       "redirect_url": "/azure/architecture/browse/?terms=telecommunications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/batch-scoring-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance/risk-grid-banking-solution-guide.yml",
+      "redirect_url": "/azure/architecture/guide/architecture-styles/big-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/secrets/secure-refresh-tokens.yml",
+      "redirect_url": "/azure/architecture/guide/security/security-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/vision-classifier-model-with-custom-vision.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/enterprise-data-warehouse.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/erp-customer-service.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml",
+      "redirect_url": "/azure/hdinsight/hdinsight-virtual-network-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-purview-sql-estate-architecture.yml",
+      "redirect_url": "/purview/register-scan-azure-sql-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/real-time-analytics.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
     }
   ]

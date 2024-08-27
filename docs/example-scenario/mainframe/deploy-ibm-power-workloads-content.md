@@ -96,7 +96,7 @@ If your capacity pool size requirements are consistent but performance requireme
 
 #### Automatically tier cold data
 
-Azure NetApp Files has a Standard storage service level with [cool access](https://learn.microsoft.com/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce S3 object storage cost. Cool access automatically moves cold blocks to S3 object storage and automatically returns them to the active file system when a client requests them.
+Azure NetApp Files has a Standard storage service level with [cool access](https://learn.microsoft.com/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce object storage cost. Cool access automatically moves cold blocks to Azure Blob storage and automatically returns them to the active file system when a client requests them.
 
 You can also provision and deprovision various types of capacity pools throughout the month to provide just-in-time performance and reduce costs during periods when you don't need high performance.
 

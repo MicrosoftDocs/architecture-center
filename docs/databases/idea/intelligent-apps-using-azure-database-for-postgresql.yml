@@ -34,4 +34,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/intelligent-apps-using-azure-database-for-postgresql.png
 content: |
-  [!include[](intelligent-apps-using-azure-database-for-postgresql-content.md)]
+  [!INCLUDE[](intelligent-apps-using-azure-database-for-postgresql-content.md)]
