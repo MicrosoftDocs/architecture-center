@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data.
   ms.author: gapolyak
-  ms.date: 08/27/2024
+  ms.date: 08/28/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

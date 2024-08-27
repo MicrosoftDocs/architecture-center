@@ -40,17 +40,15 @@ The following dataflow corresponds to the preceding diagram. It demonstrates the
 
 1. The data can be ingested into the centralized Fabric OneLake for further analysis, storage, and reporting by using Data Lake Storage shortcuts. This enables in-place analysis and facilitates downstream consumption.
 
-1. Serverless analysis tools, such as SQL Analytics endpoint and Fabric Spark capabilities, are available on demand inside Fabric and don't require any provisioned resources.
+1. Serverless analysis tools, such as SQL Analytics endpoint and Fabric Spark capabilities, are available on demand inside Fabric and don't require any provisioned resources. Serverless analysis tools are ideal for:
 
-Serverless analysis tools are ideal for:
+   - ETL and ELT activities on OneLake data.
 
-- ETL and ELT activities on OneLake data.
+   - Serving gold layer of medallion architecture to Power BI reports via the DirectLake feature.
 
-- Serving gold layer of medallion architecture to Power BI reports via the DirectLake feature.
+   - Ad hoc data science explorations in T-SQL format or Python.
 
-- Ad hoc data science explorations in T-SQL format or Python.
-
-- Early prototyping for data warehouse entities.
+   - Early prototyping for data warehouse entities.
 
 Fabric is tightly integrated with potential consumers of your multi-source datasets, including Power BI front-end reports, Machine Learning, Power Apps, Azure Logic Apps, Azure Functions, and Azure App Service web apps.
 
@@ -102,7 +100,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) enables you to adjust the values to see how your requirements affect costs. You can see a pricing sample for a SMB data warehousing scenario in the Azure pricing calculator.
+- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) enables you to modify values to understand how your specific requirements affect costs. You can see a pricing sample for a SMB data warehousing scenario in the Azure pricing calculator.
 
 - [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) pricing depends on the compute and service tiers that you choose and the number of vCores and database transaction units. The example describes a single database with provisioned compute and eight vCores, and assumes that you need to run stored procedures in SQL Database.
 
@@ -124,7 +122,7 @@ Principal author:
 
 ## Next steps
 
-- For training content and labs, see [Data Engineer Learning Paths](/training/roles/data-engineer).
+- For training content and labs, see [Data engineer learning paths](/training/roles/data-engineer).
 - [Get started with Fabric](/training/fabric/)
 - [Browse all courses, learning paths, and modules](/training/browse/?products=fabric&resource_type=module)
 - [Create a single database](/azure/azure-sql/database/single-database-create-quickstart)
