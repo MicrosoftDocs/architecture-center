@@ -1,10 +1,3 @@
----
-title: Migrating Oracle database workloads to Azure virtual machines
-description: A guide to migrating Oracle database workloads from on-premises to Azure virtual machines.
-author: jfaurskov
-ms.date: 8/21/2024
----
-
 # Introduction
 
 This article describes considerations and recommendations when doing a physical online migration of an Oracle Database from an on-premises Oracle Database implementation to Azure virtual machines using Oracle Data Guard. The article assumes that you have a basic understanding of Oracle Database technologies as well as Azure Compute and networking. The article builds on the scenario described in the article [Migrating Oracle database workloads to Azure](topic-migrating-oracle-to-azure-content.md).

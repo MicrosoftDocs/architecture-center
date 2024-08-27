@@ -1,10 +1,3 @@
----
-title: Migrating Oracle database workloads to Oracle Database@Azure, Exadata Database Service
-description: A guide to migrating Oracle database workloads from on-premises to Oracle Database@Azure, Exadata Database services.
-author: jfaurskov
-ms.date: 8/20/2024
----
-
 # Introduction
 
 This article describes considerations and recommendations when doing a physical online migration of an Oracle Database from an on-premises Exadata to Oracle Database@Azure using Oracle Zero Downtime Migration (ZDM). The article assumes that you have a basic understanding of Oracle Database@Azure and Oracle Zero Downtime Migration. The article builds on the scenario described in the article [Migrating Oracle database workloads to Azure](topic-migrating-oracle-to-azure-content.md).

@@ -1,10 +1,3 @@
----
-title: Migrating Oracle database workloads to Azure
-description: A guide to migrating Oracle database workloads from on-premises to Azure virtual machines or Oracle Database@Azure.
-author: jfaurskov
-ms.date: 8/20/2024
----
-
 # Migrating Oracle database workloads to Azure
 
 ## Introduction to migrating Oracle database workloads to Azure
