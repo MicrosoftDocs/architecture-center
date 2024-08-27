@@ -10,7 +10,7 @@ Reliability is a relative concept, and for a workload to be appropriately reliab
 This architecture targets an SLO of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
 
 > [!TIP]
-> To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
+> To define a realistic SLO, it's important to understand the reliability objectives of all Azure components and other factors within the scope of the architecture. For more information, see [Recommendations for defining reliability targets](azure/well-architected/reliability/metrics). These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
 >
 > Refer to [Well-Architected mission-critical workloads: Design for business requirements](/azure/architecture/framework/mission-critical/mission-critical-design-methodology#1design-for-business-requirements).
 
