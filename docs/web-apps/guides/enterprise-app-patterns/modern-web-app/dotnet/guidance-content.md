@@ -338,7 +338,7 @@ Distributed tracing tracks a user request as it traverses multiple services. Whe
 
 - *Set up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include additional OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
 
-The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (Azure.Monitor.OpenTelemetry.AspNetCore), which exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Additional instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket rendering service like this:
+The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Additional instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket rendering service like this:
 
 ```c#
 builder.Logging.AddOpenTelemetry(o => 
