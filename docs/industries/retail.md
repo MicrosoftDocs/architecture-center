@@ -84,9 +84,6 @@ The following are other ideas that you can use as a starting point for your reta
 **Analytics**:
 
 - [Big data analytics with Azure Data Explorer](../solution-ideas/articles/big-data-azure-data-explorer.yml)
-- [Demand forecasting and price optimization](../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)
-- [Demand forecasting with Azure Machine Learning](../solution-ideas/articles/demand-forecasting.yml)
-- [Demand forecasting for shipping and distribution](../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
 - [Interactive price analytics](../solution-ideas/articles/interactive-price-analytics.yml)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 

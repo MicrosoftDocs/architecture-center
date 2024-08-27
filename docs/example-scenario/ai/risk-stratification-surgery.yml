@@ -12,6 +12,7 @@ metadata:
   ms.custom: 
     - arb-healthcare
     - arb-data
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - analytics

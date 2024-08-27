@@ -189,12 +189,12 @@ Principal authors:
 
 ## Next steps
 
-- [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
+- [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/blob/main/README.md)
 - [Identity-based functions tutorial](/azure/azure-functions/functions-identity-based-connections-tutorial-2)
   
 ## Related resources
 
-- [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
+- [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/blob/main/README.md)
 - [Application and service principal objects in Microsoft Entra](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
 - [Azure Functions Service Bus trigger SDK issue](https://github.com/Azure/azure-sdk-for-net/issues/30961)
 - [Service Bus managed identity limitation](/dotnet/api/overview/azure/Microsoft.Azure.WebJobs.Extensions.ServiceBus-readme)

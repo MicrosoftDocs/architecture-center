@@ -175,4 +175,3 @@ Other contributor:
 
 - [All aerospace architectures](/azure/architecture/browse/?terms=aircraft)
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

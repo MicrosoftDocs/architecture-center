@@ -12,7 +12,9 @@ metadata:
   ms.category:
     - hybrid
     - ai-machine-learning
-  ms.custom: arb-iot
+  ms.custom:
+    - arb-iot
+    - arb-aiml
 name: Deploy AI and machine learning computing on-premises and to the edge
 azureCategories:
   - hybrid

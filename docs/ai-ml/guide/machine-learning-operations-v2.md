@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom: arb-aiml
 products:
   - azure-machine-learning
   - azure-pipelines

@@ -73,7 +73,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - When you implement and maintain this solution, you incur extra costs.
 - Using the change feed for replication requires less code maintenance than doing the replication in the core application.
-- You need to migrate existing data. The migration process requires ad-hoc scripts or routines to copy old data to storage accounts. When you migrate the data, make sure that you use time stamps and copy flags to track migration progress.
+- You need to migrate existing data. The migration process requires ad hoc scripts or routines to copy old data to storage accounts. When you migrate the data, make sure that you use time stamps and copy flags to track migration progress.
 - To avoid deleting entries from the Azure Table secondary storage, ignore delete feeds that are generated when your functions delete entries from Azure Cosmos DB.
 
 ## Contributors

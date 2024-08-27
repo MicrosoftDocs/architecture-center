@@ -125,7 +125,7 @@ Real-time integrations commonly involve exposing APIs to your tenants or other p
 - Is there a limit to the number of requests that an API user can make over a period of time?
 - How will you provide information about your APIs and documentation for each API? For example, do you need to implement a developer portal?
 
-A good practice is to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. API gateways give you a single place to implement policies that your APIs follow, and they simplify the implementation of your backend API systems.
+A good practice is to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. API gateways give you a single place to implement policies that your APIs follow, and they simplify the implementation of your backend API systems. To learn more about how how API Management supports multitenant architecture, see [Use Azure API Management in a multitenant solution](../service/api-management.md).
 
 ### Valet Key pattern
 

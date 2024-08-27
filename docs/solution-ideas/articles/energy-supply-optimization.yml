@@ -20,6 +20,7 @@ metadata:
     - ai gallery
     - "https://azure.microsoft.com/solutions/architecture/energy-supply-optimization"
     - ai-machine-learning
+    - arb-aiml
 name: Energy supply optimization
 azureCategories:
   - ai-machine-learning

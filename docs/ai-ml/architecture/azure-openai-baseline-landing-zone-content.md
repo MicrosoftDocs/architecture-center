@@ -441,7 +441,7 @@ This architecture greatly benefits from Azure landing zone [platform resources](
 
 ## Operational excellence
 
-The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, LLMOps, quality assurance, and safe deployment practices.
+The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, GenAIOps, quality assurance, and safe deployment practices.
 
 ### Correlate data from multiple sinks
 
