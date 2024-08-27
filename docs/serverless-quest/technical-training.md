@@ -21,11 +21,7 @@ The workshops, classes, and learning materials in this article provide technical
 
 ## Technical workshops
 
-The [Microsoft Cloud Workshop (MCW)](https://microsoftcloudworkshop.com/) program provides workshops you can host to foster cloud learning and adoption. Each workshop includes presentation decks, trainer and student guides, and hands-on lab guides. Contribute your own content and feedback to add to a robust database of training guides for deploying advanced Azure workloads on the Microsoft Cloud Platform.
-
-Workshops related to application development workloads include:
-
-- [Serverless APIs in Azure](https://github.com/Azure-Samples/Serverless-APIs). Set of entry-level exercises, which cover the basics of building and managing serverless APIs in Microsoft Azure - with Azure Functions, Azure API Management, and Azure Application Insights.
+The [Serverless APIs in Azure workshop](https://github.com/Azure-Samples/Serverless-APIs) is for application development workloads. It includes a set of entry-level exercises, which cover the basics of building and managing serverless APIs in Microsoft Azure by using Azure Functions, Azure API Management, and Application Insights.
 
 ## Instructor-led training
 

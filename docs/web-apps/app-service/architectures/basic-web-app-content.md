@@ -8,7 +8,7 @@ This article provides a basic architecture intended for learning about running w
 
 ## Architecture
 
-:::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.png" alt-text="Diagram that shows a basic App Service architecture.":::
+:::image type="complex" source="../_images/basic-app-service-architecture-flow.svg" lightbox="../_images/basic-app-service-architecture-flow.svg" alt-text="Diagram that shows a basic App Service architecture.":::
     The diagram shows an Azure App Service connecting directly to an Azure SQL Database. The diagram also shows Azure App Insights and Azure Monitor.
 :::image-end:::
 *Figure 1: Basic Azure App Service architecture*
