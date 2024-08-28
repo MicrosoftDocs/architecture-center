@@ -458,8 +458,6 @@ items:
         href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
       - name: Real-time collaboration
         href: solution-ideas/articles/collaboration-microsoft-365.yml
-      - name: Real-time presence
-        href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
       - name: Secure a Teams channel bot with a firewall
         href: example-scenario/teams/securing-bot-teams-channel.yml
     - name: Azure and Dynamics 365 scenarios

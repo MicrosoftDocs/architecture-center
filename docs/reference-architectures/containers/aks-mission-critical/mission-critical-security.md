@@ -2,7 +2,7 @@
 title: Security considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without dependencies to other company resources - Security.
 author: msimecek
-ms.author: prwilk
+ms.author: msimecek
 ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
