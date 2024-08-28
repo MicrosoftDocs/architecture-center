@@ -81,3 +81,48 @@ Because this architecture isn't designed for production deployments, the followi
 - Azure AI Search is configured for the `Basic` tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. To achieve zonal redundancy, deploy AI Search with the Standard pricing tier or higher in a region that supports availability zones, and deploy three or more replicas.
 - Autocaling is not implemented for the Machine Learning compute. See [machine learning reliability guidance in the baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#machine-learning---reliability).
 
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+This section touches on some of the key recommendations that were implemented in this architecture, including content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section will cover a key security feature
+While this architecture isn't designed for production deployments, network security.
+
+#### Content filtering and abuse monitoring
+
+Azure OpenAI includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in both input prompts and output completions. Categories for this potentially harmful content include hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model). You can configure the strictness of what you want to filter the content for each category, with options being low, medium, or high. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
+
+In addition to content filtering, the Azure OpenAI implements abuse monitoring features. Abuse monitoring is an asynchronous operation designed to detect and mitigate instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/cognitive-services/openai/code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
+
+### Identity and access management
+
+The following guidance extends the [identity and access management guidance in the App Service baseline](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management):
+
+- Create separate managed identities for the following Machine Learning resources, where applicable:
+  - Workspaces for flow authoring and management
+  - Compute instances for testing flows
+  - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
+- Implement identity-access controls for the chat UI by using Microsoft Entra ID
+
+### Machine Learning role-based access roles
+
+There are five [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) that you can use to manage access to your Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there's an AzureML Learning Workspace Connection Secrets Reader and an AzureML Registry User that can grant access to workspace resources such as the workspace secrets and registry.
+
+This architecture follows the principle of least privilege by only assigning roles to the preceding identities where they're required. Consider the following role assignments.
+
+| Managed identity | Scope | Role assignments |
+| --- | --- | --- |
+| Workspace managed identity | Resource group | Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage Blob Data Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage File Data Privileged Contributor |
+| Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
+| Workspace managed identity | Workspace Container Registry | AcrPush |
+| Online endpoint managed identity | Workspace Container Registry | AcrPull |
+| Online endpoint managed identity | Workspace Storage Account | Storage Blob Data Reader |
+| Online endpoint managed identity | Machine Learning workspace | AzureML Workspace Connection Secrets Reader |
+| Compute instance managed identity | Workspace Container Registry | AcrPull |
+| Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader | 
+
+#### Network security
+
+In order to make it easy for you to learn how to build an end-to-end chat solution, this architecture does not implement network security. Services such as Azure AI Search, Azure OpenAI, and Azure App Service are all reachable from the internet. This adds significantly to the attack vector of the architecture. See the [networking section of the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking) to learn how to architect a more secure network infrastructure.
