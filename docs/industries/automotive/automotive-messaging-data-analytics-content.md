@@ -58,7 +58,7 @@ The *broadcast* dataflow is used by digital services that provide notification o
 
 :::image type="content" source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics." border="false"lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
 
-1. The *notification service* is registered and authorized to publish messages to specific topics in the **Event Grid** local registry.
+1. The *notification service* is a MQTT client running in the cloud registered and authorized to publish messages to specific topics. The authorization can be done using [Microsoft Entra JWT authentication](/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac).
 1. The *notification service* publishes an update. For example, a weather warning to topic /weather/warning/
 1. *Event Grid* verifies if the service is authorized to publish to the provided topic.
 1. The vehicle *messaging* module is subscribed to the weather alerts and receives the notification.
