@@ -1,4 +1,4 @@
-This article provides a basic architecture intended for learning about running chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models) in a single region. The architecture includes a client user interface running in Azure App Service and uses Azure Machine Learning prompt flow to orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language model. The executable flow is deployed to a Machine Learning compute cluster behind a managed online endpoint.
+This article provides a basic architecture intended for learning about running chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models) in a single region. The architecture includes a client user interface running in Azure App Service and uses Azure Machine Learning prompt flow to orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language model. The executable flow is deployed to a managed online endpoint with managed compute.
 
 > [!IMPORTANT]
 > This architecture isn't meant to be used for production applications. It's intended to be an introductory architecture you can use for learning and proof of concept (POC) purposes. When designing your production enterprise chat applications, see the [Baseline OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml).
@@ -66,7 +66,7 @@ Many of the components of this architecture are the same as the resources in the
 
 The [components](#components) listed in this architecture link to Azure Well-Architected service guides. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-This *basic architecture* isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The following sections outline some deficiencies of this basic architecture, along with recommendations and considerations.
+This `basic` architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The following sections outline some deficiencies of this basic architecture, along with recommendations and considerations.
 
 ### Reliability
 
@@ -85,8 +85,7 @@ Because this architecture isn't designed for production deployments, the followi
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This section touches on some of the key recommendations that were implemented in this architecture, including content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section will cover a key security feature
-While this architecture isn't designed for production deployments, network security.
+This section touches on some of the key recommendations that were implemented in this architecture, including content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section will cover a key security feature that was not implemented, network security.
 
 #### Content filtering and abuse monitoring
 
@@ -126,3 +125,19 @@ This architecture follows the principle of least privilege by only assigning rol
 #### Network security
 
 In order to make it easy for you to learn how to build an end-to-end chat solution, this architecture does not implement network security. Services such as Azure AI Search, Azure OpenAI, and Azure App Service are all reachable from the internet. This adds significantly to the attack vector of the architecture. See the [networking section of the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking) to learn how to architect a more secure network infrastructure.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+This `basic` architecture is optimized for cost efficiency and simplicity to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The architecture does not represent the costs you will have for a production ready solution. The following outline some of the critical features that are omitted in this architecture that will impact cost:
+
+- This architecture assumes that there will be limited calls to Azure OpenAI. For this reason, we suggest you use pay-as-you-go pricing and not provisioned throughput. As you move toward a production solution, follow the [Azure OpenAI guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai).
+
+- The App Service plan is configured for the `Standard` tier which does not have Availability Zone support. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends you use `Standard` or higher plans with three or more worker instances for high availability.
+
+- Scaling is not configured for the managed online endpoint managed compute. For production deployments, you should configure auto scaling. Further, the [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) recommends deploying to Azure App Service in a zonal redundant configuration. Both of these architectural changes will affect your cost when moving to production.
+
+- Azure AI Search is configured for the `Basic` tier, which doesn't have Azure availability zone support. The [basline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#ai-search---reliability) recommends you deploy with the Standard pricing tier or higher and deploy three or more replicas which will impact your cost as you move toward production.
+
+
