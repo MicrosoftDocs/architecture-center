@@ -2211,6 +2211,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/presence-microsoft-365-power-platform.yml",
+      "redirect_url": "/azure/architecture/solutions/microsoft-365-scenarios",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/cobalt/cobalt-extensible-cloud-framework.md",
       "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
       "redirect_document_id": false
