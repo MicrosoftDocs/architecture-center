@@ -1968,12 +1968,16 @@ items:
         href: reference-architectures/ai/end-to-end-smart-factory.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: IoT Edge safety and maintenance system
+      - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: IoT using Azure Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
+      - name: Automotive connected fleets
+        href: industries/automotive/automotive-connected-fleets.yml
+      - name: Automotive test data analytics
+        href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
       - name: Azure digital twins builder
@@ -3543,11 +3547,6 @@ items:
       - name: Considerations for naming resources
         href: /azure/azure-government/documentation-government-concept-naming-resources
         maintainContext: true
-      - name: IoT scenarios
-        items:
-        - name: Secure worldwide public sector
-          href: /azure/azure-government/documentation-government-overview-wwps
-          maintainContext: true
       - name: Development
         items:
         - name: Azure Government developer guide
@@ -3809,7 +3808,7 @@ items:
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
       - name: Computer vision for manufacturing
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: IoT Edge safety and maintenance system
+      - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: Low-latency network for manufacturing
         href: solution-ideas/articles/low-latency-network.yml
@@ -3858,12 +3857,8 @@ items:
         href: /azure/architecture/browse/?terms=energy
       - name: Environmental monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-      - name: IoT Edge data processing - Monitor oil rigs
-        href: solution-ideas/articles/data-storage-edge.yml
       - name: Oil and gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-      - name: Project 15 IoT sustainability
-        href: solution-ideas/articles/project-15-iot-sustainability.yml
       - name: Run reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.yml
     - name: Compliance solutions
@@ -3877,6 +3872,10 @@ items:
         href: solution-ideas/articles/energy-supply-optimization.yml
       - name: Energy demand forecasting
         href: solution-ideas/articles/forecast-energy-power-demand.yml
+      - name: IoT Edge data processing - Monitor oil rigs
+        href: solution-ideas/articles/data-storage-edge.yml
+      - name: Project 15 IoT sustainability
+        href: solution-ideas/articles/project-15-iot-sustainability.yml
   - name: Telecommunications
     items:
     - name: Overview
@@ -3959,7 +3958,7 @@ items:
         href: /azure/architecture/browse/?terms=automotive
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-      - name: IoT Edge safety and maintenance system
+      - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: Predictive insights with vehicle telematics
         href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
@@ -4374,9 +4373,6 @@ items:
             maintainContext: true
           - name: Data science for airport travel
             href: data-science-process/spark-overview.md
-        - name: IoT spatial analytics - Car rental tracking
-          href: /azure/azure-maps/tutorial-iot-hub-maps
-          maintainContext: true
         - name: No-code voice assistant for hospitality
           href: /azure/azure-percept/tutorial-no-code-speech
           maintainContext: true
@@ -4412,9 +4408,6 @@ items:
         href: industries/facilities-real-estate.md
       - name: Guides
         items:
-        - name: Smart buildings ontologies
-          href: /azure/digital-twins/concepts-ontologies-adopt
-          maintainContext: true
         - name: Azure Maps indoor maps
           items:
           - name: Creator for indoor maps
@@ -4439,6 +4432,7 @@ items:
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
+          maintainContext: true
         - name: Smart places with Azure Digital Twins
           href: example-scenario/iot/smart-places.yml
     - name: Aerospace
