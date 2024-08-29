@@ -38,7 +38,7 @@ The following dataflow corresponds to the preceding diagram. It demonstrates the
 
 1. Real-time data from streaming sources can enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
-1. The data can be ingested into the centralized Fabric OneLake for further analysis, storage, and reporting by using Data Lake Storage shortcuts. This enables in-place analysis and facilitates downstream consumption.
+1. The data can be ingested into the centralized Fabric OneLake for further analysis, storage, and reporting by using Data Lake Storage shortcuts. This process enables in-place analysis and facilitates downstream consumption.
 
 1. Serverless analysis tools, such as SQL Analytics endpoint and Fabric Spark capabilities, are available on demand inside Fabric and don't require any provisioned resources. Serverless analysis tools are ideal for:
 
@@ -46,7 +46,7 @@ The following dataflow corresponds to the preceding diagram. It demonstrates the
 
    - Serving gold layer of medallion architecture to Power BI reports via the DirectLake feature.
 
-   - Ad hoc data science explorations in T-SQL format or Python.
+   - Improvised data science explorations in T-SQL format or Python.
 
    - Early prototyping for data warehouse entities.
 
