@@ -1,9 +1,5 @@
 
-Moodle is an open-source learning management system that requires high throughput, low latency access to storage. Many Moodle deployments require easy scalability to adapt to growing demand. This article explains how Moodle can be deployed using Azure Services on Azure Virtual Machine Scale Sets and Azure NetApp Files to store the user-accessible learning data files in:
-
-- a highly availability setup in a single Azure region,
-- a disaster recovery setup between two Azure regions, and
-- a highly available service using dual zones in a single region.
+Moodle is an open-source learning management system that requires high throughput, low latency access to storage. Many Moodle deployments require easy scalability to adapt to growing demand. This article explains how Moodle can be deployed using Azure Services on Azure Virtual Machine Scale Sets and store user-accessible learning data files in Azure NetApp Files. The article also describes alternate zonal and multi-region deployments to meet high reliability requirements.
 
 ## Architecture
 
@@ -32,9 +28,6 @@ Students access the Moodle application data through an Azure Application Gateway
 - [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/operational-excellence) is a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications.
 - [Azure Virtual Machine Scale Sets](/azure/well-architected/service-guides/virtual-machines) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
 - [Azure NetApp Files](/azure/azure-netapp-files) is a first-party Azure service for migrating and running the most demanding enterprise file-workloads in the cloud: native SMB3 and NFSv3 and NFSv4.1 file shares, databases, data warehouse, and high-performance computing applications.
-    - [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) uses snapshot technology, enabling you to replicate your Azure NetApp Files across designated Azure regions to protect your data from unforeseeable regional failures.
-    - [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) use availability zones and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.
-- [Azure Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) operates at the DNS layer to quickly and efficiently direct incoming DNS requests based on the routing method of your choice. 
 
 ### Alternatives
 
@@ -56,17 +49,18 @@ With this approach, some of the components of the setup, like compute and ancill
 
 Only in a disaster recovery scenario do the components need be started and scaled up where required to continue the service using the replicated data volumes. At this time, the service level of the destination Azure NetApp Files volumes can be upgraded to the Premium or Ultra service level if required.
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-Once the primary region has been recovered, the replication direction is reversed, so the primary region is updated with the changes applied during the failover, and the service can be failed back. Users are redirected to the failover region through [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
+Once the primary region has been recovered, the replication direction is reversed, so the primary region is updated with the changes applied during the failover, and the service can be failed back. Users are redirected to the failover region through [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview), which operates at the DNS layer to quickly and efficiently direct incoming DNS requests based on the routing method of your choice.
 
 :::image type="complex" source="./media/azure-netapp-files-moodle-zonal.png" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="./media/azure-netapp-files-moodle-zonal.png" border="false":::
     A diagram that replicates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes DR versions of the Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
 :::image-end:::
 
-If you require high availability within a region, you can use Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. The same benefits apply regarding the presence of compute and ancillary services which only need to be started up and scaled up in failover situations.
+If you require high availability within a region, you can use Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) use availability zones and the same replication engine as cross-region replication. The same benefits apply regarding the presence of compute and ancillary services which only need to be started up and scaled up in failover situations.
 
 ## Scenario details
+
+This solution applies to Moodle deployments. Organizations that use Moodle span industries including education, business, IT, and finance.
+
 
 This article outlines a solution that meets Moodle's needs. At the core of the solution is Azure NetApp Files, a first-party storage service. You can use this service to migrate and run the most demanding enterprise-scale file workloads in the cloud:
 
@@ -75,15 +69,11 @@ This article outlines a solution that meets Moodle's needs. At the core of the s
 - Data warehouse workloads
 - High-performance computing applications
 
-### Potential use cases
-
-This solution applies to Moodle deployments. Organizations that use Moodle span industries including education, business, IT, and finance.
+<!-- revisit -->
 
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-Keep the following points in mind when you implement this solution.
 
 ### Reliability
 
