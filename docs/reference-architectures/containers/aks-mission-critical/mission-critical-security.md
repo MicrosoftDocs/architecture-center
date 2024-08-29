@@ -312,7 +312,7 @@ Dependabot creates a separate pull request (PR) for each update, which can get o
 
 API calls can fail due to various reasons, code errors, malfunctioned deployments, infrastructure failures, or others. In that case, the caller (client application) shouldn't receive extensive debugging information, because that could provide adversaries with helpful data points about the application.
 
-The reference implementation demonstrates this principle by **returning only the correlation ID** in the failed response and doesn't share the failure reason (like exception message or stack trace). Using this ID (and with the help of `X-Server-Location` header) an operator is able to investigate the incident using Application Insights
+The reference implementation demonstrates this principle by **returning only the correlation ID** in the failed response and doesn't share the failure reason (like exception message or stack trace). Using this ID (and with the help of `Server-Location` header) an operator is able to investigate the incident using Application Insights
 
 ```csharp
 //
