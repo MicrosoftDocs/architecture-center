@@ -250,11 +250,11 @@ Operational excellence outlines the operations processes that deploy an applicat
 
 #### Machine Learning - built-in prompt flow runtimes
 
-To minimize operational burden the **Automatic Runtime** is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low maintenance, ephemeral, and application-driven. Using **Compute Instance Runtime** or externalized compute, such as in this architecture, requires a more workload team-managed lifecycle of the compute, and should be selected when workload requirements exceed the configuration capabilities of the automatic runtime option.
+Like in the basic architecture, this architecture uses the **Automatic Runtime** to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low maintenance, ephemeral, and application-driven. Using **Compute Instance Runtime** or externalized compute, such as in this architecture, requires a more workload team-managed lifecycle of the compute, and should be selected when workload requirements exceed the configuration capabilities of the automatic runtime option.
 
 #### Monitoring
 
-Diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
+Like in the basic architecture, diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
 
 Evaluate building custom alerts for the resources in this architecture such as those found in the Azure Monitor baseline alerts. For example:
 

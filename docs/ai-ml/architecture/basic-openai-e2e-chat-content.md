@@ -130,7 +130,7 @@ In order to make it easy for you to learn how to build an end-to-end chat soluti
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-This `basic` architecture is optimized for cost efficiency and simplicity to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The architecture does not represent the costs you will have for a production ready solution. The following outline some of the critical features that are omitted in this architecture that will impact cost:
+This `basic` architecture is designed to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The architecture does not represent the costs you will have for a production ready solution. Further, the architecture does not have controls in place to guard against cost overruns. The following outline some of the critical features that are omitted in this architecture that will impact cost:
 
 - This architecture assumes that there will be limited calls to Azure OpenAI. For this reason, we suggest you use pay-as-you-go pricing and not provisioned throughput. As you move toward a production solution, follow the [Azure OpenAI guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai).
 
@@ -140,4 +140,36 @@ This `basic` architecture is optimized for cost efficiency and simplicity to all
 
 - Azure AI Search is configured for the `Basic` tier, which doesn't have Azure availability zone support. The [basline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#ai-search---reliability) recommends you deploy with the Standard pricing tier or higher and deploy three or more replicas which will impact your cost as you move toward production.
 
+- There are no cost controls in place in this architecture. Make sure you guard against ungoverned processes or usage that could incur high costs for pay-as-you-go services like Azure OpenAI.
 
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+#### Machine Learning - built-in prompt flow runtimes
+
+To minimize operational burden, this architecture uses the **Automatic Runtime**, a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low maintenance, ephemeral, and application-driven.
+
+#### Monitoring
+
+Diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
+
+#### Language model operations
+
+Because this architecture is optimized for learning and is not intended for production use, operational guidance such as GenAIOps is out of scope. When you do move toward production, follow the [langage model operations guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#language-model-operations).
+
+##### Development
+
+Machine Learning prompt flow offers both a browser-based authoring experience in Machine Learning studio or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Machine Learning studio, the files are stored in a Storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
+
+Because this architecture is meant for learning, it is fine to use the browser-based authoring experience. As you start moving toward production, follow the [guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#development) around development and source control best practices.
+
+##### Evaluation
+
+TODO: Chad to find built in GUI evaluation experiences available
+
+##### Deployment
+
+This `basic` architecture implements a single instance for the deployed orchestrator. When you deploy changes, the new deployment will take the place of the existing deployment. This is fine for a learning environment. When you start moving toward production, read the [deployment flow](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) and [deployment guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-guidance) in the baseline architecture for guidance on understanding and implementing more advanced deployment approaches such as blue/green deployments.
+
+### Performance efficiency
