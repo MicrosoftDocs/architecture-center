@@ -239,8 +239,8 @@ kind: Ingress
 metadata:
   # ...
   annotations:
-    # To restric traffic coming only through our Front Door instance, we use a header check on the X-Azure-FDID
-    # The value gets injected by the pipeline. Hence, this ID should be treated as a senstive value
+    # To restrict traffic coming only through our Front Door instance, we use a header check on the X-Azure-FDID
+    # The value gets injected by the pipeline. Hence, this ID should be treated as a sensitive value
     nginx.ingress.kubernetes.io/modsecurity-snippet: |
       SecRuleEngine On
       SecRule &REQUEST_HEADERS:X-Azure-FDID \"@eq 0\"  \"log,deny,id:106,status:403,msg:\'Front Door ID not present\'\"
@@ -256,7 +256,7 @@ Deployment pipelines ensure that this header is properly populated, but there's 
 #
 $header = @{
   "X-Azure-FDID" = "$frontdoorHeaderId"
-  "X-TEST-DATA"  = "true" # Header to indicate that posted comments and rating are just for test and can be deleted again by the app
+  "TEST-DATA"  = "true" # Header to indicate that posted comments and rating are just for test and can be deleted again by the app
 }
 ```
 
@@ -328,10 +328,10 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (o is HttpContext ctx)
             {
-                context.Response.Headers.Add("X-Server-Name", Environment.MachineName);
-                context.Response.Headers.Add("X-Server-Location", sysConfig.AzureRegion);
-                context.Response.Headers.Add("X-Correlation-ID", Activity.Current?.RootId);
-                context.Response.Headers.Add("X-Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
+                context.Response.Headers.Add("Server-Name", Environment.MachineName);
+                context.Response.Headers.Add("Server-Location", sysConfig.AzureRegion);
+                context.Response.Headers.Add("Correlation-ID", Activity.Current?.RootId);
+                context.Response.Headers.Add("Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
             }
             return Task.CompletedTask;
         }, context);
