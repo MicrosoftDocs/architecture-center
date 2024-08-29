@@ -193,10 +193,9 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 - [Deploy KAITO on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 - [Deploy the Azure Machine Learning extension on AKS or Azure Arc-enabled Kubernetes clusters](/azure/machine-learning/how-to-deploy-kubernetes-extension)
 - [Model catalog and collections on Azure](/azure/machine-learning/concept-model-catalog)
-- [Open-source models on AKS with KAITO](https://moaw.dev/workshop/?src=gh:pauldotyu/moaw/learnlive/workshops/opensource-models-on-aks-with-kaito)
 - [Use GPUs for Windows node pools on AKS](/azure/aks/use-windows-gpu)
 - [Use GPUs on AKS](/azure/aks/gpu-cluster)
 
 ## Related resources
 
-- [Baseline architecture for an AKS cluster](/../../reference-architectures/containers/aks/baseline-aks.yml)
+- [Baseline architecture for an AKS cluster](./aks/baseline-aks.yml)

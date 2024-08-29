@@ -1171,6 +1171,8 @@ items:
             href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
           - name: AKS dual-stack network traffic
             href: guide/aks/aks-dual-stack.yml
+          - name: Use Azure Kubernetes Service to host GPU-based workloads
+            href: reference-architectures/containers/aks-gpu/gpu-aks.yml
       - name: Solution ideas
         items:
         - name: Build CNCF projects by using AKS
