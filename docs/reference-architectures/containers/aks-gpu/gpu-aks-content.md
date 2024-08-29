@@ -198,4 +198,4 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 
 ## Related resources
 
-- [Baseline architecture for an AKS cluster](./aks/baseline-aks.yml)
+- [Baseline architecture for an AKS cluster](../aks/baseline-aks.yml)
