@@ -257,6 +257,7 @@ items:
       items:
       - name: IoT solutions in Azure
         href: /azure/iot/iot-services-and-technologies
+        maintainContext: true
       - name: Compare IoT Hub and Event Hubs
         href: /azure/iot-hub/iot-hub-compare-event-hubs
         maintainContext: true
@@ -4516,10 +4517,6 @@ items:
           href: industries/aerospace/geospatial-processing-analytics.yml
     - name: Agriculture
       items:
-      - name: Guides
-        items:
-        - name: Azure Data Manager for Agriculture Preview
-          href: /azure/data-manager-for-agri/overview-azure-data-manager-for-agriculture
       - name: Architectures
         items:
         - name: All agriculture architectures
