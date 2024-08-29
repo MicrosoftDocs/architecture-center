@@ -72,7 +72,7 @@ In this episode, we learn how Sage embraced the opportunities to shift their app
 
 ## Episode 7: CallCabinet
 
-In this episode, we learn how CallCabinet moved from tapes to servers to the cloud, dramatically reducing user costs while focusing on innovative features. We discuss why they adopted a SaaS model and their biggest challenges in doing so, how they built for scale, how they are using artificial intelligence (AI), and more.
+In this episode, we learn how CallCabinet moved from tapes to servers to the cloud, dramatically reducing user costs while focusing on innovative features. We discuss why they adopted a SaaS model and their biggest challenges in doing so, how they built for scale, how they're using artificial intelligence (AI), and more.
 
 <br/>
 
@@ -80,7 +80,7 @@ In this episode, we learn how CallCabinet moved from tapes to servers to the clo
 
 ## Episode 8: Octopai
 
-In this episode, we explore how Octopai embraced a global SaaS model and are providing innovative value to their customers through new AI technologies. We speak with Zinette Ezra, VP of Product at Octopai to learn more about their pricing model, challenges they have overcome, and how they built for scale and security.
+In this episode, we explore how Octopai embraced a global SaaS model and are providing innovative value to their customers through new AI technologies. We speak with Zinette Ezra, VP of Product at Octopai to learn more about their pricing model, challenges they had to overcome, and how they built for scale and security.
 
 <br/>
 
@@ -104,7 +104,7 @@ In this episode, we explore why Cloud Maker considers early user feedback and ag
 
 ## Episode 11: Cybus
 
-In this episode, we learn how AI can empower users in unexpected ways. We speak to CTO of Cybus about what motivated them to consider a SaaS model, how they leveraged the Microsoft stack, reflections on what they would have done differently, and how they got their engineers "thinking in SaaS."
+In this episode, we learn how AI can empower users in unexpected ways. We speak to the CTO of Cybus about what motivated them to consider a SaaS model, how they used the Microsoft stack, reflections on what they would have done differently, and how they got their engineers "thinking in SaaS."
 
 <br/>
 
@@ -112,7 +112,7 @@ In this episode, we learn how AI can empower users in unexpected ways. We speak 
 
 ## Episode 12: Flyte
 
-In this episode, we speak to Flyte to learn how they built a comprehensive SaaS business with Azure, Teams, and Power Platform. Alasdair shares what motivated them to consider a SaaS model, how they leveraged the Microsoft stack, how they built in a secure way, and more.
+In this episode, we speak to Flyte to learn how they built a comprehensive SaaS business with Azure, Teams, and Power Platform. Alasdair, the CEO of Flyte, shares what motivated them to consider a SaaS model, how they used the Microsoft stack, how they built in a secure way, and more.
 
 <br/>
 
