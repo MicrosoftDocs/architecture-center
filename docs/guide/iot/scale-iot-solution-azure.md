@@ -66,8 +66,8 @@ The requirements for your solution drive the necessary size and number of IoT hu
 
 ### Azure IoT Hub device provisioning service
 
-Azure IoT Hub device provisioning service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. It has a hard-limit of [10 DPS instances per Azure subscription](/azure/iot-dps/about-iot-dps#quotas-and-limits).
-The service also has a [hard-limit of 1 million registrations](/azure/iot-dps/about-iot-dps#quotas-and-limits) per service instance. You must address service limits in your workload design limit to avoid issues in the future.
+Azure IoT Hub device provisioning service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. It has a hard limit of [10 DPS instances per Azure subscription](/azure/iot-dps/about-iot-dps#quotas-and-limits).
+The service also has a [hard limit of 1 million registrations](/azure/iot-dps/about-iot-dps#quotas-and-limits) per service instance. You must address service limits in your workload design limit to avoid issues in the future.
 
 Service instances for DPS are geographically located, but [by default](/azure/iot-dps/virtual-network-support#private-endpoint-limitations) have a global public endpoint. Specific instances are accessed through [ID scope](/azure/iot-dps/concepts-service#id-scope). Because instances are in specific regions and each instance has its own ID scope, you should be able to configure ID scope for your devices.
 
