@@ -3,8 +3,8 @@ metadata:
   title: Network security checklist for MLOps solutions
   titleSuffix: Azure Architecture Center
   description: Use Azure network security capabilities, such as virtual networks, network peering, Private Link, and private DNS zones to protect MLOps solutions.
-  author: gary918
-  ms.author: ganwa
+  author: FreddyAyala
+  ms.author: freddyayala
   ms.date: 06/18/2024
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot  
