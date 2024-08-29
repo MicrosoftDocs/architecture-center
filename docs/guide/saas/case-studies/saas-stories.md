@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.
 author: arsenvlad
 ms.author: arsenv
-ms.date: 05/16/2023
+ms.date: 08/28/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -85,6 +85,38 @@ In this episode, we explore how Octopai embraced a global SaaS model and are pro
 <br/>
 
 > [!VIDEO https://www.youtube.com/embed/zD6l370JEt8]
+
+## Episode 9: Stibo Systems
+
+In this episode, we explore how Stibo Systems innovated through careful planning and investing in new skills while moving and then modernizing their software into a SaaS solution. 
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/VJKkn4kHbnE]
+
+## Episode 10: Cloud Maker
+
+In this episode, we explore why Cloud Maker considers early user feedback and agility to be key when building a new product.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/BRiZQ5XTQrQ]
+
+## Episode 11: Cybus
+
+In this episode, we learn how AI can empower users in unexpected ways. We speak to CTO of Cybus about what motivated them to consider a SaaS model, how they leveraged the Microsoft stack, reflections on what they would have done differently, and how they got their engineers "thinking in SaaS."
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/pygb6i_ICnY]
+
+## Episode 12: Flyte
+
+In this episode, we speak to Flyte to learn how they built a comprehensive SaaS business with Azure, Teams, and Power Platform. Alasdair shares what motivated them to consider a SaaS model, how they leveraged the Microsoft stack, how they built in a secure way, and more.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/9forb89wt4A]
 
 ## Next steps
 
