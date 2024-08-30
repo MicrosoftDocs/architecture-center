@@ -157,5 +157,4 @@ Other contributors:
 
 ## Related resources
 
-- [Governance of Microsoft Teams guest users](../../example-scenario/governance/governance-teams-guest-users.yml)
 - [Real-time presence with Microsoft 365, Azure, and Power Platform](../../solution-ideas/articles/presence-microsoft-365-power-platform.yml)

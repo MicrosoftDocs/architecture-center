@@ -3286,11 +3286,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml",
-      "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/solution-ideas/articles/sync-framework-metadata-ingestion.yml",
       "redirect_url": "/purview/register-scan-adls-gen2?tabs=MI",
       "redirect_document_id": false
@@ -4003,6 +3998,41 @@
     {
       "source_path": "docs/example-scenario/apps/telehealth-system.yml",
       "redirect_url": "/azure/architecture/industries/healthcare",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml",
+      "redirect_url": "/azure/architecture/data-guide/azure-dataops-architecture-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-purview-sql-estate-architecture.yml",
+      "redirect_url": "/azure/architecture/data-guide/azure-dataops-architecture-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/security/apps-zero-trust-identity.yml",
+      "redirect_url": "/entra/identity-platform/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/integrated-multiservices/virtual-network-integration.yml",
+      "redirect_url": "/azure/azure-functions/functions-networking-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/relationship-mesh-solution-azure.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/governance/governance-teams-guest-users.yml",
+      "redirect_url": "/microsoftteams/guest-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/build-deploy-social-media-analytics-solution.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
     },
     {  
@@ -5323,11 +5353,6 @@
     {
       "source_path": "docs/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml",
       "redirect_url": "/azure/hdinsight/hdinsight-virtual-network-architecture",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/azure-purview-sql-estate-architecture.yml",
-      "redirect_url": "/purview/register-scan-azure-sql-database",
       "redirect_document_id": false
     },
     {

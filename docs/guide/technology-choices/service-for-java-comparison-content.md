@@ -60,7 +60,6 @@ Azure Kubernetes Service (AKS) and Virtual Machines support all application type
 Besides the platform choices, modern Java applications might have other supportability needs, such as:
 
 - [Batch or scheduled jobs](#batch-or-scheduled-jobs)
-- [Virtual network integration](#virtual-network-integration)
 - [Serverless](#serverless-development-model)
 - [Containerization](#containerization)
 
@@ -172,7 +171,6 @@ Principal authors:
 - [Expose Azure Spring Apps through a reverse proxy](../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
 - [Microservices architecture design](../../microservices/index.yml)
 - [Multicloud solutions with the Serverless Framework](../../example-scenario/serverless/serverless-multicloud.yml)
-- [Virtual network integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 
 <!-- reference links, for use with tables -->
 [1]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
