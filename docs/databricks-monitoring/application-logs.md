@@ -113,7 +113,7 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
     }
     ```
 
-1. Add Apache Spark log messages at the appropriate level in your code as required. For example, use the `logDebug` method to send a debug log message.
+1. Add Apache Spark log messages at the appropriate level in your code as required. For example, use the `logDebug` method to send a debug log message. For more information, see [Logging][spark-logging] in the Spark documentation.
 
     ```scala
     logTrace("Trace message")
@@ -180,4 +180,4 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/main/README.md
 [log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/main/sample/spark-sample-job/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
 [sample-app]: https://github.com/mspnp/spark-monitoring/tree/main/sample/spark-sample-job
-
+[spark-logging]: https://spark.apache.org/docs/3.5.2/configuration.html#configuring-logging
