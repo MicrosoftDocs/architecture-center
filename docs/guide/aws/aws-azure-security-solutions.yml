@@ -14,7 +14,7 @@ azureCategories:
   - security
 summary: See how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 products:
-  - microsoft Entra
+  - azure
   - microsoft-sentinel
   - defender-for-cloud-apps
   - defender-for-cloud
