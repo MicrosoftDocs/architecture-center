@@ -24,12 +24,21 @@ The source of the events may be external to the system, such as physical devices
 
 In the logical diagram above, each type of consumer is shown as a single box. In practice, it's common to have multiple instances of a consumer, to avoid having the consumer become a single point of failure in system. Multiple instances might also be necessary to handle the volume and frequency of events. Also, a single consumer might process events on multiple threads. This can create challenges if events must be processed in order or require exactly-once semantics. See [Minimize Coordination][minimize-coordination].
 
+There are two primary topologies within the event-driven architecture:
+
+- **Broker topology**. Components broadcast occurrences as events to the entire system, and other components either act upon the event or just ignore the event. This topology is useful when the workflow is relatively simple. There is no central coordination or orchestration so this topology is very dynamic based on various conditions. This topology is highly decoupled, provides high scalability, high responsiveness, high performance and high fault tolerance. On the other hand, no component owns or is aware of the state of the business transaction and actions are taken asynchronously, subsequently no component can restart the business transaction. In this topology, error handling is a challenge and may require manual intervention. Also this topology is more likely to cause data inconsistency.
+
+- **Mediator topology**. This topology addresses some of the shortcomings of broker topology. There is an event mediator that manages and controls the workflow of events. The event mediator maintains the state, manages error handling and restart capabilities. Unlike broker topology, components broadcast occurrences as commands and only to designated channels (usually message queues) which can’t be ignored; the component on the receiving end must act upon the command. This topology offers better control, better error handling and better data consistency. On the other hand, this topology has more complings between components, offers lower scalability (because the event mediator can be a bottleneck), lower performance and lower fault tolerance. Also, it can be difficult to model complex workflows. 
+
+
 ## When to use this architecture
 
 - Multiple subsystems must process the same events.
 - Real-time processing with minimum time lag.
 - Complex event processing, such as pattern matching or aggregation over time windows.
 - High volume and high velocity of data, such as IoT.
+
+If you need workflow control and error handling capability, you should use mediator topology. But if you need higher performance and scalability, you should choose broker topology. You can also use a hybrid model combining both mediator and broker topologies.
 
 ## Benefits
 
