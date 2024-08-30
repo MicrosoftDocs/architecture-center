@@ -30,6 +30,7 @@ There are two primary topologies within the event-driven architecture:
 
 - **Mediator topology**. This topology addresses some of the shortcomings of broker topology. There is an event mediator that manages and controls the flow of events. The event mediator maintains the state, manages error handling and restart capabilities. Unlike broker topology, components broadcast occurrences as commands and only to designated channels, usually message queues. These commands are not expected to be ignored by their consumers. This topology offers more control, better distributed error handling, and potentially better data consistency. This topology does introduce increased coupling between components and the event mediator could become a bottleneck or a reliability concern.
 
+If you need error handling capability and control over flow of events, you should use mediator topology. But if you need higher performance and higher scalability, you should choose broker topology. You can also use a hybrid model combining both mediator and broker topologies.
 
 ## When to use this architecture
 
@@ -37,8 +38,6 @@ There are two primary topologies within the event-driven architecture:
 - Real-time processing with minimum time lag.
 - Complex event processing, such as pattern matching or aggregation over time windows.
 - High volume and high velocity of data, such as IoT.
-
-If you need workflow control and error handling capability, you should use mediator topology. But if you need higher performance and scalability, you should choose broker topology. You can also use a hybrid model combining both mediator and broker topologies.
 
 ## Benefits
 
