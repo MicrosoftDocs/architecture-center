@@ -3774,10 +3774,6 @@ items:
           href: industries/manufacturing/predictive-maintenance-solution.yml
       - name: IoT scenarios
         items:
-        - name: Implement the Industrial IoT reference solution
-          href: /azure/iot/tutorial-iot-industrial-solution-architecture
-        - name: Connect on-premises SAP systems to Azure
-          href: /azure/iot/howto-connect-on-premises-sap-to-azure
         - name: Enable machine learning inference
           href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Mixed reality - Prototyping
