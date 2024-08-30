@@ -1903,8 +1903,6 @@ items:
       href: reference-architectures/iot/iot-architecture-overview.md
     - name: Guides
       items:
-      - name: Choose an IoT solution
-        href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
       - name: Enable machine learning inference
         href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Industry-specific example solutions
@@ -1967,12 +1965,16 @@ items:
         href: reference-architectures/ai/end-to-end-smart-factory.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: IoT Edge safety and maintenance system
+      - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: IoT using Azure Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
+      - name: Automotive connected fleets
+        href: industries/automotive/automotive-connected-fleets.yml
+      - name: Automotive test data analytics
+        href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
       - name: Azure digital twins builder
@@ -3132,25 +3134,6 @@ items:
           - name: Data and privacy
             href: /azure/cognitive-services/personalizer/responsible-data-and-privacy
             maintainContext: true
-      - name: IoT in retail
-        items:
-        - name: Digital distribution center
-          href: /azure/iot-central/retail/tutorial-iot-central-digital-distribution-center
-          maintainContext: true
-        - name: In-store analytics checkout
-          items:
-          - name: Create a retail application
-            href: /azure/iot-central/retail/tutorial-in-store-analytics-create-app
-            maintainContext: true
-          - name: Customize the operator dashboard
-            href: /azure/iot-central/retail/tutorial-in-store-analytics-customize-dashboard
-            maintainContext: true
-          - name: Export data and visualize insights
-            href: /azure/iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights
-            maintainContext: true
-        - name: Smart inventory management
-          href: /azure/iot-central/retail/tutorial-iot-central-smart-inventory-management
-          maintainContext: true
       - name: Migrate your e-commerce solution to Azure
         href: industries/retail/migrate-ecommerce-solution.md
       - name: Mixed reality in retail
@@ -3561,20 +3544,6 @@ items:
       - name: Considerations for naming resources
         href: /azure/azure-government/documentation-government-concept-naming-resources
         maintainContext: true
-      - name: IoT scenarios
-        items:
-        - name: Connected waste management
-          href: /azure/iot-central/government/tutorial-connected-waste-management
-          maintainContext: true
-        - name: Secure worldwide public sector
-          href: /azure/azure-government/documentation-government-overview-wwps
-          maintainContext: true
-        - name: Water consumption monitoring
-          href: /azure/iot-central/government/tutorial-water-consumption-monitoring
-          maintainContext: true
-        - name: Water quality monitoring
-          href: /azure/iot-central/government/tutorial-water-quality-monitoring
-          maintainContext: true
       - name: Development
         items:
         - name: Azure Government developer guide
@@ -3802,47 +3771,8 @@ items:
           href: industries/manufacturing/predictive-maintenance-solution.yml
       - name: IoT scenarios
         items:
-        - name: Azure Sphere scenarios
-          items:
-          - name: Cloud-configuration tasks
-            href: /azure-sphere/hardware/cloud-configuration-tasks
-            maintainContext: true
-          - name: Factory-floor tasks
-            href: /azure-sphere/hardware/factory-floor-tasks
-            maintainContext: true
-          - name: Guardian modules
-            href: /azure-sphere/hardware/guardian-modules
-            maintainContext: true
-          - name: Manufacturing connected devices
-            href: /azure-sphere/hardware/manufacturing-guide
-            maintainContext: true
-          - name: Manufacturing preparation
-            href: /azure-sphere/hardware/manufacturing-preparation-tasks
-            maintainContext: true
-          - name: Radio Frequency tools
-            href: /azure-sphere/hardware/rf-tools
-            maintainContext: true
-        - name: IoT Central scenarios
-          items:
-          - name: Connected logistics application
-            href: /azure/iot-central/retail/tutorial-iot-central-connected-logistics
-            maintainContext: true
-          - name: Digital distribution center
-            href: /azure/iot-central/retail/tutorial-iot-central-digital-distribution-center
-            maintainContext: true
-          - name: Micro-fulfillment center
-            href: /azure/iot-central/retail/tutorial-micro-fulfillment-center
-            maintainContext: true
         - name: Enable machine learning inference
           href: guide/iot/machine-learning-inference-iot-edge.yml
-        - name: Industrial IoT
-          items:
-          - name: Overview
-            href: /azure/industrial-iot/overview-what-is-industrial-iot
-            maintainContext: true
-          - name: Deploy the IIoT platform
-            href: /azure/industrial-iot/tutorial-deploy-industrial-iot-platform
-            maintainContext: true
       - name: Mixed reality - Prototyping
         href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
         maintainContext: true
@@ -3865,13 +3795,13 @@ items:
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Automated fab scheduling and dispatching
         href: example-scenario/manufacturing/fab-scheduling-azure.yml
-      - name: Batch integration in a factory
+      - name: Batch integration with Azure Digital Twins
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: CAE simulations for manufacturing
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
       - name: Computer vision for manufacturing
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: IoT Edge safety and maintenance system
+      - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: Low-latency network for manufacturing
         href: solution-ideas/articles/low-latency-network.yml
@@ -3914,35 +3844,14 @@ items:
         maintainContext: true
       - name: Big compute for oil exploration
         href: guide/architecture-styles/big-compute.yml
-      - name: IoT scenarios
-        items:
-        - name: Connected waste management
-          href: /azure/iot-central/government/tutorial-connected-waste-management
-          maintainContext: true
-        - name: Smart meter energy monitoring
-          href: /azure/iot-central/energy/tutorial-smart-meter-app
-          maintainContext: true
-        - name: Solar panel monitoring
-          href: /azure/iot-central/energy/tutorial-solar-panel-app
-          maintainContext: true
-        - name: Water consumption monitoring
-          href: /azure/iot-central/government/tutorial-water-consumption-monitoring
-          maintainContext: true
-        - name: Water quality monitoring
-          href: /azure/iot-central/government/tutorial-water-quality-monitoring
-          maintainContext: true
     - name: Architectures
       items:
       - name: All energy and environment architectures
         href: /azure/architecture/browse/?terms=energy
       - name: Environmental monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-      - name: IoT Edge data processing - Monitor oil rigs
-        href: solution-ideas/articles/data-storage-edge.yml
       - name: Oil and gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-      - name: Project 15 sustainability
-        href: solution-ideas/articles/project-15-iot-sustainability.yml
       - name: Run reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.yml
     - name: Compliance solutions
@@ -3956,6 +3865,10 @@ items:
         href: solution-ideas/articles/energy-supply-optimization.yml
       - name: Energy demand forecasting
         href: solution-ideas/articles/forecast-energy-power-demand.yml
+      - name: IoT Edge data processing - Monitor oil rigs
+        href: solution-ideas/articles/data-storage-edge.yml
+      - name: Project 15 IoT sustainability
+        href: solution-ideas/articles/project-15-iot-sustainability.yml
   - name: Telecommunications
     items:
     - name: Overview
@@ -4038,11 +3951,11 @@ items:
         href: /azure/architecture/browse/?terms=automotive
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-      - name: IoT edge railroad maintenance and safety
-        href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
+      - name: IoT Edge railroad maintenance and safety
+        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: Predictive insights with vehicle telematics
         href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
-      - name: Process vehicle data using IoT
+      - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Real-time asset tracking for vehicles
         href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
@@ -4410,7 +4323,7 @@ items:
           items:
           - name: Design review
             href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
-          - name: Facilities management
+          - name: Facilities management with mixed reality
             href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
           - name: Training and procedural guidance
             href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
@@ -4453,9 +4366,6 @@ items:
             maintainContext: true
           - name: Data science for airport travel
             href: data-science-process/spark-overview.md
-        - name: IoT spatial analytics - Car rental tracking
-          href: /azure/azure-maps/tutorial-iot-hub-maps
-          maintainContext: true
         - name: No-code voice assistant for hospitality
           href: /azure/azure-percept/tutorial-no-code-speech
           maintainContext: true
@@ -4491,9 +4401,6 @@ items:
         href: industries/facilities-real-estate.md
       - name: Guides
         items:
-        - name: Smart buildings ontologies
-          href: /azure/digital-twins/concepts-ontologies-adopt
-          maintainContext: true
         - name: Azure Maps indoor maps
           items:
           - name: Creator for indoor maps
@@ -4514,7 +4421,7 @@ items:
           href: /azure/architecture/browse/?terms=facilities
         - name: Azure digital twins (construction)
           href: solution-ideas/articles/azure-digital-twins-builder.yml
-        - name: Facilities management with MR
+        - name: Facilities management with mixed reality
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
@@ -4596,28 +4503,11 @@ items:
           href: industries/aerospace/geospatial-processing-analytics.yml
     - name: Agriculture
       items:
-      - name: Guides
-        items:
-        - name: Azure FarmBeats overview
-          href: /azure/industry/agriculture/overview-azure-farmbeats
-          maintainContext: true
-        - name: Generate soil moisture heatmap
-          href: /azure/industry/agriculture/generate-soil-moisture-map-in-azure-farmbeats
-          maintainContext: true
-        - name: Sensor partner integration
-          href: /azure/industry/agriculture/sensor-partner-integration-in-azure-farmbeats
-          maintainContext: true
-        - name: Weather partner integration
-          href: /azure/industry/agriculture/weather-partner-integration-in-azure-farmbeats
-          maintainContext: true
-        - name: Imagery partner integration
-          href: /azure/industry/agriculture/imagery-partner-integration-in-azure-farmbeats
-          maintainContext: true
       - name: Architectures
         items:
         - name: All agriculture architectures
           href: /azure/architecture/browse/?terms=agriculture
-        - name: Environment monitoring with IoT
+        - name: Environment monitoring
           href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
         - name: Low-latency network for farming
           href: solution-ideas/articles/low-latency-network.yml
@@ -4637,8 +4527,6 @@ items:
         - name: Create smart stadiums
           href: example-scenario/iot/smart-places.yml
         - name: Stream sporting events
-  - name: IoT-specific industry solutions
-    href: reference-architectures/iot/industry-iot-hub-page.md
 - name: Microsoft Azure Well-Architected Framework
   href: /azure/well-architected/
 - name: Cloud Adoption Framework for Azure
