@@ -206,7 +206,7 @@ You can limit commands executed against the cluster, without necessarily buildin
 
 ### Build agents
 
-Pipeline agents should be out-of-scope to the regulated cluster because build processes can be threat vectors. For example, build processes can work with untested and untrusted components.
+Pipeline agents should be out-of-scope to the regulated cluster because build processes can be threat vectors. For example, build processes often work with untested and untrusted components.
 
 While it's common to use Kubernetes as an elastic build agent infrastructure, don't run that process within the boundary of the regulated workload runtime. Your build agents shouldn't have direct access to the cluster. For example, only give build agents network access to Azure Container Registry to push container images, helm charts, and so on. Then, deploy through GitOps. As a common practice, build and release workflows shouldn't have direct access to your Kubernetes Cluster API (or its nodes).
 
