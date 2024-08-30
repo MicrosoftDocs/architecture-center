@@ -148,7 +148,7 @@ You can consider using these platforms for AI/ML, when you need to scale your ML
 
 ## ML operational model
 
-When adopting AI and Machine Learning including Generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and MLOps for LLMs or simply, LLMOps objectively provides a framework to continually expand capabilities of your AI and ML practices in your organization. Review [MLOps Maturity Model](/azure/architecture/ai-ml/guide/mlops-maturity-model) and [LLMOps Maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) for reference. 
+When adopting AI and Machine Learning including Generative AI practices, it's a good practice to continually improve and assess your organizational capabilities in managing them. The introduction of MLOps and LLMOps objectively provides a framework to continually expand capabilities of your AI and ML practices in your organization. Review the [MLOps Maturity Model](/azure/architecture/ai-ml/guide/mlops-maturity-model) and [LLMOps Maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) documents for further guidance. 
 
 ## Antipatterns to avoid
 
