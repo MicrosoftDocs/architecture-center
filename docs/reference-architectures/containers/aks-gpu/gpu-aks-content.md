@@ -1,4 +1,4 @@
-This article describes how to efficiently run workloads that use GPU nodes on an Azure Kubernetes Service (AKS) cluster. Learn how to select the right SKU, use GPU nodes to train machine learning models, and use GPU nodes to run inferences on AKS.
+This article describes how to efficiently run workloads that use GPU nodes on an Azure Kubernetes Service (AKS) cluster. Learn how to choose the right SKU, use GPU nodes to train machine learning models, and use GPU nodes to run inferences on AKS.
 
 ## Scenarios
 
@@ -38,7 +38,7 @@ Gaming platforms and cloud gaming services rely on GPUs to deliver high-quality 
 
 #### High-performance computing
 
-High-performance computing (HPC) applications often require complex simulations, numerical analysis, and scientific computations. To quickly run these tasks, you can use GPUs to parallelize the workload across multiple cores. Examples of HPC applications that need massive parallel-processing power include scientific simulations, weather forecasting, computational fluid dynamics, and molecular modeling. GPUs are well-suited for parallel computations, and they significantly accelerate HPC workloads. Scientific and research-driven endeavors benefit from GPUs.
+High-performance computing (HPC) applications often require complex simulations, numerical analysis, and scientific computations. To quickly run these tasks, you can use GPUs to parallelize the workload across multiple cores. Examples of HPC applications that need massive parallel-processing power include scientific simulations, weather forecasting, computational fluid dynamics, and molecular modeling. GPUs are ideal for parallel computations and significantly accelerate HPC workloads. Scientific and research-driven endeavors benefit from GPUs.
 
 To accelerate HPC applications, frameworks like [NVIDIA CUDA](https://developer.nvidia.com/cuda-toolkit), [OpenCL](https://www.khronos.org/opencl/), and [OpenACC](https://www.openacc.org/) provide GPU-enabled APIs and libraries.
 
@@ -52,11 +52,11 @@ Consider cost implications before you deploy GPU nodes in AKS clusters. Understa
 
 Large language models (LLMs), like [OpenAI GPT](https://platform.openai.com/docs/models), [Meta Llama](https://llama.meta.com/llama3/), [Falcon](https://falconllm.tii.ae/), or [Mistral](https://mistral.ai/news/mistral-large/), can take advantage of GPU parallel-processing capabilities. Use GPUs with these models to improve performance.
 
-GPUs can speed up training and inference tasks, which involve complex computations and a large amount of data. GPUs have parallel-processing capabilities that divide the large computational tasks of a given model into smaller subtasks that run concurrently. This process delivers fast results and improves performance.
+GPUs can speed up training and inference tasks, which involve complex computations and large amounts of data. GPUs have parallel-processing capabilities that divide the large computational tasks of a given model into smaller subtasks that run concurrently. This process delivers fast results and improves performance.
 
 Language models often have complex neural networks with several layers and parameters, which can increase computational demand. GPUs accelerate key operations in language processing, such as matrix multiplication and convolutions, which speeds up training and inference times.
 
-GPUs provide sufficient memory capacity, bandwidth, and processing power to handle LLM-based applications with conversational interfaces and text generation. For example, GPU enhancements provide fast response times for users that interact with chatbots and AI assistants.
+GPUs provide sufficient memory capacity, bandwidth, and processing power to handle LLM-based applications that have conversational interfaces and text generation. For example, GPU enhancements provide fast response times for users that interact with chatbots and AI assistants.
 
 Not all workloads benefit from GPU-enabled agent nodes, and in some cases, CPUs are sufficient. For example, workloads that are primarily input and output-bound or don't require heavy computation might not improve with GPUs.
 
@@ -67,9 +67,9 @@ Many Microsoft customers take advantage of GPU workloads to innovate for their c
 - [NBA players improve performance with AI on Azure AI infrastructure](https://customers.microsoft.com/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states).
 
 - [An AI company called Mr. Turing uses AI and AKS to unlock and retain company information—and make it searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil).
-- [OriGen accelerates energy reservoir simulations by 1,000 times with Azure AI infrastructure](https://customers.microsoft.com/story/1665511423001946809-OriGen-partner-professional-services-azure).
-- [Sensyne Health aids the National Health Service in the COVID-19 struggle with Microsoft HPC and AI technologies](https://customers.microsoft.com/story/1430377058968477645-sensyne-health-partner-professional-services-azure-hpc).
-- [Constellation Clearsight augments electrical infrastructure inspection with automated machine learning for images from Azure Machine Learning](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning).
+- [OriGen accelerates energy reservoir simulations by 1,000 times by using Azure AI infrastructure](https://customers.microsoft.com/story/1665511423001946809-OriGen-partner-professional-services-azure).
+- [Sensyne Health aids the National Health Service in the COVID-19 struggle by using Microsoft HPC and AI technologies](https://customers.microsoft.com/story/1430377058968477645-sensyne-health-partner-professional-services-azure-hpc).
+- [Constellation Clearsight augments electrical infrastructure inspection by using automated machine learning for images from Azure Machine Learning](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning).
 
 ## GPU workload deployment best practices
 
@@ -87,10 +87,10 @@ AKS provides various options to deploy GPU-enabled Linux and Windows node pools 
 
 - Create a node pool with a [supported GPU-enabled VM](/azure/aks/gpu-cluster#supported-gpu-enabled-vms) to deploy GPU-enabled Windows node pools. AKS [automatically installs the drivers](/azure/aks/use-windows-gpu#using-windows-gpu-with-automatic-driver-installation) and necessary NVIDIA components. This method doesn't support updating an existing node pool to add GPUs.
 
-  When you select a supported GPU-enabled VM, AKS automatically installs the appropriate NVIDIA CUDA or GRID driver. Some workloads are dependent on a particular driver, which can affect your deployment. For NC and ND series VM sizes, AKS installs the CUDA driver. For NV series VM sizes, AKS installs the GRID driver. 
+  When you select a supported GPU-enabled VM, AKS automatically installs the appropriate NVIDIA CUDA or GRID driver. Some workloads depend on a specific driver, which can affect your deployment. For NC-series and ND-series VM sizes, AKS installs the CUDA driver. For NV-series VM sizes, AKS installs the GRID driver. 
 
 - View the [supported GPU-enabled VMs](/azure/aks/use-windows-gpu#supported-gpu-enabled-virtual-machines-vms) in Azure. We recommend that you use a minimum size of _Standard_NC6s_v3_ for AKS node pools. AKS doesn't support the NVv4 series based on AMD GPUs.
-- Understand the limitations when you use a Windows node pool. Kubernetes version 1.28 and below don't support Windows GPUs.
+- Understand the limitations when you use a Windows node pool. Kubernetes versions 1.28 and below don't support Windows GPUs.
 - Use Kubernetes [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity), [taints, and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) when you schedule workloads on your GPU-enabled node pools.
 
 > [!NOTE]
@@ -122,26 +122,26 @@ To improve machine learning operations, KAITO provides the following capabilitie
 
 - **Container image management**: Use container images to manage LLMs. KAITO provides an HTTP server so that you can use a [supported model library](https://github.com/Azure/kaito/tree/main/examples/inference) to perform inference calls.
 
-- **GPU hardware configuration**: KAITO provides preset configurations that automatically apply based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware. 
+- **GPU hardware configuration**: KAITO provides preset configurations that are automatically applied based on model requirements. You don't have to manually tune deployment parameters to fit GPU hardware. 
 - **Automatic GPU node provisioning**: KAITO automatically provisions GPU nodes based on model requirements and recommends lower-cost GPU VM sizes to configure distributed inferencing.
 - **Integration with Microsoft Artifact Registry**: If your LLM license allows, KAITO can host model images in the public Artifact Registry. This method simplifies access to and deployment of supported models. For open-source models with MIT or Apache2 licenses that the KAITO repository doesn't support, you can [submit a request](https://github.com/Azure/kaito/blob/main/docs/How-to-add-new-models.md) for new model onboarding.
 
-To learn more about KAITO, see the following resources:
+For more information about KAITO, see the following resources:
 
-- [KAITO open-source project](https://github.com/Azure/Kaito)
+- [Explore the KAITO open-source project](https://github.com/Azure/Kaito)
 - [Deploy an AI model on AKS with KAITO](/azure/aks/ai-toolchain-operator)
 - [Fine tune your language models with open-source KAITO](/azure/aks/concepts-fine-tune-language-models)
 - [Deploy KAITO on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 
 ## Workload and cluster scaling
 
-For AI and machine learning scenarios, you must differentiate between training workloads and inferencing with pretrained models. To build and train your machine learning model, consider using GPU compute that's designed for deep learning and parallelizing AI computations. Training often requires gradual scaling and distributing large quantities of data across GPUs to achieve high accuracy with data parallelism.
+For AI and machine learning scenarios, you must differentiate between training workloads and inferencing with pretrained models. To build and train your machine learning model, consider using GPU compute that's designed for deep learning and parallelizing AI computations. Training often requires gradual scaling and the distribution of large quantities of data across GPUs to achieve high accuracy with data parallelism.
 
 Model sharding is a common advanced technique that you can use to divide stages of model training. You can assign GPUs to distinct tasks and maximize their use. GPUs can scale up and scale out HPC workloads, such as NV-series or ND-series VMs on Azure. This capability helps maintain high resource usage and reduce user intervention for machine learning training processes that are lengthy and expensive.
 
 Alternatively, you can use pretrained, open-source AI and machine learning models for inferencing only. Get started with popular models like Llama, Falcon, or Mistral as a faster and more cost-effective option compared to building and training an LLM from scratch. For more information, see [Language models on AKS](/azure/aks/concepts-ai-ml-language-models).
 
-When you use pretrained models for inferencing, you might have dynamic and fluctuating resource usage, depending on the volume of data that you process. When you run live data through your chosen model, spikes in traffic sometimes occur depending on the model size and requirements. You must maintain an acceptable, low level of latency throughout the inferencing process. To effectively use your GPUs for high performance and low latency, you can conduct distributed inference with the models that KAITO supports. This approach expands your compute options to include lower GPU-count SKUs that have one or two GPUs each, provides high availability across Azure regions, and reduces maintenance costs.
+When you use pretrained models for inferencing, you might experience dynamic and fluctuating resource usage, depending on the volume of data that you process. When you run live data through your chosen model, spikes in traffic sometimes occur depending on the model size and requirements. You must maintain an acceptable, low level of latency throughout the inferencing process. To effectively use your GPUs for high performance and low latency, you can conduct distributed inference with the models that KAITO supports. This approach expands your compute options to include lower GPU-count SKUs that have one or two GPUs each, provides high availability across Azure regions, and reduces maintenance costs.
 
 ## GPU workload cost management
 
@@ -151,7 +151,7 @@ The following scenarios benefit from cost visibility.
 
 #### GPU-enabled VM size cost
 
-Select the right GPU-enabled VM size to optimize the cost of running GPUs. Daily costs can vary depending on the VM size that you select. A100 GPUs are costly. You should avoid them unless your workload has specific requirements. AKS cost analysis shows the daily cost for each of your VMs and breaks down the associated costs of each workload that runs on the GPU-enabled VM. Use this data to evaluate whether you have a proper VM size or if you need a more cost-effective option.
+Select the right GPU-enabled VM size to optimize the cost of running GPUs. Daily costs can vary depending on the VM size that you choose. A100 GPUs are costly. You should avoid them unless your workload has specific requirements. AKS cost analysis shows the daily cost for each of your VMs and breaks down the associated costs of each workload that runs on the GPU-enabled VM. Use this data to evaluate whether you have a proper VM size or if you need a more cost-effective option.
 
 #### Idle cost
 
@@ -161,7 +161,7 @@ After you create a GPU-enabled node pool, you incur costs on the Azure resource 
 
 Overprovisioning is when you allocate more resources than necessary for a pod. Overprovisioning leads to resource waste and underuse. Excess resources remain reserved for the node even if you don't use them. To reduce overprovisioning, use the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to set accurate requests and limits based on previous usage patterns.
 
-Underuse can occur when your workloads don't fully use GPUs. Consider advanced GPU sharing and partitioning techniques. Rather than using multiple nodes, you might use a single node with partitioning to maximize GPU usage. These techniques can help you allocate the appropriate amount of GPU acceleration for each workload, which can enhance usage and lower the operational costs of deployment.
+Underuse can occur when your workloads don't use GPUs fully. Consider advanced GPU sharing and partitioning techniques. Rather than using multiple nodes, you might use a single node with partitioning to maximize GPU usage. These techniques can help you allocate the appropriate amount of GPU acceleration for each workload, which can enhance usage and lower the operational costs of deployment.
 
 Linux GPU workload deployments on AKS support [multiple-instance GPUs](/azure/aks/gpu-multi-instance). Use this feature to partition a NVIDIA A100 GPU into up to seven independent instances. Each instance has its own memory and stream multiprocessor.
 
@@ -192,10 +192,10 @@ _To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 - [Deploy an application that uses OpenAI on AKS](/azure/aks/open-ai-quickstart)
 - [Deploy KAITO on AKS by using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
 - [Deploy the Azure Machine Learning extension on AKS or Azure Arc-enabled Kubernetes clusters](/azure/machine-learning/how-to-deploy-kubernetes-extension)
-- [Model catalog and collections on Azure](/azure/machine-learning/concept-model-catalog)
+- [Learn about the model catalog and collections on Azure](/azure/machine-learning/concept-model-catalog)
 - [Use GPUs for Windows node pools on AKS](/azure/aks/use-windows-gpu)
 - [Use GPUs on AKS](/azure/aks/gpu-cluster)
 
-## Related resources
+## Related resource
 
 - [Baseline architecture for an AKS cluster](../aks/baseline-aks.yml)
