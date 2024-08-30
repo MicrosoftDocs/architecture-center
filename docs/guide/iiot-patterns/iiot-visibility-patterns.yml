@@ -2,8 +2,8 @@
 metadata:
   title: Industrial IoT visibility patterns
   description: Learn about common visibility patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.
-  author: jomit
-  ms.author: jovagh
+  author: asergaz
+  ms.author: sergaz
   ms.date: 10/10/2022
   ms.topic: conceptual
   ms.service: architecture-center
