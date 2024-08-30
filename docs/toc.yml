@@ -256,7 +256,8 @@ items:
     - name: Choose an IoT option
       items:
       - name: IoT solutions in Azure
-        href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+        href: /azure/iot/iot-services-and-technologies
+        maintainContext: true
       - name: Compare IoT Hub and Event Hubs
         href: /azure/iot-hub/iot-hub-compare-event-hubs
         maintainContext: true
