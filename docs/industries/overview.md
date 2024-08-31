@@ -46,7 +46,7 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 |[Travel and hospitality](travel-hospitality.md)     |   Azure has the flexibility and scalability to handle the challenges that are faced in the travel and hospitality industries. These organizations can improve customer service and uncover new business opportunities by using built-in support for analyzing data and key insights.      |
 |[Facilities and real estate](facilities-real-estate.md)     |   IoT, AI, machine learning, and other Azure technologies can help building owners, operators, and occupants save money and live better lives.      |
 |[Aerospace](aerospace.md)     |     Intelligent cloud analytics, AI and machine learning, speech capabilities, and improved security are just some of the benefits that aerospace enterprises gain by using Azure.    |
-|[Agriculture](/azure/industry/agriculture/overview-azure-farmbeats?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Agriculture businesses can use Azure FarmBeats, a business-to-business technology, to build AI or machine learning models that are based on aggregated data sets.     |
+|[Agriculture](/azure/data-manager-for-agri/overview-azure-data-manager-for-agriculture) | Agriculture businesses can use Azure Data Manager for Agriculture, built to help the industry accelerate their sustainability and agriculture practices using digital solutions. |
 |[Sports](../industries/sports.md)     |    There's been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team.     |
 
 ## Related resources

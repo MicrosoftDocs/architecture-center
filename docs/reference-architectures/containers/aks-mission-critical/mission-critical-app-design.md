@@ -280,9 +280,9 @@ app.Use(async (context, next) =>
         if (o is HttpContext ctx)
         {
             // ... code omitted for brevity
-            context.Response.Headers.Add("X-Server-Location", sysConfig.AzureRegion);
-            context.Response.Headers.Add("X-Correlation-ID", Activity.Current?.RootId);
-            context.Response.Headers.Add("X-Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
+            context.Response.Headers.Add("Server-Location", sysConfig.AzureRegion);
+            context.Response.Headers.Add("Correlation-ID", Activity.Current?.RootId);
+            context.Response.Headers.Add("Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
         }
         return Task.CompletedTask;
     }, context);

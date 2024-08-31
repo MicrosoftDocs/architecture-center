@@ -139,12 +139,12 @@ Communication Services applications can join Teams calls. For external users, th
 
 Principal author:
 
- - [Chris Palmer](https://www.linkedin.com/in/palmerchristopher) | Principal Group Product Manager
+- [Chris Palmer](https://www.linkedin.com/in/palmerchristopher) | Principal Group Product Manager
 
 Other contributors:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -157,4 +157,4 @@ Other contributors:
 
 ## Related resources
 
-- [Real-time presence with Microsoft 365, Azure, and Power Platform](../../solution-ideas/articles/presence-microsoft-365-power-platform.yml)
+- [Governance of Microsoft Teams guest users](../../example-scenario/governance/governance-teams-guest-users.yml)
