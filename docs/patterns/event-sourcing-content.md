@@ -90,7 +90,7 @@ This pattern might not be useful in the following situations:
 
 - Systems where consistency and real-time updates to the views of the data are required.
 
-- Systems where audit trails, history, and capabilities to roll back and replay actions aren't required.
+- Systems where audit trails, history, and capabilities to roll back and replay actions are required.
 
 - Systems where there's only a low occurrence of conflicting updates to the underlying data. For example, systems that predominantly add data rather than updating it.
 
