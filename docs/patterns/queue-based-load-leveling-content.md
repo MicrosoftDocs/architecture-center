@@ -31,12 +31,26 @@ Consider the following points when deciding how to implement this pattern:
 - It's necessary to implement application logic that controls the rate at which services handle messages to avoid overwhelming the target resource. Avoid passing spikes in demand to the next stage of the system. Test the system under load to ensure that it provides the required leveling, and adjust the number of queues and the number of service instances that handle messages to achieve this.
 - Message queues are a one-way communication mechanism. If a task expects a reply from a service, it might be necessary to implement a mechanism that the service can use to send a response. For more information, see the [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)).
 - Be careful if you apply [autoscaling](/azure/architecture/best-practices/auto-scaling) to services that are listening for requests on the queue. This can result in increased contention for any resources that these services share and diminish the effectiveness of using the queue to level the load.
+- Depending on the load of the service, you can run into a situation where you're effectively always trailing behind, where the system is always queuing up more requests than you're processing. The variability of incoming traffic to your application needs to be taken into consideration
+- The pattern can lose information depending on the persistence of the Queue. If your queue crashes or drops information (due to system limits) there's a possibility that you don't have a guaranteed delivery. The behavior of your queue and system limits needs to be taken into consideration based on the needs of your solution.
 
 ## When to use this pattern
 
 This pattern is useful to any application that uses services that are subject to overloading.
 
 This pattern isn't useful if the application expects a response from the service with minimal latency.
+
+## Workload design
+
+An architect should evaluate how the Queue-Based Load Leveling pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The approach described in this pattern can provide resilience against sudden spikes in demand by decoupling the arrival of tasks from their processing. It can also isolate malfunctions in queue processing so that they don't affect intake.<br/><br/> - [RE:06 Scaling](/azure/well-architected/reliability/scaling)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | Because load processing is decoupled from the request or task intake, you can use this approach to reduce the need to overprovision resources to handle peak load.<br/><br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This approach enables intentional design on throughput performance because the intake of requests doesn't need to correlate to the rate in which they're processed.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 
@@ -59,7 +73,8 @@ The following guidance might also be relevant when implementing this pattern:
 - [Asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
 ## Related resources
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml). This reference architecture includes queue-based load leveling as part of the architecture.
+
+- [Web-Queue-Worker architecture style](/azure/architecture/guide/architecture-styles/web-queue-worker). The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing.
 
 The following patterns might also be relevant when implementing this pattern:
 

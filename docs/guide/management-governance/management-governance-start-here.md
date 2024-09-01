@@ -2,8 +2,8 @@
 title: Management and governance architecture design
 description: Get an overview of Azure management and governance technologies, guidance offerings, solution ideas, and reference architectures.
 author: martinekuan
-ms.author: architectures
-ms.date: 07/26/2022
+ms.author: robbag
+ms.date: 06/16/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -70,42 +70,35 @@ The following sections provide links to reference architectures in some key mana
 - [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
-- [Disaster recovery for enterprise bots](../../solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml)
 - [Use Azure Stack HCI stretched clusters for disaster recovery](../../hybrid/azure-stack-hci-dr.yml)
 
 ### High availability
 
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
-- [High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
-- [High availability enterprise deployment using App Service Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
-- [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
-- [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
+- [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
+- [Deploy highly available NVAs](../../networking/guide/nva-ha.yml)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Run a highly available SharePoint Server 2016 farm in Azure](../../reference-architectures/sharepoint/index.yml)
-- [Build solutions for high availability using availability zones](../../high-availability/building-solutions-for-high-availability.yml)
+- [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
 
 ### Compliance and governance
 
 - [Manage virtual machine compliance](../../example-scenario/security/virtual-machine-compliance.yml)
-- [Custom data sovereignty and data gravity requirements](../../solution-ideas/articles/data-sovereignty-and-gravity.yml)
 - [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
 - [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1](../../reference-architectures/containers/aks-pci/aks-pci-intro.yml)
 
 ### Hybrid management
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
-- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 - [Back up files and applications on Azure Stack Hub](../../hybrid/azure-stack-backup.yml)
 - [Disaster recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-disaster-recovery.yml)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Manage configurations for Azure Arc-enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
-- [Manage hybrid Azure workloads using Windows Admin Center](../../hybrid/hybrid-server-os-mgmt.yml)
 
 ### Update management
 
 - [Plan deployment for updating Windows VMs in Azure](../../example-scenario/wsus/index.yml)
-- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 
 ## Best practices
 

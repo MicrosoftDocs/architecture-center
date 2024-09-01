@@ -1,19 +1,19 @@
 ### YamlMime:Architecture
 metadata:
   title: Compensating Transaction pattern
-  description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
-  author: martinekuan
-  ms.author: architectures
+  description: Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails.
+  ms.author: robbag
+  author: RobBagby
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: design-pattern
   ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.subservice: design-pattern
 azureCategories:
   - networking
 products:
   - azure
 name: Compensating Transaction pattern
-summary: Undo the work performed by a series of steps, which together define an eventually consistent operation.
+summary: Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails.
 thumbnailUrl: /azure/architecture/browse/thumbs/compensating-transaction-diagram.png
 content: |
   [!include[](compensating-transaction-content.md)]

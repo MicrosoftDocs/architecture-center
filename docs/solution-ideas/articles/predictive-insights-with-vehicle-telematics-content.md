@@ -4,9 +4,9 @@ Learn how car dealerships, manufacturers, and insurance companies can use Micros
 
 ## Architecture
 
-![Architecture Diagram show the flow of information through the different computer systems that help with the predictive insights of vehicle telematics.](../media/predictive-insights-with-vehicle-telematics.png)
+![Architecture Diagram show the flow of information through the different computer systems that help with the predictive insights of vehicle telematics.](../media/predictive-insights-with-vehicle-telematics.svg)
 
-*Download an [SVG](../media/predictive-insights-with-vehicle-telematics.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/predictive-insights-with-vehicle-telematics.vsdx) of this architecture.*
 
 ### Components
 
@@ -40,7 +40,6 @@ This solution is ideal for the automotive, manufacturing, and insurance/finance 
 
 ## Related resources
 
-* [Demand Forecasting](./demand-forecasting.yml)
 * [Oil and gas tank level forecasting](./oil-and-gas-tank-level-forecasting.yml)
 * [Predicting Length of Stay in Hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 * [Predictive Aircraft Engine Monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

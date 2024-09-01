@@ -9,6 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-data
 azureCategories:
   - ai-machine-learning
   - integration
@@ -16,7 +17,7 @@ azureCategories:
 products:
   - azure-data-factory
   - azure-machine-learning
-  - azure-data-lake-gen2
+  - azure-data-lake-storage
   - azure-synapse-analytics
   - power-platform
 name: Optimize inventory and forecast demand with Power Platform and Azure

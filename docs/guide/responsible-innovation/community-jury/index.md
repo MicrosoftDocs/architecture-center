@@ -7,14 +7,13 @@ categories: azure
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-devops
 ms.category:
   - fcp
 ms.custom:
   - guide
-  - seo-aac-fy21q3
 keywords:
   - community jury
   - stakeholder collaboration
@@ -78,9 +77,9 @@ Relevant artifacts could include:
 
 Bring on a neutral user researcher to ensure everyone is heard, avoiding domination of the communications by any one member. The moderator will facilitate brainstorms and deliberations, as well as educate jury members in uncovering bias, and ways to ask difficult questions. If a user researcher is not available, choose a moderator who is skilled at facilitating group discussions. Following the session, the moderator is responsible for the following:
 
-  - ensure that the agreed-upon compensation is provided to the jury members;
-  - produce a report that describes key insights, concerns, and recommendations, and
-  - share key insights and next steps with the jury, and thank them for their participation.
+- Ensure that the agreed-upon compensation is provided to the jury members;
+- Produce a report that describes key insights, concerns, and recommendations, and
+- Share key insights and next steps with the jury, and thank them for their participation.
 
 #### Preparation
 
@@ -157,9 +156,5 @@ Medium/pragmatist               =\> All other responses
 Explore the following references for detailed information on this method:
 
 - Jefferson center: creator of the Citizen's Jury method [https://jefferson-center.org/about-us/how-we-work/](https://jefferson-center.org/about-us/how-we-work/)
-- Case study: Connected Health Cities (UK)
-  - [Project page](https://www.connectedhealthcities.org/chc-hub/public-engagement/citizens-juries-chc/citizens-jury-2018/)
-  - [Final report](https://www.connectedhealthcities.org/wp-content/uploads/2018/08/Reasonable-expectations-jury-report-v1.0-FINAL-09.08.18.pdf)
-  - [Jury specification](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/A1-Reasonable-expectations-citizens-jury-specification-v1.pdf)
-  - [Juror's report](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/C1-NDG-CJ-jurors-report-final.pdf)
+- Case study: [Connected Health Cities (UK)](https://connectedhealthcities.github.io/hub/ppi/connected-health-cities-citizens-juries-report.html)
 - Case study: [Community Jury at Microsoft](https://hits.microsoft.com/Study/6014413)

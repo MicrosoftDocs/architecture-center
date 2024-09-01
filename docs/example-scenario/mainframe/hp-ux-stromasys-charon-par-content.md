@@ -2,7 +2,7 @@ This article describes the lift-and-shift migration of an HP-UX workload to Azur
 
 ## Architecture
 
-:::image type="content" source="media/charon-par-hp-ux.png" alt-text="Diagram that shows an architecture for lift-and-shift migration of HP-UX." lightbox="media/charon-par-hp-ux.png" border="false":::
+:::image type="content" source="media/charon-par-hp-ux.svg" alt-text="Diagram that shows an architecture for lift-and-shift migration of HP-UX." lightbox="media/charon-par-hp-ux.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/Stromasys-Charon-PAR-for-HP-UX-Reference-Architecture.vsdx) of this architecture.*
 
@@ -36,7 +36,7 @@ For the best performance, we recommend a compute-optimized FX-series VM. You can
 
 ## Scenario details
 
-Frequently, the evolution and maintenance of business applications is stalled because of underlying legacy hardware. Sometimes the hardware is no longer compatible with newer upgrades and integrations, or, worse, it's no longer supported. Aging infrastructure for mission-critical applications is a concern. The longer the problem remains unsolved, the higher the risk and cost of mitigation. 
+Frequently, the evolution and maintenance of business applications is stalled because of underlying legacy hardware. Sometimes the hardware is no longer compatible with newer upgrades and integrations, or, worse, it's no longer supported. Aging infrastructure for mission-critical applications is a concern. The longer the problem remains unsolved, the higher the risk and cost of mitigation.
 
 These applications might have supported the organization's critical business and evolved over decades, gone through audits and certifications, and have well-established operations around them. Instead of a high-risk and complex re-engineering project, an alternative approach is a low-risk project that moves the applications as-is to a modern and less expensive platform, like Azure, with the help of an emulator. Such a project, often called *lift and shift*, preserves the business functionality of the application and replaces only the hardware, providing business continuity.
 
@@ -59,7 +59,6 @@ Benefits of the lift-and-shift approach to migration include:
 - Azure/Charon customers can continue to use existing critical applications without the cost of rewriting, porting, migrating, or retraining.
 - Maintenance costs are reduced because these applications are moved to emulated systems that are hosted on Azure.
 
-
 ### Potential use cases
 
 - Enable low-friction lift-and-shift to Azure of on-premises HP-UX workloads that run on PA-RISC server machines.
@@ -70,7 +69,7 @@ Benefits of the lift-and-shift approach to migration include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -112,13 +111,13 @@ Fx-series VMs are equipped with 2 GB of RAM and 16 GB of local SSD per CPU core.
 
 Principal author:
 
- - [Sunnyma Ghosh](https://www.linkedin.com/in/sunnymaghosh) | Senior Program Manager
+- [Sunnyma Ghosh](https://www.linkedin.com/in/sunnymaghosh) | Senior Program Manager
 
 Other contributors:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
- 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -136,5 +135,5 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)

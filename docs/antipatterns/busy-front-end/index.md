@@ -2,7 +2,8 @@
 title: Busy Front End antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Asynchronous work on a large number of background threads can starve other foreground tasks of resources.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.service: architecture-center
@@ -208,7 +209,7 @@ The following graph shows the results of a load test. The overall volume of requ
 [AppDynamics]: https://www.appdynamics.com
 [autoscaling]: ../../best-practices/auto-scaling.md
 [background-jobs]: ../../best-practices/background-jobs.md
-[code-sample]: https://github.com/mspnp/performance-optimization/tree/master/BusyFrontEnd
+[code-sample]: https://github.com/mspnp/performance-optimization/tree/main/BusyFrontEnd
 [load-leveling]: ../../patterns/queue-based-load-leveling.yml
 [sync-io]: ../synchronous-io/index.md
 [web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.yml

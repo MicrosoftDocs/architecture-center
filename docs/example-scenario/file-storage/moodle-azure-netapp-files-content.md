@@ -74,7 +74,7 @@ This solution applies to Moodle deployments. Organizations that use Moodle span 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Keep the following points in mind when you implement this solution.
 
@@ -157,7 +157,7 @@ Product documentation:
 [Architecture section of this article]: #architecture
 [Availability section of this article]: #availability
 [Azure NetApp Files for NFS storage with Moodle]: https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630
-[Azure NetApp Files Performance Calculator]: https://cloud.netapp.com/azure-netapp-files/tco
+[Azure NetApp Files Performance Calculator]: https://bluexp.netapp.com/azure-netapp-files/sizer
 [Azure Redis Cache]: /rest/api/redis
 [Cost model for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-cost-model
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction

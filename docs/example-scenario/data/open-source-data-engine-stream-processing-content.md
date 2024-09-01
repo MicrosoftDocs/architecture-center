@@ -2,7 +2,7 @@ This article presents an example of a streaming solution that uses fully managed
 
 ## Architecture
 
-:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false":::
+:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false" lightbox="./media/open-source-data-engine-stream-processing-architecture.svg":::
 
 Download a [Visio file][Visio version of architecture diagram] of this architecture.
 
@@ -35,7 +35,7 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
 - [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a fully managed streaming platform that can process millions of events per second. Event Hubs provides an [endpoint][Use Azure Event Hubs from Apache Kafka applications] for [Apache Kafka][Apache Kafka], a widely used open-source stream-processing platform. When organizations use the endpoint feature, they don't need to build and maintain Kafka clusters for stream processing. Instead, they can benefit from the fully managed Kafka implementation that Event Hubs offers.
 
-- [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a multi-model NoSQL database that offers multi-master replication. Azure Cosmos DB supports open-source APIs for many databases, languages, and platforms. Examples include:
+- [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a fully managed NoSQL and relational database that offers multi-master replication. Azure Cosmos DB supports open-source APIs for many databases, languages, and platforms. Examples include:
 
   - [Apache Cassandra][Apache Cassandra].
   - [Gremlin][The Gremlin Graph Traversal Machine and Language].
@@ -43,7 +43,7 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
   Through the [Azure Cosmos DB for Apache Cassandra][Introduction to Azure Cosmos DB for Apache Cassandra], you can access Azure Cosmos DB data by using Apache Cassandra tools, languages, and drivers. Apache Cassandra is an open-source NoSQL database that's well suited for heavy write-intensive workloads.
 
-- [AKS][Azure Kubernetes Service (AKS) marketing page] is a highly available, secure, and fully managed Kubernetes service. [Kubernetes][Kubernetes] is a rapidly evolving open-source platform for managing containerized workloads. [AKS][Azure Kubernetes Service] hosts open-source big data processing engines such as [Apache Spark][Apache Spark]. By using AKS, you can run large-scale stream processing jobs in a managed environment.
+- [Azure Kubernetes Service (AKS)][Azure Kubernetes Service (AKS) marketing page] is a highly available, secure, and fully managed Kubernetes service. [Kubernetes][Kubernetes] is a rapidly evolving open-source platform for managing containerized workloads. [AKS][Azure Kubernetes Service] hosts open-source big data processing engines such as [Apache Spark][Apache Spark]. By using AKS, you can run large-scale stream processing jobs in a managed environment.
 
 - [Azure Database for PostgreSQL][Azure Database for PostgreSQL marketing page] is a fully managed relational database service. It provides [high availability, elastic scaling, patching, and other management capabilities][What is Azure Database for PostgreSQL?] for PostgreSQL. [PostgreSQL][PostgreSQL] is a widely adopted open-source relational database management system.
 
@@ -59,7 +59,7 @@ Fully managed Azure data services that run open-source engines make up this stre
 
 - Azure Event Hubs offers a [Kafka][Apache Kafka] implementation for stream ingestion.
 - Azure Cosmos DB supports event storage in [Cassandra][Apache Cassandra].
-- Azure Kubernetes Service (AKS) hosts [Kubernetes][Kubernetes] microservices for stream processing.
+- AKS hosts [Kubernetes][Kubernetes] microservices for stream processing.
 - Azure Database for PostgreSQL manages relational data storage in [PostgreSQL][PostgreSQL].
 - Azure Cache for Redis manages [Redis][Redis] in-memory data stores.
 
@@ -82,13 +82,13 @@ This solution applies to various scenarios:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Design and implement each service with best practices in mind. For guidelines on each service, see the [Microsoft documentation site](/). Also review the information in the following sections:
 
 ### Performance
 
-- Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance.
+- Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance. PgBouncer is [built-in][PgBouncer in Azure Database for PostgreSQL Flexible Server] in Azure Database for PostgreSQL Flexible Server.
 
 - Configure Azure Cosmos DB for Apache Cassandra for best performance by using an appropriate [partitioning strategy][Partitioning in Azure Cosmos DB for Apache Cassandra]. Decide whether to use a single field primary key, a compound primary key, or a composite partition key when partitioning tables.
 
@@ -127,7 +127,7 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
 
 - An [AKS][Azure Kubernetes Service (AKS) pricing] cluster consists of a set of nodes, or virtual machines (VMs), that run in Azure. The cost of the compute, storage, and networking components make up a cluster's primary costs.
 
-- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server, Flexible Server, and Hyperscale (Citus) tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity.
+- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server and Flexible Server tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity. For new workloads, consider choosing the Flexible Server tier since it has a wider range of [supported capabilities][Comparison between Single Server and Flexible Server] over the Single Server tier. Also note that Single Server is on the [path to deprecation][Azure Database for PostgreSQL single server deprecation].
 
 - [Azure Cache for Redis][Azure Cache for Redis pricing] is available in multiple tiers. These tiers accommodate caches that range from 250 megabytes to several terabytes. Besides size, other requirements also affect the choice of tier:
 
@@ -187,7 +187,6 @@ To learn about related solutions, see the following information:
 - [Choose a data analytics technology in Azure][Choose a data analytics technology in Azure]
 - [Azure Kubernetes in event stream processing][Azure Kubernetes in event stream processing]
 - [Data streaming with AKS][Data streaming with AKS]
-- [Build web and mobile applications][Build web and mobile applications]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
 [About Azure Key Vault]: /azure/key-vault/general/overview
@@ -203,6 +202,7 @@ To learn about related solutions, see the following information:
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [Azure Database for PostgreSQL marketing page]: https://azure.microsoft.com/services/postgresql
 [Azure Database for PostgreSQL pricing]: https://azure.microsoft.com/pricing/details/postgresql/server
+[Azure Database for PostgreSQL single server deprecation]: https://azure.microsoft.com/en-us/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Kubernetes in event stream processing]: ../../solution-ideas/articles/serverless-event-processing-aks.yml
 [Azure Kubernetes Service]: /azure/aks/intro-kubernetes
@@ -212,7 +212,6 @@ To learn about related solutions, see the following information:
 [Azure regions with Availability Zones]: /azure/availability-zones/az-region#azure-regions-with-availability-zones
 [Azure Services that support Availability Zones]: /azure/availability-zones/az-region
 [Best practices for building an application with Azure Database for PostgreSQL]: /azure/postgresql/application-best-practices
-[Build web and mobile applications]: ../../solution-ideas/articles/webapps.yml
 [Cache-Aside pattern]: ../../patterns/cache-aside.yml
 [The Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed
@@ -242,7 +241,7 @@ To learn about related solutions, see the following information:
 [Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
 [Quickstart: Data streaming with Event Hubs using the Kafka protocol]: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
 [Quickstart: Use Azure Cache for Redis in Java]: /azure/azure-cache-for-redis/cache-java-get-started
-[Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: /azure/postgresql/connect-java
+[Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: /azure/postgresql/flexible-server/connect-java?tabs=passwordless
 [Redis]: https://redis.io
 [Running Apache Spark jobs on AKS]: /azure/aks/spark-job
 [Secure Azure Cosmos keys using Azure Key Vault]: /azure/cosmos-db/access-secrets-from-keyvault
@@ -255,3 +254,5 @@ To learn about related solutions, see the following information:
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
 [What is PaaS?]: https://azure.microsoft.com/overview/what-is-paas/
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
+[Comparison between Single Server and Flexible Server]: /azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server#comparison-table
+[PgBouncer in Azure Database for PostgreSQL Flexible Server]: /azure/postgresql/flexible-server/concepts-pgbouncer

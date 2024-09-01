@@ -1,4 +1,4 @@
-In an Internet of Things (IoT) solution, IoT devices send [events](./introduction-to-solutions.yml#events) (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
+In an Internet of Things (IoT) solution, IoT devices send events (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
 
 ## Potential use cases
 
@@ -11,7 +11,9 @@ This scenario applies to the retail, energy, and environment industries.
 
 ## Architecture
 
-![Architecture diagram illustrating use of rules to route events to different Azure services](media/event-routing.svg)
+[ ![Architecture diagram illustrating use of rules to route events to different Azure services.](media/event-routing.svg)](media/event-routing.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/event-routing.vsdx) of this architecture.*
 
 In an IoT platform, rules can be created for fine-grained routing of events. One or more rules can be configured in the IoT platform. The rules will be applied to the ingress events and are routed to the specific endpoint(s).
 

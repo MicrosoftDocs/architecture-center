@@ -2,9 +2,11 @@ This solution runs SAS analytics workloads on Azure. The guidance covers various
 
 ## Architecture
 
-:::image type="complex" source="./images/sas-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false":::
-   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle has the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label M G S and M D S servers. The lower row has the label O S Ts and O S S servers.
+:::image type="complex" source="./images/sas-azure-guide-architecture-diagram.svg" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false":::
+   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle has the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label MGS and MDS servers. The lower row has the label OSTs and OSS servers.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/sas-overview.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -39,7 +41,7 @@ Before deploying a SAS workload, ensure the following components are in place:
 
 ## Scenario details
 
-Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
+Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/well-architected/) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
 
 [As partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/), Microsoft and SAS are working to develop a roadmap for organizations that innovate in the cloud. Both companies are committed to ensuring high-quality deployments of SAS products and solutions on Azure.
 
@@ -64,6 +66,9 @@ This guide provides general information for running SAS on Azure, not platform-s
 Consider the points in the following sections when designing your implementation.
 
 SAS documentation provides requirements per core, meaning per physical CPU core. But Azure provides vCPU listings. On the VMs that we recommend for use with SAS, there are two vCPU for every physical core. As a result, to calculate the value of a vCPU requirement, use half the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For more information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
+
+> [!NOTE]
+> If you're scaling up and persisting data in a single-node SAS deployment (and not to an externalized file system), the [SAS documentation](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833) recommends bandwidth of at least 150 MB/s. To achieve this bandwidth, you need to stripe multiple P30 Premium (or larger) disks.
 
 ### Operating systems
 
@@ -134,7 +139,7 @@ In some cases, the locally attached disk doesn't have sufficient storage space f
 - Same specifications as the Edsv5 and Esv5 VMs
 - High throughput against remote attached disk, up to 4 GB/s, giving you as large a `SASWORK` or `CAS_CACHE` as needed at the I/O needs of SAS.
 
-If the Edsv5-series VMs offer enough storage, it's better to use them as they're more cost efficient. 
+If the Edsv5-series VMs offer enough storage, it's better to use them as they're more cost efficient.
 
 #### M-series
 
@@ -151,7 +156,7 @@ M-series VMs offer these features:
 
 #### Ls-series
 
-Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/lsv2-series) or [Lsv3-series](/azure/virtual-machines/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`. 
+Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/lsv2-series) or [Lsv3-series](/azure/virtual-machines/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`.
 
 > [!NOTE]
 > SAS optimizes its services for use with the Intel Math Kernel Library (MKL).
@@ -212,12 +217,12 @@ Be aware of latency-sensitive interfaces between SAS and non-SAS applications. C
 
 ### Identity management
 
-SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Azure Active Directory Domain Services (Azure AD DS)](../../reference-architectures/identity/adds-extend-domain.yml). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
+SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Microsoft Entra Domain Services (Microsoft Entra Domain Services)](../../reference-architectures/identity/adds-extend-domain.yml). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 > [!NOTE]
 > In some environments, there's a requirement for on-premises connectivity or shared datasets between on-premises and Azure-hosted SAS environments. In these situations, we strongly recommended deploying a domain controller in Azure.
 >
-> The Azure AD DS forest creates users that can authenticate against Azure AD devices but not on-premises resources and vice versa.
+> The Microsoft Entra Domain Services forest creates users that can authenticate against Microsoft Entra devices but not on-premises resources and vice versa.
 
 ### Data sources
 
@@ -238,7 +243,7 @@ For best performance:
 
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
-- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/marketplace/apps/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmspectrumscalewithrhel?tab=overview), which uses General Parallel File System (GPFS)
+- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
 - [EXAScaler Cloud by DataDirect Networks (DDN)](https://azuremarketplace.microsoft.com/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview), which is based on the Lustre file system
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 
@@ -286,7 +291,7 @@ SAS platforms support various data sources:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -303,7 +308,7 @@ Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. M
 
 Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the guest operating system for SAS. Make sure to provide the proper security controls for your architecture.
 
-SAS currently doesn't fully support [Azure Active Directory (Azure AD)](/azure/active-directory/). For authentication into the visualization layer for SAS, you can use Azure AD. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal. When using Azure AD DS, you can't authenticate guest accounts. Guest attempts to sign in will fail.
+SAS currently doesn't fully support [Microsoft Entra ID](/azure/active-directory/). For authentication into the visualization layer for SAS, you can use Microsoft Entra ID. But for back-end authorization, use a strategy that's similar to on-premises authentication. When managing IaaS resources, you can use Microsoft Entra ID for authentication and authorization to the Azure portal. When using Microsoft Entra Domain Services, you can't authenticate guest accounts. Guest attempts to sign in will fail.
 
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
 
@@ -316,7 +321,7 @@ You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encrypti
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
 
 Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/#get-started). Don't expose any of these components to the internet:
 
@@ -328,22 +333,19 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 
 It's best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
 
-When building your environment, see quickstart reference material in these repositories:
-
-- [Automating SAS Deployment on Azure using GitHub Actions](https://github.com/grtn316/viya4-iac-azure)
-- [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya)
-
-<!--More details can be found in the pages specific to [Viya 3.5](sas-viya-35-overview.md) and [Grid](sas-grid-94-overview.md). -->
+When building your environment, see quickstart reference material at [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
 - [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
 
 Other contributor:
+
 - [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

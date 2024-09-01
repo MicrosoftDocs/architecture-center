@@ -1,6 +1,6 @@
 Monitoring provides insights into the behavior and health of your systems, and helps build a holistic view of the environment, historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate.
 
-Azure Functions offers built-in integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview). From Application Insights, you can get information such as the number of function app instances or request and dependency telemetry of a function. When working with Functions and Event Hubs, Application Insights can also track the outgoing dependency telemetries to the event hub, calculating the time spent in the queue and showing the end-to-end flow of the system connected through Event Hubs.
+Azure Functions offers built-in integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview). From Application Insights, you can get information such as the number of function app instances or request and dependency telemetry of a function. When working with Functions and Event Hubs, Application Insights can also track the outgoing dependency telemetries to the event hub, calculating the processing time and showing the end-to-end flow of the system connected through Event Hubs.
 
 This section introduces useful features and insights that you can get from Application Insights for your Event Hubs plus Functions solution.
 
@@ -8,13 +8,13 @@ This section introduces useful features and insights that you can get from Appli
 
 [Application Map](/azure/azure-monitor/app/app-map) shows how the components in a system are interacting with each other. Because of the dependency telemetry that Application Insights provides, it maps out the flow of events between Azure Functions and Event Hubs, including the average of each function execution and average duration of an event in Event Hubs, as well as showing transactions that contain failures marked in red.
 
-After sending the expected load to your system, you can go to Application Insights in the [Azure portal](https://portal.azure.com), and on the sidebar, choose on **Application Map**. Here's a map that shows three functions, three event hubs, and apparent failures when writing to a downstream database:
+After sending the expected load to your system, you can go to Application Insights in the [Azure portal](https://portal.azure.com), and on the sidebar, choose **Application Map**. Here's a map that shows three functions, three event hubs, and apparent failures when writing to a downstream database:
 
 ![Application Map](images/observability-application-map.png)
 
 ## End-to-end transaction details
 
-End-to-end transaction details show how your system components interact with each other, in chronological order. This view also shows how long an event has spent in the queue. You can also drill into the telemetry of each component from this view, which makes it easier to troubleshoot across components within the same request when an issue occurred.
+End-to-end transaction details show how your system components interact with each other, in chronological order. This view also shows how long an event has spent in processing. You can also drill into the telemetry of each component from this view, which makes it easier to troubleshoot across components within the same request when an issue occurred.
 
 ![End-to-End Transaction](images/observability-end-to-end-transaction.png)
 
@@ -52,7 +52,7 @@ For Event Hubs, the correlation is injected into the event payload, and you see 
 
 ![Diagnostic Id property](images/observability-diagnostic-id.png)
 
-This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that are also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
+This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that's also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
 
 ![Batch Events correlation](images/observability-batch-events.png)
 
@@ -64,7 +64,7 @@ When [sampling is enabled](/azure/azure-functions/configure-monitoring?tabs=v2#c
 
 ### Detailed event processing information
 
-The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale.yml#batching). Keep in mind the following considerations:
+The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale.yml#batching-for-triggered-functions). Keep in mind the following considerations:
 
 - The `dispatchTimeMilliseconds` value approximates the length of time between when the event was written to the event hub and when it was picked up by the function app for processing.
 - `dispatchTimeMilliseconds` can be negative or otherwise inaccurate because of clock drift between the event hub server and the function app.
@@ -246,15 +246,9 @@ Principal author:
 
 To learn more, consider reviewing these related articles:
 
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md)
 - [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data)
 - [Configure monitoring for Azure Functions](/azure/azure-functions/configure-monitoring?tabs=v2)
 - [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data)
 - [Metrics in Azure Monitor - Azure Event Hubs](/azure/event-hubs/event-hubs-metrics-azure-monitor)
 - [Kusto Query Language](/azure/data-explorer/kusto/concepts/)
-
-## Related resources
-
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md) provides guidance on monitoring serverless event-driven architectures.
 - [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
-- [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml) describes in more detail how these portions of the reference architecture work.

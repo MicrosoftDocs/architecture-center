@@ -24,13 +24,13 @@ SUSE provides support with:
 
 ## Architecture
 
-:::image type="content" source="../media/sap-workload-automation-suse.svg" alt-text="Architecture for SAP workload automation" lightbox="../media/sap-workload-automation-suse.png":::
-
-*Download an [SVG file](../media/sap-workload-automation-suse.svg) of this architecture.*
+:::image type="content" source="../media/sap-workload-automation-suse.svg" alt-text="Architecture for SAP workload automation." lightbox="../media/sap-workload-automation-suse.svg":::
 
 ### Dataflow
 
-:::image type="content" source="../media/sap-workload-automation-suse-flow.svg" alt-text="Data flow of workload automation using SUSE on Azure" :::
+:::image type="content" source="../media/sap-workload-automation-suse-flow.svg" alt-text="Data flow of workload automation using SUSE on Azure." :::
+
+*Download a [Visio file](https://arch-center.azureedge.net/sap-workload-automation-suse.vsdx) of diagrams in this article.*
 
 1. Download the SUSE automation git repository to your local machine or Azure Cloud Shell and install the needed Terraform version, which comes with SLES4SAP or Cloud Shell.
 1. Create an Azure File Share instance and download SAP media to it.
@@ -57,7 +57,7 @@ SUSE provides support with:
 
 Principal author:
 
- * [Michael Yen-Chi Ho](https://www.linkedin.com/in/yenchiho) | Senior Program Manager
+- [Michael Yen-Chi Ho](https://www.linkedin.com/in/yenchiho/) | Senior Program Manager
 
 ## Next Steps
 
@@ -70,7 +70,6 @@ Principal author:
 - [SAP S/4 HANA for Large Instances](sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-- [SUSE SAP automation solution for Azure](https://github.com/petersatsuse/SA-SAP-Automation/raw/master/build/SA/SA_color_en_azure.pdf) (GitHub PDF document)
 - [Automated SAP/HA Deployments in Public/Private Clouds with Terraform](https://github.com/SUSE/ha-sap-terraform-deployments) (GitHub project)
 - [Deploying SUSE SAP HA Automation in Microsoft Azure](https://cloudblogs.microsoft.com/opensource/2021/01/21/deploying-suse-sap-ha-automation-in-microsoft-azure) (Microsoft blog)
 
@@ -95,6 +94,6 @@ Principal author:
 ### Solution templates
 
 SUSE SAP ARM template to create the SAP infrastructure:
+
 - [Infrastructure for SAP NetWeaver and SAP HANA](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/suse.suse-sap-infra?tab=Overview) (Azure Marketplace)
 - [SUSE and Microsoft Solution Templates for SAP Applications](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-AzureSolutionTemplates) (SUSE)
-- [SUSE and Microsoft Solution templates for SAP Applications](https://github.com/SUSE/azure-resource-manager-sap-solution-templates) (GitHub)

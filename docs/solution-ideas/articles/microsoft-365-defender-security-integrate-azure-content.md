@@ -1,16 +1,16 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure monitoring services. 
+You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft Defender XDR and Azure monitoring services. 
 
 This article builds on the previous articles in the series:
 
-1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml) provides an overall view of how you can integrate the security services of Azure and Microsoft 365 Defender.
+1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml) provides an overall view of how you can integrate the security services of Azure and Microsoft Defender XDR.
 
 2. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, tactics, and techniques against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
 
 3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
-4. [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft 365 Defender.
+4. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft Defender XDR.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ The diagram shows the following services in **Core Monitoring Services** and in 
 
 3.  **Log Analytics** is one of the most important services. It's responsible for storing all the logs and alerts that are used to create alerts, insights, and incidents. Microsoft Sentinel works on top of Log Analytics. Basically, all data that Log Analytics ingests is available automatically to Microsoft Sentinel. Log Analytics is also known as Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 
-4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft 365 Defender and other services. Microsoft Sentinel correlates the logs to provide insights about what is going on in your IT environment, avoiding false positives. Microsoft Sentinel is the core of security and monitoring for Microsoft cloud services. For more information about Microsoft Sentinel, see [What is Microsoft Sentinel?](/azure/sentinel/overview).
+4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft Defender XDR and other services. Microsoft Sentinel correlates the logs to provide insights about what is going on in your IT environment, avoiding false positives. Microsoft Sentinel is the core of security and monitoring for Microsoft cloud services. For more information about Microsoft Sentinel, see [What is Microsoft Sentinel?](/azure/sentinel/overview).
 
 The preceding services in this list are core services that work throughout Azure, Office 365, and on-premises environments. The following services focus on specific resources:
 
@@ -59,7 +59,7 @@ The preceding services in this list are core services that work throughout Azure
 
 9.  Because this architecture reference is based on [Microsoft Zero Trust](/security/zero-trust/), the services and components under **Infrastructure and Endpoint** don't have specific monitoring services. Azure Monitor logs and Defender for Cloud are the main services that collect, store, and analyze logs from VMs and others compute services.
 
-The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel and it's receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include actions like blocking a user on in Azure Active Directory (Azure AD) or blocking an IP address via the firewall.
+The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft Defender XDR, and Azure Monitor. After you implement Microsoft Sentinel and it's receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include actions like blocking a user on in Microsoft Entra ID or blocking an IP address via the firewall.
 
 For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel).
 
@@ -77,15 +77,15 @@ The following list provides information about how to access each of the services
 
 - **Microsoft Sentinel**. Because Microsoft Sentinel works on top of Log Analytics, you must first create a Log Analytics workspace. Next, search for *sentinel* in the [Azure portal](https://portal.azure.com). Then create the service by choosing the workspace that you want to have behind Microsoft Sentinel.
 
-- **Microsoft Defender for Endpoint**. Defender for Endpoint is part of Microsoft 365 Defender. Access the service through [https://security.microsoft.com](https://security.microsoft.com). This is a change from the previous URL, *securitycenter.windows.com*.
+- **Microsoft Defender for Endpoint**. Defender for Endpoint is part of Microsoft Defender XDR. Access the service through [https://security.microsoft.com](https://security.microsoft.com). This is a change from the previous URL, `securitycenter.windows.com`.
 
 - **Microsoft Defender for Cloud Apps**. Defender for Cloud Apps is part of Microsoft 365. Access the service through [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com).
 
-- **Microsoft Defender for Office 365**. Defender for Office 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, *protection.office.com*.)
+- **Microsoft Defender for Office 365**. Defender for Office 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, `protection.office.com`.)
 
 - **Microsoft Defender for Identity**. Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
-- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft 365 Defender and how each portal is related, see [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml).
+- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft Defender XDR and how each portal is related, see [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml).
 
 - **Azure Network Watcher**. To access Azure Network Watcher, search for *watcher* in the [Azure portal](https://portal.azure.com).
 
@@ -99,7 +99,7 @@ The following list provides information about how to access each of the services
 
 The example architecture in this article uses the following Azure components:
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Azure AD helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
 
@@ -107,11 +107,11 @@ The example architecture in this article uses the following Azure components:
 
 - [Virtual machines](https://azure.microsoft.com/services/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
 
-- [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service) (AKS) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Kubernetes service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
 
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
 
-- [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
+- [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is highly available, massively scalable, durable, and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 
@@ -123,19 +123,19 @@ Monitoring solutions on Azure might seem confusing at first, because Azure offer
 1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 2. [Map threats to your IT environment](./map-threats-it-environment.yml)
 3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-4. [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+4. [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
 ### Potential use cases
 
 This reference architecture can help you understand the whole picture of Microsoft Cloud security services and to how to integrate them for the best security posture.
 
-You don't need to implement all the security services that are presented in this architecture. However, this example and the threat map that's represented in the architecture diagram can help you to understand how to create your own map and then plan accordingly for your security strategy. Select the right Azure security services and the Microsoft 365 Defender services that you want to integrate through Azure so that your IT environment has the security that it needs.
+You don't need to implement all the security services that are presented in this architecture. However, this example and the threat map that's represented in the architecture diagram can help you to understand how to create your own map and then plan accordingly for your security strategy. Select the right Azure security services and the Microsoft Defender XDR services that you want to integrate through Azure so that your IT environment has the security that it needs.
 
 ## Cost optimization
 
 Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some have a charge for each use, and some have a charge that is based on licensing. The best way to estimate the pricing for any of the Azure security services is to use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator). In the calculator, search for a service that you're interested in, and then select it to get all the variables that determine the price for the service.
 
-Microsoft 365 Defender security services work with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
+Microsoft Defender XDR security services work with licenses. For information about the licensing requirements, see [Microsoft Defender XDR prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 
 ## Contributors
 
@@ -143,7 +143,7 @@ Microsoft 365 Defender security services work with licenses. For information abo
 
 Principal author: 
 
- * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 Other contributors: 
 
@@ -153,8 +153,8 @@ Other contributors:
 ## Next steps
 
 - [Defend against threats with Microsoft 365](/training/paths/m365-security-threat-protection)
-- [Detect and respond to cyber attacks with Microsoft 365 Defender](/training/paths/defender-detect-respond)
-- [Get started with Microsoft 365 Defender](/microsoft-365/security/defender/get-started)
+- [Detect and respond to cyber attacks with Microsoft Defender XDR](/training/paths/defender-detect-respond)
+- [Get started with Microsoft Defender XDR](/microsoft-365/security/defender/get-started)
 - [Manage security with Microsoft 365](/training/paths/m365-security-management)
 - [Protect against malicious threats with Microsoft Defender for Office 365](/training/paths/defender-office-365-malicious-threats)
 - [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/training/paths/defender-identity-protect-on-premises)
@@ -166,7 +166,7 @@ For more details about this reference architecture, see the other articles in th
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
 For related architectures on Azure Architecture Center, see the following articles:
 

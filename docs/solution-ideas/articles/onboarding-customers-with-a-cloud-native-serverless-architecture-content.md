@@ -22,7 +22,7 @@ This serverless solution provides an efficient way to manage customer data. Core
 
 - [Azure API Management](https://azure.microsoft.com/products/api-management) creates consistent, modern API gateways for back-end services. Besides accepting API calls and routing them to back ends, this platform also verifies keys, tokens, certificates, and other credentials. API Management also enforces usage quotas and rate limits and logs call metadata.
 - [Cognitive Services](https://azure.microsoft.com/products/cognitive-services/) consists of cloud-based services that provide AI functionality. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps.
-- The [Cognitive Services Face API](https://azure.microsoft.com/products/cognitive-services/face) provides access to functionality that detects facial features and attributes. You can also use the API to match images.
+- The [Cognitive Services Face API](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) provides access to functionality that detects facial features and attributes. You can also use the API to match images.
 - [Dynamics 365](https://dynamics.microsoft.com/what-is-dynamics365/) is a portfolio of intelligent applications that businesses can use for enterprise resource planning (ERP) and CRM.
 - [Power BI](https://powerbi.microsoft.com/) is a collection of software services and apps that provide analytics reporting.
 - [Mailchimp](https://mailchimp.com/) is an email marketing platform that provides automation services.
@@ -48,8 +48,6 @@ This solution benefits organizations that manage large volumes of customer data.
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
-## Related resources
+## Related resource
   
 - [Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.yml)
-- [Modern customer support portal](./modern-customer-support-portal-powered-by-an-agile-business-process.yml)
-- [Face recognition and sentiment analysis](../../example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)

@@ -2,9 +2,9 @@ The Infinite i suite is from Microsoft partner Infinite Corporation. The archite
 
 ## Architecture
 
-:::image type="content" source="media/ibm-system-i-azure-infinite-i.svg" alt-text="This architecture uses Infinite i to migrate System i workloads to Azure." lightbox="media/ibm-system-i-azure-infinite-i.svg":::
+:::image type="content" source="media/ibm-system-i-azure-infinite-i.svg" alt-text="This architecture uses Infinite i to migrate System i workloads to Azure." lightbox="media/ibm-system-i-azure-infinite-i.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1828025-PR-2852-ibm-system-i-azure-infinite-i.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ibm-system-i-azure-infinite-i.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -135,7 +135,7 @@ Principal author:
   - [Migrate Legacy Cold Storage AS/400](https://www.infinitecorporation.com/data-migration)
   - [Infinite Cloud: beautiful screens from IBM i / AS400 green screens](https://www.infinitecorporation.com/infinite-cloud)
 - Optimizing costs:
-  - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+  - [Microsoft Azure Well-Architected Framework](/azure/well-architected/) has information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
   - [Checklist - Optimize cost](/azure/architecture/framework/cost/optimize-checklist)
   - [Virtual machines](/azure/architecture/framework/cost/optimize-vm)
 
@@ -144,7 +144,7 @@ Principal author:
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 - Migrating IBM system workloads:
   - [High-volume batch transaction processing](./process-batch-transactions.yml)
-  - [IBM z/OS mainframe migration with Asysco AMT](./asysco-zos-migration.yml)
+  - [IBM z/OS mainframe migration with Avanade AMT](./avanade-amt-zos-migration.yml)
   - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
   - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
   - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

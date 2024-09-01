@@ -41,14 +41,14 @@ For the Azure environment, the diagram shows the components that are listed in t
 | **WEB APPS** | [App Service overview](/azure/app-service/overview) |
 | **AZURE STORAGE** | [Introduction to Azure Storage](/azure/storage/common/storage-introduction) |
 | **DB** | [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview) |
-| **AZURE AD** | [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)? |
+| **Microsoft Entra ID** | [What is Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)? |
 
 The diagram represents Microsoft 365 through the components listed in the following table.
 
 | Label | Description | Documentation |
 |---|---|---|
-| **OFFICE 365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365) |
-| **AZURE AD** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis) |
+| `OFFICE 365` | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365) |
+| `Microsoft Entra ID` | Microsoft Entra ID, the same one utilized by Azure. Many companies use the same Microsoft Entra service for Azure and Microsoft 365. | [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis) |
 
 ### Workflow
 
@@ -62,7 +62,7 @@ The architecture diagram includes the following layers:
 
 2. **Office 365 environment**
 
-    This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Azure Active Directory (Azure AD). Users must be authenticated to obtain access to Microsoft 365 applications, and Azure AD acts as the identity provider. Microsoft 365 authenticates users against the same type of Azure AD that Azure uses. In most organizations, the [Azure AD *tenant*](/microsoft-365/education/deploy/intro-azure-active-directory) is the same for both Azure and Microsoft 365.
+    This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Microsoft Entra ID. Users must be authenticated to obtain access to Microsoft 365 applications, and Microsoft Entra ID acts as the identity provider. Microsoft 365 authenticates users against the same type of Microsoft Entra ID that Azure uses. In most organizations, the [Microsoft Entra ID *tenant*](/microsoft-365/education/deploy/intro-azure-active-directory) is the same for both Azure and Microsoft 365.
 
 3. **Azure environment**
 
@@ -87,7 +87,7 @@ You can still use [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/atta
 
 The example architecture in this article uses the following Azure components:
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Azure AD helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
 
@@ -95,11 +95,11 @@ The example architecture in this article uses the following Azure components:
 
 - [Virtual machines](https://azure.microsoft.com/services/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
 
-- [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service) (AKS) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Kubernetes service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
 
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
 
-- [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
+- [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is highly available, massively scalable, durable, and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 
@@ -111,7 +111,7 @@ The example architecture in this article uses the following Azure components:
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 Other contributors:
 
@@ -136,5 +136,5 @@ For more details about this reference architecture, see the other articles in th
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
-- Part 5: [Integrate Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 5: [Integrate Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)

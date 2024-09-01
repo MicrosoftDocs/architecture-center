@@ -6,9 +6,11 @@ This article covers considerations for deploying and running Azure VMware Soluti
 
 The following high-level diagram covers Azure VMware Solution and a landing zone implementation.
 
-![A diagram showing an Azure VMware Solution landing zone.](../media/azure-vmware-solution-landing-zone.png)
+[![Diagram showing an Azure VMware Solution landing zone.](../media/azure-vmware-solution-landing-zone.svg)](../media/../media/azure-vmware-solution-landing-zone.svg#lightbox)
 
-Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guidance on setting up Azure platform components (such as identity, network connectivity, management, and so on), along with application and workload components, such as Azure VMware Solution. A well-defined corelation between Azure platform components and Azure VMware Solution makes it easy to manage and scale Azure VMware Solution workloads. Key constituents of ESLZ for Azure VMware Solution deployment are discussed below.
+*Download a [Visio file](https://arch-center.azureedge.net/azure-vmware-solution-landing-zone.vsdx) of this architecture.*
+
+Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guidance on setting up Azure platform components (such as identity, network connectivity, management, and so on), along with application and workload components, such as Azure VMware Solution. A well-defined correlation between Azure platform components and Azure VMware Solution makes it easy to manage and scale Azure VMware Solution workloads. Key constituents of ESLZ for Azure VMware Solution deployment are discussed below.
 
 ### Workflow
 
@@ -18,7 +20,7 @@ Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guid
 
 #### Identity and access management (B)
 
-Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Other operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (Azure AD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
+Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Other operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Microsoft Entra Domain Services or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
 
 #### Management group and subscription management (C)
 
@@ -43,7 +45,7 @@ Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud
 ### Components
 
 - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 

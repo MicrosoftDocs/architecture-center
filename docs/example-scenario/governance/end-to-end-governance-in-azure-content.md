@@ -8,8 +8,8 @@ This reference implementation and demo is open source and intended to be used as
 
 Any governance model must be tied to the organization's business rules, which are reflected in any technical implementation of access controls. This example model uses a fictitious company with the following common scenario (with business requirements):
 
-- **Azure Active Directory (AD) groups that align with business domains and permissions models**  
- The organization has many vertical business domains, such as "fruits" and "vegetables," which operate largely independently. In each business domain, there are two levels or privileges, which are mapped to distinct `*-admins` or `*-devs` Azure AD groups. This allows developers to be targeted when configuring permissions in the cloud.
+- **Microsoft Entra groups that align with business domains and permissions models**  
+ The organization has many vertical business domains, such as "fruits" and "vegetables," which operate largely independently. In each business domain, there are two levels or privileges, which are mapped to distinct `*-admins` or `*-devs` Microsoft Entra groups. This allows developers to be targeted when configuring permissions in the cloud.
 
 - **Deployment environments**  
  Every team has two environments:
@@ -29,9 +29,9 @@ This simplified diagram shows how branches in a Git repository map to developmen
 
 ## Architecture
 
-This diagram shows how linking from Resource Manager and CI/CD to Azure Active Directory (Azure AD) is the key to having an end-to-end governance model.
+This diagram shows how linking from Resource Manager and CI/CD to Microsoft Entra ID is the key to having an end-to-end governance model.
 
-[![End-to-end governance overview with Azure Active Directory at the center](media/e2e-governance-overview-inline.png)](media/e2e-governance-overview-inline.png#lightbox)  
+[![End-to-end governance overview with Microsoft Entra ID at the center](media/e2e-governance-overview-inline.png)](media/e2e-governance-overview-inline.png#lightbox)  
 *Download an [SVG of this architecture](media/e2e-governance-overview.svg).*
 
 > [!NOTE]
@@ -41,11 +41,11 @@ This diagram shows how linking from Resource Manager and CI/CD to Azure Active D
 
 The numbering reflects the order in which IT administrators and enterprise architects think about and configure their cloud resources.
 
-1. **Azure Active Directory**
+1. **Microsoft Entra ID**
 
-    We integrate Azure DevOps with [Azure AD](https://azure.microsoft.com/services/active-directory) in order to have a single plane for identity. This means a developer uses the same Azure AD account for both Azure DevOps and Resource Manager. Users are not added individually. Instead, membership is assigned by Azure AD groups so that we can remove a developer's access to resources in a single step&#8212;by removing their Azure AD group memberships. For **each domain**, we create:
+    We integrate Azure DevOps with [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) in order to have a single plane for identity. This means a developer uses the same Microsoft Entra account for both Azure DevOps and Resource Manager. Users are not added individually. Instead, membership is assigned by Microsoft Entra groups so that we can remove a developer's access to resources in a single step&#8212;by removing their Microsoft Entra group memberships. For **each domain**, we create:
 
-    - Azure AD groups. Two groups per domain (described further in step 4 and 5 later in this article).
+    - Microsoft Entra groups. Two groups per domain (described further in step 4 and 5 later in this article).
     - Service principals. One explicit service principal **per environment**.
 
 2. **Production environment**
@@ -60,9 +60,9 @@ The numbering reflects the order in which IT administrators and enterprise archi
 
 4. **Role assignments in Resource Manager**  
 
-    Although our Azure AD group names imply a role, access controls are not applied until a [role assignment](/azure/role-based-access-control/overview#role-assignments) is configured. This assigns a role to an Azure AD principal for a specific scope. For example, developers have the Contributor role on the production environment.
+    Although our Microsoft Entra group names imply a role, access controls are not applied until a [role assignment](/azure/role-based-access-control/overview#role-assignments) is configured. This assigns a role to a Microsoft Entra principal for a specific scope. For example, developers have the Contributor role on the production environment.
 
-    | Azure AD principal | Dev environment (Resource Manager) | Production environment (Resource Manager) |
+    | Microsoft Entra principal | Dev environment (Resource Manager) | Production environment (Resource Manager) |
     |:--|:--|:--|
     | `veggies-devs-group` |  *Owner* | Reader |
     | `veggies-admins-group` | Owner | Owner |
@@ -114,7 +114,7 @@ The numbering reflects the order in which IT administrators and enterprise archi
 ### Components
 
 - [Azure DevOps](https://azure.microsoft.com/solutions/devops)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager)
 - [Azure Repos](https://azure.microsoft.com/services/devops/repos)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
@@ -175,7 +175,7 @@ Once the code has been accepted into a protected branch, the next layer of acces
 
 ### 2. What access do security principals need?
 
-In Azure, a [security principal](/azure/role-based-access-control/overview#security-principal) can be either a *user principal* or a *headless principal*, such as a service principal or managed identity. In all environments, security principals should follow the [principle of least privilege](/azure/role-based-access-control/best-practices#only-grant-the-access-users-need). While security principals might have expanded access in pre-production environments, production Azure environments should minimize standing permissions, favoring just-in-time (JIT) access and Azure AD conditional access. Craft your Azure RBAC role assignments for user principals to align with these least privilege principals.
+In Azure, a [security principal](/azure/role-based-access-control/overview#security-principal) can be either a *user principal* or a *headless principal*, such as a service principal or managed identity. In all environments, security principals should follow the [principle of least privilege](/azure/role-based-access-control/best-practices#only-grant-the-access-users-need). While security principals might have expanded access in pre-production environments, production Azure environments should minimize standing permissions, favoring just-in-time (JIT) access and Microsoft Entra Conditional Access. Craft your Azure RBAC role assignments for user principals to align with these least privilege principals.
 
 It's also important to model Azure RBAC distinctly from Azure DevOps RBAC. The purpose of the pipeline is to minimize direct access to Azure. Except for special cases like innovation, learning, and issue resolution, most interactions with Azure should be conducted through purpose-built and gated pipelines.
 
@@ -214,7 +214,7 @@ If that removes too many permissions for your purposes, refer to the full list i
 
 ## Deploy this scenario
 
-This scenario extends beyond Resource Manager. This is why we use [Terraform](https://terraform.io), which allows us to also create principals in Azure AD and bootstrap Azure DevOps using a single infrastructure as code tool.
+This scenario extends beyond Resource Manager. This is why we use [Terraform](https://terraform.io), which allows us to also create principals in Microsoft Entra ID and bootstrap Azure DevOps using a single infrastructure as code tool.
 
 For source code and detailed instructions, visit the GitHub repository [Governance on Azure Demo - from DevOps to ARM](https://github.com/azure/devops-governance).
 
@@ -222,7 +222,7 @@ For source code and detailed instructions, visit the GitHub repository [Governan
 
 Azure DevOps costs depend on the number of users in your organization that require access, along with other factors like the number of concurrent build/releases required and number of users. Azure Repos and Azure Pipelines are features of the Azure DevOps service. For more information, see [Azure DevOps pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
 
-In Azure Active Directory, the type of group access management needed for this scenario is provided in the Premium P1 and Premium P2 editions. Pricing for these tiers is calculated on a per-user basis. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory).
+In Microsoft Entra ID, the type of group access management needed for this scenario is provided in the Premium P1 and Premium P2 editions. Pricing for these tiers is calculated on a per-user basis. For more information, see [Microsoft Entra pricing](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## Contributors
 
@@ -253,6 +253,4 @@ Principal author:
 - [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-baseline.yml)
 - [Computer forensics Chain of Custody in Azure](../forensics/index.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
-- [Azure Automation Update Management](../../hybrid/azure-update-mgmt.yml)
 - [Browse Azure Architectures - CI/CD](../../browse/index.yml?terms=ci%2fcd)

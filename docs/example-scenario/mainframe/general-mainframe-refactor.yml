@@ -3,9 +3,9 @@ metadata:
   title: General mainframe refactor to Azure
   titleSuffix: Azure Example Scenarios
   description: See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.
-  author: jjfrost
-  ms.author: jfrost
-  ms.date: 07/01/2022
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 07/10/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

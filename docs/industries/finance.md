@@ -47,23 +47,18 @@ The following articles provide detailed analysis of architectures recommended fo
 | ------- | ------- | ------- |
 | [Decentralized trust between banks](../example-scenario/apps/decentralized-trust.yml) | Learn how to establish a trusted environment for information sharing without resorting to a centralized database, in banks or other financial institutions. | Blockchain |
 | [Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml) | Replicate and sync mainframe data to Azure for digital transformation of traditional banking systems. | Mainframe |
-| [Modernize mainframe & midrange data](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) | End to end modernization plan for mainframe and midrange data sources. | Mainframe |
+| [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure) | End to end modernization plan for mainframe and midrange data sources. | Mainframe |
 | [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../reference-architectures/zos/refactor-zos-coupling-facility.yml) | Learn how to leverage Azure services for scale-out performance and high availability, comparable to IBM z/OS mainframe systems with Coupling Facilities (CFs). | Mainframe |
 | [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml) | Learn how a major bank modernized its financial transaction system while keeping compatibility with its existing payment system. | Migration |
 | [Patterns and implementations in banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml) | Learn the design patterns and implementations used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
-| [JMeter implementation reference for load testing pipeline solution](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml) | Learn about an implementation for a scalable cloud load testing pipeline used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
 | [Real-time fraud detection](../example-scenario/data/fraud-detection.yml) | Learn how to analyze data in real time to detect fraudulent transactions or other anomalous activity. | Security |
 
 ## Solution ideas for finance
 
 The following are some additional ideas that you can use as a starting point for your finance solution.
 
-- [Auditing, risk, and compliance management](../solution-ideas/articles/auditing-and-risk-compliance.yml)
-- [Business Process Management](../solution-ideas/articles/business-process-management.yml)
 - [HPC System and Big Compute Solutions](../solution-ideas/articles/big-compute-with-azure-batch.yml)
 - [HPC Risk Analysis Template](../solution-ideas/articles/hpc-risk-analysis.yml)
 - [Loan ChargeOff Prediction with Azure HDInsight Spark Clusters](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)
-- [Loan ChargeOff Prediction with SQL Server](../solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml)
-- [Loan Credit Risk + Default Modeling](../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
-- [Loan Credit Risk with SQL Server](../solution-ideas/articles/loan-credit-risk-with-sql-server.yml)
+- [Loan Credit Risk + Default Modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
 - [Unlock Legacy Data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)

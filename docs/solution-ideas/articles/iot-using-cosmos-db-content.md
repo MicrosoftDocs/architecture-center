@@ -79,7 +79,7 @@ The solution also uses the following Azure components:
 
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools for analyzing data and sharing insights. Power BI can query a semantic model stored in Azure Analysis Services, or can query Synapse Analytics directly.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) builds web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) lets third-party apps consume APIs based on data from the serving layer.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) builds web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) lets third-party apps consume APIs based on data from the serving layer.
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven, serverless compute platform that can operate at scale in the cloud, and integrate services by using triggers and bindings. Azure Functions can translate IoT message formats, or trigger actions when connected to Azure Cosmos DB change feed.
 
@@ -93,9 +93,9 @@ The solution also uses the following Azure components:
 
 Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for a single logical partition. For most IoT solutions, this size is sufficient. If not, you can:
 
-  - Set the partition key to an artificial field, and assign the field a composite value, such as **Device ID + Current Month and Year**. This strategy assures high value cardinality for a good partition design. For more information, see [Choose a partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
-  
-  - Based on data lifecycle, you can move older Azure Cosmos DB data to cold storage, such as Azure Blob Storage. You can use a combination of change feed to replicate the data to cold storage, and TTL to delete data automatically from a container after a certain time period.
+- Set the partition key to an artificial field, and assign the field a composite value, such as **Device ID + Current Month and Year**. This strategy assures high value cardinality for a good partition design. For more information, see [Choose a partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
+
+- Based on data lifecycle, you can move older Azure Cosmos DB data to cold storage, such as Azure Blob Storage. You can use a combination of change feed to replicate the data to cold storage, and TTL to delete data automatically from a container after a certain time period.
 
 ## Next steps
 
@@ -106,5 +106,5 @@ Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for 
 ## Related resources
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
+- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
 - [IoT analytics with Azure Data Explorer](iot-azure-data-explorer.yml)

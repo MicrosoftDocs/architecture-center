@@ -2,8 +2,8 @@
 title: User interfaces and scenarios in IoT Edge vision AI
 titleSuffix: Azure Architecture Center
 description: Examine user interface (UI) types, useful user-facing technology choices, and two user scenarios for Azure IoT Edge vision AI solutions.
-author: MSKeith
-ms.author: keith
+author: asergaz
+ms.author: sergaz
 ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,9 +12,7 @@ categories: iot
 products:
   - power-bi
   - azure-app-service
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 
 ---
 
@@ -35,13 +33,13 @@ Users interact with computer systems through a user interface (UI). UI requireme
 
 Here are some of the services and software you can use to create user interfaces for IoT Edge vision AI systems:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a platform for developers to quickly build, deploy, and scale web and mobile apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system, mobile device, or IoT Edge hardware. The fully managed App Service platform meets enterprise-grade performance, security, and compliance requirements.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform for developers to quickly build, deploy, and scale web and mobile apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system, mobile device, or IoT Edge hardware. The fully managed App Service platform meets enterprise-grade performance, security, and compliance requirements.
 
-- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) adds real-time data communications and reporting to apps, without requiring in-depth real-time communications expertise. SignalR Service integrates easily with many Azure cloud services.
+- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) adds real-time data communications and reporting to apps, without requiring in-depth real-time communications expertise. SignalR Service integrates easily with many Azure services.
 
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps) is a technology for IoT visualization and computer vision projects. Azure Maps lets you create location-aware web and mobile apps by using simple and secure geospatial services, APIs, and SDKs. Azure Maps has built-in location intelligence from worldwide technology partners. You can deliver seamless experiences based on geospatial data.
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides single sign-on and multi-factor authentication to secure your apps and user interfaces.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides single sign-on and multi-factor authentication to secure your apps and user interfaces.
 
 - [Power BI](https://powerbi.microsoft.com) is a set of analytics services, apps, and connectors that turn data into customizable, interactive visualizations and dashboards. Power BI is available as a managed service or self-hosted package, and connects to many popular database systems and data services. With [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded), you can create customer-facing reports and dashboards, and brand them as your own apps. Power BI can conserve developer resources by automating analytics monitoring, management, and deployment.
 
@@ -60,7 +58,7 @@ The Contoso Boards solution focuses on edge detection.
 The following camera choices supported this workload:
 
 - Camera placement: The camera is directly above at 90 degrees and about 16 inches from the part.
-- Camera type: Since the conveyer system moves relatively slowly, the solution can use an area scan camera with a global shutter.
+- Camera type: Since the conveyor system moves relatively slowly, the solution can use an area scan camera with a global shutter.
 - Frame rate: For this use case, the camera captures about 30 frames per second.
 - Resolution: The formula for required resolution is `Res=(object size) / (details to capture)`. Based on this formula, `Res=16"/8"` gives 2 megapixels (MP) in `x` and 4MP in `y`, so Contoso Boards needs a camera capable of 4MP resolution.
 - Sensor type: The targets aren't fast moving, and only require edge detection, so a CMOS sensor works well.
@@ -144,7 +142,6 @@ This series of articles described how to build a vision AI workload with Azure I
 - [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)
 - [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.yml)
 - [Image storage and management for Azure IoT Edge vision AI](./image-storage.md)
-- [Alert persistence in Azure IoT Edge vision AI](./alerts.md)
 
 To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 
@@ -162,8 +159,5 @@ For more computer vision architectures, examples, and ideas that use Azure IoT, 
 
 - [Getting started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
 - [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
-
+- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

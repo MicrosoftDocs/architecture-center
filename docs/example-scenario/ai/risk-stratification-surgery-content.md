@@ -62,7 +62,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
 ### Components
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Azure Data Explorer for log and time-series analytics, pipelines for data integration and ETL/ELT, and deep integration with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Azure Data Explorer for log and time-series analytics, pipelines for data integration and extract, transform, load (ETL)/extract, load, transform (ELT), and deep integration with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
 - [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables the rapid exchange of data through FHIR APIs. It's backed by a managed platform as a service (PaaS) offering in the cloud. This API makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud.
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud-based data integration service that automates data movement and transformation.
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache for training the machine learning model.
@@ -97,6 +97,8 @@ Or watch this short video:
 
 > [!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
 
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
+
 ### Potential use cases
 
 This solution is ideal for the healthcare industry. Risk stratification models apply to these scenarios:
@@ -107,7 +109,7 @@ This solution is ideal for the healthcare industry. Risk stratification models a
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this architecture were chosen for scalability and availability, with the aim of managing and controlling costs.
 
@@ -121,7 +123,7 @@ The components in this architecture feature high reliability. However, machine l
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Azure Active Directory authentication or role-based access control. Consider the following [Azure Machine learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
+This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Microsoft Entra authentication or role-based access control. Consider the following [Azure Machine learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
 Azure Synapse offers enterprise-grade and industry-leading security features that provide component isolation to protect data, improve network security, and improve threat protection. Component isolation can minimize exposure in the case of a security vulnerability. Azure Synapse also enables data obfuscation to protect sensitive personal data.
 
@@ -149,7 +151,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
 
-- [MLOps v2](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx?xsdata=MDV8MDF8fDVhM2M4ZDViNjM1ODRhMWFjMDM3MDhkYTFiZjIwYTkzfDcyZjk4OGJmODZmMTQxYWY5MWFiMmQ3Y2QwMTFkYjQ3fDB8MHw2Mzc4NTMwMjM1OTk4MzcyMzl8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TXpCak9HUmlOR1JsTkRSbE5EVmlaR0UwWVRNMFpqQmpPV1kzT1RWa1pqaEFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=czFMOUVSa3J1WjBSbm5haDc3NStGUVVGYTZyZE93MmF4d3U1cW92NlB2QT0%3D&ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cchulahlou%40microsoft.com&OR=Teams-HL&CT=1649705566054&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjAzMjEwMDEwNyJ9) 
+- [MLOps v2](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2) 
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
 Responsible AI as a part of Azure Machine Learning is based on the six pillars of AI development and use: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For an overview and implementation details, see [What is responsible AI?](/azure/machine-learning/concept-responsible-ml).
@@ -170,7 +172,7 @@ For more information about designing scalable solutions, see [Performance effici
 
 Principal author:
 
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Principal Cloud Solution Architect, US National CSA Team
 
 Other contributor:
 
@@ -192,8 +194,7 @@ Other contributor:
 
 ## Related resources
 
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

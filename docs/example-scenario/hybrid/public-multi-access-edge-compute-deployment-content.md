@@ -5,7 +5,7 @@ This article presents a hybrid architecture for video streaming and analytics. I
 
 ## Architecture
 
-:::image type="content" source="media/public-multi-access-edge-compute-deployment.png" alt-text="Architecture that uses Azure public MEC to host applications at the edge to speed response and reduce bandwidth requirements." border="false" lightbox="media/public-multi-access-edge-compute-deployment.png":::
+:::image type="content" source="media/public-multi-access-edge-compute-deployment.svg" alt-text="Architecture that uses Azure public MEC to host applications at the edge to speed response and reduce bandwidth requirements." border="false" lightbox="media/public-multi-access-edge-compute-deployment.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1915303-public-multi-access-edge-compute-deployment.vsdx) of this architecture.*
 
@@ -46,7 +46,7 @@ There are two lists of components in this section, those that are in Azure publi
 
 An alternative to deploying AKS is to deploy [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) in Azure public MEC and run Azure modules that provide similar functionality to the services already mentioned. You can use:
 
-- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer) to create the video processing pipeline.
+- [Azure Video Analyzer](https://azure.microsoft.com/products/ai-video-indexer/) to create the video processing pipeline.
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) to analyze the video to provide insights.
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to deploy analytics services on the streamed video.
 - [Azure Functions](https://azure.microsoft.com/services/functions) to run actions on the analysis and the insights.
@@ -67,7 +67,7 @@ In particular, video analytics based on computer vision models is used by variou
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). The framework consists of five pillars of architectural excellence:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/). The framework consists of five pillars of architectural excellence:
 
 - Reliability
 - Security
@@ -120,6 +120,6 @@ Principal author:
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Low-latency network connections for industry](../../solution-ideas/articles/low-latency-network.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
-- [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)
+- [Low-latency network connections for industry](../../networking/idea/low-latency-network.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)
+- [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)

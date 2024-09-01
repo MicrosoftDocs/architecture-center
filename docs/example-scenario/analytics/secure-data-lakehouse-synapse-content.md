@@ -6,7 +6,7 @@ This article describes the design process, principles, and technology choices fo
 
 The following diagram shows the architecture of the data lakehouse solution. It's designed to control the interactions among the services in order to mitigate security threats. Solutions will vary depending on functional and security requirements.
 
-:::image type="content" source="media/secure-data-lakehouse-architecture.png" alt-text="Diagram that shows the detailed architecture." border="false" lightbox="media/secure-data-lakehouse-architecture.png" :::
+:::image type="content" source="media/secure-data-lakehouse-architecture.svg" alt-text="Diagram that shows the detailed architecture." border="false" lightbox="media/secure-data-lakehouse-architecture.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1946993-secure-data-lakehouse-synapse.vsdx) of this architecture.*
 
@@ -14,14 +14,14 @@ The following diagram shows the architecture of the data lakehouse solution. It'
 
 The dataflow for the solution is shown in the following diagram:
 
-:::image type="content" source="media/secure-data-lakehouse-dataflow.png" alt-text="Diagram that shows the data flow in the solution." border="false" lightbox="media/secure-data-lakehouse-dataflow.png" :::
+:::image type="content" source="media/secure-data-lakehouse-dataflow.svg" alt-text="Diagram that shows the data flow in the solution." border="false" lightbox="media/secure-data-lakehouse-dataflow.svg" :::
 
 1. Data is uploaded from the data source to the data landing zone, either to Azure Blob storage or to a file share that's provided by Azure Files. The data is uploaded by a batch uploader program or system. Streaming data is captured and stored in Blob Storage by using the Capture feature of Azure Event Hubs. There can be multiple data sources. For example, several different factories can upload their operations data. For information about securing access to Blob Storage, file shares, and other storage resources, see [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations) and [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning).
 1. The arrival of the data file triggers Azure Data Factory to process the data and store it in the data lake in the core data zone. Uploading data to the core data zone in Azure Data Lake protects against data exfiltration.
 1. Azure Data Lake stores the raw data that's obtained from different sources. It's protected by firewall rules and virtual networks. It blocks all connection attempts coming from the public internet.
 1. The arrival of data in the data lake triggers the Azure Synapse pipeline, or a timed trigger runs a data processing job. Apache Spark in Azure Synapse is activated and runs a Spark job or notebook. It also orchestrates the data process flow in the data lakehouse. Azure Synapse pipelines convert data from [the Bronze zone to the Silver Zone and then to the Gold Zone](/training/modules/describe-azure-databricks-delta-lake-architecture/2-describe-bronze-silver-gold-architecture).
 1. A Spark job or notebook runs the data processing job. Data curation or a machine learning training job can also run in Spark. Structured data in the gold zone is stored in [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format.
-1. A serverless SQL pool [creates external tables](/azure/synapse-analytics/sql/develop-tables-external-tables) that use the data stored in Delta Lake. The serverless SQL pool provides a powerful and efficient SQL query engine and can support traditional SQL user accounts or Azure Active Directory (Azure AD) user accounts.
+1. A serverless SQL pool [creates external tables](/azure/synapse-analytics/sql/develop-tables-external-tables) that use the data stored in Delta Lake. The serverless SQL pool provides a powerful and efficient SQL query engine and can support traditional SQL user accounts or Microsoft Entra user accounts.
 1. Power BI connects to the serverless SQL pool to visualize the data. It creates reports or dashboards using the data in the data lakehouse.
 1. Data Analysts or scientists can log in to Azure Synapse Studio to:
    - Further enhance the data.
@@ -80,8 +80,6 @@ This article describes the design process, principles, and technology choices fo
 
 The goal is to provide guidance on building a secure and cost-effective data lakehouse platform for enterprise use and on making the technologies work together seamlessly and securely.
 
-*Apache®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
 ### Potential use cases
 
  A data lakehouse is a modern data management architecture that combines the cost-efficiency, scale, and flexibility features of a data lake with the data and transaction management capabilities of a data warehouse. A data lakehouse can handle a vast amount of data and support business intelligence and machine learning scenarios. It can also process data from diverse data structures and data sources. For more information, see [What is the Databricks Lakehouse?](/azure/databricks/lakehouse).
@@ -101,7 +99,7 @@ This solution focuses on the security design and implementation practices in the
 
 Here is the high-level solution design architecture:
 
-:::image type="content" source="media/secure-data-lakehouse-high-level-design.png" alt-text="Diagram that shows high-level data lakehouse solution design architecture." border="false" :::
+:::image type="content" source="media/secure-data-lakehouse-high-level-design.svg" alt-text="Diagram that shows high-level data lakehouse solution design architecture." border="false" :::
 
 ### Choose security focus
 
@@ -124,6 +122,8 @@ For details of what should be checked and considered, see:
 - [Access control](/azure/cloud-adoption-framework/secure/access-control)
 - [Asset protection](/azure/cloud-adoption-framework/secure/asset-protection)
 - [Innovation security](/azure/cloud-adoption-framework/secure/innovation-security)
+
+<!-- docutune:ignoredCasing "when designing" -->
 
 ### Network and asset protection plan
 
@@ -159,7 +159,7 @@ Consider the following techniques to better protect networks and assets:
 
 - **Deploy perimeter networks to provide security zones for data pipelines**
 
-    When a data pipeline workload requires access to external data and the data landing zone, it's best to implement a perimeter network and separate it with an extract, transform, and load (ETL) pipeline.
+    When a data pipeline workload requires access to external data and the data landing zone, it's best to implement a perimeter network and separate it with an extract, transform, load (ETL) pipeline.
 
 - **Enable Defender for Cloud for all storage accounts**
 
@@ -190,14 +190,14 @@ For example, in the plan we want to:
 
 - Create an Azure Synapse workspace with a managed virtual network.
 - Secure data egress from Azure Synapse workspaces by using [Azure Synapse workspaces Data exfiltration protection.](/azure/synapse-analytics/security/workspace-data-exfiltration-protection)
-- Manage the list of approved Azure AD tenants for the Azure Synapse workspace.
+- Manage the list of approved Microsoft Entra tenants for the Azure Synapse workspace.
 - Configure network rules to grant traffic to the Storage account from selected virtual networks, access only, and disable public network access.
 - Use [Managed Private Endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) to connect the virtual network that's managed by Azure Synapse to the data lake.
 - Use [Resource Instance](/azure/storage/common/storage-network-security) to securely connect Azure Synapse SQL to the data lake.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -210,21 +210,21 @@ There are several components in the system. Each one requires a different identi
 - **Choose an identity solution for different access control layers**
   - There are four different identity solutions in the system.
     - SQL account (SQL Server)
-    - Service principal (Azure AD)
-    - Managed identity (Azure AD)
-    - User Account (Azure AD)
+    - Service principal (Microsoft Entra ID)
+    - Managed identity (Microsoft Entra ID)
+    - User Account (Microsoft Entra ID)
   - There are four different access control layers in the system.
     - The application access layer: choose the identity solution for AP Roles.
     - The Azure Synapse DB/Table access layer: choose the identity solution for roles in databases.
     - Azure Synapse access external resource layer: choose the identity solution to access external resources.
     - Data Lake Storage access layer: choose the identity solution to control file access in the storage.
 
-  :::image type="content" source="media/secure-data-lakehouse-access-control.png" alt-text="Diagram that shows Azure Synapse and its capabilities." lightbox="media/secure-data-lakehouse-access-control.png"border="false" :::
+  :::image type="content" source="media/secure-data-lakehouse-access-control.svg" alt-text="Diagram that shows Azure Synapse Analytics and its capabilities." lightbox="media/secure-data-lakehouse-access-control.svg"border="false" :::
 
-  A crucial part of identity and access control is choosing the right identity solution for each access control layer. The [security design principles](/azure/architecture/framework/security/security-principles) of the Azure Well-Architected Framework suggest using native controls and driving simplicity. Therefore, this solution uses the Azure AD User Account of the end user in the application and Azure Synapse DB access layers. It leverages the native first-party IAM solutions and provides fine-grained access control. The Azure Synapse access external resource layer and Data Lake access layer use managed identity in Azure Synapse to simplify the authorization process.
+  A crucial part of identity and access control is choosing the right identity solution for each access control layer. The [security design principles](/azure/architecture/framework/security/security-principles) of the Azure Well-Architected Framework suggest using native controls and driving simplicity. Therefore, this solution uses the Microsoft Entra user Account of the end user in the application and Azure Synapse DB access layers. It leverages the native first-party IAM solutions and provides fine-grained access control. The Azure Synapse access external resource layer and Data Lake access layer use managed identity in Azure Synapse to simplify the authorization process.
 - **Consider least-privileged access**
 
-  A Zero Trust guiding principle suggests providing just-in-time and just-enough access to critical resources. See Azure [AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to enhance security in the future.
+  A Zero Trust guiding principle suggests providing just-in-time and just enough access to critical resources. See [Microsoft Entra Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to enhance security in the future.
 - **Protect linked service**
 
     Linked services define the connection information that's needed for a service to connect to external resources. It's important to secure linked services configurations.
@@ -271,13 +271,13 @@ For information about the operational excellence pillar of the Well-Architected 
 
   The default Azure DevOps pipeline agent doesn't support virtual network communication because it uses a very wide IP address range. This solution implements an Azure DevOps [self-hosted agent](/azure/devops/pipelines/agents/v2-linux) in the virtual network so that the DevOps processes can smoothly communicate with the other services in the solution. The connection strings and secrets for running the CI/CD services are stored in an independent key vault. During the deployment process, the self-hosted agent accesses the key vault in the core data zone to update resource configurations and secrets. For more information, see the [Use separate key vaults](/azure/key-vault/general/best-practices#use-separate-key-vaults) document. This solution also uses [VM scale sets](/azure/virtual-machine-scale-sets/overview) to ensure that the DevOps engine can automatically scale up and down based on the workload.
 
-:::image type="content" source="media/secure-data-lakehouse-pipeline.png" alt-text="Diagram that shows Azure Synapse and its capabilities." border="false" lightbox="media/secure-data-lakehouse-pipeline.png" :::
+:::image type="content" source="media/secure-data-lakehouse-pipeline.svg" alt-text="Diagram that shows Azure Synapse Analytics and its capabilities." border="false" lightbox="media/secure-data-lakehouse-pipeline.svg" :::
 
 #### Implement infrastructure security scanning and security smoke testing in the CI/CD pipeline
 
   A static analysis tool for scanning infrastructure as code (IaC) files can help detect and prevent misconfigurations that can lead to security or compliance problems. Security smoke testing ensures that the vital system security measures are successfully enabled, protecting against deployment failures.
 
-- Use a static analysis tool to scan infrastructure as code (IaC) templates to detect and prevent misconfigurations that can lead to security or compliance problems. Use tools such as [Checkov](https://www.checkov.io) or [Terrascan](https://github.com/accurics/terrascan) to detect and prevent security risks.
+- Use a static analysis tool to scan infrastructure as code (IaC) templates to detect and prevent misconfigurations that can lead to security or compliance problems. Use tools such as [Checkov](https://www.checkov.io) or [Terrascan](https://runterrascan.io/) to detect and prevent security risks.
 - Make sure the CD pipeline correctly handles deployment failures. Any deployment failure related to security features should be treated as a critical failure. The pipeline should retry the failed action or hold the deployment.
 - Validate the security measures in the deployment pipeline by running security smoke testing. The security smoke testing, such as validating the configuration status of deployed resources or testing cases that examine critical security scenarios, can ensure that the security design is working as expected.
 
@@ -291,9 +291,9 @@ Principal author:
 
 Other contributors:
 
-- Ian Chen | PRINCIPAL SOFTWARE ENGINEER LEAD
-- [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | PRINCIPAL SOFTWARE ENGINEERING
-- Roy Chan | PRINCIPAL SOFTWARE ENGINEER MANAGER
+- Ian Chen | Principal Software Engineer Lead
+- [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering
+- Roy Chan | Principal Software Engineer Manager
 
 ## Next steps
 
@@ -314,8 +314,7 @@ Other contributors:
   - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
   - [Serverless SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview)
   - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview)
-  - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
-](/azure/data-factory/concepts-pipelines-activities?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
+  - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
   - [What is Azure Synapse Data Explorer? (Preview)](/azure/synapse-analytics/data-explorer/data-explorer-overview)
   - [Machine Learning capabilities in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning)
   - [What is Microsoft Purview?](/azure/purview/overview)
@@ -340,8 +339,6 @@ Other contributors:
 
 ## Related resources
 
-- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
-- [Secure data solutions](../../data-guide/scenarios/securing-data-solutions.md)
-- [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)

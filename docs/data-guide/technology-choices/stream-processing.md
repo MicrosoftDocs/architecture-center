@@ -2,7 +2,7 @@
 title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -45,7 +45,7 @@ For real-time processing scenarios, begin choosing the appropriate service for y
 
 - Does your data arrive in formats besides Avro, JSON, or CSV? If yes, consider options that support any format using custom code.
 
-- Do you need to scale your processing beyond 1 GB/s? If yes, consider the options that scale with the cluster size.
+- Do you need to scale your processing beyond 1 GBps? If yes, consider the options that scale with the cluster size.
 
 ## Capability matrix
 
@@ -57,14 +57,14 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- | --- | --- |
 | Programmability | SQL, JavaScript | [C#/F#][dotnet-spark], Java, Python, Scala | [C#/F#][dotnet-spark], Java, Python, R, Scala | C#, Java | C#, F#, Java, Node.js, Python | C#, Java, Node.js, PHP, Python |
 | Programming paradigm | Declarative | Mixture of declarative and imperative | Mixture of declarative and imperative | Imperative | Imperative | Imperative |
-| Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | Per cluster hour | [Databricks units](https://azure.microsoft.com/pricing/details/databricks) | Per cluster hour | Per function execution and resource consumption | Per app service plan hour |
+| Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | Per cluster hour | [Databricks units](https://azure.microsoft.com/pricing/details/databricks) | Per cluster hour | Per function execution and resource consumption | Per App Service plan hour |
 
 ### Integration capabilities
 
 | Capability | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | HDInsight with Storm | Azure Functions | Azure App Service WebJobs |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inputs | Azure Event Hubs, Azure IoT Hub, Azure Blob storage  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Storage Blobs, Azure Data Lake Store  | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Azure Cosmos DB, Files |
-| Sinks |  Azure Data Lake Store, Azure SQL Database, Storage Blobs, Event Hubs, Power BI, Table Storage, Service Bus Queues, Service Bus Topics, Azure Cosmos DB, Azure Functions  | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Azure Cosmos DB | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Azure Cosmos DB | Event Hubs, Service Bus, Kafka | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Azure Cosmos DB, Files |
+| Inputs | Azure Event Hubs, Azure IoT Hub, Azure Blob storage/Data Lake Storage Gen2  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Storage Blobs, Azure Data Lake Store  | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Azure Cosmos DB, Files |
+| Sinks |  Azure Data Lake Storage Gen 1, Azure Data Explorer, Azure Database for PostgreSQL, Azure SQL Database, Azure Synapse Analytics, Blob storage and Azure Data Lake Gen 2, Azure Event Hubs, Power BI, Azure Table storage, Azure Service Bus queues, Azure Service Bus topics, Azure Cosmos DB,  Azure Functions  | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Azure Cosmos DB | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Azure Cosmos DB | Event Hubs, Service Bus, Kafka | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Azure Cosmos DB, Files |
 
 ### Processing capabilities
 
@@ -72,7 +72,7 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- | --- | --- |
 | Built-in temporal/windowing support | Yes | Yes | Yes | Yes | No | No |
 | Input data formats | Avro, JSON or CSV, UTF-8 encoded | Any format using custom code | Any format using custom code | Any format using custom code | Any format using custom code | Any format using custom code |
-| Scalability | [Query partitions](/azure/stream-analytics/stream-analytics-parallelization) | Bounded by cluster size | Bounded by Databricks cluster scale configuration | Bounded by cluster size | Up to 200 function app instances processing in parallel | Bounded by app service plan capacity |
+| Scalability | [Query partitions](/azure/stream-analytics/stream-analytics-parallelization) | Bounded by cluster size | Bounded by Databricks cluster scale configuration | Bounded by cluster size | Up to 200 function app instances processing in parallel | Bounded by App Service plan capacity |
 | Late arrival and out of order event handling support | Yes | Yes | Yes | Yes | No | No |
 
 ## Contributors
@@ -94,7 +94,6 @@ Principal author:
 
 ## Related resources
 
-- [Choose a real-time message ingestion technology](real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.yml)
 - [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 

@@ -36,6 +36,7 @@ Consider this architecture style for:
 
 - Without careful design, the front end and the worker can become large, monolithic components that are difficult to maintain and update.
 - There may be hidden dependencies, if the front end and worker share data schemas or code modules.
+- The web front end can malfunction after successfully persisting to the database but before it emits the messages to the queue. This can result in possible consistency issues as the worker will not perform its part of the logic. Techniques like the [transactional outbox pattern](../../best-practices/transactional-outbox-cosmos.yml) can be used to help mitigate this problem but require changing the routing of outgoing messages to first "loop back" through a separate queue. One library that provides support for this technique is the [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/).
 
 ## Best practices
 
@@ -87,8 +88,8 @@ For more information, see the [App Service web application reference architectur
 - [Caching guidance](/azure/architecture/best-practices/caching)
 - [CDN guidance](/azure/architecture/best-practices/cdn)
 - [Data partitioning guidance](/azure/architecture/best-practices/data-partitioning)
-- [Use the best data store for your data](/azure/architecture/guide/design-principles/use-best-data-store)
 - [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
+- [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling)
 
 <!-- links -->
 
@@ -97,5 +98,4 @@ For more information, see the [App Service web application reference architectur
 [caching]: ../../best-practices/caching.yml
 [cdn]: ../../best-practices/cdn.yml
 [data-partition]: ../../best-practices/data-partitioning.yml
-[polyglot]: /azure/architecture/guide/design-principles/use-best-data-store
-[scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml
+[scalable-web-app]: ../../web-apps/app-service/architectures/baseline-zone-redundant.yml

@@ -49,13 +49,13 @@ When an Event Grid trigger fires, it means *at least one* event happened. For ex
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- **Azure AD:** Azure AD is a globally distributed, highly available SaaS platform. Refer to the [SLA](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/) for guaranteed availability details.
+- **Microsoft Entra ID:** Microsoft Entra ID is a globally distributed, highly available SaaS platform. Refer to the [SLA](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/) for guaranteed availability details.
 - **API Management:** API Management can be deployed in several highly available configurations, according to business requirements and cost tolerance.  Refer to the [Ensure API Management availability and reliability](/azure/api-management/high-availability) for a full review of options. Also refer to the [SLA][apim-sla] for guaranteed availability details.
 - **Logic Apps:** Geo-redundant storage is available for Logic Apps on the Consumption plan tier.  For information on designing a business continuity and disaster recovery solution, refer to the [guidance](/azure/logic-apps/business-continuity-disaster-recovery-guidance). Also refer to the [SLA][logic-apps-sla] for guaranteed availability details.
 - **Event Grid:** Event Grid resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across three availability zones [(when available)](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) in the region. When there's a failure in one of the availability zones, Event Grid resources automatically fail over to another availability zone without any human intervention. Refer to the [Geo-disaster recovery across regions](/azure/event-grid/availability-zones-disaster-recovery#geo-disaster-recovery-across-regions) for guidance on designing a disaster recovery solution for failing over to another region. Also refer to the [SLA][event-grid-sla] for guaranteed availability details.
@@ -65,9 +65,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-To secure Service Bus, use [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) paired with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure AD integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal (a managed identity in this case).
+To secure Service Bus, use [Microsoft Entra authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) paired with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Microsoft Entra integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal (a managed identity in this case).
 
-Where Azure AD isn't available, you can use [shared access signature (SAS)](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas).
+Where Microsoft Entra ID isn't available, you can use [shared access signature (SAS)](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas).
 
 If you need to expose a Service Bus queue or topic as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way to secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
 
@@ -113,7 +113,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ### Operational Excellence
 
-The [Basic Enterprise Integration reference architecture](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops-considerations) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
+The [Basic Enterprise Integration reference architecture](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
 
 Automating recovery operations as much as possible is an integral component of Operational Excellence.  With automation in mind, you can combine [Azure Log Monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. Refer to the diagram in [failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow) documentation for an example of automation logic to initiate a failover.
 
@@ -139,6 +139,7 @@ For more information, see the Service Bus documentation:
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
 - [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
+- [A code-centric tutorial that uses messaging for integrating 3rd party systems using NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/3-integration/)
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management

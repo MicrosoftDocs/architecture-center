@@ -6,7 +6,7 @@ This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." lightbox="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" border="false":::
    The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
@@ -50,7 +50,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 This architecture demonstrates the solution, after it was migrated to Azure:
 
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.png" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.svg" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." lightbox="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.svg" border="false":::
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
@@ -61,7 +61,7 @@ This architecture demonstrates the solution, after it was migrated to Azure:
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
    - To minimize the need for retraining, you can avoid modifying the web application presentation layer during migration. But you can also update the presentation layer to align with UX requirements.
-   - Azure Bastion hosts help to maximize security. When giving administrators access to VMs, these hosts minimize the number of open ports.
+   - Azure Bastion hosts help to maximize security. When you give administrators access to VMs, these hosts minimize the number of open ports.
    - Azure ExpressRoute securely connects on-premises and Azure components.
 
 1. The solution uses two sets of two Azure Virtual Machines (VMs):
@@ -91,7 +91,7 @@ This architecture demonstrates the solution, after it was migrated to Azure:
    - High input/output operations per second (IOPS).
    - High uptime SLA.
 
-   Azure Private Link provides a private, direct connection from VMs to SQL Database through the Azure network backbone. An autofailover group manages database replication.
+   Azure Private Link provides a private, direct connection from VMs to SQL Database through the Azure network backbone. An auto-failover group manages database replication.
 
 1. Data Factory version 2 (V2) provides data movement pipelines that events can trigger. After data from external sources lands in Azure Blob Storage, these pipelines move that data into Azure Files storage. Emulated COBOL programs then process the files.
 
@@ -114,7 +114,7 @@ This architecture uses the following components:
 
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
-  Virtual network interface cards provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
+  [Virtual network interface cards][Create, change, or delete a network interface] provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage][Introduction to the core Azure Storage services]. Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
 
@@ -138,7 +138,7 @@ This architecture uses the following components:
 
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) keeps applications and workloads running during outages. This service works by replicating VMs from a primary site to a secondary location.
 
-- An [autofailover group](/azure/azure-sql/database/auto-failover-group-overview) manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
+- An [auto-failover group](/azure/azure-sql/database/auto-failover-group-overview) manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
 
 ## Scenario details
 
@@ -260,7 +260,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 
 Principal author:
 
- - [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -269,29 +269,15 @@ Principal author:
 - Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
 - See the [Azure Friday tech talk with Astadia on mainframe modernization][Azure is the new mainframe].
 
-For more information about the services featured in this solution, see the following articles:
-- [Azure solid-state drive (SSD) managed disks][Introduction to Azure managed disks]
-- [Virtual Network][What is Azure Virtual Network?] 
-- [Virtual network interface cards][Create, change, or delete a network interface] 
-- [Azure Files][What is Azure Files?]
-- [Azure Storage][Introduction to the core Azure Storage services]
-- [Blob Storage][Introduction to Azure Blob storage]
-- [SQL Database][What is Azure SQL Database?]
-- [Data Factory][What is Azure Data Factory?]
-- [Load Balancer][What is Azure Load Balancer?]
-- [ExpressRoute][What is Azure ExpressRoute?]
-- [Azure Bastion][What is Azure Bastion?]
-- [Private Link][What is Azure Private Link?]
-- [Azure network security groups][Network security groups]
-- [Site Recovery][About Site Recovery]
-- An [autofailover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases]
-
 ## Related resources
 
+- [Unisys ClearPath MCP virtualization on Azure][Unisys ClearPath MCP virtualization on Azure]
+- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure][Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]
+- [SMA OpCon in Azure][SMA OpCon in Azure]
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - Reference architectures:
 
-  - [Unisys mainframe migration to Azure using Asysco][Unisys mainframe migration]
+  - [Unisys mainframe migration to Azure using Avanade AMT][Unisys mainframe migration]
   - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
   - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
@@ -326,13 +312,16 @@ For more information about the services featured in this solution, see the follo
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-[Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+[Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
 [Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
+[SMA OpCon in Azure]: /azure/architecture/solution-ideas/articles/sma-opcon-azure
+[Unisys ClearPath MCP virtualization on Azure]: /azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
+[Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]: /azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx
 [Visio version of Sperry architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-original-architecture.vsdx

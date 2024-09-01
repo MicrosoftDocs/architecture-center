@@ -3,9 +3,9 @@
 This solution idea helps you understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.
 
 ## Architecture
+[ ![Architecture diagram that shows how to improve cross-cloud scalability with solution architecture that includes Azure Stack.](../media/cross-cloud-scaling.svg)](../media/cross-cloud-scaling.svg#lightbox)
 
-![Architecture diagram](../media/cross-cloud-scaling.png)
-*Download an [SVG](../media/cross-cloud-scaling.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/cross-cloud-scaling.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -41,7 +41,6 @@ This solution applies to the following scenarios:
 
 ## Related resources
 
-* [Azure Functions in a hybrid environment](../../hybrid/azure-functions-hybrid.yml)
 * [Cross-cloud scaling with Traffic Manager](../../example-scenario/hybrid/hybrid-cross-cloud-scaling.yml)
 * [Enterprise-scale disaster recovery](disaster-recovery-enterprise-scale-dr.yml)
 * [Hybrid geo-distributed architecture](../../example-scenario/hybrid/hybrid-geo-distributed.yml)

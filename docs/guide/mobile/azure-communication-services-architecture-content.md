@@ -18,6 +18,7 @@ Industry standards for communication, like [WebRTC](https://webrtc.org), separat
 | **Control plane** | Governs who communicates, when, and how | REST | [Microsoft Entra ID service credentials](/azure/communication-services/concepts/authentication#azure-ad-authentication) |
 | **Data plane**| Contains communication content, voice, video, text, and data that interface with humans and apps | UDP, [RTMP](/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](/azure/communication-services/concepts/authentication#user-access-tokens) and Microsoft Entra ID service credentials such as Managed Identity |
 
+
 A common data flow occurs when client applications initiate communication by requesting control information from a service controller:
 
 - What meetings do I have today?
@@ -30,9 +31,11 @@ In the WebRTC standard, clients request control information from services by sen
 
 ## Users authenticated via user access tokens
 
+
 Communication Services clients present user access tokens to securely access the Azure calling and chat data plane. You should generate and manage user access tokens using a trusted service. The access tokens need to be protected carefully, as failure to properly manage them can result in additional charges due to the misuse of resources.
 
 Using Azure Managed Identity for your identity management service can further enhance security by removing the need to handle credentials directly. With Managed Identities, there is no need to store secrets in your code for authenticating your service to Azure services. The Managed Identity allows your service to securely obtain the necessary tokens without needing to store or manage sensitive credentials.
+
 
 
 :::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
@@ -102,7 +105,7 @@ You might want users to be able to join a group call without an explicit invitat
 Many organizations use Microsoft 365 and Teams for communication. [Communication Services and Teams are interoperable,](/azure/communication-services/concepts/teams-interop) which enables these scenarios:
 
 - **Build a custom application to allow an external user to join a Teams meeting.** This scenario is ideal for virtual visit scenarios, where a business that's using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. To learn more about this scenario, see [Virtual visits tutorial and Sample Builder](/azure/communication-services/tutorials/virtual-visits).
-- **Build a custom application for an internal user with Teams / Azure AD credentials.** This scenario is designed for building custom Teams clients for employees.
+- **Build a custom application for an internal user with Teams / Microsoft Entra credentials.** This scenario is designed for building custom Teams clients for employees.
 
 These custom application scenarios use [Microsoft Graph APIs](/graph/overview?view=graph-rest-1.0) and Communication Services. When you build external apps and services that connect to Teams, you generally use Microsoft Graph as the *Teams control plane*. You use this control plane to configure who communicates and how and when they communicate by using APIs for:
 
@@ -142,12 +145,12 @@ Communication Services applications can join Teams calls. For external users, th
 
 Principal author:
 
- - [Chris Palmer](https://www.linkedin.com/in/palmerchristopher) | Principal Group Product Manager
+- [Chris Palmer](https://www.linkedin.com/in/palmerchristopher) | Principal Group Product Manager
 
 Other contributors:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -157,8 +160,4 @@ Other contributors:
 - [Communication Services reference documentation](/azure/communication-services/concepts/reference)
 - [Learn module: Introduction to Azure Communication Services](/training/modules/intro-azure-communication-services)
 - [Learn module: Create a voice calling web app with Azure Communication Services](/training/modules/communication-services-voice-calling-web-app)
-
-## Related resources
-
 - [Governance of Microsoft Teams guest users](../../example-scenario/governance/governance-teams-guest-users.yml)
-- [Real-time presence with Microsoft 365, Azure, and Power Platform](../../solution-ideas/articles/presence-microsoft-365-power-platform.yml)

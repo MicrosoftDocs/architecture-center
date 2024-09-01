@@ -4,7 +4,7 @@ This solution describes a migration from an IBM AIX Unix platform to Red Hat Ent
 
 The following diagram shows the pre-migration, on-premises AIX legacy system architecture:
 
-:::image type="content" source="media/aix-on-premises-system.png" alt-text="Diagram that shows the pre-migration AIX system architecture." border="false" lightbox="media/aix-on-premises-system.png":::
+:::image type="content" source="media/aix-on-premises-system.svg" alt-text="Diagram that shows the pre-migration AIX system architecture." border="false" lightbox="media/aix-on-premises-system.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
@@ -28,7 +28,7 @@ The following diagram shows the pre-migration, on-premises AIX legacy system arc
 
 The following diagram shows the Azure RHEL post-migration system architecture:
 
-:::image type="content" source="media/rhel-azure-system.png" alt-text="Diagram that shows the post-migration Azure architecture." border="false" lightbox="media/rhel-azure-system.png":::
+:::image type="content" source="media/rhel-azure-system.svg" alt-text="Diagram that shows the post-migration Azure architecture." border="false" lightbox="media/rhel-azure-system.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
@@ -62,7 +62,7 @@ The system also contains the following components:
 
 - Azure Service Bus implements the MQ Series infrastructure and provides message queue services for the applications. For more information on migrating from MQ Series to Azure Service Bus, see [Migrate from ActiveMQ to Azure Service Bus](/azure/service-bus-messaging/migrate-jms-activemq-to-servicebus).
 
-- Azure Active Directory (Azure AD) provides identity and access management for all Azure entities and identities migrated from the legacy LDAP services.
+- Microsoft Entra ID provides identity and access management for all Azure entities and identities migrated from the legacy LDAP services.
 
 ### Components
 
@@ -74,7 +74,7 @@ The system also contains the following components:
 
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) is a cloud-native WAF service that protects web apps against malicious attacks and common web vulnerabilities.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
@@ -93,7 +93,7 @@ The system also contains the following components:
 
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service with simple hybrid integration.
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-based enterprise identity and access management service. Azure AD single sign-on and multifactor authentication help users sign in and access resources, while protecting from cybersecurity attacks.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while protecting from cybersecurity attacks.
 
 ### Alternatives
 
@@ -123,7 +123,7 @@ Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include t
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
 
 ### Availability
 
@@ -181,12 +181,11 @@ Principal author:
 ## Next steps
 
 - [Migrating AIX Workloads to Azure: Approaches and Best Practices](https://techcommunity.microsoft.com/t5/azure-global/migrating-aix-workloads-to-azure-approaches-and-best-practices/ba-p/1085983).
-- [AIX to Red Hat Enterprise Linux Strategic Migration Planning Guide](https://www.intel.com/content/dam/www/public/us/en/documents/guides/risc-migration-aix-to-red-had-enterprise-linux-strategic-migration-planning-guide.pdf).
+- [AIX to Red Hat Enterprise Linux Strategic Migration Planning Guide](https://docslib.org/doc/9964312/aix-to-red-hat-enterprise-linux-strategic-migration-planning-guide).
 - For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
 ## Related resources
 
-- [High availability and disaster recovery scenarios for IaaS apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)

@@ -1,12 +1,14 @@
-The articles in this series have showed how to design a disaster recovery (DR) strategy for an Azure-based data platform with information on resiliency options for many Azure services that your organization may be using or looking to incorporate into your data platform.  Every organization's data needs are different, but the guidance provided in this series is meant to give you a starting point to design a DR strategy that fits your business requirements.  
+The articles in this series describe an approach for designing a disaster recovery (DR) strategy for an Azure-based data platform.
 
-For further business and workload resiliency guidance, you can refer to the [Well-Architected Framework](/azure/architecture/framework/resiliency/) and the [Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/business-resilience).
+Every organization's data needs are different, but the guidance provided will act as starting point, enabling the design of a DR strategy that fits your business requirements.
+
+<!-- docutune:disable -->
 
 ## Key terms glossary
 
 **Term**|**Definition**|**Notes**
 :-----:|:-----:|:-----:
-Azure AD|Azure Active Directory|[Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
+Microsoft Entra ID|Microsoft Entra ID|[Microsoft Entra ID](https://azure.microsoft.com/en-us/services/active-directory/)
 ACL|Access Control Lists| 
 ADLS|Azure Data Lake Storage|[Azure Data Lake Storage Gen2 Introduction](/azure/storage/blobs/data-lake-storage-introduction)
 AKS|Azure Kubernetes Service|[Azure Kubernetes Service (AKS) documentation](/azure/aks/)
@@ -19,7 +21,7 @@ DR|Disaster Recovery|
 DNS|Domain Name System| 
 DSC|Desired State Configuration| 
 E2E|End to End| 
-GRS|Geo-redundant storage |[Storage Redundancy](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region)
+GRS|Geo-redundant storage |[Storage Redundancy](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region)
 HA|High Availability| 
 HSM|Hardware Security Module|[Azure Managed HSM documentation](/azure/key-vault/managed-hsm/)
 IAC|Infrastructure As Code| 
@@ -48,11 +50,13 @@ UDR|User Defined Route|[Azure virtual network traffic routing](/azure/virtual-ne
 VM|Virtual Machine|[Virtual Machines (VMs) for Linux and Windows](https://azure.microsoft.com/en-us/services/virtual-machines/)
 VNET|Azure – Virtual Network|[Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 WRT|Work Recovery Time|The maximum acceptable amount of time that is required to update the platform data/processing from the recovery point to the current period, enabling the business/solutions to use the service as BAU.
-ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy)
+ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region)
+
+<!-- docutune:enable -->
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors originally wrote it.*
 
 Principal authors:
 
@@ -66,14 +70,13 @@ Other contributors:
 - [Fabio Braga](https://www.linkedin.com/in/fabiohemylio/) | Chief Architect – Customer Success
 - [Rolf Tesmer](https://www.linkedin.com/in/rolftesmer/) | Senior Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Azure Data Lake Storage training module](/training/modules/introduction-to-azure-data-lake-storage)
-- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-- [Azure Synapse Analytics](/azure/synapse-analytics)
+- [Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/business-resilience)
+- [Mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview)
+- [Well-Architected Framework](/azure/architecture/framework/resiliency/)
 
 ## Related resources
 

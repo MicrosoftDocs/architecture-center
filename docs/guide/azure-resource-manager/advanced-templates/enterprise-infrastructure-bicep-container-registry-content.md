@@ -12,7 +12,7 @@ When it comes to why you might want to have a strong preference for where your t
 
 Bicep is a declarative language for deploying Azure resources. Bicep's reusable code can use Azure Container Registry as a private registry for hosting versioned ARM templates. By using Container Registry this way, your enterprise can have a process of continuous integration and continuous delivery (CI/CD) for infrastructure. You can run integration and unit tests as part of the CI process, and the container registry can receive modules after they're successfully built. App teams can continue to use older versions until they're ready to upgrade, or they can update to take advantage of features in the newer versions of templates. 
 
-In addition to this use of Container Registry, you can combine this model with something like the [Azure Bicep ResourceModules](https://github.com/Azure/ResourceModules). Your implementation could consume from the public registry, or preferably, monitor the public repositories and pull changes into your private registry for further use. Pulling changes into your own container registry allows you to run tests against public modules while ensuring that they aren't used in production until quality and security practices are incorporated.  
+In addition to this use of Container Registry, you can combine this model with something like the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/). Your implementation could consume from the public registry, or preferably, monitor the public repositories and pull changes into your private registry for further use. Pulling changes into your own container registry allows you to run tests against public modules while ensuring that they aren't used in production until quality and security practices are incorporated.  
 
 ### Layers
 
@@ -119,7 +119,7 @@ Finally, though you might not have an index of all repositories and the code wit
 
 Principal authors:
 
-* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
+* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Technical Specialist
 
 Other contributors:
 
@@ -136,9 +136,7 @@ Other contributors:
 
 ## Related resources
 
-- [Azure DevTest Labs reference architecture for enterprises](../../../example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
-- [Build a CI/CD pipeline for chatbots with ARM templates](../../../example-scenario/apps/devops-cicd-chatbot.yml)
-- [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
-- [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)
+- [Microservices with AKS and Azure DevOps](../../../guide/aks/aks-cicd-azure-pipelines.yml)

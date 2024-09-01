@@ -1,4 +1,4 @@
-This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Directory Services (AD DS), you can control and limit access to AD DS users. Azure file shares then can replace traditional file servers.
+This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Domain Services (AD DS), you can control and limit access to AD DS users. Azure file shares then can replace traditional file servers.
 
 ## Architecture
 
@@ -10,10 +10,10 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 The architecture consists of the following components:
 
-- **Azure Active Directory tenant**. This component is an instance of Azure Active Directory (Azure AD) that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
-- **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Azure AD to enable it to authenticate on-premises users.
-- **Azure AD Connect sync server**. This component is an on-premises server that runs the Azure AD Connect sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD.
-- **Virtual network gateway**. This optional component is used to send encrypted traffic between a Virtual Network NAT and an on-premises location over the internet.
+- **Microsoft Entra tenant**. This component is an instance of Microsoft Entra that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
+- **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Microsoft Entra ID to enable it to authenticate on-premises users.
+- **Microsoft Entra Connect Sync server**. This component is an on-premises server that runs the Microsoft Entra Connect Sync service. This service synchronizes information held in the on-premises Active Directory to Microsoft Entra ID.
+- **Virtual network gateway**. This optional component is used to send encrypted traffic between an Azure Virtual Network and an on-premises location over the internet.
 - **Azure file shares**. Azure file shares provide storage for files and folders that you can access over Server Message Block (SMB), Network File System (NFS), and Hypertext Transfer Protocol (HTTP) protocols. File shares are deployed into Azure storage accounts.
 - **Recovery Services Vault**. This optional component provides Azure file shares backup.
 - **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
@@ -22,7 +22,7 @@ The architecture consists of the following components:
 
 Key technologies used to implement this architecture:
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
 - [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
 - [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
 
@@ -56,9 +56,9 @@ Storage accounts allow you to use different storage services in the same storage
 
 Premium file shares are deployed to FileStorage storage accounts and are stored on solid-state drive-based (SSD-based) hardware. This setup makes them suitable for storing and accessing data that requires consistent performance, high throughput, and low latency. (For example, these premium file shares work well with databases.) You can store other workloads that are less sensitive to performance variability on standard file shares. These workload types include general-purpose file shares and dev/test environments. For more information, see [How to create an Azure file share][Premium-Azure-file-share].
 
-### Always require encryption when accessing Azure file shares
+### Always require encryption when accessing SMB Azure file shares
 
-Always use encryption in transit when accessing data in Azure file shares. (Encryption in transit is enabled by default.) Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
+Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
 
 ### Use VPN if port that SMB uses (port 445) is blocked
 
@@ -70,21 +70,20 @@ The Azure File Sync service allows you to cache Azure file shares on an on-premi
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Scalability
 
 - Azure file share size is limited to 100 tebibytes (TiB). There's no minimum file share size and no limit on the number of Azure file shares.
 - Maximum size of a file in a file share is 1 TiB, and there's no limit on the number of files in a file share.
-- Maximum I/O operations per second (IOPS) per standard file share is 10,000 IOPS and 100,000 IOPS per premium file share.
-- Maximum throughput for a single standard file share is up to 300 mebibytes/sec (MiB/sec) and up to 6,204 MiB/s for premium file shares.
 - IOPS and throughput limits are per Azure storage account and are shared between Azure file shares in the same storage account.
-- For more information, see [Azure Files scalability and performance targets][Azure-Files-scalability-performance].
+
+For more information, see [Azure Files scalability and performance targets][Azure-Files-scalability-performance].
 
 ### Availability
 
 > [!NOTE]
-> Azure storage account is the parent resource for Azure file shares. Azure file share has the level of redundancy that's provided by the storage account that contains the share.
+> An Azure storage account is the parent resource for Azure file shares. Azure file share has the level of redundancy that's provided by the storage account that contains the share.
 
 - Azure file shares currently support the following data redundancy options:
   - **Locally redundant storage (LRS)**. Data is copied synchronously three times within a single physical location in the primary region. This practice protects against loss of data because of hardware faults, such as a bad disk drive.
@@ -122,22 +121,12 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) and [Understand Azure Files billing](/azure/storage/files/understanding-billing).
 
 - Azure Files has two storage tiers and two pricing models:
-  - **Standard storage**: Uses HDD-based storage. There's no minimum file share size, and you pay only for used storage space. Also, you need to pay for file operations, such as enumerating a directory or reading a file.
-  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes and you pay per provisioned storage space. When using premium storage, all file operations are free.
-- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about the actual costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
-- [Andrew Coughlin](https://www.linkedin.com/in/andrew-coughlin-644a3a38) | Senior Cloud Solutions Architect
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+  - **Standard storage**: Uses HDD-based storage. There's no minimum file share size, and you pay only for used storage space. Also, you pay for file operations, such as enumerating a directory or reading a file.
+  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes, and you pay per provisioned storage space. When using premium storage, all file operations are free.
+- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
 
 ## Next steps
 
@@ -145,7 +134,6 @@ Learn more about the component technologies:
 
 - [How to create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) for instructions on getting started with an SMB share.
 - [How to create an NFS share](/azure/storage/files/storage-files-how-to-create-nfs-shares) for instructions on getting started with an NFS mount share.
-- [Enable and create large file shares](/azure/storage/files/storage-files-how-to-create-large-file-share) documentation on creating large file shares upto 100 TiB.
 
 ## Related resources
 
@@ -154,11 +142,11 @@ Explore related architectures:
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
 - [Back up files and applications on Azure Stack Hub](./azure-stack-backup.yml)
-- [Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)
-- [Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml)
-- [Windows Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
+- [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)
+- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml)
+- [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 
-[architectural-diagram]: ./images/azure-file-share.png
+[architectural-diagram]: ./images/azure-file-share.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx
 [Create-file-share]: /azure/storage/files/storage-how-to-create-file-share
 [Premium-azure-file-share]: /azure/storage/files/storage-how-to-create-premium-fileshare

@@ -2,7 +2,9 @@ This article provides an overview of the measure and control process loop archit
 
 ## Architecture
 
-![Diagram that shows the measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)
+[ ![Architecture diagram that shows the measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)](./media/measure-and-control.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/measure-and-control.vsdx) of this architecture.*
 
 A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-optimize-loop.yml) and [monitor and manage loops](monitor-manage-loop.yml) that operate in a much larger context.
 

@@ -44,11 +44,22 @@ This pattern might not be suitable:
 - When the cached data set is static. If the data will fit into the available cache space, prime the cache with the data on startup and apply a policy that prevents the data from expiring.
 - For caching session state information in a web application hosted in a web farm. In this environment, you should avoid introducing dependencies based on client-server affinity.
 
+## Workload design
+
+An architect should evaluate how the Cache-Aside pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | Caching creates data replication and, in limited ways, can be used to preserve the availability of frequently accessed data if the origin data store is temporarily unavailable. Additionally, if there's a malfunction in the cache, the workload can fall back to the origin data store.<br/><br/> - [RE:05 Redundancy](/azure/well-architected/reliability/redundancy) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Better performance in your workload can be obtained when using a cache for read-heavy data that doesn't change often and your workload is designed to tolerate a certain amount of staleness.<br/><br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance)<br/> - [PE:12 Continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 In Microsoft Azure you can use Azure Cache for Redis to create a distributed cache that can be shared by multiple instances of an application.
 
-This following code examples use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client, which is a Redis client library written for .NET. To connect to an Azure Cache for Redis instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
+This following code example uses the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client, which is a Redis client library written for .NET. To connect to an Azure Cache for Redis instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
 ```csharp
 private static ConnectionMultiplexer Connection;
@@ -127,6 +138,8 @@ public async Task UpdateEntityAsync(MyEntity entity)
 ## Related resources
 
 The following information might be relevant when implementing this pattern:
+
+- [Reliable web app pattern](../web-apps/guides/reliable-web-app/overview.md) shows you how to apply the cache-aside pattern to web applications converging on the cloud.
 
 - [Caching Guidance](../best-practices/caching.yml). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 

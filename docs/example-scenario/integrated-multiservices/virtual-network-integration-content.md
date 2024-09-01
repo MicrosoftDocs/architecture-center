@@ -6,7 +6,7 @@ This article and the [associated code project](https://github.com/mspnp/vnet-int
 
 The following diagram shows the patient record creation request flow:
 
-:::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="virtual-network-microservices.png" lightbox="virtual-network-microservices.png":::
+:::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="virtual-network-microservices.svg" lightbox="virtual-network-microservices.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-network-microservices.vsdx) of this architecture.*
 
@@ -43,12 +43,12 @@ The solution uses the following components:
 
 ### Alternatives
 
-- The current solution requires a subscription key to access the APIM endpoint, but you can also use [Azure Active Directory (Azure AD) authentication](/azure/active-directory/authentication/overview-authentication).
-- In addition to requiring API access keys, you can use Azure Functions' built-in [App Service authentication](/azure/app-service/configure-authentication-provider-aad) to enable Azure AD authorization for the APIs' managed identities.
+- The current solution requires a subscription key to access the APIM endpoint, but you can also use [Microsoft Entra authentication](/azure/active-directory/authentication/overview-authentication).
+- In addition to requiring API access keys, you can use Azure Functions' built-in [App Service authentication](/azure/app-service/configure-authentication-provider-aad) to enable Microsoft Entra authorization for the APIs' managed identities.
 - You can replace the Azure Cosmos DB endpoint in this solution with another MongoDB service without changing the code.
 - For additional [Azure Cosmos DB security](/azure/cosmos-db/database-security), you can lock down traffic from the Azure Cosmos DB databases to the function apps.
 - Components such as Azure Cosmos DB can send telemetry to [Azure Monitor](/azure/azure-monitor/overview), where it can be correlated with the telemetry from Application Insights.
-- Instead of Terraform, you can use the Azure portal or Azure CLI for [Key Vault key rotation](/samples/azure-samples/serverless-keyvault-secret-rotation-handling/handling-keyvault-secret-rotation-changes-utilized-by-an-azure-function) tasks.
+- Instead of Terraform, you can use the Azure portal or Azure CLI for [Key Vault key rotation](/azure/key-vault/keys/how-to-configure-key-rotation) tasks.
 - Instead of Terraform, you can use a system like [Azure DevOps](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to automate solution deployment.
 - For higher availability, this solution can be deployed to multiple regions. [Set Azure Cosmos DB to multi-master](/azure/cosmos-db/how-to-multi-master), use APIM's built-in [multi-region support](/azure/api-management/api-management-howto-deploy-multi-region), and deploy the Azure Function apps to [paired regions](/azure/best-practices-availability-paired-regions).
 
@@ -73,7 +73,7 @@ Each function app stores its data in an independent [Azure Cosmos DB](https://az
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Consider the following aspects when implementing this solution.
 
@@ -89,12 +89,14 @@ Due to the sensitivity of the data, security is paramount in this solution. The 
 - Key Vault key rotation
 - Managed service identities
 
+You can protect your Azure API Management instance against distributed denial of service (DDoS) attacks using [Azure DDoS protection](/azure/api-management/protect-with-ddos-protection). Azure DDoS Protection provides enhanced DDoS mitigation features to defend against volumetric and protocol DDoS attacks.
+
 For more details about the security pattern for this solution, see [Security pattern for communication between API Management, Functions apps, and Azure Cosmos DB](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/security_pattern.md).
 
 #### API gateway management
 The system is publicly accessible only through the single managed APIM endpoint. The APIM subnet restricts incoming traffic to specified gateway node IP addresses.
 
-APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Azure Active Directory to secure the APIM endpoint without needing to manage subscription keys in APIM.
+APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Microsoft Entra ID to secure the APIM endpoint without needing to manage subscription keys in APIM.
 
 #### Virtual network
 To avoid exposing APIs and functions publicly, [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) restricts network access for APIs and functions to specific IP addresses or subnets. Both API Management and Azure Functions support access restriction and deployment in virtual networks.
@@ -203,14 +205,13 @@ Principal author:
 The following architectures cover key API Management scenarios:
 
 - [Migrate a web app using Azure API Management](/azure/architecture/example-scenario/apps/apim-api-scenario)
-- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis)
 - [Azure API Management landing zone accelerator](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function)
 
 The following articles cover key functions scenarios:
 
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
-- [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
 - [Performance and scale for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
-- [Code walkthrough: Serverless application with Functions](/azure/architecture/serverless/code)
+- [Code walkthrough: Serverless application with Functions](/azure/architecture/web-apps/serverless/architectures/code)
 - [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)

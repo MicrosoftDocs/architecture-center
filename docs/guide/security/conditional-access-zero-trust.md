@@ -1,14 +1,14 @@
 ---
 title: Conditional Access for Zero Trust
-description: An introduction to a design and framework for implementing Zero Trust principles by using Azure AD Conditional Access. 
+description: An introduction to a design and framework for implementing Zero Trust principles by using Microsoft Entra Conditional Access. 
 author: clajes
 ms.author: clajes
-ms.date: 10/10/2022
+ms.date: 05/24/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure-active-directory
+  - entra-id
 categories:
   - security
   - identity
@@ -29,13 +29,13 @@ This guidance is intended for individuals who:
 - Design security and identity solutions to control access to Azure protected resources. 
 - Maintain solutions after they're delivered.
 
-The intended audience has a basic working knowledge of Azure Active Directory (Azure AD) and a general understanding of multi-factor authentication, Conditional Access, identity, and security concepts.
+The intended audience has a basic working knowledge of Microsoft Entra ID and a general understanding of multi-factor authentication, Conditional Access, identity, and security concepts.
 
 Knowledge in the following areas is also recommended:
 - Microsoft Endpoint Manager
-- Azure AD identity management
-- Azure AD Conditional Access and multi-factor authentication for guest users (B2B)
-- Azure AD security policies and resource protection
+- Microsoft Entra identity management
+- Microsoft Entra Conditional Access and multi-factor authentication for guest users (B2B)
+- Microsoft Entra security policies and resource protection
 - The B2B invitation process
 
 ## Requirements
@@ -75,4 +75,4 @@ Principal author:
 - [Conditional Access design principles and dependencies](./conditional-access-design.yml)
 - [Conditional Access architecture and personas](./conditional-access-architecture.yml)
 - [Conditional Access framework and policies](./conditional-access-framework.md)
-- [Azure Active Directory IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
+- [Microsoft Entra IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)

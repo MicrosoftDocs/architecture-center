@@ -17,17 +17,16 @@ categories:
   - integration
   - compute
   - hybrid
-ms.category:
-  - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 
 # Architectural approaches for messaging in multitenant solutions
 
 Asynchronous messaging and event-driven communication are critical assets when building a distributed application that's composed of several internal and external services. When you design a multitenant solution, it's crucial to conduct a preliminary analysis to define how to share or partition messages that pertain to different tenants.
 
-Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and allows to charge back Azure costs to tenants easily.
+Sharing the same messaging system or event-streaming service can significantly reduce the operational cost and management complexity. However, using a dedicated messaging system for each tenant provides better data isolation, reduces the risk of data leakage, eliminates the [Noisy Neighbor issue](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and allows to charge your Azure costs back to your tenants easily.
 
 In this article, you can find a distinction between messages and events, and you'll find guidelines that solution architects can follow when deciding which approach to use for a messaging or eventing infrastructure in a multitenant solution.
 
@@ -83,7 +82,7 @@ The number of tenants, the complexity of message flows and event streams, the vo
 The first step consists in conducting exhaustive capacity planning and establishing the necessary maximum capacity for a messaging system in terms of throughput to properly handle the expected volume of messages under regular or peak traffic.
 
 Some service offerings, such as the [Azure Service Bus Premium tier](/azure/service-bus-messaging/service-bus-premium-messaging), provide resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8, or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units, and you can change the number of messaging units as necessary. The result is a predictable and repeatable performance for your Service Bus-based solution. For more information, see [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
-Likewise, Azure Event Hubs pricing tiers allow you to size the namespace, based on the expected volume of inbound and outbound events. For example, the Premium offering is billed by [processing units](/azure/event-hubs/event-hubs-scalability#processing-units) (PUs), which correspond to a share of isolated resources (CPU, memory, and storage) in the underlying infrastructure. The effective ingest and stream throughput per PU will depend on the following factors:
+Likewise, Azure Event Hubs pricing tiers allow you to size the namespace, based on the expected volume of inbound and outbound events. For example, the Premium offering is billed by [processing units (PUs)](/azure/event-hubs/event-hubs-scalability#processing-units), which correspond to a share of isolated resources (CPU, memory, and storage) in the underlying infrastructure. The effective ingest and stream throughput per PU will depend on the following factors:
 
 - Number of producers and consumers
 - Payload size
@@ -150,7 +149,7 @@ Plan from the beginning how you intend to operate, monitor, and maintain your me
 - Suppose you share a messaging system across multiple tenants. How can your solution collect and report the per-tenant usage metrics or throttle the number of messages that each tenant can send or receive?
 - When your messaging system leverages a PaaS service, such as Azure Service Bus, you should ask the following question:
   - How can you customize the pricing tier for each tenant, based on the features and isolation level (shared or dedicated) that are requested by the tenant? 
-  - How can you create a per-tenant manage identity and Azure role assignment to assign the proper permissions only to the messaging entities, such as queues, topics, and subscriptions, that the tenant can access? For more information,  see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
+  - How can you create a per-tenant manage identity and Azure role assignment to assign the proper permissions only to the messaging entities, such as queues, topics, and subscriptions, that the tenant can access? For more information,  see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
 - How will you migrate tenants, if they need to move to a different type of messaging service, a different deployment, or another region?
 
 ### Cost
@@ -224,13 +223,13 @@ The [Geode pattern](../../../patterns/geodes.yml) involves deploying a collectio
 
 Principal author:
 
- * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * [Clemens Vasters](http://linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+ * [Clemens Vasters](https://linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

@@ -2,7 +2,9 @@ When using Azure as a modern data platform, you have your choice of platform as 
 
 ## Architecture
 
-![Infographic showing the Azure set-up for the IBM MQ](media/integrate-ibm-message-queues-azure-01.png)
+:::image type="content" source="media/integrate-ibm-message-queues-azure-01.svg" alt-text="Diagram that shows an architecture for the Azure set-up for the IBM MQ workload." lightbox="media/integrate-ibm-message-queues-azure-01.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -31,7 +33,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 [Logic Apps MQ connector](/azure/connectors/connectors-create-api-mq) connects your Logic Apps workflows to an IBM MQ server on-premises or on Azure. Workflows receive and send messages stored in your MQ server. A Microsoft MQ client is also included for communicating with a remote MQ server across a TCP/IP network. You can use the client to connect to IBM WebSphere MQ 7.5, MQ
 8.0, and MQ 9.0, 9.1, and 9.2.
 
-[Host Integration Server](/host-integration-server/core/data-for-host-files) (HIS) can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. A client and server adapter exchange messages between IBM MQ and BizTalk Server. HIS also serves as an MQ listener and can poll the MQ server for messages at intervals you specify.
+[Host Integration Server (HIS)](/host-integration-server/core/data-for-host-files) can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. A client and server adapter exchange messages between IBM MQ and BizTalk Server. HIS also serves as an MQ listener and can poll the MQ server for messages at intervals you specify.
 
 [.NET](/dotnet/core/introduction) is a free, open-source development platform used in this example to create an app to pull the data through HIS to the data storage layer. It can also be used to access IBM WebSphere MQ Servers directly through the Microsoft Client for MQ.
 
@@ -56,7 +58,7 @@ This example architecture shows both approaches:
 -   **Cloud-native PaaS**. [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) exchanges messages with [IBM MQ](https://www.ibm.com/cloud/learn/message-queues) through the [MQ connector](/azure/connectors/connectors-create-api-mq#:~:text=The%20logic%20app%20where%20you%20want%20to%20add,For%20example,%20you%20can%20use%20the%20Recurrence%20trigger.). Additional
     [connectors](/connectors/connector-reference/) provide quick access to events, data, and actions across other apps, services, systems, protocols, and platforms. Logic Apps also includes tools for transforming data from the queue if you need to modify the data format, structure, or values before storing it on Azure or sending it to the application layer.
 
--   **VM-based IaaS**. Running [Microsoft Host Integration Server](/host-integration-server/what-is-his) (HIS) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server's polling interval.
+-   **VM-based IaaS**. Running [Microsoft Host Integration Server (HIS)](/host-integration-server/what-is-his) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server's polling interval.
 
 ### Potential use cases
 
@@ -87,7 +89,9 @@ Make sure to test the throughput and performance of your data transformation lay
 In this example architecture, Logic Apps connectors can be used to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/) as the following figure shows. The connector makes it easy to store massive amounts of unstructured data in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes accessible from anywhere in the world via HTTP or HTTPS. Blob storage also supports [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. Data is loaded into storage using an Azure service such as the
 [AzCopy](/azure/storage/common/storage-ref-azcopy) tool, [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
 
-![Infographic showing the relationship of IBM MQ and Azure Logic Apps](media/integrate-ibm-message-queues-azure-02.png)
+:::image type="content" source="media/integrate-ibm-message-queues-azure-02.svg" alt-text="Diagram that shows an architecture for the relationship of IBM MQ and Azure Logic Apps workload." lightbox="media/integrate-ibm-message-queues-azure-02.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
 Both the PaaS and IaaS architecture options support many popular managed database services. You can load data using a custom-built loader, a vendor solution, or a managed service such as [Azure Data Factory](/azure/data-factory/introduction). Database options include:
 
@@ -130,7 +134,5 @@ Principal author:
 -   Read the [Azure Database Migration Guides](https://datamigration.microsoft.com/).
 
 ## Related resources
-
--   [Azure data architecture guide](../../data-guide/index.md)
 
 -   [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)

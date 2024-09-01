@@ -3,8 +3,8 @@ metadata:
   title: Custom business processes
   titleSuffix: Azure Solution Ideas
   description: This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience.
-  author: Zimmergren
-  ms.author: architectures
+  author: karlrissland
+  ms.author: karlriss
   ms.date: 09/09/2022
   ms.topic: solution-idea
   ms.service: architecture-center
@@ -13,6 +13,8 @@ metadata:
     - mobile
     - apim
     - functions
+  ms.custom:
+  - arb-integrations
 name: Custom business processes
 azureCategories:
   - mobile

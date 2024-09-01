@@ -4,20 +4,18 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure App Configuration that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/05/2022
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
- - azure-resource-manager
+  - azure
+  - azure-resource-manager
 categories:
- - data
-ms.category:
-  - fcp
+  - data
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure App Configuration
@@ -98,11 +96,11 @@ If you load each tenant's configuration settings separately, your application ne
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Zhenlan Wang](https://www.linkedin.com/in/zhenlanwang) | Principal Software Engineering Manager, Azure App Configuration
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

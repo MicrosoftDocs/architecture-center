@@ -4,7 +4,7 @@ For decades, Software AG Adabas has been the adaptable database system behind ma
 
 This architecture shows a legacy Adabas & Natural architecture, before a rehost to the cloud:
 
-:::image type="content" border="false" source="media/mainframe-software-ag-rehost-before.png" alt-text="Diagram that shows the legacy mainframe architecture, before migration." lightbox="media/mainframe-software-ag-rehost-before.png ":::
+:::image type="content" border="false" source="media/mainframe-software-ag-rehost-before.svg" alt-text="Diagram that shows the legacy mainframe architecture, before migration." lightbox="media/mainframe-software-ag-rehost-before.svg ":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-rehost-before.vsdx) of this architecture.*
 
@@ -30,7 +30,7 @@ H. Partitions are used to run separate workloads or segregate work types within 
 
 This diagram shows the legacy architecture migrated to Azure. A rehost approach is used to migrate the system:
 
-:::image type="content" border="false" source="media/mainframe-software-ag-azure-rehost-after.png" alt-text="Diagram that shows the mainframe architecture rehosted on Azure." lightbox="media/mainframe-software-ag-azure-rehost-after.png "::: 
+:::image type="content" border="false" source="media/mainframe-software-ag-azure-rehost-after.svg" alt-text="Diagram that shows the mainframe architecture rehosted on Azure." lightbox="media/mainframe-software-ag-azure-rehost-after.svg "::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-rehost-after.vsdx) of this architecture.*
 
@@ -71,13 +71,13 @@ To gain the full benefits of cloud computing, consider a *[refactor](refactor-ad
 
 ## Considerations 
 
-The following considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of your workloads. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+The following considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of your workloads. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Cost optimization  
 
 Azure helps you avoid unnecessary costs by identifying the correct number of resources, analyzing spending over time, and scaling to meet business needs without overspending. 
 
-Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/architecture/framework). 
+Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](/azure/well-architected/). 
 
 The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
 

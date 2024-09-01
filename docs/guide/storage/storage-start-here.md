@@ -3,7 +3,7 @@ title: Storage architecture
 titleSuffix: Azure Architecture Center
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
 author: martinekuan
-ms.author: architectures 
+ms.author: pnp 
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -60,7 +60,7 @@ Depending on the storage technology you use, see the following best practices re
 
 ## Blob Storage
 See the following guides for information about Blob Storage:
-- [Authorize access to blobs using Azure Active Directory](/azure/storage/blobs/authorize-access-azure-active-directory)
+- [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)
 - [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations)
 
 ## Azure Data Lake Storage
@@ -79,12 +79,12 @@ See the following guides for information about Azure Files:
 
 ## Queue Storage
 See the following guides for information about Queue Storage: 
-- [Authorize access to queues using Azure Active Directory](/azure/storage/queues/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Authorize access to queues using Microsoft Entra ID](/azure/storage/queues/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Table Storage
 See the following guides for information about Table Storage:
-- [Authorize access to tables using Azure Active Directory (preview)](/azure/storage/tables/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Authorize access to tables using Microsoft Entra ID (preview)](/azure/storage/tables/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Design scalable and performant tables](/azure/storage/tables/table-storage-design?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Design for querying](/azure/storage/tables/table-storage-design-for-query?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
@@ -108,7 +108,6 @@ Here are a few sample implementations of storage on Azure:
 - [Azure files accessed on-premises and secured by AD DS](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication)
 - [Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
-- [Optimized storage with logical data classification](/azure/architecture/solution-ideas/articles/optimized-storage-logical-data-classification)
 - [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)
 - [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering)
 

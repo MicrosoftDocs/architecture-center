@@ -5,12 +5,11 @@ metadata:
   description: Learn about using rules to allow for fine-grained routing of events in an IoT solution.
   author: falloutxAY
   ms.author: ansyeo
-  ms.date: 10/10/2022
+  ms.date: 07/09/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
+  ms.custom: arb-iot
 name: IoT event routing
 azureCategories:
   - iot

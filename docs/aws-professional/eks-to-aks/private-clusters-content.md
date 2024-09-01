@@ -1,7 +1,6 @@
 This article compares networking modes for Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to improve connection security to the managed API server of an AKS cluster, and the different options to restrict public network access.
 
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS networking modes
 
@@ -52,9 +51,9 @@ For a private AKS cluster, you disable the public FQDN of the API server. To com
 The AKS resource provider exposes the following parameters to customize private AKS cluster deployment:
 
 - `authorizedIpRanges` (string) specifies allowed IP ranges in CIDR format.
-- `disableRunCommand` (boolean) specifies whether or not to disable the `run` command for the cluster.
-- `enablePrivateCluster` (boolean) specifies whether or not to create the cluster as private.
-- `enablePrivateClusterPublicFQDN` (boolean) specifies whether or not to create another, public FQDN for the private cluster.
+- `disableRunCommand` (Boolean) specifies whether or not to disable the `run` command for the cluster.
+- `enablePrivateCluster` (Boolean) specifies whether or not to create the cluster as private.
+- `enablePrivateClusterPublicFQDN` (Boolean) specifies whether or not to create another, public FQDN for the private cluster.
 - `privateDnsZone` (string) specifies a private DNS zone in the node resource group. If you don't specify a value, the resource provider creates the zone. You can specify the following values:
   - `System` is the default value.
   - `None` defaults to public DNS, so AKS doesn't create a private DNS zone.
@@ -62,11 +61,11 @@ The AKS resource provider exposes the following parameters to customize private 
 
 The following table shows the DNS configuration options for deploying a private AKS cluster:
 
-|**Private DNS zone options**|enablePrivateClusterPublicFQDN: true|enablePrivateClusterPublicFQDN: false|
+|**Private DNS zone options**|`enablePrivateClusterPublicFQDN: true`|`enablePrivateClusterPublicFQDN: false`|
 |---|---|---|
 |**System**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VM uses the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
 |**None**|All the VMs, including agent nodes, use the public FQDN of the API server available via an `A` record in an Azure-managed public DNS zone.|Wrong configuration. The private AKS cluster needs at least a public or a private DNS zone for the name resolution of the API server.|
-|**\<Your own private DNS zone resource ID>**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VMs use the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
+|**Your own private DNS zone resource ID**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VMs use the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
 
 #### Private cluster connectivity and management
 
@@ -84,7 +83,7 @@ There are several options for establishing network connectivity to the private c
 
 You can manage a private AKS cluster by using the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command-line tool from a management VM in the same virtual network or a peered virtual network.
 
-You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jumpbox management VM. Azure Bastion is a fully managed platform as a service (PaaS) that lets you connect to a VM by using your browser and the Azure portal. Azure Bastion provides secure and seamless remote desktop protocol (RDP) or secure shell (SSH) VM connectivity over transport layer security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
+You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jumpbox management VM. Azure Bastion is a fully managed platform as a service (PaaS) that lets you connect to a VM by using your browser and the Azure portal. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) or Secure Shell (SSH) VM connectivity over Transport Layer Security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
 
 You can also use [az aks command invoke](/cli/azure/aks/command?view=azure-cli-latest#az-aks-command-invoke) to run `kubectl` or `helm` commands on your private AKS cluster without having to connect to a jumpbox VM.
 
@@ -122,13 +121,16 @@ The following `az aks update` Azure CLI command authorizes IP ranges:
 Principal authors:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 
 Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -138,6 +140,7 @@ Other contributors:
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 

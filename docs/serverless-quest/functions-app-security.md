@@ -3,6 +3,7 @@ title: Azure Functions security
 titleSuffix: Azure Example Scenarios
 description: Learn about and implement Azure Functions security essentials, secure hosting setup, and application security guidance.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -23,9 +24,9 @@ This article describes Azure services and activities security personnel can impl
 
 The primary goals of a secure serverless Azure Functions application environment are to protect running applications, quickly identify and address security issues, and prevent future similar issues.
 
-The [OWASP Serverless Top 10](https://owasp.org/www-project-serverless-top-10/) describes the most common serverless application security vulnerabilities, and provides basic techniques to identify and protect against them.
+The [OWASP Serverless Top 10](https://owasp.org/www-project-serverless-top-10/) describes the most common serverless application security vulnerabilities and provides basic techniques to identify and protect against them. Serverless applications are vulnerable to variations of traditional attacks, insecure code, and serverless-designated attacks like Denial of Wallet.
 
-In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud hosted application. Azure App Service provides the hosting infrastructure for your function apps. [Securing Azure Functions](/azure/azure-functions/security-concepts) article provides security strategies for running your function code, and how App Service can help you secure your functions.
+In many ways, planning for secure development, deployment, and operation of serverless functions starts much the same as for any web-based or cloud hosted application. Azure App Service provides the hosting infrastructure for your function apps. [Securing Azure Functions](/azure/azure-functions/security-concepts) article provides security strategies for running your function code, and how App Service can help you secure your functions.
 
 For more information about Azure security, best practices, and shared responsibilities, see:
 
@@ -33,7 +34,7 @@ For more information about Azure security, best practices, and shared responsibi
 - [Built-in security controls](/azure/app-service/app-service-security-controls)
 - [Secure development best practices on Azure](/azure/security/develop/secure-dev-overview).
 - [Security best practices for Azure solutions (PDF report)](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
-- [Shared responsibilities for cloud computing (PDF report)](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)
+- [Shared responsibilities for cloud computing](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/)
 
 ## Deployment
 

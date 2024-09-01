@@ -4,7 +4,9 @@ Azure Automation State Configuration is an Azure configuration management servic
 
 This example scenario demonstrates how to use Azure Automation State Configuration to install a web server on Windows and Linux Azure virtual machines (VMs). You can then use Azure Monitor to raise an alert when a system is non-compliant.
 
-![Diagram that shows the Azure Automation State Configuration architecture.](media/azure-state-config.png)
+![Diagram that shows the Azure Automation State Configuration architecture.](media/azure-state-config.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-automation-state-configuration.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -86,7 +88,7 @@ For more information about monitoring Azure Automation State Configuration, see 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Cost optimization
 
@@ -174,7 +176,6 @@ For detailed information and additional deployment options, see the ARM template
 - [Azure Monitor documentation](/azure/azure-monitor)
 - [PowerShell documentation](/powershell)
 
-## Related resources
+## Related resource
 
 - [Browse additional solutions](/azure/architecture/browse)
-- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)

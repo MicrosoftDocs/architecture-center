@@ -1,7 +1,0 @@
-Jinja2==2.11.2
-Markdown==3.2.2
-Pillow==7.1.2
-python_dateutil==2.8.1
-python_frontmatter==0.5.0
-PyYAML==5.3.1
-readtime==1.1.1

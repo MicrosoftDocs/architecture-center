@@ -1,8 +1,8 @@
-<!-- cSpell:ignore Unisys ClearPath postmigration HDDs Asysco Tmax tmaxsoft openframe replatforming replatformed -->
+<!-- cSpell:ignore Unisys ClearPath postmigration HDDs Tmax tmaxsoft openframe replatforming replatformed -->
 
 The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (legacy Sperry 1100/2200) and Libra (legacy Burroughs A Series/Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
 
-This article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe. This approach allows an accelerated move into Azure. It eliminates the need to rewrite the application code or redesign the database architecture. Legacy code is maintained in its original form. The application screens, user interactions, and data structures behind the scenes are unchanged, which eliminates the need to retrain your users.
+This article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe. This approach allows an accelerated move into Azure. It eliminates the need to rewrite the application code or redesign the database architecture. Legacy code is maintained in its original form—eliminating the need to recompile application code. The application screens, user interactions, and data structures behind the scenes are unchanged, which eliminates the need to retrain your users.
 
 Unisys replatforming lifts the entire Libra system from today's proprietary hardware to Azure as a virtual machine (VM). The Master Control Program (MCP) OS and all processors, libraries, and data appear just as they did on the proprietary environment. The OS requires a license from Unisys. The architecture includes support VMs, which handle functions such as virtual tapes operations, automation and workload management (OpCon), web services, and other support functions.
 
@@ -58,7 +58,7 @@ Unisys CPF in Azure uses Site Recovery to ensure system availability and consist
 
 ### Operations
 
-Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new capabilities like Site Recovery to provide disaster recovery failover.
+Unisys demonstrates operational excellence by presenting a known environment to the staff, while including new capabilities like Azure Site Recovery to provide disaster recovery failover.
 
 You can optimize your operational efficiency by deploying your solution with Azure Resource Manager templates, and by using Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
 
@@ -88,7 +88,7 @@ To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPat
 
 Principal author:
 
- - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Senior TPM
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior TPM
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -110,9 +110,11 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 ## Related resources
 
+- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
-- [Unisys mainframe migration to Azure using Asysco](../../reference-architectures/migration/unisys-mainframe-migration.yml)
+- [Unisys mainframe migration to Azure using Avanade AMT](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
+- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)

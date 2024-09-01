@@ -1,15 +1,16 @@
 ---
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
-description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
-author: martinekuan
-ms.author: yuanzhiqu
+description: Compare Microsoft Azure services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
+author: RobBagby
+ms.author: pnp
 ms.date: 11/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
+  - devx-track-jenkins
 ms.category:
   - analytics
   - ai-machine-learning
@@ -38,7 +39,7 @@ products:
 
 # AWS to Azure services comparison
 
-This article helps you understand how Microsoft Azure services compare to Amazon Web Services (AWS). Whether you are planning a multicloud solution with Azure and AWS, or migrating to Azure, you can compare the IT capabilities of Azure and AWS services in all categories.
+This article helps you understand how Microsoft Azure services compare to Amazon Web Services (AWS). Whether you are planning a multicloud solution with Azure and AWS or migrating to Azure, you can compare the IT capabilities of Azure and AWS services in all categories.
 
 This article compares services that are roughly comparable. Not every AWS service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
 
@@ -63,18 +64,15 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Lex](https://aws.amazon.com/lex) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
 | [Lex](https://aws.amazon.com/lex) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | Allows your applications to understand user commands contextually. |
 | [Polly](https://aws.amazon.com/polly), [Transcribe](https://aws.amazon.com/transcribe) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech) | Enables both Speech to Text, and Text into Speech capabilities. |
-| [Rekognition](https://aws.amazon.com/rekognition) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face): Detect, identify, and analyze faces and facial expressions in photos. |
+| [Rekognition](https://aws.amazon.com/rekognition) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) | [Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](/azure/ai-services/computer-vision/concept-face-detection): Detect, identify, and analyze faces and facial expressions in photos. |
 | [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0&preserve-view=true) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
 ### AI and machine learning architectures
 
-<ul class="grid">
-
-[!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
-[!INCLUDE [Predictive Marketing with Machine Learning](../../includes/cards/predictive-marketing-campaigns-with-machine-learning-and-spark.md)]
-[!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization-with-content-based-recommendation-system.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing) | Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions. |
+| [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search) | This architecture describes how to use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. |
 
 [view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
@@ -89,12 +87,9 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### Data warehouse architectures
 
-<ul class="grid">
-
-[!INCLUDE [Modern Data Warehouse Architecture](../../includes/cards/modern-data-warehouse.md)]
-[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -104,14 +99,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
-### Time series architectures
+### Time series architecture
 
-<ul class="grid">
-
-[!INCLUDE [IoT analytics with Azure Data Explorer](../../includes/cards/iot-azure-data-explorer.md)]
-[!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide variety of streaming data from IoT devices. |
 
 ### Big data processing
 
@@ -124,13 +116,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### Big data architectures
 
-<ul class="grid">
-
-[!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
-[!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
-[!INCLUDE [Big data analytics with Azure Data Explorer](../../includes/cards/big-data-azure-data-explorer.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
+| [Personalized offers](/azure/architecture/ai-ml/idea/personalized-offers) | This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.  |
+| [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer) | Big data analytics with Azure Data Explorer demonstrates how Azure Data Explorer caters to volume, velocity, and variety of data, the three V's of big data. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -139,8 +129,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
-| [Glue](https://aws.amazon.com/glue) | [Azure Purview](https://azure.microsoft.com/services/purview) | A unified data governance service that helps you manage and govern your on-premises, multicloud, and software as a service (SaaS) data. |
-| [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
+| [Glue](https://aws.amazon.com/glue) | [Microsoft Purview](https://azure.microsoft.com/services/purview) | A unified data governance service that helps you manage and govern your on-premises, multicloud, and software as a service (SaaS) data. |
 
 ### Analytics and visualization
 
@@ -150,17 +139,14 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [QuickSight](https://aws.amazon.com/quicksight) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data.
 | [CloudSearch](https://aws.amazon.com/cloudsearch) | [Cognitive Search](https://azure.microsoft.com/services/search/) | Delivers full-text search and related search analytics and capabilities. |
 | [Athena](https://aws.amazon.com/athena) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics) <br/><br/> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)| Provides a serverless interactive query service that uses standard SQL for analyzing databases. <br/><br/> Azure Synapse Analytics is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources at scale.|
-| [Elasticsearch Service](https://aws.amazon.com/elasticsearch-service/the-elk-stack) | [Elastic on Azure](https://azure.microsoft.com/overview/linux-on-azure/elastic) |  Use the Elastic Stack (Elastic, Logstash, and Kibana) to search, analyze, and visualize in real time. |
+| [Elasticsearch Service](https://aws.amazon.com/elasticsearch-service/the-elk-stack) | [Elastic on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp) |  Use the Elastic Stack (Elastic, Logstash, and Kibana) to search, analyze, and visualize in real time. |
 
 ### Analytics architectures
 
-<ul class="grid">
-
-[!INCLUDE [Advanced Analytics Architecture](../../includes/cards/advanced-analytics-on-big-data.md)]
-[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
-[!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/news-feed-ingestion-and-near-real-time-analysis.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
+| [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
@@ -179,26 +165,23 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [CloudWatch](https://aws.amazon.com/cloudwatch), [X-Ray](https://aws.amazon.com/xray/) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
 | [CodeDeploy](https://aws.amazon.com/codedeploy) <br/><br/>[CodeCommit](https://aws.amazon.com/codecommit/) <br/><br/>[CodePipeline](https://aws.amazon.com/codepipeline) | [DevOps](https://azure.microsoft.com/services/devops/) | A cloud service for collaborating on code development. |
 | [Developer Tools](https://aws.amazon.com/products/developer-tools) | [Developer Tools](https://azure.microsoft.com/services/devops/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
-| [CodeBuild](https://aws.amazon.com/codebuild) | [DevOps Pipeline](https://azure.microsoft.com/services/devops/pipelines) <br/><br/> [Github Actions](https://github.com/features/actions) | Fully managed build service that supports continuous integration and deployment. |
-| [Command Line Interface](https://aws.amazon.com/cli) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
-| [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [az aks](/cli/azure/aks) | Manage Azure Kubernetes Service using these Azure CLI commands. |
+| [CodeBuild](https://aws.amazon.com/codebuild) | [DevOps Pipeline](https://azure.microsoft.com/services/devops/pipelines) <br/><br/> [GitHub Actions](https://github.com/features/actions) | Fully managed build service that supports continuous integration and continuous deployment (CI/CD). |
+| [Command-line interface](https://aws.amazon.com/cli) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
+| [`eksctl`](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [`az aks`](/cli/azure/aks) | Manage Azure Kubernetes Service (AKS) using these Azure CLI commands. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks) | [Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
+| [Cloud Development Kit](https://aws.amazon.com/cdk) | [Azure Developer CLI](/azure/developer/azure-developer-cli/) <br/><br/>[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) | Developer-friendly imperative commands that enable consistent and repeatable work and standardized infrastructure-as-code modules. |
 
 ### DevOps architectures
 
-<ul class="grid">
-
-[!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
-[!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
-[!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [CI/CD for AKS apps with GitHub Actions and GitFlow](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
 [view all](../browse/index.yml?azure_categories=devops)
 
-## Internet of things (IoT)
+## Internet of Things (IoT)
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
@@ -209,13 +192,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### IoT architectures
 
-<ul class="grid">
-
-[!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
-[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
-[!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot) | A recommended architecture for IoT applications on Azure by using platform as a service (PaaS) components. |
+| [Process real-time vehicle data by using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot) | This example builds a real-time data ingestion and processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure. |
 
 [view all](../browse/index.yml?azure_categories=iot)
 
@@ -226,7 +206,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [AWS Organizations](https://aws.amazon.com/organizations) | [Management Groups](/azure/governance/management-groups)| Azure management groups help you organize your resources and subscriptions.|
 | [AWS Well-Architected Tool](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html)| [Azure Well-Architected Review](/assessments/?mode=pre-assessment)| Examine your workload through the lenses of reliability, cost management, operational excellence, security, and performance efficiency. |
 | [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor) | [Advisor](https://azure.microsoft.com/services/advisor) | Provides analysis of cloud resource configuration and security, so that subscribers can ensure they're making use of best practices and optimum configurations. |
-| [AWS Billing and Cost Management](https://docs.aws.amazon.com/account-billing/index.html) | [Azure Cost Management and Billing](/azure/cost-management-billing) | Azure Cost Management and Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending, and optimize resource use. |
+| [AWS Billing and Cost Management](https://docs.aws.amazon.com/account-billing/index.html) | [Microsoft Cost Management](/azure/cost-management-billing) | Microsoft Cost Management helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending, and optimize resource use. |
 | [Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) | [Usage Details API](/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api) | Services to help generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
 | [Management Console](https://aws.amazon.com/console) | [Portal](https://azure.microsoft.com/features/azure-portal) | A unified management console that simplifies building, deploying, and operating your cloud resources. |
 | [Application Discovery Service](https://aws.amazon.com/application-discovery) | [Migrate](https://azure.microsoft.com/services/azure-migrate) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
@@ -236,7 +216,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [CloudWatch](https://aws.amazon.com/cloudwatch) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | A feature of Azure Monitor, Application Insights is an extensible Application Performance Management (APM) service for developers and DevOps professionals, which provides telemetry insights and information, in order to better understand how applications are performing and to identify areas for optimization. |
 | [Config](https://aws.amazon.com/config) | [Application Change Analysis](/azure/azure-monitor/app/change-analysis) | Application Change Analysis detects various types of changes, from the infrastructure layer all the way to application deployment.|
 | [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer) | [Cost Management](https://azure.microsoft.com/services/cost-management) | Optimize costs while maximizing cloud potential. |
-| [Control Tower](https://aws.amazon.com/controltower) | [Blueprints](/azure/governance/blueprints) | Set up and govern a multi account/subscription environment by creating landing zones. |
+| [Control Tower](https://aws.amazon.com/controltower) | [Azure Lighthouse](/azure/lighthouse/overview) | Set up and govern a multi account/subscription environment. |
 | [Resource Groups and Tag Editor](https://docs.aws.amazon.com/ARG) | [Resource Groups](/azure/azure-resource-manager/management/overview) and [Tags](/azure/azure-resource-manager/management/tag-resources) | A Resource Group is a container that holds related resources for an Azure solution. Apply tags to your Azure resources to logically organize them by categories. |
 | [AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig) | [Azure App Configuration](/azure/azure-app-configuration) | Azure App Configuration is a managed service that helps developers centralize their application and feature settings simply and securely. |
 | [Service Catalog](https://aws.amazon.com/servicecatalog) | [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview) | Offers cloud solutions that are easy for consumers to deploy and operate.
@@ -245,34 +225,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 ## Messaging and eventing
 
 [!INCLUDE [Messaging Components](../../includes/aws/messaging.md)]
-
-## Mobile services
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Mobile Hub](https://aws.amazon.com/blogs/aws/aws-mobile-hub-build-test-and-monitor-mobile-applications) | [App Center](https://azure.microsoft.com/services/app-center) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
-| [Mobile SDK](https://www.redfoundry.com/what-is-a-mobile-sdk) | [App Center](https://azure.microsoft.com/services/app-center) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
-| [Cognito](https://aws.amazon.com/cognito) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Provides authentication capabilities for mobile applications. |
-| [Device Farm](https://aws.amazon.com/device-farm) | [App Center](https://azure.microsoft.com/services/app-center) | Provides services to support testing mobile applications. |
-| [Mobile Analytics](https://aws.amazon.com/mobileanalytics) | [App Center](https://azure.microsoft.com/services/app-center) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
-
-### Device Farm
-
-The AWS Device Farm provides cross-device testing services. In Azure, [Visual Studio App Center](https://appcenter.ms) provides similar cross-device front-end testing for mobile devices.
-
-In addition to front-end testing, the [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) provides back-end testing resources for Linux and Windows environments.
-
-### Mobile architectures
-
-<ul class="grid">
-
-[!INCLUDE [Scalable web and mobile applications using Azure Database for PostgreSQL](../../includes/cards/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md)]
-[!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
-[!INCLUDE [Task-Based Consumer Mobile App](../../includes/cards/task-based-consumer-mobile-app.md)]
-
-</ul>
-
-[view all](../browse/index.yml?azure_categories=mobile)
 
 ## Networking
 
@@ -284,13 +236,13 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
-| [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
+| [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
+| [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) | Azure role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
 | [Organizations](https://aws.amazon.com/organizations) | [Subscription Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
-| [Multi-Factor Authentication](https://aws.amazon.com/iam/features/mfa) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
-| [Directory Service](https://aws.amazon.com/directoryservice) | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds) | Provides managed domain services, such as domain join, group policy, LDAP, and Kerberos/NTLM authentication, which are fully compatible with Windows Server Active Directory. |
-| [Cognito](https://aws.amazon.com/cognito) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
-| [Organizations](https://aws.amazon.com/organizations) | [Policy](https://azure.microsoft.com/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. |
+| [Multi-Factor Authentication](https://aws.amazon.com/iam/features/mfa) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
+| [Directory Service](https://aws.amazon.com/directoryservice) | [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds) | Provides managed domain services, such as domain join, group policy, LDAP, and Kerberos/NTLM authentication, which are fully compatible with Windows Server Active Directory. |
+| [Cognito](https://aws.amazon.com/cognito) | [Microsoft Entra External ID](https://azure.microsoft.com/products/active-directory/external-identities/) | A highly available, global identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
+| [AWS Config](https://aws.amazon.com/config/) | [Policy](https://azure.microsoft.com/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources so those resources stay compliant with your corporate standards and service-level agreements. |
 | [Organizations](https://aws.amazon.com/organizations) | [Management Groups](/azure/governance/management-groups/) | Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale, no matter what type of subscriptions you have. |
 
 ### Encryption
@@ -298,14 +250,14 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Server-side encryption with Amazon S3 Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/services-s3.html) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) | Helps you protect and safeguard your data and meet your organizational security and compliance commitments. |
-| [Key Management Service (KMS)](https://aws.amazon.com/kms), [CloudHSM](https://aws.amazon.com/cloudhsm) | [Key Vault](https://azure.microsoft.com/services/key-vault) | Provides security solution and works with other services by providing a way to manage, create, and control encryption keys stored in hardware security modules (HSM). |
+| [Key Management Service (KMS)](https://aws.amazon.com/kms), [CloudHSM](https://aws.amazon.com/cloudhsm) | [Key Vault](https://azure.microsoft.com/services/key-vault) | Provides security solution and works with other services by providing a way to manage, create, and control encryption keys stored in hardware security modules (HSMs). |
 
 ### Firewall
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Web Application Firewall](https://aws.amazon.com/waf) | [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) | A firewall that protects web applications from common web exploits. |
-| [Web Application Firewall](https://aws.amazon.com/waf)| [Firewall](https://azure.microsoft.com/services/azure-firewall) | Provides inbound protection for non-HTTP/S protocols, outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S. |
+| [AWS Network Firewall](https://aws.amazon.com/network-firewall)| [Firewall](https://azure.microsoft.com/services/azure-firewall) | Provides inbound protection for non-HTTP/S protocols, outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S. |
 
 ### Security
 
@@ -313,19 +265,17 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | ----------- | ------------- | ----------- |
 | [Inspector](https://aws.amazon.com/inspector) | [Defender for Cloud](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | [Certificate Manager](https://aws.amazon.com/certificate-manager) | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
-| [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection) | Detect and investigate advanced attacks on-premises and in the cloud. |
+| [GuardDuty](https://aws.amazon.com/guardduty/) | [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
-| [Shield](https://aws.amazon.com/shield) | [DDos Protection Service](/azure/security/fundamentals/ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
+| [Shield](https://aws.amazon.com/shield) | [DDoS Protection Service](/azure/security/fundamentals/ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
 
 #### Security architectures
 
-<ul class="grid">
-
-[!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
-[!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
-[!INCLUDE [Threat indicators for cyber threat intelligence in Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection) | Detect fraudulent activity in real-time by using Azure Event Hubs and Stream Analytics. |
+| [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
+| [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel. |
 
 [view all](../browse/index.yml?azure_categories=security)
 
@@ -339,22 +289,20 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 |------|-------------|---------------|
 | [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk) | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | [API Gateway](https://aws.amazon.com/api-gateway) | [API Management](https://azure.microsoft.com/services/api-management) | A turnkey solution for publishing APIs to external and internal consumers. |
-| [CloudFront](https://aws.amazon.com/cloudfront) | [Front Door](https://azure.microsoft.com/services/frontdoor) | Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. |
-| [Global Accelerator](https://aws.amazon.com/global-accelerator) | [Front Door](https://azure.microsoft.com/services/frontdoor) | Easily join your distributed microservices architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure-or anywhere. |
+| [CloudFront](https://aws.amazon.com/cloudfront) | [Azure Front Door](https://azure.microsoft.com/services/frontdoor) | Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. |
+| [Global Accelerator](https://aws.amazon.com/global-accelerator) | [Azure Front Door](https://azure.microsoft.com/services/frontdoor) | Easily join your distributed microservices architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions and independent fault-tolerance to your back-end microservices in Azure or anywhere. |
 | [Global Accelerator](https://aws.amazon.com/global-accelerator) | [Cross-regional load balancer](/azure/load-balancer/cross-region-overview) | Distribute and load balance traffic across multiple Azure regions via a single, static, global anycast public IP address. |
-| [LightSail](https://aws.amazon.com/lightsail) | [App Service](https://azure.microsoft.com/services/app-service) | Build, deploy, and scale web apps on a fully managed platform. |
+| [Lightsail](https://aws.amazon.com/lightsail) | [App Service](https://azure.microsoft.com/services/app-service) | Build, deploy, and scale web apps on a fully managed platform. |
 | [App Runner](https://aws.amazon.com/apprunner) | [Web App for Containers](https://azure.microsoft.com/services/app-service/containers) | Easily deploy and run containerized web apps on Windows and Linux. |
 | [Amplify](https://aws.amazon.com/amplify) | [Static Web Apps](https://azure.microsoft.com/services/app-service/static) | Boost productivity with a tailored developer experience, CI/CD workflows to build and deploy your static content hosting, and dynamic scale for integrated serverless APIs. |
 
 ### Web architectures
 
-<ul class="grid">
-
-[!INCLUDE [Architect scalable e-commerce web app](../../includes/cards/scalable-ecommerce-web-app.md)]
-[!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
-[!INCLUDE [Serverless web application](../../includes/cards/web-app.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app) | The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure. |
+| [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) | Deploy an application on Azure Virtual Machines in multiple regions for high availability and resiliency. |
+| [Serverless web application](/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API by using Azure Functions. |
 
 [view all](../browse/index.yml?azure_categories=web)
 
@@ -363,7 +311,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | AWS service | Azure service | Description |
 |------|-------------|---------------|
 | [WorkSpaces](https://aws.amazon.com/workspaces), [AppStream 2.0](https://aws.amazon.com/appstream2) | [Azure Virtual Desktop](/azure/virtual-desktop) | Manage virtual desktops and applications to enable corporate network and data access to users, anytime, anywhere, from supported devices. Amazon WorkSpaces support Windows and Linux virtual desktops. Azure Virtual Desktop supports multi-session Windows 10 virtual desktops.|
-| [WorkLink](https://aws.amazon.com/worklink) | [Application Proxy](/azure/active-directory/app-proxy/application-proxy) | Provides access to intranet applications, without requiring VPN connectivity. Amazon WorkLink is limited to iOS and Android devices.|
+| [WorkLink](https://aws.amazon.com/worklink) | [Application Proxy](/azure/active-directory/app-proxy/application-proxy) | Provides access to intranet applications without requiring VPN connectivity. Amazon WorkLink is limited to iOS and Android devices.|
 
 ## Miscellaneous
 
@@ -381,4 +329,4 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 ## Next steps
 
-If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/training/modules/welcome-to-azure) module.
+If you are new to Azure, review the interactive [Microsoft Azure Fundamentals](/training/modules/welcome-to-azure) learning path.

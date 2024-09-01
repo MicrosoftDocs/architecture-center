@@ -4,13 +4,15 @@ Planning access to your API server is a day-zero activity. How you choose to acc
 
 ## AKS API server access
 
-To manage an AKS cluster, you interact with its API server. It's critical to lock down access to the API server and to grant access only to users who need it. You can provide granular access by integrating your AKS cluster with Azure Active Directory (Azure AD). Administrators can then use role-based access control (RBAC) to restrict access. Through RBAC, administrators can place users and identities in Azure AD groups and assign appropriate roles and permissions to the groups. Azure AD authentication is provided to AKS clusters with OpenID Connect. For more information, see these resources:
+To manage an AKS cluster, you interact with its API server. It's critical to lock down access to the API server and to grant access only to users who need it. You can provide granular access by integrating your AKS cluster with Microsoft Entra ID. Administrators can then use role-based access control (RBAC) to restrict access. Through RBAC, administrators can place users and identities in Microsoft Entra groups and assign appropriate roles and permissions to the groups. Microsoft Entra authentication is provided to AKS clusters with OpenID Connect. For more information, see these resources:
 
-- [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad)
-- [Integrate Azure Active Directory for the cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks#integrate-azure-active-directory-for-the-cluster)
+- [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
+- [Integrate Microsoft Entra ID for the cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks#integrate-azure-active-directory-for-the-cluster)
 
 > [!NOTE]
 > You can further lock down your AKS cluster by allowing only authorized IP address ranges to communicate with the API server. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
+
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ## Access the AKS cluster over the internet
 

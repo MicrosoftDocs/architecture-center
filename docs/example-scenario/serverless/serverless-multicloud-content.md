@@ -2,7 +2,9 @@ This article describes how the Microsoft Commercial Software Engineering (CSE) t
 
 ## Architecture
 
-![Diagram showing the multicloud serverless architecture.](./media/multi-cloud-serverless-architecture.png)
+![Diagram showing the multicloud serverless architecture.](./media/multi-cloud-serverless-architecture.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/serverless-multicloud.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -32,7 +34,7 @@ The serverless implementation on each platform supports individual functions as 
 
 The following diagram illustrates this concept:
 
-![Diagram that demonstrates a cloud-agnostic API.](./media/cloud-agnostic-api.png)
+![Diagram that demonstrates a cloud-agnostic API.](./media/cloud-agnostic-api.svg)
 
 #### CI/CD with GitOps
 
@@ -113,13 +115,12 @@ A traditional *Blue-Green Deployment* develops and deploys an app to two separat
 
 In the multicloud solution, blue-green deployment is implemented in both cloud platforms. In the serverless case, two duplicate sets of microservices are deployed for each cloud platform, one as the production environment and the other as the failover environment. This active-passive setup within each cloud platform reduces the risk that this platform will be down, increasing its availability, and enabling multicloud *active-active* high availability.
 
-![Diagram showing an active-active blue-green deployment.](./media/active-active-blue-green-deployment.png)
+![Diagram showing an active-active blue-green deployment.](./media/active-active-blue-green-deployment.svg)
 
 A secondary benefit of blue-green deployment is the ability to use the failover deployment on each cloud platform as a test environment for microservices updates, before releasing them to the production deployment.
 
 ## Next steps
 
-- [Sample code](https://github.com/serverless/multicloud) and [README](https://github.com/serverless/multicloud/blob/master/README.md) for this implementation on GitHub
 - [Serverless Framework](https://serverless.com)
 - [Training: Introduction to Azure Functions](/training/modules/intro-azure-functions)
 - [Overview of Azure Functions](/azure/azure-functions/functions-overview)
@@ -128,4 +129,4 @@ A secondary benefit of blue-green deployment is the ability to use the failover 
 
 - [Serverless functions architecture design](../../serverless-quest/serverless-overview.md)
 - [Serverless functions reference architectures](../../serverless-quest/reference-architectures.md)
-- [Code walkthrough: Serverless application with Functions](../../serverless/code.yml)
+- [Code walkthrough: Serverless application with Functions](../../web-apps/serverless/architectures/code.yml)

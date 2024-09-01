@@ -170,8 +170,3 @@ Principal author:
  - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Alert persistence in Azure IoT Edge vision AI](./alerts.md)

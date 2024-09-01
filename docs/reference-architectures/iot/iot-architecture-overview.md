@@ -9,8 +9,7 @@ ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 11/21/2022
 ms.author: ansyeo
-ms.custom:
-  - internal-intro
+ms.custom: arb-iot
 categories:
   - iot
 products:
@@ -69,13 +68,11 @@ IoT architecture patterns are reusable building blocks that address key IoT solu
 
 IoT architectural guides provide insights into IoT concepts, architectures, and workstreams.
 
-- [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
+- [IoT solution architecture](../../example-scenario/iot/devices-platform-application.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
 
 - [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload. Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI combine to deliver quality assurance and safety solutions.
 
 - [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml). Learn best practices and what to avoid when moving an IoT solution from a test environment to a production environment.
-
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml). Industrial IoT (IIoT) is the application of IoT to the manufacturing industry. This article series describes an Azure IIoT analytics solution that uses PaaS components.
 
 ## Next steps
 

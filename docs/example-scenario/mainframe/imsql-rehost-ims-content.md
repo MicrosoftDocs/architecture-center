@@ -4,7 +4,7 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 ### IBM z/OS architecture, before migration
 
-:::image type="content" source="media/mainframe-architecture.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.png" border="false":::
+:::image type="content" source="media/mainframe-architecture.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
 
@@ -15,6 +15,7 @@ A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
 B. Input into the mainframe uses standard mainframe communication protocols.  
 
 C. Applications receive the data. These applications are either batch or online systems.  
+
 D. COBOL, PL/I, Assembler, or other compatible languages run in an enabled environment.  
 
 E. Database systems, commonly hierarchical/network and relational systems, store data.  
@@ -29,7 +30,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Azure architecture, after migration  
 
-:::image type="content" source="media/imsql-virtual-machines.png" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virtual-machines.png" border="false":::
+:::image type="content" source="media/imsql-virtual-machines.svg" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virtual-machines.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 
@@ -75,7 +76,7 @@ This architecture shows how to seamlessly rehost to Azure a mainframe workload t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -103,8 +104,8 @@ For general guidance on designing highly secure SQL solutions, see [Azure securi
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure provides cost optimization by running on Windows VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. Azure helps you avoid unnecessary costs by identifying the right number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.  
-- SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality. 
-- Azure Reserved Virtual Machine Instances with pay-as-you-go prices helps you manage costs across predictable and variable workloads. In many cases, you can further reduce costs by implementing reserved-instance size flexibility.
+- SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.
+- Use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices.
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
@@ -124,8 +125,7 @@ Other contributor:
 
 ## Next steps 
 
-- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide/UserGuide.html#_imsql_user_guide)
-- [IMSql installation guide](https://www.raincode.com/docs/IMSql/InstallationGuide/InstallationUserGuide.html#Installation-of-IMSql)
+- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide.html#_imsql_user_guide)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

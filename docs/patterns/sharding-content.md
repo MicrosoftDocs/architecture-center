@@ -34,7 +34,7 @@ Sharding physically organizes the data. When an application stores and retrieves
 
 Abstracting the physical location of the data in the sharding logic provides a high level of control over which shards contain which data. It also enables data to migrate between shards without reworking the business logic of an application if the data in the shards need to be redistributed later (for example, if the shards become unbalanced). The tradeoff is the additional data access overhead required in determining the location of each data item as it's retrieved.
 
-To ensure optimal performance and scalability, it's important to split the data in a way that's appropriate for the types of queries that the application performs. In many cases, it's unlikely that the sharding scheme will exactly match the requirements of every query. For example, in a multi-tenant system an application might need to retrieve tenant data using the tenant ID, but it might also need to look up this data based on some other attribute such as the tenant's name or location. To handle these situations, implement a sharding strategy with a shard key that supports the most commonly performed queries.
+To ensure optimal performance and scalability, it's important to split the data in a way that's appropriate for the types of queries that the application performs. In many cases, it's unlikely that the sharding scheme will exactly match the requirements of every query. For example, in a multitenant system an application might need to retrieve tenant data using the tenant ID, but it might also need to look up this data based on some other attribute such as the tenant's name or location. To handle these situations, implement a sharding strategy with a shard key that supports the most commonly performed queries.
 
 If queries regularly retrieve data using a combination of attribute values, you can likely define a composite shard key by linking attributes together. Alternatively, use a pattern such as [Index Table](./index-table.yml) to provide fast lookup to data based on attributes that aren't covered by the shard key.
 
@@ -42,11 +42,11 @@ If queries regularly retrieve data using a combination of attribute values, you 
 
 Three strategies are commonly used when selecting the shard key and deciding how to distribute data across shards. Note that there doesn't have to be a one-to-one correspondence between shards and the servers that host them&mdash;a single server can host multiple shards. The strategies are:
 
-**The Lookup strategy**. In this strategy the sharding logic implements a map that routes a request for data to the shard that contains that data using the shard key. In a multi-tenant application all the data for a tenant might be stored together in a shard using the tenant ID as the shard key. Multiple tenants might share the same shard, but the data for a single tenant won't be spread across multiple shards. The figure illustrates sharding tenant data based on tenant IDs.
+**The Lookup strategy**. In this strategy the sharding logic implements a map that routes a request for data to the shard that contains that data using the shard key. In a multitenant application all the data for a tenant might be stored together in a shard using the tenant ID as the shard key. Multiple tenants might share the same shard, but the data for a single tenant won't be spread across multiple shards. The figure illustrates sharding tenant data based on tenant IDs.
 
    ![Figure 1 - Sharding tenant data based on tenant IDs](./_images/sharding-tenant.png)
 
-The mapping between the shard key and the physical storage can be based on physical shards where each shard key maps to a physical partition. Alternatively, a more flexible technique for rebalancing shards is virtual partitioning, where shard keys map to the same number of virtual shards, which in turn map to fewer physical partitions. In this approach, an application locates data using a shard key that refers to a virtual shard, and the system transparently maps virtual shards to physical partitions. The mapping between a virtual shard and a physical partition can change without requiring the application code be modified to use a different set of shard keys.
+The mapping between the shard key value and the physical storage that data exists on can be based on physical shards where each shard key value maps to a physical partition. Alternatively, a more flexible technique for rebalancing shards is virtual partitioning, where shard keys values map to the same number of virtual shards, which in turn map to fewer physical partitions. In this approach, an application locates data using a shard key value that refers to a virtual shard, and the system transparently maps virtual shards to physical partitions. The mapping between a virtual shard and a physical partition can change without requiring the application code be modified to use a different set of shard key values.
 
 **The Range strategy**. This strategy groups related items together in the same shard, and orders them by shard key&mdash;the shard keys are sequential. It's useful for applications that frequently retrieve sets of items using range queries (queries that return a set of data items for a shard key that falls within a given range). For example, if an application regularly needs to find all orders placed in a given month, this data can be retrieved more quickly if all orders for a month are stored in date and time order in the same shard. If each order was stored in a different shard, they'd have to be fetched individually by performing a large number of point queries (queries that return a single data item). The next figure illustrates storing sequential sets (ranges) of data in shard.
 
@@ -58,7 +58,7 @@ In this example, the shard key is a composite key containing the order month as 
 
    ![Figure 3 - Sharding tenant data based on a hash of tenant IDs](./_images/sharding-data-hash.png)
 
-To understand the advantage of the Hash strategy over other sharding strategies, consider how a multi-tenant application that enrolls new tenants sequentially might assign the tenants to shards in the data store. When using the Range strategy, the data for tenants 1 to n will all be stored in shard A, the data for tenants n+1 to m will all be stored in shard B, and so on. If the most recently registered tenants are also the most active, most data activity will occur in a small number of shards, which could cause hotspots. In contrast, the Hash strategy allocates tenants to shards based on a hash of their tenant ID. This means that sequential tenants are most likely to be allocated to different shards, which will distribute the load across them. The previous figure shows this for tenants 55 and 56.
+To understand the advantage of the Hash strategy over other sharding strategies, consider how a multitenant application that enrolls new tenants sequentially might assign the tenants to shards in the data store. When using the Range strategy, the data for tenants 1 to n will all be stored in shard A, the data for tenants n+1 to m will all be stored in shard B, and so on. If the most recently registered tenants are also the most active, most data activity will occur in a small number of shards, which could cause hotspots. In contrast, the Hash strategy allocates tenants to shards based on a hash of their tenant ID. This means that sequential tenants are most likely to be allocated to different shards, which will distribute the load across them. The previous figure shows this for tenants 55 and 56.
 
 The three sharding strategies have the following advantages and considerations:
 
@@ -68,13 +68,13 @@ The three sharding strategies have the following advantages and considerations:
 
 - **Hash**. This strategy offers a better chance of more even data and load distribution. Request routing can be accomplished directly by using the hash function. There's no need to maintain a map. Note that computing the hash might impose an additional overhead. Also, rebalancing shards is difficult.
 
-Most common sharding systems implement one of the approaches described above, but you should also consider the business requirements of your applications and their patterns of data usage. For example, in a multi-tenant application:
+Most common sharding systems implement one of the approaches described above, but you should also consider the business requirements of your applications and their patterns of data usage. For example, in a multitenant application:
 
 - You can shard data based on workload. You could segregate the data for highly volatile tenants in separate shards. The speed of data access for other tenants might be improved as a result.
 
 - You can shard data based on the location of tenants. You can take the data for tenants in a specific geographic region offline for backup and maintenance during off-peak hours in that region, while the data for tenants in other regions remains online and accessible during their business hours.
 
-- High-value tenants could be assigned their own private, high performing, lightly loaded shards, whereas lower-value tenants might be expected to share more densely-packed, busy shards.
+- High-value tenants could be assigned their own private, high performing, lightly loaded shards, whereas lower-value tenants might be expected to share more densely packed, busy shards.
 
 - The data for tenants that need a high degree of data isolation and privacy can be stored on a completely separate server.
 
@@ -131,65 +131,146 @@ Use this pattern when a data store is likely to need to scale beyond the resourc
 > [!NOTE]
 > The primary focus of sharding is to improve the performance and scalability of a system, but as a by-product it can also improve availability due to how the data is divided into separate partitions. A failure in one partition doesn't necessarily prevent an application from accessing data held in other partitions, and an operator can perform maintenance or recovery of one or more partitions without making the entire data for an application inaccessible. For more information, see the [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)).
 
+## Workload design
+
+An architect should evaluate how the Sharding pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | Because the data or processing is isolated to the shard, a malfunction in one shard remains isolated to that shard.<br/><br/> - [RE:06 Data partitioning](/azure/well-architected/reliability/partition-data)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | A system that implements shards often benefits from using multiple instances of less expensive compute or storage resources rather than a single more expensive resource. In many cases, this configuration can save you money.<br/><br/> - [CO:07 Component costs](/azure/well-architected/cost-optimization/optimize-component-costs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | When you use sharding in your scaling strategy, the data or processing is isolated to a shard, so it competes for resources only with other requests that are directed to that shard. You can also use sharding to optimize based on geography.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
-The following example in C# uses a set of SQL Server databases acting as shards. Each database holds a subset of the data used by an application. The application retrieves data that's distributed across the shards using its own sharding logic (this is an example of a fan-out query). The details of the data that's located in each shard is returned by a method called `GetShards`. This method returns an enumerable list of `ShardInformation` objects, where the `ShardInformation` type contains an identifier for each shard and the SQL Server connection string that an application should use to connect to the shard (the connection strings aren't shown in the code example).
+Consider a website that surfaces an expansive collection of information on published books worldwide. The number of possible books cataloged in this workload and the typical query/usage patterns contra-indicate the usage of a single relational database to store the book information. The workload architect decides to shard the data across multiple database instances, using the books' static International Standard Book Number (ISBN) for the shard key. Specifically, they use the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN as that gives 11 possible logical shards and the data will be fairly balanced across each shard. To start with, they decide to colocate the 11 logical shards into three physical shard databases. They use the *lookup* sharding approach and store the key-to-server mapping information in a shard map database.
 
-```csharp
-private IEnumerable<ShardInformation> GetShards()
+:::image type="complex" source="_images/sharding-example.png" alt-text="Diagram that shows an Azure App Service, four Azure SQL Databases, and one Azure AI Search.":::
+   Diagram that shows an Azure App Service labeled as "Book catalog website" that is connected to multiple Azure SQL Database instances and an Azure AI Search instance. One of the databases is labeled as the ShardMap database, and it has an example table which mirrors a part of the mapping table that is also listed further in this document. There are three shard databases instances listed as well: bookdbshard0, bookdbshard1, and bookdbshard2. Each of the databases has an example listing of tables under them. All three examples are identical, listing the tables of "Books" and "LibraryOfCongressCatalog" and an indicator of more tables. The Azure AI Search icon indicates it's used for faceted navigation and site search. Managed identity is shown associated with the Azure App Service.
+:::image-end:::
+
+### Lookup shard map
+
+The shard map database contains the following shard mapping table and data.
+
+```sql
+SELECT ShardKey, DatabaseServer
+FROM BookDataShardMap
+```
+
+```output
+| ShardKey | DatabaseServer |
+|----------|----------------|
+|        0 | bookdbshard0   |
+|        1 | bookdbshard0   |
+|        2 | bookdbshard0   |
+|        3 | bookdbshard1   |
+|        4 | bookdbshard1   |
+|        5 | bookdbshard1   |
+|        6 | bookdbshard2   |
+|        7 | bookdbshard2   |
+|        8 | bookdbshard2   |
+|        9 | bookdbshard0   |
+|       10 | bookdbshard1   |
+```
+
+### Example website code - single shard access
+
+The website isn't aware of the number of physical shard databases (three in this case) nor the logic that maps a shard key to a database instance, but the website does know that the check digit of a book's ISBN should be considered the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website is using the Azure App Service's system managed identity that is hosting the website for authorization to keep secrets out of the connection strings.
+
+The website is configured with the following connection strings, either in an `appsettings.json` file, such as in this example, or through App Service app settings.
+
+```json
 {
-  // This retrieves the connection information from a shard store
-  // (commonly a root database).
-  return new[]
-  {
-    new ShardInformation
-    {
-      Id = 1,
-      ConnectionString = ...
-    },
-    new ShardInformation
-    {
-      Id = 2,
-      ConnectionString = ...
-    }
-  };
+  ...
+  "ConnectionStrings": {
+    "ShardMapDb": "Data Source=tcp:<database-server-name>.database.windows.net,1433;Initial Catalog=ShardMap;Authentication=Active Directory Default;App=Book Site v1.5a",
+    "BookDbFragment": "Data Source=tcp:SHARD.database.windows.net,1433;Initial Catalog=Books;Authentication=Active Directory Default;App=Book Site v1.5a"
+  },
+  ...
 }
 ```
 
-The code below shows how the application uses the list of `ShardInformation` objects to perform a query that fetches data from each shard in parallel. The details of the query aren't shown, but in this example the data that's retrieved contains a string that could hold information such as the name of a customer if the shards contain the details of customers. The results are aggregated into a `ConcurrentBag` collection for processing by the application.
+With connection information to the shard map database available, an example of an update query executed by the website to the workload's database shard pool would look similar to the following code.
 
 ```csharp
-// Retrieve the shards as a ShardInformation[] instance.
-var shards = GetShards();
+...
 
-var results = new ConcurrentBag<string>();
+// All data for this book is stored in a shard based on the book's ISBN check digit,
+// which is converted to an integer 0 - 10 (special value 'X' becomes 10).
+int isbnCheckDigit = book.Isbn.CheckDigitAsInt;
 
-// Execute the query against each shard in the shard list.
-// This list would typically be retrieved from configuration
-// or from a root/primary shard store.
-Parallel.ForEach(shards, shard =>
+// Establish a pooled connection to the database shard for this specific book.
+using (SqlConnection sqlConn = await shardedDatabaseConnections.OpenShardConnectionForKeyAsync(key: isbnCheckDigit, cancellationToken))
 {
-  // NOTE: Transient fault handling isn't included,
-  // but should be incorporated when used in a real world application.
-  using (var con = new SqlConnection(shard.ConnectionString))
+  // Update the book's Library of Congress catalog information
+  SqlCommand cmd = sqlConn.CreateCommand();
+  cmd.CommandText = @"UPDATE LibraryOfCongressCatalog
+                         SET ControlNumber = @lccn,
+                             ...
+                             Classification = @lcc
+                       WHERE BookID = @bookId";
+
+  cmd.Parameters.AddWithValue("@lccn", book.LibraryOfCongress.Lccn);
+  ...
+  cmd.Parameters.AddWithValue("@lcc", book.LibraryOfCongress.Lcc);
+  cmd.Parameters.AddWithValue("@bookId", book.Id);
+
+  await cmd.ExecuteNonQueryAsync(cancellationToken);
+}
+
+...
+```
+
+In the preceding example code, if `book.Isbn` was **978-8-1130-1024-6**, then `isbnCheckDigit` should be **6**. The call to `OpenShardConnectionForKeyAsync(6)` would typically be implemented with a cache-aside approach. It queries the shard map database identified with the connection string `ShardMapDb` if it doesn't have cached shard information for shard key **6**. Either from the application's cache or from the shard database, the value **bookdbshard2** takes the place of `SHARD` in the `BookDbFragment` connection string. A pooled connection is (re-) established to **bookdbshard2.database.windows.net**, opened, and returned to the calling code. The code then updates the existing record on that database instance.
+
+### Example website code - multiple shard access
+
+In the rare case a direct, cross-shard query is required by the website, the application performs a parallel fan-out query across all shards.
+
+```csharp
+...
+
+// Retrieve all shard keys
+var shardKeys = shardedDatabaseConnections.GetAllShardKeys();
+
+// Execute the query, in a fan-out style, against each shard in the shard list.
+Parallel.ForEachAsync(shardKeys, async (shardKey, cancellationToken) =>
+{
+  using (SqlConnection sqlConn = await shardedDatabaseConnections.OpenShardConnectionForKeyAsync(key: shardKey, cancellationToken))
   {
-    con.Open();
-    var cmd = new SqlCommand("SELECT ... FROM ...", con);
+    SqlCommand cmd = sqlConn.CreateCommand();
+    cmd.CommandText = @"SELECT ...
+                          FROM ...
+                         WHERE ...";
 
-    Trace.TraceInformation("Executing command against shard: {0}", shard.Id);
+    SqlDataReader reader = await cmd.ExecuteReaderAsync(cancellationToken);
 
-    var reader = cmd.ExecuteReader();
-    // Read the results in to a thread-safe data structure.
-    while (reader.Read())
+    while (await reader.ReadAsync(cancellationToken))
     {
-      results.Add(reader.GetString(0));
+      // Read the results in to a thread-safe data structure.
     }
+
+    reader.Close();
   }
 });
 
-Trace.TraceInformation("Fanout query complete - Record Count: {0}",
-                        results.Count);
+...
 ```
+
+As an alternative to cross-shard queries in this workload might be using an externally maintained index in Azure AI Search, such as for site search or faceted navigation functionality.
+
+### Adding shard instances
+
+The workload team is aware that if the data catalog or its concurrent usage grows significantly more than three database instances might be required. The workload team doesn't expect to dynamically add database servers and will endure workload downtime if a new shard needs to come online. Bringing a new shard instance online requires moving data from existing shards into the new shard along with an update to the shard map table. This fairly static approach allows the workload to confidently cache the shard key database mapping in the website code.
+
+The shard key logic in this example has a hard upper limit of 11 maximum physical shards. If the workload team performs load estimation tests and evaluates that more than 11 databases instances are eventually going to be required, an invasive change to the shard key logic would need to be made. This change involves the careful planning of code modifications and data migration to the new key logic.
+
+### SDK functionality
+
+Instead of writing custom code for shard management and query routing to Azure SQL Database instances, evaluate the [Elastic Database client library](/azure/azure-sql/database/elastic-database-client-library). This library supports shard map management, data-dependent query routing, and cross-shard queries in both C# and Java.
 
 ## Next steps
 

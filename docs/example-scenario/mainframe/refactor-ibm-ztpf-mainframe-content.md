@@ -4,7 +4,9 @@ Organizations migrating from z/TPF mainframes to the cloud need a robust platfor
 
 ### Mainframe architecture
 
-:::image type="content" border="false" source="media/mainframe-migration-before.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.png":::
+:::image type="content" border="false" source="media/mainframe-migration-before.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-migration-after.vsdx) of this architecture.*
 
 #### Dataflow
 
@@ -19,7 +21,7 @@ Organizations migrating from z/TPF mainframes to the cloud need a robust platfor
 
 ### Azure architecture
 
-:::image type="content" border="false" source="media/mainframe-migration-after.png" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.png"::: 
+:::image type="content" border="false" source="media/mainframe-migration-after.svg" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.svg"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-migration-after.vsdx) of this architecture.*
 
@@ -80,7 +82,7 @@ Here are some scenarios that can benefit from refactoring to Azure:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance efficiency 
 
@@ -98,7 +100,7 @@ Kubernetes provides a cluster autoscaler that adjusts the number of nodes requir
 
 ### Security 
 
-This architecture is primarily built on Kubernetes, which includes security components like [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret). Azure provides additional security features, like Azure Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades.
+This architecture is primarily built on Kubernetes, which includes security components like [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret). Azure provides additional security features, like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades.
 
 [Azure Bastion](/azure/bastion/bastion-overview) improves security for admin access by minimizing open ports. Azure Bastion provides highly secure RDP or SSH connectivity to virtual network VMs directly from the Azure portal, over TLS. 
 
@@ -134,6 +136,6 @@ See these additional resources:
 - [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Moving archive data from mainframe systems to Azure](../../example-scenario/mainframe/move-archive-data-mainframes.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)

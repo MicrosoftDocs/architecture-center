@@ -8,7 +8,9 @@ solutions aren't quite meeting your requirements, you may be [exploring bare-met
 
 Reference the following tree when deciding between the options presented below for bare-metal Kubernetes at the edge.
 
-![A flowchart for deciding what bare-metal options to use.](media/choose-bare-metal-kubernetes.png)
+![Diagram showing a flowchart for deciding what bare-metal options to use.](media/choose-bare-metal-kubernetes.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/choose-bare-metal-kubernetes.vsdx) of this flowchart*
 
 -   [MicroK8s](https://microk8s.io/docs): Conformant "Low Ops" Kubernetes by Canonical
 
@@ -63,7 +65,7 @@ Kubeadm is a plain vanilla installation of Kubernetes from the ground up.
 
 -   The control-plane node must be a machine running a deb/rpm-compatible Linux OS.
 
--   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to _kubeadm_ and to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
+-   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to *kubeadm* and to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
 
 ## Management/Automation
 

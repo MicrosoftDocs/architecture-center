@@ -7,10 +7,9 @@ manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
-ms.date: 10/10/2022
+ms.date: 07/09/2024
 ms.author: ansyeo
-ms.custom:
-  - internal-intro
+ms.custom: arb-iot
 categories:
   - iot
 products:
@@ -44,13 +43,7 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml). Smart places are physical environments, like buildings, campuses, and cities, that bring together connected devices and data sources. Azure Digital Twins stores digital representations of physical environments to use for monitoring, analysis, and management.
 
-- [Safe environments with IoT Edge monitoring and alerting](../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml). Combining existing closed-circuit TV infrastructure with the Azure intelligent edge and other Azure and Microsoft services helps organizations monitor, follow, and improve health and safety practices.
-
 ## Manufacturing
-
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml). A hierarchy service lets businesses centrally define how to organize production assets within factories.
-
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml). The signal pipeline uses a common configuration interface based on the [Open Platform Communications Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) to connect heterogenous legacy and modern devices.
 
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml). Condition monitoring helps manufacturers discover anomalies before they become critical. In this solution, IoT devices connect to the cloud through OPC UA and Azure industrial IoT components.
 
@@ -60,11 +53,9 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 ## Retail
 
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml). Retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. On-premises IoT Edge devices analyze video data in real time to detect and address issues like empty shelf space or long customer queues.
-
-- [Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml). Azure IoT and cloud components combine to implement a curbside pickup, or buy online and pick up in store (BOPIS), system for retail.
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml). Retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. On-premises IoT Edge devices analyze video data in real time to detect and address issues like empty shelf space or long customer queues.
 
 ## Next steps
 
 - [What is Azure IIoT?](/azure/industrial-iot/overview-what-is-industrial-iot)
- Cloud platform-as-a-service (PaaS) components use device data to develop business and industrial solutions. For guidance in using Azure PaaS components to create IIoT solutions, see the series on [Industrial IoT analytics](../../guide/iiot-guidance/iiot-architecture.yml).
+- [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)

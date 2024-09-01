@@ -1,4 +1,4 @@
-This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity. Also, see [Detect mobile bank fraud](/azure/architecture/guide/ai/bank-fraud-solution).
+This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity.
 
 ## Architecture
 
@@ -23,9 +23,9 @@ This scenario covers the back-end components of a real-time analytics pipeline. 
 
 ### Alternatives
 
-Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the Azure Data Architecture Guide.
+Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting.
 
-Algorithms for fraud detection that are more complex can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../data-guide/technology-choices/data-science-and-machine-learning.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+Algorithms for fraud detection that are more complex can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../ai-ml/guide/data-science-and-machine-learning.md).
 
 For scenarios that are built by using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates that use Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions].
 
@@ -47,7 +47,7 @@ Other relevant use cases include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -105,7 +105,6 @@ Principal author:
 
 ## Related resources
 
-- [Detect mobile bank fraud](/azure/architecture/guide/ai/bank-fraud-solution)
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
@@ -116,7 +115,7 @@ Principal author:
 [small-pricing]: https://azure.com/e/74149ec312c049ccba79bfb3cfa67606
 [medium-pricing]: https://azure.com/e/4fc94f7376de484d8ae67a6958cae60a
 [large-pricing]: https://azure.com/e/7da8804396f9428a984578700003ba42
-[architecture]: ./media/architecture-fraud-detection-new.png
+[architecture]: ./media/architecture-fraud-detection-new.svg
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-event-hubs-security-model]: /azure/event-hubs/event-hubs-authentication-and-security-model-overview
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction

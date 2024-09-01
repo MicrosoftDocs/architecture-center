@@ -2,7 +2,9 @@ This article provides an overview of monitor and manage process loop architectur
 
 ## Architecture
 
-![Monitor and Manage Loop](./media/monitor-and-manage.svg)
+[ ![Architecture diagram show Monitor and Manage Loop.](./media/monitor-and-manage.svg)](./media/monitor-and-manage.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/monitor-and-manage.vsdx) of this architecture.*
 
 The IoT manage and monitor loop is a supervisory system that ensures that the system operates within operational thresholds. Multiple devices in a system must act in concert to achieve and stay within the tolerable range of the desired state. The manage and monitor loop observes and correlates hot telemetry signal trends from multiple devices to deduce current state. Logic combines these trends with warm time series history and enterprise system signals to compute new insights. The monitor and manage loop then pushes the insights through a rules engine to generate actuator commands or create alarms as necessary.
 

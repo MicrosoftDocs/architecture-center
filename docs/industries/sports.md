@@ -2,7 +2,7 @@
 title: Solutions for the sports industry
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the sports industry.
 author: martinekuan
-ms.author: architectures
+ms.author: robbag
 ms.date: 10/27/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -38,15 +38,11 @@ The following articles provide detailed analysis of architectures created and re
 
 |Guide  |Summary  |Technology focus  |
 |---------|---------|---------|
-| [Baseball decision analysis with ML.NET and Blazor](../data-guide/big-data/baseball-ml-workload.yml)     |   Find out about a web app that can help you use AI and machine learning to perform decision analysis. No special skills required.     |    AI     |
-|   [Build a sports analytics architecture on Azure](../example-scenario/analytics/sports-analytics-architecture-azure.yml)   |  Build an architecture that uses Azure services to process and maintain data that's used by sports analytics solutions.       |  Analytics       |
 |  [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)   |     Use Azure Digital Twins to create models of smart places, like stadiums, from IoT device data. View and control products, systems, environments, and experiences.    |     IoT    |
 |   [Intelligent e-commerce product search engine](../example-scenario/apps/ecommerce-search.yml)  |     Use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. Promote recent information in search results, which is useful in the sports industry.    |     Web    |
 
 ## Solution ideas for the sports industry
 
-Following are other ideas that you can use as a starting point for your sports industry solution.
+Following is another option that you can use as a starting point for your sports industry solution.
 
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml)
-- [Live streaming digital media](../solution-ideas/articles/digital-media-live-stream.yml)
-- [Video-on-demand digital media](../solution-ideas/articles/digital-media-video.yml)

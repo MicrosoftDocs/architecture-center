@@ -19,7 +19,7 @@ Four HA pillars appear in every highly available system:
 
 Consider a multitiered AKS application, where traffic arrives to the business logic tier, the data tier preserves state, and the application returns responses to users.
 
-![An illustration of an AKS multitiered application.](media/application.png)
+![Diagram that shows illustration of an AKS multitiered application.](media/application.svg)
 
 ### Identify single points of failure
 
@@ -29,9 +29,9 @@ To identify single points of failure, start by determining the critical path bet
 
 To eliminate single points of failure, deploy your application to replicate critical path components, and employ load balancers, monitoring, and recovery mechanisms. Kubernetes can handle all these activities.
 
-![An illustration of replicated components in an AKS multitiered application.](media/replicas.png)
+![Diagram that shows an illustration of replicated components in an AKS multitiered application.](media/replicas.svg)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/aac-high-availability-for-enterprise-applications-on-aks.pptx) of the diagrams in this article.*
+*Download a [Visio file](https://arch-center.azureedge.net/replicas.vsdx) of this diagram.*
 
 In a replicated application:
 
@@ -121,7 +121,9 @@ However, DR requires [multiregion service deployment](/azure/availability-zones/
 
 Instead of using multiple regions, HA benefits from [multizone deployments](/azure/availability-zones/az-overview#availability-zones) within Azure regions. The following diagram illustrates the difference between availability zones and regions for HA and DR.
 
-![Diagram that compares availability zones and Azure regions for HA and DR.](media/load-balancing.png)
+[ ![Diagram that compares availability zones and Azure regions for HA and DR.](media/load-balancing.svg)](media/load-balancing.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/load-balancing.vsdx) of this architecture.*
 
 This guide focused on HA at the application level within one AKS cluster. For more information about DR in AKS multicluster deployments, see [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml).
 
@@ -130,8 +132,6 @@ This guide focused on HA at the application level within one AKS cluster. For mo
 - To maintain application HA, make sure your Kubernetes control plane, including the API server and controller manager, is highly available. Consider using an [AKS Uptime SLA](/azure/aks/uptime-sla) to ensure HA.
 
 - A resource consolidation strategy directly contravenes the HA redundancy pillar. Therefore, you should carefully analyze the cost of redundancy. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can help.
-
-- The highly available Microsoft service [Project Bonsai: AI for engineers](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works) is an example of project design that exemplifies HA principles. This project motivated the Kubernetes HA constructs checklist and this guide.
 
 ## Contributors
 
@@ -162,5 +162,4 @@ Other contributors:
 
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [Elastic demand handling with AKS](../../solution-ideas/articles/aks-demand-spikes.yml)
 - [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)

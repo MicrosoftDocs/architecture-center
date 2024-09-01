@@ -8,7 +8,7 @@ This article discusses components and principles that play a role in planning an
 - Azure IaaS by doing a lift and shift to virtual machines (VMs)
 - Azure Cosmos DB.
 
-*[Apache](https://www.apache.org), [Apache Spark®](https://spark.apache.org), [Apache Hadoop®](https://hadoop.apache.org), [Apache HBase](https://hbase.apache.org), [Apache Ranger®](https://ranger.apache.org), [Apache ZooKeeper®](https://zookeeper.apache.org), [Apache Storm®](https://storm.apache.org), [Apache Sqoop®](https://sqoop.apache.org), [Apache Kafka®](https://kafka.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*[Apache](https://www.apache.org), [Apache Spark®](https://spark.apache.org), [Apache Hadoop®](https://hadoop.apache.org), [Apache HBase](https://hbase.apache.org), [Apache Ranger®](https://ranger.apache.org), [Apache ZooKeeper®](https://zookeeper.apache.org),  [Apache Sqoop®](https://sqoop.apache.org), [Apache Kafka®](https://kafka.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## HBase components, core concepts, and architecture
 
@@ -50,7 +50,7 @@ It's important that you understand the core concepts of the HBase architecture a
   - **Get** returns attributes for a specified row.
   - **Put** either adds new rows to a table or updates existing rows.
   - **Scan** allows iteration over multiple rows for specified attributes.
-  - **Delete** removes a row from a table. A marker, called a *tombstone* is placed on records to mark them for deletion. The tombstones and deleted rows are removed during major compactions.
+  - **Delete** removes a row from a table. A marker, called a *tombstone*, is placed on records to mark them for deletion. The tombstones and deleted rows are removed during major compactions.
   
 The following diagram illustrates these concepts.
 
@@ -61,7 +61,7 @@ The following diagram illustrates these concepts.
 HBase uses a combination of data structures that reside in memory and in persistent storage to deliver fast writes. When a write occurs, the data is first written to a write-ahead log (WAL), which is a data structure that's stored on persistent storage. The role of the WAL is to track changes so that logs can be replayed in case of a server failure. The WAL is only used for resiliency.
 After data is committed to the WAL, it's written to MemStore, which is an in-memory data structure. At this stage, a write is complete.
 
-For long-term data persistence, HBase uses a data structure called an *HBase file* (HFile). An HFile is stored on HDFS. Depending on MemStore size and the data flush interval, data from MemStore is written to an HFile. For information about the format of an HFile, see [Appendix G: HFile format](https://HBase.apache.org/book.html#_hfile_format_2).
+For long-term data persistence, HBase uses a data structure called an *HBase file (HFile)*. An HFile is stored on HDFS. Depending on MemStore size and the data flush interval, data from MemStore is written to an HFile. For information about the format of an HFile, see [Appendix G: HFile format](https://HBase.apache.org/book.html#_hfile_format_2).
 
 The following diagram shows the steps of a write operation.
 
@@ -107,7 +107,7 @@ These common challenges of on-premises HBase deployments can be reasons for want
 ## Considerations for an HBase migration
 
 - If HBase infrastructure as a service (IaaS) migration is your first workload on Azure, we strongly recommend that you the invest time and effort needed to build a strong foundation for hosting workloads on Azure. You do this by using Cloud Adoption Framework enterprise-scale landing zone guidance. Enterprise-scale is an architectural approach and a reference implementation that makes it possible to effectively construct and operationalize landing zones on Azure, at scale. For more information, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture).
-- We strongly recommend that all workloads that you run on Azure are designed and deployed according to the [Well-Architected Framework](/azure/architecture/framework), which is a set of guiding tenets that you can use to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+- We strongly recommend that all workloads that you run on Azure are designed and deployed according to the [Well-Architected Framework](/azure/well-architected/), which is a set of guiding tenets that you can use to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 - When you design and choose Azure compute and storage, consider service limits. Compute and storage have limits that can affect the sizing of infrastructure for a data-intensive application such as HBase. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - A subscription should be used as a unit of scale. You add more instances of a service to scale out as required. Taking from Cloud Adoption Framework enterprise-scale design principles, use the subscription as a unit of management and scale. Align subscriptions to business needs and priorities, and support business areas and portfolio owners to encourage migrating current applications and developing new ones.
 - An HBase deployment on Azure can use various types of storage for caching and persistent storage. Evaluate the options when you deploy HBase solutions on Azure.
@@ -115,7 +115,7 @@ These common challenges of on-premises HBase deployments can be reasons for want
 
 ## Migration approaches
 
-Azure has several landing targets for Apache HBase. Depending on requirements and product features, you can choose between Azure IaaS (lift and shift to VMs), HBase in HDInsight, and Azure Cosmos DB (SQL API).
+Azure has several landing targets for Apache HBase. Depending on requirements and product features, you can choose between Azure IaaS (lift and shift to VMs), HBase in HDInsight, and Azure Cosmos DB (NoSQL API).
 
 Here's a decision flowchart for selecting a target environment:
 
@@ -125,7 +125,7 @@ These targets are discussed in the following sections:
 
 - [Migrate to Azure IaaS](#migrate-to-azure-iaas)
 - [Migrate to HBase in HDInsight](#migrate-to-hbase-in-hdinsight)
-- [Migrate to Azure Cosmos DB (SQL API)](#migrate-to-azure-cosmos-db-sql-api)
+- [Migrate to Azure Cosmos DB (NoSQL API)](#migrate-to-azure-cosmos-db-nosql-api)
 
 ### Migrate to Azure IaaS
 
@@ -283,7 +283,7 @@ For an HBase cluster to operate, it must be able to communicate with other VMs i
 There are various ways to make it possible for servers to authenticate to each other seamlessly. The most common patterns are:
 
 - [Kerberized Linux servers that are domain-joined to a Windows domain controller](#kerberized-linux-servers-domain-joined-to-a-windows-domain-controller)
-- [A Kerberized Linux environment that uses Azure Active Directory Domain Services (Azure AD DS)](#a-kerberized-linux-environment-that-uses-azure-active-directory-domain-services-azure-ad-ds)
+- [A Kerberized Linux environment that uses Microsoft Entra Domain Services (Microsoft Entra Domain Services)](#a-kerberized-linux-environment-that-uses-azure-active-directory-domain-services-azure-ad-ds)
 - [A standalone MIT Kerberos domain controller](#a-standalone-mit-kerberos-domain-controller)
 - [Authorization by using Apache Ranger](#authorization-by-using-apache-ranger)
 
@@ -298,15 +298,17 @@ Considerations:
 
 If the domain controller is located on-premises or outside of an Azure region or in a non-Azure cloud, latency must be considered for operations that require interaction with the domain controller. One option is to host a second [domain controller on Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain). The Azure-based domain controller is then used for all authentication and authorization scenarios for workloads that run on Azure. We recommend against assigning [operations masters roles](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) to the domain controllers that are deployed in Azure. In such a scenario, the primary domain controller is hosted on-premises.
 
-##### A Kerberized Linux environment that uses Azure Active Directory Domain Services (Azure AD DS)
+<a name='a-kerberized-linux-environment-that-uses-azure-active-directory-domain-services-azure-ad-ds'></a>
 
-[Azure Active Directory Domain Services](/azure/active-directory-domain-services/overview) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos and NTLM authentication. You can use Azure AD DS without the need to deploy, manage, and patch domain controllers in the cloud.
+##### A Kerberized Linux environment that uses Microsoft Entra Domain Services (Microsoft Entra Domain Services)
+
+[Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos and NTLM authentication. You can use Microsoft Entra Domain Services without the need to deploy, manage, and patch domain controllers in the cloud.
 
 Considerations:
 
-- Regional availability of Azure AD DS
-- Networking requirements for Azure AD DS
-- High availability, disaster recovery, and uptime SLA for Azure AD DS
+- Regional availability of Microsoft Entra Domain Services
+- Networking requirements for Microsoft Entra Domain Services
+- High availability, disaster recovery, and uptime SLA for Microsoft Entra Domain Services
 
 ##### A standalone MIT Kerberos domain controller
 
@@ -324,8 +326,7 @@ Considerations for deployment of an MIT Kerberos domain controller:
 
 #### Monitor the HBase deployment
 
-For a lift and shift migration to Azure IaaS, you can use the same monitoring techniques that you used on the source system. For other migrations,
-there are several options available for monitoring a full HBase stack on Azure IaaS:
+For a lift and shift migration to Azure IaaS, you can use the same monitoring techniques that you used on the source system. For other migrations, there are several options available for monitoring a full HBase stack on Azure IaaS:
 
 - [Apache Ambari for monitoring the Hadoop and HBase stack](#apache-ambari-for-monitoring-the-hadoop-and-hbase-stack)
 - [Java Management Extensions (JMX) monitoring and Azure Monitor](#java-management-extensions-jmx-monitoring-and-azure-monitor)
@@ -400,7 +401,7 @@ curl -XGET http://<HBase_master>:16010/jmx?qry=Hadoop:service=hbase,name=Master,
 curl -XGET http://<HBase_master>:16010/jmx?qry=Hadoop:service=hbase,name=Master,sub=FileSystem
 ```
 
-After it's configured, a source appears under the Custom Logs blade. In the snippet above, we use the name oms.api.metrics_regionservers for the input. Log Analytics uses the following format for displaying the custom table name with a suffix_CL.
+After it's configured, a source appears under the Custom Logs blade. In the snippet above, we use the name `oms.api.metrics_regionservers` for the input. Log Analytics uses the following format for displaying the custom table name with a suffix_CL.
 
 ![Screenshot that shows a list of the custom logs.](images/hbase-monitoring-logging-CL-screenshot.png)
 
@@ -419,9 +420,9 @@ For instructions on setting up Azure Monitor to collect data from Linux, see [Mo
 
 You can download a detailed guide to migrating HBase to an HDInsight HBase cluster. The download page is [Guide to Migrating Big Data Workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrating-big-data-workloads-hdinsight).
 
-### Migrate to Azure Cosmos DB (SQL API)
+### Migrate to Azure Cosmos DB (NoSQL API)
 
-The guide to migrating to Cosmos SQL API is [Migrate data from Apache HBase to Azure Cosmos DB SQL API account](/azure/cosmos-db/sql/migrate-hbase-to-cosmos-db).
+The guide to migrating to Azure Cosmos NoSQL API is [Migrate data from Apache HBase to Azure Cosmos DB NoSQL API account](/azure/cosmos-db/sql/migrate-hbase-to-cosmos-db).
 
 ## Contributors
 
@@ -440,10 +441,10 @@ Other contributors:
 - [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Senior Software Engineer
 - [Eugene Chung](https://www.linkedin.com/in/eugenesc) | Senior Cloud Solution Architect
 - [Pawan Hosatti](https://www.linkedin.com/in/pawanhosatti) | Senior Cloud Solution Architect - Engineering
-- [Daman Kaur](https://www.linkedin.com/in/damankaur-architect) | Cloud Solution Architect
+- [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect
 - [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
-- [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
+- [Ben Sadeghi](https://www.linkedin.com/in/bensadeghi) | Senior Specialist
 - [Sunil Sattiraju](https://www.linkedin.com/in/sunilsattiraju) | Senior Cloud Solution Architect
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004) | Principal Program Manager
 - [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Cloud Solution Architect - Engineering
@@ -462,7 +463,7 @@ Other contributors:
 
 ### Azure product reference
 
-- [Azure Active Directory documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/entra)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)
 - [Azure Data Factory documentation](/azure/data-factory)
 - [Azure Databricks documentation](/azure/databricks)
@@ -488,4 +489,3 @@ Other contributors:
 - [Apache HDFS migration to Azure](apache-HDFS-migration.yml)
 - [Apache Kafka migration to Azure](apache-kafka-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)

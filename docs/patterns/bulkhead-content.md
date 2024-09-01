@@ -1,4 +1,4 @@
-The Bulkhead pattern is a type of application design that is tolerant of failure. In a bulkhead architecture, elements of an application are isolated into pools so that if one fails, the others will continue to function. It's named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
+The Bulkhead pattern is a type of application design that is tolerant of failure. In a bulkhead architecture, also known as cell-based architecture, elements of an application are isolated into pools so that if one fails, the others will continue to function. It's named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem
 
@@ -31,6 +31,7 @@ The next diagram shows multiple clients calling a single service. Each client is
 ## Issues and considerations
 
 - Define partitions around the business and technical requirements of the application.
+- If using [tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd), partition boundaries should align with the bounded contexts.
 - When partitioning services or consumers into bulkheads, consider the level of isolation offered by the technology as well as the overhead in terms of cost, performance and manageability.
 - Consider combining bulkheads with retry, circuit breaker, and throttling patterns to provide more sophisticated fault handling.
 - When partitioning consumers into bulkheads, consider using processes, thread pools, and semaphores. Projects like [resilience4j](https://github.com/resilience4j/resilience4j) and [Polly][polly] offer a framework for creating consumer bulkheads.
@@ -51,6 +52,18 @@ This pattern may not be suitable when:
 
 - Less efficient use of resources may not be acceptable in the project.
 - The added complexity is not necessary
+
+## Workload design
+
+An architect should evaluate how the Bulkhead pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The failure isolation strategy introduced through the intentional and complete segmentation between components attempts to contain faults to just the bulkhead that's experiencing the problem, preventing impact to other bulkheads.<br/><br/> - [RE:02 Critical flows](/azure/well-architected/reliability/identify-flows)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | The segmentation between components helps constrain security incidents to the compromised bulkhead.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Each bulkhead can be individually scalable to efficiently meet the needs of the task that's encapsulated in the bulkhead.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 

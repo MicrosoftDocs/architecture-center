@@ -1,53 +1,70 @@
 ---
-title: Kubernetes Service (AKS) operations triage
+title: Azure Kubernetes Service (AKS) operations triage
 titleSuffix: Azure Architecture Center
-description: Examine a short overview of triage practices for Azure Kubernetes Service (AKS) operations. View links to get more details about different triage practices.
-author: kevingbb
-ms.date: 04/11/2022
+description: Learn about the five articles that describe the triage practices for AKS operations. Get an overview of the top-down triage approach.
+author: paolosalvatori
+ms.author: paolos
+ms.date: 11/22/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - e2e-aks
 ---
 
 # Triage practices for AKS operations
 
-It's often challenging to do root-cause analysis given the different aspects of an AKS cluster. When triaging issues, consider a top-down approach on the cluster hierarchy. Start at the cluster level and drill down if necessary.
+A root-cause analysis for an Azure Kubernetes Service (AKS) cluster is often challenging. To simplify the process, consider triaging issues by using a top-down approach based on the cluster hierarchy. Start at the cluster level and drill down if necessary.
 
-![AKS cluster components](./images/kube-components.svg)
+![Diagram that shows the hierarchy of AKS cluster components: Cluster, node pools, nodes, pods, and containers.](./images/kube-components.svg)
 
-In the triage practices series, we'll walk you through the thought process of this approach. The articles show examples using a set of tools and dashboards, and how they can highlight some symptoms.
+The following section provides an overview of a series about triage practices, which describes the top-down approach in detail. The articles provide examples that use a set of tools and dashboards. The articles describe how these examples highlight symptoms of problems.
 
-Common causes addressed in this series include:
+Common problems that are addressed in this series include:
 
-- Network and connectivity problems caused by improper configuration.
-- Control plane to node communication is broken.
-- Kubelet pressures caused by insufficient compute, memory, or storage resources.
-- DNS resolution issues.
-- Node health is running out of disk IOPS.
-- Admission control pipeline is blocking a large number of requests to the API server.
-- The cluster doesn't have permissions to pull from the appropriate container registry.
+- Network and connectivity problems that are caused by improper configuration.
+- Broken communication between the control plane and the node.
+- Kubelet pressures that are caused by insufficient compute, memory, or storage resources.
+- Domain Name System (DNS) resolution problems.
+- Nodes that run out of disk input/output operations per second (IOPS).
+- An admission control pipeline that blocks several requests to the API server.
+- A cluster that doesn't have permissions to pull from the appropriate container registry.
 
-This series isn't intended to resolve specific issues. For information about troubleshooting specific issues, see [AKS Common Issues](/azure/aks/troubleshooting).
+This series isn't intended to resolve specific problems. For information about troubleshooting specific problems, see [AKS troubleshooting](/azure/aks/troubleshooting).
 
-## In the triage practices series
+## The triage practices series
 
 |Step|Description|
 |---|---|
-|[1- Check the AKS cluster health](aks-triage-cluster-health.md)|Start by checking the cluster the health of the overall cluster and networking.|
-|[2- Examine the node and pod health](aks-triage-node-health.md) |Check the health of the AKS worker nodes. |
-|[3- Check the workload deployments](aks-triage-deployment.md)|Check to see that all deployments and daemonSets are running.|
-|[4- Validate the admission controllers](aks-triage-controllers.md)|Check whether the admission controllers are working as expected.|
-|[5- Verify the connection to the container registry](aks-triage-container-registry.md)|Verify the connection to the container registry.|
+|[1. Evaluate AKS cluster health](aks-triage-cluster-health.md).|Check the overall health of the cluster and networking.|
+|[2. Examine node and pod health](aks-triage-node-health.md). |Evaluate the health of the AKS worker nodes. |
+|[3. Monitor workload deployments](aks-triage-deployment.md).|Ensure that all deployments and `DaemonSet` features are running.|
+|[4. Validate admission controllers](aks-triage-controllers.md).|Check whether the admission controllers are working as expected.|
+|[5. Verify the connection to the container registry](aks-triage-container-registry.md).|Verify the connection to the container registry.|
 
-## Related links
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Kevin Harris](https://www.linkedin.com/in/kevbhar) | Principal Solution Specialist
+
+Other contributors:
+
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
+- [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
 
 - [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
 - [AKS periscope](https://github.com/Azure/aks-periscope)
 - [AKS roadmap](https://aka.ms/aks/roadmap)
-- [AKS documentation](/azure/aks)
+- [AKS resources](/azure/aks)

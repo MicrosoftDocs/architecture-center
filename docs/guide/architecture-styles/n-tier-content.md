@@ -4,7 +4,9 @@ An N-tier architecture divides an application into **logical layers** and **phys
 
 Layers are a way to separate responsibilities and manage dependencies. Each layer has a specific responsibility. A higher layer can use services in a lower layer, but not the other way around.
 
-Tiers are physically separated, running on separate machines. A tier can call to another tier directly, or use asynchronous messaging (message queue). Although each layer might be hosted in its own tier, that's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
+Tiers are physically separated, running on separate machines. Contractually, the tier can have their communication models be strict or relaxed. In the strict model, a request must go through adjacent tiers, one by one, and can't skip any tier in between. For example, from the web application firewall to the web tier, then to middle tier 1, and so on. In contrast, in the relaxed approach, the request may skip some tiers if it's necessary. The strict approach has more latency and overhead, and the relaxed approach has more couplings and subsequently it's more difficult to change. A system can use a hybrid approach: having both relaxed and strict tiers where necessary.
+
+A tier can call to another tier directly, or use [Asynchronous messaging patterns](/azure/service-bus-messaging/service-bus-async-messaging) through a message queue. Although each layer might be hosted in its own tier, that's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
 
 A traditional three-tier application has a presentation tier, a middle tier, and a database tier. The middle tier is optional. More complex applications can have more than three tiers. The diagram above shows an application with two middle tiers, encapsulating different areas of functionality.
 
@@ -22,6 +24,7 @@ N-tier architectures are typically implemented as infrastructure-as-service (Iaa
 Consider an N-tier architecture for:
 
 - Simple web applications.
+- A good starting point when architectural requirements are not clear yet.
 - Migrating an on-premises application to Azure with minimal refactoring.
 - Unified development of on-premises and cloud applications.
 
@@ -31,6 +34,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 
 - Portability between cloud and on-premises, and between cloud platforms.
 - Less learning curve for most developers.
+- Relatively low cost by not rearchitecting the solution
 - Natural evolution from the traditional application model.
 - Open to heterogeneous environment (Windows/Linux)
 
@@ -40,6 +44,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 - Monolithic design prevents independent deployment of features.
 - Managing an IaaS application is more work than an application that uses only managed services.
 - It can be difficult to manage network security in a large system.
+- User and data flows typically span across multiple tiers, adding complexity to concerns like testing and observability.
 
 ## Best practices
 
@@ -68,12 +73,6 @@ Network security groups restrict access to each tier. For example, the database 
 > [!NOTE]
 > The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." In our example, this is a web application, though multi-tier architectures can be used for other topologies as well (like desktop apps).  Name your tiers what works best for your team to communicate the intent of that logical and/or physical tier in your application - you could even express that naming in resources you choose to represent that tier (e.g. vmss-appName-business-layer).
 
-For more information about running N-tier applications on Azure:
-
-- [Run Windows VMs for an N-tier application][n-tier-linux]
-- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
-- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
-- [Azure Bastion](/azure/bastion/bastion-overview)
 
 ### Additional considerations
 
@@ -81,7 +80,7 @@ For more information about running N-tier applications on Azure:
 
 - Tiers are the boundary of scalability, reliability, and security. Consider having separate tiers for services with different requirements in those areas.
 
-- Use virtual machine scale sets for autoscaling.
+- Use virtual machine scale sets for [autoscaling][autoscaling].
 
 - Look for places in the architecture where you can use a managed service without significant refactoring. In particular, look at caching, messaging, storage, and databases.
 
@@ -97,14 +96,21 @@ For more information about running N-tier applications on Azure:
 
 - If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Windows VMs in multiple regions][multiregion-windows] or [Run Linux VMs in multiple regions][multiregion-linux].
 
+### Related Resources
+
+- [N-tier application with Apache Cassandra][n-tier-linux]
+- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
+- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
+- [Azure Bastion](/azure/bastion/bastion-overview)
+- More information on messaging in an [N-tier architecture style on Azure](https://docs.particular.net/architecture/azure/n-tier)
+
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.yml
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
-[ha-nva]: ../../reference-architectures/dmz/nva-ha.yml
+[ha-nva]: ../../networking/guide/nva-ha.yml
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
 [identity]: ../../reference-architectures/identity/index.yml
-[multiregion-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.yml
+[multiregion-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.yml
-[n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.yml
-[n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.yml
+[n-tier-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

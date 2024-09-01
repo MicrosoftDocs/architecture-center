@@ -20,7 +20,7 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ### Alternatives
 
-- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has capabilities and benefits that are similar to the current architecture, but it's a challenge for Azure Monitro to consolidate multiple applications into a single workspace. [Workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource) provides a capability to centralize logs from Application Insights into a common Log Analytics workspace. Azure Monitor allows you to ingest custom logs and extend the data format for these custom logs. There are two different tradeoffs with this alternative:
+- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has capabilities and benefits that are similar to the current architecture, but it's a challenge for Azure Monitor to consolidate multiple applications into a single workspace. [Workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource) provides a capability to centralize logs from Application Insights into a common Log Analytics workspace. Azure Monitor allows you to ingest custom logs and extend the data format for these custom logs. There are two different tradeoffs with this alternative:
   - Custom logs will be ingested to different tables than the original tables. `trackEvent()` for custom logs will be stored in the `customEvents` table, whereas the original events will be stored in the `Events` table. 
   - Developers can extend table schema for custom tables as needed, which is a feature of Azure Monitor. Without a strict governance model, the table schema can become complicated over time. With the guidance from this architecture, you can introduce your own governance model and still benefit from [Workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource) capabilities by running cross-cluster queries.
 - [Microsoft Sentinel](/azure/sentinel) can provide similar capabilities from a security standpoint, but it isn't suitable for application troubleshooting or end-to-end application traceability.
@@ -129,7 +129,7 @@ Include the preceding recommended reference tables in your logging design as sta
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -280,8 +280,7 @@ Principal author:
 
 ## Related resources
 
-- [Unified logging for microservices apps](../../example-scenario/logging/unified-logging.yml)
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)
-- [Real time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+

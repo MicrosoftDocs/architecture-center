@@ -22,9 +22,9 @@ For one way to migrate Kafka to Azure IaaS, see [Kafka on Ubuntu VMs](https://gi
 
 ### Migrate Kafka to Azure Event Hubs for Kafka
 
-Event Hubs provides an endpoint that's compatible with the Apache Kafka producer and consumer APIs. This endpoint can be used by most Apache Kafka client applications, so it's an alternative to running a Kafka cluster on Azure. The endpoint supports clients that use versions 1.0 and later of the APIs.
+Event Hubs provides an endpoint that's compatible with the Apache Kafka producer and consumer APIs. This endpoint can be used by most Apache Kafka client applications, so it's an alternative to running a Kafka cluster on Azure. The endpoint supports clients that use versions 1.0 and later of the APIs. For more information about this feature, see [Azure Event Hubs for Apache Kafka overview](/azure/event-hubs/azure-event-hubs-kafka-overview). 
 
-For more information, see [Migrate to Azure Event Hubs for Apache Kafka Ecosystems](/azure/event-hubs/apache-kafka-migration-guide).
+To learn how to migrate your Apache Kafka applications to use Azure Event Hubs, see [Migrate to Azure Event Hubs for Apache Kafka Ecosystems](/azure/event-hubs/apache-kafka-migration-guide).
 
 #### Kafka and Event Hubs feature differences
 
@@ -132,10 +132,10 @@ Other contributors:
 - [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Senior Software Engineer
 - [Eugene Chung](https://www.linkedin.com/in/eugenesc) | Senior Cloud Solution Architect
 - [Pawan Hosatti](https://www.linkedin.com/in/pawanhosatti) | Senior Cloud Solution Architect - Engineering
-- [Daman Kaur](https://www.linkedin.com/in/damankaur-architect) | Cloud Solution Architect
+- [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect
 - [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
-- [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
+- [Ben Sadeghi](https://www.linkedin.com/in/bensadeghi) | Senior Specialist
 - [Sunil Sattiraju](https://www.linkedin.com/in/sunilsattiraju) | Senior Cloud Solution Architect
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004) | Principal Program Manager
 - [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Cloud Solution Architect - Engineering
@@ -147,14 +147,15 @@ Other contributors:
 ### Azure product introductions
 
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [What is Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
+- [What is Apache Spark in Azure HDInsight?](/azure/hdinsight/spark/apache-spark-overview)
 - [What is Apache Hadoop in Azure HDInsight?](/azure/hdinsight/hadoop/apache-hadoop-introduction)
-- [What is Apache HBase in Azure HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
-- [What is Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [What is Apache HBase in Azure HDInsight?](/azure/hdinsight/hbase/apache-hbase-overview)
+- [What is Apache Kafka in Azure HDInsight?](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [Overview of enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
 
 ### Azure product reference
 
-- [Azure Active Directory documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/entra)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)
 - [Azure Data Factory documentation](/azure/data-factory)
 - [Azure Databricks documentation](/azure/databricks)
@@ -180,4 +181,3 @@ Other contributors:
 - [Apache HDFS migration to Azure](apache-hdfs-migration.yml)
 - [Apache HBase migration to Azure](apache-hbase-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)

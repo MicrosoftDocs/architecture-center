@@ -2,7 +2,7 @@ This example workload shows several ways that small businesses (SMBs) can modern
 
 ## Architecture
 
-![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage Gen2, and other services.](media/small-medium-data-warehouse/small-medium-data-warehouse.svg)
+:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
@@ -96,7 +96,7 @@ This solution isn't recommended for:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The following considerations apply to this scenario.
 
@@ -148,10 +148,8 @@ Principal author:
 
 ## Related resources
 
-- For comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data, see the [Azure Data Architecture Guide](../../data-guide/index.md).
 - Learn more about:
   - [Data lakes](../../data-guide/scenarios/data-lake.md)
   - [Data warehousing and analytics](data-warehouse.yml)
   - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
-  - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
   - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

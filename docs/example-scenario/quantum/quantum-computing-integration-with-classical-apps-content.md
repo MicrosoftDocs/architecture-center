@@ -28,7 +28,7 @@ The tightly coupled approach is preferred in these cases:
 
 ### Architecture
 
-:::image type="content" border="false" source="media/tightly-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a tightly coupled quantum computing job.":::
+:::image type="content" alt-text="Architecture diagram that shows a hybrid app that contains a tightly coupled quantum computing job." source="media/tightly-coupled-quantum-computing-job-architecture.svg" lightbox="media/tightly-coupled-quantum-computing-job-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/tightly-coupled-quantum.pptx) of this architecture.*
 
@@ -45,14 +45,14 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 
 ### Components
 
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum or optimization jobs on various targets. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider you choose.
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
+* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
 * [Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
 * [Azure Storage](https://azure.microsoft.com/services/storage) provides storage for input data and results from the quantum provider.
 
 ### Availability
 
-Availability of the quantum compute functionality depends highly on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list) and [optimization provider](/azure/quantum/qio-target-list). Depending on the compute target, the classical client application might experience long delays or unavailability of the target.
+Availability of the quantum compute functionality depends highly on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list). Depending on the compute target, the classical client application might experience long delays or unavailability of the target.
 
 For the surrounding Azure services, the usual availability considerations apply:
 
@@ -79,9 +79,10 @@ The loosely coupled approach is preferred in these cases:
 
 ### Architecture
 
-:::image type="content" border="false" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job.":::
+:::image type="content" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job." source="media/loosely-coupled-quantum-computing-job-architecture.svg" lightbox="media/loosely-coupled-quantum-computing-job-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
+
 ### Dataflow
 1. A signed-in user triggers quantum job execution via a classical application.
 1. The classical application calls the custom job API to submit the job.
@@ -97,8 +98,8 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 
 ### Components
 
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum or optimization jobs on various targets. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider you choose.
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
+* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum jobs on various targets. Jobs are run on quantum simulators or quantum hardware, depending on the provider you choose.
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
 * [API Management](https://azure.microsoft.com/services/api-management) is the API gateway that centrally exposes the API endpoints for quantum job management.
 * [Azure Functions](https://azure.microsoft.com/services/functions) is used to forward the client requests to appropriate quantum resources.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
@@ -106,7 +107,7 @@ This workflow implements the [Asynchronous Request-Reply pattern](../../patterns
 
 ### Availability
 
-Availability of the quantum compute functionality is highly dependent on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list) and [optimization provider](/azure/quantum/qio-target-list). Depending on the compute target, the classical client application might experience long delays or unavailability of the target.
+Availability of the quantum compute functionality is highly dependent on the availability and install base of the [quantum computing provider](/azure/quantum/qc-target-list). Depending on the compute target, the classical client application might experience long delays or unavailability of the target.
 
 For the surrounding Azure services, the usual availability considerations apply:
 
@@ -156,11 +157,9 @@ As quantum computing resources are typically limited, resiliency expectations sh
 
 Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The design below illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
 
-In-depth guidance for DevOps and quantum computing can be found at [DevOps for quantum computing](/azure/architecture/guide/quantum/devops-for-quantum-computing)
-
 #### Architecture
 
-:::image type="content" border="false" source="media/cicd-for-quantum-computing-jobs.png" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it.":::
+:::image type="content" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it." source="media/cicd-for-quantum-computing-jobs.svg" lightbox="media/cicd-for-quantum-computing-jobs.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cicd-quantum.pptx) of this architecture.*
 
@@ -189,8 +188,8 @@ As an alternative, you can use GitHub repositories and GitHub actions to impleme
 The solution uses the following other components:
 
 * A client application orchestrates the quantum job. You can implement integration by using a [tightly coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) or a [loosely coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) approach.
-* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace) for assets that are associated with running quantum computing applications. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider that you choose.
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum workspace.
+* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace) for assets that are associated with running quantum computing applications. Jobs are run on quantum simulators or quantum hardware, depending on the provider that you choose.
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum workspace.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the quantum workspace name.
 * [Azure Storage](https://azure.microsoft.com/services/storage) holds the input and output data of the quantum job.
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors the application, detects application anomalies like poor performance and failures, and sends telemetry to the Azure portal.
@@ -199,11 +198,7 @@ The solution uses the following other components:
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-For the Azure Quantum service, consider these points:
-
-* [Microsoft QIO](/azure/quantum/provider-microsoft-qio) solvers are billed via the Azure subscription bill. The cost depends on the SKU and your usage pattern. For details, see [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum).
-* Other optimization providers are available on Azure Marketplace. For pricing details, see the applicable reference page listed in [Optimization providers on Azure Quantum](/azure/quantum/qio-target-list).
-* Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
+For the Azure Quantum service, consider that Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
 ## Contributors
 
@@ -211,7 +206,7 @@ For the Azure Quantum service, consider these points:
 
 Principal author: 
 
- - [Holger Sirtl](https://www.linkedin.com/in/hsirtl) | Senior Cloud Solution Architect
+ - [Holger Sirtl](https://www.linkedin.com/in/hsirtl) | Senior Technical Architect at the Microsoft Technology Center
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 

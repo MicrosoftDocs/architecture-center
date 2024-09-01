@@ -3,8 +3,8 @@ title: Architecture for startups
 titleSuffix: Azure Architecture Center
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
-ms.author: anharvey
-ms.date: 10/28/2021
+ms.author: robbag
+ms.date: 8/21/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,9 +22,9 @@ products:
 
 # Architecture for startups
 
-Building a startup is a unique challenge. The core task is to find a place for an innovation as a product or service in the market. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as its product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
+Building a startup is a unique challenge. The core task is to find a place for an innovation as a product or service in the market. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as its product gains product and market fit. After finding this fit, the startup must scale to capture the market demand.
 
-In the different startup life stages, developers, architects, and chief technical officers (CTOs) handle distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of the task is to establish which phase your startup is in. Choose the technologies and architectures that match that phase.
+In the different startup life stages, developers, architects, and chief technical officers (CTOs) handle distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of the task is to establish which phase your startup is in. Choose the technologies, approaches and architectures that match that phase.
 
 ## Innovation stages
 
@@ -36,9 +36,9 @@ Kent Beck describes a [three-stage process](https://medium.com/@kentbeck_7670/fa
 
 - The **Explore** stage starts with a low slope, where you're trying to find what works. Certainty is low, you only invest small amounts, and the risk from any changes you make is also low.
 
-- At some point, the graph rises more rapidly. This rapid growth is the **Expand** stage. Your certainty greatly increases, you invest much more, and you're much more aware of risks.
+- When product market fit is found, the graph rises more rapidly. This rapid growth is the **Expand** stage. Your certainty greatly increases, you invest much more, and you're much more aware of risks.
 
-- Finally, as the graph flattens out, you reach the **Extract** stage. The certainty, investment, and risk from change are all high, but the rate of growth has reached a plateau.
+- Finally, as the graph flattens out and the startup reaches maturity, you reach the **Extract** stage. The certainty, investment, and risk from change are all high, but the rate of growth has reached a plateau.
 
 ## Explore
 
@@ -46,7 +46,7 @@ When your startup is in the exploration stage, your imperative is to invest smal
 
 This stage requires discipline. It's easy to overinvest in an idea that you could test with less time and energy. A technologist finds it especially easy to fall into this trap. To make architectural choices that ease exploration, remember that you're exploring. You don't yet know if the current product idea is one that will scale.
 
-From an architecture perspective, choose services that optimize for speed, cost, and options. Use managed services and platforms as a service (PaaS) like Azure App Service to get started quickly without worrying about complex infrastructure. Manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
+From an architecture perspective, choose services that optimize for speed, cost, and options. Use managed services and platforms as a service (PaaS) like Azure App Service to get started quickly without worrying about complex infrastructure. Manage costs by choosing free tiers and smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you and give you flexible deployment options for the future.
 
 ### Build your first stack
 
@@ -56,9 +56,11 @@ During the exploration phase, you need to optimize for speed, cost, and optional
 
 It's important to balance cost, speed, and optionality. Too much focus on cost limits speed and optionality. Too much focus on speed can lead to increased costs and fewer options. Designing for too many options builds complexity, which increases costs and reduces speed.
 
+Consider using our [suggested first technology stack](../../example-scenario/startups/core-startup-stack.yml). This architecture uses PaaS services for ease of implementation, can be started with a minimal scale, and uses container and open source technologies that can easily be deployed on different technology stacks as you mature.
+
 ## Expand
 
-Once your startup finds growth through exploration, you shift gears to expansion. You focus on removing any blockages to your product's and company's continued growth. From a technical perspective, you solve infrastructure scale challenges and increase development velocity. The goals are to meet your new customers' needs and advance your product roadmap.
+Once your startup finds product market fit and subsequent growth through exploration, you shift gears to expansion. You focus on removing any blockages to your product's and company's continued growth. From a technical perspective, you solve infrastructure scale challenges and increase development velocity. The goals are to meet your new customers' needs and advance your product roadmap.
 
 ### Extend your architecture
 
@@ -67,6 +69,13 @@ As you iterate on your product, you'll inevitably find areas where your architec
 You might need architectural changes to accommodate items on your roadmap. Resist the temptation to make those changes too far in advance. Extensions risk adding complexity to your architecture and infrastructure costs to your balance sheet.
 
 In early startup stages, any architecture extension should be just-in-time. The extension should take only as much time and energy as needed to test the next hypothesis. Be ready to remove extensions to reduce complexity. Look for product features that your customers aren't using as opportunities to simplify your architecture and reduce your infrastructure spending.
+
+Your architecture could be expanded in many ways, such as:
+
+- Adding Artificial Intelligence via [Retrieval Augmented Generation (RAG)](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)
+- Enhancing resiliency through a [zone-redundant deployment](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- Enhancing resiliency through a [highly available multi-region deployment](../../web-apps/app-service/architectures/multi-region.yml)
+- Enhancing security through a [network hardened technology stack](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 
 ## Extract
 

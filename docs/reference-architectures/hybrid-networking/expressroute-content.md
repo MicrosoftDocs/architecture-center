@@ -136,7 +136,7 @@ If your provider had already provisioned the circuit, and the `ProvisioningState
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Scalability
 
@@ -300,7 +300,7 @@ Microsoft Learn modules:
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
+[azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [0]: ./images/expressroute.png "Diagram showing hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"

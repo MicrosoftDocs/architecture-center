@@ -3,11 +3,14 @@
 This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability (HA) and disaster recovery (DR). Called HANA Large Instances (HLI), this offering is deployed on physical servers in Azure regions. This solution depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios].
 
 > [!NOTE]
+> HANA Large Instance service is in sunset mode and does not accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, please check the offers of HANA certified Azure VMs in the [HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24).
+
+> [!NOTE]
 > Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
 
 ## Architecture
 
-:::image type="complex" source="./images/sap-hana-large-instances.png" alt-text="SAP HANA architecture using Azure Large Instances":::
+:::image type="complex" source="./images/sap-hana-large-instances.svg" alt-text="SAP HANA architecture using Azure Large Instances." lightbox="./images/sap-hana-large-instances.svg":::
 The diagram shows two Azure regions. The primary region contains an application tier with SAP applications, an SAP HANA server pool, and an ExpressRoute gateway. The ExpressRoute gateway connects to the secondary region, which contains a replicated HANA server pool.
 :::image-end:::
 
@@ -97,7 +100,7 @@ If you already have SAP deployments, SAP provides reports you can use to check t
 
 ### Availability
 
-Resource redundancy is the general theme in highly available infrastructure solutions. Work with SAP, your system integrator, or Microsoft to properly architect and implement a [high availability and disaster-recovery][hli-hadr] strategy. This architecture follows the Azure [service level agreement][sla] (SLA) for HANA on Azure (Large Instances). To assess your availability requirements, consider any single points of failure, the desired level of uptime for services, and these common metrics:
+Resource redundancy is the general theme in highly available infrastructure solutions. Work with SAP, your system integrator, or Microsoft to properly architect and implement a [high availability and disaster-recovery][hli-hadr] strategy. This architecture follows the Azure [service level agreement (SLA)][sla] for HANA on Azure (Large Instances). To assess your availability requirements, consider any single points of failure, the desired level of uptime for services, and these common metrics:
 
 - Recovery Time Objective (RTO) means the duration of time in which the HANA Large Instances server is unavailable.
 
@@ -131,13 +134,15 @@ In this reference architecture, virtual machines are used for hosting SAP applic
 
 [HANA Large Instances SKUs][HLI-SKUs] are available as reserved VM instances. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) can lower your cost if you can commit to one-year or three-year term. VM reservations can reduce costs up to 72 percent when compared to pay-as-you-go prices. You get a purpose-built SAP HANA infrastructure with compute, storage, and network. HANA Large Instances is coupled with NFS storage and networking and provides built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations. If your workload doesn't have a predictable time of completion or resource consumption, consider the pay-as-you-go option.
 
+Use [Azure savings plan overview](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and combine with Azure Reservations. Azure savings plan is a flexible cost-saving plan that generates significant savings off pay-as-you-go prices. You agree to a one-year or three-year contract and receive discounts on eligible compute services. Savings apply to these compute services regardless of the region, instance size, or operating system. For more information, see [Azure savings plan documentation](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+
 Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined time frame or an SLA.
 
 For more information, see the "SAP HANA on Azure Large Instances" section in [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing].
 
 #### Azure ExpressRoute
 
-For this architecture, Azure ExpressRoute is used as the networking service for creating private connections between an on-premises network and Azure VNETs. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway.  [High Performance or Ultra Performance][sku] is the recommended SKU.
+For this architecture, Azure ExpressRoute is used as the networking service for creating private connections between an on-premises network and Azure virtual networks. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway.  [High Performance or Ultra Performance][sku] is the recommended SKU.
 
 All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
@@ -199,10 +204,9 @@ Principal author:
 
 ## Related resources
 
-You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+You might wish to review the following [Azure example scenario](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
 - [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
-- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)
 
 <!-- links -->
 

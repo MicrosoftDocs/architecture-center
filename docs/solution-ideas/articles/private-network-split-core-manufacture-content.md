@@ -8,7 +8,7 @@ A split 5G/LTE core architecture is suited for large enterprises with multiple s
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/private-5g-network.pptx) of this architecture.*
 
-In this architecture, the Azure Private 5G Core is split into a *data plane* and a *control plane*.
+In this architecture, a 5G Core is split into a *data plane* and a *control plane*.
 
 The data plane uses User Plane Function (UPF). The control plane uses Session Management Function (SMF) or Policy Control Function (PCF):
 
@@ -91,9 +91,7 @@ Principle author:
 
 ## Related resources
 
-- [Data analysis workloads for regulated industries](../../example-scenario/data/data-analysis-regulated-industries.yml)
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Industrial IoT connectivity patterns](../../guide/iiot-patterns/iiot-connectivity-patterns.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)

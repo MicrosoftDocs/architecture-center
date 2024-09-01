@@ -4,7 +4,7 @@ The Price Analytics solution utilizes your transactional history data to show yo
 
 ## Architecture
 
-:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.png" lightbox="../media/interactive-price-analytics.png":::
+:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.svg" lightbox="../media/interactive-price-analytics.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/interactive-price-analytics.vsdx) of this architecture.*
 
@@ -20,7 +20,7 @@ The Price Analytics solution utilizes your transactional history data to show yo
 ### Components
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Microsoft Excel](https://www.microsoft.com/microsoft-365/excel) worksheets
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
@@ -73,7 +73,7 @@ The solution provides the following advantages:
 
 ## Considerations
 
-Considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+Considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Cost optimization
 
@@ -145,8 +145,6 @@ Learn more about pricing solutions:
 
 Explore related architectures:
 
-- [Demand forecasting for shipping and distribution](./demand-forecasting-for-shipping-and-distribution.yml)
-- [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
-- [Predictive maintenance](./predictive-maintenance.yml)
+- [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
 - [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

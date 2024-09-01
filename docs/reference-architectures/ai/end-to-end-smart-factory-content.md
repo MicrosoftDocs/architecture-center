@@ -65,7 +65,7 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -167,6 +167,4 @@ Principal Author:
 - [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 - [Vision AI solutions with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 - [Azure IoT reference architecture](../iot.yml)
-- [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
-- [DevOps Checklist](../../checklist/dev-ops.md)
-- [MLOps maturity model](../../example-scenario/mlops/mlops-technical-paper.yml)
+- [MLOps maturity model](../../ai-ml/guide/mlops-technical-paper.yml)

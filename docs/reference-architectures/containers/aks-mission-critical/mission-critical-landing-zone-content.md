@@ -1,10 +1,10 @@
 This reference architecture provides guidance for deploying a mission-critical workload that uses centralized shared services, needs on-premises connectivity, and integrates with other workloads of an enterprise. This guidance is intended for a workload owner who is part of an application team in the organization.
 
-You might find yourself in this situation when your organization wants to deploy the workload in an _Azure application landing zone_ that inherits the Corp. Management group. The workload is expected to integrate with pre-provisioned shared resources in the _Azure platform landing zone_ that are managed by centralized teams.  
+You might find yourself in this situation when your organization wants to deploy the workload in an *Azure application landing zone* that inherits the Corp. Management group. The workload is expected to integrate with pre-provisioned shared resources in the *Azure platform landing zone* that are managed by centralized teams.  
 
 > [!IMPORTANT]
 > **What is an Azure landing zone?**
-> An application landing zone is a Azure subscription in which the workload runs. It's connected to the organization's shared resources. Through that connection, it has access to basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring. The platform landing zones is a collection of various subscriptions, each with a specific function. For example, the Connectivity subscription provides centralized DNS resolution, on-premises connectivity, and network virtual appliances (NVAs) that's available for use by application teams. 
+> An application landing zone is an Azure subscription in which the workload runs. It's connected to the organization's shared resources. Through that connection, it has access to basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring. The platform landing zones is a collection of various subscriptions, each with a specific function. For example, the Connectivity subscription provides centralized DNS resolution, on-premises connectivity, and network virtual appliances (NVAs) that's available for use by application teams. 
 >
 > As a workload owner, you benefit by offloading management of shared resources to central teams and focus on workload development efforts. The organization benefits by applying consistent governance and amortizing costs across multiple workloads.
 > 
@@ -43,6 +43,8 @@ Apply these strategies on top of the [mission-critical baseline](/azure/architec
 ## Architecture
 
 :::image type="content" source="./images/mission-critical-architecture-landing-zone.svg" alt-text="Architecture diagram of a mission-critical workload in an Azure landing zone." lightbox="./images/mission-critical-architecture-landing-zone-high-res.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mission-critical-landing-zone.vsdx) of this architecture.*
 
 The components of this architecture are same as the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
@@ -194,7 +196,7 @@ It's a general practice to place workloads in separate environments for **produc
 
 ##### How is isolation maintained?
 
-The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. Avoid sharing application-owned resources between environments.
+The production environment *must* be isolated from other environments. Lower environments should also  maintain a level of isolation. Avoid sharing application-owned resources between environments.
 
 One production environment is required for global, regional, and stamp resources owned by the application team. Pre-production environments, such as staging and integration, are needed to make sure the application is tested in an environment that simulates production, as much as possible. Development environment should be a scaled down version of production.
 
@@ -310,7 +312,7 @@ Mission-critical design methodology requires a system [health model](mission-cri
 
 - Support the organizational goal of reliability toward the mission-critical workload by giving the application team enough permission to do their operations.
 
-In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription. If you extend this design to reach an on-premises resource such as a database, the health model must include network connectivity to that resource, including security boundaries like network virtual appliances in Azure _and_ on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database?
+In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription. If you extend this design to reach an on-premises resource such as a database, the health model must include network connectivity to that resource, including security boundaries like network virtual appliances in Azure *and* on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database?
 
 > Refer to: [Well-architected mission-critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
 
@@ -357,4 +359,3 @@ In addition to the [**Azure services used in the baseline architecture**](/azure
 - [Azure Monitor](/azure/azure-monitor/)
 - [Virtual Networks](/azure/virtual-network/)
 - [Route tables](/azure/virtual-network/virtual-networks-udr-overview)
-

@@ -1,12 +1,12 @@
 Disasters can be hardware failures, natural disasters, or software failures. The process of preparing for and recovering from a disaster is called disaster recovery (DR). This article discusses recommended practices to achieve business continuity and disaster recovery (BCDR) for Azure Data Factory and Azure Synapse Analytics pipelines.
 
-BCDR strategies include availability zone redundancy, automated recovery provided by Azure disaster recovery, and user-managed recovery by using continuous integration/continuous delivery (CI/CD).
+BCDR strategies include availability zone redundancy, automated recovery provided by Azure disaster recovery, and user-managed recovery by using continuous integration and continuous delivery (CI/CD).
 
 ## Architecture
 
-![Diagram that shows availability zones and regions for Azure Synapse Analytics and Data Factory pipelines BCDR.](media/pipelines-disaster-recovery.png)
+[ ![Diagram that shows availability zones and regions for Azure Synapse Analytics and Data Factory pipelines BCDR.](media/pipelines-disaster-recovery.svg)](media/pipelines-disaster-recovery.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/BCDR_Azure_Synapse_Data_Factory.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure_synapse_data_factory.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -52,9 +52,10 @@ You can use the following recommended practices to achieve BCDR for Data Factory
 
 ### Automated recovery with Azure disaster recovery
 
-With automated recovery, when there's an outage in an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region. The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
 
-In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager (ARM) templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
+With automated recovery provided Azure backup and disaster recovery, when there is a complete regional outage for an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region when you [Set up automated recovery](#deploy-this-scenario). The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
+
+In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
 
 The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/availability-zones/business-continuity-management-program#testing-of-services).
 
@@ -75,7 +76,7 @@ You can quickly move your production workloads to other regions and not be affec
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -108,7 +109,7 @@ Take the following actions to set up automated or user-managed DR for Data Facto
 
 ### Set up automated recovery
 
-In Data Factory, you can set the Azure integration runtime (IR) region for your activity execution or dispatch in the **Integration runtime setup**. To enable automatic failover, set the **Region** to **Auto Resolve**.
+In Data Factory, you can set the Azure integration runtime (IR) region for your activity execution or dispatch in the **Integration runtime setup**. To enable automatic failover in the event of a complete regional outage, set the **Region** to **Auto Resolve**.
 
 [ ![Screenshot that shows selecting Auto Resolve to enable automatic failover in the Integration runtime setup.](media/integration-runtime.png)](media/integration-runtime.png#lightbox)
 
@@ -200,6 +201,5 @@ Other contributors: 
 - [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
-- [High availability and disaster recovery scenarios for IaaS apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Choose a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 - [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)

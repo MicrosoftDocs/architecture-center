@@ -1,8 +1,12 @@
 This solution stores security logs in Azure Data Explorer on a long-term basis. This solution minimizes costs and provides easy access when you need to query the data.
 
+*[Grafana](https://grafana.com/) and [Jupyter Notebooks](https://jupyter.org/) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
 ## Architecture
 
-:::image type="content" source="./media/security-log-retention-azure-data-explorer-architecture-diagram.png" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false":::
+:::image type="content" source="./media/security-log-retention-azure-data-explorer.svg" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false" lightbox="./media/security-log-retention-azure-data-explorer.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/security-log-retention-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -107,7 +111,7 @@ The Kusto query language is native to Azure Data Explorer. This language is also
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Keep the following points in mind when you implement this solution.
 
@@ -185,7 +189,6 @@ Principal author:
 - [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
 - [Big data analytics with Azure Data Explorer][Big data analytics with Azure Data Explorer]
 
-[Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Archive data from Log Analytics workspace to Azure storage using Logic App]: /azure/azure-monitor/logs/logs-export-logic-app
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer

@@ -1,8 +1,8 @@
 ---
 title: Choose a compute option for microservices
 description: Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.
-author: martinekuan
-ms.author: architectures
+author: francisnazareth
+ms.author: fnazaret
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -32,13 +32,13 @@ An orchestrator handles tasks related to deploying and managing a set of service
 
 On the Azure platform, consider the following options:
 
-- [Azure Kubernetes Service](/azure/aks/) (AKS) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, but hosts and manages the Kubernetes control plane, performing automated upgrades, automated patching, autoscaling, and other management tasks. You can think of AKS as being "Kubernetes APIs as a service."
+- [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, but hosts and manages the Kubernetes control plane, performing automated upgrades, automated patching, autoscaling, and other management tasks. You can think of AKS as being "Kubernetes APIs as a service."
 
 - [Azure Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks.  Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes.  
 
 - [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. Microservices can be deployed to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). Using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services. A key differentiation with Service Fabric is its strong focus on building stateful services using [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
 
-- Other options such as Docker Enterprise Edition and Mesosphere DC/OS can run in an IaaS environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
+- Other options such as Docker Enterprise Edition can run in an IaaS environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
 ## Containers
 
@@ -83,5 +83,5 @@ Our reference implementation primarily uses Kubernetes, but we did use Azure Fun
 
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.yml)
-- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
+- [Expose Azure Spring Apps through a reverse proxy](../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
 - [Design APIs for microservices](../design/api-design.yml)

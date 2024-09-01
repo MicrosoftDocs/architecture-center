@@ -43,7 +43,7 @@ Any migration strategy should allow teams to incrementally refactor the applicat
 
 To help facilitate this decomposition, a viable software development approach is to apply the principles of domain-driven design (DDD).
 
-Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
+Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD opposes the idea of having a single unified model for the entire system. Instead, it encourages dividing the system into bounded contexts, each of which has its own model. DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
 
 The DDD approach can be applied retroactively to an existing application, as a way to begin decomposing the application.
 
@@ -61,13 +61,13 @@ The bounded contexts identified in step 4 are candidates for refactoring into sm
 
 For more information about using a DDD approach for microservices architectures, see [Using domain analysis to model microservices](./model/domain-analysis.md).
 
-## Use glue code (anti-corruption layer)
+## Anti-corruption layer (glue code)
 
 While this investigative work is carried out to inventory the monolithic application, new functionality can be added by applying the principles of DDD as separate services. "Glue code" allows the monolithic application to proxy calls to the new service to obtain new functionality.
 
-![ Glue Code to allow a monolith to interact with a new service](./images/monolith/figure4.png)
+![An anti-corruption layer to allow a monolith to interact with a new service](./images/monolith/figure4.png)
 
-The  [glue code](https://en.wikipedia.org/wiki/Glue_code) (adapter pattern) effectively acts as an anti-corruption layer, ensuring that the new service is not polluted by data models required by the monolithic application. The glue code helps to mediate interactions between the two and ensures that only data required by the new service is passed to enable compatibility.
+The [anti-corruption layer](/azure/architecture/patterns/anti-corruption-layer) (adapter pattern) effectively acts as an anti-corruption layer, ensuring that the new service is not polluted by data models required by the monolithic application. The anti-corruption layer helps to mediate interactions between the two and ensures that only data required by the new service is passed to enable compatibility.
 
 Through the process of refactoring, teams can inventory the monolithic application and identify candidates for microservices refactoring while also establishing new functionality with new services.
 

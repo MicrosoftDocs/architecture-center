@@ -2,9 +2,9 @@ Skytap on Azure simplifies cloud migration for applications that run on IBM Powe
 
 ## Architecture
 
-![Diagram of a self-service lift-and-shift of AIX workloads to Skytap on Azure.](media/aix-skytap-architecture-800.png)
+:::image type="content" border="false" source="media/migrate-aix-workloads-to-azure-with-skytap.svg" alt-text="Diagram that shows Azure components used to migrate IBM i workloads to Skytap on Azure." lightbox="media/migrate-aix-workloads-to-azure-with-skytap.svg" :::
 
- [View a larger version of the image](media/aix-skytap-architecture-large.png)
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-aix-workloads-to-azure-with-skytap.vsdx) of this architecture.*
  
 ### Workflow
 
@@ -30,14 +30,14 @@ The architecture uses these components:
 
 -   [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for your private network in Azure. 
 As a software defined network, a virtual network (VNet) provides an isolated environment for VMs and other Azure resources to communicate with each other, the internet, and on-premises networks. 
-Learn more information on how Skytap on [Azure connectivity](https://www.skytap.com/skytap-on-azure-networking-considerations/) works in the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
+Learn more information on how Skytap on [Azure connectivity](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/) works in the [Skytap Well-Architected Framework](https://skytap.github.io/well-architected-framework/).
 
 -   [Azure Private Link](/azure/private-link/private-link-overview) creates your own private link service in your virtual network so the web client can consume resources from Skytap on Azure.
 
 -   [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) is an object storage solution designed for storing massive amounts of unstructured data, such as text and binary data.
 
 -  [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks to Microsoft cloud services, including Azure and Office 365, over a private connection facilitated by a connectivity provider.
-Learn more information on how Azure ExpressRoute works with Skytap in the [Skytap Getting Started with Azure Networking guide](https://www.skytap.com/skytap-on-azure-networking-considerations/).
+Learn more information on how Azure ExpressRoute works with Skytap in the [Skytap Getting Started with Azure Networking guide](https://www.skytap.com/blog/skytap-on-azure-networking-considerations/).
 
 -   [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that you install on-premises. You write data to it using the NFS and Server Message Block (SMB) protocols, and Data Box Gateway sends the data to Azure.
 
@@ -126,4 +126,4 @@ To learn more about Skytap on Azure, contact <legacy2azure@microsoft.com> or che
 ## Related resources
 
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

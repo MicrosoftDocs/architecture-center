@@ -2,13 +2,13 @@
 title: Choose a search data store
 description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-products: 
+products:
   - azure-cognitive-search
 ---
 
@@ -21,8 +21,7 @@ This article compares technology choices for search data stores in Azure. A sear
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
 
 - [Azure Cognitive Search](/azure/search/search-what-is-azure-search)
-- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
-- [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
+- [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
 
 ## Key selection criteria
@@ -35,7 +34,7 @@ For search scenarios, begin choosing the appropriate search data store for your 
 
 - Do you need an index only for full-text search, or do you also need rapid aggregation of numeric data and other analytics? If you need functionality beyond full-text search, consider options that support additional analytics.
 
-- Do you need a search index for log analytics, with support for log collection, aggregation, and visualizations on indexed data? If so, consider Elasticsearch, which is part of a log analytics stack.
+- Do you need a search index for Log Analytics, with support for log collection, aggregation, and visualizations on indexed data? If so, consider Elasticsearch, which is part of a Log Analytics stack.
 
 - Do you need to index data in common document formats such as PDF, Word, PowerPoint, and Excel? If yes, choose an option that provides document indexers.
 
@@ -47,37 +46,37 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Is managed service | Yes | No | Yes | Yes |
-| REST API | Yes | Yes | Yes | No |
-| Programmability | .NET, Java, Python, JavaScript | Java | Java | T-SQL |
-| Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Is managed service | Yes | No | Yes |
+| REST API | Yes | Yes | No |
+| Programmability | .NET, Java, Python, JavaScript | Java | T-SQL |
+| Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | No |
 
 ### Manageability capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Updateable schema | Yes | Yes | Yes | Yes |
-| Supports scale out  | Yes | Yes | Yes | No |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Updateable schema | Yes | Yes | Yes |
+| Supports scale out  | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Supports analytics beyond full text search | No | Yes | Yes | Yes |
-| Part of a log analytics stack | No | Yes (ELK) |  No | No |
-| Supports semantic search | Yes (find similar documents only) | Yes | Yes | Yes |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Supports analytics beyond full text search | No | Yes | Yes |
+| Part of a Log Analytics stack | No | Yes (ELK) | No |
+| Supports semantic search | Yes (find similar documents only) | Yes | Yes |
 
 ### Security capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
-| Transparent data encryption | No | No | No | Yes |
-| Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
-| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |
-| Active Directory authentication (integrated authentication) | No | No | No | Yes |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Row-level security | Partial (requires application query to filter by group ID) | Partial (requires application query to filter by group ID) | Yes |
+| Transparent data encryption | No | No | Yes |
+| Restrict access to specific IP addresses | Yes | Yes | Yes |
+| Restrict access to allow virtual network access only | Yes | Yes | Yes |
+| Active Directory authentication (integrated authentication) | No | No | Yes |
 
 ## Contributors
 

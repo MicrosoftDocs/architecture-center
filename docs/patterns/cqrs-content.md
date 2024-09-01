@@ -20,7 +20,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
-- Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved").
+- Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). This may require some corresponding changes to the user interaction style. The other part of that is to look at modifying the business logic processing those commands to be successful more frequently. One technique that supports this is to run some validation rules on the client even before sending the command, possibly disabling buttons, explaining why on the UI ("no rooms left"). In that manner, the cause for server-side command failures can be narrowed to race conditions (two users trying to book the last room), and even those can sometimes be addressed with some more data and logic (putting a guest on a waiting list).
 - Commands may be placed on a queue for [asynchronous processing](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication), rather than being processed synchronously.
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
@@ -28,7 +28,7 @@ The models can then be isolated, as shown in the following diagram, although tha
 
 ![A basic CQRS architecture](./_images/command-and-query-responsibility-segregation-cqrs-basic.png)
 
-Having separate query and update models simplifies the design and implementation. However, one disadvantage is that CQRS code can't automatically be generated from a database schema using scaffolding mechanisms such as O/RM tools.
+Having separate query and update models simplifies the design and implementation. However, one disadvantage is that CQRS code can't automatically be generated from a database schema using scaffolding mechanisms such as O/RM tools (However, you will be able to build your customization on top of the generated code).
 
 For greater isolation, you can physically separate the read data from the write data. In that case, the read database can use its own data schema that is optimized for queries. For example, it can store a [materialized view](./materialized-view.yml) of the data, in order to avoid complex joins or complex O/RM mappings. It might even use a different type of data store. For example, the write database might be relational, while the read database is a document database.
 
@@ -83,6 +83,16 @@ This pattern isn't recommended when:
 - A simple CRUD-style user interface and data access operations are sufficient.
 
 Consider applying CQRS to limited sections of your system where it will be most valuable.
+
+## Workload design
+
+An architect should evaluate how the CQRS pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | The separation of read and write operations in high read-to-write workloads enables targeted performance and scaling optimizations for each operation's specific purpose.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:08 Data performance](/azure/well-architected/performance-efficiency/optimize-data-performance) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Event Sourcing and CQRS pattern
 
@@ -227,3 +237,5 @@ Martin Fowler's blog posts:
 - [Event Sourcing pattern](./event-sourcing.yml). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 
 - [Materialized View pattern](./materialized-view.yml). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
+
+- [Presentation on better CQRS through asynchronous user interaction patterns](https://particular.net/videos/cqrs-user-interaction-patterns)

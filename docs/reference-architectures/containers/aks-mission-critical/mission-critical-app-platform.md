@@ -2,19 +2,21 @@
 title: Application platform considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Platform.
 author: msimecek
-ms.author: prwilk
+ms.author: msimecek
 ms.date: 07/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
+ms.custom:
+  - arb-containers
 products:
-- azure-kubernetes-service
-- azure-front-door
+  - azure-kubernetes-service
+  - azure-front-door
 ms.category:
-- containers
-- networking
-- database
-- monitoring
+  - containers
+  - networking
+  - database
+  - monitoring
 categories: featured
 ---
 
@@ -26,11 +28,11 @@ A key design area of any mission critical architecture is the application platfo
 
 - A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building **zonal and regional redundancy** in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment and operational patterns to use multiple Azure regions.
 
-- Use a _scale units_-based architecture to handle increased load. Scale units allow you to logically group resources and a unit can be **scaled independent of other units** or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit. 
+- Use a *scale units*-based architecture to handle increased load. Scale units allow you to logically group resources and a unit can be **scaled independent of other units** or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit. 
 
 In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit and, in case it becomes unhealthy, can be entirely replaced.
 
-The resources in each layer have distinct characteristics:
+The resources in each layer have distinct characteristics. For more information, see [Architecture pattern of a typical mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern).
 
 |Characteristics|Considerations|
 |---|---|
@@ -43,7 +45,7 @@ The resources in each layer have distinct characteristics:
 
 ## Global resources
 
-Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state for the whole application, and cache global static data.
+Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state for the whole application, and cache global static data. 
 
 |Characteristics|Layer Considerations|
 |---|---|
@@ -56,19 +58,19 @@ Certain resources in this architecture are shared by resources deployed in regio
 
 In this architecture, global layer resources are [Azure Front Door](/azure/frontdoor/), [Azure Cosmos DB](/azure/cosmos-db/), [Azure Container Registry](/azure/container-registry/), and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from other global layer resources.
 
-There are other foundational resources in this design, such as Azure Active Directory (AD) and Azure DNS. They have been omitted in this image for brevity.
+There are other foundational resources in this design, such as Microsoft Entra ID and Azure DNS. They have been omitted in this image for brevity.
 
 ![Diagram of the global resources used in this architecture.](./images/global-resources.png)
 
 ### Global load balancer
 
-Azure Front Door is used as the _only entry point_ for user traffic. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits). If Front Door becomes unavailable, the end user will see the system as being down. 
+Azure Front Door is used as the *only entry point* for user traffic. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits). If Front Door becomes unavailable, the end user will see the system as being down. 
 
 The Front Door instance sends traffic to the configured backend services, such as the compute cluster that hosts the API and the frontend SPA. **Backend misconfigurations in Front Door can lead to outages**. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
 
 Another common error can come from **misconfigured or missing TLS certificates**, which can prevent users from using the front end or Front Door communicating to the backend. Mitigation might require manual intervention. For example, you might choose to roll back to the previous configuration and re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect. Using managed certificates offered by Front door is recommended to reduce the operational overhead, such as handling expiration.
 
-Front Door offers many additional capabilities besides global traffic routing. An important capability is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the _Prevention_ mode, it will block suspicious traffic before even reaching any of the backends.
+Front Door offers many additional capabilities besides global traffic routing. An important capability is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the *Prevention* mode, it will block suspicious traffic before even reaching any of the backends.
 
 For information about Front Door capabilities, see [Frequently asked questions for Azure Front Door](/azure/frontdoor/front-door-faq).
 
@@ -90,7 +92,7 @@ For more details, see [Best practices for Azure Container Registry](/azure/conta
 
 It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, **synchronizing data across regions should be the primary concern**. Also, in case of a failure, write requests to the database should still be functional.
 
-Data replication in an active-active configuration is strongly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read _and_ write requests.
+Data replication in an active-active configuration is strongly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read *and* write requests.
 
 For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
 
@@ -100,7 +102,7 @@ Azure Log Analytics is used to store diagnostic logs from all global resources. 
 
 ### Considerations for foundational services
 
-The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Azure DNS guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.99% uptime. Still, you should be aware of the impact in the event of a failure.
+The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Microsoft Entra ID. Azure DNS guarantees 100% availability SLA for valid DNS requests. Microsoft Entra guarantees at least 99.99% uptime. Still, you should be aware of the impact in the event of a failure.
 
 Taking hard dependency on foundational services is inevitable because many Azure services depend on them. Expect disruption in the system if they are unavailable. For instance:
 
@@ -109,7 +111,7 @@ Taking hard dependency on foundational services is inevitable because many Azure
 
 In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
-Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale out operations are required during this time, expect decreased user experience.
+Similarly, Microsoft Entra ID is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Microsoft Entra ID is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale out operations are required during this time, expect decreased user experience.
 
 ## Regional deployment stamp resources
 

@@ -1,8 +1,10 @@
 <!--cSpell:ignore CQRS Etags -->
 
-## Minimize coordination between application services to achieve scalability
+## Minimize coordination to achieve scalability
 
 Most cloud applications consist of multiple application services &mdash; web front ends, databases, business processes, reporting and analysis, and so on. To achieve scalability and reliability, each of those services should run on multiple instances.
+
+Uncoordinated systems, where work can be handled independently without the need to pass messages between machines, are generally simpler to scale. Coordination is usually not a binary state, but a spectrum. Coordination occurs at different layers, such as data or compute.
 
 What happens when two instances try to perform concurrent operations that affect some shared state? In some cases, there must be coordination across nodes, for example to preserve ACID guarantees. In this diagram, `Node2` is waiting for `Node1` to release a database lock:
 
@@ -18,6 +20,8 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 
 ## Recommendations
 
+**Use decoupled components that communicate asynchronously.** Components should ideally use events to communicate with each other. 
+
 **Embrace eventual consistency.** When data is distributed, it takes coordination to enforce strong consistency guarantees. For example, suppose an operation updates two databases. Instead of putting it into a single transaction scope, it's better if the system can accommodate eventual consistency, perhaps by using the [Compensating Transaction][compensating-transaction] pattern to logically roll back after a failure.
 
 **Use domain events to synchronize state.** A [domain event][domain-event] is an event that records when something happens that has significance within the domain. Interested services can listen for the event, rather than using a global transaction to coordinate across multiple services. If this approach is used, the system must tolerate eventual consistency (see previous item).
@@ -30,11 +34,9 @@ You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coord
 
 These two patterns complement each other. If the write-only store in CQRS uses event sourcing, the read-only store can listen for the same events to create a readable snapshot of the current state, optimized for queries. Before adopting CQRS or event sourcing, however, be aware of the challenges of this approach.
 
-**Partition data.** Avoid putting all of your data into one data schema that is shared across many application services. A microservices architecture enforces this principle by making each service responsible for its own data store. Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard.
+**Partition data and state.** Avoid putting all of your data into one data schema that is shared across many application services. A microservices architecture enforces this principle by making each service responsible for its own data store. Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard. Even though partitioning adds some degree of coordination, you can use partitioning to increase parallelism for better scalability. Partition monolithic state into smaller chunks so the data can be managed independently.
 
-**Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item.
-
-**Use asynchronous parallel processing.** If an operation requires multiple steps that are performed asynchronously (such as remote service calls), you might be able to call them in parallel, and then aggregate the results. This approach assumes that each step does not depend on the results of the previous step.
+**Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item. If the worker needs to update data as well as emit other messages as a part of its logic, the [idempotent message processing pattern][idempotent] should be used.
 
 **Use optimistic concurrency when possible.** Pessimistic concurrency control uses database locks to prevent conflicts. This can cause poor performance and reduce availability. With optimistic concurrency control, each transaction modifies a copy or snapshot of the data. When the transaction is committed, the database engine validates the transaction and rejects any transactions that would affect database consistency.
 
@@ -56,3 +58,4 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.yml
 [sql-snapshot-isolation]: /sql/t-sql/statements/set-transaction-isolation-level-transact-sql
 [storage-concurrency]: https://azure.microsoft.com/blog/managing-concurrency-in-microsoft-azure-storage-2
+[idempotent]: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing

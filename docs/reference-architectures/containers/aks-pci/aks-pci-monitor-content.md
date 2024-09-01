@@ -44,7 +44,7 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 
 AKS is integrated with Azure monitoring services:
 
-- Microsoft Defender for Containers provides many security scanning features. For example, Defender for Containers scans images pulled, pushed, and imported to container registries and provides recommendations. For details, see [Vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment). You can also use [file integrity monitoring (FIM)](/azure/defender-for-cloud/file-integrity-monitoring-overview) to check system files.
+- Microsoft Defender for Containers provides many security scanning features. For example, Defender for Containers scans images pulled, pushed, and imported to container registries and provides recommendations. For details, see [Vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment).
 
 - Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing.
 
@@ -81,7 +81,7 @@ We recommend that you use audit operations performed on each component using the
 
       Enable `kube-audit-admin` to see log-based API server calls that might modify the state of your cluster. If you need an audit trail of all API server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Those events can be prolific, create noise, and increase your consumption cost. These logs have information about the access and identity name that's used to make the request.
 
-      Enable `guard` logs to track managed Azure AD and Azure role-based access control (RBAC) audits.
+      Enable `guard` logs to track managed Microsoft Entra ID and Azure role-based access control (RBAC) audits.
 
     In addition to the user-based logs, consider logs from the Kubernetes control plane, including `kube-apiserver` and `kube-controller-manager`. These logs aren't typically user-associated, but can help correlate system changes that users have made.
 
@@ -113,7 +113,8 @@ AKS provides audit logs at multiple levels, as described in [Requirement 10.1](#
 
 - By default, activity logs provide information about critical Azure resource operations. All logs include status, time, and the identity that started the operation.
 - Enable diagnostic settings to access all records of all API calls made into the AKS cluster. The logs provide details about the requestor, the time stamp, the source of request, and the contents of the request. Store the logs in a Log Analytics workspace with an appropriate retention period. Enable Log Analytics workspace logging to make sure that even access to audit trail is logged.
-- Include audit logging for other compute such as build agents and jump boxes. Disable access to the systems directly as root. Verify all actions are being performed under a specific identity.
+- Enable [syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog) to capture AKS node-level operating system security and health event logs in your Log Analytics workspace. These logs should also be also ingested into your SIEM.
+- Include OS and usage audit logging for other compute such as build agents and jump boxes. Disable access to the systems directly as root. Verify all actions are being performed under a specific identity.
 - Log unsuccessful access attempts. This includes access requests to components such as Azure Storage, Azure Key Vault, the AKS API server, and any RDP/SSH access on other systems.
 - Take advantage of features, offered by third-party security agents, to help analyze user patterns inside your AKS cluster. These features might be useful for user-access audit data.
 
@@ -168,7 +169,7 @@ Note: One example of time synchronization technology is Network Time Protocol (N
 
 #### Your responsibilities
 
-AKS uses NTP from the underlying Azure hosts and doesn't require any outbound network traffic allowances to support NTP. Other VMs you add to your CDE might use external NTP servers such as ntp.ubuntu.org (and its pool) as their time synchronization source. Additional compute you bring into your CDE should explicitly use the NTP source of your choice and should be documented.
+AKS uses NTP from the underlying Azure hosts and doesn't require any outbound network traffic allowances to support NTP. Other VMs you add to your CDE might use external NTP servers such as `ntp.ubuntu.org` (and its pool) as their time synchronization source. Additional compute you bring into your CDE should explicitly use the NTP source of your choice and should be documented.
 
 ### Requirement 10.5
 
@@ -242,7 +243,7 @@ Logs aren't available indefinitely. Ensure that Azure activity logs and diagnost
 
 #### Your responsibilities
 
-When it's practical, have alerts that indicate the existence of critical security controls. Otherwise, ensure that your audit process can detect the lack of an expected security control in a timely manner. Consider controls such as security agents running in the AKS cluster and access controls (IAM and network) on Azure resources. Include settings to check if the AKS cluster is a private cluster, for network exposure points through Network Security Group (NSG) rules, or check for unexpected public IPs. Also include unexpected changes in DNS, network routing, firewall, and Azure AD.
+When it's practical, have alerts that indicate the existence of critical security controls. Otherwise, ensure that your audit process can detect the lack of an expected security control in a timely manner. Consider controls such as security agents running in the AKS cluster and access controls (IAM and network) on Azure resources. Include settings to check if the AKS cluster is a private cluster, for network exposure points through Network Security Group (NSG) rules, or check for unexpected public IPs. Also include unexpected changes in DNS, network routing, firewall, and Microsoft Entra ID.
 
 ### Requirement 10.9
 

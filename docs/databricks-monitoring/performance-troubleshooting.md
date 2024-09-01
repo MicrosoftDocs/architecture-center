@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Databricks performance issues
 description: Use Grafana monitoring dashboards to troubleshoot performance bottlenecks in Apache Spark jobs on Azure Databricks.
-author: martinekuan
+author: mssaperla
+ms.author: saperla
 categories: azure
-ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -13,6 +13,7 @@ azureCategories:
   - databases
 products:
   - azure-databricks
+  - azure-monitor
 ---
 
 <!-- cSpell:ignore Grafana -->
@@ -20,7 +21,13 @@ products:
 # Troubleshoot performance bottlenecks in Azure Databricks
 
 > [!NOTE]
-> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring. The library supports Azure Databricks 10.x (Spark 3.2.x) and earlier. Azure Databricks 11.0 includes [breaking changes](/azure/databricks/release-notes/runtime/11.0#log4j-is-upgraded-from-log4j-1-to-log4j-2) to the logging systems that the **spark-monitoring** library integrates with. The work required to update the **spark-monitoring** library to support Azure Databricks 11.0 (Spark 3.3.0) and newer is not currently planned.
+> This article relies on an open source library hosted on GitHub at: <https://github.com/mspnp/spark-monitoring>.
+>
+> The original library supports Azure Databricks Runtimes 10.x (Spark 3.2.x) and earlier.
+>
+> Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
+>
+> Please note that the 11.0 release is not backward compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
 This article describes how to use monitoring dashboards to find performance bottlenecks in Spark jobs on Azure Databricks.
 
@@ -32,7 +39,7 @@ To set up the Grafana dashboards shown in this article:
 
 - Configure your Databricks cluster to send telemetry to a Log Analytics workspace, using the Azure Databricks Monitoring Library. For details, see the [GitHub readme][config-cluster].
 
-- Deploy Grafana in a virtual machine. See [Use dashboards to visualize Azure Databricks metrics](./dashboards.md).
+- Deploy Grafana in a virtual machine. For more information, see [Use dashboards to visualize Azure Databricks metrics](./dashboards.md).
 
 The Grafana dashboard that is deployed includes a set of time-series visualizations. Each graph is time-series plot of metrics related to an Apache Spark job, the stages of the job, and tasks that make up each stage.
 
@@ -154,5 +161,5 @@ For example, the following graph shows that the memory used by shuffling on the 
 - [Monitoring Azure Databricks](index.md)
 - [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
 - [Use dashboards to visualize Azure Databricks metrics](dashboards.md)
-- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
-- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
+- [Ingestion, ETL (extract, transform, load), and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)

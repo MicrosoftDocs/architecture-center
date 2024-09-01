@@ -84,9 +84,9 @@ The information that's critical for the student attrition model consists of fact
 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) offers limitless storage for data in different shapes and formats. Besides enterprise-grade security and monitoring support, Azure Data Lake integrates easily with Azure analytics tools. Built on top of [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs), Azure Data Lake can manage large amounts of unstructured data, such as archives and data lakes. The service is a good fit for high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache for training the machine learning model.
 
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database engine for modern cloud applications. This database service offers built-in intelligent optimization, global scalability and availability, advanced security options, and dynamic scalability with no downtime. SQL Database can automatically process relational data and non-relational structures such as graphs and JSON, spatial, and XML data. For this service's availability guarantee, see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8).
+- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database engine for modern cloud applications. This database service offers built-in intelligent optimization, global scalability and availability, advanced security options, and dynamic scalability with no downtime. SQL Database can automatically process relational data and non-relational structures such as graphs and JSON, spatial, and XML data. For this service's availability guarantee, see [service-level agreement (SLA) for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8).
 
-- [Data Factory](https://azure.microsoft.com/services/data-factory) is an orchestration and cloud extract-transform-load (ETL) tool. Besides offering over 90 built-in connectors across various data sources, Data Factory provides copy and transformation functionality in a no-code environment. You can use its diagram view to monitor and manage data integration processes.
+- [Data Factory](https://azure.microsoft.com/services/data-factory) is an orchestration and cloud extract, transform, load (ETL) tool. Besides offering over 90 built-in connectors across various data sources, Data Factory provides copy and transformation functionality in a no-code environment. You can use its diagram view to monitor and manage data integration processes.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service for enterprise data warehouses. This service uses SQL and Spark technologies and offers dedicated or serverless options for querying data. Azure Synapse Analytics provides a unified experience for ingesting, exploring, preparing, transforming, and managing data. The service also makes data available for business intelligence and machine learning purposes.
 
@@ -129,7 +129,7 @@ This solution applies to many areas:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this solution were chosen for their scalability and availability, with the aim of managing and controlling the costs.
 
@@ -143,7 +143,7 @@ The components in this solution feature high availability. But there are two par
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The components in this solution offer built-in security. They also support permissions that you can manage by using Azure Active Directory (Azure AD) authentication or role-based access control. For information about establishing suitable enterprise-level security, see [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security).
+The components in this solution offer built-in security. They also support permissions that you can manage by using Microsoft Entra authentication or role-based access control. For information about establishing suitable enterprise-level security, see [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security).
 
 Azure Synapse Analytics features enterprise-grade and industry-leading security that uses component isolation to protect data, secure networks, and boost threat protection. Component isolation can minimize exposure to threats during security attacks. Azure Synapse Analytics also offers data obfuscation to protect sensitive personal student data.
 
@@ -176,7 +176,7 @@ For guidance about designing scalable solutions, see [Performance efficiency che
 
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before you go into production, ensure that the implemented solution supports ongoing inference with retraining cycles and the automated redeployment of models. For more information, see the following resources:
 
-- [Unifying machine learning operations in Azure](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx)
+- [Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
 As part of Machine Learning, responsible AI is based on the six pillars of AI use and development:
@@ -196,7 +196,7 @@ For an overview of responsible AI and detailed implementation information, see [
 
 Principal author:
 
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Principal Cloud Solution Architect, US National CSA Team
 
 Other contributors:
 
@@ -213,15 +213,13 @@ Other contributors:
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Unleash the power of predictive analytics in Azure Synapse Analytics with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
 
 ## Related resources
 
 - [Solutions for the education industry](../../industries/education.md)
-- [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
-- [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

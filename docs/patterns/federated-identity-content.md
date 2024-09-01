@@ -26,7 +26,7 @@ This model is often called claims-based access control. Applications and service
 
 > There might be additional security token services in the chain of trust. For example, in the scenario described later, an on-premises STS trusts another STS that is responsible for accessing an identity provider to authenticate the user. This approach is common in enterprise scenarios where there's an on-premises STS and directory.
 
-Federated authentication provides a standards-based solution to the issue of trusting identities across diverse domains, and can support single sign-on. It's becoming more common across all types of applications, especially cloud-hosted applications, because it supports single sign-on without requiring a direct network connection to identity providers. The user doesn't have to enter credentials for every application. This increases security because it prevents the creation of credentials required to access many different applications, and it also hides the user's credentials from all but the original identity provider. Applications see just the authenticated identity information contained within the token.
+Federated authentication provides a standards-based solution to the issue of trusting identities across diverse domains, and can support single sign-on. This type of authentication is becoming more common across all types of applications, especially cloud-hosted applications, because it supports single sign-on without requiring a direct network connection to identity providers. The user doesn't have to enter credentials for every application. This increases security because it prevents the creation of credentials required to access many different applications, and it also hides the user's credentials from all but the original identity provider. Applications see just the authenticated identity information contained within the token.
 
 Federated identity also has the major advantage that management of the identity and credentials is the responsibility of the identity provider. The application or service doesn't need to provide identity management features. In addition, in corporate scenarios, the corporate directory doesn't need to know about the user if it trusts the identity provider. This removes all the administrative overhead of managing the user identity within the directory.
 
@@ -40,7 +40,7 @@ Consider the following when designing applications that implement federated auth
 
 - Unlike a corporate directory, claims-based authentication using social identity providers doesn't usually provide information about the authenticated user other than an email address, and perhaps a name. Some social identity providers, such as a Microsoft account, provide only a unique identifier. The application usually needs to maintain some information on registered users, and be able to match this information to the identifier contained in the claims in the token. Typically this is done through registration when the user first accesses the application, and information is then injected into the token as additional claims after each authentication.
 
-- If there's more than one identity provider configured for the STS, it must detect which identity provider the user should be redirected to for authentication. This process is called home realm discovery. The STS might be able to do this automatically based on an email address or user name that the user provides, a subdomain of the application that the user is accessing, the user's IP address scope, or on the contents of a cookie stored in the user's browser. For example, if the user entered an email address in the Microsoft domain, such as user@live.com, the STS will redirect the user to the Microsoft account sign-in page. On later visits, the STS could use a cookie to indicate that the last sign in was with a Microsoft account. If automatic discovery can't determine the home realm, the STS will display a home realm discovery page that lists the trusted identity providers, and the user must select the one they want to use.
+- If there's more than one identity provider configured for the STS, STS must determine which identity provider the user should be redirected to for authentication. This process is called home realm discovery. The STS might be able to do this automatically based on an email address or user name that the user provides, a subdomain of the application that the user is accessing, the user's IP address scope, or on the contents of a cookie stored in the user's browser. For example, if the user entered an email address in the Microsoft domain, such as user@live.com, the STS will redirect the user to the Microsoft account sign-in page. On later visits, the STS could use a cookie to indicate that the last sign in was with a Microsoft account. If automatic discovery can't determine the home realm, the STS will display a home realm discovery page that lists the trusted identity providers, and the user must select the one they want to use.
 
 ## When to use this pattern
 
@@ -58,9 +58,21 @@ This pattern might not be useful in the following situations:
 
 - The application was originally built using a different authentication mechanism, perhaps with custom user stores, or doesn't have the capability to handle the negotiation standards used by claims-based technologies. Retrofitting claims-based authentication and access control into existing applications can be complex, and probably not cost effective.
 
+## Workload design
+
+An architect should evaluate how the Federated Identity pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | Offloading user management and authentication shifts reliability for those components to the identity provider, which usually has a high SLO. Additionally, during workload disaster recovery, authentication components likely won't need to be addressed as part of the workload recovery plan.<br/><br/> - [RE:02 Critical flows](/azure/well-architected/reliability/identify-flows)<br/> - [RE:09 Disaster recovery](/azure/well-architected/reliability/disaster-recovery) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | By externalizing user management and authentication, you can get evolved capabilities for identity-based threat detection and prevention without needing to implement these capabilities in your workload. And external identity providers use modern interoperable authentication protocols.<br/><br/> - [SE:02 Secured development lifecycle](/azure/well-architected/security/secure-development-lifecycle)<br/> - [SE:10 Monitoring and threat detection](/azure/well-architected/security/monitor-threats) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | When you offload user management and authentication, you can devote application resources to other priorities.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
-An organization hosts a multi-tenant software as a service (SaaS) application in Microsoft Azure. The application includes a website that tenants can use to manage the application for their own users. The application allows tenants to access the website by using a federated identity that is generated by Active Directory Federation Services (AD FS) when a user is authenticated by that organization's own Active Directory.
+An organization hosts a multitenant software as a service (SaaS) application in Microsoft Azure. The application includes a website that tenants can use to manage the application for their own users. The application allows tenants to access the website by using a federated identity that is generated by Active Directory Federation Services (AD FS) when a user is authenticated by that organization's own Active Directory.
 
 ![How users at a large enterprise subscriber access the application](./_images/federated-identity-multitenant.png)
 
@@ -70,7 +82,7 @@ Tenants won't need to remember separate credentials to access the application, a
 
 ## Next steps
 
-- [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
 - [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
 - [Active Directory Federation Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
 - [Multitenant Applications in Azure](/azure/dotnet-develop-multitenant-applications)

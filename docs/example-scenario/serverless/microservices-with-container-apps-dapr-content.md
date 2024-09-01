@@ -4,7 +4,7 @@ This article describes a solution for running an order management system with 10
 
 ## Architecture
 
-:::image type="content" source="./media/microservices-with-container-apps-dapr.png" alt-text="Diagram that shows an order management system with microservices on Container Apps." lightbox="./media/microservices-with-container-apps-dapr.png":::
+:::image type="content" source="./media/microservices-with-container-apps-dapr.svg" alt-text="Diagram that shows an order management system with microservices on Container Apps." lightbox="./media/microservices-with-container-apps-dapr.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/microservices-with-container-apps-dapr.pptx) of this architecture.*
 
@@ -97,7 +97,7 @@ These other solutions have similar designs:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -138,6 +138,8 @@ When the virtual customer isn't running, all microservices in this solution scal
 
 For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deployment](https://github.com/Azure/reddog-containerapps/blob/main/README.md) on GitHub.
 
+The [Red Dog Demo: Microservices integration](https://github.com/Azure-Samples/app-templates-microservices-integration) is a packaged [app template](https://github.com/microsoft/App-Templates) that builds on the preceding code assets to demonstrate the integration of Azure Container Apps, App Service, Functions, and API Management and provisions the infra, deploys the code using GitHub Actions.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -166,4 +168,4 @@ Other contributors:
 
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [Microservices with AKS and Azure DevOps](../../solution-ideas/articles/microservices-with-aks.yml)
+- [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)

@@ -2,8 +2,8 @@
 title: Computer vision with Azure IoT Edge
 titleSuffix: Azure Architecture Center
 description: Create a vision AI solution with Azure IoT Edge. Explore computer vision hardware, machine learning and storage requirements, alerting, and user interfaces.
-author: MSKeith
-ms.author: keith
+author: asergaz
+ms.author: sergaz
 ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -13,16 +13,14 @@ products:
   - azure-iot-edge
   - azure-machine-learning
   - azure-storage
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 ---
 
 # Vision AI solutions with Azure IoT Edge
 
 This series of articles describes how to plan and design a computer vision workload that uses [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge). You can run Azure IoT Edge on devices, and integrate with Azure Machine Learning, Azure Storage, Azure App Services, and Power BI for end-to-end vision AI solutions.
 
-Visually inspecting products, resources, and environments is critical for many endeavors. Human visual inspection and analytics are subject to inefficiency and inaccuracy. Enterprises now use deep learning artificial neural networks called *convolutional neural networks* (CNNs) to emulate human vision. Using CNNs for automated image input and analysis is commonly called *computer vision* or *vision AI*.
+Visually inspecting products, resources, and environments is critical for many endeavors. Human visual inspection and analytics are subject to inefficiency and inaccuracy. Enterprises now use deep learning artificial neural networks called *convolutional neural networks (CNNs)* to emulate human vision. Using CNNs for automated image input and analysis is commonly called *computer vision* or *vision AI*.
 
 Technologies like containerization support portability, which allows migrating vision AI models to the network edge. You can train vision inference models in the cloud, containerize the models, and use them to create custom modules for Azure IoT Edge runtime-enabled devices. Deploying vision AI solutions at the edge yields performance and cost benefits.
 
@@ -60,7 +58,6 @@ Vision AI solutions for IoT Edge involve several components and processes. The a
 1. Cameras capture the image data for input into the IoT Edge vision AI system. See [Camera selection for Azure IoT Edge vision AI](./camera.md).
 1. Hardware acceleration on IoT Edge devices provides the necessary processing power for computer graphics and AI algorithms. See [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md).
 1. ML models deployed as IoT Edge modules score the incoming image data. See [Machine learning in Azure IoT Edge vision AI](./machine-learning.yml).
-1. Image scores that need attention trigger automatic alerts. See [Alert persistence in Azure IoT Edge vision AI](./alerts.md).
 1. The IoT Edge device sends relevant image data and metadata to the cloud for storage. Stored data is used for ML retraining, troubleshooting, and analytics. See [Image storage and management for Azure IoT Edge vision AI](./image-storage.md).
 1. Users interact with the system through user interfaces like apps, visualizations, and dashboards. See [User interfaces and scenarios in Azure IoT Edge vision AI](./user-interface.md).
 
@@ -113,8 +110,6 @@ For more computer vision architectures, examples, and ideas that use Azure IoT, 
 
 - [Getting started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
 - [End-to-end manufacturing using computer vision at the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

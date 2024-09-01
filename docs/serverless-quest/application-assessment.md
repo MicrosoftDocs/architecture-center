@@ -3,6 +3,7 @@ title: Application assessment
 titleSuffix: Azure Example Scenarios
 description: Application assessment.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -10,7 +11,7 @@ ms.subservice: azure-guide
 azureCategories: management-and-governance
 categories: management-and-governance
 products:
-  - azure-active-directory
+  - entra-id
 ms.custom:
   - fcp
   - guide
@@ -109,18 +110,20 @@ You can reduce deployment risk by storing code under source control in a version
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
 | The application uses Active Directory to authenticate users.| ✔ | ✔ |
-| The organization hasn't yet configured Azure Active Directory (Azure AD), or hasn't configured Azure AD Connect to synchronize on-premises AD with Azure AD.| ✔ | |
+| The organization hasn't yet configured Microsoft Entra ID, or hasn't configured Microsoft Entra Connect to synchronize on-premises AD with Microsoft Entra ID.| ✔ | |
 | The application requires access to on-premises resources, which will require VPN connectivity from Azure.| ✔ | |
 | The organization hasn't yet configured a VPN connection between Azure and their on-premises environment.| ✔ | ✔ |
 | The application requires an SSL certificate to run.| ✔ | ✔ |
 
 ### Results
-Count your application's **Complexity** and **Risk** checkmarks.
+Using the tables above, determine if each factor applies to your application. Count the number of **Complexity** and **Risk** checkmarks for the factors that apply to your application.
 
-- The expected level of complexity to migrate or modernize the application to Azure is: **Total Complexity/25**.
-- The expected risk involved is: **Total Risk/19**.
+- The expected level of complexity to migrate or modernize the application to Azure is: **Matching Complexity Factors/Total Possible Complexity Factors**.
+- The expected risk involved is: **Matching Risk Factors/Total Possible Risk Factors**.
 
-For both complexity and risk, a score of <0.3 = low, <0.7 = medium, >0.7 = high.
+**Total Possible Complexity Factors = 28, Total Possible Risk Factors = 23**
+
+For both complexity and risk, a score obtained from the calculation above of <0.3 = low, <0.7 = medium, >0.7 = high. These scores provide a relative scale of complexity and risk.
 
 ## Refactor, rearchitect, or rebuild
 
@@ -176,5 +179,3 @@ To decide between rearchitecting or rebuilding, assess the following factors. Th
 
 - [Migration architecture design](../guide/migration/migration-start-here.md)
 - [Build migration plan with Azure Migrate](/azure/migrate/concepts-migration-planning)
-
-

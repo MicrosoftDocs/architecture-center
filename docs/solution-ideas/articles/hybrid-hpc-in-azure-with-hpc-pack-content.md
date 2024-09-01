@@ -4,8 +4,9 @@ This article describes how to use Azure HPC Pack to create a hybrid high-perform
 
 ## Architecture
 
-![Architecture Diagram](../media/hybrid-hpc-in-azure-with-hpc-pack.png)
-*Download an [SVG](../media/hybrid-hpc-in-azure-with-hpc-pack.svg) of this architecture.*
+:::image type="content" border="false" source="../media/hybrid-hpc-in-azure-with-hpc-pack.svg" alt-text="Architecture diagram that shows how to use HPC Pack to create a hybrid high-performance computing (HPC) environment." lightbox="../media/hybrid-hpc-in-azure-with-hpc-pack.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-hpc-in-azure-with-hpc-pack.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -20,7 +21,7 @@ This article describes how to use Azure HPC Pack to create a hybrid high-perform
 ### Components
 
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines in seconds.
-* [Microsoft HPC Pack](https://www.visualstudio.com/vs): Free HPC solution built on Microsoft Azure and Windows Server technologies.
+* [Microsoft HPC Pack](/powershell/high-performance-computing/overview) : Free HPC solution built on Microsoft Azure and Windows Server technologies.
 
 ## Scenario details
 
@@ -30,10 +31,9 @@ Microsoft HPC Pack is a free HPC solution built on Microsoft Azure and Windows S
 
 This solution shows the process for using HPC Pack to create a hybrid (on-premises and Azure) HPC environment.
 
-The following links provide documentation on deploying and managing the Azure products that are included in this solution idea:
+The following link provides documentation on deploying and managing the Azure products that are included in this solution idea:
 
-* [Documentation Home Page](https://technet.microsoft.com/library/cc514029\(v=ws.11\).aspx)
-* [HPC Pack Azure Deployment Options](/azure/virtual-machines/windows/hpcpack-cluster-options)
+* [Documentation Home Page](/powershell/high-performance-computing/overview)
 
 ## Next steps
 
@@ -43,5 +43,4 @@ The following links provide documentation on deploying and managing the Azure pr
 ## Related resources
 
 - [High-performance computing (HPC) on Azure](../../topics/high-performance-computing.md)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)

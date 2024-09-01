@@ -4,8 +4,9 @@ This solution allows studios to leverage on-premises capacity to its fullest wit
 
 ## Architecture
 
-![Architecture Diagram](../media/azure-batch-rendering.png)
-*Download an [SVG](../media/azure-batch-rendering.svg) of this architecture.*
+:::image type="content" border="false" source="../media/azure-batch-rendering.svg" alt-text="Diagram that shows HPC media rendering solution architecture." lightbox="../media/azure-batch-rendering.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-batch-rendering.vsdx) of this architecture.*
 
 ### Dataflow
 
