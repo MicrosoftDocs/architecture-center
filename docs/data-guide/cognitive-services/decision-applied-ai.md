@@ -1,6 +1,6 @@
 ---
-title: Types of decision APIs and Applied AI Services
-description: Learn about Cognitive Services Decision APIs, which can help you make recommendations for decision-making, and Applied AI Services, which provides NLP features.
+title: Types of decision APIs and Azure AI services
+description: Learn about Azure AI services Decision APIs, which can help you make recommendations for decision-making, and Azure AI services, which provides NLP features.
 author: kruti-m
 ms.author: krmeht
 ms.date: 06/01/2023
@@ -11,18 +11,18 @@ products:
   - ai-services
   - azure-bot-service
   - azure-applied-ai-services
-categories: 
+categories:
   - ai-machine-learning
 ms.custom:
   - analytics
   - guide
 ---
 
-# Types of decision APIs and Applied AI Services
+# Types of decision APIs and Azure AI services
 
-Azure Cognitive Services decision APIs are cloud-based APIs that provide natural language processing (NLP) features to produce recommendations for informed and efficient decision-making. They can help you make smart decisions faster.
+Azure AI services decision APIs are cloud-based APIs that provide natural language processing (NLP) features to produce recommendations for informed and efficient decision-making. They can help you make smart decisions faster.
 
-Azure Applied AI Services combines Cognitive Services, specialized AI, and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure Cognitive Search is a cloud search service that has built-in AI capabilities.
+Azure AI services combine specialized AI and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure AI Search is a cloud search service that has built-in AI capabilities.
 
 ## Services
 
@@ -35,11 +35,10 @@ Here are a few of the decision and applied AI services:
     - **Text moderation** scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data. You can use prebuilt or custom models.
     - **Image moderation** scans images for adult or racy content, detects text in images by using optical character recognition, and detects faces. You can use prebuilt or custom models.
     - **Video moderation** scans videos for adult or racy content and returns time markers for the content. This API currently supports only prebuilt models.
-- [Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services) enables you to apply AI to key business data scenarios. These services are built on the AI APIs of Cognitive Services. [Azure Cognitive Search](/azure/applied-ai-services/what-are-applied-ai-services#azure-cognitive-search) is a key part of Applied AI Services.
 
 ## How to choose a service
 
-This flow chart can help you choose the decision API or Applied AI Services option that suits your needs:
+This flow chart can help you choose the Azure AI services option that suits your needs:
 
 :::image type="content" source="images/cognitive-services-decision-applied-ai.png" alt-text="Diagram that shows how to choose a decision or applied AI service." lightbox="images/cognitive-services-decision-applied-ai.png":::
 
@@ -50,7 +49,7 @@ This flow chart can help you choose the decision API or Applied AI Services opti
     - Provide information about store business hours and more.
     - Provide information about employee health and vacation benefits.
     - Answer common employee questions.
-    
+
 - **Anomaly Detector**
     - Detect anomalies in your streaming data by using previously seen data points to determine whether the latest one is anomalous.
     - Detect anomalies in an entire data series at a specific time. This operation generates a model by using all your time-series data. The same model analyzes each data point.
@@ -65,9 +64,6 @@ This flow chart can help you choose the decision API or Applied AI Services opti
 - **Content Moderator**
   - Scan text, images, or video for potentially risky, offensive, or undesirable content.
 
-- **Applied AI Services** 
-   - Implement ready-to-deploy AI solutions. Common use cases include [content filtering](/azure/cognitive-services/openai/concepts/content-filter) and [embeddings](/azure/cognitive-services/openai/concepts/understand-embeddings).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -79,7 +75,7 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect

@@ -67,7 +67,7 @@ You can extend these options by adding other storage classes and integrating wit
 
 By default, an AKS cluster comes with pre-created `managed-csi` and `managed-csi-premium` storage classes that use [Disk Storage](https://azure.microsoft.com/services/storage/disks). Similar to Amazon EBS, these classes create a managed disk or block device that's attached to the node for pod access.
 
-The Disk Storage storage classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. Reclaim policy ensures that the disk is deleted with the persistent volume. You can expand the disk by editing the persistent volume claim.
+The Disk classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. Reclaim policy ensures that the disk is deleted with the persistent volume. You can expand the disk by editing the persistent volume claim.
 
 These storage classes use Azure managed disks with [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage). LRS means that the data has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option, but doesn't offer protection against a datacenter failure. To mitigate this risk, take regular backups or snapshots of Disk Storage data by using solutions like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks) that can use built-in snapshot technologies.
 

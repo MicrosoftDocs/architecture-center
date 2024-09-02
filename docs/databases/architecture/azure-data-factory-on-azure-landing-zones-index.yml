@@ -20,4 +20,4 @@ name: Design a medallion lakehouse with Azure Data Factory
 summary: Learn how to design and implement the medallion lakehouse architecture on Azure landing zones by using Azure Data Factory, Azure Databricks, Azure SQL Server, and Power BI.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-baseline.png
 content: |
-  [!include[](azure-data-factory-on-azure-landing-zones-index-content.md)]
+  [!INCLUDE[](azure-data-factory-on-azure-landing-zones-index-content.md)]

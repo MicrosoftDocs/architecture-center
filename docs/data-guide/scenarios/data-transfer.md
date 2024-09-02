@@ -73,7 +73,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 Consider the following options if you're only transferring a few files or data objects and don't need to automate the process.
 
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure Storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
 
 - **Azure portal**. Both Blob Storage and Data Lake Storage provide a web-based interface for exploring files and uploading new files. This option is a good one if you don't want to install tools or issue commands to quickly explore your files, or if you want to upload a handful of new ones.
 
@@ -118,7 +118,7 @@ The following tables summarize the key differences in capabilities.
 
 **Hadoop/HDInsight:**
 
-| Capability | Distcp | Sqoop | Hadoop CLI |
+| Capability | DistCp | Sqoop | Hadoop CLI |
 | --- | --- | --- | --- |
 | Optimized for big data | Yes | Yes |  Yes |
 | Copy to relational database |  No | Yes | No |
