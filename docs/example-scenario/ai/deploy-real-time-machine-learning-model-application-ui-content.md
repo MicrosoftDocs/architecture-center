@@ -22,7 +22,7 @@ This article guides you through a model-view-presenter (MVP) architecture by usi
 4. **Consume:** A real-time published model in Machine Learning can generate a REST endpoint that can be consumed in a [custom application that's built by using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
 
 > [!NOTE]
-> Both the Machine Learning and the Power Platform stacks have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimally viable product. However, the **Ingest** and **Store** sections of the architecture promote the role of standardized data pipelines for the sourcing and storage at scale of data from multiple sources. These patterns are typically implemented and maintained by the enterprise data platform teams.
+> Both the Machine Learning and Microsoft Power Platform stacks have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimally viable product. However, the **Ingest** and **Store** sections of the architecture promote the role of standardized data pipelines for the sourcing and storage at scale of data from multiple sources. These patterns are typically implemented and maintained by the enterprise data platform teams.
 
 ### Components
 
