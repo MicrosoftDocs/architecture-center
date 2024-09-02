@@ -25,7 +25,7 @@ An ever-increasing number of multitenant solutions are built around artificial i
 
 Multitenant AI/ML architectures need to consider the requirements for data and models, as well as the compute resources that are required to train models and to perform inference from models. It's important to consider how multitenant AI/ML models are deployed, distributed, and orchestrated, and to ensure that your solution is accurate, reliable, and scalable.
 
-As generative AI technologies, powered by both large and small language models, gain popularity, it is crucial to establish effective operational practices and strategies for managing these models in production environments via the adoption of Machine Learning Operations (MLOps) for LLMs or LLMOps.
+As generative AI technologies, powered by both large and small language models, gain popularity, it is crucial to establish effective operational practices and strategies for managing these models in production environments via the adoption of Machine Learning Operations (MLOps) and GenAIOps (sometimes known as LLMOps).
 
 ## Key considerations and requirements
 
