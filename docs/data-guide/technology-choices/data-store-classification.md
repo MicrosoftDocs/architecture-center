@@ -28,9 +28,9 @@ ai-usage: ai-assisted
 
 # Data store classification
 
-This article describes Azure storage options. It doesn't cover Internet of Things (IoT) storage options. For more information about IoT-related storage, see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT architectures](../../reference-architectures/iot/iot-architecture-overview.md). This article also doesn’t cover workloads that use vectorized data, like most AI workloads. For more information, see [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
+This article describes Azure Storage options. It doesn't cover Internet of Things (IoT) storage options. For more information about IoT-related storage, see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT architectures](../../reference-architectures/iot/iot-architecture-overview.md). This article also doesn't cover workloads that use vectorized data, like most AI workloads. For more information, see [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search).
 
-Azure storage categories include *simple storage solutions*, *database and analytics storage*, and *IoT storage*. The following sections describe simple storage and database and analytics storage.
+Azure Storage categories include *simple storage solutions*, *database and analytics storage*, and *IoT storage*. The following sections describe simple storage and database and analytics storage.
 
 :::image type="content" source="../images/azure-storage-options.svg" alt-text="Diagram that illustrates data store classifications in Azure." lightbox="../images/azure-storage-options.svg" border="false":::
 
@@ -38,7 +38,7 @@ Azure storage categories include *simple storage solutions*, *database and analy
 
 ## Simple storage solutions
 
-Use simple storage solutions like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) (Azure Data Lake Storage excluded), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [Azure Queue Storage](/azure/storage/queues/), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), and [Azure Table Storage](/azure/storage/tables/). These solutions are ideal for storing large amounts of data that don’t require [atomicity, consistency, isolation, and durability (ACID) capabilities](/windows/win32/cossdk/acid-properties). Simple storage solutions usually cost less than databases or analytics services. Use simple storage for file shares, data that needs minimal structured querying and transactional capabilities, and long-term file retention.
+Use simple storage solutions like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) (Azure Data Lake Storage excluded), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [Azure Queue Storage](/azure/storage/queues/), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), and [Azure Table Storage](/azure/storage/tables/). These solutions are ideal for storing large amounts of data that don't require [atomicity, consistency, isolation, and durability (ACID) capabilities](/windows/win32/cossdk/acid-properties). Simple storage solutions usually cost less than databases or analytics services. Use simple storage for file shares, data that needs minimal structured querying and transactional capabilities, and long-term file retention.
 
 ## Database and analytics storage
 
@@ -57,12 +57,12 @@ The two types of transactional databases include relational databases, also know
 - Use relational databases to store and organize data points that have defined relationships for quick and easy access. These databases have tables that represent predefined categories. The rows and columns contain information about each entity. This structure provides efficient and flexible access to data. Examples of these databases in Azure include:
 
   - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
-  
+
   - [SQL Database](/azure/azure-sql).
-  
+
   - [Azure Database for PostgreSQL](/azure/postgresql/) and PostgreSQL.
-  
-  - [Azure Database for MySQL](/azure/mysql) and MySQL in their infrastructure as a service and platform as a service versions.
+
+  - [Azure Database for MySQL](/azure/mysql) and MySQL in their infrastructure as a service and platform-as-a-service versions.
 
 - Nonrelational databases store, manage, and retrieve data that isn't necessarily structured in a tabular form like relational databases. NoSQL databases can handle a wide variety of data types, including structured, semi-structured, and unstructured data. Examples of these databases in Azure include [Azure Cosmos DB](/azure/cosmos-db) and [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/).
 
