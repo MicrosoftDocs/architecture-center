@@ -18,7 +18,7 @@ Here are some general suggestions:
 - Keep up-to-date information about device inventory and personnel access documentation. Consider using the device discovery capability included in Microsoft Defender for Endpoint. For tracking access, you can derive that information from Microsoft Entra logs. Here are some articles to get you started:
 
   - [Device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
-  - [View reports and logs in Microsoft Entra entitlement management](/azure/active-directory/governance/entitlement-management-reports)
+  - [Entitlement management in Microsoft Entra ID Governance](/entra/id-governance/entitlement-management-reports)
 
 - As part of your inventory management, maintain a list of approved solutions that deployed as part of the PCI infrastructure and workload. This includes a list of VM images, databases, third-party solutions of your choice that you bring to the CDE. You can even automate that process by building a service catalog. It provides self-service deployment using those approved solutions in a specific configuration, which adheres to ongoing platform operations. For more information, see [Establish a service catalog](/azure/cloud-adoption-framework/manage/considerations/platform#establish-a-service-catalog).
 

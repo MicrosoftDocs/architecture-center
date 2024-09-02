@@ -268,7 +268,7 @@ Use Microsoft Entra ID as the identity store. Because the cluster and all Azure 
 
 **APPLIES TO: 8.1.5**
 
-Take advantage of Microsoft Entra External ID that's designed to host third-party business-to-business (B2B) accounts, such as vendors and partners, as guest users. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [B2B collaboration with external guests for your workforce](/azure/active-directory/external-identities/what-is-b2b).
+Take advantage of Microsoft Entra External ID that's designed to host third-party business-to-business (B2B) accounts, such as vendors and partners, as guest users. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [B2B collaboration with external guests for your workforce](/entra/external-id/what-is-b2b).
 
 Your organization should have a clear and documented pattern of vendor and similar access.
 
@@ -303,14 +303,14 @@ Several of the preceding set of requirements are automatically handled by Micros
 
 - **Password security**
 
-    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Microsoft Entra Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
+    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Microsoft Entra Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk-user).
 
     > [!NOTE]
-    > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Microsoft Entra ID](/azure/active-directory/authentication/howto-authentication-passwordless-deployment).
+    > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Microsoft Entra ID](/entra/identity/authentication/howto-authentication-passwordless-deployment).
 
 - **User identity verification**
 
-    You can apply the sign-in risk conditional access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. These include password spray and IP address anomalies. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk).
+    You can apply the sign-in risk conditional access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. These include password spray and IP address anomalies. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk).
 
 You might have components that don't use Microsoft Entra ID, such as access to jump boxes with SSH. For such cases, use public key encryption with at least RSA 2048 key size. Always specify a passphrase. Have a validation process that tracks known approved public keys. Systems that use public key access mustn't be exposed to the internet.  Instead, all SSH access should only be allowed through an intermediary, such as Azure Bastion, to reduce the impact of a private key leak. Disable direct password access and use an alternative passwordless solution.
 
@@ -329,9 +329,9 @@ This policy can be further hardened with additional policies. Here are some exam
 
 For more information, see:
 
-- [Conditional Access: Require MFA for administrators](/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa)
-- [How To: Require managed devices for cloud app access with Conditional Access](/azure/active-directory/conditional-access/require-managed-devices)
-- [How to: Require MFA for access from untrusted networks with Conditional Access](/azure/active-directory/conditional-access/untrusted-networks)
+- [Conditional access: Require MFA for administrators](/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa)
+- [Conditional access: Require compliant devices](/entra/identity/conditional-access/how-to-policy-require-device-compliance)
+- [Conditional access: Sign-in risk-based multifactor authentication](/entra/identity/conditional-access/howto-conditional-access-policy-risk)
 
 ### Requirement 8.4
 
@@ -408,8 +408,8 @@ Here are some suggestions for applying technical controls:
 - Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
 - Tune conditional access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
 
-  - [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-  - [Configurable token lifetimes - Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
+  - [Configure adaptive session lifetime policies](/entra/identity/conditional-access/howto-conditional-access-session-lifetimee)
+  - [Configurable token lifetimes in the Microsoft identity platform](/entra/identity-platform/configurable-token-lifetimes)
 
 - For cloud-hosted CDE, there aren't any responsibilities for managing physical access and hardware. Rely on corporate network physical and logical controls.
 
