@@ -22,7 +22,7 @@ ms.custom:
 
 Azure AI services decision APIs are cloud-based APIs that provide natural language processing (NLP) features to produce recommendations for informed and efficient decision-making. They can help you make smart decisions faster.
 
-Azure AI services combines Azure AI services, specialized AI, and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure Cognitive Search is a cloud search service that has built-in AI capabilities.
+Azure AI services combine specialized AI and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure AI Search is a cloud search service that has built-in AI capabilities.
 
 ## Services
 
@@ -35,11 +35,10 @@ Here are a few of the decision and applied AI services:
     - **Text moderation** scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data. You can use prebuilt or custom models.
     - **Image moderation** scans images for adult or racy content, detects text in images by using optical character recognition, and detects faces. You can use prebuilt or custom models.
     - **Video moderation** scans videos for adult or racy content and returns time markers for the content. This API currently supports only prebuilt models.
-- [Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services) enables you to apply AI to key business data scenarios. These services are built on the AI APIs of Azure AI services. [Azure Cognitive Search](/azure/applied-ai-services/what-are-applied-ai-services#azure-cognitive-search) is a key part of Azure AI services.
 
 ## How to choose a service
 
-This flow chart can help you choose the decision API or Azure AI services option that suits your needs:
+This flow chart can help you choose the Azure AI services option that suits your needs:
 
 :::image type="content" source="images/cognitive-services-decision-applied-ai.png" alt-text="Diagram that shows how to choose a decision or applied AI service." lightbox="images/cognitive-services-decision-applied-ai.png":::
 
@@ -64,9 +63,6 @@ This flow chart can help you choose the decision API or Azure AI services option
 
 - **Content Moderator**
   - Scan text, images, or video for potentially risky, offensive, or undesirable content.
-
-- **Applied AI Services**
-   - Implement ready-to-deploy AI solutions. Common use cases include [content filtering](/azure/cognitive-services/openai/concepts/content-filter) and [embeddings](/azure/cognitive-services/openai/concepts/understand-embeddings).
 
 ## Contributors
 
