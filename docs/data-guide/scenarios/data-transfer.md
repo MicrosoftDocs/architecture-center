@@ -73,7 +73,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 Consider the following options if you're only transferring a few files or data objects and don't need to automate the process.
 
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure Storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
 
 - **Azure portal**. Both Blob Storage and Data Lake Storage provide a web-based interface for exploring files and uploading new files. This option is a good one if you don't want to install tools or issue commands to quickly explore your files, or if you want to upload a handful of new ones.
 
@@ -97,7 +97,7 @@ For data transfer scenarios, choose the appropriate system for your needs by ans
 
 - Do you need to transfer data to or from a relational database? If yes, choose an option that supports one or more relational databases. Some of these options also require a Hadoop cluster.
 
-- Do you need an automated data pipeline or workflow orchestration? If yes, consider Data Factory.
+- Do you need an automated Data Pipeline or workflow orchestration? If yes, consider Data Factory.
 
 ## Capability matrix
 
@@ -118,7 +118,7 @@ The following tables summarize the key differences in capabilities.
 
 **Hadoop/HDInsight:**
 
-| Capability | Distcp | Sqoop | Hadoop CLI |
+| Capability | DistCp | Sqoop | Hadoop CLI |
 | --- | --- | --- | --- |
 | Optimized for big data | Yes | Yes |  Yes |
 | Copy to relational database |  No | Yes | No |
@@ -130,7 +130,7 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-| Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
+| Capability | The Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse Analytics |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
@@ -162,7 +162,7 @@ The following tables summarize the key differences in capabilities.
 | Custom data transformations | No | No | Yes | No |
 | Pricing model | Free | Free | Pay per usage | Pay per unit |
 
-\* Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.
+* Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.
 
 ## Contributors
 

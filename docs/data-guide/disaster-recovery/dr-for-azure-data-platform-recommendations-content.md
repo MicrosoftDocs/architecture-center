@@ -22,7 +22,7 @@
     1. Automation/job scheduler
     1. Source repository and deployment pipelines (GitHub, Azure DevOps)
 1. Early detection of outages is also a way to decrease RTO and RPO values significantly. Here are a few aspects that should be covered:
-    1. Define what an outage is and how it maps to Microsoft's definition of an outage. The Microsoft definition is available on the [Azure service-level agreement](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
+    1. Define what an outage is and how it maps to Microsoft's definition of an outage. The Microsoft definition is available on the [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
     1. An efficient monitoring and alerting system with accountable teams to review those metrics and alerts in a timely manner will help meet the goal
 1. Regarding subscription design, the additional infrastructure for disaster recovery can be stored in the original subscription. platform as a service (PaaS) services like ADLS Gen2 or Azure Data Factory typically have native features that allow fail over to secondary instances in other regions while staying contained in the original subscription. Some customers might want to consider having a dedicated resource group for resources used only in DR scenarios for cost purposes
     1. It should be noted that [subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) may act as a constraint for this approach
@@ -36,7 +36,7 @@
     1. Use CI/CD release pipelines rather than click-ops
 1. As you have a plan for failover, you should consider procedures to fallback to the primary instances
 1. Define clear indicators/metrics to validate that the failover has been success and solutions are up and running or that the situation is back to normal (also known as primary functional)
-1. Decide if your SLAs should remain the same after a failover or if you allow for degraded service
+1. Decide if your service-level agreements (SLAs) should remain the same after a failover or if you allow for degraded service
     1. This decision will greatly depend on the business service process being supported. For example, the failover for a room-booking system will look much different than a core operational system
 1. An RTO/RPO definition should be based on specific user scenarios/solutions rather than at the infrastructure level. It will give you more granularity on what processes and components should be recovered first if there's an outage or disaster
 1. Ensure you include capacity checks in the target region before moving forward with a failover: If there's a major disaster, be mindful that many customers will try to failover to the same paired region at the same time, which can cause delays or contention in provisioning the resources
