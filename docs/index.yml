@@ -198,9 +198,6 @@ conceptualContent:
         - url: ./databricks-monitoring/index.md
           itemType: deploy
           text: Databricks monitoring
-        - text: Advanced analytics architecture
-          itemType: architecture
-          url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
         - text: Real-time fraud detection
           itemType: architecture
           url: example-scenario/data/fraud-detection.yml

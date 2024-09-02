@@ -91,7 +91,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries. Use Grafana to build near real-time analytics dashboards.|Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Grafana is a core component for providing monitoring and observability in this solution.|Migration|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster. Grafana is recommended as a platform for logging and metrics.|Containers|
 |[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF. Grafana provides a dashboard for application metrics.|Containers|
@@ -125,7 +124,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries. Jupyter Notebook is used to connect to Azure Data Explorer. |Analytics|
 [Choose a data analytics and reporting technology](../data-guide/technology-choices/analysis-visualizations-reporting.md)|Evaluate big-data analytics technology options for Azure, including Jupyter Notebook.|Databases|
 [Citizen AI with Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to use Azure Machine Learning and Power Platform to quickly create a machine learning proof of concept and production version. Azure Machine Learning provides a hosted Jupyter Notebook environment. |AI|
 [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices. Analyze data that's stored in Azure Data Explorer by using Jupyter Notebook.|Analytics|

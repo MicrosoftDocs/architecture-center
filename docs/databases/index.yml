@@ -20,4 +20,4 @@ name: Databases architecture design
 summary: Learn about the different Azure database solutions described in Azure Architecture Center.
 thumbnailUrl: /azure/architecture/browse/thumbs/data-service-classifications.png
 content: |
-  [!include[](index-content.md)]
+  [!INCLUDE[](index-content.md)]
