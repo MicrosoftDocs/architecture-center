@@ -100,9 +100,9 @@ If you do need to bring in unmasked data into your cluster, mask as soon as poss
 ### Requirement 3.4
 
 Render PAN unreadable anywhere it is stored (including on portable digital media, backup media, and in logs) by using any of the following approaches:
-- One-way hashes based on strong cryptography. The hhash must be of the entire PAN.
-- Truncation. Hashing cannot be used to replace the truncated segment of the PAN.
-- Index tokens and pads. Pads must be securely stored.
+- One-way hashes based on strong cryptography, (hash must be of the entire PAN)
+- Truncation (hashing cannot be used to replace the truncated segment of PAN)
+- Index tokens and pads (pads must be securely stored)
 - Strong cryptography with associated key-management processes and procedures.
 
 #### Your responsibilities
@@ -236,7 +236,7 @@ It's critical that you maintain thorough documentation about the processes and p
 
 ### Requirement 4.1
 
-Use strong cryptography and security protocols (for example, TLS, IPsec, SSH, and others) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
+Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, and so on.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
 
 #### Your responsibilities
 
