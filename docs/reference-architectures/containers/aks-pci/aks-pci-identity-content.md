@@ -20,7 +20,7 @@ This architecture and the implementation aren't designed to provide controls on 
 
 AKS is fully integrated with Microsoft Entra ID as the identity provider.
 
-You don't have to manage separate user identities and credentials for Kubernetes. You can add Microsoft Entra users for Kubernetes RBAC. This integration makes it possible to assign roles to Microsoft Entra users. By using Microsoft Entra, you can use a variety of built-in roles, such as viewer, writer, service administrator, and cluster administrator. You can also create custom roles for more granular control.
+You don't have to manage separate user identities and credentials for Kubernetes. You can add Microsoft Entra users for Kubernetes RBAC. This integration makes it possible to assign roles to Microsoft Entra users. By using Microsoft Entra identities, you can use a variety of built-in roles, such as viewer, writer, service administrator, and cluster administrator. You can also create custom roles for more granular control.
 
 By default, Azure RBAC is set to deny all access, so a resource cannot be accessed without permissions being granted. AKS limits SSH access to AKS worker nodes and uses AKS network policy to control access to workloads in the pods.
 
