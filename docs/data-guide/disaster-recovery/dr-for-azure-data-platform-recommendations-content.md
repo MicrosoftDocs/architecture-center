@@ -13,7 +13,7 @@
     1. Active/Active
     1. Active/Passive
     1. Active/Redeploy on disaster
-    1. Rely on Microsoft's service-level agreement (SLA)
+    1. Consider your own [composite SLO](/azure/well-architected/reliability/metrics) to factor in the tolerable downtimes.
 1. Ensure you understand all the components that might affect the availability of your systems, such as:
     1. Identity management
     1. Networking topology
@@ -24,7 +24,6 @@
 1. Early detection of outages is also a way to decrease RTO and RPO values significantly. Here are a few aspects that should be covered:
     1. Define what an outage is and how it maps to Microsoft's definition of an outage. The Microsoft definition is available on the [Azure service-level agreement](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
     1. An efficient monitoring and alerting system with accountable teams to review those metrics and alerts in a timely manner will help meet the goal
-1. [Composite SLAs](/azure/well-architected/reliability/metrics) mean that the more components you have in your architecture, the higher the probability of a failure. You could use composite SLA to define the chances of a component outage.
 1. Regarding subscription design, the additional infrastructure for disaster recovery can be stored in the original subscription. platform as a service (PaaS) services like ADLS Gen2 or Azure Data Factory typically have native features that allow fail over to secondary instances in other regions while staying contained in the original subscription. Some customers might want to consider having a dedicated resource group for resources used only in DR scenarios for cost purposes
     1. It should be noted that [subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) may act as a constraint for this approach
     1. Other constraints may include the design complexity and management controls to ensure the DR resource groups aren't used for BAU workflows
