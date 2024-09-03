@@ -123,12 +123,12 @@ Principal author:
 ## Next steps
 
 - For training content and labs, see [Data engineer learning paths](/training/roles/data-engineer).
-- [Get started with Fabric](/training/fabric/)
-- [Browse all courses, learning paths, and modules](/training/browse/?products=fabric&resource_type=module)
-- [Create a single database](/azure/azure-sql/database/single-database-create-quickstart)
-- [Create a SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&tabs=azure-portal)
-- [Create a storage account to use with Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account)
-- [Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create)
+- [Get started with Fabric](/training/fabric/).
+- [Browse all courses, learning paths, and modules](/training/browse/?products=fabric&resource_type=module).
+- [Create a single database](/azure/azure-sql/database/single-database-create-quickstart).
+- [Create a SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&tabs=azure-portal).
+- [Create a storage account to use with Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
+- [Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
 
 ## Related resources
 
