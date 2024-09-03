@@ -4,7 +4,7 @@ metadata:
   description: Best practices for securing data as per Requirement 3 and 4 of PCI-DSS 3.2.1.
   author: francisnazareth
   ms.author: fnazaret
-  ms.date: 09/03/2024
+  ms.date: 11/11/2021
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
