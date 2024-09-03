@@ -108,7 +108,7 @@ This architecture uses different firewall technologies to inspect traffic flowin
 
    As part of processing a transaction or management operations, the cluster will need to communicate with external endpoints. For example, the cluster might require communication with the AKS control plane, communication with operating system and package update systems, and many workloads interact with external APIs. Some of those interactions might be over HTTP and should be considered as attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfiltration. Adding a firewall to egress traffic mitigates that threat.
 
-   We recommend that even pod-to-pod communication is TLS-encrypted. This practice is shown in the reference implementation with the use of a service mesh with mutual TLS (mTLS) authentication.
+   We recommend that even pod-to-pod communication is TLS-encrypted. This practice is shown in the reference implementation with the use of mutual TLS (mTLS) authentication.
 
 - NSGs are added to secure traffic between the cluster and other components within the infrastructure. For example, in the reference implementation, there are NSGs on the subnet with node pools that block any SSH access attempts. Only traffic from within the virtual network is allowed.
 
@@ -214,7 +214,7 @@ By design, Azure virtual networks can't be directly reached from the public inte
    
    For more information, see [HTTP proxy support in Azure Kubernetes Service](/azure/aks/http-proxy).
 
-The cluster might require access other services over the public internet. For emample, if you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet.
+The cluster might require access other services over the public internet. For example, if you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet.
 
 Interactions with endpoints of other Azure services are over the Azure backbone. For example, as part of the regular operations, the cluster will need to get certificates from the managed key store, pull images from a container registry, and so on. Ensure those interactions are private and secure using [Azure Private Link](/azure/private-link/private-link-overview).
 

@@ -170,7 +170,7 @@ Restrict access to cryptographic keys to the fewest number of custodians necessa
 
 ##### Your responsibilities
 
-Minimize the number of people who have access to the keys. If you're using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relevant must be removed from permissions. Only the right people should have access. Consider using [access reviews](/entra/id-governance/access-reviews-overview) to regularly review group memberships.
+Minimize the number of people who have access to the keys. If you're using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relevant must be removed from permissions. Only the right people should have access. Use Microsoft Entra ID [access reviews](/entra/id-governance/access-reviews-overview) to regularly review group memberships.
 
 Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based role activation, and approval-based role activation. For example, consider using [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
 
