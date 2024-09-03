@@ -79,9 +79,9 @@ Then, formalize the definition by determining what level of access is required f
 |**Application developers**|Develop the application. All application code is subject to training and quality gates upholding compliance, attestation, and release management processes. Might manage the build pipelines, but usually not deployment pipelines.|Read access to Kubernetes namespaces and Azure resources that are in scope of the workload. No write access for deploying or modifying any state of the system.|
 |**Application operators (or SRE)**|Have a deep understanding of the code base, observability, and operations. Do live-site triage and troubleshooting. Along with application developers, improve availability, scalability and performance of the application. Manage the "last-mile" deployment pipeline and help manage the build pipelines.|Highly privileged within the scope of the application that includes related Kubernetes namespaces and Azure resources. Likely have standing access to parts of the Kubernetes cluster.
 |**Infrastructure owners**| Design a cost-effective architecture, including its connectivity and the functionality of components. The scope can include cloud and on-premises services. Decide capabilities data retention, business continuity features, and others.|Access to platform logs and cost center data. No access is required within the cluster.|
-|**Infrastructure operators (or SRE)**|Operations related to the cluster and dependent services. Build, deploy, and bootstrap the pipeline for the cluster in which the workload is deployed. Set target node pools, and expected sizing and scale requirements. Monitor the health of the container hosting infrastructure and dependent services.|Read access to workload namespaces. Highly-privileged access for the cluster.
+|**Infrastructure operators (or SRE)**|Operations related to the cluster and dependent services. Build, deploy, and bootstrap the pipeline for the cluster in which the workload is deployed. Set target node pools, and expected sizing and scale requirements. Monitor the health of the container hosting infrastructure and dependent services.|Read access to workload namespaces. Highly privileged access for the cluster.
 |**Policy, security owners**| Have security or regulation compliance expertise. Define policies that protect the security and regulatory compliance of the company employees, its assets, and those of the company's customers. Works with all other roles to ensure policy is applied and auditable through every phase.|Read access to the workload and the cluster. Also access to log and audit data.|
-|**Network operators**|Allocation of enterprise-wide virtual network and subnets. Configuration and maintenance of Azure Firewall, WAF, NSGs, and DNS configuration.|Highly-privileged in the networking layer. No write permission within the cluster.|
+|**Network operators**|Allocation of enterprise-wide virtual network and subnets. Configuration and maintenance of Azure Firewall, WAF, NSGs, and DNS configuration.|Highly privileged in the networking layer. No write permission within the cluster.|
 
 #### Requirement 7.1.2
 
@@ -110,8 +110,8 @@ Here are some examples.
 |---|---|
 |A *product owner* defines the scope of the workload and prioritizes features. Balances customer data protection and ownership with business objectives. Needs access to reports, the cost center, or Azure dashboards. No access is needed for in-cluster or cluster-level permissions.|**Application owners**|
 |A *software engineer* designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as Application Insights) and the workload namespaces. These scopes and permissions might be different between pre-production and production environments.|**Application developer**|
-|A *site reliability engineer* does live-site triage, manages pipelines, and sets up application infrastructure.<p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Application operators**|
-|A *cluster operator* designs and deploys a reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Infrastructure operators**|
+|A *site reliability engineer* does live-site triage, manages pipelines, and sets up application infrastructure.<p>Group A with full control within their allocated namespaces. Standing permissions aren't required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespaces, but aren't highly privileged. </p> |**Application operators**|
+|A *cluster operator* designs and deploys a reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespaces. Standing permissions aren't required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespaces, but aren't highly privileged. </p> |**Infrastructure operators**|
 |A *network engineer* allocates of enterprise-wide virtual network and subnets, on-premises to cloud connectivity, and network security. |**Infrastructure operators**|
 
 #### Requirement 7.1.4
@@ -135,7 +135,7 @@ Based on roles and responsibilities, assign roles to the infrastructure's role-b
 - **Kubernetes RBAC** is a native Kubernetes authorization model that controls access to the *Kubernetes control plane*, exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
 - **Azure RBAC** is a Microsoft Entra ID-based authorization model that controls access to the *Azure control plane*. This is an association of your Microsoft Entra tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources, such as networks, an AKS cluster, and managed identities.
 
-Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to a Microsoft Entra group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Microsoft Entra group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings.
+Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to a Microsoft Entra group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Microsoft Entra group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles don't meet your requirements (for example, they might be overly permissive), create custom roles for your bindings.
 
 The reference implementation demonstrates the preceding example by using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Microsoft Entra identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac).
 
@@ -168,7 +168,7 @@ Here are some best practices to maintain access control measures:
 
 - Ideally disable SSH access to the cluster nodes. This reference implementation doesn't generate SSH connection details for that purpose.
 
-- Any additional compute, such as jump boxes, must be accessed by authorized users. Do not create generic logins available to the entire team.
+- Any additional compute, such as jump boxes, must be accessed by authorized users. Don't create generic logins available to the entire team.
 
 #### Requirement 7.2.2
 
@@ -195,7 +195,7 @@ Default "deny-all" setting.
 
 When you start the configuration, start with zero-trust policies. Make exceptions as needed and document them in detail.
 
-- Kubernetes RBAC implements *deny all* by default. Don't override by adding highly-permissive cluster role bindings that invert the deny all setting.
+- Kubernetes RBAC implements *deny all* by default. Don't override by adding highly permissive cluster role bindings that invert the deny all setting.
 
 - Azure RBAC also implements *deny all* by default. Don't override by adding RBAC assignments that invert the deny all setting.
 
@@ -258,13 +258,13 @@ Here are overall considerations for this requirement:
 
 Don't share or reuse identities for functionally different parts of the CDE. For example, don't use a team account to access data or cluster resources. Make sure the identity documentation is clear about not using shared accounts.
 
-Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never share the same managed identity between production and non-production environments.
+Extend this identity principal to managed identity assignments in Azure. Don't share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never share the same managed identity between production and non-production environments.
 
 Learn more about [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
 **APPLIES TO: 8.1.2, 8.1.3, 8.1.4**
 
-Use Microsoft Entra ID as the identity store. Because the cluster and all Azure resources use Microsoft Entra ID, disabling or revoking a principal's access applies to all resources automatically. If there are any components that are not backed directly by Microsoft Entra ID, make sure you have a process to remove access. For example, SSH credentials for accessing a jump box might need to be explicitly removed if the user is no longer valid.
+Use Microsoft Entra ID as the identity store. Because the cluster and all Azure resources use Microsoft Entra ID, disabling or revoking a principal's access applies to all resources automatically. If there are any components that aren't backed directly by Microsoft Entra ID, make sure you have a process to remove access. For example, SSH credentials for accessing a jump box might need to be explicitly removed if the user is no longer valid.
 
 **APPLIES TO: 8.1.5**
 
@@ -278,9 +278,9 @@ Your organization should have a clear and documented pattern of vendor and simil
 
 Microsoft Entra ID provides a [smart lock out feature](/entra/identity/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Microsoft Entra conditional access policies.
 
-Implement the lockout for components that support similar features but are not backed with Microsoft Entra ID (for example, SSH-enabled machines, such as a jump box). This ensures that lockouts are enabled to prevent or slow access attempt abuse.
+Implement the lockout for components that support similar features but aren't backed with Microsoft Entra ID (for example, SSH-enabled machines, such as a jump box). This ensures that lockouts are enabled to prevent or slow access attempt abuse.
 
-AKS nodes are not designed to be routinely accessed. Block direct SSH or Remote Desktop access to cluster nodes. SSH access should only be considered as part of advanced troubleshooting efforts. The access should be closely monitored and promptly reverted after completion of the specific event. If you do this, be aware that any node-level changes can cause your cluster to be out of support.
+AKS nodes aren't designed to be routinely accessed. Block direct SSH or Remote Desktop access to cluster nodes. SSH access should only be considered as part of advanced troubleshooting efforts. The access should be closely monitored and promptly reverted after completion of the specific event. If you do this, be aware that any node-level changes can cause your cluster to be out of support.
 
 ### Requirement 8.2
 
@@ -303,7 +303,7 @@ Several of the preceding set of requirements are automatically handled by Micros
 
 - **Password security**
 
-    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Microsoft Entra Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk-user).
+    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Microsoft Entra Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies can't be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk-user).
 
     > [!NOTE]
     > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Microsoft Entra ID](/entra/identity/authentication/howto-authentication-passwordless-deployment).
