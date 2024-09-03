@@ -173,7 +173,7 @@ The shared-nothing architecture is designed to remove contention between colocat
 
 ### Lightweight workloads
 
-Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Reconsider choices that have more breath than is needed, because that increases the attack surface area and the potential for misuse or misconfiguration.
+Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Reconsider choices that have more breadth than is needed, because that increases the attack surface area and the potential for misuse or misconfiguration.
 
 ## Reliability
 

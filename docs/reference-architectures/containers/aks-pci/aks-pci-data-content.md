@@ -10,7 +10,7 @@ This architecture and the implementation are focused on infrastructure and not t
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent or implement an actual PCI DSS workload.
 
-## Protect Cardholder Data
+## Protect cardholder data
 
 ### **Requirement 3**&mdash;Protect stored cardholder data
 
@@ -25,16 +25,6 @@ This architecture and the implementation are focused on infrastructure and not t
 |[Requirement 3.5](#requirement-35)|Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse: |
 |[Requirement 3.6](#requirement-36)|Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following: |
 |[Requirement 3.7](#requirement-37)|Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.|
-
-### **Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks.
-
-#### Your responsibilities
-
-|Requirement|Responsibility|
-|---|---|
-|[Requirement 4.1](#requirement-41)|Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:|
-|[Requirement 4.2](#requirement-42)|Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).|
-|[Requirement 4.3](#requirement-43)|Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.|
 
 ### Requirement 3.1
 
@@ -233,6 +223,16 @@ Ensure that security policies and operational procedures for protecting stored c
 Create documentation as a general statement plus a series of up-to-date role guides for all personas.  Perform new-hire training and ongoing training.
 
 It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. Training requirements are addressed in [Requirement 6.5](./aks-pci-malware.yml#requirement-65) and [Requirement 12.6](./aks-pci-policy.yml).
+
+### **Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks
+
+#### Your responsibilities
+
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 4.1](#requirement-41)|Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:|
+|[Requirement 4.2](#requirement-42)|Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).|
+|[Requirement 4.3](#requirement-43)|Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.|
 
 ### Requirement 4.1
 

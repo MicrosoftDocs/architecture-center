@@ -147,7 +147,7 @@ Apart from people and their roles, Azure resources and even pods within the clus
 
 Here are some best practices:
 
-- Maintain meticulous documentation about each role and the assigned permissions, as well as the justifications. Keep clear distinction about which permissions are JIT and which are standing.
+- Maintain meticulous documentation about each role and the assigned permissions, as well as the justifications. Keep clear distinctions about which permissions are JIT and which are standing.
 
 - Monitor the roles for changes, such as in assignment changes or role definitions. Create alerts on changes, even if they are expected, to gain visibility into intentions behind the changes.
 
@@ -199,7 +199,7 @@ When you start the configuration, start with zero-trust policies. Make exception
 
 - Azure RBAC also implements *deny all* by default. Don't override by adding RBAC assignments that invert the deny all setting.
 
-- All Azure services, Azure Key Vault, and Azure Container Registry, have *deny all* set of permissions by default.
+- All Azure services, including Azure Key Vault and Azure Container Registry, deny all permissions by default.
 
 - Any administrative access points, such as a jump box, should deny all access in the initial configuration. All elevated permissions must be defined explicitly to override the deny all rule.
 
@@ -276,7 +276,7 @@ Your organization should have a clear and documented pattern of vendor and simil
 
 ##### Your responsibilities
 
-Microsoft Entra ID provides a [smart lock out feature](/entra/identity/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Microsoft Entra conditional access policies.
+Microsoft Entra ID provides a [smart lockout feature](/entra/identity/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Microsoft Entra conditional access policies.
 
 Implement the lockout for components that support similar features but aren't backed with Microsoft Entra ID (for example, SSH-enabled machines, such as a jump box). This ensures that lockouts are enabled to prevent or slow access attempt abuse.
 

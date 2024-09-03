@@ -113,7 +113,7 @@ AKS provides audit logs at multiple levels, as described in [Requirement 10.1](#
 
 - By default, activity logs provide information about critical Azure resource operations. All logs include status, time, and the identity that started the operation.
 - Enable diagnostic settings to access all records of all API calls made into the AKS cluster. The logs provide details about the requestor, the time stamp, the source of request, and the contents of the request. Store the logs in a Log Analytics workspace with an appropriate retention period. Enable Log Analytics workspace logging to make sure that even access to the audit trail is logged.
-- Enable [syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog) to capture AKS node-level operating system security and health event logs in your Log Analytics workspace. These logs should also be also ingested into your SIEM.
+- Enable [syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog) to capture AKS node-level operating system security and health event logs in your Log Analytics workspace. These logs should also be ingested into your SIEM.
 - Include OS and usage audit logging for other compute such as build agents and jump boxes. Disable access to the systems directly as root. Verify all actions are being performed under a specific identity.
 - Log unsuccessful access attempts. This includes access requests to components such as Azure Storage, Azure Key Vault, the AKS API server, and any RDP/SSH access on other systems.
 - Take advantage of features, offered by third-party security agents, to help analyze user patterns inside your AKS cluster. These features might be useful for user-access audit data.
@@ -231,15 +231,15 @@ By default, logs aren't retained indefinitely. Ensure that you configure your Az
 
 ### Requirement 10.8
 
-- 10.8.1 Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include:
+10.8.1 Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include:
 
-- Restoring security functions
-- Identifying and documenting the duration (date and time start to end) of the security failure
-- Identifying and documenting cause(s) of failure, including root cause, and documenting remediation required to address root cause
-- Identifying and addressing any security issues that arose during the failure
-- Performing a risk assessment to determine whether further actions are required as a result of the security failure
-- Implementing controls to prevent cause of failure from reoccurring
--Resuming monitoring of security controls"
+  - Restoring security functions
+  - Identifying and documenting the duration (date and time start to end) of the security failure
+  - Identifying and documenting cause(s) of failure, including root cause, and documenting remediation required to address root   cause
+  - Identifying and addressing any security issues that arose during the failure
+  - Performing a risk assessment to determine whether further actions are required as a result of the security failure
+  - Implementing controls to prevent cause of failure from reoccurring
+  - Resuming monitoring of security controls
 
 #### Your responsibilities
 
@@ -294,7 +294,9 @@ The quarterly scan for vulnerabilities must be run by skilled personnel with dee
 
 This scan must also include in-cluster (pod-to-pod) networks.
 
-**APPLIES TO 11.2.2** Select an Approved Scanning Vendor (ASV) that has extensive experience with Azure networking and Kubernetes. This provides depth and specificity in suggested remediation.
+**APPLIES TO 11.2.2**
+
+Select an Approved Scanning Vendor (ASV) that has extensive experience with Azure networking and Kubernetes. This provides depth and specificity in suggested remediation.
 
 ### Requirement 11.3
 
@@ -335,7 +337,7 @@ Enable Microsoft Defender plans as they apply to various components of the CDE. 
 
 Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Microsoft Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term storage must not be modified. They must follow the write-once/read-many approach. Make sure the file integrity monitoring (FIM) solution covers those external entities to detect changes.
 
-## Requirement 11.5
+### Requirement 11.5
 
 Deploy a change tracking solution (for example, a file integrity monitoring solution) to alert personnel to unauthorized modification of critical system files, configuration files, or content files. Configure the product to perform critical file comparisons at least weekly.
 
@@ -353,7 +355,7 @@ Enable the solution to send logs to your monitoring or SIEM solution so that the
 
 Any other compute in the CDE should have change tracking enabled.
 
-## Requirement 11.6
+### Requirement 11.6
 
 Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.
 

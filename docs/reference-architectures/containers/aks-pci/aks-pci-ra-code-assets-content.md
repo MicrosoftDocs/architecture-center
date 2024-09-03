@@ -73,7 +73,7 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 The key strategy is to provide the required level of separation. The preferred way is to deploy in-scope and out-of-scope components in separate clusters. The downside of using multiple clusters is the higher costs for the added infrastructure and the maintenance overhead. This implementation co-locates all components in a shared cluster for simplicity. If you choose to follow the single-cluster model, use a rigorous in-cluster segmentation strategy. No matter how you choose to maintain separation, be aware that as your solution evolves, some out-of-scope components might become in-scope.
 
-In the reference implementation, we demonstrate the shared cluster approach by deploying a microservices application to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. By using of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM or the network IP space.
+In the reference implementation, we demonstrate the shared cluster approach by deploying a microservices application to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. By using Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM or the network IP space.
 
 ### Ingress controller
 
@@ -144,7 +144,7 @@ Azure Application Gateway doesn't support sourcing TLS certificates for the HTTP
 
 ### DDoS protection
 
-If you have any virtual networks with public IP addresses, enable [Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protection). In this reference architecture, the subnet that contains Application Gateway has a a public IP address attached, so it's in scope for DDoS protection.
+If you have any virtual networks with public IP addresses, enable [Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protection). In this reference architecture, the subnet that contains Application Gateway has a public IP address attached, so it's in scope for DDoS protection.
 
 Azure DDoS Network Protection protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS Network Protection comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workloads.
 
@@ -176,7 +176,7 @@ You can enforce those features through Azure Policy.
 
 ### Cluster backups (state and resources)
 
-If your workload requires in-cluster storage, have a robust and secure process for backup and recovery. Consider services such as Azure Backup (for Azure Disks and Azure Files), for backup and recovery of any `PersistantVolumeClaim`. There are advantages if the backup system supports native Kubernetes resources. You can supplement your primary method that reconciles the cluster to a well-known state, with the backup system for critical system recovery techniques. For example, it can help in drift detection and cataloging system state changes over time at the Kubernetes resource level.
+If your workload requires in-cluster storage, have a robust and secure process for backup and recovery. Consider services such as Azure Backup (for Azure Disks and Azure Files), for backup and recovery of any `PersistentVolumeClaim`. There are advantages if the backup system supports native Kubernetes resources. You can supplement your primary method that reconciles the cluster to a well-known state, with the backup system for critical system recovery techniques. For example, it can help in drift detection and cataloging system state changes over time at the Kubernetes resource level.
 
 Backup processes need to classify data in the backup, whether that data came from the cluster or was external to the cluster. If the data is in scope for PCI DSS 3.2.1, extend your compliance boundaries to include the lifecycle and destination of the backup, which will be outside of the cluster. Backups can be an attack vector. When designing your backup, consider geographic restrictions, encryption at rest, access controls, roles and responsibilities, auditing, time-to-live, and tampering prevention.
 

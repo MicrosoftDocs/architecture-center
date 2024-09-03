@@ -14,7 +14,7 @@ When you're hosting a workload in a Kubernetes, it's not sufficient to rely on t
 
 ## Build and maintain a secure network and systems
 
-### **Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
+### **Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data
 
 #### AKS feature support
 
@@ -350,7 +350,7 @@ The private cluster is managed by the AKS control plane. You don't have access t
 
 In this architecture, that jump box is in a separate subnet in the spoke network. Inbound access to the jump box is restricted by using an NSG that only allows access through Azure Bastion over SSH.
 
-To run certain commands on the jump box, you'll need to reach public endpoints. For example, endpoints managed by the Azure management plane. That outbound traffic must be secure. Similar to other components in the spoke network, outbound traffic from the jump box is restricted by using a UDR that forces HTTPs  traffic to go through Azure Firewall.
+To run certain commands on the jump box, you'll need to reach public endpoints. For example, endpoints managed by the Azure management plane. That outbound traffic must be secure. Similar to other components in the spoke network, outbound traffic from the jump box is restricted by using a UDR that forces HTTPS traffic to go through Azure Firewall.
 
 ### Requirement 1.5
 
@@ -360,7 +360,7 @@ Ensure that security policies and operational procedures for managing firewalls 
 
 It's critical that you maintain thorough documentation about the process and policies. This is especially true when you're managing Azure Firewall rules that segment the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
-### **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+### **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters
 
 #### Your responsibilities
 
