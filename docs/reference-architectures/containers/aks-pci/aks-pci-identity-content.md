@@ -408,7 +408,7 @@ Here are some suggestions for applying technical controls:
 - Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
 - Tune conditional access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
 
-  - [Configure adaptive session lifetime policies](/entra/identity/conditional-access/howto-conditional-access-session-lifetimee)
+  - [Configure adaptive session lifetime policies](/entra/identity/conditional-access/howto-conditional-access-session-lifetime)
   - [Configurable token lifetimes in the Microsoft identity platform](/entra/identity-platform/configurable-token-lifetimes)
 
 - For cloud-hosted CDE, there aren't any responsibilities for managing physical access and hardware. Rely on corporate network physical and logical controls.
