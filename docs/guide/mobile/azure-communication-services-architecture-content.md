@@ -157,4 +157,4 @@ Other contributors:
 
 ## Related resources
 
-- [Governance of Microsoft Teams guest users](../../example-scenario/governance/governance-teams-guest-users.yml)
+- [Guest access in Microsoft Teams](https://learn.microsoft.com/microsoftteams/guest-access)

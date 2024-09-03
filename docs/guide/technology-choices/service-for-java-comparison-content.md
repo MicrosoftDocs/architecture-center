@@ -60,6 +60,7 @@ Azure Kubernetes Service (AKS) and Virtual Machines support all application type
 Besides the platform choices, modern Java applications might have other supportability needs, such as:
 
 - [Batch or scheduled jobs](#batch-or-scheduled-jobs)
+- [Virtual network integration](#virtual-network-integration)
 - [Serverless](#serverless-development-model)
 - [Containerization](#containerization)
 
