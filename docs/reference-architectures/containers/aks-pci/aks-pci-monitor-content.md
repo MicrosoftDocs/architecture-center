@@ -48,7 +48,7 @@ AKS is integrated with Azure monitoring services:
 
 - Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing.
 
-AKS clusters are protected by Azure Application Gateway with Web Application Firewall (WAF), and can be configured in *detection* mode to log alerts and threats. A stronger mode is *prevention* mode, which actively blocks detected intrusions and attacks. For details, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
+AKS clusters are protected by Azure Application Gateway with Web Application Firewall (WAF), and can be configured in *detection* mode to log alerts and threats. It's better to use *prevention* mode, which actively blocks detected intrusions and attacks. For details, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
 
 #### Your responsibilities
 

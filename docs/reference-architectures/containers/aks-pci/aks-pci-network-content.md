@@ -108,7 +108,7 @@ This architecture uses different firewall technologies to inspect traffic flowin
 
    As part of processing a transaction or management operations, the cluster will need to communicate with external endpoints. For example, the cluster might require communication with the AKS control plane, communication with operating system and package update systems, and many workloads interact with external APIs. Some of those interactions might be over HTTP and should be considered as attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfiltration. Adding a firewall to egress traffic mitigates that threat.
 
-   We recommend that even pod-to-pod communication is TLS-encrypted. This practice is shown in the reference implementation with the use of a service mesh with mutual TLS (mTLS) capabilities.
+   We recommend that even pod-to-pod communication is TLS-encrypted. This practice is shown in the reference implementation with the use of a service mesh with mutual TLS (mTLS) authentication.
 
 - NSGs are added to secure traffic between the cluster and other components within the infrastructure. For example, in the reference implementation, there are NSGs on the subnet with node pools that block any SSH access attempts. Only traffic from within the virtual network is allowed.
 
@@ -404,7 +404,7 @@ Develop configuration standards for all system components.
 
 #### Your responsibilities
 
-Implement the recommendations in the Microosft cloud security benchmark. It provides a single, consolidated view of Azure security recommendations, covering industry frameworks such as CIS, NIST, PCI-DSS 3.2.1, and others. Use Microsoft Defender for Cloud features and Azure Policy to help track against the standards. Azure security benchmark is the default initiative for Microsoft Defender for Cloud. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
+Implement the recommendations in the Microsoft cloud security benchmark. It provides a single, consolidated view of Azure security recommendations, covering industry frameworks such as CIS, NIST, PCI-DSS 3.2.1, and others. Use Microsoft Defender for Cloud features and Azure Policy to help track against the standards. Azure security benchmark is the default initiative for Microsoft Defender for Cloud. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
 
 Document the desired configuration state of all components in the CDE, especially for AKS nodes, jump box, build agents, and other components that interact with the cluster.
 
