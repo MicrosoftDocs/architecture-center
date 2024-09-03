@@ -83,7 +83,7 @@ Because this architecture isn't designed for production deployments, the followi
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This section touches on some of the key recommendations that were implemented in this architecture, including content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section will cover a key security feature that was not implemented, network security.
 
@@ -144,7 +144,7 @@ This `basic` architecture is designed to allow you to evaluate and learn how to 
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Machine Learning - built-in prompt flow runtimes
 
@@ -173,3 +173,31 @@ TODO: Chad to find built in GUI evaluation experiences available
 This `basic` architecture implements a single instance for the deployed orchestrator. When you deploy changes, the new deployment will take the place of the existing deployment. This is fine for a learning environment. When you start moving toward production, read the [deployment flow](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) and [deployment guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-guidance) in the baseline architecture for guidance on understanding and implementing more advanced deployment approaches such as blue/green deployments.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
+
+An outcome of your proof of concept should be SKU selection that you estimate is suitable for your workload for both your App Service and your Azure Machine Learning online endpoint. Your workload should be designed to efficiently meet demand through horizontal scaling by adjusting the number of compute instances deployed in the App Service Plan and the online endpoint. Do not design the system to depend on changing the compute SKU to align with demand.
+
+- This `basic` architecture uses the consumption, or pay-as-you-go model. The consumption model is best-effort and might be subject to noisy neighbor or other stressors on the platform. As you move toward production, you should determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) which ensures reserved processing capacity for your OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models.
+
+- The Azure Machine Learning online endpoint does not ahve automatic scaling implemented. The service doesn't dynamically scale out or in to efficiently keep aligned with demand. As you move toward production, follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints).
+
+## Deploy this scenario
+
+To deploy and run the reference implementation, follow the steps in the [OpenAI end-to-end basic reference implementation](https://github.com/Azure-Samples/openai-end-to-end-basic/).
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Baseline OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml)
+
+## Related resources
+
+- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
+- [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
+- [Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
+- [Workspace managed virtual network isolation](/azure/machine-learning/how-to-managed-network)
+- [Configure a private endpoint for a Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
+- [Content filtering](/azure/ai-services/openai/concepts/content-filter)

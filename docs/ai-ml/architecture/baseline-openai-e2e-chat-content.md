@@ -36,6 +36,8 @@ Many components of this architecture are the same as the [basic OpenAI end-to-en
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
 The [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide redundancy within a region for supporting services when two or more instances are deployed in across them. When one zone experiences downtime, the other zones within the region might still be unaffected. The architecture also ensures enough instances of Azure services and configuration of those services to be spread across availability zones. For more information, see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
 
 This section addresses reliability from the perspective of the components in this architecture not addressed in the App Service baseline, including Machine Learning, Azure OpenAI, and AI Search.
@@ -97,7 +99,7 @@ If you deploy to compute clusters behind the Machine Learning-managed online end
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). The architecture implements a a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
 
@@ -246,7 +248,7 @@ Azure OpenAI is a consumption-based service, and as with any consumption-based s
 
 ### Operational excellence
 
-Operational excellence outlines the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Machine Learning - built-in prompt flow runtimes
 
@@ -391,7 +393,7 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 
 ### Performance efficiency
 
-Performance efficiency is your workload's ability to efficiently scale to meet the demands placed on it by users. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This section describes performance efficiency from the perspective of Azure Search, Azure OpenAI, and Machine Learning.
 
