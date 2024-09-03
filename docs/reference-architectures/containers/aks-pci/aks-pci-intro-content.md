@@ -40,7 +40,6 @@ This series is split into several articles. Each article outlines the high-level
 
 |Area of responsibility|Description|
 |---|---|
-|[Architecture](aks-pci-ra-code-assets.yml)|TODO|
 |[Network segmentation](aks-pci-network.yml)|Protect cardholder data with firewall configuration and other network controls. Remove vendor-supplied defaults.|
 |[Data protection](aks-pci-data.yml)|Encrypt all information, storage objects, containers, and physical media. Add security controls when data that is being transferred between components.|
 |[Vulnerability management](aks-pci-malware.yml)|Run antivirus software, file integrity monitoring tools, and container scanners to make sure the system as part of your vulnerability detection. |
