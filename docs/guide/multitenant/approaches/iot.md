@@ -18,6 +18,7 @@ categories:
 ms.custom:
   - guide
   - arb-saas
+  - arb-iot
 ---
 
 # Architectural approaches for IoT in a multitenant solution
@@ -79,7 +80,7 @@ All the considerations that you'd normally make in an IoT architecture, for all 
 
 Most IoT solutions fit within a [root architecture pattern](#root-architecture-patterns), which is a combination of the deployment target, tenancy model, and deployment pattern. These factors are determined by the key requirements and considerations described above.
 
-One of the largest decision points needing to be made, within the IoT space, is to select between an application-platform-as-a-service (aPaaS) and platform-as-a-service (PaaS) approaches.  For more information, see [Compare Internet of Things (IoT) solution approaches (PaaS vs. aPaaS)](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet).
+One of the largest decision points needing to be made, within the IoT space, is to select between an application-platform-as-a-service (aPaaS) and platform-as-a-service (PaaS) approaches.  For more information, see [Compare Internet of Things (IoT) solution approaches (PaaS vs. aPaaS)](/azure/iot/iot-services-and-technologies).
 
 This is the common "build vs. buy" dilemma that many organizations face in many projects. It's important to evaluate the advantages and disadvantages of both options.
 
@@ -228,7 +229,7 @@ By partitioning stream processing, you enable per-tenant customizations of the a
 
 ### Single-tenant automated
 
-A single-tenant automated approach is based on a similar decision process and design to an [enterprise solution](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet).
+A single-tenant automated approach is based on a similar decision process and design to an [enterprise solution](/azure/iot/iot-services-and-technologies).
 
 :::image type="content" source="media/iot/single-tenant-automated.png" alt-text="Diagram that shows an I O T architecture for three tenants. Each tenant has their own identical, isolated environment with an I O T Central organization and other components dedicated to them." border="false":::
 

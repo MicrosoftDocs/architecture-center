@@ -296,5 +296,5 @@ Other contributor:
 ## Related resources
 
 - [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
-- [Choose an IoT solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
+- [Choose an IoT solution in Azure](/azure/iot/iot-services-and-technologies)
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)

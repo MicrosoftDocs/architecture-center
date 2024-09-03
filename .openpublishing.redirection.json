@@ -2516,6 +2516,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml",
+      "redirect_url": "/azure/iot/iot-services-and-technologies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
