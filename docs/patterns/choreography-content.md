@@ -48,7 +48,7 @@ Decentralizing the orchestrator can cause issues while managing the workflow.
 
     ![A diagram of workflow in an messaging system that implements the choregraphy pattern in parallel and subsequently.](./_images/choreography-pattern-parallel-workflow.png)
 
-- The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, [distributed tracing](/dotnet/core/diagnostics/distributed-tracing) becomes difficult.
+- The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, [distributed tracing](/dotnet/core/diagnostics/distributed-tracing) becomes difficult, although tools like [ServiceInsight together with NServiceBus](https://docs.particular.net/serviceinsight/#sequence-diagram) can help reduce these challenges.
 
 - In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. But now, the downstream components must directly communicate with the resiliency handler, increasing point-to-point communication. 
 
