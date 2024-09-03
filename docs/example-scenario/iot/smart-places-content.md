@@ -354,7 +354,7 @@ Other contributor:
 [Azure Sphere]: https://azure.microsoft.com/services/azure-sphere/
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Brookfield sets a new standard for innovation in real estate with WillowTwin and Azure Digital Twins]: https://customers.microsoft.com/story/855907-brookfield-properties-professional-services-azure
-[Choose an Internet of Things (IoT) solution in Azure]: ./iot-central-iot-hub-cheat-sheet.yml
+[Choose an Internet of Things (IoT) solution in Azure]: /azure/iot/iot-services-and-technologies
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake
 [Develop with Azure Digital Twins]: /training/paths/develop-azure-digital-twins
 [Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md
