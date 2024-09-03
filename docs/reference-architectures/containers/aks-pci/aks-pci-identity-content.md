@@ -260,7 +260,7 @@ Don't share or reuse identities for functionally different parts of the CDE. For
 
 Extend this identity principal to managed identity assignments in Azure. Don't share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never share the same managed identity between production and non-production environments.
 
-Learn more about [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
+Learn more about [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity).
 
 **APPLIES TO: 8.1.2, 8.1.3, 8.1.4**
 
