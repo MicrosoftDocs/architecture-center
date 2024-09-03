@@ -91,7 +91,7 @@ Restrict access to privileged user IDs to least privileges necessary to perform 
 
 Based on the job functions, strive to minimize access without causing disruptions. Here are some best practices:
 
-- The identity should have just enough access to complete a task.
+- Reduce the access that each identity requires. An identity should have just enough access to complete their task.
 - Minimize standing permissions, especially on critical-impact identities that have access to in-scope components.
 - Add extra restrictions where possible. One way is to provide conditional access based on access criteria.
 - Conduct a regular review and audit of users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
@@ -109,7 +109,7 @@ Here are some examples.
 |Job classification|Role|
 |---|---|
 |A *product owner* defines the scope of the workload and prioritizes features. Balances customer data protection and ownership with business objectives. Needs access to reports, the cost center, or Azure dashboards. No access is needed for in-cluster or cluster-level permissions.|**Application owners**|
-|A *software engineer* designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as Application Insights) and the workload namespaces. These scopes and permissions might be different between pre-production and production environments.|**Application developer**|
+|A *software engineer* designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as Application Insights) and the workload namespaces. These scopes and permissions might be different between preproduction and production environments.|**Application developer**|
 |A *site reliability engineer* does live-site triage, manages pipelines, and sets up application infrastructure.<p>Group A with full control within their allocated namespaces. Standing permissions aren't required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespaces, but aren't highly privileged. </p> |**Application operators**|
 |A *cluster operator* designs and deploys a reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespaces. Standing permissions aren't required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespaces, but aren't highly privileged. </p> |**Infrastructure operators**|
 |A *network engineer* allocates of enterprise-wide virtual network and subnets, on-premises to cloud connectivity, and network security. |**Infrastructure operators**|
@@ -303,7 +303,7 @@ Several of the preceding set of requirements are automatically handled by Micros
 
 - **Password security**
 
-    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Microsoft Entra Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies can't be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk-user).
+    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. To create an organization-specific ban list, consider adding the Microsoft Entra Password Protection feature. A password policy is applied by default. Certain policies can't be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/entra/identity/authentication/concept-sspr-policy#microsoft-entra-password-policies). Consider advanced enforcement by using conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-risk-user).
 
     > [!NOTE]
     > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Microsoft Entra ID](/entra/identity/authentication/howto-authentication-passwordless-deployment).
