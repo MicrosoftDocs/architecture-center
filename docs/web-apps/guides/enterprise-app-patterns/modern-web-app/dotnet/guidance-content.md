@@ -18,7 +18,7 @@ The Modern Web App pattern builds on the Reliable Web App pattern. It requires a
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
-For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support either an active-active or active-passive configuration depending on your business need. The two regions require the same services except one region has a hub virtual network that connects. Adopt a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them securely (*see figure 2*).
+For a higher service-level objective (SLO), you can add a second region to your web app architecture. A second region requires you to configure your load balancer to route traffic to the second region to support either an active-active or active-passive configuration. Use a hub-and-spoke network topology to centralize and shared resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them securely (*see figure 2*).
 
 [![Diagram showing the Modern Web App pattern architecture with second region and hub-and-spoke network topology.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
 *Figure 2. The Modern Web App pattern architecture with second region and hub-and-spoke network topology.*
@@ -49,15 +49,21 @@ For each Azure service in your architecture, consult the relevant [Azure service
 
 - *Choose a message queue.* A message queue is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Start with Azure Service Bus as the default choice and use the other two options if Azure Service Bus doesn't meet your needs.<br><br>
 
-  - Azure Service Bus: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
-  - Azure Event Grid: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
-  - Azure Event Hubs: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
+    | Service              | Use Case                                                                                  |
+    |----------------------|-------------------------------------------------------------------------------------------|
+    | **Azure Service Bus**| Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications. |
+    | **Azure Event Grid** | Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.        |
+    | **Azure Event Hubs** | Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.         |
 
 - *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.<br><br>
 
-  - Azure Container Apps (ACA): Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
-  - Azure Kubernetes Service (AKS): Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  
-  - Web Apps for Container: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
+    | Service                      | Use Case                                                                                                                                   |
+    |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Azure Container Apps (ACA)** | Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.                |
+    | **Azure Kubernetes Service (AKS)** | Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.    |
+    | **Web Apps for Container**     | Choose Web App for Containers on Azure App Service for the simplest PaaS experience.                                                      |
+
+This should provide a clear and organized way to present the information using Markdown tables.
 
 - *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
@@ -68,8 +74,6 @@ To successfully decouple and extract an independent services, you need to update
 [![Diagram showing the role of the design patterns in the Modern Web App pattern architecture.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
 *Figure 3. Role of the design patterns.*
 
-Each design pattern provides benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
-
 1. *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
 1. *Queue-based Load Leveling pattern*: The Queue-Based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
@@ -79,6 +83,8 @@ Each design pattern provides benefits that align with one or more pillars of the
 1. *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. **(4a)** Implement this pattern in the  main web app. **(4b)** Also implement it in the decoupled service to track the health of endpoints.
 
 1. *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. **(5a)** Implement this pattern on all outbound calls to other Azure services in main web app, such as calls to message queue and private endpoints. **(5b)** Also implement this pattern in the decoupled service to handle transient failures in calls to the private endpoints.
+
+Each design pattern provides benefits that align with one or more pillars of the Well-Architected Framework (*see following table*).
 
 | Design Pattern | Implementation location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
 |----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
@@ -100,13 +106,9 @@ Use the [Strangler Fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 - *Set up a routing layer* In the monolithic web app code base, implement a routing layer that directs traffic based on endpoints. Use custom routing logic as needed to handle specific business rules for directing traffic. For example, if you have a `/users` endpoint in your monolithic app and you moved that functionality to the decoupled service, the routing layer would direct all requests to `/users` to the new service.
 
-- *Manage feature rollout.* Use .NET Feature Management libraries to [implement feature flags](/azure/azure-app-configuration/use-feature-flags-dotnet-core) and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core) to gradually roll out the decoupled services. The existing monolithic app routing should control how many requests the decoupled services receive. Start with a small percentage of requests and increase usage over time as you gain confidence in its stability and performance.
+- *Manage feature rollout.* Use .NET Feature Management libraries to [implement feature flags](/azure/azure-app-configuration/use-feature-flags-dotnet-core) and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core) to gradually roll out the decoupled services. The existing monolithic app routing should control how many requests the decoupled services receive. Start with a small percentage of requests and increase usage over time as you gain confidence in its stability and performance. For example, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
 
-    For example, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
-
-- *Use a façade service (if necessary).* A façade service is useful when a single request needs to interact with multiple services or when you want to hide the complexity of the underlying system from the client. However, if the decoupled service doesn’t have any public-facing APIs, a façade service might not be necessary.
-
-    In the monolithic web app code base, implement a façade service to route requests to the appropriate backend (monolith or microservice). In the new decoupled service, ensure the new service can handle requests independently when accessed through the façade.
+- *Use a façade service (if necessary).* A façade service is useful when a single request needs to interact with multiple services or when you want to hide the complexity of the underlying system from the client. However, if the decoupled service doesn’t have any public-facing APIs, a façade service might not be necessary. In the monolithic web app code base, implement a façade service to route requests to the appropriate backend (monolith or microservice). In the new decoupled service, ensure the new service can handle requests independently when accessed through the façade.
 
 ### Implement the Queue-Based Load Leveling pattern
 
@@ -118,14 +120,14 @@ Use the [Strangler Fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) on producer portion of the decoupled service to asynchronously handle tasks that don't need immediate responses. This pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution. It allows the decoupled service to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
 
-- *Use nonblocking message queuing.* Ensure the process that sends messages to the queue doesn't block other processes while waiting for the decoupled service to handle messages in the queue. If the process requires the result of the decoupled-service operation, have an alternative way to handle the situation while waiting for the queued operation to complete. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages to the queue without blocking the thread that executes this code (*see example code*):
+- *Use nonblocking message queuing.* Ensure the process that sends messages to the queue doesn't block other processes while waiting for the decoupled service to handle messages in the queue. If the process requires the result of the decoupled-service operation, have an alternative way to handle the situation while waiting for the queued operation to complete. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages to the queue without blocking the thread that executes this code:
 
     ```csharp
     // Asynchronously publish a message without blocking the calling thread
     await messageSender.PublishAsync(new TicketRenderRequestMessage(Guid.NewGuid(), ticket, null, DateTime.Now), CancellationToken.None);
     ```
 
-This approach ensures that the main application remains responsive and can handle other tasks concurrently, while the decoupled service processes the queued requests at a manageable rate.
+    This approach ensures that the main application remains responsive and can handle other tasks concurrently, while the decoupled service processes the queued requests at a manageable rate.
 
 - *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that can't be processed successfully. If failures persist, these messages should be removed from the queue. For example, Azure Service Bus has built-in retry and dead letter queue features.
 
@@ -338,6 +340,8 @@ Distributed tracing tracks a user request as it traverses multiple services. Whe
 
 - *Set up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include additional OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
 
+- *Monitor and analyze.* After configuring, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included, allowing Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services effectively.
+
 The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Additional instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket rendering service like this:
 
 ```c#
@@ -365,8 +369,6 @@ builder.Services.AddOpenTelemetry()
 
 The `builder.Logging.AddOpenTelemetry` method routes all logging through OpenTelemetry, ensuring consistent tracing and logging across the application. By registering OpenTelemetry services with `builder.Services.AddOpenTelemetry`, the application is set up to collect and export diagnostics, which are then sent to Azure Application Insights via `UseAzureMonitor`. Additionally, client instrumentation for components like Azure Service Bus and HTTP clients is configured through `WithMetrics` and `WithTracing`, enabling automatic metrics and trace collection without requiring changes to the existing client usage, only an update to the configuration.
 
-- *Monitor and analyze.* After configuring, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included, allowing Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services effectively.
-
 ## Configuration guidance
 
 The following sections provide guidance on implementing the configuration updates. Each section aligns with one or more pillars of the Well-Architected Framework.
@@ -392,6 +394,12 @@ To configure authentication and authorization on any new Azure services (*worklo
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
 
 - *Adopt infrastructure as code (IaC).* Use Azure Bicep or similar IaC tools to define and manage your cloud resources. IaC ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
+
+To configure authentication and authorization on users (*user identities*), follow these recommendations:
+
+- *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
+
+- *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
 
 The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment (`containerRegistryPushRoleId`), application owner (`containerRegistryPushRoleId`), and Azure Container Apps application (`containerRegistryPullRoleId`) (*see following code*).
 
@@ -432,11 +440,6 @@ module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' 
 }
 ```
 
-To configure authentication and authorization on users (*user identities*), follow these recommendations:
-
-- *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
-
-- *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
 
 ### Configure independent autoscaling
 
