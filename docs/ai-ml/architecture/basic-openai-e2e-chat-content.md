@@ -17,42 +17,42 @@ This article provides a basic architecture intended for learning about running c
 
 ### Workflow
 
-1. A user issues an HTTPS request to the App Service's default domain on azurewebsites.net. This domain automatically points to the App Service's built-in public IP. The transport layer security (TLS) connection is established from the client directly to app service. Azure The certificate is managed completely by Azure.
+1. A user issues an HTTPS request to the App Service's default domain on azurewebsites.net. This domain automatically points to the App Service's built-in public IP. The transport layer security (TLS) connection is established from the client directly to app service. The certificate is managed completely by Azure.
 1. Easy Auth, a feature of Azure App Service, ensures that the user accessing the site is authenticated with Microsoft Entra ID.
 1. The client application code deployed to App Service handles the request. The code connects to an Azure Machine Learning managed online endpoint.
 1. The managed online endpoint routes the request to an Azure Machine Learning compute instance where the Azure Machine Learning prompt flow orchestration logic is deployed.
 1. The Azure Machine Learning prompt flow orchestration code begins executing. Among other things, the logic extracts the query from the request.
 1. The orchestration logic connects to Azure AI Search to fetch grounding data for the query. The grounding data is added to the prompt that will be sent to Azure OpenAI in the next step.
 1. The orchestration logic connects to Azure OpenAI and sends the prompt that includes the relevant grounding data.
-1. The information about original request to App Service and the call to the managed online endpoint (LA), and the call to Azure OpenAI are logged in Application Insights.
+1. The information about original request to App Service and the call to the managed online endpoint are logged in Application Insights. OpenAI telemetry is logged to the Log Analytics workspace.
 
 ### Machine Learning prompt flow
 
-The workflow includes the flow for the chat application, however the following list outlines a typical prompt flow in a more detail.
+While the workflow includes the flow for the chat application, the following list outlines a typical prompt flow in a more detail.
 
 - The user enters a prompt in a custom chat user interface (UI).
-- The interface code sends that prompt to the back end.
-- The back end extracts the user intent, either question or directive, from the prompt.
-- Optionally, the back end determines the data stores that hold data that's relevant to the user prompt
-- The back end queries the relevant data stores.
-- The back end sends the intent, the relevant grounding data, and any history provided in the prompt to the language model.
-- The back end returns the result so that it can be displayed on the UI.
+- The interface code sends that prompt to prompt flow.
+- Prompt flow extracts the user intent, either a question or directive, from the prompt.
+- Optionally, prompt flow determines the data store(s) that hold data that's relevant to the user prompt
+- Prompt flow queries the relevant data stores.
+- Prompt flow sends the intent, the relevant grounding data, and any history provided in the prompt to the language model.
+- Prompt flow returns the result so that it can be displayed on the UI.
 
-The back end could be implemented in any number of languages and deployed to various Azure services. This architecture uses Machine Learning prompt flow because it provides a [streamlined experience](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) to build, test, and deploy flows that orchestrate between prompts, back end data stores, and language models.
+The flow orchestrator could be implemented in any number of languages and deployed to various Azure services. This architecture uses Machine Learning prompt flow because it provides a [streamlined experience](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) to build, test, and deploy flows that orchestrate between prompts, back end data stores, and language models.
 
 ### Components
 
-Many of the components of this architecture are the same as the resources in the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the method that you use to host the chat UI is the same in both architectures. The components highlighted in this section focus on the components used to build and orchestrate chat flows, data services, and the services that expose the language models.
+Many of the components of this architecture are the same as the resources in the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the chat UI is based on that architecture. The components highlighted in this section focus on the components used to build and orchestrate chat flows, data services, and the services that expose the language models.
 
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses several other features of Machine Learning that are used to develop and deploy executable flows for AI applications that are powered by language models:
 
   - [Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. Prompt flow is used in this architecture as the layer that orchestrates flows between the prompt, different data stores, and the language model. Machine Learning can directly host two types of prompt flow runtimes.
 
-    - **Automatic runtime:** A serverless compute option that manages the lifecycle and performance characteristics of the compute and allows flow-driven customization of the environment.
+    - **Automatic runtime:** A serverless compute option that manages the lifecycle and performance characteristics of the compute and allows flow-driven customization of the environment. This architecture uses the automatic runtime for simplicity.
 
     - **Compute instance runtime:** An always-on compute option in which the workload team must select the performance characteristics. This runtime offers more customization and control of the environment.
 
-  - [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference) let you deploy a flow for real-time inference. In this architecture, they're used as a PaaS endpoint for the chat UI to invoke the prompt flows hosted by Machine Learning.
+  - [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference) let you deploy a flow for real-time inferencing. In this architecture, they're used as a PaaS endpoint for the chat UI to invoke the prompt flows hosted by the Machine Learning automatic runtime.
 
 - [Storage](https://azure.microsoft.com/services/storage) is used to persist the prompt flow source files for prompt flow development.
 
@@ -64,7 +64,7 @@ Many of the components of this architecture are the same as the resources in the
 
 ## Recommendations and considerations
 
-The [components](#components) listed in this architecture link to Azure Well-Architected service guides. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+The [components](#components) listed in this architecture link to Azure Well-Architected service guides where they exist. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 This `basic` architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The following sections outline some deficiencies of this basic architecture, along with recommendations and considerations.
 
@@ -74,7 +74,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Because this architecture isn't designed for production deployments, the following outlines some of the critical reliability features that are omitted in this architecture:
 
-- The App Service Plan is configured for the `Standard` tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. The App Service becomes unavailable in the event of any issue with the instance, the rack, or the datacenter hosting the instance.
+- The App Service Plan is configured for the `Standard` tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. The App Service becomes unavailable in the event of any issue with the instance, the rack, or the datacenter hosting the instance. As you move toward production, follow guidance in the [reliability section of the baseline highly available zone-redundant web application](https://learn.microsoft.com/en-us/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-services).
 - Autoscaling for the client user interface isn't enabled in this basic architecture. To prevent reliability issues due to lack of available compute resources, you'd need to overprovision to always run with enough compute to handle max concurrent capacity.
 - Azure Machine Learning compute doesn't offer support for [availability zones](/azure/reliability/availability-zones-overview). The orchestrator becomes unavailable in the event of any issue with the instance, the rack, or the datacenter hosting the instance. See the [zonal redundancy for flow deployments](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) in the baseline architecture to learn how to deploy the orchestration logic to infrastructure that supports availability zones.
 - Azure OpenAI isn't implemented in a highly available configuration. To learn how to implement Azure OpenAI in a reliable manner, see [Azure OpenAI - reliability](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai---reliability) in the baseline architecture.
@@ -85,11 +85,11 @@ Because this architecture isn't designed for production deployments, the followi
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This section touches on some of the key recommendations implemented in this architecture. These recommendations include content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section covers a key security feature that wasn't implemented, network security.
+This section touches on some of the key recommendations implemented in this architecture. These recommendations include content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section discusses a key security feature that wasn't implemented in this architecture, network security.
 
 #### Content filtering and abuse monitoring
 
-Azure OpenAI includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in both input prompts and output completions. Categories for this potentially harmful content include hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model). You can configure the strictness of what you want to filter the content for each category, with options being low, medium, or high. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
+Azure OpenAI includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in both input prompts and output completions. Categories for this potentially harmful content include hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model). You can configure the strictness of what you want to filter from the content for each category, with options being low, medium, or high. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
 
 In addition to content filtering, the Azure OpenAI implements abuse monitoring features. Abuse monitoring is an asynchronous operation that detects and mitigates instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/cognitive-services/openai/code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
 
@@ -132,9 +132,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 This `basic` architecture is designed to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The architecture doesn't represent the costs for a production ready solution. Further, the architecture doesn't have controls in place to guard against cost overruns. The following outline some of the critical features that are omitted in this architecture that impact cost:
 
-- This architecture assumes that there are limited calls to Azure OpenAI. For this reason, we suggest you use pay-as-you-go pricing and not provisioned throughput. As you move toward a production solution, follow the [Azure OpenAI guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai).
+- This architecture assumes that there are limited calls to Azure OpenAI. For this reason, we suggest you use pay-as-you-go pricing and not provisioned throughput. As you move toward a production solution, follow the [Azure OpenAI cost optimization guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai).
 
-- The App Service plan is configured for the `Standard` tier, which doesn't have Availability Zone support. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends you use `Standard` or higher plans with three or more worker instances for high availability.
+- The App Service plan is configured for the `Standard` tier, which doesn't have Availability Zone support. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends you use `Standard` or higher plans with three or more worker instances for high availability which will impact your cost.
 
 - Scaling isn't configured for the managed online endpoint managed compute. For production deployments, you should configure auto scaling. Further, the [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) recommends deploying to Azure App Service in a zonal redundant configuration. Both of these architectural changes affect your cost when moving to production.
 
@@ -148,11 +148,11 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 #### Machine Learning - built-in prompt flow runtimes
 
-To minimize operational burden, this architecture uses the **Automatic Runtime**, a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. The automatic runtime is low maintenance, ephemeral, and application-driven.
+To minimize operational burdens, this architecture uses the **Automatic Runtime**, a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. The automatic runtime is low maintenance, ephemeral, and application-driven.
 
 #### Monitoring
 
-Diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
+Diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. During the proof of concept phase, it's important to get an understanding of what logs and metrics are available to be captured. When you move to production, you should eliminate log sources that are not adding value and are adding noise and cost to your workload's log sink.
 
 #### Language model operations
 
@@ -178,7 +178,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Because this architecture isn't designed for production deployments, the following outlines some of the critical performance efficiency features that were omitted in this architecture, along with other recommendations and considerations.
 
-An outcome of your proof of concept should be SKU selection that you estimate is suitable for your workload for both your App Service and your Azure Machine Learning online endpoint. You should design your workload to efficiently meet demand through horizontal scaling. Horizontal scaling allows you to adjust the number of compute instances that are deployed in the App Service Plan and instances deployed behind the online endpoint. Don't design the system to depend on changing the compute SKU to align with demand.
+An outcome of your proof of concept should be SKU selection that you estimate is suitable for your workload for both your App Service and your Azure Machine Learning compute. You should design your workload to efficiently meet demand through horizontal scaling. Horizontal scaling allows you to adjust the number of compute instances that are deployed in the App Service Plan and instances deployed behind the online endpoint. Don't design the system to depend on changing the compute SKU to align with demand.
 
 - This `basic` architecture uses the consumption, or pay-as-you-go model. The consumption model is best-effort and might be subject to noisy neighbor or other stressors on the platform. As you move toward production, you should determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) which ensures reserved processing capacity for your OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models.
 
