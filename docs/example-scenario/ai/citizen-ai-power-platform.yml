@@ -9,6 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - ai-machine-learning
   - developer-tools
@@ -22,4 +23,4 @@ name: Citizen AI with Power Platform
 summary: Learn how to use Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning proof of concept and a production version.
 thumbnailUrl: /azure/architecture/browse/thumbs/citizen-ai-power-platform-thumbnail.png
 content: |
-  [!include[](citizen-ai-power-platform-content.md)]
+  [!INCLUDE[](citizen-ai-power-platform-content.md)]

@@ -110,7 +110,6 @@ For more information, see these articles:
 - [Microsoft Graph Data Connect](/graph)
 - [Microsoft Power BI](/power-bi)
 
-## Related resources
+## Related resource
 
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
-- [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)

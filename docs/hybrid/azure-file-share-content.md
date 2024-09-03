@@ -1,4 +1,4 @@
-This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Directory Services (AD DS), you can control and limit access to AD DS users. Azure file shares then can replace traditional file servers.
+This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Domain Services (AD DS), you can control and limit access to AD DS users. Azure file shares then can replace traditional file servers.
 
 ## Architecture
 

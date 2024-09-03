@@ -74,7 +74,6 @@ Architecture guides:
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [Machine learning operations (MLOps) framework](../../ai-ml/guide/mlops-technical-paper.yml)
 
-Reference architectures:
+Reference architecture:
 
 - [Batch scoring for deep learning models](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
-- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)

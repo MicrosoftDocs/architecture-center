@@ -98,7 +98,7 @@ Methods of forecasting demand include on-point predictions, probabilistic Monte 
 
 The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, this solution uses multivariate probabilistic forecasting to account for uncertainties that are common in supply chains. By using an ensemble modeling approach that blends Deep AutoRegression RNN (DeepAR) or Transformer models that use the classical Monte Carlo Sampling method, the reference solution achieved 99.9% mean square error (MSE) improvement over a customer's initial approach for high-volume/high-impact business products. For ensembling, this solution explored XGBClassifier and XGBRegressor model architectures.
 
-:::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="media/optimize-inventory-forecast-demand-dataflow.svg":::
+:::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="./media/optimize-inventory-forecast-demand-dataflow.svg" lightbox="./media/optimize-inventory-forecast-demand-dataflow.svg":::
 
 ## Considerations
 
@@ -163,7 +163,6 @@ Other contributors:
 
 ## Related resources
 
-- [Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)
 - [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
 - [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
 - [Forecast energy and power demand with machine learning](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)

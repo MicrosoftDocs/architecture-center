@@ -249,6 +249,6 @@ Other contributors:
 - [Creating a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace)
 - [MongoDB Atlas](https://www.mongodb.com/atlas)
 
-## Related resources
-- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+## Related resource
+
 - [Real-time analytics on data with Azure Service Bus and Azure Data Explorer](../../solution-ideas/articles/analytics-service-bus.yml)

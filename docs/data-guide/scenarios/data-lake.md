@@ -35,7 +35,7 @@ Consider the following advantages of a data lake:
 - A data lake never deletes data because it stores data in its raw format. This feature is especially useful in a big data environment because you might not know in advance what insights you can get from the data.
 
 - Users can explore the data and create their own queries.
-- A data lake might be faster than traditional extract, transform, and load (ETL) tools.
+- A data lake might be faster than traditional extract, transform, load (ETL) tools.
 - A data lake is more flexible than a data warehouse because it can store unstructured and semi-structured data.
 
 A complete data lake solution consists of both storage and processing. Data lake storage is designed for fault tolerance, infinite scalability, and high-throughput ingestion of various shapes and sizes of data. Data lake processing involves one or more processing engines that can incorporate these goals and can operate on data that's stored in a data lake at scale.
@@ -44,7 +44,7 @@ A complete data lake solution consists of both storage and processing. Data lake
 
 We recommend that you use a data lake for data exploration, data analytics, and machine learning.
 
-A data lake can act as the data source for a data warehouse. When you use this method, the data lake ingests raw data and then transforms it into a structured queryable format. Typically, this transformation uses an [extract, load, and transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt) pipeline in which the data is ingested and transformed in place. Relational source data might go directly into the data warehouse via an ETL process and skip the data lake.
+A data lake can act as the data source for a data warehouse. When you use this method, the data lake ingests raw data and then transforms it into a structured queryable format. Typically, this transformation uses an [extract, load, transform (ELT)](../relational-data/etl.yml#extract-load-and-transform-elt) pipeline in which the data is ingested and transformed in place. Relational source data might go directly into the data warehouse via an ETL process and skip the data lake.
 
 You can use data lake stores in event streaming or IoT scenarios because data lakes can persist large amounts of relational and nonrelational data without transformation or schema definition. Data lakes can handle high volumes of small writes at low latency and are optimized for massive throughput.
 
@@ -95,5 +95,4 @@ Principal author:
 
 - [Choose an analytical data store in Azure](../technology-choices/analytical-data-stores.md)
 - [Query a data lake or lakehouse by using Azure Synapse Analytics serverless](../../example-scenario/data/synapse-exploratory-data-analytics.yml)
-- [Data management across Azure data lake services with Microsoft Purview](../../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
 - [Modern data warehouse for small and medium businesses](../../example-scenario/data/small-medium-data-warehouse.yml)
