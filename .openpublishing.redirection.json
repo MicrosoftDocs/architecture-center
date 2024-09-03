@@ -3435,12 +3435,12 @@
       "redirect_url": "/azure/architecture/ai-ml/architecture/secure-compute-for-research",
       "redirect_document_id": true
     },
-    {	
-      "source_path": "docs/example-scenario/ai/build-deploy-social-media-analytics-solution.yml",	
-      "redirect_url": "/azure/architecture/ai-ml/architecture/build-deploy-social-media-analytics-solution",	
-      "redirect_document_id": true	
-    },	
-    {  
+    {
+      "source_path": "docs/example-scenario/ai/build-deploy-social-media-analytics-solution.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/build-deploy-social-media-analytics-solution",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/ai/query-based-summarization.md",
       "redirect_url": "/azure/architecture/ai-ml/guide/query-based-summarization",
       "redirect_document_id": true
@@ -4008,16 +4008,6 @@
     {
       "source_path": "docs/example-scenario/apps/telehealth-system.yml",
       "redirect_url": "/azure/architecture/industries/healthcare",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml",
-      "redirect_url": "/azure/architecture/data-guide/azure-dataops-architecture-design",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/azure-purview-sql-estate-architecture.yml",
-      "redirect_url": "/azure/architecture/data-guide/azure-dataops-architecture-design",
       "redirect_document_id": false
     },
     {
