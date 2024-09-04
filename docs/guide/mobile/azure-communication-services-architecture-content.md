@@ -154,4 +154,7 @@ Other contributors:
 - [Communication Services reference documentation](/azure/communication-services/concepts/reference)
 - [Learn module: Introduction to Azure Communication Services](/training/modules/intro-azure-communication-services)
 - [Learn module: Create a voice calling web app with Azure Communication Services](/training/modules/communication-services-voice-calling-web-app)
-- [Governance of Microsoft Teams guest users](../../example-scenario/governance/governance-teams-guest-users.yml)
+
+## Related resources
+
+- [Guest access in Microsoft Teams](https://learn.microsoft.com/microsoftteams/guest-access)
