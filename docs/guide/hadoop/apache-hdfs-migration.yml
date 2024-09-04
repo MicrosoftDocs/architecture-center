@@ -3,7 +3,7 @@ metadata:
   title: Apache HDFS migration to Azure
   titleSuffix: Azure Architecture Center
   description: Learn about Apache HDFS and about ways to migrate an HDFS implementation to Azure by using the ABFS driver and Azure Data Lake Storage.
-  author: martinekuan
+  author: namrata01Apr
   ms.author: namratam
   ms.date: 06/07/2024
   ms.topic: conceptual
