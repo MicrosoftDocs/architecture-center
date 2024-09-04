@@ -30,13 +30,16 @@ This article provides a basic architecture intended for learning about running c
 
 While the workflow includes the flow for the chat application, the following list outlines a typical prompt flow in a more detail.
 
-- The user enters a prompt in a custom chat user interface (UI).
-- The interface code sends that prompt to prompt flow.
-- Prompt flow extracts the user intent, either a question or directive, from the prompt.
-- Optionally, prompt flow determines the data store(s) that hold data that's relevant to the user prompt
-- Prompt flow queries the relevant data stores.
-- Prompt flow sends the intent, the relevant grounding data, and any history provided in the prompt to the language model.
-- Prompt flow returns the result so that it can be displayed on the UI.
+> [!NOTE]
+> The numbers on this list do not correspond with the numbers in the architecture diagram.
+
+1. The user enters a prompt in a custom chat user interface (UI).
+1. The interface code sends that prompt to prompt flow.
+1. Prompt flow extracts the user intent, either a question or directive, from the prompt.
+1. Optionally, prompt flow determines the data store(s) that hold data that's relevant to the user prompt
+1. Prompt flow queries the relevant data stores.
+1. Prompt flow sends the intent, the relevant grounding data, and any history provided in the prompt to the language model.
+1. Prompt flow returns the result so that it can be displayed on the UI.
 
 The flow orchestrator could be implemented in any number of languages and deployed to various Azure services. This architecture uses Machine Learning prompt flow because it provides a [streamlined experience](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) to build, test, and deploy flows that orchestrate between prompts, back end data stores, and language models.
 
