@@ -165,7 +165,4 @@ Other contributors:
 - [Transition to IPv6](ipv6-ip-planning.md)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
-- [Virtual network-integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 - [Deploy AD DS in an Azure virtual network](../../example-scenario/identity/adds-extend-domain.yml)
-
-

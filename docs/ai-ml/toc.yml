@@ -98,10 +98,6 @@ items:
           href: architecture/batch-scoring-deep-learning.yml
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
-      - name: Recommendations
-        items:
-        - name: Social media analytics solution
-          href: architecture/build-deploy-social-media-analytics-solution.yml
       - name: Monitoring
         items:
         - name: Monitor OpenAI models
