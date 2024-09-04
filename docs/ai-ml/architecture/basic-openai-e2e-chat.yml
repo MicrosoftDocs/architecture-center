@@ -2,7 +2,7 @@
 metadata:
   title: Basic OpenAI end-to-end chat reference architecture
   titleSuffix: Azure Reference Architectures
-  description: Learn about proven practices for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.
+  description: Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.
   author: robbagby
   ms.author: robbag
   ms.date: 09/15/2024
@@ -22,7 +22,7 @@ products:
   - azure-key-vault
   - azure-monitor
 name: Baseline OpenAI end-to-end chat reference architecture
-summary: Learn about proven practices for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Service.
-thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end.png
+summary: Establish foundational knowledge and experience for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Service.
+thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end-basic.png
 content: |
    [!INCLUDE[](basic-openai-e2e-chat-content.md)]

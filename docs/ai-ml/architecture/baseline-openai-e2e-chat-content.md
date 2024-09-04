@@ -22,7 +22,7 @@ The Machine Learning workspace is configured with [managed virtual network isola
 
 ### Components
 
-Many components of this architecture are the same as the [basic OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights only the changes to the basic architecture.
+Many components of this architecture are the same as the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights only the changes to the basic architecture.
 
 - [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both the basic and this baseline architecture. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture takes advantage of enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture does not implement.
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic manager. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
@@ -256,7 +256,7 @@ Like in the basic architecture, this architecture uses the **Automatic Runtime**
 
 #### Monitoring
 
-Like in the basic architecture, diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
+Like in the basic architecture, diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record user interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
 
 Evaluate building custom alerts for the resources in this architecture such as those found in the Azure Monitor baseline alerts. For example:
 
