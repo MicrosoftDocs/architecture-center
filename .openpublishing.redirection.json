@@ -5335,7 +5335,7 @@
       "redirect_url": "/purview/register-scan-azure-sql-database",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path": "docs/solution-ideas/articles/demand-forecasting.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
