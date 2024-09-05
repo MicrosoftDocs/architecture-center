@@ -28,7 +28,7 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 **Decompose workloads by scalability requirements.**  Applications often consist of multiple workloads, with different requirements for scaling. For example, an application might have a public-facing site and a separate administration site. The public site may experience sudden surges in traffic, while the administration site has a smaller, more predictable load.
 
-**Design autonomous and decoupled components that communicate through asynchronous communication protocols.** Components should ideally use events to communicate with each other. This helps to independently scale only the overloaded component.
+**Design autonomous and decoupled components that communicate through asynchronous communication protocols.** Ideally, components should have their own, independent and immutable state and use events to communicate any value to outside the component; consumers should ideally subscribe to event streams. This helps to independently scale only the overloaded component. You should implement end to end flow control mechanisms to manage unpredictable workloads and to degrade gracefully: consumers should control their own rate of consumption. Producers should be able to slow down or halt whenever needed. Message queues are good options to absorb extra workload and to allow consumers to drain the work at their leisure. 
 
 **Avoid needless communication, coordination, and waiting.**
 
@@ -36,7 +36,7 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 **Offload resource-intensive tasks.** Tasks that require a lot of CPU or I/O resources should be moved to [background jobs][background-jobs] when possible, to minimize the load on the front end that is handling user requests.
 
-**Autoscale based on live usage metrics and use built-in autoscaling features**. Many Azure compute services have built-in support for autoscaling. If the application has a predictable, regular workload, scale out on a schedule. For example, scale out during business hours. Otherwise, if the workload is not predictable, use performance metrics such as CPU or request queue length to trigger autoscaling. For autoscaling best practices, see [Autoscaling][autoscaling].
+**Autoscale based on live usage metrics and use built-in autoscaling features**. Many Azure compute services have built-in support for autoscaling. If the application has a predictable, regular workload, scale out on a schedule. For example, scale out during business hours. Otherwise, if the workload is not predictable, use performance metrics such as CPU or request queue length to trigger autoscaling. Note that you should observe applications and their communications to identify bottlenecks and to derive more accurate decisions. For autoscaling best practices, see [Autoscaling][autoscaling].
 
 **Consider aggressive autoscaling for critical workloads**. For critical workloads, you want to keep ahead of demand. It's better to add new instances quickly under heavy load to handle the additional traffic, and then gradually scale back.
 
