@@ -3,7 +3,7 @@ metadata:
   title: Migrate AIX workloads to Azure with Skytap
   titleSuffix: Azure Example Scenarios
   description: This example illustrates a migration of AIX logical partitions (LPARs) to Skytap on Azure.
-  author: martinekuan
+  author: rericgalvan
   ms.author: rigalvan
   ms.date: 06/07/2024
   ms.topic: example-scenario
