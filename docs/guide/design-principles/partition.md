@@ -48,6 +48,11 @@ For more detailed guidance, see [Data partitioning][data-partitioning-guidance].
 
 **Partition at different levels**. Consider a database server deployed on a VM. The VM has a VHD that is backed by Azure Storage. The storage account belongs to an Azure subscription. Notice that each step in the hierarchy has limits. The database server may have a connection pool limit. VMs have CPU and network limits. Storage has IOPS limits. The subscription has limits on the number of VM cores. Generally, it's easier to partition lower in the hierarchy. Only large applications should need to partition at the subscription level.
 
+**Partition state and use immutable states**. Leverage parallelism by partitioning the monolithic state into smaller chunks which are managed independently from each other. This helps with scalability and fault tolerance but at the cost of consistency and simplicity. Use immutable states whenever possible because concurrent updates to mutable states are common sources of data corruption. But if you have to use mutable state, isolate and contain it using the [bulkhead pattern](../../patterns/bulkhead.yml) to minimize the chance of cascading failure. Ideally, your bulkhead should be single-threaded.
+
+**Communicate using events**. To share any value outside the component, use immutable events and consumers should ideally subscribe to event streams.  Implement end to end flow control mechanisms to manage unpredictable workloads and to degrade gracefully: consumers should control their own rate of consumption. Producers should be able to slow down or halt whenever needed. Message queues are good options to absorb extra workload and to allow consumers to drain the work at their leisure. 
+
+
 <!-- links -->
 
 [azure-limits]: /azure/azure-subscription-service-limits
