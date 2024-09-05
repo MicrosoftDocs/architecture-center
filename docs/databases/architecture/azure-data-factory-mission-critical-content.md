@@ -12,38 +12,38 @@ In the [enterprise hardened architecture](azure-data-factory-enterprise-hardened
 
 There are several key requirements to deliver a mission-critical advanced analytical solution by using Data Factory:
 
-- The machine learning model must be designed as a mission-critical, operational service that is globally available to the various deal-operational systems.  
+- The machine learning model must be designed as a mission-critical, operational service that is globally available to the various deal-operational systems.
 
 - The machine learning model outcomes and performance metrics must be available for retraining and auditing.
 
 - The machine learning model auditing trails must be retained for 10 years.
 
 - The machine learning model currently targets the US, Europe, and South America, with plans to expand into Asia in the future. The solution must adhere to data compliance requirements, like the General Data Protection Regulation for European countries or regions.
-  
+
 - The machine learning model is expected to support up to 1,000 concurrent users in any given region during peak business hours. To minimize costs, the machine learning processing must scale back when not in use.
 
 ### Key design decisions
 
 - A requirement doesn't justify the cost and complexity of redesigning the platform to meet mission-critical specifications. The machine learning model should instead be containerized and then deployed to a mission-critical solution. This approach minimizes cost and complexity by isolating the model service and adhering to [mission-critical guidance](/azure/well-architected/mission-critical/mission-critical-application-platform#containerization). This design requires the model to be developed on the platform and then containerized for deployment.
-  
+
 - After the model is containerized, it can be served out through an API by using a [scale-unit architecture](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) in US, European, and South American Azure regions. Only [paired regions that have availability zones](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies) are in scope, which supports redundancy requirements.
-  
-- Because of the simplicity of a single API service, we recommend that you use the [web app for containers](https://azure.microsoft.com/products/app-service/containers/) feature to host the app. This feature provides simplicity. You can also use [Azure Kubernetes Service (AKS)](/azure/well-architected/mission-critical/mission-critical-application-platform#design-considerations-and-recommendations-for-azure-app-service), which provides more control but increases complexity.  
+
+- Because of the simplicity of a single API service, we recommend that you use the [web app for containers](https://azure.microsoft.com/products/app-service/containers/) feature to host the app. This feature provides simplicity. You can also use [Azure Kubernetes Service (AKS)](/azure/well-architected/mission-critical/mission-critical-application-platform#design-considerations-and-recommendations-for-azure-app-service), which provides more control but increases complexity.
 
 - The model is deployed through an [MLOps framework](/azure/machine-learning/concept-model-management-and-deployment). Data Factory is used to move data in and out of the mission-critical implementation.
 
 - To do containerization, you need:
 
   - An API front end to serve the model results.
-  
+
   - To offload audit and performance metrics to a storage account, which can then be transferred back to the main platform through Data Factory by using a [scheduled job](/azure/data-factory/how-to-create-schedule-trigger).
-  
+
   - Deployment and rollback deployment pipelines, which enable each regional deployment to synchronize with the correct current version of the model.
-  
+
   - Service [health modeling](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling) to measure and manage the overall health of a workload.
 
 - Audit trails can be initially stored within a Log Analytics workspace for real-time analysis and operational support. After 30 days, or 90 days if using Microsoft Sentinel, audit trails can be automatically transferred to Azure Data Explorer for long-term retention. This approach allows for interactive queries of up to two years within the Log Analytics workspace and the ability to keep older, infrequently used data at a reduced cost for up to 12 years. Use Azure Data Explorer for data storage to enable running cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel. This approach provides a cost-effective solution for meeting long-term storage requirements while maintaining support optionality. If there's no requirement to hold excessive data, you should consider deleting it.
-  
+
 ## Architecture
 
 :::image type="content" source="_images/azure-data-factory-mission-critical.png" alt-text="Diagram that shows the design for a mission-critical workload." border="false"lightbox="_images/azure-data-factory-mission-critical.png":::
@@ -60,10 +60,10 @@ The following workflow corresponds to the preceding diagram:
 
     - Data Factory enables the migration of any data required by the model to run and enables the ingestion of model output and performance metrics from the mission-critical implementation.
 
-    - The data lake's bronze layer (or the _raw layer_) directory structure stores the model output and performance metrics by using the [archive tier](/azure/storage/blobs/access-tiers-overview) to meet the data retention requirement.
+    - The data lake bronze layer (or the *raw layer*) directory structure stores the model output and performance metrics by using the [archive tier](/azure/storage/blobs/access-tiers-overview) to meet the data retention requirement.
 
 2. [Azure DevOps](/azure/devops) orchestrates the deployment of the model codebase and the creation and retirement of regional deployments for all supporting services.
-  
+
 3. The machine learning model is deployed as a dedicated mission-critical workload within its own defined subscription. This approach ensures that the model avoids any [component limits or service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) that the platform might impose.
 
 4. A set of shared resources span the entire solution and are therefore defined as global:
@@ -73,7 +73,7 @@ The following workflow corresponds to the preceding diagram:
     - [Azure Front Door](/azure/frontdoor/front-door-overview) provides load-balancing services to distribute traffic across regional deployments.
 
     - A monitoring capability uses [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
-  
+
 5. The regional [deployment stamp](/azure/well-architected/mission-critical/mission-critical-architecture-pattern#regional-stamp-resources) is a set of solution components that you can deploy into any target region. This approach provides scale, service resiliency, and regional-specific service.
 
     - Depending on the nature of the machine learning model, there might be regional data compliance requirements that require the machine learning model to adhere to sovereignty regulations. This design supports these requirements.
@@ -83,7 +83,7 @@ The following workflow corresponds to the preceding diagram:
 6. The [scale unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) of the solution has the following components:
 
     - The [web app for containers](https://azure.microsoft.com/products/app-service/containers/) feature hosts the machine learning model and serves its outputs. As the core service component in this solution, you should consider the [scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) for web app for containers as the key constraints. If these limits don't support the solutions requirements, considering using AKS instead.
-  
+
     - [Azure Key Vault](/azure/key-vault/) enforces appropriate controls over secrets, certificates, and keys at the regional scope, secured through [Azure Private Link](/azure/key-vault/general/private-link-service).
 
     - [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides data storage, which is secured through [Private Link](/azure/storage/common/storage-private-endpoints).
@@ -153,7 +153,7 @@ Compared to the baseline architecture, this architecture:
 
 - Follows the guidance from the mission-critical [security](/azure/well-architected/mission-critical/mission-critical-design-principles#security) design considerations.
 
-- Implements the [security guidance](/azure/well-architected/mission-critical/mission-critical-security) from the mission-critical reference architecture.  
+- Implements the [security guidance](/azure/well-architected/mission-critical/mission-critical-security) from the mission-critical reference architecture.
 
 ### Cost optimization
 
@@ -175,11 +175,11 @@ Compared to the baseline architecture, this architecture:
 
 - Follows the guidance from the mission-critical [operational excellence](/azure/well-architected/mission-critical/mission-critical-design-principles#operational-excellence) design considerations.
 
-- Separates out global and regional monitoring resources to prevent a single of point failure in [observability](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#unified-data-sink).
+- Separates out global and regional monitoring resources to prevent a single of point failure in [Observability](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#unified-data-sink).
 
-- Implements the [deployment and testing guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and [operational procedures](/azure/well-architected/mission-critical/mission-critical-operational-procedures) from the mission-critical reference architecture.  
+- Implements the [deployment and testing guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and [operational procedures](/azure/well-architected/mission-critical/mission-critical-operational-procedures) from the mission-critical reference architecture.
 
-- Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-cross-cutting-issues#azure-roadmap-alignment) and [regional rollouts](https://azure.microsoft.com/updates) to account for constantly evolving services in Azure.  
+- Aligns the solution with [Azure engineering roadmaps](/azure/well-architected/mission-critical/mission-critical-cross-cutting-issues#azure-roadmap-alignment) and [regional rollouts](https://azure.microsoft.com/updates) to account for constantly evolving services in Azure.
 
 ### Performance efficiency
 

@@ -13,7 +13,7 @@ According to the [baseline architecture](azure-data-factory-on-azure-landing-zon
 
 There are several key requirements to modify and harden a medallion lakehouse:
 
-- The solution must be hardened to operate as an enterprise data and analytics platform. The solution must also extend to support other corporate functions and adhere to Contoso's data access policy requirements.  
+- The solution must be hardened to operate as an enterprise data and analytics platform. The solution must also extend to support other corporate functions and adhere to Contoso's data access policy requirements.
 
 - The platform must be able to ingest, store, process, and serve data in near real-time. The performance target is defined as less than one minute of processing time from ingestion to availability in the reporting layer.
 
@@ -26,11 +26,11 @@ There are several key requirements to modify and harden a medallion lakehouse:
 - The platform must support higher target service-level agreements (SLAs), which include:
 
   - A target uptime of 99.9%, or about 8.5 hours downtime per year.
-  
+
   - A recovery point objective (RPO) of 1.5 days.
-  
+
   - A recovery time objective (RTO) of less than 1 day.
-  
+
 - The platform must support the expected usage of 1,000 users across various domains with an estimated growth of 5% annually. Only Contoso employees can access the platform directly, but a capability to share data with other companies is required.
 
 ### Key design decisions
@@ -39,21 +39,21 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 - A [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) that's backed by an enterprise-managed foundation works well for this scenario. A domain design supports the requirements for extending the platform across the enterprise, the self-service functionality, and the business strategic objective. The foundation is defined as:
 
-  - Identity and access controls.  
-  - The underlying networking, boundary controls, and security baseline.  
+  - Identity and access controls.
+  - The underlying networking, boundary controls, and security baseline.
   - The governance, audit, and monitoring functionality.
   - Functions to ingest and initially process data into the platform.
-  
+
 - The domain design is anchored around a given business department's ownership of their data and the originating source system. A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) enables business groups to optionally build their own stack of model-and-serve components that they control and maintain going forward. Domains operate within guardrails according to enterprise requirements and are enabled to perform well-defined and controlled experiments. The data science capability is delivered through:
 
   - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code and for simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
-  
+
   - [Azure Machine Learning](/azure/machine-learning) and AI service offerings that support the full set of use cases and [user maturity](/azure/architecture/ai-ml/guide/mlops-maturity-model).
-  
+
   - [Azure Databricks](/azure/databricks/lakehouse-architecture/performance-efficiency/best-practices#use-parallel-computation-where-it-is-beneficial) for large enterprise volume use cases with significant processing demands.
-  
+
   - An innovation sandbox that supports proof-of-concept work for new technologies or techniques. It provides an isolated environment that's segregated from production and preproduction.
-  
+
 - [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near real-time and micro-batch ingestion use cases that are enabled by the [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality, combined with [Azure Databricks structured streaming](/azure/databricks/structured-streaming/) and [Power BI](/power-bi/connect-data/service-real-time-streaming), supports the end-to-end solution.
 
 - Power BI to enable data sharing with external parties as required with [Microsoft Entra B2B](/power-bi/enterprise/service-admin-azure-ad-b2b) authorization and access controls.
@@ -62,7 +62,7 @@ You can modify the [baseline architecture](azure-data-factory-on-azure-landing-z
 
 - Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities of domain ownership](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities).
 
-- The stakeholders' data maturity, available skilling across the software development lifecycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also indicate your current position in the cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist) and highlight the steps needed to advance further.
+- The stakeholders' data maturity, available skilling across the software development life cycle (SDLC), governance framework, standards, and automation maturity all influence how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also indicate your current position in the cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist) and highlight the steps needed to advance further.
 
 ## Architecture
 
@@ -76,20 +76,20 @@ The following workflow corresponds to the preceding diagram:
 
     - [Data contracts](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#data-contracts-1) govern the data feeds from source systems. Data contracts can be used to drive a [metadata-driven](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#:~:text=metadata%2Ddriven%20ingestion%20frameworks) extract, transform, load (ETL) framework and make the data available to users as part of the [governance capability](/purview/how-to-browse-catalog).
 
-    - The directory structure of the bronze layer (or the _raw layer_) in Delta Lake reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices#directory-structure). The source system orders the data. This organization methodology enables a unified security implementation based on the business ownership of source systems.
+    - The directory structure of the bronze layer (or the *raw layer*) in Delta Lake reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices#directory-structure). The source system orders the data. This organization methodology enables a unified security implementation based on the business ownership of source systems.
 
     - A fast path for data supports the streaming requirement. A fast path ingests data through Data Factory, and Azure Databricks structured streaming directly processes the data for analysis and use. You can use Delta Lake [change data capture](/azure/databricks/structured-streaming/delta-lake#stream-a-delta-lake-change-data-capture-cdc-feed) to create the audit history. This feature supports replay and propagating incremental changes to downstream tables in the medallion architecture.
 
 2. A model-and-serve path remains the responsibility of the central technical team in support of the enterprise-owned data solutions. The technical team is also responsible for providing the service catalog optionality for business areas that require data solutions but don't have the skilling, budget, or interest in technically managing their own domain implementation. Self-service is offered within the model-and-serve components that the central technical team manages.
-  
+
 3. The central technical team manages the enterprise data science capability. This model also aligns with their support for enterprise-focused solutions, provision of service optionality, and hosting services with an enterprise pricing structure.
 
 4. Domains are enabled through logical containers at the subscription level. [Subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) provide the necessary domain-level unit of management, billing, governance, and isolation.
 
-    - The approach is managed through infrastructure as code [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit, and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
+    - The approach is managed through infrastructure as code (IaC) [infrastructure as code (IaC)](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit, and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
 
     - Each domain has its own set of role-based access control (RBAC) roles that cover the [control planes and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within domain logical containers. In contrast, data plane roles apply across the platform, which ensures consistent, unified, and low-complexity control.
-  
+
 5. Within a domain subscription, the available components can be configured based on skill sets, priorities, and use cases.
 
     - Power BI [workspaces](/power-bi/collaborate-share/service-new-workspaces) enable domains to collaborate when it's practical. Workspaces can also be unique to domains and linked to specific [premium capacities](/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
@@ -142,7 +142,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Compared to the baseline architecture, this architecture:
 
-- Meets the uplifted requirements with the default [Azure SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) across the solution. This strategy eliminates the need for high-availability or multi-regional uplift.
+- Meets the uplifted requirements with the default [Azure SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) across the solution. This strategy eliminates the need for high availability or multi-regional uplift.
 
 - Uplifts the [disaster recovery strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and updated target metrics. This strategy must be tested regularly to ensure that it remains fit for purpose.
 
@@ -168,7 +168,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Compared to the baseline architecture, this architecture:
 
 - Creates domain-specific data RBAC roles when domain-specific data is ingested into the platform with data classification higher than enterprise. For more information, see [Govern overview](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data. You can reuse these domain data roles for any new domain data onboarded to the platform. This approach delivers consistent and unified controls for the access to data.
-  
+
 - Considers the higher data sensitivity requirements for the platform, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) for all key operational support roles.
 
 ### Cost optimization
@@ -205,7 +205,7 @@ Compared to the baseline architecture, this architecture:
 
 ## Antipatterns
 
-- **Non-collaborative transformation:** The shift to a domain model is a major undertaking that requires significant change across the organization. This shift shouldn’t be a one-sided effort where technology leadership makes decisions solely based on the technology they wish to adopt. This approach can lead to disagreements or misunderstandings between business stakeholders and technology teams further down the line if problems arise in the workload. Instead, this transformation is most effective when business stakeholders understand the necessary activities and appreciate the value of the delivered outcomes. [Deep collaboration](/azure/well-architected/reliability/principles#design-for-business-requirements) between technology and business stakeholders is the key to any successful transformation.
+- **Non-collaborative transformation:** The shift to a domain model is a major undertaking that requires significant change across the organization. This shift shouldn't be a one-sided effort where technology leadership makes decisions solely based on the technology they wish to adopt. This approach can lead to disagreements or misunderstandings between business stakeholders and technology teams further down the line if problems arise in the workload. Instead, this transformation is most effective when business stakeholders understand the necessary activities and appreciate the value of the delivered outcomes. [Deep collaboration](/azure/well-architected/reliability/principles#design-for-business-requirements) between technology and business stakeholders is the key to any successful transformation.
 
 - **Uncritically adopting technology trends:** New ideas drive technology. New functionality, new approaches, and new designs are constantly introduced through various online forums. For example, a trending data design pattern on LinkedIn might seem like an appealing option. Resist the temptation to adopt the latest trends when you build an enterprise-class solution, and favor proven technologies and patterns. Trending solutions might lack thorough testing and proven performance in production enterprise environments. These solutions might fail in production if they have missing functionalities, insufficient documentation, or an inability to scale properly.
 

@@ -170,7 +170,7 @@ For more information, read the [Build and Release Pipeline](https://github.com/A
 
 ### Testing
 
-The solution includes support for both unit testing and integration testing. It uses pytest-adf and the Nutter Testing Framework. For more information, see the [Testing](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#testing) section of the README.
+The solution includes support for both unit testing and integration testing. It uses pytest-Data Factory and the Nutter Testing Framework. For more information, see the [Testing](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#testing) section of the README.
 
 ### Observability and monitoring
 

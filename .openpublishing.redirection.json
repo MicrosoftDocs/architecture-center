@@ -2516,6 +2516,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml",
+      "redirect_url": "/azure/iot/iot-services-and-technologies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
@@ -4010,6 +4015,31 @@
       "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/example-scenario/security/apps-zero-trust-identity.yml",
+      "redirect_url": "/entra/identity-platform/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/integrated-multiservices/virtual-network-integration.yml",
+      "redirect_url": "/azure/azure-functions/functions-networking-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/relationship-mesh-solution-azure.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/governance/governance-teams-guest-users.yml",
+      "redirect_url": "/microsoftteams/guest-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/build-deploy-social-media-analytics-solution.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
     {  
       "source_path": "docs/data-science-process/platforms-and-tools.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
@@ -5306,6 +5336,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/azure-purview-sql-estate-architecture.yml",
+      "redirect_url": "/purview/register-scan-azure-sql-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/demand-forecasting.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
@@ -5328,11 +5363,6 @@
     {
       "source_path": "docs/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml",
       "redirect_url": "/azure/hdinsight/hdinsight-virtual-network-architecture",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/azure-purview-sql-estate-architecture.yml",
-      "redirect_url": "/purview/register-scan-azure-sql-database",
       "redirect_document_id": false
     },
     {

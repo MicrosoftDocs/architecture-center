@@ -256,7 +256,8 @@ items:
     - name: Choose an IoT option
       items:
       - name: IoT solutions in Azure
-        href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+        href: /azure/iot/iot-services-and-technologies
+        maintainContext: true
       - name: Compare IoT Hub and Event Hubs
         href: /azure/iot-hub/iot-hub-compare-event-hubs
         maintainContext: true
@@ -450,8 +451,6 @@ items:
         href: solutions/microsoft-365-scenarios.md
       - name: All Microsoft 365 architectures
         href: /azure/architecture/browse/?products=m365
-      - name: Governance of Teams guest users
-        href: example-scenario/governance/governance-teams-guest-users.yml
       - name: Hybrid SharePoint farm with Microsoft 365
         href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
       - name: Manage Microsoft 365 with DevOps
@@ -853,8 +852,6 @@ items:
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
-      - name: Relationship mesh solution on Azure
-        href: example-scenario/analytics/relationship-mesh-solution-azure.yml
       - name: Secure a data lakehouse
         href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
       - name: Stream processing with Azure Databricks
@@ -1816,16 +1813,12 @@ items:
       items:
       - name: AD DS resource forests in Azure
         href: reference-architectures/identity/adds-forest.yml
-      - name: Apply Zero Trust to your API implementation
-        href: example-scenario/security/apps-zero-trust-identity.yml
       - name: Microsoft Entra identity management for AWS
         href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Deploy AD DS in an Azure virtual network
         href: example-scenario/identity/adds-extend-domain.yml
       - name: Extend on-premises AD FS to Azure
         href: reference-architectures/identity/adfs.yml
-      - name: Governance of Teams guest users
-        href: example-scenario/governance/governance-teams-guest-users.yml
       - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
     - name: Solution ideas
@@ -2774,8 +2767,6 @@ items:
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
-      - name: Virtual network integrated microservices
-        href: example-scenario/integrated-multiservices/virtual-network-integration.yml
     - name: Solution ideas
       items:
       - name: Centralize app configuration and security
@@ -3447,8 +3438,6 @@ items:
         href: example-scenario/digital-health/predict-patient-length-of-stay.yml
       - name: Remote patient monitoring
         href: example-scenario/digital-health/remote-patient-monitoring.yml
-      - name: Virtual network for patient records
-        href: example-scenario/integrated-multiservices/virtual-network-integration.yml
       - name: Virtual visits with Cloud for Healthcare
         href: example-scenario/mch-health/virtual-health-mch.yml
     - name: Datasets
@@ -4061,8 +4050,6 @@ items:
         href: /azure/architecture/browse/?terms=education
       - name: Create smart campuses
         href: example-scenario/iot/smart-places.yml
-      - name: Governance of Teams guest users
-        href: example-scenario/governance/governance-teams-guest-users.yml
       - name: Moodle deployment with NetApp Files
         href: example-scenario/file-storage/moodle-azure-netapp-files.yml
       - name: Predict student attrition

@@ -24,4 +24,4 @@ name: Azure Data Factory mission-critical architecture
 summary: Learn how to design a mission-critical workload for Azure Data Factory on Azure landing zones to build robust and efficient data pipelines.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-mission-critical.png
 content: |
-  [!include[](azure-data-factory-mission-critical-content.md)]
+  [!INCLUDE[](azure-data-factory-mission-critical-content.md)]

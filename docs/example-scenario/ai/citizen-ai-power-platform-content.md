@@ -24,7 +24,7 @@ Use [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
   - Unstructured data (for example, video, images, audio, and free text)
   - Semi-structured data (for example, JSON, XML, CSV, and logs)
   - Structured data (for example, relational databases and Azure Data Services)
-  
+
     [Azure Synapse Link](/azure/cosmos-db/synapse-link) creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
     [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) can be triggered based on a predefined schedule or in response to an event. They can also be invoked by calling REST APIs.
 
@@ -38,13 +38,13 @@ Ingested data can land directly in raw format and then be transformed on the [Az
 A batch or real-time model published in Machine Learning can generate a REST endpoint that can be consumed in a [custom application built by using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
 
 > [!NOTE]
-> Both Machine Learning and Power Platform stack have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimum viable product (MVP). However, the "Ingest" and "Store" sections of the architecture advise on the role of standardized data pipelines for the sourcing and storage of data from different sources at scale. These patterns are typically implemented and maintained by the enterprise data platform teams.
+> Both Machine Learning and Microsoft Power Platform stack have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimum viable product (MVP). However, the "Ingest" and "Store" sections of the architecture advise on the role of standardized data pipelines for the sourcing and storage of data from different sources at scale. These patterns are typically implemented and maintained by the enterprise data platform teams.
 
 ### Components
 
 You can use the following components.
 
-#### Power Platform services
+#### Microsoft Power Platform services
 
 - [Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power Apps, Power Automate, Power BI, and Power Virtual Agents.
 - [Power Apps](https://powerapps.microsoft.com): A suite of apps, services, connectors, and data platform. It provides a rapid application development environment to build custom apps for your business needs.
@@ -123,7 +123,7 @@ Apps based on ML typically require one set of resources for training and another
 
 DevOps practices are used to orchestrate the end-to-end approach used in this example. The [Machine Learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
 
-DevOps automation can be applied to the Power Platform solution provided in this example. For more information about Power Platform DevOps, see [Power Platform Build Tools for Azure DevOps: Power Platform](/power-platform/alm/devops-build-tools).
+DevOps automation can be applied to Microsoft Power Platform solution provided in this example. For more information about Microsoft Power Platform DevOps, see [Power Platform Build Tools for Azure DevOps: Power Platform](/power-platform/alm/devops-build-tools).
 
 ### Cost optimization
 
@@ -137,7 +137,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Consider this business scenario. A field agent uses an app that estimates a car's market price. You can use Machine Learning to quickly prototype an ML model of this app. You use a low-code designer and ML features to create the model, and then deploy it as a real-time REST endpoint.
 
-The model might prove the concept, but a user has no easy way to consume a model implemented as a REST API. Power Platform can help close this last mile, as represented here.
+The model might prove the concept, but a user has no easy way to consume a model implemented as a REST API. Microsoft Power Platform can help close this last mile, as represented here.
 
 :::image type="content" source="media/citizen-ai-power-platform-rest-ui.png" alt-text="Screenshot that shows an ML model that's created in Machine Learning. The model obtains car data from Azure Data Lake, and it provides inferences to an endpoint." lightbox="media/citizen-ai-power-platform-rest-ui.png" :::
 
@@ -161,7 +161,7 @@ The sample app provided in the preceding example can also be deployed to Microso
 
 ### Consume the API from multiple apps and automations
 
-In this example, we configure a Power Automate cloud flow to consume the REST endpoint as an HTTP action. We can instead set up a custom connector for the REST endpoint and consume it directly from Power Apps or from Power Automate. This approach is useful when we want multiple apps to consume the same endpoint. It also provides governance by using the connector data loss prevention (DLP) policy in the Power Platform admin center. To create a custom connector, see [Use a custom connector from a Power Apps app](/connectors/custom-connectors/use-custom-connector-powerapps). For more information on the Power Platform connector DLP, see [Data loss prevention policies: Power Platform](/power-platform/admin/wp-data-loss-prevention).
+In this example, we configure a Power Automate cloud flow to consume the REST endpoint as an HTTP action. We can instead set up a custom connector for the REST endpoint and consume it directly from Power Apps or from Power Automate. This approach is useful when we want multiple apps to consume the same endpoint. It also provides governance by using the connector data loss prevention (DLP) policy in Microsoft Power Platform admin center. To create a custom connector, see [Use a custom connector from a Power Apps app](/connectors/custom-connectors/use-custom-connector-powerapps). For more information on Microsoft Power Platform connector DLP, see [Data loss prevention policies: Power Platform](/power-platform/admin/wp-data-loss-prevention).
 
 ## Contributors
 
