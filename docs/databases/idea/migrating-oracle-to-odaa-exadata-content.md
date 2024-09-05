@@ -41,10 +41,14 @@ For an example of the updated network configuration, see the following diagram:
     - Update the application services to point to the new database, including the connection string, TNS entries, and any other configuration that is needed.
     - Verify that the application services are working as expected.
 
+For an example of the updated configuration including ZDM migration node, see the following diagram:
+
+![Diagram3](_images/oracle-database-migration-to-azure-odaa-03.jpg)
+
 ## Post-migration activities
 
 - Configure automated backups for the Oracle Database@Azure database as described [here](https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/exadatacloud/exacs/manage-databases.html#GUID-21EF9E4B-E5D3-4A52-8B1C-609FBADD2A7D).
-- Configure automated Data Guard failover as described [here](https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/exadatacloud/exacs/using-data-guard-with-exacc.html#ECSCM-GUID-603988C3-604A-4305-B20A-EA0FF79C0835). Note that this presupposes that the customer has a separate instance already created in another availability zone or region.
+- Configure automated Data Guard as described [here](https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/exadatacloud/exacs/using-data-guard-with-exacc.html#ECSCM-GUID-603988C3-604A-4305-B20A-EA0FF79C0835). Note that this presupposes that you have a separate instance already created in another availability zone or region.
 - Keep the on-premises database running as secondary Data Guard replica for a period of time to ensure that the migration was successful.
 
 ## Conclusion
