@@ -42,8 +42,6 @@ If a POST request is intended to create a new resource, the effects of the reque
 
 ### Avoid implementing chatty POST, PUT, and DELETE operations
 
-Current computers are optimized for the repeated execution of the same task. If possible, you should structure your APIs and your program such that its execution alternates less frequently between different tasks. Batching can help you to achieve that and also it helps you to share out the cost of expensive operations such as I/O or expensive computations. For example, packing multiple data items into the same network packet or disk block to increase efficiency and reduce utilization.
-
 Avoid designing your API based on _chatty_ operations. Every request comes with protocol, network, and compute overhead. For example, executing 100 smaller requests instead of 1 batch larger request incurs added overhead in the client, on the network, and at the resource server. Whenever possible, provide HTTP verb support for resource collections instead of just individual resources.
 
 - A GET request to a collection can retrieve multiple resources at the same time.
