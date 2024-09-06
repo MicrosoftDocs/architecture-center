@@ -10,8 +10,8 @@ Consider the following scenario:
 - Database1 is 20TB in size and is running on Oracle Enterprise Linux (x86), the database version is Oracle Database 19c, Enterprise Edition.
 - Currently the database is RAC enabled (two nodes) and for disaster recovery it is replicated via Oracle Data Guard to another data center geographically distant from where the primary is located.
 - You have conducted an assessment of your on-premises Oracle Database and application services as described in the article [Capacity planning for migrating Oracle workloads to Azure](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-capacity-planning#overall-performance-considerations), and deployed a virtual machine in Azure with the required compute size and storage configuration.
-- The virtual machine is placed in database subnet in Oracle Vnet which is peered to the HUB Vnet.
-- In HUB vnet the traffic has to traverse a third-party NVA (FortiGate, CheckPoint, Cisco or other), the NVA functions as a routing device, ensuring that connectivity between the virtual machine and on-premises Oracle database implementation is fully routable. In addition to this the NVA is configured for traffic inspection so that all traffic going to and from on-premises is inspected.
+- The virtual machine is placed in database subnet in Oracle Vnet which is peered to the HUB Vnet. The address range of the database subnet is 10.42.1.0/24
+- In HUB vnet the traffic has to traverse a third-party NVA (FortiGate, CheckPoint, Cisco or other), the NVA functions as a routing device, ensuring that connectivity between the virtual machine and on-premises Oracle database implementation is fully routable. In addition to this the NVA is configured for traffic inspection so that all traffic going to and from on-premises is inspected. The IP address of the HUB NVA is 10.0.0.5.
 - Hybrid connectivity is configured in HUB VNet with an Express Route connection to your on-premises network.
 
 You need to migrate the on-premises database to the the Azure VM with the minimum amount of downtime. You have decided to use Oracle Data Guard as well as Oracle Recovery Manager (RMAN) for the migration.
@@ -25,10 +25,10 @@ To use Oracle Data Guard for migration, you need to ensure that the source and t
 ### Route table configuration
 
 - Create an Azure Route Table with the following configuration and associate to the database subnet:
-  - Address prefix: \<the IP range of the on-premises network\>
+  - Address prefix: 192.168.0.0/16
   - Next hop type: Virtual appliance
-  - Next hop IP address: \<HUB NVA private IP\>
-  - Name: NVA-RT
+  - Next hop IP address: 10.0.0.5
+  - Name: \<Route table name\>
 
 For an example of the updated network configuration, see the following diagram:
 

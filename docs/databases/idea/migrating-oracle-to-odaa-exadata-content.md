@@ -8,7 +8,7 @@ Consider the following scenario:
 
 - You have deployed Oracle Database@Azure, Exadata Database Service into your Azure region of choice and configured a VM cluster with 2 database servers and 3 Storage cell nodes.
 - The Oracle Database@Azure delegated subnet (OD@A Subnet) is in OD@A Vnet which is peered to the HUB VNet, the address range of the OD@A subnet is 10.42.1.0/24. For details on how to plan for OD@A IP addressing, please refer to [Plan for IP Address Space
-](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa_ip.htm). 
+](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa_ip.htm).
 - In HUB VNet the traffic has to traverse a third-party NVA (FortiGate, CheckPoint, Cisco or other), the NVA functions as a routing device, ensuring that Oracle Database@Azure cluster nodes are fully routable within the infrastructure. In addition to this the NVA is configured for traffic inspection so that all traffic going to and from on-premises is inspected. The IP address of the HUB NVA is 10.0.0.5.
 - Hybrid connectivity is configured in HUB VNet with an Express Route connection to your on-premises network.
 - On you on-premises network you have an existing Exadata implementation Exa01 and you are looking to migrate database1 from Exa01 to Oracle Database@Azure. Database1 is 2TB in size and is running on Exadata X8M-2, the database version is Oracle Database 19c, Enterprise Edition. Your on-premises IP address range is 192.168.0.0/16.
@@ -40,11 +40,11 @@ For an example of the updated network configuration, see the following diagram:
 
 ## Migration activities
 
-1. Leverage the guidance found in [Preparing for a Physical Database Migration](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.3/zdmug/preparing-for-database-migration.html#GUID-25B07C59-8143-41CB-B431-3D9225CCFDD6) to prepare for the migration. 
+1. Follow the guidance found in [Preparing for a Physical Database Migration](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.3/zdmug/preparing-for-database-migration.html#GUID-25B07C59-8143-41CB-B431-3D9225CCFDD6) to prepare for the migration.
 
 > Note that it is assumed that there will be sufficient bandwidth between the source and target databases to support an online migration with no need to do an offline migration (restore of backup on OD@A) first.
 
-1. Leverage the steps found in [Migrating Your Database with Zero Downtime Migration](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.3/zdmug/migrating-with-zero-downtime-migration.html#GUID-C20DB7D4-E0CE-4B50-99D0-B16C18DDD34B) to perform the migration.
+1. Perform the steps found in [Migrating Your Database with Zero Downtime Migration](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.3/zdmug/migrating-with-zero-downtime-migration.html#GUID-C20DB7D4-E0CE-4B50-99D0-B16C18DDD34B) to perform the migration.
 
 > Note that application migration activities as mentioned below will most likely need to be done in parallel with the ZDM migration, for the least amount of downtime.
 
