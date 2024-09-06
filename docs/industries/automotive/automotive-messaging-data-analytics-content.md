@@ -1,4 +1,4 @@
-This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide reliable and efficient messaging, data, and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner. Processed data and insights are used for digital engineering and can be shared with the wider mobility ecosystem.
+This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide reliable and efficient messaging, data, and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner. Processed data and insights are used for digital engineering, fleet operations, and can be shared with the wider mobility ecosystem.
 
 ## Architecture
 
@@ -13,7 +13,7 @@ This reference architecture is designed to support automotive OEMs and Mobility 
 The high level architecture diagram shows the main logical blocks and services of an automotive messaging, data & analytics solution. Further details can be found in the following sections.
 
 * The **vehicle** contains a collection of devices. Some of these devices are *Software Defined*, and can execute software workloads managed from the cloud. The vehicle collects and processes a wide variety of data such as sensor information from electro-mechanical devices, interactions, video, and software log files.
-* **Mobile devices** provide digital experiences to the driver / user and can receive and send messages to the vehicles.
+* **Mobile devices** provide digital experiences to the driver / user and can receive and send messages to the vehicles using *companion apps*.
 * Mobility **infrastructure** such as battery charging stations also receive and send messages to the vehicles.
 * The **vehicle messaging services** manages the communication to and from the vehicle. It is in charge of processing messages, executing commands using workflows and  mediating the vehicle, user and device management backend. It also keeps track of vehicle, device, and certificate registration and provisioning.
 * The **vehicle and device management backend** are the OEM systems that keep track of vehicle configuration from factory to after-sales.
@@ -22,7 +22,7 @@ The high level architecture diagram shows the main logical blocks and services o
 * The vehicle manufacturer provides **digital services** as value add to the end customer, from companion apps to repair and maintenance applications.
 * Several digital services require **business integration** to backend systems such as Dealer Management (DMS), Customer Relationship Management (CRM), or Enterprise Resource Planning (ERP) systems.
 * The **consent management** backend is part of customer management and keeps track of user authorization for data collection according to applicable legislation.
-* Data collected from vehicles is an input to the **digital engineering** process, with the goal of continuous product improvements using analytics and machine learning.
+* Data collected from vehicles is an input to the **digital engineering** process, with the goal of continuous product improvements to hardware and software using analytics and machine learning.
 * The **smart mobility ecosystem** consists of partner companies that provide other products and services such as connected insurance based on user consent. They can subscribe and consume events and aggregated insights.
 
 *Microsoft is a member of the [Eclipse Software Defined Vehicle](https://www.eclipse.org/org/workinggroups/sdv-charter.php) working group, a forum for open collaboration using open source for vehicle software platforms.*
@@ -35,7 +35,7 @@ The architecture uses the [publisher/subscriber](/azure/architecture/patterns/pu
 
 #### Vehicle to cloud messages
 
-The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be sent periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action).
+The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be sent periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action, or as a response to a remote request).
 
 :::image type="complex"
     source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow."
@@ -48,11 +48,11 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 1. The *vehicle* is configured for a customer based on the selected options using the **Management APIs**. The configuration contains:
     1. **Provisioning** information for vehicles and devices.
     1. Initial vehicle **data collection** configuration based on market and business considerations.
-    1. Storage of initial **user consent** settings based on vehicle options and user acceptance.
+    1. Storage of initial **user consent** settings based on vehicle options and user acceptance, as defined in the *consent management backend*.
 1. The vehicle publishes telemetry and events messages through a Message Queuing Telemetry Transport (MQTT) client with defined *topics* to the **Azure Event Grid’s MQTT broker feature** in the *vehicle messaging services*.
 1. The **Event Grid** routes messages to different subscribers based on *topic*, message attributes, or payload. To learn more about filtering read [Filtering of MQTT routed messages](/azure/event-grid/mqtt-routing-filtering).
     1. High-volume, low priority messages that don't require immediate processing (for example, messages only used for analytics) are routed directly to storage using an Event Hubs instance for buffering. For performance reasons, avoid payload filtering for these messages.
-    1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
+    1. High priority messages that require immediate processing (for example, status changes in a user-facing application with low-latency expectations) are routed to an Azure Function using an Event Hubs instance for buffering.
 1. Low priority messages are stored directly to a **lakehouse** using [event capture](/azure/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
 1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device, and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
@@ -138,7 +138,7 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 ### Data Analytics
 
-This dataflow covers analytics for vehicle data. You can use other data sources such as factory or workshop operators to enrich and provide context to vehicle data.
+This dataflow covers analytics for vehicle data. You can use other data sources such as factory information, fault data, repair reports, software logs, or audio/video to enrich and provide context to vehicle data.
 
 :::image type="complex"
     source="images/automotive-connectivity-and-data-solution-data-analytics.svg"
@@ -266,14 +266,14 @@ This reference architecture allows automotive manufacturers and mobility provide
 
 *OEM Automotive use cases* are about enhancing vehicle performance, safety, and user experience.
 
-* **Continuous product improvement**: Enhancing vehicle performance by analyzing real-time data and applying updates remotely.
-* **Engineering Test Fleet Validation**: Ensuring vehicle safety and reliability by collecting and analyzing data from test fleets.
+* **Continuous product improvement**: Enhancing vehicle performance by analyzing real-time data and applying updates remotely. Read [Software-defined vehicle DevOps toolchain](software-defined-vehicle-reference-architecture.yml) to learn more about how to develop software for the car.
+* **Engineering Test Fleet Validation**: Ensuring vehicle safety and reliability by collecting and analyzing data from test fleets. Read [Data analytics for automotive test fleets](automotive-telemetry-analytics.yml) for more information.
 * **Companion App & User Portal**: Enabling remote vehicle access and control through a personalized app and web portal.
 * **Proactive Repair & Maintenance**: Predicting and scheduling vehicle maintenance based on data-driven insights.
 
 *Broader ecosystem use cases* expand connected vehicle applications to improve fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape.
 
-* **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making.
+* **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making. Read [automotive-connected-fleets.yml](automotive-connected-fleets) for more information.
 * **Digital Vehicle Insurance**: Customizing insurance premiums based on driving behavior and providing immediate accident reporting.
 * **Location-Based Marketing**: Delivering targeted marketing campaigns to drivers based on their location and preferences.
 * **Road Assistance**: Providing real-time support and assistance to drivers in need, using vehicle location and diagnostic data.
@@ -288,7 +288,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 * Increase reliability with horizontal scaling.
 * Use scale units to isolate geographical regions with different regulations.
-* Auto scale and reserved instances: manage compute resources by dynamically scaling based on demand and optimizing costs with preallocated instances.
+* Auto scale and reserved instances: manage compute resources by dynamically scaling based on demand and optimizing costs with reserved instances.
 * Geo redundancy: replicate data across multiple geographic locations for fault tolerance and disaster recovery.
 
 Vehicle connection reliability is critical for automotive messaging. For more reliability recommendations, read [reliability in Azure Event Grid and Event Grid namespace](/azure/reliability/reliability-event-grid).
@@ -310,6 +310,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
   * Use an efficient method to encode and compress payload messages.
 * Manage traffic actively.
   * Message priority: vehicles tend to have repeating usage patterns that create daily / weekly demand peaks. Use message properties to delay processing of noncritical or analytic messages to smooth the load and optimize resource usage.
+  * Consider context-specific processing based on operational requirements. For example, send additional brake telemetry only during severe braking conditions.
   * Autoscale based on demand.
 * Consider how long the data should be stored hot/warm/cold.
 * Optimize costs by using reserved instances.
