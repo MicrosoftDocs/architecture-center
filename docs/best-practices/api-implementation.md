@@ -46,7 +46,7 @@ Current computers are optimized for the repeated execution of the same task. If 
 
 Avoid implementing chatty operations. Whenever possible, provide API support for resource collections instead of just individual resources. A GET request can retrieve multiple resources at the same time to minimize the chance of overwhelming the application, a POST request can contain the details for multiple new resources and add them all to the same collection, a PUT request can replace the entire set of resources in a collection, and a DELETE request can remove an entire collection.
 
-The Open Data Protocol (OData) support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request, and receive a single HTTP response that contains the replies to each request. For more information, see [Introducing batch support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata). Also, some downstream services like [Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/bulk-executor-overview) have built-in support for batch operations. 
+The Open Data Protocol (OData) support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request and receive a single HTTP response that contains the replies to each request. For more information, see [Enable Batch in Web API OData Service](/odata/webapi/batch).
 
 ### Follow the HTTP specification when sending a response
 
