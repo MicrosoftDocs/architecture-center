@@ -61,9 +61,9 @@ Azure Arc-enabled servers support [Azure Policy](/azure/governance/policy/overvi
 
 There are several [Azure Policy built-in definitions for Azure Arc][arc-built-in-policies]. These policies provide auditing and configuration settings for both Windows and Linux-based machines.
 
-### Enable Azure Update Management
+### Enable Azure Update Manager
 
-Update Management. You can perform update management for Arc-enabled servers. [Update management](/azure/automation/update-management/overview) in Azure Automation enables you to manage operating system updates and quickly assess the status of available updates on all agent machines. You can also manage the process of installing required updates for servers.
+Update Manager. You can perform update management for Arc-enabled servers. [Update manager](/azure/update-manager/overview) enables you to manage operating system updates and quickly assess the status of available updates on all agent machines. You can also manage the process of installing required updates for servers.
 
 Change Tracking and Inventory. [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview) for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
