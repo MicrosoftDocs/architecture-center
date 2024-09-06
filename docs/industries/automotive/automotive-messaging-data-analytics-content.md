@@ -2,11 +2,8 @@ This reference architecture is designed to support automotive OEMs and Mobility 
 
 ## Architecture
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-high-level-overview.svg" alt-text="Diagram of the high-level architecture."
-    border="false"
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-high-level-overview.svg" alt-text="Diagram of the high-level architecture." border="false"
     lightbox="images/automotive-connectivity-and-data-solution-high-level-overview.svg":::
-
     Diagram that shows a high level overview of the automotive messaging, data and analytics architecture. The diagram shows vehicles, mobile devices and infrastructure as the devices. The Vehicle Messaging layer provides connectivity and processes MQTT messages and files. The Data Analytics layer enables analytic workloads, both real time and batched. A description of each layer is provided as part of the document.
 :::image-end:::
 
@@ -37,11 +34,8 @@ The architecture uses the [publisher/subscriber](/azure/architecture/patterns/pu
 
 The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be sent periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action, or as a response to a remote request).
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow."
-    border="false"
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow." border="false"
     lightbox="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
-
     The diagram shows how the vehicle sends vehicle to cloud messages. The vehicle has a MQTT client that publishes meessages to the Event Grid MQTT broker functionality. Depending on the type of messages, they are routed directly to a Lakehouse, streamed into an Eventhouse or forwarded to a service bus.
 :::image-end:::
 
@@ -68,11 +62,8 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 
 The *broadcast* dataflow is used by digital services that provide notification or messages to multiple vehicles over a common topic. Common examples include traffic and weather services
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics."
-    border="false"
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics." border="false"
     lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
-
     The diagram shows how the vehicle receives broadcast messages from the cloud. Vehicles suscribe to a general topic to receive notifications. A digital service broadcasts a message by publishing directly to the common topic. 
 :::image-end:::
 
@@ -90,12 +81,9 @@ Vehicle commands often require user consent because they control vehicle functio
 
 The following dataflow users commands issued from a companion app digital services as an example. As in the previous example, companion app is an authenticated service that can publish messages to **Event Grid**.
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg"
-    alt-text="Diagram of the command and control dataflow."
-    border="false"
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg"
+    alt-text="Diagram of the command and control dataflow." border="false"
     lightbox="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
-
     The diagram describes how to send command and control messages that require a workflow. A digital service uses an API to send a command. A workflow logic component will publish a message to the MQTT broker requesting command execution. The vehicle executes the command and sends status messages by publishing to a topic. The workflow logic subscribes to the status topic to monitor command execution. Once the command is complete, it can notify the digital service.
 :::image-end:::
 
@@ -116,10 +104,8 @@ The command and control *workflow logic* can fail if the vehicle loses connectiv
 
 This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing. In automotive, vehicle devices are commonly authenticated using X.509 certificates. **Event Grid** requires a root or intermediate X.509 to authenticate client devices. For more details on device authentication, read the article [client authentication](/azure/event-grid/mqtt-client-authentication).
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg"
-    alt-text="Diagram of the provisioning dataflow."
-    border="false"
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg"
+    alt-text="Diagram of the provisioning dataflow." border="false"
     lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
     The diagram shows the vehicle provisioning process. The device receives a X.590 certificate during the manufacturing process. The factory system registers the vehicle and device in the vehicle messaging services, and by extension to Event Grid. The device retrieves the connection strings from the device management component. The device connects to Event Grid using the certificate.
 :::image-end:::
@@ -164,11 +150,8 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 
 A connected vehicle and data solution can scale to millions of vehicles and thousands of services. Use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-scalability.svg"
-    alt-text="Diagram of the scalability concept." border="false"
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false"
     lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
-
     The diagram describes an approach to scalability using the deployment stamps concept. The vehicle messaging scale unit handles communication with the vehicle. The application scale unit handles digital services. The common services mediate the interaction between both scale units.
 :::image-end:::
 
@@ -243,11 +226,7 @@ For data analytics, it's possible to use:
 
 ## Scenario details
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-scenario.svg"
-    alt-text="Diagram of the high level view."
-    border="false"lightbox="images/automotive-connectivity-and-data-solution-scenario.svg":::
-
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-scenario.svg" alt-text="Diagram of the high level view." border="false"lightbox="images/automotive-connectivity-and-data-solution-scenario.svg":::
     This high level diagram shows the enabling layers of a connected vehicle infrastructure (messaging services, data and analytics services, automotive development tool chain, and IT operations). The vehicle has electromechanical components and a software stack. The end-to-end use cases are in-vehicle applications, digital engineeering, digital services, connected fleets and integration with the smart mobility ecosystem using datasharing.
 :::
 
@@ -273,7 +252,7 @@ This reference architecture allows automotive manufacturers and mobility provide
 
 *Broader ecosystem use cases* expand connected vehicle applications to improve fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape.
 
-* **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making. Read [automotive-connected-fleets.yml](automotive-connected-fleets) for more information.
+* **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making. Read [automotive-connected-fleets.yml](automotive-connected-fleets.yml) for more information.
 * **Digital Vehicle Insurance**: Customizing insurance premiums based on driving behavior and providing immediate accident reporting.
 * **Location-Based Marketing**: Delivering targeted marketing campaigns to drivers based on their location and preferences.
 * **Road Assistance**: Providing real-time support and assistance to drivers in need, using vehicle location and diagnostic data.
@@ -310,7 +289,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
   * Use an efficient method to encode and compress payload messages.
 * Manage traffic actively.
   * Message priority: vehicles tend to have repeating usage patterns that create daily / weekly demand peaks. Use message properties to delay processing of noncritical or analytic messages to smooth the load and optimize resource usage.
-  * Consider context-specific processing based on operational requirements. For example, send additional brake telemetry only during severe braking conditions.
+  * Consider context-specific processing based on operational requirements. For example, send more brake telemetry only during severe braking conditions.
   * Autoscale based on demand.
 * Consider how long the data should be stored hot/warm/cold.
 * Optimize costs by using reserved instances.
