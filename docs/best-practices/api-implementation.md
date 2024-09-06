@@ -44,7 +44,12 @@ If a POST request is intended to create a new resource, the effects of the reque
 
 Current computers are optimized for the repeated execution of the same task. If possible, you should structure your APIs and your program such that its execution alternates less frequently between different tasks. Batching can help you to achieve that and also it helps you to share out the cost of expensive operations such as I/O or expensive computations. For example, packing multiple data items into the same network packet or disk block to increase efficiency and reduce utilization.
 
-Avoid implementing chatty operations. Whenever possible, provide API support for resource collections instead of just individual resources. A GET request can retrieve multiple resources at the same time to minimize the chance of overwhelming the application, a POST request can contain the details for multiple new resources and add them all to the same collection, a PUT request can replace the entire set of resources in a collection, and a DELETE request can remove an entire collection.
+Avoid designing your API based on _chatty_ operations. Every request comes with protocol, network, and compute overhead. For example, executing 100 smaller requests instead of 1 batch larger request incurs added overhead in the client, on the network, and at the resource server. Whenever possible, provide HTTP verb support for resource collections instead of just individual resources.
+
+- A GET request to a collection can retrieve multiple resources at the same time.
+- A POST request can contain the details for multiple new resources and add them all to the same collection.
+- A PUT request can replace the entire set of resources in a collection.
+- A DELETE request can remove an entire collection.
 
 The Open Data Protocol (OData) support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request and receive a single HTTP response that contains the replies to each request. For more information, see [Enable Batch in Web API OData Service](/odata/webapi/batch).
 
