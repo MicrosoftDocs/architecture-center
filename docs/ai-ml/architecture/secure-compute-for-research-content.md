@@ -79,6 +79,11 @@ These components continuously monitor the posture of the workload and its enviro
 
 ## Scenario details
 
+This original scenario had a challenge of regulated data as well as high value data involving third-party contractors who needed access to use the data but not store or transmit the data. 
+- Third-party needed full access to the data to train their models and export the model without any proprietary or protected data leaving the environment.
+- Access had to be isolated and even the data owners and custodians were not allowed access to the data once uploaded into the environment.
+- Customer wanted to review any exports being transferred out of the environment to ensure only the models were exported.
+
 ### Potential use cases
 
 This architecture was originally created for higher education research institutions with Health Insurance Portability and Accountability Act (HIPAA) requirements. However, this design can be used in any industry that requires isolation of data for research perspectives. Some examples include:
@@ -156,7 +161,7 @@ The size and type of the Data Science VMs should be appropriate to the style of 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the logic app resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs based on estimated sizing of resources needed.
+The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the logic app resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs based on estimated sizing of resources needed.  Ensuring the environment was shut down when not in use was a key cost optimization and security consideration.
 
 ## Contributors
 
