@@ -81,9 +81,7 @@ Vehicle commands often require user consent because they control vehicle functio
 
 The following dataflow users commands issued from a companion app digital services as an example. As in the previous example, companion app is an authenticated service that can publish messages to **Event Grid**.
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg"
-    alt-text="Diagram of the command and control dataflow." border="false"
-    lightbox="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg" alt-text="Diagram of the command and control dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
     The diagram describes how to send command and control messages that require a workflow. A digital service uses an API to send a command. A workflow logic component will publish a message to the MQTT broker requesting command execution. The vehicle executes the command and sends status messages by publishing to a topic. The workflow logic subscribes to the status topic to monitor command execution. Once the command is complete, it can notify the digital service.
 :::image-end:::
 
@@ -104,8 +102,7 @@ The command and control *workflow logic* can fail if the vehicle loses connectiv
 
 This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing. In automotive, vehicle devices are commonly authenticated using X.509 certificates. **Event Grid** requires a root or intermediate X.509 to authenticate client devices. For more details on device authentication, read the article [client authentication](/azure/event-grid/mqtt-client-authentication).
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg"
-    alt-text="Diagram of the provisioning dataflow." border="false"
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg" alt-text="Diagram of the provisioning dataflow." border="false"
     lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
     The diagram shows the vehicle provisioning process. The device receives a X.590 certificate during the manufacturing process. The factory system registers the vehicle and device in the vehicle messaging services, and by extension to Event Grid. The device retrieves the connection strings from the device management component. The device connects to Event Grid using the certificate.
 :::image-end:::
@@ -126,12 +123,7 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 This dataflow covers analytics for vehicle data. You can use other data sources such as factory information, fault data, repair reports, software logs, or audio/video to enrich and provide context to vehicle data.
 
-:::image type="complex"
-    source="images/automotive-connectivity-and-data-solution-data-analytics.svg"
-    alt-text="Diagram of the data analytics."
-    border="false"
-    lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
-
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-data-analytics.svg" alt-text="Diagram of the data analytics." border="false"     lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
     This diagram shows the data anayltics services. Vehicles messages are stored in a bronze layer as raw data. Pipelines are used to further refine the information to a silver table and to create insights in a gold table. The messages are stored either in a Lakehouse or Eventhouse. Data engineers use Notebooks or KQL Query Sets to interact with the data, supported by the Fabric Copilot. Engineers use PowerBI and Real-Time dashboards to create visualizations. Reflex processes real time data and can trigger business processes.
 :::image-end:::
 
@@ -150,8 +142,7 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 
 A connected vehicle and data solution can scale to millions of vehicles and thousands of services. Use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
-:::image type="complex" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false"
-    lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
+:::image type="complex" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false" lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
     The diagram describes an approach to scalability using the deployment stamps concept. The vehicle messaging scale unit handles communication with the vehicle. The application scale unit handles digital services. The common services mediate the interaction between both scale units.
 :::image-end:::
 
