@@ -2,7 +2,13 @@ This reference architecture is designed to support automotive OEMs and Mobility 
 
 ## Architecture
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-high-level-overview.svg" alt-text="Diagram of the high-level architecture." border="false" lightbox="images/automotive-connectivity-and-data-solution-high-level-overview.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-high-level-overview.svg" alt-text="Diagram of the high-level architecture."
+    border="false"
+    lightbox="images/automotive-connectivity-and-data-solution-high-level-overview.svg":::
+
+    Diagram that shows a high level overview of the automotive messaging, data and analytics architecture. The diagram shows vehicles, mobile devices and infrastructure as the devices. The Vehicle Messaging layer provides connectivity and processes MQTT messages and files. The Data Analytics layer enables analytic workloads, both real time and batched. A description of each layer is provided as part of the document.
+:::image-end:::
 
 The high level architecture diagram shows the main logical blocks and services of an automotive messaging, data & analytics solution. Further details can be found in the following sections.
 
@@ -31,7 +37,13 @@ The architecture uses the [publisher/subscriber](/azure/architecture/patterns/pu
 
 The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be sent periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action).
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg" alt-text="Diagram of the messaging dataflow."
+    border="false"
+    lightbox="images/automotive-connectivity-and-data-solution-messaging-dataflow.svg":::
+
+    The diagram shows how the vehicle sends vehicle to cloud messages. The vehicle has a MQTT client that publishes meessages to the Event Grid MQTT broker functionality. Depending on the type of messages, they are routed directly to a Lakehouse, streamed into an Eventhouse or forwarded to a service bus.
+:::image-end:::
 
 1. The *vehicle* is configured for a customer based on the selected options using the **Management APIs**. The configuration contains:
     1. **Provisioning** information for vehicles and devices.
@@ -56,9 +68,15 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 
 The *broadcast* dataflow is used by digital services that provide notification or messages to multiple vehicles over a common topic. Common examples include traffic and weather services
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics." border="false"lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-broadcast-dataflow.svg" alt-text="Diagram of the data analytics."
+    border="false"
+    lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
 
-1. The *notification service* is a MQTT client running in the cloud registered and authorized to publish messages to specific topics. The authorization can be done using [Microsoft Entra JWT authentication](/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac).
+    The diagram shows how the vehicle receives broadcast messages from the cloud. Vehicles suscribe to a general topic to receive notifications. A digital service broadcasts a message by publishing directly to the common topic. 
+:::image-end:::
+
+1. The *notification service* is a [MQTT client](/azure/event-grid/mqtt-clients) running in the cloud registered and authorized to publish messages to specific topics. The authorization can be done using [Microsoft Entra JWT authentication](/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac).
 1. The *notification service* publishes an update. For example, a weather warning to topic /weather/warning/
 1. *Event Grid* verifies if the service is authorized to publish to the provided topic.
 1. The vehicle *messaging* module is subscribed to the weather alerts and receives the notification.
@@ -72,7 +90,14 @@ Vehicle commands often require user consent because they control vehicle functio
 
 The following dataflow users commands issued from a companion app digital services as an example. As in the previous example, companion app is an authenticated service that can publish messages to **Event Grid**.
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg" alt-text="Diagram of the command and control dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg"
+    alt-text="Diagram of the command and control dataflow."
+    border="false"
+    lightbox="images/automotive-connectivity-and-data-solution-command-and-control-dataflow.svg":::
+
+    The diagram describes how to send command and control messages that require a workflow. A digital service uses an API to send a command. A workflow logic component will publish a message to the MQTT broker requesting command execution. The vehicle executes the command and sends status messages by publishing to a topic. The workflow logic subscribes to the status topic to monitor command execution. Once the command is complete, it can notify the digital service.
+:::image-end:::
 
 1. The vehicle owner / user provides consent for the execution of command and control functions using a **digital service** (in this example a companion app). It normally happens when the user downloads/activate the app and the OEM activates their account. It triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
 1. The **companion app** uses the command and control managed API to request execution of a remote command. The command execution might have more parameters to configure options such as timeout, store and forward options, etc. The *workflow logic* processes the API call.
@@ -91,7 +116,13 @@ The command and control *workflow logic* can fail if the vehicle loses connectiv
 
 This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing. In automotive, vehicle devices are commonly authenticated using X.509 certificates. **Event Grid** requires a root or intermediate X.509 to authenticate client devices. For more details on device authentication, read the article [client authentication](/azure/event-grid/mqtt-client-authentication).
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg"
+    alt-text="Diagram of the provisioning dataflow."
+    border="false"
+    lightbox="images/automotive-connectivity-and-data-solution-provisioning-dataflow.svg":::
+    The diagram shows the vehicle provisioning process. The device receives a X.590 certificate during the manufacturing process. The factory system registers the vehicle and device in the vehicle messaging services, and by extension to Event Grid. The device retrieves the connection strings from the device management component. The device connects to Event Grid using the certificate.
+:::image-end:::
 
 1. The **Factory System** commissions the vehicle device to the desired construction state. It can include firmware & software initial installation and configuration. As part of this process, the factory system writes the device *X.509 certificate*, issued by a **Public Key Infrastructure** Certificate Authority (CA).
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
@@ -109,7 +140,14 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 This dataflow covers analytics for vehicle data. You can use other data sources such as factory or workshop operators to enrich and provide context to vehicle data.
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-data-analytics.svg" alt-text="Diagram of the data analytics." border="false"lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-data-analytics.svg"
+    alt-text="Diagram of the data analytics."
+    border="false"
+    lightbox="images/automotive-connectivity-and-data-solution-data-analytics.svg":::
+
+    This diagram shows the data anayltics services. Vehicles messages are stored in a bronze layer as raw data. Pipelines are used to further refine the information to a silver table and to create insights in a gold table. The messages are stored either in a Lakehouse or Eventhouse. Data engineers use Notebooks or KQL Query Sets to interact with the data, supported by the Fabric Copilot. Engineers use PowerBI and Real-Time dashboards to create visualizations. Reflex processes real time data and can trigger business processes.
+:::image-end:::
 
 1. The *vehicle messaging services* layer provides telemetry, events, commands, and configuration messages from the bidirectional communication to the vehicle.
 1. The *IT & Operations* layer provides information about the software running on the vehicle and the associated cloud *digital services*.
@@ -126,7 +164,13 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 
 A connected vehicle and data solution can scale to millions of vehicles and thousands of services. Use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-scalability.svg" alt-text="Diagram of the scalability concept." border="false"lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-scalability.svg"
+    alt-text="Diagram of the scalability concept." border="false"
+    lightbox="images/automotive-connectivity-and-data-solution-scalability.svg":::
+
+    The diagram describes an approach to scalability using the deployment stamps concept. The vehicle messaging scale unit handles communication with the vehicle. The application scale unit handles digital services. The common services mediate the interaction between both scale units.
+:::image-end:::
 
 Each *vehicle messaging scale unit* supports a defined vehicle population (for example, vehicles in a specific geographical region, partitioned by model year). The *application scale unit* is used to scale the services that require sending or receiving messages to the vehicles. The *common service* is accessible from any scale unit and provides *vehicle and device management* and *subscription* services for applications and devices.
 
@@ -199,7 +243,13 @@ For data analytics, it's possible to use:
 
 ## Scenario details
 
-:::image type="content" source="images/automotive-connectivity-and-data-solution-scenario.svg" alt-text="Diagram of the high level view." border="false"lightbox="images/automotive-connectivity-and-data-solution-scenario.svg":::
+:::image type="complex"
+    source="images/automotive-connectivity-and-data-solution-scenario.svg"
+    alt-text="Diagram of the high level view."
+    border="false"lightbox="images/automotive-connectivity-and-data-solution-scenario.svg":::
+
+    This high level diagram shows the enabling layers of a connected vehicle infrastructure (messaging services, data and analytics services, automotive development tool chain, and IT operations). The vehicle has electromechanical components and a software stack. The end-to-end use cases are in-vehicle applications, digital engineeering, digital services, connected fleets and integration with the smart mobility ecosystem using datasharing.
+:::
 
 Automotive OEMs are undergoing a significant transformation as they shift from producing fixed products to offering connected, software-defined vehicles. Vehicles offer a range of features, such as over-the-air updates, remote diagnostics, and personalized user experiences. This transition enables OEMs to continuously improve their products based on real-time data and insights while also expanding their business models to include new services and revenue streams.
 
