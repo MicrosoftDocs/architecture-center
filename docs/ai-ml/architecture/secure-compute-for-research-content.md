@@ -16,7 +16,7 @@ This architecture shows a secure research environment intended to allow research
 
 4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
-5. The secure environment has [Azure Machine Learning](/azure/machine-learning) and/or [Azure Synapse Analytics](synapse-analytics) that can access the dataset through a private endpoint for users for Azure Machine Learning or Azure Synapse Analytics capabilities, such as to train, deploy, automate, and manage machine learning models or utilize Azure Synapse analytics service. At this point, models are created that meet regulatory guidelines. All model data is de-identified by removing personal information.
+5. The secure environment has [Azure Machine Learning](/azure/machine-learning) and/or [Azure Synapse Analytics](/azure/synapse-analytics) that can access the dataset through a private endpoint for users for Azure Machine Learning or Azure Synapse Analytics capabilities, such as to train, deploy, automate, and manage machine learning models or utilize Azure Synapse analytics service. At this point, models are created that meet regulatory guidelines. All model data is de-identified by removing personal information.
 
 6. Models or de-identified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a logic app is triggered. In this architecture, the logic app is outside the secure environment because no data is sent to the logic app. Its only function is to send notification and start the manual approval process.
 
