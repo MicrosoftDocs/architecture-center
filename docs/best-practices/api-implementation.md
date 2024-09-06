@@ -40,7 +40,7 @@ The code that implements these requests should not impose any side-effects. The 
 
 If a POST request is intended to create a new resource, the effects of the request should be limited to the new resource (and possibly any directly related resources if there is some sort of linkage involved). For example, in an e-commerce system, a POST request that creates a new order for a customer might also amend inventory levels and generate billing information, but it should not modify information not directly related to the order or have any other side-effects on the overall state of the system.
 
-### Batching
+### Avoid implementing chatty POST, PUT, and DELETE operations
 
 Current computers are optimized for the repeated execution of the same task. If possible, you should structure your APIs and your program such that its execution alternates less frequently between different tasks. Batching can help you to achieve that and also it helps you to share out the cost of expensive operations such as I/O or expensive computations. For example, packing multiple data items into the same network packet or disk block to increase efficiency and reduce utilization.
 
