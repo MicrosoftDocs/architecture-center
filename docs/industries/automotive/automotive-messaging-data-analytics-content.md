@@ -219,7 +219,7 @@ For data analytics, it's possible to use:
 
 :::image type="complex" source="images/automotive-connectivity-and-data-solution-scenario.svg" alt-text="Diagram of the high level view." border="false"lightbox="images/automotive-connectivity-and-data-solution-scenario.svg":::
     This high level diagram shows the enabling layers of a connected vehicle infrastructure (messaging services, data and analytics services, automotive development tool chain, and IT operations). The vehicle has electromechanical components and a software stack. The end-to-end use cases are in-vehicle applications, digital engineeering, digital services, connected fleets and integration with the smart mobility ecosystem using datasharing.
-:::
+:::image-end:::
 
 Automotive OEMs are undergoing a significant transformation as they shift from producing fixed products to offering connected, software-defined vehicles. Vehicles offer a range of features, such as over-the-air updates, remote diagnostics, and personalized user experiences. This transition enables OEMs to continuously improve their products based on real-time data and insights while also expanding their business models to include new services and revenue streams.
 
