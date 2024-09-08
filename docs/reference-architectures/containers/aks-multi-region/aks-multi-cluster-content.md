@@ -1,4 +1,4 @@
-This reference architecture details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
+This example scenario details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
 
 This architecture builds on the [AKS baseline architecture](../aks/baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. We recommend that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
@@ -10,18 +10,18 @@ This architecture builds on the [AKS baseline architecture](../aks/baseline-aks.
 
 ## Components
 
-Many components and Azure services are used in the multi-region AKS reference architecture. Only those components with uniqueness to this multi-cluster architecture are listed here. For the remaining, refer to the [AKS Baseline architecture](../aks/baseline-aks.yml).
+Many components and Azure services are used in the multi-region AKS example scenario. Only those components with uniqueness to this multi-cluster architecture are listed here. For the remaining, refer to the [AKS Baseline architecture](../aks/baseline-aks.yml).
 
 - **Regional AKS clusters:** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
 - **Regional hub-spoke networks:** A regional hub-spoke network pair is deployed for each regional AKS instance. Azure Firewall Manager policies are used to manage firewall policies across all regions.
 - **Regional key vault:** Azure Key Vault is provisioned in each region. Key vaults are used for storing sensitive values and keys specific to the AKS cluster and supporting services that are in that region.
 - **Multiple log workspaces:** Regional Log Analytics workspaces are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
-- **Global Azure Front Door profile:** Azure Front Door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this reference architecture.
+- **Global Azure Front Door profile:** Azure Front Door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer 7 global routing, both of which are required for this example scenario.
 - **Global container registry:** The container images for the workload are stored in a managed container registry. In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for Azure Container Registry enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
 
 ## Design patterns
 
-This reference architecture uses two cloud design patterns:
+This example scenario uses two cloud design patterns:
 - [Geodes (geographical nodes)](../../../patterns/geodes.yml), where any region can service any request.
 - [Deployment Stamps](../../../patterns/deployment-stamp.yml), where multiple independent copies of an application or application component are deployed from a single source, such as a deployment template.
 
@@ -38,11 +38,11 @@ When you manage a multi-region AKS solution, you deploy multiple AKS clusters ac
 - Select the appropriate technology for stamp definitions that allows for generalized configuration. For example, you might use Bicep for defining infrastructure as code.
 - Provide instance-specific values using a deployment input mechanism such as variables or parameter files.
 - Select deployment tooling that allows for flexible, repeatable, and idempotent deployment.
-- In an active/active stamp configuration, consider how traffic is balanced across each stamp. This reference architecture uses Azure Front Door for global load balancing.
+- In an active/active stamp configuration, consider how traffic is balanced across each stamp. This example scenario uses Azure Front Door for global load balancing.
 - As stamps are added and removed from the collection, consider capacity and cost concerns.
 - Consider how to gain visibility of and monitor the collection of stamps as a single unit.
 
-Each of these items is detailed with specific guidance in the following sections of this reference architecture.
+Each of these items is detailed with specific guidance in the following sections of this example scenario.
 
 ## Fleet management
 
@@ -172,11 +172,11 @@ With the AKS baseline reference architecture, workload traffic is routed directl
 
 ### Shared resource considerations
 
-While the focus of this reference architecture is on having multiple Kubernetes instances spread across multiple Azure regions, it does make sense to share some resources across all regions. One approach is to use a single Bicep file to deploy all shared resources, and then another to deploy each regional stamp. This section details each of these shared resources and considerations for using each across multiple AKS instances.
+While the focus of this example scenario is on having multiple Kubernetes instances spread across multiple Azure regions, it does make sense to share some resources across all regions. One approach is to use a single Bicep file to deploy all shared resources, and then another to deploy each regional stamp. This section details each of these shared resources and considerations for using each across multiple AKS instances.
 
 #### Container Registry
 
-Azure Container Registry is used in this reference architecture to provide container image services. The cluster pulls container images from the registry. Consider the following items when working with Azure Container Registry in a multi-region cluster deployment.
+Azure Container Registry is used in this example scenario to provide container image services. The cluster pulls container images from the registry. Consider the following items when working with Azure Container Registry in a multi-region cluster deployment.
 
 ##### Geographic availability
 
@@ -190,7 +190,7 @@ Consider creating a single registry, with replicas into each Azure region that c
 
 ##### Cluster access
 
-Each AKS cluster requires access to the container registry so that it can pull container image layers. There are multiple ways for establishing access to Azure Container Registry. This reference architecture uses a managed identity for each cluster, which is then granted the `AcrPull` role on the container registry. For more information and recommendations on using managed identities for Azure Container Registry access, see the [AKS baseline reference architecture](../aks/baseline-aks.yml#integrate-microsoft-entra-id-for-the-cluster).
+Each AKS cluster requires access to the container registry so that it can pull container image layers. There are multiple ways for establishing access to Azure Container Registry. This example scenario uses a managed identity for each cluster, which is then granted the `AcrPull` role on the container registry. For more information and recommendations on using managed identities for Azure Container Registry access, see the [AKS baseline reference architecture](../aks/baseline-aks.yml#integrate-microsoft-entra-id-for-the-cluster).
 
 This configuration is defined in the cluster stamp Bicep file, so that each time a new stamp is deployed, the new AKS instance is granted access. Because the container registry is a shared resource, ensure that your deployments include the resource ID of the container registry as a parameter.
 
@@ -204,7 +204,7 @@ When you're designing a monitoring solution for a multi-region architecture, it'
 
 #### Azure Front Door
 
-Azure Front Door is used to load balance and route traffic to each AKS cluster. Azure Front Door also enables layer 7 global routing. These capabilities are required for this reference architecture.
+Azure Front Door is used to load balance and route traffic to each AKS cluster. Azure Front Door also enables layer 7 global routing. These capabilities are required for this example scenario.
 
 ##### Cluster configuration
 
