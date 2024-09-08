@@ -5,13 +5,13 @@ metadata:
   author: RobBagby
   ms.author: pnp
   ms.date: 08/12/2024
-  ms.topic: reference-architecture
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.category:
     - containers
     - kubernetes
     - aks
-  ms.subservice: reference-architecture
+  ms.subservice: example-scenario
   ms.custom: arb-containers
 name: AKS baseline for multiregion clusters
 azureCategories:
