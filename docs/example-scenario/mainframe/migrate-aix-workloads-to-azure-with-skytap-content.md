@@ -127,3 +127,4 @@ To learn more about Skytap on Azure, contact <legacy2azure@microsoft.com> or che
 
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
+- [Skytap AIX Landing Zone: Migrate AIX workloads to Skytap on Azure](https://github.com/daveRendon/skytap/blob/main/docs/aix/aix-landing-zone.md)
