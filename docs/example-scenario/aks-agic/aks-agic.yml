@@ -28,4 +28,4 @@ products:
   - azure-bastion
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-agic.png
 content: |
-   [!include[](aks-agic-content.md)]
+   [!INCLUDE[](aks-agic-content.md)]
