@@ -30,6 +30,9 @@ This article provides a basic architecture intended for learning about running c
 
 While the workflow includes the flow for the chat application, the following list outlines a typical prompt flow in a more detail.
 
+> [!NOTE]
+> The numbers in this flow do not correspond to the numbers in the architecture diagram.
+
 1. The user enters a prompt in a custom chat user interface (UI).
 1. The interface's API code sends that text to prompt flow.
 1. Prompt flow extracts the user intent, either a question or directive, from the prompt.
