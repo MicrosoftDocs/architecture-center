@@ -2,7 +2,7 @@
 metadata:
   title: Scale AI and machine learning initiatives in regulated industries
   titleSuffix: Azure Architecture Center
-  description: Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies. 
+  description: Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies.
   author: EranAI
   ms.author: pnp
   ms.date: 08/18/2022
@@ -21,4 +21,4 @@ name: Scale AI and machine learning initiatives in regulated industries
 summary: Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies.
 thumbnailUrl: /azure/architecture/browse/thumbs/scale-ai-and-machine-learning-in-regulated-industries.png
 content: |
-  [!include[](scale-ai-and-machine-learning-in-regulated-industries-content.md)]
+  [!INCLUDE[](scale-ai-and-machine-learning-in-regulated-industries-content.md)]
