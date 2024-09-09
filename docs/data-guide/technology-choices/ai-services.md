@@ -128,6 +128,6 @@ Other contributors:
 
 ## Related resources
 
-- [Automate document processing by using Azure Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Automate document processing by using Azure AI Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-form-recognizer.md)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
