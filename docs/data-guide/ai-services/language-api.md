@@ -30,7 +30,6 @@ Here are the Azure AI language services:
   - *Preconfigured*, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
   - *Customizable*, which means you'll train an AI model using our tools to fit your data specifically.
 
-- [Azure OpenAI Service](/azure/ai-services/openai/) provides REST API access to OpenAI's powerful language models including GPT-4o, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
 
 
 - [Azure AI Translator](/azure/ai-services/translator/translator-overview) is a cloud-based machine translation service you can use to translate text and documents with a simple REST API call. The service uses modern neural machine translation technology. The Custom Translator interface allows you to use your translation memory to create customized neural translation systems. The customized translation system can be used to translate text and documents with the Translator service.
