@@ -5,7 +5,7 @@ author: kruti-m
 ms.author: krmeht
 categories:
   - analytics
-ms.date: 06/01/2023
+ms.date: 09/09/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.collection: ce-skilling-ai-copilot
@@ -22,13 +22,13 @@ ms.custom:
 You can use the Azure AI Speech service to perform spoken language transformations, including speech-to-text, text-to-speech, speech translation, and speaker recognition.
 
 > [!NOTE]
-> Use [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
+> Use [Azure AI Service for Language](/azure/AI-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
 
 ## Services
 
-- [Speech-to-text](/azure/cognitive-services/speech-service/index-speech-to-text) can convert audio streams to text in real time or in batch.
-- [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech) enables applications to convert text to human-like speech.
-- [Speech translation](/azure/cognitive-services/speech-service/speech-translation) provides multi-language speech-to-speech and speech-to-text translation of audio streams.
+- [Speech-to-text](/azure/ai-services/speech-service/index-speech-to-text) can convert audio streams to text in real time or in batch.
+- [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) enables applications to convert text to human-like speech.
+- [Speech translation](/azure/ai-services/speech-service/speech-translation) provides multi-language speech-to-speech and speech-to-text translation of audio streams.
 
 ## How to choose a speech service
 
@@ -83,7 +83,7 @@ Other contributors:
 
 ## Next steps
 
-- [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
+- [What is the Speech service?](/azure/ai-services/speech-service/overview)
 - [Speech APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-speech-api-s-azure-ai-applied-services/ba-p/3509510)
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
 - [Learning path: Process and translate speech with Azure Cognitive Speech Services](/training/paths/process-translate-speech-azure-cognitive-speech-services/)
