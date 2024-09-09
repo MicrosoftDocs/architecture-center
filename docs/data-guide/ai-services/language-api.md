@@ -29,137 +29,88 @@ Here are the Azure AI language capabilities:
 
 ### Named Entity Recognition (NER)
 
-:::row:::
 
-   :::column span="":::
-      [Named entity recognition](./named-entity-recognition/overview.md) is a preconfigured feature that categorizes entities (words or phrases) in unstructured text across several predefined category groups. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
+[Named entity recognition](/azure/ai-services/language-service/named-entity-recognition/overview) is a preconfigured feature that categorizes entities (words or phrases) in unstructured text across several predefined category groups. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories).
 
-   :::column-end:::
-:::row-end:::
 
 ### Personally identifying (PII) and health (PHI) information detection
 
-:::row:::
 
-   :::column span="":::
-      [PII detection](./personally-identifiable-information/overview.md) is a preconfigured feature that identifies, categorizes, and redacts sensitive information in both [unstructured text documents](./personally-identifiable-information/how-to-call.md), and [conversation transcripts](./personally-identifiable-information/how-to-call-for-conversations.md). For example: phone numbers, email addresses, forms of identification, [and more](./personally-identifiable-information/concepts/entity-categories.md).
+[PII detection](/azure/ai-services/language-service/personally-identifiable-information/overview) is a preconfigured feature that identifies, categorizes, and redacts sensitive information in both [unstructured text documents](/azure/ai-services/language-service/personally-identifiable-information/how-to-call), and [conversation transcripts](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations). For example: phone numbers, email addresses, forms of identification, [and more](/azure/ai-services/language-service/personally-identifiable-information/concepts/entity-categories).
 
-   :::column-end:::
-:::row-end:::
+
 
 ### Language detection
 
-:::row:::
 
-   :::column span="":::
-      [Language detection](./language-detection/overview.md) is a preconfigured feature that can detect the language a document is written in, and returns a language code for a wide range of languages, variants, dialects, and some regional/cultural languages.
+[Language detection](/azure/ai-services/language-service//language-detection/overview) is a preconfigured feature that can detect the language a document is written in, and returns a language code for a wide range of languages, variants, dialects, and some regional/cultural languages.
 
-   :::column-end:::
-:::row-end:::
+
 
 ### Sentiment Analysis and opinion mining
 
-:::row:::
 
-   :::column span="":::
-      [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) are preconfigured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
+[Sentiment analysis and opinion mining](/azure/ai-services/language-service/sentiment-opinion-mining/overview) are preconfigured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
 
-   :::column-end:::
-:::row-end:::
 
 ### Summarization
 
-:::row:::
 
-   :::column span="":::
-      [Summarization](./summarization/overview.md) is a preconfigured feature that uses extractive text summarization to produce a summary of documents and conversation transcriptions. It extracts sentences that collectively represent the most important or relevant information within the original content.
-   :::column-end:::
-:::row-end:::
+[Summarization](/azure/ai-services/language-service/summarization/overview) is a preconfigured feature that uses extractive text summarization to produce a summary of documents and conversation transcriptions. It extracts sentences that collectively represent the most important or relevant information within the original content.
+
 
 ### Key phrase extraction
 
-:::row:::
 
-   :::column span="":::
-      [Key phrase extraction](./key-phrase-extraction/overview.md) is a preconfigured feature that evaluates and returns the main concepts in unstructured text, and returns them as a list.
-   :::column-end:::
-:::row-end:::
+[Key phrase extraction](/azure/ai-services/language-service/key-phrase-extraction/overview) is a preconfigured feature that evaluates and returns the main concepts in unstructured text, and returns them as a list.
 
 ### Entity linking
 
-:::row:::
+[Entity linking](/azure/ai-services/language-service/entity-linking/overview) is a preconfigured feature that disambiguates the identity of entities (words or phrases) found in unstructured text and returns links to Wikipedia. 
 
-   :::column span="":::
-      [Entity linking](./entity-linking/overview.md) is a preconfigured feature that disambiguates the identity of entities (words or phrases) found in unstructured text and returns links to Wikipedia. 
-   :::column-end:::
-:::row-end:::
 
 ### Text analytics for health
 
-:::row:::
 
-   :::column span="":::
-      [Text analytics for health](./text-analytics-for-health/overview.md) is a preconfigured feature that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 
-   :::column-end:::
-:::row-end:::
+[Text analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview) is a preconfigured feature that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 
 
 ### Custom text classification
 
-:::row:::
 
-   :::column span="":::
-      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify unstructured text documents into custom classes you define.
-   :::column-end:::
-:::row-end:::
+[Custom text classification](/azure/ai-services/language-service/custom-text-classification/overview) enables you to build custom AI models to classify unstructured text documents into custom classes you define.
+ 
 
 ### Custom Named Entity Recognition (Custom NER)
 
 
-:::row:::
-
-   :::column span="":::
-      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories (labels for words or phrases), using unstructured text that you provide. 
-   :::column-end:::
-:::row-end:::
+[Custom NER](/azure/ai-services/language-service/custom-named-entity-recognition/overview) enables you to build custom AI models to extract custom entity categories (labels for words or phrases), using unstructured text that you provide. 
 
 
 ### Conversational language understanding
 
-:::row:::
- 
-   :::column span="":::
-      [Conversational language understanding (CLU)](./conversational-language-understanding/overview.md) enables users to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it.
-   :::column-end:::
-:::row-end:::
+  [Conversational language understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview) enables users to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it.
+
 
 ### Orchestration workflow
 
-:::row:::
 
-   :::column span="":::
-      [Orchestration workflow](./language-detection/overview.md) is a custom feature that enables you to connect [Conversational Language Understanding (CLU)](./conversational-language-understanding/overview.md), [question answering](./question-answering/overview.md), and [LUIS](../LUIS/what-is-luis.md) applications.
+  [Orchestration workflow](/azure/ai-services/language-service/language-detection/overview) is a custom feature that enables you to connect [Conversational Language Understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview.md), [question answering](./question-answering/overview), and [LUIS](../LUIS/what-is-luis.md) applications.
 
    :::column-end:::
-:::row-end:::
+
 
 ### Question answering
 
-:::row:::
 
-   :::column span="":::
-      [Question answering](./question-answering/overview.md) is a custom feature that finds the most appropriate answer for inputs from your users, and is commonly used to build conversational client applications, such as social media applications, chat bots, and speech-enabled desktop applications. 
+  [Question answering](/azure/ai-services/language-service/question-answering/overview) is a custom feature that finds the most appropriate answer for inputs from your users, and is commonly used to build conversational client applications, such as social media applications, chat bots, and speech-enabled desktop applications. 
 
-   :::column-end:::
-:::row-end:::
+
 
 ### Custom text analytics for health
 
-:::row:::
 
-   :::column span="":::
-      [Custom text analytics for health](./custom-text-analytics-for-health/overview.md) is a custom feature that extract healthcare specific entities from unstructured text, using a model you create.  
-   :::column-end:::
-:::row-end:::
+  [Custom text analytics for health](/azure/ai-services/language-service/custom-text-analytics-for-health/overview) is a custom feature that extract healthcare specific entities from unstructured text, using a model you create.  
+
 
 ## Use cases
 
