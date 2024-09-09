@@ -21,7 +21,7 @@ products:
   - azure-app-service
   - azure-key-vault
   - azure-monitor
-name: Baseline OpenAI end-to-end chat reference architecture
+name: Basic OpenAI end-to-end chat reference architecture
 summary: Establish foundational knowledge and experience for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end-basic.png
 content: |
