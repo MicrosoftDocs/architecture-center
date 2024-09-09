@@ -1,6 +1,6 @@
 ---
-title: Types of speech API services
-description: Learn about the Azure AI Speech service, which provides speech-to-text and text-to-speech capabilities.
+title: Azure AI speech capabilities
+description: Learn about Azure AI Speech capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
 author: kruti-m
 ms.author: krmeht
 categories:
@@ -17,14 +17,17 @@ ms.custom:
   - guide
 ---
 
-# Types of speech API services
+# Azure AI speech capabilities
 
-You can use the Azure AI Speech service to perform spoken language transformations, including speech-to-text, text-to-speech, speech translation, and speaker recognition.
+Azure AI Speech service provides speech to text and text to speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations.
 
 > [!NOTE]
 > Use [Azure AI Service for Language](/azure/AI-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
 
-## Services
+## Capabilities
+
+
+Here are the Azure AI language capabilities:
 
 - [Speech-to-text](/azure/ai-services/speech-service/index-speech-to-text) can convert audio streams to text in real time or in batch.
 - [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) enables applications to convert text to human-like speech.
@@ -32,7 +35,7 @@ You can use the Azure AI Speech service to perform spoken language transformatio
 
 ## How to choose a speech service
 
-This flow chart can help you choose the speech service that suits your needs:
+This flow chart can help you choose the speech capability that suits your needs:
 
 ![Diagram that shows how to choose a speech service.](images/ai-services-speech-api.png)
 
@@ -49,17 +52,13 @@ The right side of the diagram illustrates text-to-audio processes.
 
 The following table recommends services for some common use cases.
 
-| Use case | Service to use |
-|----------|-----------------|
-| Provide closed captions for recorded or live videos | Speech-to-text |
-| Create a transcript of a phone call or meeting | Speech-to-text |
-| Implement automated note dictation | Speech-to-text |
-| Determine intended user input for further processing | Speech-to-text|
-| Generate spoken responses to user input | Text-to-speech |
-| Create voice menus for telephone systems | Text-to-speech |
-| Read email or text messages aloud in hands-free scenarios | Text-to-speech |
-| Broadcast announcements in public locations, like railway stations or airports | Text-to-speech |
-| Produce real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation | Speech-to-text |
+| Use case | Service to use | Description |
+|----------|-----------------|---------------|
+| [Captioning](./captioning-concepts.md)| Speech-to-text |  Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.|
+| [Audio Content Creation](text-to-speech.md#more-about-neural-text-to-speech-features) | Speech-to-text |  You can use neural voices to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. |
+| [Call Center](call-center-overview.md) | Speech-to-text |  Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case.|
+| [Language learning](language-learning-overview.md)| Speech-to-text| Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices.
+| [Voice assistants](voice-assistants.md)| Text-to-speech | Create natural, human like conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.|
 
 ## Contributors
 
