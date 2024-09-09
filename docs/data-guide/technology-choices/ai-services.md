@@ -23,7 +23,7 @@ ms.custom:
 
 # Choose an Azure AI services technology
 
-Azure AI services is a out-of-the-box, prebuilt, customizable APIs and models that help you build responsible AI applications and data flows. AI services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms.  Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. 
+[Azure AI services](/azure/azure/ai-services) is a out-of-the-box, prebuilt, customizable APIs and models that help you build responsible AI applications and data flows. AI services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms.  Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. 
 
 **Key benefits:**
 
@@ -46,9 +46,8 @@ Azure offers a large number of AI services that can be grouped into the followin
 | [Language](https://azure.microsoft.com/products/ai-services/language-service/) | [Choose a language service](../ai-services/language-api.md) | Language AI service is a service that providse Natural Language Processing (NLP) features for understanding and analyzing text. |
 | [Speech](https://azure.microsoft.com/products/ai-services/speech-services/) | [Choose a speech service](../ai-services/speech-api.md) | Speech AI services are services that provide speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. |
 | [Vision](https://azure.microsoft.com/products/ai-services/vision-services/) | [Choose a vision service](../ai-services/vision-api.md) | Vision AI services are services that provide image and video recognition capabilities. |
-| [Bot]()|[Choose a decision API or applied AI service](../ai-services/decision-applied-ai.md) | Decision AI services are services that provide NLP features to produce recommendations for informed and efficient decision-making. |
-| [Search](https://azure.microsoft.com/products/ai-services/ai-search/) | Azure AI Search provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications. |
-|[Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service/) | N/A | Azure OpenAI Service provides REST API access to powerful OpenAI language models. |
+| [Search](https://azure.microsoft.com/products/ai-services/ai-search/) | ||Azure AI Search provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications. |
+|[Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service/) | N/A | Azure OpenAI Service provides REST API access to OpenAI's powerful language models including GPT-4o, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio. |
 
 ## Common use cases
 
