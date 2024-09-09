@@ -158,7 +158,7 @@ To ensure basic security hygiene for AWS accounts and resources:
   
   - Specific workload platforms, like Windows Server, Linux Server, or containers.
   
-- Devices that administrators and developers use to access the AWS Management Console.
+  - Devices that administrators and developers use to access the AWS Management Console.
 
      
   
