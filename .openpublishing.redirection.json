@@ -5374,6 +5374,18 @@
       "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/cognitive-services.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
+      "redirect_document_id": false
     }
+
+    
   ]
 }

@@ -224,7 +224,7 @@ items:
         maintainContext: true
     - name: Choose an AI/ML service
       items:
-      - name: Cognitive Services
+      - name: AI Services
         href: data-guide/technology-choices/cognitive-services.md
       - name: API services
         items:

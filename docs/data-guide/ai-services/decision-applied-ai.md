@@ -6,6 +6,7 @@ ms.author: krmeht
 ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
+ms.collection: ce-skilling-ai-copilot
 ms.subservice: azure-guide
 products:
   - ai-services
@@ -29,7 +30,9 @@ Azure AI services combine specialized AI and built-in business logic to provide 
 Here are a few of the decision and applied AI services:
 
 - [Azure Bot Service](https://azure.microsoft.com/products/bot-services/) provides an integrated development environment for creating conversational AI bots without writing code. It's integrated with [Power Virtual Agents](https://powervirtualagents.microsoft.com/), which is available as both a standalone web app and a discrete app in Microsoft Teams.
+
 - [Anomaly Detector](/azure/cognitive-services/anomaly-detector/overview) ingests time-series data of all types and selects the best anomaly detection algorithm. The Anomaly Detector API enables you to monitor and detect abnormalities in your time-series data even if you have limited knowledge of machine learning. It uses univariate and multivariate APIs to monitor data over time. You can use it for either batch validation or real-time inference.
+
 - [Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/) is a cloud-based service that helps your applications choose content items to show your users. Personalizer uses reinforcement learning to select the best item, or *action*, based on collective behavior and reward scores across all users. Actions are content items, like news articles, movies, or products.
 - [Content Moderator](/azure/cognitive-services/content-moderator/) is a service that checks text, image, and video content for material that's potentially offensive, risky, or otherwise undesirable.
     - **Text moderation** scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data. You can use prebuilt or custom models.

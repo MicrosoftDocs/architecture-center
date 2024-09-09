@@ -6,6 +6,7 @@ ms.author: krmeht
 categories:
   - ai-machine-learning
   - analytics 
+ms.collection: ce-skilling-ai-copilot
 ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
