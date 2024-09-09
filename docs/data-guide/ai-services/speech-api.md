@@ -34,7 +34,7 @@ You can use the Azure AI Speech service to perform spoken language transformatio
 
 This flow chart can help you choose the speech service that suits your needs:
 
-![Diagram that shows how to choose a speech service.](images/cognitive-services-speech-api.png)
+![Diagram that shows how to choose a speech service.](images/ai-services-speech-api.png)
 
 The left side of the diagram illustrates audio-to-audio or audio-to-text processes.
 
