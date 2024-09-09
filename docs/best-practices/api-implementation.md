@@ -42,7 +42,7 @@ If a POST request is intended to create a new resource, the effects of the reque
 
 ### Avoid implementing chatty POST, PUT, and DELETE operations
 
-Avoid designing your API based on _chatty_ operations. Every request comes with protocol, network, and compute overhead. For example, executing 100 smaller requests instead of one larger batch request incurs added overhead in the client, on the network, and at the resource server. Whenever possible, provide HTTP verb support for resource collections instead of just individual resources.
+Avoid designing your API based on *chatty* operations. Every request comes with protocol, network, and compute overhead. For example, executing 100 smaller requests instead of one larger batch request incurs added overhead in the client, on the network, and at the resource server. Whenever possible, provide HTTP verb support for resource collections instead of just individual resources.
 
 - A GET request to a collection can retrieve multiple resources at the same time.
 - A POST request can contain the details for multiple new resources and add them all to the same collection.
