@@ -5,7 +5,7 @@ metadata:
   description: Use Azure Machine Learning, Azure Synapse Analytics, App Service, and Power BI to model loan credit risk and default probability.
   author: CharithaBasani
   ms.author: chbasani
-  ms.date: 05/15/2023
+  ms.date: 09/09/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
