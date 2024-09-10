@@ -193,7 +193,7 @@ You can assign your custom domain names to your Event Grid namespace’s MQTT an
 * [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) provides high-performance data caching to accelerate applications. In this solution, it provides in-memory caching of data often used by user-facing applications such as the companion app.
 * [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a messaging service that ensures reliable and secure communication between distributed applications and services. In this solution, it decouples vehicle connectivity from digital services and business integration.
 * [Microsoft Dynamics 365](/dynamics365) is a suite of intelligent business applications across sales, service, finance, and operations. In this solution, it provides a connected customer experience and seamless business processes, enabling better dealership and OEM operations.
-* [Microsoft Dataverse](power-apps/maker/data-platform/) securily stores and manages business applications data. In this architecture, it stores information about the customer and vehicle.
+* [Microsoft Dataverse](/power-apps/maker/data-platform/) securily stores and manages business applications data. In this architecture, it stores information about the customer and vehicle.
 
 ### Alternatives
 
@@ -295,7 +295,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 * Consider using the [scale unit concept](#scalability) for solutions that scale above 50,000 devices, especially if multiple geographical regions are required.
-* Consider the [Azure subscription and service limits, quotas, and constraints](/azure-resource-manager/management/azure-subscription-service-limits) when designing your scale units.
+* Consider the [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) when designing your scale units.
 * Carefully consider the best way to ingest data (messaging, streaming or batched). For example, messages with high priority such as user requests should be handled immediately. Messages that are used for analytics (such as vehicle performance) can be routed directly to storage without processing. Design your system to minimize the number of high priority messages with immediate processing.
 * Consider the best way to analyze the data based on use case, either batched or near-real time. Near real time enables providing immediate notifications to the users (for example, an imminent problem with the vehicle). Batched analytics are executed periodically and provide nonurgent notifications such as predicting upcoming maintenance.
 
