@@ -21,7 +21,7 @@ ms.custom:
 
 [Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
-This article covers Azure AI services that offer language and document processing capabilities of Azure AI services.
+This article covers Azure AI services that offer language and document processing capabilities for Azure AI services.
 
 
 ## Services
