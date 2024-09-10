@@ -1,11 +1,11 @@
 ---
-title: Language processing with Azure AI services
-description: Learn about language processing capabilities of Azure AI services. Learn which service to use for a specific use cases.
+title: Language and document processing with Azure AI services
+description: Learn about Language and document processing capabilities of Azure AI services. Learn which service to use for a specific use cases.
 author: kruti-m
 ms.author: krmeht
 categories:
 - ai-machine-learning
-ms.date: 09/09/2023
+ms.date: 09/09/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,16 +17,16 @@ ms.custom:
   - guide
 ---
 
-# Language processing with Azure AI services
+# Language and document processing with Azure AI services
 
 [Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
-In this article, we focus on the services that offer language processing capabilities of Azure AI services.
+In this article, we focus on the services that offer language and document processing capabilities of Azure AI services.
 
 
 ## Services
 
-The following services provide language AI capabilities for Azure AI services:
+The following services provide language and document processing capabilities for Azure AI services:
 
 - [Azure AI Language service](#azure-ai-language-service)
 - [Azure AI Translator service](#azure-ai-translator)
