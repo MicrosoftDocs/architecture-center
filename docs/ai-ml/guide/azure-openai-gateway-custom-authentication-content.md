@@ -1,4 +1,4 @@
-Intelligent applications that use Azure OpenAI services through native Azure platforms provide seamless user authentication and authorization. However, some scenarios are complex and require different architecture designs. These scenarios include topologies that have client applications not hosted on Azure, the use of external identity providers, and the deployment of multiple clients that access the same Azure OpenAI instances. In these scenarios, adding a gateway in front of Azure OpenAI can provide significant security improvements by adding a layer that ensures consistency in authentication to deployed instances.
+Intelligent applications that use Azure OpenAI services through native Azure platforms provide seamless user authentication and authorization. However, some scenarios are complex and require different architecture designs. These scenarios include topologies that have client applications not hosted on Azure, the use of external identity providers, and the deployment of multiple clients that access the same Azure OpenAI instances. In these scenarios, introducing a gateway in front of Azure OpenAI can provide significant security improvements by adding a layer that ensures consistency in authentication to deployed instances.
 
 This article describes the key scenarios when you authenticate with Azure OpenAI services:
 
@@ -29,7 +29,7 @@ This scenario has the following constraints:
 
 - Client applications authenticate against a Microsoft Entra tenant that's different than the Azure OpenAI data plane's tenant.
 
-You can apply these constraints to scenarios where:
+These constraints can apply to the following scenarios:
 
 - Existing client applications that already authenticate against an external OIDC provider or Microsoft Entra ID integrate with Azure OpenAI instances.
 
@@ -47,11 +47,11 @@ Diagram that shows the insertion of a gateway between client applications and Az
 
 Introducing a gateway resolves the challenges of this scenario in the following ways:
 
-- The gateway can use Open Authorization (OAuth) to authenticate users by using their existing external identity providers. The gateway validates the authenticated user access tokens, such as a JSON Web Token (JWT), that the identity provider generates. Then it grants authorization to the backing Azure OpenAI instance.
+- The gateway uses Open Authorization (OAuth) to authenticate users with their existing external identity providers. The gateway validates the authenticated user access tokens, such as a JSON Web Token (JWT), that the identity provider generates. Then it grants authorization to the backing Azure OpenAI instance.
 
 - Client key management is no longer needed, which eliminates the security risks of key-based authentication.
 
-- The gateway can connect to Azure OpenAI by using a managed identity, which improves security via least-privileged Azure role-based access control (Azure RBAC).
+- The gateway connects to Azure OpenAI by using a managed identity, which improves security via least-privileged Azure role-based access control (Azure RBAC).
 
 ### Recommendations for this scenario
 
@@ -61,7 +61,7 @@ Introducing a gateway resolves the challenges of this scenario in the following 
 
 ### Reasons to avoid a gateway for this scenario
 
-If a single intelligent application accesses Azure OpenAI, it’s easier to configure user authentication and authorization within the app rather than through the gateway. You can use this approach to assign the necessary Azure RBAC to securely authenticate the intelligent application with Azure OpenAI.
+If a single intelligent application accesses Azure OpenAI, it’s easier to configure user authentication and authorization within the app rather than through the gateway. Use this approach to assign the necessary Azure RBAC to securely authenticate the intelligent application with Azure OpenAI.
 
 ## Client applications authenticated via certificates
 
