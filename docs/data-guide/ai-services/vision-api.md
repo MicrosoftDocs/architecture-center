@@ -1,8 +1,8 @@
 ---
 title: Types of vision API services
 description: Learn about using Azure AI Vision to understand and analyze images and video. Learn which service to use for a specific use case.
-author: kruti-m
-ms.author: krmeht
+author: robbagby
+ms.author: pnp
 categories:
   - ai-machine-learning
   - analytics 

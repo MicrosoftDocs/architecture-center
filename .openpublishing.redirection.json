@@ -5397,7 +5397,7 @@
     },
     {
       "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
-      "redirect_url": "/azure/architecture/ai-services/decision-applied-ai",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
     }
 

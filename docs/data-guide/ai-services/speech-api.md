@@ -1,8 +1,8 @@
 ---
-title: Azure AI speech capabilities
-description: Learn about Azure AI Speech capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
-author: kruti-m
-ms.author: krmeht
+title: Azure AI Speech service capabilities guide 
+description: Learn about Azure AI Speech service capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
+author: robbagby
+ms.author: pnp
 categories:
   - analytics
 ms.date: 09/09/2024
@@ -17,17 +17,19 @@ ms.custom:
   - guide
 ---
 
-# Azure AI speech capabilities
+# Azure AI Speech service capabilities guide 
 
-Azure AI Speech service provides speech to text and text to speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations.
+[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
+
+This article covers [Azure AI Speech service](https://azure.microsoft.com/products/ai-services/ai-speech), which provides speech to text and text to speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations.
 
 > [!NOTE]
-> Use [Azure AI Service for Language](/azure/AI-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
+> Use [Azure AI Service for Language](/azure/ai-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
 
 ## Capabilities
 
 
-Here are the Azure AI language capabilities:
+The following table provides a list of capabilities available in Azure AI Speech service.
 
 - [Speech-to-text](/azure/ai-services/speech-service/index-speech-to-text) can convert audio streams to text in real time or in batch.
 - [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) enables applications to convert text to human-like speech.
@@ -35,7 +37,7 @@ Here are the Azure AI language capabilities:
 
 ## How to choose a speech service
 
-This flow chart can help you choose the speech capability that suits your needs:
+This flow chart can help you choose a speech capability that suits your needs:
 
 ![Diagram that shows how to choose a speech service.](images/ai-services-speech-api.png)
 
@@ -48,17 +50,17 @@ The right side of the diagram illustrates text-to-audio processes.
 
 - Text-to-speech is used to generate spoken audio from a text source.
 
-## Common use cases
+## Use cases
 
-The following table recommends services for some common use cases.
+The following table provides a list of possible use cases for Azure AI Speech service.
 
 | Use case | Service to use | Description |
 |----------|-----------------|---------------|
-| [Captioning](./captioning-concepts.md)| Speech-to-text |  Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.|
-| [Audio Content Creation](text-to-speech.md#more-about-neural-text-to-speech-features) | Speech-to-text |  You can use neural voices to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. |
-| [Call Center](call-center-overview.md) | Speech-to-text |  Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case.|
-| [Language learning](language-learning-overview.md)| Speech-to-text| Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices.
-| [Voice assistants](voice-assistants.md)| Text-to-speech | Create natural, human like conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.|
+| [Captioning](/azure/ai-services/speech-service/captioning-conceptsd)| Speech-to-text |  Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.|
+| [Audio Content Creation](/azure/ai-services/speech-service/text-to-speech#more-about-neural-text-to-speech-features) | Speech-to-text |  You can use neural voices to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. |
+| [Call Center](/azure/ai-services/speech-service/call-center-overview) | Speech-to-text |  Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case.|
+| [Language learning](/azure/ai-services/speech-service/language-learning-overview)| Speech-to-text| Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices.
+| [Voice assistants](/azure/ai-services/speech-service/voice-assistants)| Text-to-speech | Create natural, human like conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.|
 
 ## Contributors
 
@@ -84,10 +86,9 @@ Other contributors:
 
 - [What is the Speech service?](/azure/ai-services/speech-service/overview)
 - [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
-- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
+- [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
 
 ## Related resources
 
-- [Decision-making with Azure AI services](decision-applied-ai.md)
 - [Language and document processing with Azure AI services](language-api.md)
 - [Types of vision API services](vision-api.md)
