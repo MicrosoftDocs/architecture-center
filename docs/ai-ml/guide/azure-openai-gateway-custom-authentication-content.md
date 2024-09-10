@@ -6,7 +6,7 @@ This article describes the key scenarios when you authenticate with Azure OpenAI
 
 - [Client applications authenticated via certificates](#client-applications-authenticated-via-certificates)
 
-- [Multiple client applications accessing a shared Azure OpenAI instance](#multiple-client-applications-using-keys-to-access-a-shared-azure-openai-instance)
+- [Multiple client applications accessing a shared Azure OpenAI instance](#multiple-client-applications-accessing-a-shared-azure-openai-instance)
 
 - [Client applications accessing multiple Azure OpenAI instances](#client-applications-accessing-multiple-azure-openai-instances)
 
@@ -154,7 +154,7 @@ Azure OpenAI supports key-based authentication using shared keys. While Azure Op
 
 - You can't differentiate one client from another from a logging perspective.
 
-### Introduce a gateway
+### Introducing a gateway
 
 :::image type="complex" source="_images/azure-openai-gateway-identity-solution-multiple-clients.png" lightbox="_images/azure-openai-gateway-identity-solution-multiple-clients.png" alt-text="Diagram that shows a gateway between multiple clients and Azure OpenAI with subscription keys per client and managed identity authentication.":::
 Diagram that shows a gateway between multiple clients and Azure OpenAI with subscription keys per client and managed identity authentication.
@@ -178,7 +178,7 @@ There are several advantages to introducing a gateway to address this scenario, 
 
 - Ensure that the gateway makes routing decisions based on client identity to appropriate model deployments when you route multiple client application requests through a gateway to a shared Azure OpenAI service. For more information, see [Using a gateway in front of multiple Azure OpenAI deployments](./azure-openai-gateway-multi-backend.yml).
 
-## Client applications that access multiple Azure OpenAI instances
+## Client applications accessing multiple Azure OpenAI instances
 
 :::image type="complex" source="_images/azure-openai-gateway-identity-scenario-multiple-services.png" lightbox="_images/azure-openai-gateway-identity-scenario-multiple-services.png" alt-text="Diagram that shows client applications authenticating with multiple Azure OpenAI instances using shared API keys per instance.":::
 Diagram that shows client applications authenticating with multiple Azure OpenAI instances using shared API keys per instance.
