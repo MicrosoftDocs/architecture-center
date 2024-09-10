@@ -31,7 +31,6 @@ The following services provide language and document processing capabilities for
 - [Azure AI Language service](#azure-ai-language-service)
 - [Azure AI Translator service](#azure-ai-translator)
 - [Azure AI Document Intelligence](#azure-ai-document-intelligence)
-- [Azure Open AI service](#azure-open-ai) 
 
 Each service has its own capabilities and use cases.
 
@@ -144,11 +143,7 @@ The following table provides a list of possible use cases for Azure AI Document 
 | Build a generative model to analyze complex documents like financial reports and asset management reports.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0)| 
 | Build a generative model to parse, validate, and extract expenses across different formats and documents with varying template | [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0)| 
 
-###  Azure Open AI
 
-Azure Open AI service provides REST API access to OpenAI's powerful language models including GPT-4o, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
-
-For more information, see [Azure Open AI](/azure/ai-services/openai/overview).
 
 
 ## Contributors
