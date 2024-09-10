@@ -19,14 +19,16 @@ ms.custom:
 
 # Types of language API services
 
-Azure AI language services provides Natural Language Processing (NLP) features for understanding and analyzing text such as language translation, natural-language-to-code translation, content generation, summarization and semantic search. 
+Azure AI services for language processing provides Natural Language Processing (NLP) features for understanding and analyzing text such as language translation, natural-language-to-code translation, content generation, summarization, and document processing.
+
 
 ## Services
 
-There are three services that provide language AI capabilities. These services are:
+The following services provide language AI capabilities for Azure AI services. 
 
 - [Azure AI Language service](#azure-ai-language-service)
 - [Azure AI Translator service](#azure-ai-translator)
+- [Azure AI Document Intelligence](#azure-ai-document-intelligence)
 - [Azure Open AI service](#azure-open-ai) 
 
 Each service has its own capabilities and use cases.
@@ -103,6 +105,13 @@ The following table provides recommended services for Azure AI Translator.
 |----------|-----------------|
 |Translate industry-specific text.|[AI Services Custom Translator](/azure/ai-services/translator/custom-translator/overview)| 
 |Translate generic text that isn't specific to an industry.|[What is Azure Text Translation](/azure/ai-services/translator/text-translation-overview)|
+
+###  Azure AI Document Intelligence
+
+Azure AI Document Intelligence is a cloud-based Azure AI service that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation.
+
+For more information, see [Azure Open AI](/azure/ai-services/openai/overview).
+
 
 
 ###  Azure Open AI
