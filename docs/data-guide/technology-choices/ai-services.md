@@ -83,7 +83,7 @@ This flow chart can help you choose the best API service for your use case.
 ![Diagram that shows how to select a AI Services API.](../ai-services/images/ai-services-flow-chart.png)
 
 - If your use case requires speech-to-text, text-to-speech, or speech-to-speech, use a [speech API](../ai-services/speech-api.md).
-- If your use case requi res language or document analysis, text assessment, or  text-to-text, use a [language and document processing with Azure AI services](../ai-services/language-api.md).
+- If your use case requires language or document analysis, text assessment, or  text-to-text, use a [language and document processing with Azure AI services](../ai-services/language-api.md).
 - If you need to analyze images, video, or text, use a [vision API](../ai-services/vision-api.md).
 
 
@@ -123,10 +123,10 @@ Other contributors:
 - [Learning path: Provision and manage Azure AI Services](/training/paths/provision-manage-azure-ai-services)
 - [Azure AI Services documentation](/azure/ai-services)
 - [What are Azure AI Services?](/azure/ai-services/what-are-ai-services)
-- [Blog post: Which AI Am I?](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/which-ai-am-i-azure-ai-applied-services-part-1/ba-p/3506572)
+
 
 ## Related resources
 
-- [Automate document processing by using Azure AI Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-form-recognizer.md)
+- [Automate document processing by using Azure AI Document Intelligence](../../ai-ml/architecture/automate-document-processing-azure-form-recognizer-content.md)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
