@@ -35,7 +35,7 @@ The following table provides a list of capabilities available in Azure AI Speech
 - [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) enables applications to convert text to human-like speech.
 - [Speech translation](/azure/ai-services/speech-service/speech-translation) provides multi-language speech-to-speech and speech-to-text translation of audio streams.
 
-## How to choose a speech service
+## How to choose a speech capability 
 
 This flow chart can help you choose a speech capability that suits your needs:
 
