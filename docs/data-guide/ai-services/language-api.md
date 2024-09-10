@@ -1,6 +1,6 @@
 ---
-title: Language and document processing with Azure AI services
-description: Learn about language and document processing capabilities of Azure AI services. Learn which service to use for a specific use cases.
+title: Language with Azure AI services
+description: Learn about language capabilities of Azure AI services. Learn which service to use for a specific use cases.
 author: robbagby
 ms.author: pnp
 categories:
@@ -17,20 +17,20 @@ ms.custom:
   - guide
 ---
 
-# Azure AI language and document processing capabilities guide 
+# Azure AI language capabilities guide 
 
 [Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
-This article covers Azure AI services that offer language and document processing capabilities for Azure AI services.
+This article covers Azure AI services that offer language capabilities for Azure AI services.
 
 
 ## Services
 
-The following services provide language and document processing capabilities for Azure AI services:
+The following services provide language capabilities for Azure AI services:
 
 - [Azure AI Language service](#azure-ai-language-service)
 - [Azure AI Translator service](#azure-ai-translator)
-- [Azure AI Document Intelligence](#azure-ai-document-intelligence)
+
 
 Each service has its own capabilities and use cases.
 
@@ -111,6 +111,7 @@ The following table provides a list of possible use cases for Azure AI Translato
 |Translate industry-specific text.|[AI Services Custom Translator](/azure/ai-services/translator/custom-translator/overview)| 
 |Translate generic text that isn't specific to an industry.|[What is Azure Text Translation](/azure/ai-services/translator/text-translation-overview)|
 
+<!--
 ###  Azure AI Document Intelligence
 
 [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is a cloud-based Azure AI service that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation.
@@ -143,7 +144,7 @@ The following table provides a list of possible use cases for Azure AI Document 
 | Build a generative model to analyze complex documents like financial reports and asset management reports.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)| 
 | Build a generative model to parse, validate, and extract expenses across different formats and documents with varying template | [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)| 
 
-
+-->
 
 
 ## Contributors

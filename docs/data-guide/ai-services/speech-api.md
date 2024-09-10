@@ -90,5 +90,5 @@ Other contributors:
 
 ## Related resources
 
-- [Language and document processing with Azure AI services](language-api.md)
+- [Language with Azure AI services](language-api.md)
 - [Types of vision API services](vision-api.md)
