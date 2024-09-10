@@ -6,7 +6,7 @@ This article describes the key scenarios when you authenticate with Azure OpenAI
 
 - [Client applications authenticated via certificates](#client-applications-authenticated-via-certificates)
 
-- [Multiple client applications accessing a shared Azure OpenAI instance](#multiple-client-applications-accessing-a-shared-azure-openai-instance)
+- [Multiple client applications using keys to access a shared Azure OpenAI instance](#multiple-client-applications-using-keys-to-access-a-shared-azure-openai-instance)
 
 - [Client applications accessing multiple Azure OpenAI instances](#client-applications-accessing-multiple-azure-openai-instances)
 
