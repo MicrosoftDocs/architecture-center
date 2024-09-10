@@ -228,13 +228,13 @@ items:
         href: data-guide/technology-choices/ai-services.md
       - name: API services
         items:
-        - name: Language API services
+        - name: Language and document processing
           href: data-guide/ai-services/language-api.md
         - name: Speech API services
           href: data-guide/ai-services/speech-api.md
         - name: Vision API services
           href: data-guide/ai-services/vision-api.md
-        - name: Decision APIs and Applied AI Services
+        - name: Decision-making
           href: data-guide/ai-services/decision-applied-ai.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
