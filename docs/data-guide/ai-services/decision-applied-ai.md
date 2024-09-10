@@ -1,9 +1,9 @@
 ---
-title: Types of decision APIs and Azure AI services
-description: Learn about Azure AI services Decision APIs, which can help you make recommendations for decision-making, and Azure AI services, which provides NLP features.
+title: Decision-making with Azure AI services
+description: Learn about decision-making capabilities of Azure AI services. Learn which service to use for a specific use cases.
 author: kruti-m
 ms.author: krmeht
-ms.date: 06/01/2023
+ms.date: 09/09/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.collection: ce-skilling-ai-copilot
@@ -19,53 +19,54 @@ ms.custom:
   - guide
 ---
 
-# Types of decision APIs and Azure AI services
+# Decision-making with Azure AI services
 
-Azure AI services decision APIs are cloud-based APIs that provide natural language processing (NLP) features to produce recommendations for informed and efficient decision-making. They can help you make smart decisions faster.
+[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
-Azure AI services combine specialized AI and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure AI Search is a cloud search service that has built-in AI capabilities.
+In this article, we focus on the services that offer decision-making capabilities of Azure AI services.
 
 ## Services
 
-Here are a few of the decision and applied AI services:
+The following services provide decision making capabilities for Azure AI services:
 
-- [Azure Bot Service](https://azure.microsoft.com/products/bot-services/) provides an integrated development environment for creating conversational AI bots without writing code. It's integrated with [Power Virtual Agents](https://powervirtualagents.microsoft.com/), which is available as both a standalone web app and a discrete app in Microsoft Teams.
+- [Azure Bot Service](https://azure.microsoft.com/products/bot-services/).
+- [Azure AI Safety](/azure/ai-services/content-safety/overview).
 
-- [Anomaly Detector](/azure/cognitive-services/anomaly-detector/overview) ingests time-series data of all types and selects the best anomaly detection algorithm. The Anomaly Detector API enables you to monitor and detect abnormalities in your time-series data even if you have limited knowledge of machine learning. It uses univariate and multivariate APIs to monitor data over time. You can use it for either batch validation or real-time inference.
+Each service has its own capabilities and use cases.
 
-- [Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/) is a cloud-based service that helps your applications choose content items to show your users. Personalizer uses reinforcement learning to select the best item, or *action*, based on collective behavior and reward scores across all users. Actions are content items, like news articles, movies, or products.
-- [Content Moderator](/azure/cognitive-services/content-moderator/) is a service that checks text, image, and video content for material that's potentially offensive, risky, or otherwise undesirable.
-    - **Text moderation** scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data. You can use prebuilt or custom models.
-    - **Image moderation** scans images for adult or racy content, detects text in images by using optical character recognition, and detects faces. You can use prebuilt or custom models.
-    - **Video moderation** scans videos for adult or racy content and returns time markers for the content. This API currently supports only prebuilt models.
+### Azure AI Safety service
 
-## How to choose a service
+[Azure AI Safety](https://azure.microsoft.com/products/ai-services/ai-language) is an AI service that detects harmful user-generated and AI-generated content in applications and services. Azure AI Content Safety includes text and image APIs that allow you to detect material that is harmful. The interactive Content Safety Studio allows you to view, explore, and try out sample code for detecting harmful content across different modalities.
 
-This flow chart can help you choose the Azure AI services option that suits your needs:
 
-:::image type="content" source="images/cognitive-services-decision-applied-ai.png" alt-text="Diagram that shows how to choose a decision or applied AI service." lightbox="images/cognitive-services-decision-applied-ai.png":::
+#### Capabilities
 
-## Common use cases
+The following table provides a list of capabilities available in Azure AI Safety service:
 
-- **Bot Service**
-    - Provide help for sales and support.
-    - Provide information about store business hours and more.
-    - Provide information about employee health and vacation benefits.
-    - Answer common employee questions.
 
-- **Anomaly Detector**
-    - Detect anomalies in your streaming data by using previously seen data points to determine whether the latest one is anomalous.
-    - Detect anomalies in an entire data series at a specific time. This operation generates a model by using all your time-series data. The same model analyzes each data point.
-    - Detect any trend change points that exist in your data at a specific time. This operation generates a model by using all your time-series data. The same model analyzes each data point.
+| Capabilities                        | Functionality          | Concepts guide | 
+| :-------------------------- | :---------------------- | --| 
+| [Prompt Shields](/rest/api/contentsafety/text-operations/detect-text-jailbreak) | Scans text for the risk of a User input attack on a Large Language Model. | [Prompt Shields concepts](/azure/ai-services/content-safety/concepts/jailbreak-detection)|
+| [Groundedness detection](/rest/api/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. | [Groundedness detection concepts](/azure/ai-services/content-safety/concepts/groundedness)|
+| [Protected material text detection](/rest/api/contentsafety/text-operations/detect-text-protected-material) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). | [Protected material concepts](/azure/ai-services/content-safety/concepts/protected-material)|
+| Custom categories API (preview)    | Lets you create and train your own custom content categories and scan text for matches. | [Custom categories concepts](/azure/ai-services/content-safety/concepts/custom-categories)|
+| Custom categories (rapid) API (preview) | Lets you define emerging harmful content patterns and scan text and images for matches. | [Custom categories concepts](/azure/ai-services/content-safety/concepts/custom-categories)|
+| [Analyze text](/rest/api/contentsafety/text-operations/analyze-text) API      | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. | [Harm categories](/azure/ai-services/content-safety/concepts/harm-categories)| 
+| [Analyze image](/rest/api/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. | [Harm categories](/azure/ai-services/content-safety/concepts/harm-categories)| 
 
-- **Personalizer**
-    - Get recommendations for e-commerce. Determine the best products to present to customers to maximize purchases.
-    - Get content recommendations. Recommend articles that optimize  click-through rates.
-    - Improve content design. Determine placements for advertisements to optimize user engagement on a website.
-    - Improve communications. Determine when and how to send notifications  to maximize the likelihood of getting a response.
 
-- **Content Moderator**
-  - Scan text, images, or video for potentially risky, offensive, or undesirable content.
+#### Use cases
+
+The following list contains some use cases in which a software developer or team would require a content moderation service:
+
+- User prompts submitted to a generative AI service.
+- Content produced by generative AI models.
+- Online marketplaces that moderate product catalogs and other user-generated content.
+- Gaming companies that moderate user-generated game artifacts and chat rooms.
+- Social messaging platforms that moderate images and text added by their users.
+- Enterprise media companies that implement centralized moderation for their content.
+- K-12 education solution providers filtering out content that is inappropriate for students and educators.
+
 
 ## Contributors
 
@@ -89,19 +90,15 @@ Other contributors:
 
 ## Next steps
 
-- [Power Virtual Agents overview](/power-virtual-agents/fundamentals-what-is-power-virtual-agents)
-- [Anomaly Detector](/azure/cognitive-services/anomaly-detector/)
-- [Content Moderator](/azure/cognitive-services/content-moderator/)
-- [Personalizer](/azure/cognitive-services/personalizer/what-is-personalizer)
-- [Azure OpenAI](/azure/cognitive-services/openai/overview)
-- [Decision APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-decision-api-s-azure-ai-applied/ba-p/3520408)
-- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
-- [Learning path: Identify principles and practices for responsible AI](/training/paths/responsible-ai-business-principles/)
-- [Learning path: Introduction to responsible bots](/training/modules/responsible-bots-introduction/)
-- [Learning path: Get started with AI](/training/paths/get-started-with-artificial-intelligence-on-azure/)
+
+- [Azure AI Safety](/azure/ai-services/content-safety/overview)
+- [Azure OpenAI](/azure/ai-services/openai/overview)
+- [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
+- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
+
 
 ## Related resources
 
-- [Types of language API services](language-api.md)
+- [Language and document processing with Azure AI services](language-api.md)
 - [Types of speech API services](speech-api.md)
 - [Types of vision API services](vision-api.md)

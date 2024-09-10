@@ -173,15 +173,12 @@ Other contributors:
 
 ## Next steps
 
-- [What is Azure Cognitive Service for Language?](/azure/ai-services/language-service/overview)
-- [Language APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-ai-services-language-api-s-azure-ai-applied/ba-p/3514278)
-- [Learning path: Create a language understanding solution with Azure Cognitive Services](/training/paths/create-language-solution-azure-ai-services/)
-- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-ai-services)
-- [Learning path: Identify principles and practices for responsible AI](/training/paths/responsible-ai-business-principles/)
-- [Learning path: Introduction to responsible bots](/training/modules/responsible-bots-introduction/)
+- [What is Azure AI Language?](/azure/ai-services/language-service/overview)
+- [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
+- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
 
 ## Related resources
 
-- [Types of decision APIs and Applied AI Services](decision-applied-ai.md)
+- [Decision-making with Azure AI services](decision-applied-ai.md)
 - [Types of speech API services](speech-api.md)
 - [Types of vision API services](vision-api.md)

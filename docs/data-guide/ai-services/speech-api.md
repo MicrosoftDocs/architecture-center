@@ -83,12 +83,11 @@ Other contributors:
 ## Next steps
 
 - [What is the Speech service?](/azure/ai-services/speech-service/overview)
-- [Speech APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-speech-api-s-azure-ai-applied-services/ba-p/3509510)
-- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
-- [Learning path: Process and translate speech with Azure Cognitive Speech Services](/training/paths/process-translate-speech-azure-cognitive-speech-services/)
+- [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
+- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
 
 ## Related resources
 
-- [Types of decision APIs and Applied AI Services](decision-applied-ai.md)
-- [Types of language API services](language-api.md)
+- [Decision-making with Azure AI services](decision-applied-ai.md)
+- [Language and document processing with Azure AI services](language-api.md)
 - [Types of vision API services](vision-api.md)
