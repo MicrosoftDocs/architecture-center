@@ -228,11 +228,11 @@ items:
         href: data-guide/technology-choices/ai-services.md
       - name: AI service capability guides
         items:
-        - name: Language and document processing
+        - name: Language and documents
           href: data-guide/ai-services/language-api.md
-        - name: Azure AI Speech service 
+        - name: Speech 
           href: data-guide/ai-services/speech-api.md
-        - name: Vision API services
+        - name: Vision
           href: data-guide/ai-services/vision-api.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
