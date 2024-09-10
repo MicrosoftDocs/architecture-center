@@ -45,7 +45,7 @@ The following table provides a list of capabilities available in Azure AI Langua
 
 | Capability | Description | 
 |----------|-------------|
-| [Named entity recognition (NER)](/azure/ai-services/language-service/named-entity-recognition/overview) | Categorizes entities (words or phrases) in unstructured text across several predefined category groups. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories).|
+| [Named entity recognition (NER)](/azure/ai-services/language-service/named-entity-recognition/overview) | Categorizes entities (words or phrases) in unstructured text across several predefined category groups. For example: people, events, places, dates, [and more](/azure/ai-services/language-servicenamed-entity-recognition/concepts/named-entity-categories).|
 | [Personally identifying (PII) and health (PHI) information detection](/azure/ai-services/language-service/personally-identifiable-information/overview)| Identifies, categorizes, and redacts sensitive information in both [unstructured text documents](/azure/ai-services/language-service/personally-identifiable-information/how-to-call), and [conversation transcripts](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations). For example: phone numbers, email addresses, forms of identification, [and more](/azure/ai-services/language-service/personally-identifiable-information/concepts/entity-categories).|
 |[Language detection](/azure/ai-services/language-service//language-detection/overview)| Detects the language a document is written in, and returns a language code for a wide range of languages, variants, dialects, and some regional/cultural languages.|
 |[Sentiment analysis and opinion mining](/azure/ai-services/language-service/sentiment-opinion-mining/overview) |Help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.|
@@ -56,7 +56,7 @@ The following table provides a list of capabilities available in Azure AI Langua
 | [Custom text classification](/azure/ai-services/language-service/custom-text-classification/overview) |Use to build custom AI models to classify unstructured text documents into custom classes you define.|
 | [Custom NER](/azure/ai-services/language-service/custom-named-entity-recognition/overview) | Use to build custom AI models to extract custom entity categories (labels for words or phrases), using unstructured text that you provide. |
 |[Conversational language understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview)| Use to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it.|
-| [Orchestration workflow](/azure/ai-services/language-service/language-detection/overview)| Use to connect [Conversational Language Understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview.md), [question answering](./question-answering/overview), and [LUIS](../LUIS/what-is-luis.md) applications.|
+| [Orchestration workflow](/azure/ai-services/language-service/language-detection/overview)| Use to connect [Conversational Language Understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview.md), [question answering](/azure/ai-services/language-service/question-answering/overview), and [LUIS](../LUIS/what-is-luis.md) applications.|
 | [Question answering](/azure/ai-services/language-service/question-answering/overview)| Finds the most appropriate answer for inputs from your users, and is commonly used to build conversational client applications, such as social media applications, chat bots, and speech-enabled desktop applications. |
 |[Custom text analytics for health](/azure/ai-services/language-service/custom-text-analytics-for-health/overview) |Extracts healthcare specific entities from unstructured text, using a model that you create.|  
 
@@ -122,7 +122,7 @@ The following table provides a list of capabilities available in Azure AI Transl
 
 | Capability | Description | 
 |----------|-------------|
-| Use a variety of document processing models to add intelligent document processing to your apps and flows.| Choose between a prebuilt domain specific model or train a custom model tailored to your specific business need and use cases. [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=doc-intel-4.0.0&tabs=windows&pivots=programming-language-csharp)|
+| Use a variety of document processing models to add intelligent document processing to your apps and flows.| Choose between a prebuilt domain specific model or train a custom model tailored to your specific business need and use cases. [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=doc-intel-4.0.0&tabs=windows&pivots=programming-language-csharp&preserve-view=true)|
 
 
 #### Use cases
@@ -132,16 +132,16 @@ The following table provides a list of possible use cases for Azure AI Document 
 
 | Use case | Documentation | 
 |----------|-----------------|
-|Digitize any document.|[Use Document Intelligence Read Optical Character Recognition (OCR) model](/azure/ai-services/document-intelligence/concept-read?view=doc-intel-4.0.0&tabs=sample-code)| 
+|Digitize any document.|[Use Document Intelligence Read Optical Character Recognition (OCR) model](/azure/ai-services/document-intelligence/concept-read?view=doc-intel-4.0.0&tabs=sample-code&preserve-view=true)| 
 |Process handwritten notes** before translation.|[Document Intelligence Read Optical Character Recognition (OCR) model](/azure/ai-services/document-intelligence/concept-read?view=doc-intel-4.0.0&tabs=sample-code)| 
-|Invoice processing. Extract and analyze key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. |[Document Intelligence invoice model](/azure/ai-services/document-intelligence/concept-invoice?view=doc-intel-4.0.0)| 
-|Identity document processing. Extract and analyze key fields from identity documents such as passport books, drivers licenses, identification cards, and permits|[Document Intelligence ID document model](/azure/ai-services/document-intelligence/concept-id-document?view=doc-intel-4.0.0)| 
-|US bank statement processing. Extract and analyze key fields from US bank statements.|[Document Intelligence bank statement model](/azure/ai-services/document-intelligence/concept-bank-statement?view=doc-intel-4.0.0)| 
-|US printed check processing. Extract and analyze key fields from US printed checks.|[Document Intelligence bank check model](/azure/ai-services/document-intelligence/concept-bank-check?view=doc-intel-4.0.0)| 
+|Invoice processing. Extract and analyze key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. |[Document Intelligence invoice model](/azure/ai-services/document-intelligence/concept-invoice?view=doc-intel-4.0.0&preserve-view=true)| 
+|Identity document processing. Extract and analyze key fields from identity documents such as passport books, drivers licenses, identification cards, and permits|[Document Intelligence ID document model](/azure/ai-services/document-intelligence/concept-id-document?view=doc-intel-4.0.0&preserve-view=true)| 
+|US bank statement processing. Extract and analyze key fields from US bank statements.|[Document Intelligence bank statement model](/azure/ai-services/document-intelligence/concept-bank-statement?view=doc-intel-4.0.0&preserve-view=true)| 
+|US printed check processing. Extract and analyze key fields from US printed checks.|[Document Intelligence bank check model](/azure/ai-services/document-intelligence/concept-bank-check?view=doc-intel-4.0.0&preserve-view=true)| 
 | Build a generative model and extract the fields, clauses, and obligations from a wide array of contract types for contract lifecycle management.|  [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0)|  
-| Use a custom generative AI model to automate the loan and mortgage application process.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0)| 
-| Build a generative model to analyze complex documents like financial reports and asset management reports.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0)| 
-| Build a generative model to parse, validate, and extract expenses across different formats and documents with varying template | [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0)| 
+| Use a custom generative AI model to automate the loan and mortgage application process.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0)&preserve-view=true| 
+| Build a generative model to analyze complex documents like financial reports and asset management reports.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)| 
+| Build a generative model to parse, validate, and extract expenses across different formats and documents with varying template | [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)| 
 
 
 
@@ -174,6 +174,5 @@ Other contributors:
 
 ## Related resources
 
-- [Decision-making with Azure AI services](decision-applied-ai.md)
-- [Types of speech API services](speech-api.md)
+- [Azure AI Speech service capabilities guide ](speech-api.md)
 - [Types of vision API services](vision-api.md)
