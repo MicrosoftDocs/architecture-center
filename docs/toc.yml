@@ -224,14 +224,14 @@ items:
         maintainContext: true
     - name: Choose an AI service 
       items:
-      - name: AI service categories
+      - name: AI services
         href: data-guide/technology-choices/ai-services.md  
-      - name: Language and documents
-        href: data-guide/ai-services/language-api.md
+      - name: Language
+        href: data-guide/ai-services/language-service-capabilities.md
       - name: Speech 
-        href: data-guide/ai-services/speech-api.md
+        href: data-guide/ai-services/speech-service-capabilities.md
       - name: Vision
-        href: data-guide/ai-services/vision-api.md
+        href: data-guide/ai-services/vision-service-capabilities.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning

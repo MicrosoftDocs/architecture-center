@@ -89,9 +89,9 @@ This flow chart can help you choose the best API service for your use case.
 - If you need to analyze images, video, or text, use a [Vision service](../ai-services/vision-service-capabilities.md).
 
 
-## Deploying services
+## Deploying Azure AI service resources
 
-When you [create an Azure AI services resource](/azure/ai-services/multi-service-resources), you can either deploy services independently or use the Azure AI services multi-service resource. To see which services are supported by multi-service resource, see [Supported services with a multi-service resource](/azure/ai-services/multi-service-resource?pivots=azportal#supported-services-with-a-multi-service-resource).
+When you [create an Azure AI services resource](/azure/ai-services/multi-service-resource?pivots=azportal#types-of-cognitive-services-resources), you can either deploy services independently or use the Azure AI services multi-service resource. To see which services are supported by multi-service resource, see [Supported services with a multi-service resource](/azure/ai-services/multi-service-resource?pivots=azportal#supported-services-with-a-multi-service-resource).
 
 - Deploy an individual service if you don't need other services or if you want to manage access and billing on a per-service basis.
 - Deploy the multi-service resource if you're using multiple services and want to manage access and billing for all services together.
@@ -122,8 +122,8 @@ Other contributors:
 
 ## Next steps
 
-- [Learning path: Provision and manage Azure AI Services](/training/paths/provision-manage-azure-ai-services)
-- [Azure AI Services documentation](/azure/ai-services)
+- [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
+- [Azure AI Services documentation](/azure/ai-services/)
 - [What are Azure AI Services?](/azure/ai-services/what-are-ai-services)
 
 
