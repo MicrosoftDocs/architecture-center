@@ -25,7 +25,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 6. For capturing Azure OpenAI model inputs and outputs that exceed the default logging capabilities, APIM policies can forward requests to Azure Event Hubs and Azure Stream Analytics to extract payload information and store in Azure Data Storage service such as Azure SQL DB or Azure Data Explorer.  This enables capture of specific data for compliance and auditing purposes without any limits on payload sizing and minimal performance impacts.
     
     > [!NOTE]
-    > For streaming responses Azure OpenAI models, additional configuration is required to capture model completions. This configuration is not covered in this architecture.  See reference: [AzureOpenAI Log Proxy Helper](https://github.com/scallighan/openai-log-helper-proxy)
+    > For streaming responses Azure OpenAI models, additional configuration is required to capture model completions. This configuration is not covered in this architecture.  See reference: [Azure OpenAI Log Proxy Helper](https://github.com/scallighan/openai-log-helper-proxy)
 
 ### Components
 
