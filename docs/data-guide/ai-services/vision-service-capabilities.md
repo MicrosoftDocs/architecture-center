@@ -41,7 +41,7 @@ The following services provide vision capabilities for Azure AI services:
 
 The following flow chart can help you choose a vision service for your specific use case:
 
-:::image type="content" source="images/ai-services-vision-api.png" alt-text="Diagram that shows how to choose a vision service." lightbox="images/cognitive-services-vision-api.png" border="false":::
+:::image type="content" source="images/ai-services-vision-api.png" alt-text="Diagram that shows how to choose a vision service." lightbox="images/ai-services-vision-api.png" border="false":::
 
 
 ### Vision service
@@ -156,5 +156,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure AI Language capabilities guide](language-service-capabilities)
-- [Azure AI Speech capabilities guide](speech-service-capabilities)
+- [Azure AI Language capabilities guide](language-service-capabilities.md)
+- [Azure AI Speech capabilities guide](speech-service-capabilities.md)

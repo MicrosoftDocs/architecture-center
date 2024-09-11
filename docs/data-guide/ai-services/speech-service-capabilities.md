@@ -89,5 +89,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure AI Language capabilities guide](language-service-capabilities)
-- [Azure AI Vision capabilities guide](vision-service-capabilities)
+- [Azure AI Language capabilities guide](language-service-capabilities.md)
+- [Azure AI Vision capabilities guide](vision-service-capabilities.md)
