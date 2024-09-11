@@ -86,9 +86,8 @@ Other contributors:
 
 - [What is the Speech service?](/azure/ai-services/speech-service/overview)
 - [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
-- [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
 
 ## Related resources
 
-- [Language with Azure AI services](language-api.md)
-- [Types of vision API services](vision-api.md)
+- [Azure AI Language capabilities guide](language-api.md)
+- [Azure AI Vision capabilities guide](vision-api.md)

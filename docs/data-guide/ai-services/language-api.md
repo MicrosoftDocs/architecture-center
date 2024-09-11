@@ -1,5 +1,5 @@
 ---
-title: Language with Azure AI services
+title: Azure AI language capabilities guide 
 description: Learn about language capabilities of Azure AI services. Learn which service to use for a specific use cases.
 author: robbagby
 ms.author: pnp
@@ -21,7 +21,7 @@ ms.custom:
 
 [Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
-This article covers Azure AI services that offer language capabilities for Azure AI services.
+This article covers Azure AI services that offer language capabilities such as natural language processing (NLP), text analytics, and language understanding. Azure AI Language is one of the broadest categories in Azure AI services. You can use the APIs to incorporate language features like named entity recognition, sentiment analysis, language detection, and text summarization in your applications, even if you have limited knowledge of machine learning.
 
 
 ## Services
@@ -111,40 +111,6 @@ The following table provides a list of possible use cases for Azure AI Translato
 |Translate industry-specific text.|[AI Services Custom Translator](/azure/ai-services/translator/custom-translator/overview)| 
 |Translate generic text that isn't specific to an industry.|[What is Azure Text Translation](/azure/ai-services/translator/text-translation-overview)|
 
-<!--
-###  Azure AI Document Intelligence
-
-[Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is a cloud-based Azure AI service that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation.
-
-#### Capabilities
-
-The following table provides a list of capabilities available in Azure AI Translator service.
-
-
-| Capability | Description | 
-|----------|-------------|
-| Use a variety of document processing models to add intelligent document processing to your apps and flows.| Choose between a prebuilt domain specific model or train a custom model tailored to your specific business need and use cases. [Use Document Intelligence models](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=doc-intel-4.0.0&tabs=windows&pivots=programming-language-csharp&preserve-view=true)|
-
-
-#### Use cases
-
-The following table provides a list of possible use cases for Azure AI Document Intelligence service.
-
-
-| Use case | Documentation | 
-|----------|-----------------|
-|Digitize any document.|[Use Document Intelligence Read Optical Character Recognition (OCR) model](/azure/ai-services/document-intelligence/concept-read?view=doc-intel-4.0.0&tabs=sample-code&preserve-view=true)| 
-|Process handwritten notes** before translation.|[Document Intelligence Read Optical Character Recognition (OCR) model](/azure/ai-services/document-intelligence/concept-read?view=doc-intel-4.0.0&tabs=sample-code&preserve-view=true)| 
-|Invoice processing. Extract and analyze key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. |[Document Intelligence invoice model](/azure/ai-services/document-intelligence/concept-invoice?view=doc-intel-4.0.0&preserve-view=true)| 
-|Identity document processing. Extract and analyze key fields from identity documents such as passport books, drivers licenses, identification cards, and permits|[Document Intelligence ID document model](/azure/ai-services/document-intelligence/concept-id-document?view=doc-intel-4.0.0&preserve-view=true)| 
-|US bank statement processing. Extract and analyze key fields from US bank statements.|[Document Intelligence bank statement model](/azure/ai-services/document-intelligence/concept-bank-statement?view=doc-intel-4.0.0&preserve-view=true)| 
-|US printed check processing. Extract and analyze key fields from US printed checks.|[Document Intelligence bank check model](/azure/ai-services/document-intelligence/concept-bank-check?view=doc-intel-4.0.0&preserve-view=true)| 
-| Build a generative model and extract the fields, clauses, and obligations from a wide array of contract types for contract lifecycle management.|  [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)|  
-| Use a custom generative AI model to automate the loan and mortgage application process.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)| 
-| Build a generative model to analyze complex documents like financial reports and asset management reports.| [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)| 
-| Build a generative model to parse, validate, and extract expenses across different formats and documents with varying template | [Document Field extraction - custom generative AI model](/azure/ai-services/document-intelligence/concept-custom-generative?view=doc-intel-4.0.0&preserve-view=true)| 
-
--->
 
 
 ## Contributors
@@ -153,7 +119,6 @@ The following table provides a list of possible use cases for Azure AI Document 
 
 Principal authors:
 
-- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
 - [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
 
 Other contributors:
@@ -175,5 +140,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure AI Speech service capabilities guide ](speech-api.md)
-- [Types of vision API services](vision-api.md)
+- [Azure AI Speech service capabilities guide](speech-api.md)
+- [Azure AI Vision capabilities guide](vision-api.md)

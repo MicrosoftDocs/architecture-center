@@ -1,13 +1,13 @@
 ---
-title: Types of vision API services
-description: Learn about using Azure AI Vision to understand and analyze images and video. Learn which service to use for a specific use case.
+title: Azure AI vision capabilities guide 
+description: Learn about vision capabilities of Azure AI services. Learn which service to use for a specific use cases.
 author: robbagby
 ms.author: pnp
 categories:
   - ai-machine-learning
   - analytics 
 ms.collection: ce-skilling-ai-copilot
-ms.date: 06/01/2023
+ms.date: 09/11/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,6 +18,12 @@ ms.custom:
   - analytics
   - guide
 ---
+
+# Azure AI vision capabilities guide 
+
+[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
+
+This article covers Azure AI services that offer vision capabilities. Azure AI Vision is one of the broadest categories in Azure AI services. You can use the APIs to incorporate vision features like image analysis, face detection, spatial analysis, and optical character recognition (OCR) in your applications, even if you have limited knowledge of machine learning.
 
 # Types of vision API services
 
@@ -69,8 +75,6 @@ The following flow chart can help you choose a vision service for your specific 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
-
-- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
 - [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta/) | Azure Senior Fast-Track Engineer
 
 Other contributors:
@@ -96,6 +100,5 @@ Other contributors:
 
 ## Related resources
 
-- [Types of decision APIs and Applied AI Services](decision-applied-ai.md)
-- [Types of language API services](language-api.md)
-- [Types of speech API services](speech-api.md)
+- [Azure AI Language capabilities guide](language-api.md)
+- [Azure AI Speech capabilities guide](speech-api.md)
