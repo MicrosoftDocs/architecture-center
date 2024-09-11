@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: ./index.yml
+  href: ./index.yml 
 - name: Browse all Architectures
   href: browse/index.yml
 - name: Architecture icons
