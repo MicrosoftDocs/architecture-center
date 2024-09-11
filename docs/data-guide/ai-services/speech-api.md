@@ -54,7 +54,7 @@ The right side of the diagram illustrates text-to-audio processes.
 
 The following table provides a list of possible use cases for Azure AI Speech service.
 
-| Use case | Service to use | Description |
+| Use case | Capability to use | Description |
 |----------|-----------------|---------------|
 | [Captioning](/azure/ai-services/speech-service/captioning-concepts)| Speech-to-text |  Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.|
 | [Audio Content Creation](/azure/ai-services/speech-service/text-to-speech#more-about-neural-text-to-speech-features) | Speech-to-text |  You can use neural voices to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. |
