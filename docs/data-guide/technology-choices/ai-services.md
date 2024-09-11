@@ -39,7 +39,8 @@ ms.custom:
 
 
 
-**Considerations:**
+### Considerations
+
 - Because Azure AI services are only available over the web, internet connectivity is required. The only exception to this is the Custom Vision service, whose trained model you can export for prediction on devices and at the IoT Edge.
 - Although considerable customization is supported, the available services might not suit all predictive analytics requirements.
 
