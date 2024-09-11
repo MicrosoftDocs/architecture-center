@@ -12,7 +12,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 2. Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides access to APIs, for internal applications the gateway also enables hybrid access from external cloud sources.
    1. Application Gateway Web Application Firewall (WAF) provides protection against common web vulnerabilities and exploits.
    2. Application Gateway health probes can be used to monitor health of backend services.
-
+    
     > [!NOTE]
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
 
@@ -177,8 +177,8 @@ Other contributors:
 - [Azure OpenAI: Documentation, quickstarts, API reference](/azure/ai-services/openai/)
 - [Azure-Samples/openai-python-enterprise-logging (GitHub)](https://github.com/Azure-Samples/openai-python-enterprise-logging)
 - [Configure Azure AI Services virtual networks](/azure/ai-services/ai-services-virtual-networks)
-- [AzureOpenAI with APIM](https://github.com/microsoft/AzureOpenAI-with-APIM)
-- [AzureOpenAI Log Proxy Helper](https://github.com/scallighan/openai-log-helper-proxy)
+- [AzureOpenAI Log Proxy Helper (GitHub)](https://github.com/scallighan/openai-log-helper-proxy)
+- [AOAI APIM (GitHub)](https://github.com/Azure/aoai-apim)
   
 
 ## Related resources
