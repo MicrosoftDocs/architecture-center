@@ -9,7 +9,9 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 ### Workflow
 
 1. Client applications access Azure OpenAI endpoints to perform text generation (completions) and model training (fine-tuning).
-2. Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides load balancing for APIs.
+2. Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides access to APIs, for internal applications the gateway also enables hybrid access from external cloud sources.
+   1. Application Gateway Web Application Firewall (WAF) provides protection against common web vulnerabilities and exploits.
+   2. Application Gateway health probes can be used to monitor health of backend services.
 
     > [!NOTE]
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
@@ -21,6 +23,9 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 4. API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
 5. Multiple Azure OpenAI instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
 6. For capturing Azure OpenAI model inputs and outputs that exceed the default logging capabilities, APIM policies can forward requests to Azure Event Hubs and Azure Stream Analytics to extract payload information and store in Azure Data Storage service such as Azure SQL DB or Azure Data Explorer.  This enables capture of specific data for compliance and auditing purposes without any limits on payload sizing and minimal performance impacts.
+    
+    > [!NOTE]
+    > For streaming responses Azure OpenAI models, additional configuration is required to capture model completions. This configuration is not covered in this architecture.  See reference: [AzureOpenAI Log Proxy Helper](https://github.com/scallighan/openai-log-helper-proxy)
 
 ### Components
 
@@ -35,7 +40,10 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Real-time data stream processing from Azure Event Hub.
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/). Fast and highly scalable data exploration service for log and telemetry data.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Managed relational database service that provides a secure, scalable database for storing structured data.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/). Enhanced-security identity manager. Enables user authentication and authorization to the application and to platform services that support the application. Also provides Group Policy to ensure that the principle of least privilege is applied to all users.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/). Enables user authentication and authorization to the application and to platform services that support the application. Features include:
+  - Granular access granted using Entra ID roles or Azure RBAC.  
+  - Conditional Access and Just-in-Time (JIT) Access with Privileged Identity Management.  
+  - Replacement for key-based access to Azure OpenAI service.
 
 ### Alternatives
 
@@ -170,6 +178,7 @@ Other contributors:
 - [Azure-Samples/openai-python-enterprise-logging (GitHub)](https://github.com/Azure-Samples/openai-python-enterprise-logging)
 - [Configure Azure AI Services virtual networks](/azure/ai-services/ai-services-virtual-networks)
 - [AzureOpenAI with APIM](https://github.com/microsoft/AzureOpenAI-with-APIM)
+- [AzureOpenAI Log Proxy Helper](https://github.com/scallighan/openai-log-helper-proxy)
   
 
 ## Related resources
