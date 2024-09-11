@@ -90,7 +90,7 @@ The following dataflow users commands issued from a companion app digital servic
 1. **Event Grid** authenticates the *workflow logic* using managed identities. It then checks if the *workflow logic* is authorized to send messages to the provided topics.
 1. The **messaging module** in the vehicle is subscribed to the command topic and receives the notification. It routes the command to the right workload.
 1. The messaging module monitors the **workload** for completion (or error). The workload is in charge of the (physical) execution of the command.
-1. The messaging module publishes command status reports to **Event Grid**.
+1. The messaging module publishes command status reports to **Event Grid**. The vehicle uses an X.509 certificate to authenticate to Event Grid.
 1. The *workflow logic* is subscribed to command status updates and updates the internal state of command execution.
 1. Once the command execution is complete, the service app receives the execution result over the command and control API.
 
@@ -177,10 +177,10 @@ You can assign your custom domain names to your Event Grid namespace’s MQTT an
 * [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) lets you easily build applications with event-based architectures. In this solution, Event Grid allows for device onboarding, authentication and authorization (AuthN and AuthZ), and publish-subscribe messaging (pub-sub) using MQTT.
 * [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs) is a scalable event processing service that enables processing and ingesting massive amounts of telemetry data. In this solution, Event Hubs is used to buffer messages and to deliver them for further processing or storage.
 * [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute service to run event-triggered code. In this solution, Azure functions process vehicle messages. It can also be used to implement management APIs that require short-lived execution.
-* [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is used to deploy complex workloads and services as containerized applications. In this solution, it's used to host command and control workflow logic, and to implement the management APIs.
-* [Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed, multi-model database service. In this solution, it stores the vehicle, device, and user consent settings.
-* [Azure API Management](/azure/api-management/api-management-key-concepts) allows for the secure and efficient handling of APIs. In this solution, it provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
-* [Azure Batch](/azure/batch/batch-technical-overview) is a platform service that provides job scheduling and VM management to run applications in parallel at scale. In this solution, it runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
+* [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is used to deploy complex workloads and services as containerized applications. In this solution, it's used to host command and control workflow logic, and to implement the management APIs.
+* [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database service. In this solution, it stores the vehicle, device, and user consent settings.
+* [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) allows for the secure and efficient handling of APIs. In this solution, it provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
+* [Azure Batch](/azure/well-architected/service-guides/azure-batch/reliability) is a platform service that provides job scheduling and VM management to run applications in parallel at scale. In this solution, it runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
 
 #### Data and Analytics
 
@@ -189,9 +189,9 @@ You can assign your custom domain names to your Event Grid namespace’s MQTT an
 #### Backend Integration
 
 * [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a platform for creating and running automated workflows. In this solution, it runs workflows for business integration based on vehicle data.
-* [Azure App Service](/azure/app-service/overview) is a fully managed platform for building, deploying, and scaling web apps. In this solution, it provides user-facing web apps and mobile back ends, such as the companion app.
-* [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) provides high-performance data caching to accelerate applications. In this solution, it provides in-memory caching of data often used by user-facing applications such as the companion app.
-* [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a messaging service that ensures reliable and secure communication between distributed applications and services. In this solution, it decouples vehicle connectivity from digital services and business integration.
+* [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web apps. In this solution, it provides user-facing web apps and mobile back ends, such as the companion app.
+* [Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability) provides high-performance data caching to accelerate applications. In this solution, it provides in-memory caching of data often used by user-facing applications such as the companion app.
+* [Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability) is a messaging service that ensures reliable and secure communication between distributed applications and services. In this solution, it decouples vehicle connectivity from digital services and business integration.
 * [Microsoft Dynamics 365](/dynamics365) is a suite of intelligent business applications across sales, service, finance, and operations. In this solution, it provides a connected customer experience and seamless business processes, enabling better dealership and OEM operations.
 * [Microsoft Dataverse](/power-apps/maker/data-platform/) securily stores and manages business applications data. In this architecture, it stores information about the customer and vehicle.
 
@@ -240,7 +240,7 @@ This reference architecture allows automotive manufacturers and mobility provide
 
 *Broader ecosystem use cases* expand connected vehicle applications to improve fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape.
 
-* **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making. Read [automotive-connected-fleets](automotive-connected-fleets.yml) for more information.
+* **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making. Read [Automotive connected fleets](automotive-connected-fleets.yml) for more information.
 * **Digital Vehicle Insurance**: Customizing insurance premiums based on driving behavior and providing immediate accident reporting.
 * **Location-Based Marketing**: Delivering targeted marketing campaigns to drivers based on their location and preferences.
 * **Road Assistance**: Providing real-time support and assistance to drivers in need, using vehicle location and diagnostic data.
