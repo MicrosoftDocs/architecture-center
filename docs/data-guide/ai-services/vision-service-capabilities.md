@@ -156,5 +156,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure AI Language capabilities guide](language-api.md)
-- [Azure AI Speech capabilities guide](speech-api.md)
+- [Azure AI Language capabilities guide](language-service-capabilities)
+- [Azure AI Speech capabilities guide](speech-service-capabilities)

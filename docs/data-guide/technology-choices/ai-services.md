@@ -23,7 +23,7 @@ ms.custom:
 
 # Choose an Azure AI services technology
 
-[Azure AI services](/azure/azure/ai-services) is a out-of-the-box, prebuilt, customizable APIs and models that help you build responsible AI applications and data flows. AI services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms.  Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. 
+[Azure AI services](/azure/azure/ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, documents, translation, speech, and vision.
 
 **Key benefits:**
 
@@ -43,9 +43,9 @@ Azure offers a number of AI services that can be grouped into categories based o
 
 | Category | Capabilities guide | Service descriptions |
 | --- | --- | --- |
-| [Language](https://azure.microsoft.com/products/ai-services/language-service/) | [Azure AI language and document processing capabilities guide ](../ai-services/language-api.md) | [Azure AI Language service](https://azure.microsoft.com/products/ai-services/ai-language) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries. [Azure AI Translator](https://azure.microsoft.com/products/ai-services/ai-translator) is a cloud-based neural machine translation service that is part of the Azure AI services family and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide for language translation and other language-related operations. [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is a cloud-based Azure AI service that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation.|
-| [Speech](https://azure.microsoft.com/products/ai-services/speech-services/) | [Azure AI Speech service capabilities guide ](../ai-services/speech-api.md) | [Azure AI Speech service](https://azure.microsoft.com/products/ai-services/ai-speech) provides speech to text and text to speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. |
-| [Vision](https://azure.microsoft.com/products/ai-services/vision-services/) | [Choose a vision service](../ai-services/vision-api.md) | Vision AI services are services that provide image and video recognition capabilities. |
+| [Language](https://azure.microsoft.com/products/ai-services/language-service/) | [Azure AI language capabilities guide ](../ai-services/language-service-capabilities) | [Azure AI Language service](../ai-services/language-service-capabilities#azure-ai-language-service) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries. [Azure AI Translator](../ai-services/language-service-capabilities#azure-ai-translator) is a cloud-based neural machine translation service that is part of the Azure AI services family and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide for language translation and other language-related operations.|
+| [Speech](https://azure.microsoft.com/products/ai-services/speech-services/) | [Azure AI Speech capabilities guide ](../ai-services/speech-service-capabilities) | [Azure AI Speech service](../ai-services/speech-service-capabilities) provides speech to text and text to speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. |
+| [Vision](https://azure.microsoft.com/products/ai-services/vision-services/) | [Azure AI Vision capabilities guide](../ai-services/vision-service-capabilities) | Vision AI services are services that provide image and video recognition capabilities. [Azure AI Vision service](../ai-services/vision-service-capabilities#vision-service) provides advanced algorithms that process images and return information based on the visual features you're interested in. It provides four services: OCR, Face service, Image Analysis, and Spatial Analysis. [Azure AI Custom Vision](../ai-services/vision-service-capabilities#custom-vision-service) is an image recognition service that lets you build, deploy, and improve your own image identifier models. [Azure AI Face service](../ai-services/vision-service-capabilities#face-service) provides AI algorithms that detect, recognize, and analyze human faces in images.  |
 | [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) | N/A|Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and services. Azure AI Content Safety includes text and image APIs that allow you to detect material that is harmful. The interactive Content Safety Studio allows you to view, explore, and try out sample code for detecting harmful content across different modalities.Content filtering software can help your app comply with regulations or maintain the intended environment for your users.|
 |[Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) | N/A | AI Document Intelligence is an AI service that applies advanced machine learning to extract text, key-value pairs, tables, and structures from documents automatically and accurately. Turn documents into usable data and shift your focus to acting on information rather than compiling it.|
 |[Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) |N/A|Azure AI Search provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications. |
@@ -84,9 +84,9 @@ This flow chart can help you choose the best API service for your use case.
 
 ![Diagram that shows how to select a AI Services API.](../ai-services/images/ai-services-flow-chart.png)
 
-- If your use case requires speech-to-text, text-to-speech, or speech-to-speech, use a [speech API](../ai-services/speech-api.md).
-- If your use case requires language or document analysis, text assessment, or  text-to-text, use a [language and document processing with Azure AI services](../ai-services/language-api.md).
-- If you need to analyze images, video, or text, use a [vision API](../ai-services/vision-api.md).
+- If your use case requires speech-to-text, text-to-speech, or speech-to-speech, use a [Speech service](../ai-services/speech-service-capabilities).
+- If your use case requires language or document analysis, text assessment, or  text-to-text, use a [Language service](../ai-services/language-service-capabilities).
+- If you need to analyze images, video, or text, use a [Vision service](../ai-services/vision-service-capabilities).
 
 
 ## Deploying services
@@ -97,7 +97,7 @@ When you [deploy AI Services](/azure/ai-services/ai-services-apis-create-account
 - Deploy the multi-service resource if you're using multiple services and want to manage access and billing for all services together.
 
 > [!NOTE]
-> The resource categories in these API services change frequently. Be sure to check the latest documentation for new categories.
+> The resource categories in these services change frequently. Be sure to check the latest documentation for new categories.
 
 ## Contributors
 

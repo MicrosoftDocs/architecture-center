@@ -140,5 +140,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure AI Speech service capabilities guide](speech-api.md)
-- [Azure AI Vision capabilities guide](vision-api.md)
+- [Azure AI Speech service capabilities guide](speech-service-capabilities)
+- [Azure AI Vision capabilities guide](vision-service-capabilities)
