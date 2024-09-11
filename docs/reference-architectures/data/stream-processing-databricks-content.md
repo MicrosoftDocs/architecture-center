@@ -104,7 +104,7 @@ In this reference architecture, the job is a Java archive with classes written i
 
 #### Reading the stream from the two event hub instances
 
-The data processing logic uses [Spark structured streaming](https://spark.apache.org/docs/2.1.2/structured-streaming-programming-guide.html) to read from the two Azure event hub instances:
+The data processing logic uses [Spark structured streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) to read from the two Azure event hub instances:
 
 ```scala
 val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)

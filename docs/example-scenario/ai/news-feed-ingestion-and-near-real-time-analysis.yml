@@ -33,4 +33,4 @@ products:
   - azure-face
 thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
 content: |
-  [!include[](news-feed-ingestion-and-near-real-time-analysis-content.md)]
+  [!INCLUDE[](news-feed-ingestion-and-near-real-time-analysis-content.md)]

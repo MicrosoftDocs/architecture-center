@@ -23,4 +23,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/student-attrition-prediction-thumbnail.png
 content: |
-   [!include[](student-attrition-prediction-content.md)]
+   [!INCLUDE[](student-attrition-prediction-content.md)]

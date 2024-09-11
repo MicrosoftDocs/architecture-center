@@ -9,7 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: 
+  ms.custom:
     - arb-healthcare
     - arb-data
     - arb-aiml
@@ -26,4 +26,4 @@ name: Implement risk prediction for surgeries
 summary: Enable a risk stratification model for surgeries.
 thumbnailUrl: /azure/architecture/browse/thumbs/surgery-risk-models.png
 content: |
-  [!include[](risk-stratification-surgery-content.md)]
+  [!INCLUDE[](risk-stratification-surgery-content.md)]

@@ -160,7 +160,7 @@ The following tables summarize the key differences in capabilities.
 | Custom data transformations | No | No | Yes | No |
 | Pricing model | Free | Free | Pay per usage | Pay per unit |
 
-\* Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.
+*Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.*
 
 ## Contributors
 

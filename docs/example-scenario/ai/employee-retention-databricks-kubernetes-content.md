@@ -24,7 +24,7 @@ After the machine-learning team has deployed the machine-learning model as an AP
 
 > [!NOTE]
 >
->- You can use various tools, such as Azure DevOps Pipelines and GitHub Actions, when implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd).
+>- You can use various tools, such as Azure Pipelines and GitHub Actions, when implementing a [CI/CD pipeline](/azure/architecture/microservices/ci-cd).
 >
 >- The specific business requirements of your use case for analytics could require different services or features that aren't considered in this design.
 
