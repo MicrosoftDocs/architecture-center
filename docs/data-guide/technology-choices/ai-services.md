@@ -25,21 +25,27 @@ ms.custom:
 
 [Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, documents, translation, speech, and vision.
 
-**Key benefits:**
+## Key Benefits
 
-- Minimal development effort for state-of-the-art AI services. Use predefined algorithms or create custom algorithms on top of pre-built libraries.
-- Easy integration into apps via HTTP REST interfaces.
-- Developers and data scientists of all skill levels can easily add AI capabilities to apps.
+- **Client libraries and REST APIs**. Azure AI services client libraries and REST APIs provide direct access to your service. These tools provide programmatic access to the Azure AI services, their baseline models, and in many cases allow you to programmatically customize your models and solutions.
+- **Continuous integration and deployment.** You can use Azure DevOps and GitHub Actions to manage your deployments. Use CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service.
+- **On-premises containers**. Many of the Azure AI services can be deployed in containers for on-premises access and use. Using these containers gives you the flexibility to bring Azure AI services closer to your data for compliance, security, or other operational reasons. 
+- **Training models**. Some services allow you to bring your own data, then train a model. Trained custom models allow you to extend the model using the service's data and algorithm with your own data. The output matches your needs. 
+- **Azure AI services in the ecosystem.** With Azure and Azure AI services, you have access to a broad ecosystem, such as:
+    - Automation and integration tools like Logic Apps and Power Automate.
+    - Deployment options such as Azure Functions and the App Service.
+    - Azure AI services Docker containers for secure access.
+    - Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios.
+
+
 
 **Considerations:**
-
 - Because Azure AI services are only available over the web, internet connectivity is required. The only exception to this is the Custom Vision service, whose trained model you can export for prediction on devices and at the IoT Edge.
 - Although considerable customization is supported, the available services might not suit all predictive analytics requirements.
 
 ## Categories of Azure AI services
 
 Azure offers a number of AI services that can be grouped into categories based on their capabilities:
-
 
 | Category | Capabilities guide | Service descriptions |
 | --- | --- | --- |
