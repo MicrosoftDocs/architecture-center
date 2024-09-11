@@ -3091,14 +3091,14 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/solution-ideas/articles/ai-at-the-edge.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/ai-at-the-edge",
-      "redirect_document_id": true
+      "source_path": "docs/ai-ml/idea/ai-at-the-edge.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/ai-at-the-edge-disconnected.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected",
-      "redirect_document_id": true
+      "source_path": "docs/ai-ml/idea/ai-at-the-edge-disconnected.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-feedback-and-analytics.yml",
@@ -3116,19 +3116,19 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/image-classification-with-convolutional-neural-networks",
-      "redirect_document_id": true
+      "source_path": "docs/ai-ml/idea/image-classification-with-convolutional-neural-networks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
+      "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/retail-assistant-or-vacation-planner-with-visual-capabilities",
-      "redirect_document_id": true
+      "source_path": "docs/ai-ml/idea/retail-assistant-or-vacation-planner-with-visual-capabilities.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
+      "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/visual-assistant.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/visual-assistant",
-      "redirect_document_id": true
+      "source_path": "docs/ai-ml/idea/visual-assistant.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml",
@@ -3136,9 +3136,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/solution-ideas/articles/digital-media-speech-text.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/digital-media-speech-text",
-      "redirect_document_id": true
+      "source_path": "docs/ai-ml/idea/digital-media-speech-text.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/media-services/gridwich-architecture",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-churn-prediction.yml",
@@ -3471,11 +3471,16 @@
         "redirect_document_id": false
     }, 
     {
-      "source_path": "docs/example-scenario/mlops/mlops-technical-paper.yml",
-      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-technical-paper",
-      "redirect_document_id": true
+      "source_path": "docs/ai-ml/guide/mlops-technical-paper.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/guide/conversation-summarization.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/example-scenario/mlops/mlops-maturity-model.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/mlops-maturity-model",
       "redirect_document_id": true

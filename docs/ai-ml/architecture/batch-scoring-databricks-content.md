@@ -122,7 +122,6 @@ Principal author:
 
 <!-- links -->
 
-[aac-batch-deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
