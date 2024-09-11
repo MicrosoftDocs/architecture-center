@@ -118,7 +118,7 @@ The following new and updated articles have recently been published in the Azure
 - [Migrate a simple app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)  ([#810d06f775](https://github.com/MicrosoftDocs/architecture-center/commit/810d06f775))
 - [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#233dc039e0](https://github.com/MicrosoftDocs/architecture-center/commit/233dc039e0))
 - [Cloud design patterns](./patterns/index.md)  ([#790ad01066](https://github.com/MicrosoftDocs/architecture-center/commit/790ad01066))
-- [Choose a cognitive services technology](./data-guide/technology-choices/cognitive-services.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
+- [Choose a cognitive services technology](./data-guide/technology-choices/ai-services.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
 - [Choose a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
 - [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
 - [Group manager tasks in the Team Data Science Process](./data-science-process/group-manager-tasks.md)  ([#3cf6a613d3](https://github.com/MicrosoftDocs/architecture-center/commit/3cf6a613d3))

@@ -466,4 +466,4 @@ Other contributors:
 
 ## Related resource
 
-- [Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/ai-services.md)

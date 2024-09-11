@@ -455,5 +455,5 @@ Other contributor:
 
 ## Related resources
 
-- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)

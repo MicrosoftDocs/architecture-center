@@ -23,7 +23,7 @@ ms.custom:
 
 # Choose an Azure AI services technology
 
-[Azure AI services](/azure/azure/ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, documents, translation, speech, and vision.
+[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, documents, translation, speech, and vision.
 
 **Key benefits:**
 
@@ -91,7 +91,7 @@ This flow chart can help you choose the best API service for your use case.
 
 ## Deploying services
 
-When you [deploy AI Services](/azure/ai-services/ai-services-apis-create-account#types-of-ai-services-resources), you can either deploy services independently or use the Azure AI services multi-service resource. The multi-service resource deploys decision, language, speech, and vision services.
+When you [create an Azure AI services resource](/azure/ai-services/multi-service-resources), you can either deploy services independently or use the Azure AI services multi-service resource. To see which services are supported by multi-service resource, see [Supported services with a multi-service resource](/azure/ai-services/multi-service-resource?pivots=azportal#supported-services-with-a-multi-service-resource).
 
 - Deploy an individual service if you don't need other services or if you want to manage access and billing on a per-service basis.
 - Deploy the multi-service resource if you're using multiple services and want to manage access and billing for all services together.

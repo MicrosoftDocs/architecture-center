@@ -52,4 +52,4 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 - [Visual assistant](./visual-assistant.yml)
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)

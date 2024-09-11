@@ -30,11 +30,11 @@ This article covers Azure AI services that offer vision capabilities. Azure AI V
 
 The following services provide vision capabilities for Azure AI services:
 
-- [Vision](/azure/cognitive-services/computer-vision/overview)
+- [Vision](#vision-service)
 
-- [Custom Vision](/azure/cognitive-services/Custom-Vision-Service/overview)
+- [Custom Vision](#custom-vision-service)
 
-- [Face](/azure/cognitive-services/computer-vision/overview-identity)
+- [Face](#face-service)
 
 
 ## How to choose a service
@@ -46,7 +46,7 @@ The following flow chart can help you choose a vision service for your specific 
 
 ### Vision service
 
-Azure AI Vision service provides advanced algorithms that process images and return information based on the visual features you're interested in. It provides four services: OCR, Face service, Image Analysis, and Spatial Analysis. 
+[Azure AI Vision service](/azure/ai-services/computer-vision/) provides advanced algorithms that process images and return information based on the visual features you're interested in. It provides four services: OCR, Face service, Image Analysis, and Spatial Analysis. 
 
 #### Capabilities
 
@@ -79,7 +79,7 @@ The following table provides a list of capabilities available in Azure AI Vision
 
 ### Custom Vision service
 
-Azure AI Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Custom Vision allows you to specify your own labels and train custom models to detect them.
+[Azure AI Custom Vision service](https://azure.microsoft.com/products/ai-services/ai-custom-vision) is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Custom Vision allows you to specify your own labels and train custom models to detect them.
 
 The Custom Vision service uses a machine learning algorithm to analyze images for custom features. You submit sets of images that do and don't have the visual characteristics you're looking for. Then you label the images with your own labels (tags) at the time of submission. The algorithm trains to this data and calculates its own accuracy by testing itself on the same images. Once you've trained your model, you can test, retrain, and eventually use it in your image recognition app to classify images or detect objects. You can also export the model for offline use.
 
@@ -105,7 +105,7 @@ The following table provides a list of possible use cases for Azure AI Custom Vi
 
 ### Face service
 
-Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many scenarios, such as identification, touchless access control, and automatic face blurring for privacy.
+[Azure AI Face service](/azure/ai-services/computer-vision/overview-identity) provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many scenarios, such as identification, touchless access control, and automatic face blurring for privacy.
 
 
 #### Capabilities

@@ -653,7 +653,7 @@ Other contributors:
 
 ## Related resources
 
-- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [Machine learning operations framework to upscale machine learning lifecycle with Machine Learning](mlops-technical-paper.yml)

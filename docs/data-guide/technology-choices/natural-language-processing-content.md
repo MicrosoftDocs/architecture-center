@@ -194,7 +194,7 @@ Principal authors:
 ## Related resources
 
 - [Large-scale custom natural language processing in Azure](../../solution-ideas/articles/large-scale-custom-natural-language-processing.yml)
-- [Choose a Microsoft cognitive services technology](./cognitive-services.md)
+- [Choose a Microsoft cognitive services technology](./ai-services.md)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
