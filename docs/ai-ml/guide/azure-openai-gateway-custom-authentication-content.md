@@ -2,13 +2,13 @@ Intelligent applications that use Azure OpenAI Service through Azure-native serv
 
 This article describes key scenarios that provide authentication to Azure OpenAI:
 
-- [Authenticate client applications via an external identity provider](#client-applications-authenticated-via-an-external-identity-provider)
+- [Authenticate client applications via an external identity provider](authenticate-client-applications-via-an-external-identity-provider)
 
-- [Authenticate client applications via certificates](#client-applications-authenticated-via-certificates)
+- [Authenticate client applications via certificates](#authenticate-client-applications-via-certificates)
 
-- [Authenticate multiple client applications via keys to access a shared Azure OpenAI instance](#multiple-client-applications-using-keys-to-access-a-shared-azure-openai-instance)
+- [Authenticate multiple client applications via keys to access a shared Azure OpenAI instance](#authenticate-multiple-client-applications-via-keys-to-access-a-shared-azure-openai-instance)
 
-- [Authenticate client applications that access multiple Azure OpenAI instances](#client-applications-accessing-multiple-azure-openai-instances)
+- [Authenticate client applications that access multiple Azure OpenAI instances](#authenticate-client-applications-that-access-multiple-azure-openai-instances)
 
 Each scenario describes the challenges that they introduce and the benefits of incorporating a gateway.
 
@@ -242,10 +242,6 @@ Centralized logging of all requests that pass through the gateway helps you main
 
 Azure doesn't provide a turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
 
-## Next step
-
-When you implement a gateway for your workload, you gain benefits beyond improving authentication and authorization that are described in this article. For more information, see [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges).
-
 ## Contributors
 
 *The following contributors originally wrote this article.*
@@ -266,3 +262,7 @@ Principal authors:
 - [Authentication and authorization to APIs in API Management](/azure/api-management/authentication-authorization-overview)
 - [Protect an API in API Management by using OAuth 2.0 and Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad)
 - [Secure back-end services by using client certificate authentication in API Management](/azure/api-management/api-management-howto-mutual-certificates)
+
+## Related resources
+
+When you implement a gateway for your workload, you gain benefits beyond improving authentication and authorization that are described in this article. For more information, see [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges).
