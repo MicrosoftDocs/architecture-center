@@ -5,8 +5,8 @@ author: raunakjhawar
 ms.author: rajhawar
 ms.date: 03/07/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - storage
 products:
