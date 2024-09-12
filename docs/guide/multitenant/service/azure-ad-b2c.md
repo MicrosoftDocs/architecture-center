@@ -6,7 +6,7 @@ ms.author: landonpierce
 ms.topic: conceptual
 ms.date: 06/06/2024
 ms service: architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 products:
   - entra-external-id
 categories:
@@ -14,6 +14,7 @@ categories:
 ms.custom:
   - guide
   - arb-saas
+ms.service: azure-architecture-center
 ---
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture
