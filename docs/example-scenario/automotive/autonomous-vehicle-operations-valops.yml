@@ -13,12 +13,20 @@ azureCategories:
   - analytics
   - databases
   - storage
+  - compute
+  - networking
+  - hpcc
 products:
   - azure-batch
-  - azure-cosmos-db
-  - azure-data-factory
   - azure-data-lake-storage
-  - azure-data-share
+  - azure-kubernetes-service
+  - azure-expressroute
+  - azure-arc
+  - azure-key-vault
+  - azure-virtual-network
+  - azure-firewall
+  - azure-storage-accounts
+  - github
 name: Validation operations for autonomous vehicle operations
 summary: Use Azure services to build a Validation operations (ValOps) solution for an automated driving system.
 thumbnailUrl: /azure/architecture/browse/thumbs/autonomous-vehicle-operations-valops-thumbnail.png
