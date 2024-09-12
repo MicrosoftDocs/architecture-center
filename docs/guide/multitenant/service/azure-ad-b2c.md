@@ -5,7 +5,7 @@ author: landonpierce
 ms.author: landonpierce 
 ms.topic: conceptual
 ms.date: 06/06/2024
-ms service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - entra-external-id
