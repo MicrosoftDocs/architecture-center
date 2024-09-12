@@ -14,7 +14,6 @@ categories:
 ms.custom:
   - guide
   - arb-saas
-ms.service: azure-architecture-center
 ---
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture
