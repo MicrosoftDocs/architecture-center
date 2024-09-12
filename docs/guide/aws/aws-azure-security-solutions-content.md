@@ -26,7 +26,7 @@ AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud 
 
 - Large-scale threat detection and automated response. Microsoft Entra ID processes over 30 billion authentication requests per day, along with trillions of signals about          threats worldwide. Advanced Identity Protection increases Microsoft Entra sign-in security by monitoring user or session risk. 
 
-- Privileged Access Management (PAM) to enable Just-In-Time (JIT) provisioning specific resources. You can expand PIM to any delegated permission by controlling access       to custom groups, such as the ones you created for access to AWS roles.
+- Privileged Identity Management (PIM) to enable Just-In-Time (JIT) provisioning specific resources. You can expand PIM to any delegated permission by controlling access       to custom groups, such as the ones you created for access to AWS roles.
 
 For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
 
@@ -60,13 +60,13 @@ Microsoft Defender for Cloud Apps delivers full protection for SaaS applications
 
 Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities, notifying on possible brute force attacks, malicious use of a privileged user account, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps protects AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. 
 
-- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware)
+- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware) - Defender for Cloud Apps anomaly detection policies are triggered when there are unusual activities performed by the users in AWS. Defender for Cloud Apps continually monitors your users' activities and uses UEBA and ML to learn and understand the *normal* behavior of your users and trigger alerts on any deviations.
 
-- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices#limit-exposure-of-shared-data-and-enforce-collaboration-policies)
+- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices) -  User and data governance policies to alert, require step up authentication, remove collaborators, or make data reposotires private to mitigate data exfiltration.
 
-- [Use the audit trail of activities for forensic investigations](/defender-cloud-apps/best-practices#use-the-audit-trail-of-activities-for-forensic-investigations)
+- [Audit trail](/defender-cloud-apps/protect-aws?branch=main)[ ](/defender-cloud-apps/best-practices?branch=main)- connect AWS auditing to Defender for Cloud apps activities of Visibility into user activities, admin activities, sign-in activities.
 
-- [Protect AWS in real time with Conditional access app control to block and protect the download of sensitive data located in AWS to unmanaged or risky users.](/defender-cloud-apps/proxy-intro-aad)
+- [Protect AWS in real time](/defender-cloud-apps/proxy-intro-aad)  -  Leverage Defeneder for cloud apps conditional access app control to block and protect the download of sensitive data located in AWS by risky users.
 
  For more information on how to connect AWS environments with Defender for Cloud Apps, see -  [Protect your Amazon Web Services environment - Microsoft Defender for Cloud Apps | Microsoft Learn](/defender-cloud-apps/protect-aws)
 
