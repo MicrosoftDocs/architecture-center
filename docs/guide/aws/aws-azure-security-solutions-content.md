@@ -64,7 +64,7 @@ Connecting AWS to Defender for Cloud Apps helps you secure your assets and detec
 
 - [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices)
 
-- [Use the audit trail of activities for forensic investigations](/defender-cloud-apps/best-practices)
+- [Use the audit trail of activities for forensic investigations](/defender-cloud-apps/best-practices#use-the-audit-trail-of-activities-for-forensic-investigations)
 
 - [Protect AWS in real time with Conditional access app control to block and protect the download of sensitive data located in AWS to unmanaged or risky users.](/defender-cloud-apps/proxy-intro-aad)
 
