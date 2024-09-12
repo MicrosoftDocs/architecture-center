@@ -17,7 +17,7 @@ Each scenario describes the challenges that they introduce and the benefits of i
 
 ## Authenticate client applications via an external identity provider
 
-:::image type="complex" source="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" alt-text="Diagram that shows a conceptual architecture for solutions where client applications authenticate users with an external identity provider, and authenticate with Azure OpenAI by using API keys." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" alt-text="Diagram that shows how client applications authenticate users with an external identity provider and then use API keys to authenticate with Azure OpenAI." border="false"::: 
 
 ### Scenario constraints
 
@@ -39,7 +39,7 @@ If the client applications in these scenarios directly connect to Azure OpenAI w
 
 ### Introduce a gateway
 
-:::image type="complex" source="_images/azure-openai-gateway-identity-solution-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-solution-external-identity-provider.png" alt-text="Diagram that shows the insertion of a gateway between client applications and Azure OpenAI."border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-solution-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-solution-external-identity-provider.png" alt-text="Diagram that shows the insertion of a gateway between client applications and Azure OpenAI."border="false":::
 
 A gateway resolves this scenario's challenges in the following ways:
 
@@ -57,13 +57,11 @@ A gateway resolves this scenario's challenges in the following ways:
 
 ### Reasons to avoid a gateway for this scenario
 
-If a single intelligent application accesses Azure OpenAI, it’s easier to configure user authentication and authorization within the app rather than through the gateway. Use this approach to assign the necessary Azure RBAC to securely authenticate the intelligent application with Azure OpenAI.
+If a single intelligent application accesses Azure OpenAI, it's easier to configure user authentication and authorization within the app rather than through the gateway. Use this approach to assign the necessary Azure RBAC to securely authenticate the intelligent application with Azure OpenAI.
 
 ## Authenticate client applications via certificates
 
-:::image type="complex" source="_images/azure-openai-gateway-identity-scenario-client-certificates.png" lightbox="_images/azure-openai-gateway-identity-scenario-client-certificates.png" border="false" alt-text="Diagram that shows an architecture to authenticate users via certificates.":::
-Diagram that shows an architecture that authenticates users to client applications via client certificates and authenticates with Azure OpenAI via API keys.
-:::image-end:::
+:::image type="content" source="_images/azure-openai-gateway-identity-scenario-client-certificates.png" lightbox="_images/azure-openai-gateway-identity-scenario-client-certificates.png" border="false" alt-text="Diagram that shows an architecture to authenticate users via certificates.":::
 
 ### Scenario constraints
 
@@ -85,11 +83,11 @@ These constraints can apply to the following examples:
 
 ### Connect directly to Azure OpenAI
 
-Azure OpenAI doesn’t natively support client certification authentication. To support this scenario without a gateway, the intelligent application needs to use certificate authentication for the user and either an API key or managed identity to authenticate requests to the Azure OpenAI instance. You must implement the certificate authentication logic in every client. In this scenario, key-based authentication introduces risks and management overhead if you connect directly to Azure OpenAI from clients.
+Azure OpenAI doesn't natively support client certification authentication. To support this scenario without a gateway, the intelligent application needs to use certificate authentication for the user and either an API key or managed identity to authenticate requests to the Azure OpenAI instance. You must implement the certificate authentication logic in every client. In this scenario, key-based authentication introduces risks and management overhead if you connect directly to Azure OpenAI from clients.
 
 ### Introduce a gateway
 
-:::image type="complex" source="_images/azure-openai-gateway-identity-solution-client-certificates.png" lightbox="_images/azure-openai-gateway-identity-solution-client-certificates.png" alt-text="Diagram that shows the insertion of a gateway between client applications and Azure OpenAI using a managed identity with RBAC." border="false":::
+:::image type="content" source="_images/azure-openai-gateway-identity-solution-client-certificates.png" lightbox="_images/azure-openai-gateway-identity-solution-client-certificates.png" alt-text="Diagram that shows a gateway between clients and Azure OpenAI that uses a managed identity with RBAC." border="false":::
 
 You can introduce a gateway into this architecture that offloads client certification validation from the clients. The gateway [validates the client digital certificate](/azure/api-management/api-management-howto-mutual-certificates-for-clients#policy-to-validate-client-certificates) that the intelligent application presents and checks the issuer, expiration date, thumbprint, and revocation lists. The gateway should use a managed identity to authenticate itself with Azure OpenAI. The gateway should also use Azure Key Vault to store the root certificate authority (CA). Use this approach to centralize client certificate validation, which reduces maintenance overhead.
 
@@ -120,8 +118,6 @@ You must carefully assess your specific needs, resource availability, and the cr
 ## Authenticate multiple client applications via keys to access a shared Azure OpenAI instance
 
 :::image type="content" source="_images/azure-openai-gateway-identity-scenario-multiple-clients.png" lightbox="_images/azure-openai-gateway-identity-scenario-multiple-clients.png" alt-text="Diagram that shows a conceptual architecture for solutions where multiple client applications authenticate with Azure OpenAI via a shared API key." border="false":::
-Diagram that shows a conceptual architecture for solutions where multiple client applications authenticate with Azure OpenAI via a shared API key.
-:::image-end:::
 
 ### Scenario constraints
 
@@ -151,8 +147,6 @@ Azure OpenAI supports key-based authentication via shared keys. Azure OpenAI exp
 ### Introduce a gateway
 
 :::image type="content" source="_images/azure-openai-gateway-identity-solution-multiple-clients.png" lightbox="_images/azure-openai-gateway-identity-solution-multiple-clients.png" alt-text="Diagram that shows a gateway between multiple clients and Azure OpenAI with subscription keys per client and managed identity authentication." border="false":::
-Diagram that shows a gateway between multiple clients and Azure OpenAI with subscription keys per client and managed identity authentication.
-:::image-end:::
 
 You can introduce a gateway into this architecture that issues a dedicated key to each client application. API Management uses the concept of [subscriptions](/azure/api-management/api-management-subscriptions) to provide dedicated client keys. The gateway should use a managed identity to authenticate itself with Azure OpenAI.
 
@@ -175,8 +169,6 @@ A gateway provides several advantages in this scenario:
 ## Authenticate client applications that access multiple Azure OpenAI instances
 
 :::image type="content" source="_images/azure-openai-gateway-identity-scenario-multiple-services.png" lightbox="_images/azure-openai-gateway-identity-scenario-multiple-services.png" alt-text="Diagram that shows client applications that authenticate with multiple Azure OpenAI instances via shared API keys per instance." border="false":::
-Diagram that shows client applications authenticating with multiple Azure OpenAI instances using shared API keys per instance.
-:::image-end:::
 
 ### Scenario constraints
 
@@ -203,8 +195,6 @@ When client applications connect directly to multiple Azure OpenAI instances, ea
 ### Introduce a gateway
 
 :::image type="content" source="_images/azure-openai-gateway-identity-solution-multiple-services.png" lightbox="_images/azure-openai-gateway-identity-solution-multiple-services.png" alt-text="Diagram of a gateway with a single key to a client application and managed identity authentication to Azure OpenAI with RBAC." border="false":::
-Diagram of a gateway with a single key to a client application and managed identity authentication to Azure OpenAI with RBAC.
-:::image-end:::
 
 When you use a gateway to handle client applications that access multiple Azure OpenAI deployments, you get the same benefits as a gateway that handles [multiple client applications via keys to access a shared Azure OpenAI instance](#multiple-client-applications-using-keys-to-access-a-shared-azure-openai-instance). You also streamline the authentication process because you use a single user-defined managed identity to authenticate requests from the gateway to multiple Azure OpenAI instances. Implement this approach to reduce overall operational overhead and minimize the risks of client misconfiguration when you work with multiple instances.
 
@@ -225,8 +215,6 @@ Use API Management instead of creating your own solution for efficient API orche
 In real-world applications, your use cases can span multiple scenarios from this article. For example, you might have client applications that authenticate through an external identity provider and require access to multiple Azure OpenAI instances.
 
 :::image type="content" source="_images/azure-openai-gateway-identity-solution-combined.png" lightbox="_images/azure-openai-gateway-identity-solution-combined.png" alt-text="Diagram that shows client applications authenticate with an external identity provider via a gateway that has access to multiple Azure OpenAI instances." border="false":::
-Diagram that shows client applications authenticating with an external identity provider via a gateway that has access to multiple Azure OpenAI instances.
-:::image-end:::
 
 To build a gateway that supports your specific requirements, combine the recommendations from these scenarios for a comprehensive approach.
 
@@ -253,10 +241,6 @@ Centralized logging of all requests that pass through the gateway helps you main
 ## Gateway implementations
 
 Azure doesn't provide a turnkey solution or reference architecture to build the gateway in this article, so you must build and operate the gateway. Azure provides examples of community-supported implementations that cover the use cases in this article. Reference these samples when you build your own gateway solution. For more information, see the video [Learn Live: Azure OpenAI application identity and security](https://www.youtube.com/live/pDjXsNWYmvo).
-
-| Implementation  | Example |
-| :-------- | :--------- |
-| Azure OpenAI application identity and security – Learn Live webinar | [Learn Live: Azure OpenAI Application identity and security](https://www.youtube.com/live/pDjXsNWYmvo) |
 
 ## Next step
 
