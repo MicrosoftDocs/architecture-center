@@ -22,7 +22,7 @@ ms.custom:
 The term *compute* refers to the hosting model for the computing resources that your application runs on. For a microservices architecture, two approaches are especially popular:
 
 - A service orchestrator that manages services running on dedicated nodes (VMs).
-- A serverless architecture using functions as a service (FaaS).
+- A serverless architecture.
 
 While these aren't the only options, they are both proven approaches to building microservices. An application might include both approaches.
 
@@ -32,13 +32,13 @@ An orchestrator handles tasks related to deploying and managing a set of service
 
 On the Azure platform, consider the following options:
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, hosts and manages the Kubernetes control plane, performing automated upgrades, automated patching, autoscaling, and other management tasks. 
+- [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, hosts and manages the Kubernetes control plane, performing automated upgrades, automated patching, autoscaling, and other management tasks. Azure Kubernetes Service provides you direct access to Kubernetes APIs. 
 
-- [Azure Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks.  Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes.  
+- [Azure Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks.  Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes. Azure Container Apps is ideal for scenarios where direct access to Kubernetes APIs are not required. 
 
 - [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. Microservices can be deployed to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). Using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services. A key differentiation with Service Fabric is its strong focus on building stateful services using [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
 
-- [Azure Spring Apps](/azure/spring-apps/) is a fully managed service that helps Spring developers focus on code, not on infrastructure. You can deploy any type of Spring app—including web apps, microservices, event-driven, serverless, and batch in Azure Spring Apps environment. 
+- [Azure Spring Apps](/azure/spring-apps/) is a fully managed service that helps Spring developers focus on code, not on infrastructure. You can deploy any type of Spring app—including web apps, microservices, event-driven, serverless, and batch in Azure Spring Apps environment.  Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 - Other options such as Docker Enterprise Edition can run in an IaaS environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
@@ -52,7 +52,7 @@ Sometimes people talk about containers and microservices as if they were the sam
 
 - **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../../patterns/bulkhead.yml) for more information.
 
-## Serverless (Functions as a Service)
+## Serverless 
 
 With a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture, you don't manage the VMs or the virtual network infrastructure. Instead, you deploy code and the hosting service handles putting that code onto a VM and executing it. This approach tends to favor small granular functions that are coordinated using event-based triggers. For example, a message being placed onto a queue might trigger a function that reads from the queue and processes the message.
 
@@ -74,9 +74,7 @@ Here are some factors to consider when choosing between an orchestrator approach
 
 **Cost**. With an orchestrator, you pay for the VMs that are running in the cluster. With a serverless application, you pay only for the actual compute resources consumed. In both cases, you need to factor in the cost of any additional services, such as storage, databases, and messaging services.
 
-**Scalability**. Azure Functions scales automatically to meet demand, based on the number of incoming events. With an orchestrator, you can scale out by increasing the number of service instances running in the cluster. You can also scale by adding additional VMs to the cluster.
-
-Our reference implementation primarily uses Kubernetes, but we did use Azure Functions for one service, namely the Delivery History service. Azure Functions was a good fit for this particular service, because it's an event-driven workload. By using an Event Hubs trigger to invoke the function, the service needed a minimal amount of code. Also, the Delivery History service is not part of the main workflow, so running it outside of the Kubernetes cluster doesn't affect the end-to-end latency of user-initiated operations.
+**Scalability**. Azure Functions scales automatically to meet demand, based on the number of incoming events. Azure Kubernetes Service provides auto-scaling capabilities for the underlying virtual machines (node autoscaler), and auto-scaling for containers (horizontal pod autoscaler & vertical pod autoscaler) as well.
 
 ## Next steps
 
