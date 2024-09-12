@@ -18,8 +18,6 @@ Each scenario describes the challenges introduced and the benefits of incorporat
 ## Client applications authenticated via an external identity provider
 
 :::image type="complex" source="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" alt-text="Diagram that shows a conceptual architecture for solutions where client applications authenticate users with an external identity provider, and authenticate with Azure OpenAI by using API keys." border="false":::
-Diagram that shows a conceptual architecture for solutions where client applications authenticate users with an external identity provider, and authenticate with Azure OpenAI by using API keys.
-:::image-end:::
 
 ### Scenario constraints
 
@@ -42,8 +40,6 @@ If the client applications in these scenarios directly connect to Azure OpenAI w
 ### Introducing a gateway
 
 :::image type="complex" source="_images/azure-openai-gateway-identity-solution-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-solution-external-identity-provider.png" alt-text="Diagram that shows the insertion of a gateway between client applications and Azure OpenAI."border="false":::
-Diagram that shows the insertion of a gateway between client applications and Azure OpenAI, which enables authentication with an external identity provider.
-:::image-end:::
 
 Introducing a gateway resolves this scenario's challenges in the following ways:
 
@@ -94,8 +90,6 @@ Azure OpenAI doesn’t natively support client certification authentication. To 
 ### Introducing a gateway
 
 :::image type="complex" source="_images/azure-openai-gateway-identity-solution-client-certificates.png" lightbox="_images/azure-openai-gateway-identity-solution-client-certificates.png" alt-text="Diagram that shows the insertion of a gateway between client applications and Azure OpenAI using a managed identity with RBAC." border="false":::
-Diagram that shows the insertion of a gateway between client applications and Azure OpenAI using a managed identity with RBAC.
-:::image-end:::
 
 You can introduce a gateway into this architecture that offloads client certification validation from the clients. The gateway [validates the client digital certificate](/azure/api-management/api-management-howto-mutual-certificates-for-clients#policy-to-validate-client-certificates) that the intelligent application presents, including checks on the issuer, expiration date, thumbprint, and revocation lists. The gateway should use a managed identity to authenticate itself with Azure OpenAI. This approach ensures that client certificate validation is managed in a centralized location, which reduces maintenance overhead.
 
