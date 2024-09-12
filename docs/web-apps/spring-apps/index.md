@@ -5,8 +5,8 @@ author: PageWriter-MSFT
 ms.author: prwilk
 ms.date: 06/06/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories: web
 categories: web
 products:
