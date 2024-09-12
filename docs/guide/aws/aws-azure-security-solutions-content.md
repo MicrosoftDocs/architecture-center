@@ -62,7 +62,7 @@ Connecting AWS to Defender for Cloud Apps helps you secure your assets and detec
 
 - [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware)
 
-- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices)
+- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices#limit-exposure-of-shared-data-and-enforce-collaboration-policies)
 
 - [Use the audit trail of activities for forensic investigations](/defender-cloud-apps/best-practices#use-the-audit-trail-of-activities-for-forensic-investigations)
 
