@@ -4,7 +4,6 @@ description: The goals, tasks, and deliverables for the business understanding s
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.topic: conceptual

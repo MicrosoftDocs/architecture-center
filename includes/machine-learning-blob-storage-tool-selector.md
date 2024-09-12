@@ -2,7 +2,7 @@
 author: cjgronlund
 ms.author: cgronlun
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 <!-- Guidance on technologies used to move data to and/or from Azure Blob storage are linked here: -->

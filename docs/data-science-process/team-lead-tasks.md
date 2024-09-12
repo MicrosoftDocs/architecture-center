@@ -4,7 +4,6 @@ description: Learn about the tasks that a team lead performs on a Team Data Scie
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.topic: conceptual
