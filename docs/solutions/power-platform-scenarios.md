@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 07/28/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - power-platform
   - power-apps

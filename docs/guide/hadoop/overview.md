@@ -5,8 +5,8 @@ author: namrata01Apr
 ms.author: namratam
 ms.date: 11/08/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - migration
 products:

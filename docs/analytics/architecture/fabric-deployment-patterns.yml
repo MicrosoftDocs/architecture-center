@@ -6,8 +6,8 @@ metadata:
   ms.author: v-myerspeter
   ms.date: 03/19/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ms.category:
     - analytics
 name: Microsoft Fabric deployment patterns

@@ -7,8 +7,8 @@ ms.reviewer: tozimmergren
 categories: azure
 ms.date: 10/04/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
   - analytics
   - compute
