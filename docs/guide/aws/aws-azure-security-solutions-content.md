@@ -104,7 +104,7 @@ The CWP support for SQL servers running on AWS EC2, AWS RDS Custom for SQL Serve
 
 Security standards provide support for assessing resources and workloads in AWS against regulatory compliance standards such as Center for Internet Security (CIS) and payment card industry (PCI) standards, and for the AWS Foundational Security Best Practices standard.
 
-For more information how to protect workloads in AWS, see [Connect your AWS account - Microsoft Defender for Cloud | Microsoft Learn](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn](/azure/defender-for-cloud/update-regulatory-compliance-packages) 
+For more information how to protect workloads in AWS, see [Connect your AWS account](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud](/azure/defender-for-cloud/update-regulatory-compliance-packages) 
 
 ### __Microsoft Sentinel__
 
