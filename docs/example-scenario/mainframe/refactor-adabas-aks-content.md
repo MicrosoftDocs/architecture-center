@@ -102,7 +102,7 @@ Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of n
 
 ### Security  
 
-This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. The components can be deployed to a private AKS cluster with inbound access through private API server and internal IP addresses, and outbound traffic controlled through firewall layer. 
+This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. The refactored containers can be deployed to a private AKS cluster with inbound access through private API server and internal IP addresses, and outbound traffic controlled through firewall layer. 
 
 ## Contributors
 
