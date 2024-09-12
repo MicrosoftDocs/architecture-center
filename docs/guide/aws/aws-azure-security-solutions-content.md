@@ -60,7 +60,7 @@ Microsoft Defender for Cloud Apps delivers full protection for SaaS applications
 
 Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities, notifying on possible brute force attacks, malicious use of a privileged user account, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps protects AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. 
 
-- [Detect cloud threats, compromised accounts, and malicious insiders](/defender-cloud-apps/best-practices)
+- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware)
 
 - [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices)
 
