@@ -2,12 +2,12 @@
 title: Solutions for the healthcare industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable healthcare solutions.
-author: PageWriter-MSFT
-ms.author: prwilk
+author: allaboutc
+ms.author: chrisnorton
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: arb-healthcare
 products:
   - azure

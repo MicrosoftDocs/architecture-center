@@ -6,8 +6,8 @@ ms.author: robbag
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-machine-learning
 ms.custom:

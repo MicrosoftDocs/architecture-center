@@ -6,8 +6,8 @@ ms.author: saperla
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom:
   - arb-data
 azureCategories:
@@ -181,3 +181,4 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 [log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/main/sample/spark-sample-job/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
 [sample-app]: https://github.com/mspnp/spark-monitoring/tree/main/sample/spark-sample-job
 [spark-logging]: https://spark.apache.org/docs/3.5.2/configuration.html#configuring-logging
+

@@ -7,7 +7,7 @@ You can add communication to web and mobile apps, integrate custom services and 
 The following components are used in these data flow diagrams:
 
 - **Client application.** A website or native application used by end users for communication. Communication Services provides [SDK client libraries](/azure/communication-services/concepts/sdk-options) for browsers and native apps. [The open-source UI Library](/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) that's built on these SDKs provides programmable web (React), iOS, and Android UI components.
-- **Identity management service.**  A service that you build to map users and services to Communication Services identities. This service also creates tokens for users when they need to access the data plane.
+- **Identity management service.**  A service that you build to map users and services to Communication Services identities. This service also creates tokens for users when they need to access the data plane.  You can enhance security and simplify management by using Azure Managed Identity for this service, eliminating the need for managing credentials manually.
 - **Communication controller service.**  A service that you build to control chat threads and voice and video calls.
 - **Communication data service.**  A service capability that you build to directly interact with communication content, like sending chat and SMS messages or playing audio in a voice call.
 
@@ -15,8 +15,9 @@ Industry standards for communication, like [WebRTC](https://webrtc.org), separat
 
 | System  | Function| Protocols  | Access model   |
 |---|---|-----|--|
-| **Control plane** | Governs who communicates, when, and how | REST | [Microsoft Entra service credentials](/azure/communication-services/concepts/authentication#azure-ad-authentication) |
-| **Data plane**| Contains communication content, voice, video, text, and data that interface with humans and apps | UDP, [RTMP](/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](/azure/communication-services/concepts/authentication#user-access-tokens) and Microsoft Entra service credentials |
+| **Control plane** | Governs who communicates, when, and how | REST | [Microsoft Entra ID service credentials](/azure/communication-services/concepts/authentication#azure-ad-authentication) |
+| **Data plane**| Contains communication content, voice, video, text, and data that interface with humans and apps | UDP, [RTMP](/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](/azure/communication-services/concepts/authentication#user-access-tokens) and Microsoft Entra ID service credentials such as Managed Identity |
+
 
 A common data flow occurs when client applications initiate communication by requesting control information from a service controller:
 
@@ -30,7 +31,12 @@ In the WebRTC standard, clients request control information from services by sen
 
 ## Users authenticated via user access tokens
 
-Communication Services clients present user access tokens to access, with improved security, the Azure calling and chat data plane. You should generate and manage user access tokens by using a trusted service. The token and the connection string or Microsoft Entra secrets that are necessary to generate them need to be protected. Failure to properly manage access tokens can result in additional charges because of misuse of resources.
+
+Communication Services clients present user access tokens to securely access the Azure calling and chat data plane. You should generate and manage user access tokens using a trusted service. The access tokens need to be protected carefully, as failure to properly manage them can result in additional charges due to the misuse of resources.
+
+Using Azure Managed Identity for your identity management service can further enhance security by removing the need to handle credentials directly. With Managed Identities, there is no need to store secrets in your code for authenticating your service to Azure services. The Managed Identity allows your service to securely obtain the necessary tokens without needing to store or manage sensitive credentials.
+
+
 
 :::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
 
@@ -42,7 +48,7 @@ Communication Services clients present user access tokens to access, with improv
 2. The client application contacts your identity management service. The identity management service maintains a mapping between application identities and  Communication Services identities. (Application identities include your users and other addressable objects, like services or bots.)
 3. The identity management service uses the mapping to [issue a user access token](/rest/api/communication/communication-identity/issue-access-token) for the applicable identity.
 
-Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](/azure/app-service/overview-authentication-authorization) users. They're integrated with [OpenID](/azure/app-service/configure-authentication-provider-openid-connect) and third-party identity providers like [Facebook](/azure/app-service/configure-authentication-provider-facebook).
+Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](/azure/app-service/overview-authentication-authorization) users. They're integrated with [OpenID](/azure/app-service/configure-authentication-provider-openid-connect) and third-party identity providers like [Facebook](/azure/app-service/configure-authentication-provider-facebook).You can also use Managed Identity to simplify and secure the authentication process for these services.
 
 ### Resources
 
@@ -139,12 +145,12 @@ Communication Services applications can join Teams calls. For external users, th
 
 Principal author:
 
- - [Chris Palmer](https://www.linkedin.com/in/palmerchristopher) | Principal Group Product Manager
+- [Chris Palmer](https://www.linkedin.com/in/palmerchristopher) | Principal Group Product Manager
 
 Other contributors:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -157,5 +163,4 @@ Other contributors:
 
 ## Related resources
 
-- [Governance of Microsoft Teams guest users](../../example-scenario/governance/governance-teams-guest-users.yml)
-- [Real-time presence with Microsoft 365, Azure, and Power Platform](../../solution-ideas/articles/presence-microsoft-365-power-platform.yml)
+- [Guest access in Microsoft Teams](https://learn.microsoft.com/microsoftteams/guest-access)

@@ -2,11 +2,11 @@
 title: Application platform considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Platform.
 author: msimecek
-ms.author: prwilk
+ms.author: msimecek
 ms.date: 07/01/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
 products:

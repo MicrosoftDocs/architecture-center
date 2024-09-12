@@ -24,6 +24,30 @@ items:
         items:
         - name: DataOps for modern data warehouse
           href: architecture/dataops-mdw.yml
+      - name: Azure Data Factory on Azure landing zones
+        items:
+        - name: Azure Data Factory on Azure landing zones index
+          href: architecture/azure-data-factory-on-azure-landing-zones-index.yml
+        - name: Azure Data Factory baseline architecture
+          href: architecture/azure-data-factory-on-azure-landing-zones-baseline.yml
+        - name: Azure Data Factory enterprise hardened architecture
+          href: architecture/azure-data-factory-enterprise-hardened.yml
+        - name: Azure Data Factory mission critical architecture
+          href: architecture/azure-data-factory-mission-critical.yml
+      - name: Master data management
+        items:
+        - name: Migrate master data services with CluedIn
+          href: architecture/migrate-master-data-services-with-cluedin.yml
+        - name: Master data management with Profisee
+          href: architecture/profisee-master-data-management-data-factory.yml
+        - name: Migrate master data services with Profisee
+          href: architecture/profisee-mds-migration-utility.yml
+      - name: Governance
+        items:
+        - name: Master data management with CluedIn
+          href: architecture/cluedin.yml
+        - name: Data governance with Profisee
+          href: architecture/profisee-master-data-management-purview.yml
       - name: NoSQL
         items:
         - name: N-tier app with Cassandra

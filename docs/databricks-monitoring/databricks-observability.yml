@@ -3,11 +3,11 @@ metadata:
   title: Observability patterns and metrics
   titleSuffix: Azure Example Scenarios
   description: Learn how to use observability patterns and metrics to improve the processing performance of a big data system using Azure Databricks.
-  author: drmcghee
-  ms.author: davidmcg
+  author: RobBagby
+  ms.author: pnp
   ms.date: 02/19/2021
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp

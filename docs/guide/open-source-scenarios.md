@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: martinek
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-kubernetes-service
   - azure-netapp-files
@@ -323,7 +323,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Gridwich CI/CD pipeline](../reference-architectures/media-services/gridwich-cicd.yml)|Learn about the guiding principles and considerations for the Gridwich continuous CD/CD pipeline, including information about Terraform.|Media|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation. Terraform is used to deploy the SAP infrastructure into Azure.|SAP|
 |[Use Azure Firewall to help protect an AKS cluster](../guide/aks/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.|Containers|
-|[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network. Terraform automates all code and infrastructure deployments.|Security|
 
 ## Umbraco
 

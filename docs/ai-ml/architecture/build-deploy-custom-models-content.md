@@ -126,8 +126,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, and [Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline).
 
-- Azure Functions can access resources in a virtual network through [virtual network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration).
-
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).

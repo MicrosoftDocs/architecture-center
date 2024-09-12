@@ -3,12 +3,12 @@ metadata:
   title: Retail assistant with visual capabilities
   titleSuffix: Azure Solution Ideas
   description: Use Azure services with a bot assistant to improve interactions with customers and provide suggestions based on visual information.
-  author: RobBagby
-  ms.author: robbag
+  author: FreddyAyala
+  ms.author: freddyayala
   ms.date: 07/27/2022
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot  
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
