@@ -44,7 +44,7 @@ On the Azure platform, consider the following options:
 
 ## Containers
 
-Sometimes people talk about containers and microservices as if they were the same thing. While that's not true &mdash; you don't need containers to build microservices &mdash; containers do have some benefits that are particularly relevant to microservices, such as:
+Although you don't need containers to build microservices, containers do have some benefits that are particularly relevant to microservices, such as:
 
 - **Portability**. A container image is a standalone package that runs without needing to install libraries or other dependencies. That makes them easy to deploy. Containers can be started and stopped quickly, so you can spin up new instances to handle more load or to recover from node failures.
 
