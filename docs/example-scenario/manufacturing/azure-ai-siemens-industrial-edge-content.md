@@ -221,6 +221,9 @@ Principal authors:
 - [Nick Sologoub](https://www.linkedin.com/in/ncksol/) | Principal Software Engineering Lead
 - [Colin Desmond](https://www.linkedin.com/in/colin-desmond-64b507a/) | Senior Software Engineer
 
+Contributor:
+- [Johannes Kupser](https://www.linkedin.com/in/johannes-kupser) | Chief Product Owner for Industrial AI
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
