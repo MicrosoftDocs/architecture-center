@@ -6,8 +6,8 @@ ms.author: ssumner
 ms.reviewer: ssumner
 ms.date: 04/15/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
     - web
     - developer-tools

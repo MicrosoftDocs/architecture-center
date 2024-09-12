@@ -4,8 +4,8 @@ description: Review a list of architectures and solutions that use Apache open-s
 author: martinekuan
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-kubernetes-service
   - azure-stack-hub

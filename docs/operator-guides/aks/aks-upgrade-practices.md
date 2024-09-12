@@ -6,7 +6,7 @@ author: aionic
 ms.author: anevico
 ms.date: 12/28/2023
 ms.topic: reference-architecture
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.custom:
   - e2e-aks

@@ -7,7 +7,7 @@ metadata:
   ms.author: chbasani
   ms.date: 05/15/2023
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: arb-aiml
 azureCategories:
@@ -24,4 +24,4 @@ name: Model loan credit risk and default probability
 summary: Use Azure Machine Learning, Azure Synapse Analytics, App Service, and Power BI to model loan credit risk and default probability.
 thumbnailUrl: /azure/architecture/browse/thumbs/loan-credit-model.png
 content: |
-   [!include[](loan-credit-risk-analyzer-default-modeling-content.md)]
+   [!INCLUDE[](loan-credit-risk-analyzer-default-modeling-content.md)]

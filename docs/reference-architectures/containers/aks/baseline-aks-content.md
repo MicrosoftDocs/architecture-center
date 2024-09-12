@@ -173,7 +173,7 @@ For more information, see [the guidance about IP address planning for Azure CNI 
 
 ### Other IP address space considerations
 
-For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md). For information related to planning IP addressing for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
+For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-baseline/blob/main/network-team/topology.md). For information related to planning IP addressing for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
 For more information on the IP address planning considerations included in the Windows containers on AKS baseline reference architecture, see [Windows containers on AKS](./windows-containers-on-aks.yml#ip-address-planning).
 
