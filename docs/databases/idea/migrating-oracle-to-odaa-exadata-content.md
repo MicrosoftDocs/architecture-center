@@ -7,8 +7,7 @@ This article describes considerations and recommendations when doing a physical 
 Consider the following scenario:
 
 - You have deployed Oracle Database@Azure, Exadata Database Service into your Azure region of choice and configured a VM cluster with 2 database servers and 3 Storage cell nodes.
-- The Oracle Database@Azure delegated subnet (OD@A Subnet) is in OD@A Vnet which is peered to the HUB VNet, the address range of the OD@A subnet is 10.42.1.0/24. For details on how to plan for OD@A IP addressing, please refer to [Plan for IP Address Space
-](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa_ip.htm).
+- The Oracle Database@Azure delegated subnet (OD@A Subnet) is in OD@A Vnet which is peered to the HUB VNet, the address range of the OD@A subnet is 10.42.1.0/24. For details on how to plan for OD@A IP addressing, please refer to [Plan for IP Address Space](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa_ip.htm).
 - In HUB VNet the traffic has to traverse a third-party NVA (FortiGate, CheckPoint, Cisco or other), the NVA functions as a routing device, ensuring that Oracle Database@Azure cluster nodes are fully routable within the infrastructure. In addition to this the NVA is configured for traffic inspection so that all traffic going to and from on-premises is inspected. The IP address of the HUB NVA is 10.0.0.5.
 - Hybrid connectivity is configured in HUB VNet with an Express Route connection to your on-premises network.
 - On you on-premises network you have an existing Exadata implementation Exa01 and you are looking to migrate database1 from Exa01 to Oracle Database@Azure. Database1 is 2TB in size and is running on Exadata X8M-2, the database version is Oracle Database 19c, Enterprise Edition. Your on-premises IP address range is 192.168.0.0/16.
