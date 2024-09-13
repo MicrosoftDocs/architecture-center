@@ -142,8 +142,7 @@ Refer to scalability and performance targets for [Azure Storage](https://learn.m
 - Taking advantage of various options that Azure offers for hosting application code. For guidance about how to choose the right service for your deployment, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).  
 
 Several choices for VMs could be utilized, depending on the use case:
-- Pay-as-you-go – Only pay for what you consumed—applicable to interactive, unplanned jobs
-- Pay-as-you-go, a consumption-based pricing model where pay for what you consume. Pay-as-you-go models are applicable to interactive, unplanned jobs.
+- Pay-as-you-go – Only pay for what you consumed—applicable to interactive, unplanned jobs. Pay-as-you-go is a consumption-based pricing model where pay for what you consume. Pay-as-you-go models are applicable to interactive, unplanned jobs.
 - [Reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/?msockid=3338580647b1602718c8499943b1663a) can be cost effective for long-term workloads, such as for batch and long-running jobs like simulation and open/closed loop testing.
 - [Spot instances](https://learn.microsoft.com/azure/virtual-machines/spot-vms) can be useful for jobs that don't have a strict timeline in which they need to be completed, such as for dev/test jobs. For example, researchers might need to validate an experimental model against set of scenarios, and there's no time sensitivity for the workload.
 ### Operational excellence
@@ -154,6 +153,7 @@ ValOps embraces key software engineering strategies, such as:
 - Implement for infrastructure as code (IaC) so you can automate your deployment and maintain consistency. You might use Bicep, Resource Manager templates (ARM templates), Terraform, or another approach.
 - Mandate automated testing 
 - Regularly monitor the performance and usage of your Azure resources so you can optimize costs and enhance performance. Use tools like Azure Monitor and Microsoft Cost Management
+- For HPC clusters, run node health checks on each compute node to verify that the node is working properly. Nodes which are determined to be "unhealthy" can be marked as down or offline so as to prevent jobs from being scheduled or run on them. This helps increase the reliability and throughput of a cluster by reducing preventable job failures due to misconfiguration, hardware failure, etc. Best practice is to utilize [Azure HPC Health Checks](https://github.com/Azure/azurehpc-health-checks?tab=readme-ov-file)
 
 ### Performance Efficiency
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
