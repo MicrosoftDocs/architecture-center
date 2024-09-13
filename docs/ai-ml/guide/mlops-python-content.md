@@ -16,7 +16,7 @@ This architecture consists of the following services:
 
 **[Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)** is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [Python SDK](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning [workspace](/azure/machine-learning/service/concept-workspace) provides the space in which to experiment, train, and deploy machine learning models.
 
-**[Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets)** is a cluster of virtual machines on-demand with automatic scaling and GPU and CPU node options. The training job is executed on this cluster.
+**[Azure Machine Learning Compute](/azure/machine-learning/how-to-set-up-training-targets)** is a cluster of virtual machines on-demand with automatic scaling and GPU and CPU node options. The training job is executed on this cluster.
 
 **[Azure Machine Learning pipelines](/azure/machine-learning/service/concept-ml-pipelines)** provide reusable machine learning workflows that can be reused across scenarios. Training, model evaluation, model registration, and image creation occur in distinct steps within these pipelines for this use case. The pipeline is published or updated at the end of the build phase and gets triggered on new data arrival.
 
@@ -68,7 +68,7 @@ The machine learning pipeline orchestrates the process of retraining the model i
 
 This pipeline covers the following steps:
 
-- **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new [model](/azure/machine-learning/service/concept-azure-machine-learning-architecture#models) file which is stored in the [run history](/azure/machine-learning/service/concept-azure-machine-learning-architecture#runs). Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
+- **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new [model](/azure/machine-learning/service/concept-azure-machine-learning-architecture#models) file which is stored in the [run history](/azure/machine-learning/service/concept-azure-machine-learning-architecture#runs). Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/how-to-set-up-training-targets#train-your-model).
 
 - **Evaluate model.** A simple evaluation test compares the new model with the existing model. Only when the new model is better does it get promoted. Otherwise, the model is not registered and the pipeline is canceled.
 
@@ -116,7 +116,7 @@ The release pipeline publishes a real-time scoring web service. A release to the
 
 Scale the production environment according to the size of your Azure Kubernetes Service cluster. The size of the cluster depends on the load you expect for the deployed scoring web service. For real-time scoring architectures, throughput is a key optimization metric. For non-deep learning scenarios, the CPU should be sufficient to handle the load; however, for deep learning workloads, when speed is a bottleneck, GPUs generally provide better performance compared to CPUs. Azure Kubernetes Service supports both CPU and GPU node types, which is the reason this solution uses it for image deployment. For more information, see [GPUs vs CPUs for deployment of deep learning models](https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/).
 
-Scale the retraining pipeline up and down depending on the number of nodes in your Azure Machine Learning Compute resource, and use the [autoscaling](/azure/machine-learning/service/how-to-set-up-training-targets#persistent) option to manage the cluster. This architecture uses CPUs. For deep learning workloads, GPUs are a better choice and are supported by Azure Machine Learning Compute.
+Scale the retraining pipeline up and down depending on the number of nodes in your Azure Machine Learning Compute resource, and use the [autoscaling](/azure/machine-learning/how-to-manage-optimize-cost#configure-training-clusters-for-autoscaling) option to manage the cluster. This architecture uses CPUs. For deep learning workloads, GPUs are a better choice and are supported by Azure Machine Learning Compute.
 
 ### Management
 

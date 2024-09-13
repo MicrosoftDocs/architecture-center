@@ -79,7 +79,6 @@ The following are other ideas that you can use as a starting point for your reta
 
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
-- [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 
 **Analytics**:
 

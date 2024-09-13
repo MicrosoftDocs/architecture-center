@@ -4,7 +4,6 @@ description: Learn about the outline of key components, personnel roles, and ass
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.topic: conceptual
