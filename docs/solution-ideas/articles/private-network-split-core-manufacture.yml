@@ -3,8 +3,8 @@ metadata:
   title: Create a 5G split core shop floor network
   titleSuffix: Azure Architecture Center
   description: Discover how a split 5G/LTE core architecture is suited for large enterprises that have multiple sites.
-  author: jashobhit
-  ms.author: shobhitjain
+  author: RobBagby
+  ms.author: pnp
   ms.date: 06/12/2023
   ms.topic: conceptual
   ms.service: azure-architecture-center

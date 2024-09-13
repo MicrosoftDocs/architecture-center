@@ -241,8 +241,6 @@ Azure provides extensive support for automated ML. Developers can build models u
 
 - [Tutorial: Create a classification model with automated ML in Azure Machine Learning](/azure/machine-learning/tutorial-first-experiment-automated-ml)
 
-- [Tutorial: Use automated machine learning to predict taxi fares](/azure/machine-learning/tutorial-auto-train-models)
-
 - [Configure automated ML experiments in Python](/azure/machine-learning/how-to-configure-auto-train)
 
 - [Use the CLI extension for Azure Machine Learning](/azure/machine-learning/reference-azure-machine-learning-cli)
