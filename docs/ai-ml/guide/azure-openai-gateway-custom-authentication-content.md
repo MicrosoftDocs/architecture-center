@@ -17,7 +17,9 @@ Each scenario describes the challenges that they introduce and the benefits of i
 
 ## Authenticate client applications via an external identity provider
 
-:::image type="content" source="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" alt-text="Diagram that shows how client applications authenticate users with an external identity provider and then use API keys to authenticate with Azure OpenAI." border="false"::: 
+:::image type="content" source="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" lightbox="_images/azure-openai-gateway-identity-scenario-external-identity-provider.png" alt-text="Diagram that shows how client applications authenticate users with an external identity provider and then use API keys to authenticate with Azure OpenAI." border="false":::
+
+*Download a [Visio file]() of this architecture.*
 
 ### Scenario constraints
 
