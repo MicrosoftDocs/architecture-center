@@ -3510,7 +3510,7 @@
       "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
       "redirect_document_id": false
     }, 
-    { 
+    {
       "source_path": "docs/example-scenario/mlops/mlops-technical-paper.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/mlops-technical-paper",
       "redirect_document_id": false
@@ -3518,7 +3518,7 @@
     {
       "source_path": "docs/ai-ml/guide/mlops-technical-paper.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
-      "redirect_document_id": true  
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/mlops/mlops-maturity-model.yml",
@@ -3528,7 +3528,7 @@
     {
       "source_path": "docs/data-guide/technology-choices/machine-learning-operations-v2.md",
       "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/data-guide/technology-choices/data-science-and-machine-learning.md",
