@@ -283,4 +283,4 @@ Principal authors:
 
 ## Related resources
 
-When you implement a gateway for your workload, you gain benefits beyond improving authentication and authorization that are described in this article. For more information, see [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges).
+- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges).
