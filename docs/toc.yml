@@ -2604,7 +2604,7 @@ items:
         href: /azure/virtual-machines/workloads/oracle/oracle-reference-architecture
         maintainContext: true
       - name: Oracle database migration to Azure
-        href: databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml
+        href: databases/idea/topic-migrating-oracle-to-azure.yml
       - name: Oracle Database with Azure NetApp Files
         href: example-scenario/file-storage/oracle-azure-netapp-files.yml
       - name: SAP deployment using an Oracle database
