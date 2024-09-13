@@ -148,7 +148,7 @@ These constraints can apply to the following examples:
 
 Azure OpenAI supports key-based authentication via shared keys. Azure OpenAI exposes a primary key and a secondary key. The purpose of the secondary key is to support key rotation. It doesn't provide client identity isolation. When you authenticate multiple clients directly to Azure OpenAI in this scenario, each client shares the same key. This implementation has the following challenges:
 
-- You don't can't revoke permissions for specific clients because every client shares the same key.
+- You can't revoke permissions for specific clients because every client shares the same key.
 
 - You can't give different clients different access rights to different models in the same Azure OpenAI instance deployment.
 
@@ -198,7 +198,7 @@ These constraints can apply to the following examples:
 
 - Client applications attempt to optimize their tokens per minute quotas by deploying instances across multiple regions.
 
-- An organization requires seamless failover and disaster recovery capabilities to ensure continuous operation. So they manage a dual-deployment strategy, for example a strategy that consists of a provisioned throughput deployment and a pay-as-you-go deployment.
+- An organization requires seamless failover and disaster recovery capabilities to ensure continuous operation. So they manage a dual-deployment strategy, such as a strategy that consists of a provisioned throughput deployment and a pay-as-you-go deployment.
 
 - Client applications must use specific model capabilities that are only available in certain Azure regions.
 
