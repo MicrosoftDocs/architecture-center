@@ -3,9 +3,9 @@ metadata:
   title: Oracle database migration to Azure virtual machines
   titleSuffix: Azure Architecture
   description: Migrate an Oracle database to Azure virtual machines leveraging Oracle Data Guard and Azure networking. 
-  author: martinekuan
-  ms.author: pnp
-  ms.date: 07/13/2022
+  author: jfaurskov
+  ms.author: janfaurs
+  ms.date: 08/23/2024
   ms.topic: solution-idea
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
