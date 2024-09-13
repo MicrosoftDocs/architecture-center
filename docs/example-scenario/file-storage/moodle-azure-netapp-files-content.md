@@ -1,5 +1,5 @@
 
-Moodle is an open-source learning management system that requires high throughput, low latency access to storage. Many Moodle deployments require easy scalability to adapt to growing demand. This article explains how Moodle can be deployed using Azure Services on Azure Virtual Machine Scale Sets and store user-accessible learning data files in Azure NetApp Files. The article also describes alternate zonal and multi-region deployments to meet high reliability requirements.
+Moodle is an open-source learning management system that requires high throughput, low latency access to storage. Many Moodle deployments require easy scalability to adapt to growing demand. This article explains how Moodle can be deployed using Azure Services on Azure Virtual Machine Scale Sets and store user-accessible learning data files in Azure NetApp Files. The article highlights a zonal deployments for high availability and cross-zone replication and also gives examples of a single-zone deployment and deployment with cross-region replication. 
 
 ## Architecture
 
@@ -31,7 +31,7 @@ Students access the Moodle application data through an Azure Application Gateway
 
 The Moodle service can be deployed using any NFS based shared file service if requirements for very low latency, high IOPS, and throughput are met, especially for higher numbers of concurrent users. Although an NFS service built on top of a set of Linux VMs can be used, this leaves challenges in the realm of manageability, scalability, and performance. Ultimately Azure NetApp Files offers the lowest latency, best performance and scalability, and secure access to NFS shared storage.
 
-Azure NetApp Files also offers alternative deployment methods with cross-region and cross-zone replication that improve the disaster preparedness of your deployment. 
+Azure NetApp Files also offers alternative deployment methods with cross-region  replication that improve the disaster preparedness of your deployment. 
 
 #### Alternative deployments with Azure NetApp Files
 
