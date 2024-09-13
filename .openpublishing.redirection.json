@@ -5374,6 +5374,11 @@
       "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml",
+      "redirect_url": "docs/databases/idea/topic-migrating-oracle-to-azure",
+      "redirect_document_id": false
     }
   ]
 }
