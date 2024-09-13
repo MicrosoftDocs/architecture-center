@@ -1,14 +1,14 @@
 ---
 title: Choose a data transfer technology
 description: Learn about data transfer options like the Azure Import/Export service, Azure Data Box, Azure Data Factory, and command-line and graphical interface tools.
-author: martinekuan
-ms.author: martinek
+author: josearper
+ms.author: joaria
 ms.reviewer: tozimmergren
 categories: azure
 ms.date: 10/04/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
   - analytics
   - compute
@@ -18,9 +18,7 @@ products:
   - azure-cloud-services
   - azure-sql-database
   - azure-storage
-ms.custom:
-  - guide
-  - engagement-fy23
+ms.custom: arb-data
 ---
 
 <!-- cSpell:ignore SATA HDDs SDDs Distcp WASB Sqoop -->
@@ -162,7 +160,7 @@ The following tables summarize the key differences in capabilities.
 | Custom data transformations | No | No | Yes | No |
 | Pricing model | Free | Free | Pay per usage | Pay per unit |
 
-\* Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.
+*Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.*
 
 ## Contributors
 

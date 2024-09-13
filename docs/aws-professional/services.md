@@ -6,7 +6,7 @@ author: RobBagby
 ms.author: pnp
 ms.date: 11/18/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp

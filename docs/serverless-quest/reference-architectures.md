@@ -6,8 +6,8 @@ author: rogeriohc
 ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-functions
   - azure-machine-learning
