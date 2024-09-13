@@ -49,7 +49,7 @@ A gateway resolves this scenario's challenges in the following ways:
 
 - The gateway uses Open Authorization (OAuth) to authenticate users via their existing external identity providers. The gateway validates the authenticated user access tokens, such as a JSON Web Token (JWT), that the identity provider generates. Then the gateway grants authorization to the backing Azure OpenAI instance.
 
-- You don't need to manage client keys, which eliminates the security risks of key-based authentication.
+- You don't need to manage client keys. This approach eliminates the security risks of key-based authentication.
 
 - The gateway connects to Azure OpenAI by using a managed identity, which improves security via least-privileged Azure RBAC.
 
@@ -240,7 +240,7 @@ To build a gateway that supports your specific requirements, combine the recomme
 
 Before a gateway sends requests to Azure OpenAI instances, make sure you enforce inbound authentication and authorization policies. To ensure that the gateway only forwards authenticated and authorized requests, use user access tokens from an identity provider or certificate validation to implement this approach.
 
-To enable granular control, implement more authorization scoping with roles and permissions for client applications in your gateway. Use these scopes to permit specific operations based on the client application's needs, which enhances security and manageability.
+To enable granular control, implement more authorization scoping with roles and permissions for client applications in your gateway. Use these scopes to permit specific operations based on the client application's needs. This approach enhances security and manageability.
 
 For access token validation, be sure to validate all key registered claims such as `iss`, `aud`, `exp`, and `nbf` and any relevant workload-specific claims such as group memberships or application roles.
 
@@ -283,4 +283,4 @@ Principal authors:
 
 ## Related resources
 
-- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges).
+- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml#key-challenges)
