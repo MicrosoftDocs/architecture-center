@@ -17,6 +17,7 @@ metadata:
     - ai-machine-learning
     - fcp
     - arb-aiml
+    - arb-telco
 name: Determine customer lifetime and churn with Azure AI services
 azureCategories:
 - ai-machine-learning

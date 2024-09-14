@@ -26,6 +26,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge"
     - ai-machine-learning
     - arb-aiml
+    - arb-telco
 name: AI at the edge with Azure Stack Hub
 azureCategories:
   - ai-machine-learning

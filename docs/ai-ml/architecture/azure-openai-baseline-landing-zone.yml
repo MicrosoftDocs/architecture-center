@@ -11,6 +11,7 @@ metadata:
   ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.custom: arb-aiml
+  ms.custom: arb-telco
 azureCategories:
   - ai-machine-learning
   - web

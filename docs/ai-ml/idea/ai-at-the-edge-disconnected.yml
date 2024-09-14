@@ -25,6 +25,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
     - arb-aiml
+    - arb-telco
 name: Disconnected AI at the edge with Azure Stack Hub
 azureCategories:
   - ai-machine-learning

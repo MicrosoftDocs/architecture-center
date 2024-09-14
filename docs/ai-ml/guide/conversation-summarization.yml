@@ -13,6 +13,7 @@ metadata:
     - build-2023
     - build-2023-dataai
     - arb-aiml
+    - arb-telco
 azureCategories:
   - ai-machine-learning
 products:
