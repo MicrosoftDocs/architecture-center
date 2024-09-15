@@ -40,7 +40,7 @@ If you do not wish to containerize the microservices and would like to deploy th
 
 ## Microservices leveraging GPU
 
-If the microservice requires GPU capacity (for example, to execute machine learning tasks), Azure Container Apps and Azure Kubernetes Service are the platforms of choice. While Azure Kubernetes Service can leverage any GPU models in Azure, Azure Container Apps offer a subset of GPU models to select from. 
+If the microservice requires GPU capacity (for example, to execute machine learning tasks), Azure Container Apps and Azure Kubernetes Service are the platforms of choice. While Azure Kubernetes Service can [leverage any GPU models in Azure](/azure/aks/gpu-cluster), Azure Container Apps offer a [subset of GPU models to select from](/azure/container-apps/workload-profiles-overview). 
 
 ## Compute platform for Java Spring based microservices 
 
@@ -59,7 +59,9 @@ On the Azure platform, consider the following options:
 
 - [Azure Spring Apps](/azure/spring-apps/) is a fully managed service that helps Spring developers focus on code, not on infrastructure. You can deploy any type of Spring app—including web apps, microservices, event-driven, serverless, and batch in Azure Spring Apps environment.  Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
-- [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. Microservices can be deployed to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). Using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services. 
+- [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. Microservices can be deployed to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). Using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services.
+
+- [Azure RedHat OpenShift](/azure/openshift) enables you to deploy fully managed OpenShift clusters. Azure Red Hat OpenShift extends Kubernetes. Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft.
 
 - Other options such as Docker Enterprise Edition can run in an IaaS environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
