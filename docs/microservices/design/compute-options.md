@@ -28,6 +28,8 @@ For a microservices architecture, two approaches are especially popular:
 
 While these aren't the only options, they are both proven approaches to building microservices. An application might include both approaches.
 
+![Microservice compute options in Azure](../images/microsvc-compute-options.svg)
+
 ## Microservices leveraging serverless platform. 
 
 You can leverage serverless platform for deploying Microservices on either Azure Container Apps, or on Azure Functions. Both Azure Container Apps and Azure Functions provide the option for serverless compute, where the billing is based on the volume of requests (and not on the compute consumption). Both Azure Container Apps and Azure Functions provide you the option to host the workloads on dedicated capacity as well. 
