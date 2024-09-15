@@ -105,8 +105,7 @@ If Azure Container Apps is the compute platform of choice to deploy microservice
 
 With an orchestrator, you pay for the VMs that are running in the cluster. With a serverless application, you pay only for the actual compute resources consumed. In both cases, you need to factor in the cost of any additional services, such as storage, databases, and messaging services.
 
-Azure Functions, Azure Container Apps, Azure Kubernetes Service and Azure Spring Apps provides you auto-scaling options. 
-
+Azure Functions, Azure Container Apps, Azure Kubernetes Service and Azure Spring Apps provides you auto-scaling options. Please note that Azure Container Apps and Azure Functions provide you serverless platforms where the cost can be zero based on consumption, while Azure Kubernetes Servie and Azure Spring Apps provides only dedicated compute option. 
 
 ### Operational excellence
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see Overview of the operational excellence pillar.
