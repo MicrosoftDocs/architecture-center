@@ -67,9 +67,11 @@ On the Azure platform, consider the following options:
 
 ### Microservices leveraging Kubernetes APIs
 
-Access to Kubernetes APIs is another deciding factor - Azure Kubernetes Service provides direct access to Kubernetes APIs, while Azure Container Apps does not. Azure Container Apps hides the complexities of Kubernetes and simplifies the container deployment experience. However, if the microservice is designed to directly interact with Kubernetes APIs, Azure Kubernetes Service may be the right choice. 
+Access to Kubernetes APIs is often a deciding factor - Azure Kubernetes Service provides direct access to Kubernetes APIs, while Azure Container Apps does not. Azure Container Apps hides the complexities of Kubernetes and simplifies the container deployment experience. However, if the microservice deployment is designed to directly interact with Kubernetes APIs, Azure Kubernetes Service may be the right choice. 
 
-There may be additional decision factors such as use of GPUs, whether the microservice code is packaged as containers, whether they leverage frameworks such as Java Springboot etc. 
+### Other decision factors
+
+There may be other decision factors impacting the choice of microservice compute platform selection. They include the use and choice of service mesh, platform scalability, skill set within the organization etc. 
 
 ## Considerations
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see Microsoft Azure Well-Architected Framework.
@@ -88,15 +90,29 @@ If you choose Azure Container Apps as the microservice computing platform, relia
 
 If you choose Azure Spring Apps as the microservice computing platform, reliability can be enhanced by leveraging availability zones and by leveraging multi-region deployments. Please see [reliability in azure spring apps](/azure/reliability/reliability-spring-apps) for details. 
 
+### Security
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see Overview of the security pillar.
+
+If you choose Azure functions as the compute platform to deploy microservices, the principles of [securing in Azure functions](azure/azure-functions/security-concepts) apply to microservices as well. 
+
+If you choose Azure Kubernetes Service as the compute platform to deploy microservices, [AKS security baseline architecture](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline) provides guidance of securing the compute platform. Please refer to [Advanced AKS microservice architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced) for best practices on microservice security on Azure Kubernetes Service. 
+
+If Azure Spring Apps is the compute platform of choice to deploy microservices, please follow the guidance [securing spring app communications end to end](/azure/spring-apps/enterprise/secure-communications-end-to-end) to understand the best practices around application security in Azure Spring Apps.
+
+If Azure Container Apps is the compute platform of choice to deploy microservices, please refer the [security baseline for Azure Container Apps](/en-us/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices. 
+
+### Cost management 
+
+With an orchestrator, you pay for the VMs that are running in the cluster. With a serverless application, you pay only for the actual compute resources consumed. In both cases, you need to factor in the cost of any additional services, such as storage, databases, and messaging services.
+
+Azure Functions, Azure Container Apps, Azure Kubernetes Service and Azure Spring Apps provides you auto-scaling options. 
 
 
+### Operational excellence
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see Overview of the operational excellence pillar.
 
+All of the microservice compute choices described in this article can be deployed in an automated manner using Terraform, Bicep, and other scripting languages. Azure application insights, Azure monitor and other monitoring solutions can be leveraged to monitor these compute platforms and the microservices. 
 
-## Orchestrator or serverless?
-
-Here are some factors to consider when choosing between an orchestrator approach and a serverless approach.
-
-**Manageability** A serverless application is easy to manage, because the platform manages all compute resources for you. While an orchestrator abstracts some aspects of managing and configuring a cluster, it does not completely hide the underlying VMs. With an orchestrator, you will need to think about issues such as load balancing, CPU and memory usage, and networking.
 
 **Flexibility and control**. An orchestrator gives you a great deal of control over configuring and managing your services and the cluster. The tradeoff is additional complexity. With a serverless architecture, you give up some degree of control because these details are abstracted.
 
@@ -104,9 +120,6 @@ Here are some factors to consider when choosing between an orchestrator approach
 
 **Application integration**. It can be challenging to build a complex application using a serverless architecture, due to the need to coordinate, deploy, and manage many small independent functions. One option in Azure is to use [Azure Logic Apps](/azure/logic-apps/) to coordinate a set of Azure Functions. For an example of this approach, see [Create a function that integrates with Azure Logic Apps](/azure/azure-functions/functions-twitter-email).
 
-**Cost**. With an orchestrator, you pay for the VMs that are running in the cluster. With a serverless application, you pay only for the actual compute resources consumed. In both cases, you need to factor in the cost of any additional services, such as storage, databases, and messaging services.
-
-**Scalability**. Azure Functions scales automatically to meet demand, based on the number of incoming events. Azure Kubernetes Service provides auto-scaling capabilities for the underlying virtual machines (node autoscaler), and auto-scaling for containers (horizontal pod autoscaler & vertical pod autoscaler) as well.
 
 ## Next steps
 
