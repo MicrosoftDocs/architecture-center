@@ -201,6 +201,7 @@ Principal authors:
 Other contributors:
 
  - [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+ - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Senior Customer Engineer
  - [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
  - [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 
