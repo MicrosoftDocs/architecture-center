@@ -17,14 +17,36 @@ ms.custom:
   - guide
 ---
 
+This article aims to provide prescriptive guidance to choose a compute platform for microservices. The choice of microservice compute platform may vary based on more nuanced requirements.
+
 # Choose an Azure compute option for microservices
 
 The term *compute* refers to the hosting model for the computing resources that your application runs on. For a microservices architecture, two approaches are especially popular:
 
-- A service orchestrator that manages services running on dedicated nodes (VMs).
-- A serverless architecture.
+- Microservices deployed on dedicated compute platforms, typically leveraging a microservice orchestrator.
+- Microservices deployed on serverless platform.
 
 While these aren't the only options, they are both proven approaches to building microservices. An application might include both approaches.
+
+There may be additional decision factors such as use of GPUs, whether the microservice code is packaged as containers, whether they leverage frameworks such as Java Springboot etc. 
+
+# Code based microservices vs Continerized microservices. 
+
+If you do not wish to containerize the microservices and would like to deploy the microservice as code, you may want to choose either Azure Functions or Azure Spring Apps. Please note that the programming languages supported by Azure Functions are .NET, Java, Node.js, Python and PowerShell Core. For microservices developed in other languages you may want to implement a custom handler in Azure function or consider containerizing the application. 
+
+# Deploying java Spring based microservices 
+
+Azure Spring Apps is an ideal choice for deploying Spring based microservices. Spring Apps supports deploying both code based and container based spring microservices. You can also deploy spring based microservices in Azure functions, or deploy spring containers in other container based compute platforms such as Azure Kubernetes Services or Azure Container Apps as well. Compared to other computing choices, Azure Spring Apps provides certain advantages to deploying Spring microservices, such as configuration management, service discovery, blue-green deployments etc. 
+
+# Microservices using GPU
+
+If the microservice requires GPU capacity (for example, to execute machine learning tasks), Azure Container Apps and Azure Kubernetes Service are the platforms of choice. While Azure Kubernetes Service can leverage any GPU models in Azure, Azure Container Apps offer a subset of GPU models to select from. 
+
+# Microservices leveraging Kubernetes APIs
+
+Access to Kubernetes APIs is another deciding factor - Azure Kubernetes Service provides direct access to Kubernetes APIs, while Azure Container Apps does not. Azure Container Apps hides the complexities of Kubernetes and simplifies the container deployment experience. However, if the microservice is designed to directly interact with Kubernetes APIs, Azure Kubernetes Service may be the right choice. 
+
+
 
 ## Service orchestrators
 
@@ -34,31 +56,14 @@ On the Azure platform, consider the following options:
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, hosts and manages the Kubernetes control plane, performing automated upgrades, automated patching, autoscaling, and other management tasks. Azure Kubernetes Service provides you direct access to Kubernetes APIs. 
 
-- [Azure Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks.  Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes. Azure Container Apps is ideal for scenarios where direct access to Kubernetes APIs are not required. 
-
-- [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. Microservices can be deployed to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). Using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services. A key differentiation with Service Fabric is its strong focus on building stateful services using [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
+- [Azure Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks. Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes. Azure Container Apps is ideal for scenarios where direct access to Kubernetes APIs are not required. 
 
 - [Azure Spring Apps](/azure/spring-apps/) is a fully managed service that helps Spring developers focus on code, not on infrastructure. You can deploy any type of Spring app—including web apps, microservices, event-driven, serverless, and batch in Azure Spring Apps environment.  Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
+- [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. Microservices can be deployed to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). Using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services. 
+
 - Other options such as Docker Enterprise Edition can run in an IaaS environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
-## Containers
-
-Although you don't need containers to build microservices, containers do have some benefits that are particularly relevant to microservices, such as:
-
-- **Portability**. A container image is a standalone package that runs without needing to install libraries or other dependencies. That makes them easy to deploy. Containers can be started and stopped quickly, so you can spin up new instances to handle more load or to recover from node failures.
-
-- **Density**. Containers are lightweight compared with running a virtual machine, because they share OS resources. That makes it possible to pack multiple containers onto a single node, which is especially useful when the application consists of many small services.
-
-- **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../../patterns/bulkhead.yml) for more information.
-
-## Serverless 
-
-With a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture, you don't manage the VMs or the virtual network infrastructure. Instead, you deploy code and the hosting service handles putting that code onto a VM and executing it. This approach tends to favor small granular functions that are coordinated using event-based triggers. For example, a message being placed onto a queue might trigger a function that reads from the queue and processes the message.
-
-[Azure Functions](/azure/azure-functions/) is a serverless compute service that supports various function triggers, including HTTP requests, Service Bus queues, and Event Hubs events. For a complete list, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings). Also consider [Azure Event Grid](/azure/event-grid/), which is a managed event routing service in Azure.
-
-[Azure Logic Apps](/azure/logic-apps/) is a serverless compute service that allows you to visually compose and deploy microservices. Azure Logic Apps supports various triggers and actions, and provides out of the box connectors to various enterprise systems. 
 
 ## Orchestrator or serverless?
 
