@@ -28,7 +28,7 @@ For a microservices architecture, two approaches are especially popular:
 
 While these aren't the only options, they are both proven approaches to building microservices. An application might include both approaches.
 
-![Microservice compute options in Azure](../images/microsvc-compute-options.svg)
+![Microservice compute options in Azure](../design/images/microsvc-compute-options.svg)
 
 ## Microservices leveraging serverless platform. 
 
