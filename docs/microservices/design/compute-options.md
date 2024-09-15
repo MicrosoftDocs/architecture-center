@@ -32,7 +32,7 @@ There may be additional decision factors such as use of GPUs, whether the micros
 
 # Code based microservices vs Continerized microservices. 
 
-If you do not wish to containerize the microservices and would like to deploy the microservice as code, you may want to choose either Azure Functions or Azure Spring Apps. Please note that the programming languages supported by Azure Functions are .NET, Java, Node.js, Python and PowerShell Core. For microservices developed in other languages you may want to implement a custom handler in Azure function or consider containerizing the application. 
+If you do not wish to containerize the microservices and would like to deploy the microservice as code, you may want to choose either Azure Functions or Azure Spring Apps. Please note that the programming / scripting languages supported by Azure Functions are .NET, Java, Node.js, Python and PowerShell Core. For microservices developed in other languages, you may want to implement a custom handler in Azure function or consider containerizing the application. 
 
 # Deploying java Spring based microservices 
 
