@@ -40,7 +40,6 @@ If you do not wish to containerize the microservices and would like to deploy th
 
 If the microservice requires GPU capacity (for example, to execute machine learning tasks), Azure Container Apps and Azure Kubernetes Service are the platforms of choice. While Azure Kubernetes Service can leverage any GPU models in Azure, Azure Container Apps offer a subset of GPU models to select from. 
 
-
 ## Compute platform for Java Spring based microservices 
 
 Azure Spring Apps is an ideal choice for deploying Spring based microservices. Spring Apps supports deploying both code based and container based spring microservices. You can also deploy spring based microservices in Azure functions, or deploy spring containers in other orchestrator based compute platforms such as Azure Kubernetes Services or Azure Container Apps as well. Compared to other computing choices, Azure Spring Apps provides certain advantages to deploying Spring microservices, such as configuration management, service discovery, blue-green deployments etc. 
@@ -66,15 +65,24 @@ On the Azure platform, consider the following options:
 
 Access to Kubernetes APIs is another deciding factor - Azure Kubernetes Service provides direct access to Kubernetes APIs, while Azure Container Apps does not. Azure Container Apps hides the complexities of Kubernetes and simplifies the container deployment experience. However, if the microservice is designed to directly interact with Kubernetes APIs, Azure Kubernetes Service may be the right choice. 
 
-
-
 There may be additional decision factors such as use of GPUs, whether the microservice code is packaged as containers, whether they leverage frameworks such as Java Springboot etc. 
 
+## Considerations
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see Microsoft Azure Well-Architected Framework.
 
+### Reliability
 
+Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see Overview of the [reliability pillar](/architecture/framework/resiliency/overview). 
 
+One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. 
 
+If you choose Azure functions as the microservice computing platform, consider deploying the function plan or app service plan in zone-redundant configuration. Please see [reliability in Azure functions](/reliability/reliability-functions?tabs=azure-portal) for details. 
 
+If you choose Azure Kubernetes Service as the microservice computing platorm, microservice reliability can be enhanced by deploying [AKS cluster using availability zones](/aks/availability-zones), using [Standard or Premium tier](/aks/free-standard-pricing-tiers) for Azure Kubernetes Cluster, increasing the minimum number of pods and nodes, etc. Please see [deployment and cluster reliability best practices for AKS](aks/best-practices-app-cluster-reliability) for details. 
+
+If you choose Azure Container Apps as the microservice computing platform, reliability can be enhanced by leveraging availability zones. Please see [reliability in container apps](/reliability/reliability-azure-container-apps) for details. 
+
+If you choose Azure Spring Apps as the microservice computing platform, reliability can be enhanced by leveraging availability zones and by leveraging multi-region deployments. Please see [reliability in azure spring apps](/azure/reliability/reliability-spring-apps) for details. 
 
 
 
