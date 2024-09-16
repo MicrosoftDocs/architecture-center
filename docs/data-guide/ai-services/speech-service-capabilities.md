@@ -35,7 +35,7 @@ The following services provide speech recognition and generation capabilities fo
     - **Use** Speech service when you need to transcribe or translate spoken speech, identify speakers in a conversation. You can also use the service as a lower cost alternative for natural sounding speech generation to the higher quality [Whisper](/azure/ai-services/openai/concepts/models) in the OpenAI models.
     - **Don't use** Speech service for chat, content summarization, moderation, or guiding users through scripts. Use other models for those things instead.
 
-- [Azure AI Immersive Reader service](#azure-ai-immersive-reader) Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK. 
+- [Immersive Reader service](#azure-ai-immersive-reader) Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK. 
     - **Use**  Immersive Reader to provide an improved readability experience tailored for language learners or people with learning differences.
     - **Don't use**  Immersive Reader for traditional text to speech use cases. 
 
@@ -77,7 +77,7 @@ The following table provides a list of possible use cases for Azure AI Speech se
 | [Voice assistants](/azure/ai-services/speech-service/voice-assistants)| Text-to-speech | Create natural, human like conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.|
 
 
-### Azure AI Immersive Reader
+### Immersive Reader
 
 [Immersive Reader](https://www.onenote.com/learningtools), part of Azure AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications.
 
