@@ -4,9 +4,8 @@ description: Learn about the tasks that an individual contributor performs on a 
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.date: 07/12/2024

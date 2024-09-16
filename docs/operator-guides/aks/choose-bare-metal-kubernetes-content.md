@@ -97,6 +97,4 @@ For more information, see the following articles:
 
 -   [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 
--   [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
-
 -   [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)

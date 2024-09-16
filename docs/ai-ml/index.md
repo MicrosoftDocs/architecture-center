@@ -6,8 +6,8 @@ ms.author: robbag
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-machine-learning
 ms.custom:
@@ -48,8 +48,6 @@ Deep learning uses artificial neural networks, which consist of multiple layers 
 With many layers in each neural network-and sometimes using multiple neural networks-a machine can learn through its own data processing. This requires much more data and much more computing power than ML.
 
 - [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
-
-- [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 
 ### Bots
 
@@ -227,8 +225,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 #### Machine learning reference architectures for Azure
 
-- [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
-
 - [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../ai-ml/guide/mlops-python.yml)
 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
@@ -244,8 +240,6 @@ Azure provides extensive support for automated ML. Developers can build models u
 - [Azure automated ML infographic (PDF)](https://aka.ms/automlinfographic/)
 
 - [Tutorial: Create a classification model with automated ML in Azure Machine Learning](/azure/machine-learning/tutorial-first-experiment-automated-ml)
-
-- [Tutorial: Use automated machine learning to predict taxi fares](/azure/machine-learning/tutorial-auto-train-models)
 
 - [Configure automated ML experiments in Python](/azure/machine-learning/how-to-configure-auto-train)
 

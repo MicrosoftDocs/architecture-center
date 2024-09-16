@@ -6,7 +6,7 @@ author: martinekuan
 ms.author: pnp
 ms.date: 07/28/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern

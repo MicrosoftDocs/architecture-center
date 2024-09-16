@@ -2222,8 +2222,6 @@ items:
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
       - name: HPC media rendering
         href: solution-ideas/articles/azure-batch-rendering.yml
-      - name: Keyword search and speech-to-text
-        href: ai-ml/idea/digital-media-speech-text.yml
       - name: SMB disaster recovery with Site Recovery
         href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
       - name: SMB disaster recovery with Double-Take DR
@@ -2265,8 +2263,6 @@ items:
       items:
       - name: 3D video rendering
         href: example-scenario/infrastructure/video-rendering.yml
-      - name: Batch scoring for media
-        href: ai-ml/architecture/batch-scoring-deep-learning.yml
       - name: Gridwich media processing system
         items:
         - name: Gridwich architecture
@@ -2293,8 +2289,6 @@ items:
       items:
       - name: HPC media rendering
         href: solution-ideas/articles/azure-batch-rendering.yml
-      - name: Keyword search in videos
-        href: ai-ml/idea/digital-media-speech-text.yml
   - name: Migration
     items:
     - name: Get started
@@ -3752,8 +3746,6 @@ items:
       items:
       - name: AI and ML scenarios
         items:
-        - name: MLOps to upscale ML lifecycle
-          href: ai-ml/guide/mlops-technical-paper.yml
         - name: Predictive maintenance in manufacturing
           href: industries/manufacturing/predictive-maintenance-overview.yml
         - name: Predictive maintenance solution
