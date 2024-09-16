@@ -99,8 +99,6 @@ With Data Share, [many alternatives exist for data storage][Supported data store
   - Data Lake Storage
   - Azure Blob Storage
 
-  For information on combining different types of data, see [Modern data warehouse architecture][Modern data warehouse architecture].
-
 - For in-place sharing of streaming telemetry and log data, use Azure Data Explorer. For more information on analyzing data from various sources, see [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics].
 
 - Some datasets are large or non-relational. Some don't contain data in standardized formats. For these types of datasets, Blob Storage or Azure Data Lake Storage work better than Azure Synapse Analytics and SQL Database for exchanging data with Data Share. For more information on storing medical data efficiently, see [Medical data storage solutions][Medical data storage solutions].
@@ -259,7 +257,6 @@ Product documentation:
 [Medical data storage solutions]: ../../solution-ideas/articles/medical-data-storage.yml
 [Microsoft DICOM]: https://github.com/microsoft/dicom-server
 [Microsoft Genomics]: https://azure.microsoft.com/services/genomics
-[Modern data warehouse architecture]: ../../solution-ideas/articles/enterprise-data-warehouse.yml
 [An overview of Azure SQL Database and SQL Managed Instance security capabilities]: /azure/azure-sql/database/security-overview
 [Security in Azure Data Explorer]: /azure/data-explorer/security
 [Securing your Data Warehouse with Azure Synapse Analytics]: https://azure.microsoft.com/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics

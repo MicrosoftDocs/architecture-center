@@ -6,7 +6,7 @@ author: aionic
 ms.author: anevico
 ms.date: 12/28/2023
 ms.topic: reference-architecture
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.custom:
   - e2e-aks
@@ -88,9 +88,9 @@ Available channels include the following:
 - `None`. No updates are automatically applied.
 - `Unmanaged`. Ubuntu and Azure Linux updates are applied by the OS on a nightly basis. Reboots must be managed separately. AKS is neither able to test this nor control the cadence of this. 
 - `SecurityPatch`. OS security patches which are AKS-tested, fully managed, and applied with safe deployment practices. It does not contain any OS bug fixes just security updates. 
-- `NodeImage`. AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. This is fully tested and deployed with safe deployment practices. For real time information on currently deployed node images, please refer to [AKS Node images section in the Release tracker][release-tracker].
+- `NodeImage`. AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. This is fully tested and deployed with safe deployment practices. For real-time information about currently deployed node images, see [AKS node image updates](/azure/aks/release-tracker#aks-node-image-updates).
 
-To understand the default cadences without a maintenance window established, please refer to [update ownership and cadence](/azure/aks/auto-upgrade-node-os-image#update-ownership-and-schedule).
+To understand the default cadences without a maintenance window established, see [update ownership and cadence](/azure/aks/auto-upgrade-node-os-image#update-ownership-and-schedule).
 
 If you choose the `Unmanaged` update channel, you need to manage the reboot process by using a tool like [kured](https://kured.dev/docs/). `Unmanaged` does not come with AKS-provided safe deployment practices and will not work under maintenance windows. If you choose the `SecurityPatch` update channel, updates can be applied as frequently as weekly. This patch level requires the VHDs to be stored in your resource group, which incurs a nominal charge. Control when the `SecurityPatch` is applied by setting an appropriate `aksManagedNodeOSUpgradeSchedule` that aligns to a cadence that works best for your workload. For more information, see [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window). If you also need bug fixes that come typically with new node images (VHD), then you need to choose the `NodeImage` channel instead of `SecurityPatch`.
 

@@ -155,6 +155,5 @@ Other contributor:
 
 ## Related resources
 
-- [MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](../../ai-ml/guide/mlops-technical-paper.yml)
 - [MLOps v2](../../data-guide/technology-choices/machine-learning-operations-v2.md)
 - [MLOps maturity model](../../ai-ml/guide/mlops-maturity-model.yml)

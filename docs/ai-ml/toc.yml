@@ -14,18 +14,10 @@ items:
         items:
         - name: Image classification
           href: idea/intelligent-apps-image-processing.yml
-        - name: Image classification with CNNs
-          href: idea/image-classification-with-convolutional-neural-networks.yml
-        - name: Retail assistant with visual capabilities
-          href: idea/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
-        - name: Visual assistant
-          href: idea/visual-assistant.yml
         - name: Vision classifier model
           href: idea/vision-classifier-model-with-custom-vision.yml
       - name: Audio processing
         items:
-        - name: Keyword digital text processing
-          href: idea/digital-media-speech-text.yml
         - name: Use Azure OpenAI to process podcast audio files
           href: idea/process-audio-files.yml
       - name: Predictive analytics
@@ -36,10 +28,6 @@ items:
           href: idea/personalized-offers.yml
       - name: AI at the edge
         items:
-        - name: AI at the edge with Azure Stack Hub
-          href: idea/ai-at-the-edge.yml
-        - name: Disconnected AI at the edge with Azure Stack Hub
-          href: idea/ai-at-the-edge-disconnected.yml
         - name: Video ingestion and object detection on the edge
           href: idea/video-ingestion-object-detection-edge-cloud.yml
       - name: Document enrichment
@@ -94,14 +82,8 @@ items:
           href: architecture/customer-lifecycle-churn.yml
       - name: Batch scoring
         items:
-        - name: Batch scoring for deep learning
-          href: architecture/batch-scoring-deep-learning.yml
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
-      - name: Recommendations
-        items:
-        - name: Social media analytics solution
-          href: architecture/build-deploy-social-media-analytics-solution.yml
       - name: Monitoring
         items:
         - name: Monitor OpenAI models
@@ -130,10 +112,6 @@ items:
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.yml
-      - name: Audio processing
-        items:
-        - name: Conversation summarization
-          href: guide/conversation-summarization.yml
       - name: MLOps
         items:
         - name: Machine learning operations (MLOps) v2
@@ -144,8 +122,6 @@ items:
           href: guide/network-security-mlops.yml
         - name: MLOps maturity model
           href: guide/mlops-maturity-model.yml
-        - name: Upscale ML lifecycle with MLOps
-          href: guide/mlops-technical-paper.yml
       - name: Proxy Azure OpenAI usage
         items:
         - name: Use a gateway infront of Azure OpenAI
@@ -226,5 +202,4 @@ items:
             href: guide/azure-openai-gateway-multi-backend.yml
           - name: Custom authentication for a gateway in front of Azure OpenAI
             href: guide/azure-openai-gateway-custom-authentication.yml
-        - name: Conversation summarization
-          href: guide/conversation-summarization.yml
+
