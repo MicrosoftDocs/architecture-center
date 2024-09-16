@@ -5382,7 +5382,7 @@
     },
     {
       "source_path": "docs/data-guide/cognitive-services/language-api.md",
-      "redirect_url": "/azure/architecture/ai-services/language-service-capabilities",
+      "redirect_url": "/azure/architecture/ai-services/targeted-language-processing",
       "redirect_document_id": false
     },
     {
@@ -5392,7 +5392,7 @@
     },
     {
       "source_path": "docs/data-guide/cognitive-services/vision-api.md",
-      "redirect_url": "/azure/architecture/ai-services/vision-service-capabilities",
+      "redirect_url": "/azure/architecture/ai-services/image-video-processing",
       "redirect_document_id": false
     },
     {

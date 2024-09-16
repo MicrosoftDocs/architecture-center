@@ -227,11 +227,11 @@ items:
       - name: AI services
         href: data-guide/technology-choices/ai-services.md  
       - name: Targeted language processing
-        href: data-guide/ai-services/language-service-capabilities.md
+        href: data-guide/ai-services/targeted-language-processing.md
       - name: Speech recognition and generation
-        href: data-guide/ai-services/speech-service-capabilities.md
+        href: data-guide/ai-services/speech-recognition-generation.md
       - name: Image and video processing
-        href: data-guide/ai-services/vision-service-capabilities.md
+        href: data-guide/ai-services/image-video-processing.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning

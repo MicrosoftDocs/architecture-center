@@ -125,5 +125,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure AI Language capabilities guide](language-service-capabilities.md)
-- [Azure AI Vision capabilities guide](vision-service-capabilities.md)
+- [Azure AI Language capabilities guide](targeted-language-processing.md)
+- [Azure AI Vision capabilities guide](image-video-processing.md)
