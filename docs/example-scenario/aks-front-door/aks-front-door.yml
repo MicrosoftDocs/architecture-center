@@ -27,4 +27,4 @@ products:
   - azure-kubernetes-service
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-front-door.png
 content: |
-   [!include[](aks-front-door-content.md)]
+   [!INCLUDE[](aks-front-door-content.md)]
