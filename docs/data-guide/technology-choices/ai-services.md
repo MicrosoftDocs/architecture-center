@@ -58,25 +58,6 @@ Azure offers a number of AI services that can be grouped into categories based o
 |[Custom Machine Learning](https://azure.microsoft.com/products/ai-services/openai-service/) |  Azure Machine Learning service procures and exposes many proprietary and open source models that you can use directly or customize further with more training. It also supports the creation of brand new models of any type using your own data. |
 
 
-## Common use cases
-
-The following are some common use cases for Azure AI services.
-
-| Use case | Category |
-| --- | --- |
-| Transcribe audible speech into readable, searchable text. | Speech |
-| Convert text to lifelike speech for more natural interfaces. | Speech |
-| Integrate real-time speech translation into your apps. | Speech |
-| Identify and verify the person speaking by using voice characteristics. | Speech |
-| Identify commonly used and domain-specific terms. | Language |
-| Automatically detect sentiments and opinions in text. | Language |
-| Distill information into easy-to-navigate questions and answers. | Language |
-| Enable your apps to interact with users through natural language. | Language  |
-| Translate more than 100 languages and dialects. | Language |
-| Identify and analyze content in images and video. | Vision |
-| Customize image recognition to fit your business needs. | Vision |
-| Detect potentially offensive or unwanted content. | Azure AI Content Safety  |
-| Apply advanced coding and language models to various use cases. | Azure OpenAI  |
 
 
 ## Deploying Azure AI service resources
