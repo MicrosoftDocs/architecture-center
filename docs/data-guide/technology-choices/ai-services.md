@@ -79,22 +79,6 @@ The following are some common use cases for Azure AI services.
 | Detect potentially offensive or unwanted content. | Azure AI Content Safety  |
 | Apply advanced coding and language models to various use cases. | Azure OpenAI  |
 
-## Key selection criteria
-
-To narrow down the choices, start by answering these questions:
-
-- Are you processing something related to spoken language, or are you processing text, images, or documents?
-
-- Do you have the data to train a model? If yes, consider using the custom services that enable you to train their underlying models with data that you provide. Doing so can improve accuracy and performance.
-
-This flow chart can help you choose the best API service for your use case.
-
-![Diagram that shows how to select a AI Services API.](../ai-services/images/ai-services-flow-chart.png)
-
-- If your use case requires speech-to-text, text-to-speech, or speech-to-speech, use a [Speech service](../ai-services/speech-service-capabilities.md).
-- If your use case requires language or document analysis, text assessment, or  text-to-text, use a [Language service](../ai-services/language-service-capabilities.md).
-- If you need to analyze images, video, or text, use a [Vision service](../ai-services/vision-service-capabilities.md).
-
 
 ## Deploying Azure AI service resources
 
