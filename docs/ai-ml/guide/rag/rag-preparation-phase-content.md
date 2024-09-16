@@ -1,10 +1,97 @@
-The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of gathering documents and sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The questions must be answerable by content in the documents and the documents must answer relevant questions. While gathering the test documents and queries, perform an analysis of your documents to get a better understanding of the structure and content.
+The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of performing document analysis, gathering documents, and gathering sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The document analysis helps you determine what test documents and test queries you should gather. They are further interrelated in that the questions must be answerable by content in the documents and the documents must answer relevant questions.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
 ## Determine solution domain
 
 The first step in this process is to clearly define the business requirements for the solution or the use case. These requirements help determine what kind of questions the solution intends to address and what source data or documents help address those questions. In later stages, the solution domain helps inform your embedding model strategy.
+
+## Document analysis
+
+The goal of document analysis is to gather enough information about your document corpus to help you understand:
+
+- The different classifications of documents - For example, do you have product specifications, quarterly reports, car insurance contracts, health insurance contracts, etc.
+- The different document types - For example, do you have PDFs, MD files, HTML files, DOCX files, etc.
+- The security constraints - For example, whether the documents are publicly accessible or not, or whether they require authentication and authorization to access them
+- The structure of the documents - For example, the length of documents, whether they have images and tables, and information about the images and tables
+
+The following sections discuss how this information will help inform your loading and chunking strategies.
+
+### Classification of documents
+
+You need to understand the different classifications of documents to help you determine the number of test documents you require. This part of the analysis should tell you not only the high-level classifications such as insurance or finance, but also subclassifications, such as health insurance vs. car insurance documents. You also want to understand if the subclassifications have different structures or content. 
+
+The goal is to understand all of the different document variants you have. This understanding will help you determine the number and breakdown of test documents you require.
+
+### Document types
+
+Understanding the different document formats in your corpus will also help you determine the number and breakdown of test documents. For example, if you have PDF and docx document types for quarterly reports, you will need test documents for each document type. Understanding your document types will also help you understand your technical requirements for loading and chunking your documents.
+
+### Security constraints
+
+Understanding the security constraints will help you determine your loading and chunking strategies. For example, if some or all of your documents are HTML documents that require authentication and/or authorization, you need to ensure that either your loader can access the documents, or you need another process prior to loading that can access the documents and download them to a location your loader has access to.
+
+You also have to understand the security constraints for images referenced in documents. If those images require authentication and/or authorization, you again need to either make sure the loader can access the images or you have a prior process that has access that can download the images.
+
+### Document structure
+
+You need to understand the structure of the document, including how it is laid out and the types of content in the document. Understanding the structure and content of your documents will help you make the following determinations:
+
+- Whether the document requires pre-processing to clean up noise, extract media, reformat, or annotate items to ignore
+- What in the document you want to ignore or exclude
+- What in the document you want to capture
+- How you want to chunk the document
+- How you want to handle images, tables, charts, and other embedded media
+
+The following are some categorized questions you can use to help you make some of these determinations.
+
+#### Questions about common items you can consider ignoring
+
+Some structural elements may not add meaning to the document and can safely be ignored when chunking. The following are some common questions you can ask to identify elements you might consider ignoring.
+
+- Does the document contain a table of contents?
+- Are there headers and footers? Do you need them?
+- Are there copyrights or disclaimers? Do you need them?
+- Are there footnotes or endnotes? Do you need them?
+- Are there watermarks?
+- Are there annotations or comments, for example, in PDFs or Word documents? Do you need them?
+
+#### Questions that will help inform preprocessing and chunking strategy
+
+The following questions about the structure of the document will give you insight that will help you understand if you need to pre-process the document to make it easier to process and will help inform your chunking strategy.
+
+- Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
+- How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
+- What languages, language variant, or dialects are in the documents?
+- Does the document contain Unicode characters?
+- How are numbers formatted? Are they using commas or decimals?
+- What in the document is uniform and what isn't uniform?
+- Is there a header structure where semantic meaning can be extracted?
+- Are there bullets or meaningful indentations?
+
+#### Questions about Images
+
+Understanding the images in your document will help you determine your image processing strategy. You need to understand information like what kind of images you have, whether they have sufficient resolution to process, and whether the image contains all the required information. The following questions will help you understand your image processing requirements.
+
+- Does the document contain images?
+- What resolution are the images?
+- What kind of data do you have on images?
+- Is there text embedded in the images?
+- What is the relationship between the image and surrounding text
+  - The image has all the information required to chunk
+  - The surrounding text has information that must be chunked with the image
+  - Both the image and surrounding text have all required information
+
+Tables, charts and other content
+
+Understanding what information is encapsulated in tables, charts, and other media will help you understand what and how you want to process it. The following questions will help you understand your tables, charts, and other media processing requirements.
+
+- Does the document have charts with numbers?
+- Does the document contain tables?
+  - Are the tables complex (nested tables) or noncomplex?
+  - Are there captions for the tables?
+- Are there other types of embedded media like videos or audio?
+- Are there any mathematical equations/scientific notations in the document?
 
 ## Gather representative test documents
 
@@ -31,6 +118,7 @@ The success factor in this step is being *qualitatively confident* that you have
 - Make sure that the documents can address the questions that are being gathered.
 - You should have at least two documents for each document variant.
 - You can use large language models or other tools to help evaluate the document quality.
+
 
 ## Gather test queries
 
@@ -83,44 +171,6 @@ It's important to gather queries that the documents don't address, along with qu
 - Determine whether there is a system that contains real customer questions that you can use. For example, if you're building a chat bot to answer customer questions, you might be able to use customer questions from your help desk, FAQs, or ticketing system.
 - The customer or SME for the use case should act as a quality gate to determine whether or not the gathered documents, the associated test queries, and the answers to the queries from the documents are comprehensive, representative, and are correct.
 - Reviewing the body of questions and answers should be done periodically to ensure that they continue to accurately reflect the source documents.
-
-## Document analysis
-
-The goal of document analysis is to determine the following three things:
-
-- What in the document you want to ignore or exclude
-- What in the document you want to capture in chunks
-- How you want to chunk the document
-
-The following are some common questions you can ask when analyzing a document type that helps you make those three determinations:
-
-- Does the document contain a table of content?
-- Does the document contain images?
-  - Are they high resolution images?
-  - What kind of data do you have on images?
-  - Are there captions for the images?
-  - Is there text embedded in the images?
-- Does the document have charts with numbers?
-- Does the document contain tables?
-  - Are the tables complex (nested tables) or noncomplex?
-  - Are there captions for the tables?
-- Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
-- How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
-- What languages, language variant, or dialects are in the documents?
-- Does the document contain Unicode characters?
-- How are numbers formatted? Are they using commas or decimals?
-- Are there headers and footers? Do you need them?
-- Are there copyrights or disclaimers? Do you need them?
-- What in the document is uniform and what isn't uniform?
-- Is there a header structure where semantic meaning can be extracted?
-- Are there footnotes or endnotes?
-- Are there watermarks?
-- Are there annotations or comments (for example, in PDFs or Word documents)
-- Are there other types of embedded media like videos or audio?
-- Are there any mathematical equations/scientific notations in the document?
-- Are there bullets or meaningful indentations?
-
-The answers to these questions help you identify the document structure, determine your chunking approach, and identify content to chunk and what not to.
 
 ## Next steps
 
