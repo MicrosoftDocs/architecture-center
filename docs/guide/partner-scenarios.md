@@ -199,12 +199,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |--|--|--|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid.|Compute|
 
-## Sitecore
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
-
 ## Skytap
 
 |Architecture|Summary|Technology focus|

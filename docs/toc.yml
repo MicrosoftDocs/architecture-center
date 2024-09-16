@@ -1411,8 +1411,6 @@ items:
           href: serverless-quest/reference-architectures.md
         - name: Plan for serverless architecture
           items:
-          - name: Deploy serverless Functions
-            href: serverless-quest/validate-commit-serverless-adoption.md
           - name: Serverless application assessment
             href: serverless-quest/application-assessment.md
           - name: Technical workshops and training
@@ -2426,9 +2424,6 @@ items:
         maintainContext: true
       - name: App quality criteria overview
         href: /windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview
-        maintainContext: true
-      - name: Azure mixed reality cloud services
-        href: /windows/mixed-reality/develop/mixed-reality-cloud-services
         maintainContext: true
       - name: Shared experiences in mixed reality
         href: /windows/mixed-reality/design/shared-experiences-in-mixed-reality
