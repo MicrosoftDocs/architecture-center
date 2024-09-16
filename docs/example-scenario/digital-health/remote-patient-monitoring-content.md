@@ -193,7 +193,7 @@ This solution provides a scalable near-realtime architecture for remote patient 
 
 - Apache Spark for Azure Synapse Analytics pool's [Autoscale feature automatically scales](/azure/synapse-analytics/spark/apache-spark-autoscale) the number of nodes in a cluster instance up and down.
 
-- Azure Machine Learning offers deployment for [inference with GPU](/azure/machine-learning/v1/how-to-deploy-inferencing-gpus) processors and [Azure FPGAs](/azure/machine-learning/v1/how-to-deploy-fpga-web-service) that make it possible to achieve low latency for real-time inference.
+- Azure Machine Learning offers deployment for [inference with GPU](/azure/machine-learning/how-to-deploy-online-endpoints) processors and Azure FPGAs that make it possible to achieve low latency for real-time inference.
 
 ## Contributors
 
