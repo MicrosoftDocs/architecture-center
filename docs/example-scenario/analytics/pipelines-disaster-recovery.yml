@@ -24,4 +24,4 @@ name: BCDR for Azure Data Factory and Azure Synapse Analytics pipelines
 summary: See automated and user-managed methods to achieve business continuity and disaster recovery (BCDR) for Data Factory and Azure Synapse pipelines.
 thumbnailUrl: /azure/architecture/browse/thumbs/pipelines-disaster-recovery.png
 content: |
-  [!include[](pipelines-disaster-recovery-content.md)]
+  [!INCLUDE[](pipelines-disaster-recovery-content.md)]
