@@ -54,8 +54,8 @@ Azure offers a number of AI services that can be grouped into categories based o
 |[Speech recognition and generation guide ](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader |
 | [Image and video processing guide](../ai-services/image-video-processing.md) | Azure AI Vision &bullet; Azure AI Custom Vision &bullet; Azure AI Video Indexer &bullet; Azure AI Face &bullet; Azure OpenAI|
 |  [Large language chat models ](../ai-services/large-language-chat.md.md) | Azure AI Search &bullet; Azure OpenAI |
-| [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) | N/A|Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and sprocesses images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
-|[Custom Machine Learning](https://azure.microsoft.com/products/ai-services/openai-service/) | N/A|  Azure Machine Learning service procures and exposes many proprietary and open source models that you can use directly or customize further with more training. It also supports the creation of brand new models of any type using your own data. |
+| [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) | Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and sprocesses images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
+|[Custom Machine Learning](https://azure.microsoft.com/products/ai-services/openai-service/) |  Azure Machine Learning service procures and exposes many proprietary and open source models that you can use directly or customize further with more training. It also supports the creation of brand new models of any type using your own data. |
 
 
 ## Common use cases
