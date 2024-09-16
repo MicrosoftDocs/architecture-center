@@ -36,8 +36,8 @@ The following services provide speech recognition and generation capabilities fo
     - **Don't use** Speech service for chat, content summarization, moderation, or guiding users through scripts. Use other models for those things instead.
 
 - [Azure AI Immersive Reader service](#azure-ai-immersive-reader) Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK. 
-    - **Use**  Translator service when you need to perform translation specifically. While you could use other models like `GPT-4` to perform translation, using the translator for its specialized purpose is equally effective and can be more cost effective by using targeted translation models.
-    - **Don't use**  Translator service if you need engage with chat, to analyze content for sentiment, or for content moderation. 
+    - **Use**  Immersive Reader to provide an improved readability experience tailored for language learners or people with learning differences.
+    - **Don't use**  Immersive Reader for traditional text to speech use cases. 
 
 
 ### Azure AI Speech service
@@ -46,31 +46,25 @@ The following services provide speech recognition and generation capabilities fo
 
 Speech is available for many languages, regions, and price points.
 
-## Capabilities
+
+#### Capabilities
+
+The following table provides a list of capabilities available in Azure AI Language service.
+
+| Capability | Description | 
+|----------|-------------|
+|[Batch transcription](/azure/ai-services/speech-service/batch-transcription)| Transcribe a large amount of audio data in storage. Both the Speech to text REST API and Speech CLI support batch transcription.|
+|[Intent recognition](/azure/ai-services/speech-service/intent-recognition)|  An intent is something the user wants to do: book a flight, check the weather, or make a call. With intent recognition, your applications, tools, and devices can determine what the user wants to initiate or do based on options. You define user intent in the intent recognizer or conversational language understanding (CLU) model.|
+|[Pronunciation assessment](/azure/ai-services/speech-service/how-to-pronunciation-assessment) |  Evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. |
+|[Speaker recognition](/azure/ai-services/speech-service/speaker-recognition-overview)| DeSpeaker recognition can help determine who is speaking in an audio clip. The service can verify and identify speakers by their unique voice characteristics, by using voice biometry|
+| [Speech-to-text](/azure/ai-services/speech-service/speech-to-text) |Converts audio streams to text in real time or in batch.|
+|[Text-to-speech](/azure/ai-services/speech-service/text-to-speech)  | Enables  enables your applications, tools, or devices to convert text into human-like synthesized speech. |
+|[Speech translation](/azure/ai-services/speech-service/speech-translation)| Provides multi-language speech-to-speech and speech-to-text translation of audio streams.
+|[Video translation (Preview)](/azure/ai-services/speech-service/video-translation-overview)| Translate and generate videos in multiple languages automatically. .
 
 
-The following table provides a list of capabilities available in Azure AI Speech service.
 
-- [Speech-to-text](/azure/ai-services/speech-service/index-speech-to-text) can convert audio streams to text in real time or in batch.
-- [Text-to-speech](/azure/ai-services/speech-service/text-to-speech) enables applications to convert text to human-like speech.
-- [Speech translation](/azure/ai-services/speech-service/speech-translation) provides multi-language speech-to-speech and speech-to-text translation of audio streams.
-
-## How to choose a speech capability 
-
-This flow chart can help you choose a speech capability that suits your needs:
-
-![Diagram that shows how to choose a speech service.](images/ai-services-speech-api.png)
-
-The left side of the diagram illustrates audio-to-audio or audio-to-text processes.
-
-- Speech-to-text is used to convert speech from an audio source to a text format.
-- Speech-to-speech is used to translate speech in one language to speech in another language.
-
-The right side of the diagram illustrates text-to-audio processes.
-
-- Text-to-speech is used to generate spoken audio from a text source.
-
-## Use cases
+#### Use cases
 
 The following table provides a list of possible use cases for Azure AI Speech service.
 
@@ -82,23 +76,45 @@ The following table provides a list of possible use cases for Azure AI Speech se
 | [Language learning](/azure/ai-services/speech-service/language-learning-overview)| Speech-to-text| Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices.
 | [Voice assistants](/azure/ai-services/speech-service/voice-assistants)| Text-to-speech | Create natural, human like conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.|
 
+
+### Azure AI Immersive Reader
+
+[Immersive Reader](https://www.onenote.com/learningtools), part of Azure AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications.
+
+
+#### Capabilities
+
+The following table provides a list of capabilities available in Azure AI Language service.
+
+| Capability | Description | 
+|----------|-------------|
+|Isolate content for improved readability| Isolate content to improve readability.|
+|Display pictures for common words|  Displays pictures for commonly used terms.|
+|Highlight parts of speech | Help learners understand parts of speech and grammar by highlighting verbs, nouns, pronouns, and more.|
+|Read content aloud|Converts audio streams to text in real time or in batch.|  Readers can select text to be read aloud. |
+|Translate content in real-time |Translate text into many languages in real time, which helps to improve comprehension for readers learning a new language. |
+|Split words into syllables | Break words into syllables to improve readability or to sound out new words..
+
+
+
+#### Use cases
+
+The following table provides a list of possible use cases for Azure AI Speech service.
+
+| Use case | Capability to use | Description |
+|----------|-----------------|---------------|
+|||
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
-- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
-- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
-- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
+
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
