@@ -176,7 +176,7 @@ Other contributors:
 - [Generative AI Gateway Design](https://learn.microsoft.com/en-us/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/)
 - [Azure OpenAI: Documentation, quickstarts, API reference](/azure/ai-services/openai/)
 - [Azure-Samples/openai-python-enterprise-logging (GitHub)](https://github.com/Azure-Samples/openai-python-enterprise-logging)
-- [Configure Azure AI Services virtual networks](/azure/ai-services/ai-services-virtual-networks)
+- [Configure Azure AI Services virtual networks](/azure/ai-services/cognitive-services-virtual-networks)
 - [AzureOpenAI Log Proxy Helper (GitHub)](https://github.com/scallighan/openai-log-helper-proxy)
 - [AOAI APIM (GitHub)](https://github.com/Azure/aoai-apim)
   
