@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 09/03/2024
+ms.date: 09/16/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -28,6 +28,29 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Modern data warehouses for small and medium-sized businesses](./example-scenario/data/small-medium-data-warehouse.yml)  ([#dca68ab84a](https://github.com/MicrosoftDocs/architecture-center/commit/dca68ab84a))
+- [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](./example-scenario/analytics/pipelines-disaster-recovery.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
+- [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
+- [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
+- [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
+- [Azure Communication Services architecture design](./guide/mobile/azure-communication-services-architecture.yml)  ([#782bc379b0](https://github.com/MicrosoftDocs/architecture-center/commit/782bc379b0))
+- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#4b01645043](https://github.com/MicrosoftDocs/architecture-center/commit/4b01645043))
+- [Real-time anomaly detection for conveyor belts](./example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
+- [Risk prediction models for surgeries](./example-scenario/ai/risk-stratification-surgery.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
+- [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
+- [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
+- [Use Azure Front Door to secure AKS workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
+- [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
+- [News feeds with near real-time analytics](./example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
+- [Web API implementation](./best-practices/api-implementation.md)  ([#860a3bc681](https://github.com/MicrosoftDocs/architecture-center/commit/860a3bc681))
+- [Choose a stream processing technology](./data-guide/technology-choices/stream-processing.md)  ([#5892dd5857](https://github.com/MicrosoftDocs/architecture-center/commit/5892dd5857))
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#fbed477b76](https://github.com/MicrosoftDocs/architecture-center/commit/fbed477b76))
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Data protection](./reference-architectures/containers/aks-pci/aks-pci-data.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
+- [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Vulnerability management](./reference-architectures/containers/aks-pci/aks-pci-malware.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations](./reference-architectures/containers/aks-pci/aks-pci-monitor.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation](./reference-architectures/containers/aks-pci/aks-pci-network.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
+- [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Summary](./reference-architectures/containers/aks-pci/aks-pci-summary.yml)  ([#419972a758](https://github.com/MicrosoftDocs/architecture-center/commit/419972a758))
 - [Azure Data Factory mission-critical architecture](./databases/architecture/azure-data-factory-mission-critical.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
 - [Azure Data Factory on Azure landing zones baseline architecture](./databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
 - [Design a medallion lakehouse with Azure Data Factory](./databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
@@ -205,10 +228,8 @@ The following new and updated articles have recently been published in the Azure
 - [AKS for Amazon EKS professionals](./aws-professional/eks-to-aks/index.md)  ([#2c81814c20](https://github.com/MicrosoftDocs/architecture-center/commit/2c81814c20))
 - [Storage options for a Kubernetes cluster](./aws-professional/eks-to-aks/storage.md)  ([#2c81814c20](https://github.com/MicrosoftDocs/architecture-center/commit/2c81814c20))
 - [Video ingestion and object detection on the edge and in the cloud](./ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)  ([#bbd5c95d5f](https://github.com/MicrosoftDocs/architecture-center/commit/bbd5c95d5f))
-- [Conversation summarization](./ai-ml/guide/conversation-summarization.yml)  ([#6ae4b1e579](https://github.com/MicrosoftDocs/architecture-center/commit/6ae4b1e579))
 - [Pipes and Filters pattern](./patterns/pipes-and-filters.yml)  ([#61a0734817](https://github.com/MicrosoftDocs/architecture-center/commit/61a0734817))
 - [Personalized offers](./ai-ml/idea/personalized-offers.yml)  ([#6087dd76ec](https://github.com/MicrosoftDocs/architecture-center/commit/6087dd76ec))
-- [Retail assistant with visual capabilities](./ai-ml/idea/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#6087dd76ec](https://github.com/MicrosoftDocs/architecture-center/commit/6087dd76ec))
 - [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)  ([#84ce263b83](https://github.com/MicrosoftDocs/architecture-center/commit/84ce263b83))
 - [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI](./example-scenario/hybrid/aks-baseline.yml)  ([#3eb3a589bd](https://github.com/MicrosoftDocs/architecture-center/commit/3eb3a589bd))
 - [Deploy and operate apps with AKS enabled by Arc on Azure Stack HCI or Windows Server](./example-scenario/hybrid/aks-hybrid-stack-hci.yml)  ([#3eb3a589bd](https://github.com/MicrosoftDocs/architecture-center/commit/3eb3a589bd))
