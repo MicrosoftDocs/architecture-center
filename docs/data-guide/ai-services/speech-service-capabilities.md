@@ -1,5 +1,5 @@
 ---
-title: Azure AI Speech service capabilities guide 
+title: Azure AI speech recognition and generation guide 
 description: Learn about Azure AI Speech service capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
 author: robbagby
 ms.author: pnp
@@ -17,14 +17,34 @@ ms.custom:
   - guide
 ---
 
-# Azure AI Speech service capabilities guide 
+# Speech recognition and generation guide 
 
 [Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
-This article covers [Azure AI Speech service](https://azure.microsoft.com/products/ai-services/ai-speech), which provides speech to text and text to speech capabilities. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations.
+This article covers Azure AI services that offer speech recognition and generation capabilities such as speech-to-text and text-to-speech conversions, audio translation, speaker recognition, as well as reading support for people with learning differences.
 
 > [!NOTE]
 > Use [Azure AI Service for Language](/azure/ai-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
+
+
+## Services
+
+The following services provide speech recognition and generation capabilities for Azure AI services:
+
+- [Azure AI Speech service](#azure-ai-speech-service) provides natural language processing for text analysis. 
+    - **Use** Speech service when you need to transcribe or translate spoken speech, identify speakers in a conversation. You can also use the service as a lower cost alternative for natural sounding speech generation to the higher quality [Whisper](/azure/ai-services/openai/concepts/models) in the OpenAI models.
+    - **Don't use** Speech service for chat, content summarization, moderation, or guiding users through scripts. Use other models for those things instead.
+
+- [Azure AI Immersive Reader service](#azure-ai-immersive-reader) Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK. 
+    - **Use**  Translator service when you need to perform translation specifically. While you could use other models like `GPT-4` to perform translation, using the translator for its specialized purpose is equally effective and can be more cost effective by using targeted translation models.
+    - **Don't use**  Translator service if you need engage with chat, to analyze content for sentiment, or for content moderation. 
+
+
+### Azure AI Speech service
+
+[Azure AI Speech service](/azure/ai-services/speech-service/overview) provides speech to text and text to speech capabilities with a Speech resource. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, in the cloud or at the edge in containers. 
+
+Speech is available for many languages, regions, and price points.
 
 ## Capabilities
 

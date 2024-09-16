@@ -226,7 +226,7 @@ items:
       items:
       - name: AI services
         href: data-guide/technology-choices/ai-services.md  
-      - name: Language
+      - name: Targeted language processing
         href: data-guide/ai-services/language-service-capabilities.md
       - name: Speech 
         href: data-guide/ai-services/speech-service-capabilities.md
