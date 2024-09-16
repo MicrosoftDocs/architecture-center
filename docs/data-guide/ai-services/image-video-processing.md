@@ -37,17 +37,17 @@ The following services provide video and image processing capabilities for Azure
     - **Don't use** Azure OpenAI if you need to perform specific types of image processing like forms extraction and face recognition. For these scenarios, use more cost effective Azure AI models designed specifically for those purposes instead.
  
 
-- [Azure AI Vision](#azure-ai-vision-service)
+- [Azure AI Vision](#azure-ai-vision)
     - **Use** Vision service when you need basic OCR, image analysis, or video analysis to detect motion and other events.
     - **Don't use** the Vision service for in-depth analysis that large multi-modal models like GPT-4o support. 
     - **Don't use** it to moderate content. Use the Content Safety service instead.
 
-- [Azure AI Custom Vision](#azure-ai-custom-vision-service)
+- [Azure AI Custom Vision](#azure-ai-custom-vision)
     - **Use** the service when you have specific requirements that the basic Vision service's image analysis can't provide. For example, it's good for recognizing unusual objects or providing detailed custom classifications.
     - **Don't use** the service if you need basic object detection or face detection. Use Face or Vision services instead.
     - **Don't use** the service for in-depth visual analysis. Use Azure OpenAI with GPT-4o, GPT-4 Turbo, or vision capable open source models in Azure Machine Learning instead.
 
-- [Azure AI Face](#azure-ai-face-service)
+- [Azure AI Face](#azure-ai-face)
     - **Use** Face service when you need to check whether faces are live or spoofed/faked, or to identify, group, or find similar faces.
     - **Don't use** Face service to detect emotions in faces or perform other high-level reasoning about faces. Use multi-modal large language models like GPT-4o for those tasks instead.
 
@@ -58,11 +58,11 @@ The following services provide video and image processing capabilities for Azure
 
 ### Azure OpenAI
 
-[Azure OpenAI service](/azure/ai-services/openai/index) provides access to all of OpenAI's powerful language models, including [GPT-4o & GPT-4 Turbo](/azure/ai-services/openai/concepts/models#gpt-4o-and-gpt-4-turbo). These support visual analysis and generations of images, and [DALL-E](/azure/ai-services/openai/concepts/models#dall-e-models) supports image generation.
+[Azure OpenAI](/azure/ai-services/openai/index) provides access to all of OpenAI's powerful language models, including [GPT-4o & GPT-4 Turbo](/azure/ai-services/openai/concepts/models#gpt-4o-and-gpt-4-turbo). These support visual analysis and generations of images, and [DALL-E](/azure/ai-services/openai/concepts/models#dall-e-models) supports image generation.
 
-### Azure AI Vision service
+### Azure AI Vision
 
-[Azure AI Vision service](/azure/ai-services/computer-vision/) provides advanced algorithms that process images and return information based on the visual features you're interested in. It provides four services: OCR, Face service, image and spatial analysis. 
+[Azure AI Vision](/azure/ai-services/computer-vision/) provides advanced algorithms that process images and return information based on the visual features you're interested in. It provides four services: OCR, Face service, image and spatial analysis. 
 
 #### Capabilities
 
@@ -93,7 +93,7 @@ The following table provides a list of capabilities available in Azure AI Vision
 | Detect faces.| Detect and analyze human faces in an image. You can determine the age of the subject and return a bounding box that specifies the locations of faces. The facial analysis capabilities of the Computer Vision service are a subset of the ones provided by the dedicated Face service.|
 
 
-### Azure AI Custom Vision service
+### Azure AI Custom Vision
 
 [Azure AI Custom Vision service](https://azure.microsoft.com/products/ai-services/ai-custom-vision) is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Custom Vision allows you to specify your own labels and train custom models to detect them.
 
@@ -119,7 +119,7 @@ The following table provides a list of possible use cases for Azure AI Custom Vi
 |[Recognize Azure service logos in camera pictures](/azure/ai-services/custom-vision-service/logo-detector-mobile)| Analyze photos of Azure service logos and then deploy those services to the user's Azure account.|
 
 
-### Azure AI Face service
+### Azure AI Face
 
 
 [Azure AI Face service](/azure/ai-services/computer-vision/overview-identity) provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many scenarios, such as identification, touchless access control, and automatic face blurring for privacy.
