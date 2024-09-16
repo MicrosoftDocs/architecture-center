@@ -23,26 +23,12 @@ ms.custom:
 
 # Choose an Azure AI services technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) you create intelligent, market-ready, and responsible AI applications with prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, documents, translation, speech, and vision. Most of the services require very little training to get started, and can be customized to meet your specific needs.
+[Azure AI services](/azure/ai-services/what-are-ai-services) offers a suite of models that support a broad array of functionality. Most require little or no specific AI expertise to use. So whether you're a student, run a small-business, are launching a startup, or lead a large enterprise-scale project, you can get started right away. It's easy to embed AI functionality into your applications. For many use cases, these prebuilt models are sufficient to provide exactly what your application requires. However, most prebuilt models support further customization and fine tuning as necessary, without the need to re-engineer a new model.
 
-## Key Benefits
+Some projects require functionality that goes beyond what prebuilt models can provide. You could need to use your own data exclusively to build a new model, or perform functions outside the scope of any existing prebuilt models. In those cases, [Azure Machine Learning services](/azure/machine-learning) let you to build custom models of any type or scale. While these solutions require more expertise, they can also support bespoke requirements for organizations of every scale and for every budget.
 
-- **Client libraries and REST APIs**. Azure AI services client libraries and REST APIs provide direct access to your service. These tools provide programmatic access to the Azure AI services, their baseline models, and in many cases allow you to programmatically customize your models and solutions.
-- **Continuous integration and deployment.** You can use Azure DevOps and GitHub Actions to manage your deployments. Use CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service.
-- **On-premises containers**. Many of the Azure AI services can be deployed in containers for on-premises access and use. Using these containers gives you the flexibility to bring Azure AI services closer to your data for compliance, security, or other operational reasons. 
-- **Training models**. Some services allow you to bring your own data, then train a model. Trained custom models allow you to extend the model using the service's data and algorithm with your own data. The output matches your needs. 
-- **Azure AI services in the ecosystem.** With Azure and Azure AI services, you have access to a broad ecosystem, such as:
-    - Automation and integration tools like Logic Apps and Power Automate.
-    - Deployment options such as Azure Functions and the App Service.
-    - Azure AI services Docker containers for secure access.
-    - Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios.
+This article provides a comparison and decision guide between the different offerings of Azure AI and Azure Machine Learning services. It's organized by broad category to help you choose which service or model is right for your use case.
 
-
-
-### Considerations
-
-- Because Azure AI services are only available over the web, internet connectivity is required. The only exception to this is the Custom Vision service, whose trained model you can export for prediction on devices and at the IoT Edge.
-- Although considerable customization is supported, the available services might not suit all predictive analytics requirements.
 
 ## Categories of Azure AI services
 
@@ -57,37 +43,16 @@ Azure offers a number of AI services that can be grouped into categories based o
 | [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) | Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and sprocesses images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
 |[Custom Machine Learning](https://azure.microsoft.com/products/ai-services/openai-service/) |  Azure Machine Learning service procures and exposes many proprietary and open source models that you can use directly or customize further with more training. It also supports the creation of brand new models of any type using your own data. |
 
-
-
-
-## Deploying Azure AI service resources
-
-When you [create an Azure AI services resource](/azure/ai-services/multi-service-resource?pivots=azportal#types-of-cognitive-services-resources), you can either deploy services independently or use the Azure AI services multi-service resource. To see which services are supported by multi-service resource, see [Supported services with a multi-service resource](/azure/ai-services/multi-service-resource?pivots=azportal#supported-services-with-a-multi-service-resource).
-
-- Deploy an individual service if you don't need other services or if you want to manage access and billing on a per-service basis.
-- Deploy the multi-service resource if you're using multiple services and want to manage access and billing for all services together.
-
-> [!NOTE]
-> The resource categories in these services change frequently. Be sure to check the latest documentation for new categories.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
-- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
-- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
-- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
+
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
