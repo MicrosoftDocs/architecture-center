@@ -36,7 +36,7 @@ Azure offers a number of AI services that can be grouped into categories based o
 
 | Category guide | Service descriptions |
 | --- |  --- |
-|  [Targeted language processing guide ](../ai-services/targeted-language-processing) |Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence |
+|  [Targeted language processing guide ](../ai-services/targeted-language-processing.md) |Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence |
 |[Speech recognition and generation guide ](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader |
 | [Image and video processing guide](../ai-services/image-video-processing.md) | Azure AI Vision &bullet; Azure AI Custom Vision &bullet; Azure AI Video Indexer &bullet; Azure AI Face &bullet; Azure OpenAI|
 |  [Large language chat models ](../ai-services/large-language-chat.md) | Azure AI Search &bullet; Azure OpenAI |

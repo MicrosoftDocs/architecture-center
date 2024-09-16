@@ -97,13 +97,6 @@ The following table provides a list of capabilities available in Immersive Reade
 
 
 
-#### Use cases
-
-The following table provides a list of possible use cases for Azure AI Speech service.
-
-| Use case | Capability to use | Description |
-|----------|-----------------|---------------|
-|||
 
 ## Contributors
 

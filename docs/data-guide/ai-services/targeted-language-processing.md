@@ -28,7 +28,7 @@ This article covers Azure AI services that offer targeted language processing ca
 
 The following services provide targeted language processing capabilities for Azure AI services:
 
-- [Azure AI Language](#azure-ai-language-service) provides natural language processing for text analysis. 
+- [Azure AI Language](#azure-ai-language) provides natural language processing for text analysis. 
     - **Use** the Azure AI Language service when you need to work with structured or unstructured documents for the wide array of language related tasks described. 
     - **Don't use** Language service if you need to search documents with chat, check them for content safety, or translate them.
 
