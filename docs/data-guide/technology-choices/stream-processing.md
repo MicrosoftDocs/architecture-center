@@ -52,11 +52,11 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | Azure Functions | Azure App Service WebJobs |
-| --- | --- | --- | --- | --- | --- |
-| Programmability | SQL, JavaScript | [C#/F#][dotnet-spark], Java, Python, Scala | [C#/F#][dotnet-spark], Java, Python, R, Scala | C#, F#, Java, Node.js, Python | C#, Java, Node.js, PHP, Python |
-| Programming paradigm | Declarative | Mixture of declarative and imperative | Mixture of declarative and imperative  | Imperative | Imperative |
-| Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/)  | [Databricks units](https://azure.microsoft.com/pricing/details/databricks) | Per function execution and resource consumption | Per App Service plan hour |
+| Capability           | Azure Stream Analytics                                                           | HDInsight with Spark Streaming                                                 | Apache Spark in Azure Databricks                                           | Azure Functions                                 | Azure App Service WebJobs      |
+|----------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------|-------------------------------------------------|--------------------------------|
+| Programmability      | SQL, JavaScript                                                                  | [C#/F#][dotnet-spark], Java, Python, Scala                                     | [C#/F#][dotnet-spark], Java, Python, R, Scala                              | C#, F#, Java, Node.js, Python                   | C#, Java, Node.js, PHP, Python |
+| Programming paradigm | Declarative                                                                      | Mixture of declarative and imperative                                          | Mixture of declarative and imperative                                      | Imperative                                      | Imperative                     |
+| Pricing model        | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | [Node cost per minute](https://azure.microsoft.com/pricing/details/hdinsight/) | [Databricks units](https://azure.microsoft.com/pricing/details/databricks) | Per function execution and resource consumption | Per App Service plan hour      |
 
 ### Integration capabilities
 
