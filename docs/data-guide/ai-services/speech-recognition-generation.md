@@ -7,9 +7,9 @@ categories:
   - analytics
 ms.date: 09/09/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-ms.subservice: azure-guide
 products:
   - ai-services
 ms.custom:
@@ -31,16 +31,16 @@ This article covers Azure AI services that offer speech recognition and generati
 
 The following services provide speech recognition and generation capabilities for Azure AI services:
 
-- [Azure AI Speech service](#azure-ai-speech-service) provides natural language processing for text analysis. 
+- [Azure AI Speech service](#azure-ai-speech) provides natural language processing for text analysis. 
     - **Use** Speech service when you need to transcribe or translate spoken speech, identify speakers in a conversation. You can also use the service as a lower cost alternative for natural sounding speech generation to the higher quality [Whisper](/azure/ai-services/openai/concepts/models) in the OpenAI models.
     - **Don't use** Speech service for chat, content summarization, moderation, or guiding users through scripts. Use other models for those things instead.
 
-- [Immersive Reader service](#azure-ai-immersive-reader) Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK. 
+- [Immersive Reader service](#immersive-reader) Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK. 
     - **Use**  Immersive Reader to provide an improved readability experience tailored for language learners or people with learning differences.
     - **Don't use**  Immersive Reader for traditional text to speech use cases. 
 
 
-### Azure AI Speech service
+### Azure AI Speech
 
 [Azure AI Speech service](/azure/ai-services/speech-service/overview) provides speech to text and text to speech capabilities with a Speech resource. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, in the cloud or at the edge in containers. 
 
@@ -84,16 +84,16 @@ The following table provides a list of possible use cases for Azure AI Speech se
 
 #### Capabilities
 
-The following table provides a list of capabilities available in Azure AI Language service.
+The following table provides a list of capabilities available in Immersive Reader.
 
 | Capability | Description | 
 |----------|-------------|
-|Isolate content for improved readability| Isolate content to improve readability.|
-|Display pictures for common words|  Displays pictures for commonly used terms.|
-|Highlight parts of speech | Help learners understand parts of speech and grammar by highlighting verbs, nouns, pronouns, and more.|
-|Read content aloud|Converts audio streams to text in real time or in batch.|  Readers can select text to be read aloud. |
-|Translate content in real-time |Translate text into many languages in real time, which helps to improve comprehension for readers learning a new language. |
-|Split words into syllables | Break words into syllables to improve readability or to sound out new words..
+|**Isolate content for improved readability.**| Isolate content to improve readability.|
+|**Display pictures for common words.**|  Displays pictures for commonly used terms.|
+|**Highlight parts of speech.** | Help learners understand parts of speech and grammar by highlighting verbs, nouns, pronouns, and more.|
+|**Read content aloud.**|Converts audio streams to text in real time or in batch.|  Readers can select text to be read aloud. |
+|**Translate content in real-time.** |Translate text into many languages in real time, which helps to improve comprehension for readers learning a new language. |
+|**Split words into syllables.** | Break words into syllables to improve readability or to sound out new words. |
 
 
 

@@ -233,7 +233,7 @@ items:
       - name: Image and video processing
         href: data-guide/ai-services/image-video-processing.md
       - name: Large language chat models
-        href: data-guide/ai-services/iarge-language-chat.md
+        href: data-guide/ai-services/large-language-chat.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning

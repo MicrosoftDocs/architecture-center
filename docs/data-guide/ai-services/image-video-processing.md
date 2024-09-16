@@ -9,8 +9,8 @@ categories:
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/11/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - ai-services
   - azure-custom-vision
@@ -30,7 +30,7 @@ This article covers Azure AI services that offer video and image processing capa
 
 The following services provide video and image processing capabilities for Azure AI services:
 
-- [Azure OpenAI](#azure-open-ai)
+- [Azure OpenAI](#azure-openai)
     - **Use** Azure OpenAI for image generation from natural language using one of the world's most powerful generative imaging models.
     - **Use** Azure OpenAI when you need to perform complex analysis on images.
     - **Don't use** Azure OpenAI if you want to use open source image generation models available in Azure Machine Learning.
@@ -149,7 +149,7 @@ The following table provides a list of possible use cases for Azure AI Face serv
 |Touchless access control.| Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.|
 
 
-### Azure AI Video Indexer service
+### Azure AI Video Indexer
 
 
 [Azure AI Face service](/azure/ai-services/computer-vision/overview-identity) provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many scenarios, such as identification, touchless access control, and automatic face blurring for privacy.
@@ -216,5 +216,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure AI Language capabilities guide](targeted-language-processing.md)
-- [Azure AI Speech capabilities guide](speech-recognition-generation.md)
+- [Targeted language processing guide](targeted-language-processing.md)
+- [Speech recognition and generation guide](speech-recognition-generation.md)

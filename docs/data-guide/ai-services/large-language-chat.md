@@ -7,9 +7,9 @@ categories:
   - analytics
 ms.date: 09/16/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
-ms.subservice: azure-guide
 products:
   - ai-services
 ms.custom:
@@ -38,7 +38,7 @@ The following services provide large language chat model capabilities for Azure 
     - **Don't use** Azure OpenAI for any specific use cases such as content safety, where it's cheaper to use optimized, task-specific models. While you could use an OpenAI model to moderate content safety, it would be much more expensive than using a custom solution like the Content Safety service.
 
 
-### Azure AI Search service
+### Azure AI Search
 
 [Azure AI Speech service](/azure/ai-services/speech-service/overview) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
 
@@ -48,7 +48,7 @@ The following services provide large language chat model capabilities for Azure 
 The following list provides the capabilities available in Azure AI Search service.
 
 + A search engine for [vector search](/azure/search/vector-search-overview) and [full text](/azure/search/search-lucene-query-architecture) and [hybrid search](/azure/search/hybrid-search-overview) over a search index 
-+ Rich indexing with [integrated data chunking and vectorization](/azure/search/vector-search-integrated-vectorization), [lexical analysis](/azure/search/search-analyzers) for text, and [optional applied AI](/azure/search/cognitive-search-concept-intro.md) for content extraction and transformation
++ Rich indexing with [integrated data chunking and vectorization](/azure/search/vector-search-integrated-vectorization), [lexical analysis](/azure/search/search-analyzers) for text, and [optional applied AI](/azure/search/cognitive-search-concept-intro) for content extraction and transformation
 + Rich query syntax for [vector queries](/azure/search/vector-search-how-to-query), text search, [hybrid queries](/azure/search/hybrid-search-how-to-query), fuzzy search, autocomplete, geo-search and others
 + Relevance and query performance tuning with [semantic ranking](/azure/search/semantic-search-overview), [scoring profiles](/azure/search/index-add-scoring-profiles), [quantization for vector queries](/azure/search/vector-search-how-to-configure-compression-storage), and parameters for controlling query behaviors at runtime 
 + Azure scale, security, and reach
@@ -70,28 +70,6 @@ For more information on Azure AI Search service, see the [Azure AI Search servic
 - [Whisper](/azure/ai-services/openai/concepts/models#whisper-models) A series of models in preview that can transcribe and translate speech to text.
 
 
-#### Capabilities
-
-The following table provides a list of capabilities available in Azure AI Language service.
-
-| Capability | Description | 
-|----------|-------------|
-|Isolate content for improved readability| Isolate content to improve readability.|
-|Display pictures for common words|  Displays pictures for commonly used terms.|
-|Highlight parts of speech | Help learners understand parts of speech and grammar by highlighting verbs, nouns, pronouns, and more.|
-|Read content aloud|Converts audio streams to text in real time or in batch.|  Readers can select text to be read aloud. |
-|Translate content in real-time |Translate text into many languages in real time, which helps to improve comprehension for readers learning a new language. |
-|Split words into syllables | Break words into syllables to improve readability or to sound out new words..
-
-
-
-#### Use cases
-
-The following table provides a list of possible use cases for Azure AI Speech service.
-
-| Use case | Capability to use | Description |
-|----------|-----------------|---------------|
-|||
 
 ## Contributors
 

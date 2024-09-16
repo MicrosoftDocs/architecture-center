@@ -7,8 +7,8 @@ categories:
 - ai-machine-learning
 ms.date: 09/09/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.collection: ce-skilling-ai-copilot
 products:
   - ai-services
@@ -28,23 +28,23 @@ This article covers Azure AI services that offer targeted language processing ca
 
 The following services provide targeted language processing capabilities for Azure AI services:
 
-- [Azure AI Language service](#azure-ai-language-service) provides natural language processing for text analysis. 
+- [Azure AI Language](#azure-ai-language-service) provides natural language processing for text analysis. 
     - **Use** the Azure AI Language service when you need to work with structured or unstructured documents for the wide array of language related tasks described. 
     - **Don't use** Language service if you need to search documents with chat, check them for content safety, or translate them.
 
-- [Azure AI Translator service](#azure-ai-translator) is a neural machine translation service hosted in the Azure cloud. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that allow you to incorporate specialized terminology or industry-specific language for your scenario. It supports [many languages](/azure/ai-services/translator/language-support). 
+- [Azure AI Translator](#azure-ai-translator) is a neural machine translation service hosted in the Azure cloud. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that allow you to incorporate specialized terminology or industry-specific language for your scenario. It supports [many languages](/azure/ai-services/translator/language-support). 
     - **Use**  Translator service when you need to perform translation specifically. While you could use other models like `GPT-4` to perform translation, using the translator for its specialized purpose is equally effective and can be more cost effective by using targeted translation models.
     - **Don't use**  Translator service if you need engage with chat, to analyze content for sentiment, or for content moderation. 
 
-- [Azure AI Document Intelligence service](#azure-ai-document-intelligence-servicew) is a service that can convert images directly into electronic forms. You can specify expected fields and then searches images you provide to capture those fields without human intervention. The service hosts many prebuilt models, and also allows you to build custom form models of your own. 
+- [Azure AI Document Intelligence](#azure-ai-document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then searches images you provide to capture those fields without human intervention. The service hosts many prebuilt models, and also allows you to build custom form models of your own. 
     - **Use** Document Intelligence service when you know exactly which fields you need to extract from scanned documents to fill electronic forms appropriately.
     - **Don't use** Document Intelligence service for searching or creating chat applications with your documents. It also isn't used for analyzing documents for sentiment or classification.
 
 Each service has its own capabilities and use cases.
 
-### Azure AI Language service
+### Azure AI Language 
 
-[Azure AI Language service](/azure/ai-services/language-service/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
+[Azure AI Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
 
 
 #### Capabilities
@@ -119,9 +119,9 @@ The following table provides a list of possible use cases for Azure AI Translato
 
 
 
-### Azure AI Document Intelligence service
+### Azure AI Document Intelligence
 
-[Azure AI Language service](/azure/ai-services/document-intelligence/overviewe) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
+[Azure AI Language](/azure/ai-services/document-intelligence/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
 
 
 #### Capabilities
