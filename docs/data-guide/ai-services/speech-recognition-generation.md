@@ -1,6 +1,6 @@
 ---
 title: Azure AI speech recognition and generation guide 
-description: Learn about Azure AI Speech service capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
+description: Learn about Azure AI speech recognition and generation capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
 author: robbagby
 ms.author: pnp
 categories:
@@ -49,7 +49,7 @@ Speech is available for many languages, regions, and price points.
 
 #### Capabilities
 
-The following table provides a list of capabilities available in Azure AI Language service.
+The following table provides a list of capabilities available in Azure AI Speech service.
 
 | Capability | Description | 
 |----------|-------------|

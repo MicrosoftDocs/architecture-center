@@ -6,7 +6,7 @@ ms.author: pnp
 categories:
   - ai-machine-learning
   - analytics
-ms.date: 09/09/2024
+ms.date: 09/16/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: architecture-center
@@ -50,12 +50,11 @@ Azure offers a number of AI services that can be grouped into categories based o
 
 | Category | Guide | Service descriptions |
 | --- | --- | --- |
-| [Targeted language processing](https://azure.microsoft.com/products/ai-services/language-service/) | [Targeted language processing guide ](../ai-services/targeted-language-processing.md) |[Azure AI Language](../ai-services/targeted-language-processing.md#azure-ai-language-service) &bullet; [Azure AI Translator](../ai-services/targeted-language-processing.md#azure-ai-translator) &bullet; [Azure AI Document Intelligence](../ai-services/targeted-language-processing.md#azure-ai-document-intelligence-service) |
-| [Speech recognition and generation](https://azure.microsoft.com/products/ai-services/speech-services/) | [Speech recognition and generation guide ](../ai-services/speech-recognition-generation.md) | [Azure AI Speech](../ai-services/speech-recognition-generation.md#azure-ai-speech-service) &bullet; [Immersive Reader](../ai-services/speech-recognition-generation.md#immersive-reader) |
-| [Image and video processing](https://azure.microsoft.com/products/ai-services/vision-services/) | [Image and video processing guide](../ai-services/image-video-processing.md) | [Azure AI Vision](../ai-services/image-video-processing.md#vision-service) &bullet; [Azure AI Custom Vision](../ai-services/image-video-processing.md#azure-ai-video-indexer-service) &bullet; [Azure AI Video Indexer](/azure/azure-video-indexer/) &bullet; [Azure AI Face](../ai-services/image-video-processing.md#face-service) &bullet;[Azure OpenAI](../ai-services/image-video-processing.md#azure-openai)|
+| **Targeted language processing**| [Targeted language processing guide ](../ai-services/targeted-language-processing.md) |Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence |
+|**Speech recognition and generation**| [Speech recognition and generation guide ](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader |
+| **Image and video processing**| [Image and video processing guide](../ai-services/image-video-processing.md) | Azure AI Vision &bullet; Azure AI Custom Vision &bullet; Azure AI Video Indexer &bullet; Azure AI Face &bullet; Azure OpenAI|
+| **Large language chat models** | [Large language chat models ](../ai-services/large-language-chat.md.md) | Azure AI Search &bullet; Azure OpenAI |
 | [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) | N/A|Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and sprocesses images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
-|[Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) |N/A|With Azure AI Search, you can use your own content for generative AI search applications. It turns your data into a chat searchable index that you can use to add conversational search to your applications. |
-|[Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service/) | N/A| Azure OpenAI Service provides REST API access to OpenAI's powerful language models including GPT-4o, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio. |
 |[Custom Machine Learning](https://azure.microsoft.com/products/ai-services/openai-service/) | N/A|  Azure Machine Learning service procures and exposes many proprietary and open source models that you can use directly or customize further with more training. It also supports the creation of brand new models of any type using your own data. |
 
 
