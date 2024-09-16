@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.date: 07/22/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 products:
   - azure
 categories:
   - management-and-governance
   - security
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 ms.custom:
   - guide
   - arb-saas

@@ -1,12 +1,12 @@
 ---
 title: Conditional Access for Zero Trust
 description: An introduction to a design and framework for implementing Zero Trust principles by using Microsoft Entra Conditional Access. 
-author: clajes
-ms.author: clajes
+author: RobBagby
+ms.author: pnp
 ms.date: 05/24/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - entra-id
 categories:

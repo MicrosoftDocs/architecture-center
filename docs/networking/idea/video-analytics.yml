@@ -3,11 +3,11 @@ metadata:
   title: Video capture and analytics for retail
   titleSuffix: Azure Solution Ideas
   description: See how retailers like grocery stores can use 5G video networks and IoT Edge devices to monitor storefront events and take immediate actions to improve customer experience.
-  author: niravi-msft
-  ms.author: niravi
+  author: asergaz
+  ms.author: sergaz
   ms.date: 05/22/2024
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - hybrid

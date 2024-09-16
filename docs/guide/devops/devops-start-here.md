@@ -6,7 +6,7 @@ author: brandonmartinez
 ms.author: brmar
 ms.date: 07/25/2022
 ms.topic: reference-architecture
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 categories:
   - devops

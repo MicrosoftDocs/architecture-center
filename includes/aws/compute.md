@@ -1,8 +1,8 @@
 ---
-author: martinekuan
-ms.author: martinek
+author: RobBagby
+ms.author: pnp
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 ### Virtual machines and servers

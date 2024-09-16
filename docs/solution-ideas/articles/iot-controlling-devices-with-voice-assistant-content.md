@@ -59,4 +59,3 @@ Principal author:
 
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
 - [Build an enterprise-grade conversational bot](../../ai-ml/architecture/conversational-bot.yml)
-- [Keyword search and speech-to-text with OCR digital media](digital-media-speech-text.yml)

@@ -7,7 +7,7 @@ metadata:
   ms.author: sergaz
   ms.date: 05/31/2022
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-iot
 name: Azure Cosmos DB in IoT workloads
