@@ -145,7 +145,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 To help you explore the cost of running this scenario, we've preconfigured all the services in the Azure pricing calculator. To learn how the pricing would change for your use case, change the appropriate variables to match your expected traffic.
 
-The following three sample cost profiles provide estimates based on the amount of traffic. (The estimates assume that a document contains approximately 1,000 tokens.)
+The following three sample cost profiles provide estimates based on the amount of traffic. (The estimates assume that a conversation contains approximately 1,000 tokens.)
 
 - [Small](https://azure.com/e/98ddb659c31543f0a4e9b95803955aef): For processing 10,000 conversations per month.
 - [Medium](https://azure.com/e/53b794faa79740a7aec57dfbafd0eb8c): For processing 100,000 conversations per month.
