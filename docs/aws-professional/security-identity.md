@@ -5,7 +5,7 @@ author: dougkl007
 ms.author: dougkl
 ms.date: 01/02/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 categories:
   - security
@@ -13,6 +13,7 @@ categories:
 products:
   - entra-id
 ---
+
 # Multicloud security and identity with Azure and Amazon Web Services (AWS)
 
 Many organizations are finding themselves with a de facto multicloud strategy, even if that wasn't their deliberate strategic intention. In a multicloud environment, it's critical to ensure consistent security and identity experiences to avoid increased friction for developers, business initiatives and increased organizational risk from cyberattacks taking advantage of security gaps.
@@ -30,7 +31,7 @@ Driving security and identity consistency across clouds should include:
 
 Customers using both Azure and AWS cloud platforms benefit from consolidating identity services between these two clouds using [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and Single Sign-on (SSO) services. This model allows for a consolidated identity plane through which access to services in both clouds can be consistently accessed and governed.
 
-This approach allows for the rich role-based access controls in Microsoft Entra ID to be enabled across the identity and access management (IAM) services in AWS using rules to associate the `user.userprincipalname` and `user.assignrole` attributes from Microsoft Entra ID into IAM permissions. This approach reduces the number of unique identities users and administrators are required to maintain across both clouds including a consolidation of the identity per account design that AWS employs. The [AWS IAM solution](https://aws.amazon.com/iam/features/?nc=sn&loc=2) allows for and specifically identifies Microsoft Entra ID as a federation and authentication source for their customers.
+This approach allows for the rich role-based access controls in Microsoft Entra ID to be enabled across the Identity and Access Management (IAM) services in AWS using rules to associate the `user.userprincipalname` and `user.assignrole` attributes from Microsoft Entra ID into IAM permissions. This approach reduces the number of unique identities users and administrators are required to maintain across both clouds including a consolidation of the identity per account design that AWS employs. The [AWS IAM solution](https://aws.amazon.com/iam/features/?nc=sn&loc=2) allows for and specifically identifies Microsoft Entra ID as a federation and authentication source for their customers.
 
 A complete walk-through of this integration can be found in the [Tutorial: Microsoft Entra single sign-on (SSO) integration with Amazon Web Services (AWS)](/azure/active-directory/saas-apps/amazon-web-service-tutorial).
 
@@ -38,7 +39,7 @@ A complete walk-through of this integration can be found in the [Tutorial: Micro
 
 Because many customers continue to support a hybrid identity model for Active Directory services, it's increasingly important for security engineering teams to implement strong authentication solutions and block legacy authentication methods associated primarily with on-premises and legacy Microsoft technologies.
 
-A combination of multifactor authentication and conditional access policies enable enhanced security for common authentication scenarios for end users in your organization. While multifactor authentication itself provides an increase level of security to confirm authentications, additional controls can be applied using [conditional access controls to block legacy authentication](/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) to both Azure and AWS cloud environments. Strong authentication using only modern authentication clients is only possible with the combination of multifactor authentication and conditional access policies.
+A combination of multifactor authentication and Conditional Access policies enable enhanced security for common authentication scenarios for end users in your organization. While multifactor authentication itself provides an increase level of security to confirm authentications, additional controls can be applied using [conditional access controls to block legacy authentication](/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) to both Azure and AWS cloud environments. Strong authentication using only modern authentication clients is only possible with the combination of multifactor authentication and Conditional Access policies.
 
 ## Cloud Platform Security (multicloud)
 

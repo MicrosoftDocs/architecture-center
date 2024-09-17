@@ -48,7 +48,6 @@ This solution benefits organizations that manage large volumes of customer data.
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
-## Related resources
+## Related resource
   
 - [Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.yml)
-- [Face recognition and sentiment analysis](../../example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)

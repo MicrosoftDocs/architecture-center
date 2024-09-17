@@ -7,8 +7,10 @@ metadata:
   ms.author: krirukm
   ms.date: 06/01/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
+  ms.custom:
+    - arb-data
 azureCategories:
   - analytics
 products:
@@ -21,4 +23,4 @@ name: Analyze operational data on MongoDB Atlas using Azure Synapse Analytics
 summary: Derive insights from siloed data. Connect operational data in MongoDB Atlas to Azure Synapse Analytics, and run real-time analytics on the data.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-synapse-analytics-integrate-mongdb-atlas-thumbnail.png
 content: |
-  [!include[](azure-synapse-analytics-integrate-mongodb-atlas-content.md)]
+  [!INCLUDE[](azure-synapse-analytics-integrate-mongodb-atlas-content.md)]

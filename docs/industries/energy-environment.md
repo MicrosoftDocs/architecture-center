@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: pnp 
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp 
 keywords:
   - Azure
@@ -43,13 +43,10 @@ The following articles provide detailed analysis of architectures developed and 
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-|[Cost savings through HTAP with Azure SQL](/azure/architecture/databases/guide/azure-sql-htap)|Use a scalable hybrid transaction/analytical processing (HTAP)  architecture with Azure SQL Database to combine transaction processing with analytics. For example, energy providers can use this architecture to manage smart power grids.|Data/Analytics|
 |[Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)|Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences to optimize energy.|IoT|
 |[Efficient Docker image deployment for intermittent low-bandwidth connectivity](/azure/architecture/example-scenario/iot/efficient-docker-image-deployment)|Learn about a reliable and resilient deployment architecture for situations when you have limited, intermittent, or low bandwidth. This architecture is applicable in fields like the oil, gas, and mining industries.|IoT|
 |[Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization) |Learn how to use Azure IoT for environment monitoring and supply chain optimization. Use cases include fire prediction and farming.|IoT|
-|[Geospatial data processing and analytics](/azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure)|Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data. You can use this architecture for applications like processing and storing climate data.|Data/Analytics|
 |[Project 15 Open Platform IoT sustainability](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)|Use IoT technologies and the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.|IoT|
-|[Run CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)|Learn about running computational fluid dynamics (CFD) simulations for applications in the oil and gas industries, for example. Create, manage, and optimize clusters by using Azure CycleCloud.|Compute|
 |[Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)|Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM. You can use this architecture for applications like 3D reservoir modeling and visualization of seismic data. |Compute|
 |[Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)|Learn about scaling Azure AI and machine learning environments that need to comply with extensive security policies, like those used in the oil and gas industries.|AI / Machine learning|
 
@@ -59,7 +56,6 @@ The following are other ideas that you can use as a starting point for your ener
 
 - [Azure IoT Edge data storage and processing](/azure/architecture/solution-ideas/articles/data-storage-edge)
 - [Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)
-- [Demand forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
 - [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
 - [Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
 - [IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)

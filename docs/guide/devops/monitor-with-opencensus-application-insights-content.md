@@ -267,11 +267,9 @@ Other contributors:
 - [Distributed tracing and telemetry correlation](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
 - [Understand operation IDs and operation links in Event Hubs](https://devblogs.microsoft.com/ise/observability-for-event-stream-processing-with-azure-functions-event-hubs-and-application-insights/#2-understanding-operation-ids-operation-links-when-working-with-event-hubs)
 - [OpenCensus Azure Monitor exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
-- [Metadata ingestion from external catalogs in Microsoft Purview](/azure/architecture/solution-ideas/articles/sync-framework-metadata-ingestion)
 
 ## Related resources
 
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
-- [Monitor serverless event processing](/azure/architecture/serverless/guide/monitoring-serverless-event-processing)
 - [Performance and scale guidance for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)

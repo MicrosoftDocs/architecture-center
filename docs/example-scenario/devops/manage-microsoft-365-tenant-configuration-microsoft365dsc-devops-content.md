@@ -50,7 +50,7 @@ This solution can help you manage Microsoft 365 tenant configuration in a contro
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Most people starting out with PowerShell DSC find that it takes a while to learn it. It helps if you have a solid understanding of PowerShell and experience with creating scripts.
 
@@ -104,7 +104,6 @@ Principal author:
 - [Microsoft365DSC site](https://microsoft365dsc.com)
 - [Microsoft365DSC export generator tool](https://export.microsoft365dsc.com)
 
-## Related resources
+## Related resource
 
-- [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
-- [DevOps Checklist](/azure/architecture/checklist/dev-ops)
+[End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)

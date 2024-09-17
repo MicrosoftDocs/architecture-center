@@ -1,14 +1,14 @@
 ---
 title: Types of speech API services
-description: Learn about the Azure Cognitive Services Speech service, which provides speech-to-text and text-to-speech capabilities.
+description: Learn about the Azure AI Speech service, which provides speech-to-text and text-to-speech capabilities.
 author: kruti-m
 ms.author: krmeht
-categories: 
+categories:
   - analytics
 ms.date: 06/01/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - ai-services
 ms.custom:
@@ -18,7 +18,7 @@ ms.custom:
 
 # Types of speech API services
 
-You can use the Azure Cognitive Services Speech service to perform spoken language transformations, including speech-to-text, text-to-speech, speech translation, and speaker recognition.
+You can use the Azure AI Speech service to perform spoken language transformations, including speech-to-text, text-to-speech, speech translation, and speaker recognition.
 
 > [!NOTE]
 > Use [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
@@ -35,7 +35,7 @@ This flow chart can help you choose the speech service that suits your needs:
 
 ![Diagram that shows how to choose a speech service.](images/cognitive-services-speech-api.png)
 
-The left side of the diagram illustrates audio-to-audio or audio-to-text processes. 
+The left side of the diagram illustrates audio-to-audio or audio-to-text processes.
 
 - Speech-to-text is used to convert speech from an audio source to a text format.
 - Speech-to-speech is used to translate speech in one language to speech in another language.
@@ -72,7 +72,7 @@ Principal authors:
 Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect 
+- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
 - [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
 - [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect

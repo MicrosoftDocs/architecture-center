@@ -4,8 +4,8 @@ description: Design resilient, highly available, fault-tolerant applications and
 author: adamglick
 ms.date: 12/13/2021
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: well-architected
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom:
   - resiliency
   - article

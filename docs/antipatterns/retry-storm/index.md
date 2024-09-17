@@ -6,8 +6,8 @@ ms.author: robbag
 author: RobBagby
 ms.date: 08/06/2021
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
+ms.service: azure-architecture-center
+ms.subservice: best-practice
 products:
   - azure
 categories:
@@ -102,7 +102,7 @@ Executing this query during a retry storm shows a large number of connection att
 
 ## Related resources
 
- * [Retry pattern](../../patterns/retry.yml)
- * [Circuit Breaker pattern](../../patterns/circuit-breaker.yml)
- * [Transient fault handling best practices](../../best-practices/transient-faults.md)
- * [Service-specific retry guidance](../../best-practices/retry-service-specific.md)
+- [Retry pattern](../../patterns/retry.yml)
+- [Circuit Breaker pattern](../../patterns/circuit-breaker.yml)
+- [Transient fault handling best practices](../../best-practices/transient-faults.md)
+- [Service-specific retry guidance](../../best-practices/retry-service-specific.md)

@@ -128,7 +128,7 @@ For this architecture, the workload team and platform team need to collaborate o
 |&#9744;|**Type, volume, and pattern of traffic.** The platform team uses this information to determine the ingress and egress requirements of the shared resources used by your workload. | Provide information about: <br> - How users should consume this workload. <br> - How this workload consumes its surrounding resources. <br> - The configured transport protocol. <br> - The traffic pattern and the expected peak and off-peak hours. When do you expect a high number of concurrent connections to the internet (chatty) and when do you expect the workload to generate minimal network traffic (background noise).|
 |&#9744;|**Firewall configuration.** The platform team uses this information to set rules to allow legitimate egress traffic.| Inform the platform team of specific information that's related to the traffic that leaves the spoke network. <br> - Build agent and jump box machines need regular operating system patching.<br>- The compute sends out operating system telemetry.<br> - In an [alternate approach](#alternate-approach-to-hosting-the-prompt-flow-code), the prompt flow code hosted by App Service requires internet access. |
 |&#9744;|**Ingress traffic from specialized roles.** The platform team uses this information to enable the specified roles to access the workload, while implementing proper segmentation.|Work with the platform team to determine the best way to allow authorized access for: <br> - Data scientists to access the Machine Learning web UI from their workstations on corporate network connections. <br> - Operators to access the compute layer through the jump box that's managed by the workload team. |
-|&#9744;|**Public internet access to the workload.** The platform team uses this information for risk assessment, which drives decisions about: <br> - The placement of the workload in a management group with appropriate guardrails. <br> - DDoS protection for the public IP address reported by the workload team. <br> - Issuing and managing Transport Layer Security (TLS) certificates.| Inform the platform team about the ingress traffic profile: <br> - Internet-sourced traffic targets the public IP address on Application Gateway. <br> - Fully qualified domain names (FQDNs) associated with the public IP address for TLS certificate procurement. |
+|&#9744;|**Public internet access to the workload.** The platform team uses this information for risk assessment, which drives decisions about: <br> - The placement of the workload in a management group with appropriate guardrails. <br> - Protection from DDoS for the public IP address reported by the workload team. <br> - Issuing and managing Transport Layer Security (TLS) certificates.| Inform the platform team about the ingress traffic profile: <br> - Internet-sourced traffic targets the public IP address on Application Gateway. <br> - Fully qualified domain names (FQDNs) associated with the public IP address for TLS certificate procurement. |
 |&#9744;|**Private endpoint usage.** The platform team uses this information to set up Azure Private DNS zones for those endpoints and make sure that the firewall in the hub network can do DNS resolution. | Inform the platform team about all resources that use private endpoints, such as: <br> - AI search <br> - Container Registry <br> - Key Vault <br> - Azure OpenAI <br> - Storage accounts <br><br>Have a clear understanding of how DNS resolution is handled in the hub and the workload team's responsibilities for the management of the private DNS zone records.|
 
 > [!IMPORTANT]
@@ -364,7 +364,7 @@ This architecture aligns with the reliability guarantees in the [baseline archit
 
 ### Reliability targets
 
-The maximum possible composite [service-level objective (SLO)](/azure/well-architected/reliability/metrics) for this architecture is lower than the baseline composite SLO due to new components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO is similarly reduced if the workload team directly controls these Azure services.
+The maximum possible composite [service-level objective (SLO)](/azure/well-architected/reliability/metrics) for this architecture is lower than the baseline composite service-level objective (SLO) due to new components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO is similarly reduced if the workload team directly controls these Azure services.
 
 #### Critical dependencies
 
@@ -441,7 +441,7 @@ This architecture greatly benefits from Azure landing zone [platform resources](
 
 ## Operational excellence
 
-The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, LLMOps, quality assurance, and safe deployment practices.
+The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, GenAIOps, quality assurance, and safe deployment practices.
 
 ### Correlate data from multiple sinks
 

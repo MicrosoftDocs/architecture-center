@@ -5,13 +5,13 @@ metadata:
   author: tjsullivan1
   ms.author: tisulliv
   ms.custom:
-    - fcp
+    - arb-devops
     - devx-track-arm-template
     - devx-track-bicep
   ms.date: 06/18/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
 azureCategories:
   - containers
   - devops

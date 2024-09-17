@@ -90,7 +90,6 @@ Other contributor:
 - [Azure Service Bus samples](/azure/service-bus-messaging/service-bus-samples)
 - [Azure Data Explorer data ingestion samples](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-ingest/tests/sample.py)
 
-## Related resources
+## Related resource
 
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)
-- [Real-time analytics on big data architecture](real-time-analytics.yml)

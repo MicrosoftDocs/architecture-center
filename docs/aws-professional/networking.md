@@ -6,7 +6,7 @@ categories: azure
 ms.author: johanv
 ms.date: 10/31/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
   - compute
@@ -42,13 +42,15 @@ Azure provides similar site-to-site dedicated connections through its
 
 AWS provides route tables that contain routes to direct traffic, from a subnet/gateway subnet to the destination. In Azure, this feature is called user-defined routes (UDRs).
 
-With [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview), you can create custom or user-defined (static) routes in Azure, to override Azure's default system routes, or to add more routes to a subnet's route table.
+With [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview), you can create custom or user-defined (static) routes in Azure, to override the Azure default system routes, or to add more routes to a subnet's route table.
 
 ## Private Link
 
 Similar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
-## VPC Peering, Azure VNet Peering
+<a name='vpc-peering-azure-vnet-peering'></a>
+
+## VPC peering, virtual network peering in Azure
 
 In AWS, a VPC peering connection is a networking connection between two VPCs, which enables you to route traffic between them using private Internet Protocol version 4 (IPv4) addresses or Internet Protocol version 6 (IPv6) addresses.
 

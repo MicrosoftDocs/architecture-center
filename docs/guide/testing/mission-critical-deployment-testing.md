@@ -5,8 +5,8 @@ author: heoelri
 ms.author: msimecek
 ms.date: 11/29/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: mission-critical
 categories: azure
 products:

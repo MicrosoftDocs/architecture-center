@@ -8,7 +8,7 @@ metadata:
   ms.date: 05/30/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot  
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
@@ -17,6 +17,7 @@ metadata:
     - acom-architecture
     - speech
     - ai-machine-learning
+    - arb-aiml
 name: Use Azure OpenAI to process podcast audio files
 azureCategories:
   - ai-machine-learning

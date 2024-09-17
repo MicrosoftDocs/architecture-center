@@ -5,11 +5,12 @@ metadata:
   description: A starting point for building software as a service (SaaS) on Azure. This architecture includes common SaaS components such as identity, onboarding, and tenant management.
   author: landonpierce
   ms.author: landonpierce
-  ms.date: 05/24/2023
+  ms.date: 08/01/2024 
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom:
+    - arb-saas
   ms.category:
     - web
 name: Starter web app for SaaS development

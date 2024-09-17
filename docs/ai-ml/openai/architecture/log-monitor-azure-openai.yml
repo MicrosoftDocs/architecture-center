@@ -8,11 +8,12 @@ metadata:
   ms.date: 05/02/2023
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - build-2023
     - build-2023-dataai
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
   - management-and-governance
@@ -26,4 +27,4 @@ name: Implement logging and monitoring for Azure OpenAI models
 summary: Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service language models.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-monitor-log.png
 content: |
-  [!include[](log-monitor-azure-openai-content.md)]
+  [!INCLUDE[](log-monitor-azure-openai-content.md)]

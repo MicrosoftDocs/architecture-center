@@ -1,12 +1,12 @@
 ---
 title: Hadoop migration to Azure
 description: Learn about migrating Hadoop to Azure. This is an overview that has links to articles about Hadoop features such as HBase, HDFS, Kafka, Sqoop, and Storm.
-author: martinekuan
+author: namrata01Apr
 ms.author: namratam
 ms.date: 11/08/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - migration
 products:
@@ -84,8 +84,7 @@ The following diagram shows this approach:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
-For more information, see [Guide to migrating Big
-Data workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrating-big-data-workloads-hdinsight). That article provides a link for downloading a migration guide and also provides an email address that you can use to ask questions or make suggestions.
+For more information, see [Migrate on-premises Apache Hadoop clusters to Azure HDInsight](/azure/hdinsight/hadoop/apache-hadoop-on-premises-migration-motivation).
 
 ### Lift and shift to Azure infrastructure as a service (IaaS)
 

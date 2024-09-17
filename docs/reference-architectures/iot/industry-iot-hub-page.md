@@ -4,10 +4,10 @@ titleSuffix: Azure Reference Architectures
 description: See example Azure IoT solutions and scenarios for environmental, facilities, manufacturing, retail, and transportation industries.
 author: falloutxay
 manager: lizross
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
-ms.date: 01/11/2023
+ms.date: 07/09/2024
 ms.author: ansyeo
 ms.custom: arb-iot
 categories:
@@ -57,5 +57,5 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 ## Next steps
 
-- [What is Azure IIoT?](/azure/industrial-iot/overview-what-is-industrial-iot)
+- [Implement the Azure Industrial IoT reference solution architecture](/azure/iot/tutorial-iot-industrial-solution-architecture)
 - [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)

@@ -3,14 +3,14 @@ title: Choose a cognitive services technology
 description: Learn about Azure cognitive services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
 author: kruti-m
 ms.author: krmeht
-categories: 
+categories:
   - ai-machine-learning
   - analytics
 ms.date: 06/01/2023
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - ai-services
   - azure-applied-ai-services
@@ -18,11 +18,12 @@ products:
 ms.custom:
   - cognitive services
   - AI guide
+  - arb-aiml
 ---
 
-# Choose an Azure Cognitive Services technology
+# Choose an Azure AI services technology
 
-Azure Cognitive Services is a set of cloud-based APIs that you can use in AI applications and data flows. It provides pretrained models that are ready to use in your applications, requiring no data and no model training on your part. The services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms. They're consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
+Azure AI services is a set of cloud-based APIs that you can use in AI applications and data flows. It provides pretrained models that are ready to use in your applications, requiring no data and no model training on your part. The services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms. They're consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
 
 **Key benefits:**
 
@@ -32,7 +33,7 @@ Azure Cognitive Services is a set of cloud-based APIs that you can use in AI app
 
 **Considerations:**
 
-- These services are only available over the web. Internet connectivity is generally required. An exception is the Custom Vision service, whose trained model you can export for prediction on devices and at the IoT edge.
+- These services are only available over the web. Internet connectivity is generally required. An exception is the Custom Vision service, whose trained model you can export for prediction on devices and at the IoT Edge.
 - Although considerable customization is supported, the available services might not suit all predictive analytics requirements.
 
 ## Categories of Azure cognitive services
@@ -44,12 +45,12 @@ Dozens of cognitive services are available in Azure. Here's a list, categorized 
 | [Language](https://azure.microsoft.com/products/cognitive-services/language-service/) | [Choose a language service](../cognitive-services/language-api.md) | Language cognitive services are services that provide Natural Language Processing (NLP) features for understanding and analyzing text. |
 | [Speech](https://azure.microsoft.com/products/cognitive-services/speech-services/) | [Choose a speech service](../cognitive-services/speech-api.md) | Speech cognitive services are services that provide speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. |
 | [Vision](https://azure.microsoft.com/products/cognitive-services/vision-services/) | [Choose a vision service](../cognitive-services/vision-api.md) | Vision cognitive services are services that provide image and video recognition capabilities. |
-| Decision services<br/><ul><li>[Anomaly Detector](https://azure.microsoft.com/products/cognitive-services/anomaly-detector/)</li><li>[Content Moderator](https://azure.microsoft.com/products/cognitive-services/content-moderator/)</li><li>[Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/)</li></ul><br/>Applied AI Services<br/><ul><li>[Azure Cognitive Search](https://azure.microsoft.com/products/search/)</li></ul> | [Choose a decision API or applied AI service](../cognitive-services/decision-applied-ai.md) | Decision cognitive services are services that provide NLP features to produce recommendations for informed and efficient decision-making. |
+| Decision services<br/><ul><li>[Anomaly Detector](https://azure.microsoft.com/products/cognitive-services/anomaly-detector/)</li><li>[Content Moderator](https://azure.microsoft.com/products/cognitive-services/content-moderator/)</li><li>[Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/)</li></ul><br/>Azure AI services<br/><ul><li>[Azure Cognitive Search](https://azure.microsoft.com/products/search/)</li></ul> | [Choose a decision API or applied AI service](../cognitive-services/decision-applied-ai.md) | Decision cognitive services are services that provide NLP features to produce recommendations for informed and efficient decision-making. |
 | [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/) | N/A | Azure OpenAI Service provides REST API access to powerful OpenAI  language models. |
 
 ## Common use cases
 
-The following are some common use cases for Azure Cognitive Services.
+The following are some common use cases for Azure AI services.
 
 | Use case | Category |
 | --- | --- |
@@ -88,7 +89,7 @@ This flow chart can help you choose the best API service for your use case.
 
 ## Deploying services
 
-When you [deploy Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account#types-of-cognitive-services-resources), you can either deploy services independently or use the Cognitive Services multi-service resource. The multi-service resource deploys decision, language, speech, vision, and applied AI services. 
+When you [deploy Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account#types-of-cognitive-services-resources), you can either deploy services independently or use the Azure AI services multi-service resource. The multi-service resource deploys decision, language, speech, vision, and applied AI services.
 
 - Deploy an individual service if you don't need other services or if you want to manage access and billing on a per-service basis.
 - Deploy the multi-service resource if you're using multiple services and want to manage access and billing for all services together.
@@ -108,7 +109,7 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
 - [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer

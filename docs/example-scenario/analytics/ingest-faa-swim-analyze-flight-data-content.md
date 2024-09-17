@@ -71,7 +71,7 @@ SWIM provides a single point of access for aviation data. Data producers publish
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -175,4 +175,3 @@ Other contributor:
 
 - [All aerospace architectures](/azure/architecture/browse/?terms=aircraft)
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

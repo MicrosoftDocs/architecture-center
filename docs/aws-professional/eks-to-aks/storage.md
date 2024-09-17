@@ -5,8 +5,10 @@ author: paolosalvatori
 ms.author: paolos
 ms.date: 06/21/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-containers
 categories:
   - containers
   - storage
@@ -36,11 +38,11 @@ In Amazon EKS, after Kubernetes version 1.11, the cluster has a default [Storage
 
 By adding drivers and storage classes, you can use storage services such as:
 
-- Amazon Elastic Block Store (Amazon EBS), a block-level storage solution used with Amazon Elastic Compute Cloud (EC2) instances to store persistent data. This service is similar to Azure Disk Storage, which has several SKUs like Standard SSD, Premium SSD, or Ultra Disk, depending on needed performance.
+- Amazon Elastic Block Store (Amazon EBS), a block-level storage solution used with Amazon Elastic Compute Cloud (EC2) instances to store persistent data. This service is similar to Azure Disk Storage, which has several SKUs like Standard SSD, Premium SSD, or Ultra Disk Storage, depending on needed performance.
 
 - Amazon Elastic File System (Amazon EFS) , which provides network filesystem access to external file systems that can be shared across instances. The equivalent Azure solution is Azure Files and Azure Files Premium with both Server Message Block (SMB) 3.0 and NFS access.
 
-- Lustre, an open-source file system commonly used in high-performance computing (HPC). In Azure, you can use Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
+- Lustre, an open-source file system commonly used in high-performance computing (HPC). In Azure, you can use Ultra Disk Storage or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
 
 - NetApp ONTAP, fully managed ONTAP shared storage in Amazon Web Services (AWS). Azure NetApp Files is a similar file storage service in Azure built on NetApp technology.
 
@@ -65,7 +67,7 @@ You can extend these options by adding other storage classes and integrating wit
 
 By default, an AKS cluster comes with pre-created `managed-csi` and `managed-csi-premium` storage classes that use [Disk Storage](https://azure.microsoft.com/services/storage/disks). Similar to Amazon EBS, these classes create a managed disk or block device that's attached to the node for pod access.
 
-The Disk Storage storage classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. Reclaim policy ensures that the disk is deleted with the persistent volume. You can expand the disk by editing the persistent volume claim.
+The Disk classes allow both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning. Reclaim policy ensures that the disk is deleted with the persistent volume. You can expand the disk by editing the persistent volume claim.
 
 These storage classes use Azure managed disks with [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage). LRS means that the data has three synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option, but doesn't offer protection against a datacenter failure. To mitigate this risk, take regular backups or snapshots of Disk Storage data by using solutions like [Velero](https://github.com/vmware-tanzu/velero) or [Azure Backup](/azure/backup/backup-managed-disks) that can use built-in snapshot technologies.
 
@@ -107,7 +109,7 @@ Azure Files has the following storage account replication options to protect you
 - **Standard_GRS**: Standard [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage)
 - **Standard_ZRS**: Standard [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
 - **Standard_RAGRS**: Standard [read-access geo-redundant storage (RA-GRS)](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region)
-- **Standard_RAGZRS**: Standard [read-access geo-zone-redundant storage(RA-GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage)
+- **Standard_RAGZRS**: Standard [read-access geo-zone-redundant storage (RA-GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage)
 - **Premium_LRS**: Premium [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage)
 - **Premium_ZRS**: Premium [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
 
@@ -123,7 +125,7 @@ Azure Container Storage utilizes existing Azure Storage offerings for actual dat
 - Ephemeral Disks: Utilizes local storage resources on AKS nodes (NVMe or temp SSD). Best suited for applications with no data durability requirement or with built-in data replication support. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment.
 - [Azure Elastic SAN](/azure/storage/elastic-san/elastic-san-introduction): Provision on-demand, fully managed resource. Suitable for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
-Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
+Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for infrastructure as a service (IaaS)-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
 
 Azure Container Storage is derived from OpenEBS, an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
 
@@ -137,7 +139,7 @@ Azure Container Storage is suitable in the following scenarios:
 
 Azure Container Storage provides the following key benefits:
 
-- **Rapid scale out of stateful pods:** Azure Container Storage mounts persistent volumes over network block storage protocols (NVMe-oF or iSCSI), offering fast attach and detach of persistent volumes. You can start small and deploy resources as needed while making sure your applications aren't starved or disrupted, either during initialization or in production. Application resiliency is improved with pod respawns across the cluster, requiring rapid movement of persistent volumes. Leveraging remote network protocols, Azure Container Storage tightly couples with the pod lifecycle to support highly resilient, high-scale stateful applications on AKS.
+- **Rapid scale out of stateful pods:** Azure Container Storage mounts persistent volumes over network block storage protocols (NVMe-oF or iSCSI), offering fast attach and detach of persistent volumes. You can start small and deploy resources as needed while making sure your applications aren't starved or disrupted, either during initialization or in production. Application resiliency is improved with pod respawns across the cluster, requiring rapid movement of persistent volumes. Using remote network protocols, Azure Container Storage tightly couples with the pod lifecycle to support highly resilient, high-scale stateful applications on AKS.
 
 - **Improved performance for stateful workloads:** Azure Container Storage enables superior read performance and provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
 
@@ -173,7 +175,7 @@ By contrast, ephemeral OS disks are stored only on the host machine, just like a
 For more information, see:
 
 - [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage#ephemeral-os-disk)
-- [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks). 
+- [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks).
 
 ### Third-party solutions
 
@@ -215,7 +217,7 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 ### Cost optimization
 
-To optimize Azure Storage costs, use Azure Reservations. Make sure to [check which services support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.yml).
+To optimize Azure Storage costs, use Azure reservations. Make sure to [check which services support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.yml).
 
 ## Contributors
 

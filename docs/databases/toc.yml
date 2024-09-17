@@ -1,15 +1,9 @@
 items:
 - name: Databases
   href: index.yml
-  items: 
+  items:
     - name: Explore ideas about
       items:
-      - name: Cache
-        items:
-        - name: Data cache
-          href: idea/data-cache-with-redis-cache.yml        
-        - name: Messaging
-          href: idea/messaging.yml
       - name: Relational
         items:
         - name: Intelligent apps using MySQL
@@ -17,19 +11,29 @@ items:
         - name: Intelligent apps using PostgreSQL
           href: idea/intelligent-apps-using-azure-database-for-postgresql.yml
         - name: Oracle migration to Azure
-          href: idea/reference-architecture-for-oracle-database-migration-to-azure.yml          
+          href: idea/reference-architecture-for-oracle-database-migration-to-azure.yml
       - name: NoSQL
         items:
         - name: Serverless apps using Azure Cosmos DB
           href: idea/serverless-apps-using-cosmos-db.yml
         - name: Minimal storage – change feed replication
-          href: idea/minimal-storage-change-feed-replicate-data.yml          
+          href: idea/minimal-storage-change-feed-replicate-data.yml
     - name: Design architectures
       items:
       - name: Data warehouse
         items:
         - name: DataOps for modern data warehouse
           href: architecture/dataops-mdw.yml
+      - name: Azure Data Factory on Azure landing zones
+        items:
+        - name: Azure Data Factory on Azure landing zones index
+          href: architecture/azure-data-factory-on-azure-landing-zones-index.yml
+        - name: Azure Data Factory baseline architecture
+          href: architecture/azure-data-factory-on-azure-landing-zones-baseline.yml
+        - name: Azure Data Factory enterprise hardened architecture
+          href: architecture/azure-data-factory-enterprise-hardened.yml
+        - name: Azure Data Factory mission critical architecture
+          href: architecture/azure-data-factory-mission-critical.yml
       - name: Master data management
         items:
         - name: Migrate master data services with CluedIn
@@ -37,11 +41,11 @@ items:
         - name: Master data management with Profisee
           href: architecture/profisee-master-data-management-data-factory.yml
         - name: Migrate master data services with Profisee
-          href: architecture/profisee-mds-migration-utility.yml          
+          href: architecture/profisee-mds-migration-utility.yml
       - name: Governance
         items:
         - name: Master data management with CluedIn
-          href: architecture/cluedin.yml        
+          href: architecture/cluedin.yml
         - name: Data governance with Profisee
           href: architecture/profisee-master-data-management-purview.yml
       - name: NoSQL
@@ -52,10 +56,6 @@ items:
       items:
       - name: Databases
         items:
-        - name: Relational
-          items:
-          - name: Cost savings through HTAP with Azure SQL
-            href: guide/azure-sql-htap.yml
         - name: NoSQL
           items:
           - name: Use the Transactional Outbox pattern
@@ -73,10 +73,10 @@ items:
       - name: Data transform
         items:
         - name: VantageCloud integration with Azure Data Factory
-          href: guide/teradata-vantage-data-factory.yml     
+          href: guide/teradata-vantage-data-factory.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix
           href: guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
         - name: Data scrambling for SAP with Delphix
-          href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml       
+          href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml

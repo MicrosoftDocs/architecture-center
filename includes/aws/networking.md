@@ -2,7 +2,7 @@
 author: kobile70
 ms.author: vaboya
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 | Area | AWS service | Azure service | Description |
@@ -18,18 +18,16 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [Ex
 | Route table | [Custom Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) | [User Defined Routes](/azure/virtual-network/virtual-networks-udr-overview) | Custom, or user-defined (static) routes to override default system routes, or to add more routes to a subnet's route table. |
 | Private link | [PrivateLink](https://aws.amazon.com/privatelink) | [Azure Private Link](https://azure.microsoft.com/services/private-link) | Azure Private Link provides private access to services that are hosted on the Azure platform. This keeps your data on the Microsoft network. |
 | Private PaaS connectivity |  [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html) | [Private Endpoint](/azure/private-link/private-endpoint-overview) | Private Endpoint provides secured, private connectivity to various Azure platform as a service (PaaS) resources, over a backbone Microsoft private network. |
-| Virtual network peering | [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) | [VNET Peering](https://azure.microsoft.com/resources/videos/virtual-network-vnet-peering) | VNet peering is a mechanism that connects two virtual networks (VNets) in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. |
+| Virtual network peering | [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) | [VNET Peering](/azure/virtual-network/virtual-network-peering-overview) | VNet peering is a mechanism that connects two virtual networks (VNets) in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. |
 | Content delivery networks | [CloudFront](https://aws.amazon.com/cloudfront)| [Front Door](https://azure.microsoft.com/services/frontdoor) | Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. |
 | Network Monitoring | [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) | [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) | Azure Network Watcher allows you to monitor, diagnose, and analyze the traffic in Azure Virtual Network. |
 
 ### Networking architectures
 
-<ul class="grid">
-
-[!INCLUDE [Deploy highly available NVAs](../../includes/cards/nva-ha.md)]
-[!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
-[!INCLUDE [Implement a secure hybrid network](../../includes/cards/secure-vnet-dmz.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha) | Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both. |
+| [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke) | Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub. |
+| [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) | See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network. |
 
 [view all](/azure/architecture/browse/#networking)

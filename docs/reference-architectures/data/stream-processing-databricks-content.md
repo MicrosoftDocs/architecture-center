@@ -104,7 +104,7 @@ In this reference architecture, the job is a Java archive with classes written i
 
 #### Reading the stream from the two event hub instances
 
-The data processing logic uses [Spark structured streaming](https://spark.apache.org/docs/2.1.2/structured-streaming-programming-guide.html) to read from the two Azure event hub instances:
+The data processing logic uses [Spark structured streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) to read from the two Azure event hub instances:
 
 ```scala
 val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
@@ -214,7 +214,7 @@ maxAvgFarePerNeighborhood
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -379,11 +379,9 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
-## Next steps
+## Next step
 
 - [Stream processing with Azure Stream Analytics](./stream-processing-stream-analytics.yml)
-- [Demand Forecasting](../../solution-ideas/articles/demand-forecasting.yml)
-- [Real Time Analytics on Big Data Architecture](../../solution-ideas/articles/real-time-analytics.yml)
 
 <!-- links -->
 

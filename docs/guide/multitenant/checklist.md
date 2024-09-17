@@ -6,22 +6,21 @@ author: arsenvlad
 ms.author: arsenv
 ms.date: 05/21/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
   - management-and-governance
-ms.category:
-  - fcp
 ms.custom:
   - checklist
   - guide
+  - arb-saas
 ---
 
 # Checklist for architecting and building multitenant solutions on Azure
 
-When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations, and the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework).
+When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations, and the five pillars of the [Azure Well-Architected Framework](/azure/well-architected/).
 
 > [!TIP]
 > After going through this checklist, take the [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your SaaS product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
@@ -40,7 +39,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 * Review the [Azure Well-Architected Reliability checklist](/azure/architecture/framework/resiliency/design-checklist), which is applicable to all workloads.
 * Understand the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Prevent individual tenants from impacting the system's availability for other tenants.
 * [Design your multitenant solution](./approaches/overview.yml) for the level of growth that you expect. But don't overengineer for unrealistic growth.
-* Define service-level objectives (SLOs) and optionally [service-level agreements (SLAs)](/training/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants, as well as the [composite SLA of the Azure resources in your architecture](/azure/architecture/framework/resiliency/business-metrics).
+* Define [service-level objectives (SLOs)](/azure/well-architected/reliability/metrics) and optionally [service-level agreements (SLAs)](/training/modules/choose-azure-services-sla-lifecycle/2-what-are-service-level-agreements) for your solution. SLAs and SLOs should be based on the requirements of your tenants.
 * Test the [scale](./approaches/compute.md#scale) of your solution. Ensure that it performs well under all levels of load, and that it scales correctly as the number of tenants increases.
 * Apply [chaos engineering principles](./approaches/compute.md#isolation) to test the reliability of your solution.
 
@@ -63,7 +62,6 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 ## Operational Excellence considerations
 
-* Review the [Azure Well-Architected Operational Excellence checklist](../../checklist/data-ops.md), which is applicable to all workloads.
 * Use automation to manage the [tenant lifecycle](./considerations/tenant-lifecycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).
 * Understand the differences between [control plane](./considerations/control-planes.yml) and data plane in your multitenant solution.
 * Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.
@@ -90,7 +88,7 @@ Principal authors:
 
 Other contributor:
 
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Program Manager
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

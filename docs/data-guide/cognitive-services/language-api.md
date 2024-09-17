@@ -1,14 +1,14 @@
 ---
 title: Types of language API services
-description: Learn about using Azure Cognitive Service for Language to understand and analyze text. Learn which service to use for a specific use case. 
+description: Learn about using Azure AI Language to understand and analyze text. Learn which service to use for a specific use case.
 author: kruti-m
 ms.author: krmeht
-categories: 
+categories:
 - ai-machine-learning
 ms.date: 06/01/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - ai-services
 ms.custom:
@@ -18,15 +18,15 @@ ms.custom:
 
 # Types of language API services
 
-Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. This service can help you build intelligent applications. It provides tools like the web-based Language Studio, REST APIs, and client libraries.
+Azure AI Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. This service can help you build intelligent applications. It provides tools like the web-based Language Studio, REST APIs, and client libraries.
 
 ## Services
 
-Here are some details about language API services: 
+Here are some details about language API services:
 
 - [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) provides several NLP features for understanding and analyzing text. This service brings together Text Analytics, QnA Maker, and LUIS. These features can be:
   - Preconfigured, which means that the AI models the feature uses aren't customizable. You just send your data and use the feature's output in your applications.
-  - Customizable, which means that you use Azure Cognitive Services tools to train an AI model to fit your data.
+  - Customizable, which means that you use Azure AI services tools to train an AI model to fit your data.
 - [Azure OpenAI Service](/azure/cognitive-services/openai/) provides REST API access to powerful OpenAI language models, including GPT-3, Codex, and embeddings. You can easily adopt these models to your specific task. Tasks include content generation, summarization, semantic search, and natural-language-to-code translation. You can access the service via REST APIs, a Python SDK, or the web-based interface in Azure OpenAI Studio.
 - [Cognitive Services Translator](/azure/cognitive-services/translator/translator-overview) is a translation service that provides text-to-text APIs.
 - [QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) is a cloud-based NLP service that you can use to create a natural conversational layer over your data.
@@ -71,7 +71,7 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
 - [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer

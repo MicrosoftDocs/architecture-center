@@ -7,10 +7,10 @@ author: RobBagby
 categories: azure
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
-azureCategories: 
-  - analytics 
+ms.service: azure-architecture-center
+ms.subservice: best-practice
+azureCategories:
+  - analytics
   - storage
   - web
 products:

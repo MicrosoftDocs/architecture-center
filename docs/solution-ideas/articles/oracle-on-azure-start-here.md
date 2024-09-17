@@ -6,8 +6,8 @@ author: kisshetty
 ms.author: kishetty
 ms.date: 08/31/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - databases
 products:

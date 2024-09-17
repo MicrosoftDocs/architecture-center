@@ -7,13 +7,14 @@ metadata:
   ms.author: paolos
   ms.date: 02/28/2023
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
     - containers
   ms.custom:
-    - fcp
     - example-scenario
+    - arb-saas
+    - arb-containers
 name: Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service
 azureCategories:
   - containers
@@ -27,4 +28,4 @@ products:
   - azure-bastion
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-agic.png
 content: |
-   [!include[](aks-agic-content.md)]
+   [!INCLUDE[](aks-agic-content.md)]

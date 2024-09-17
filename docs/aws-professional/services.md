@@ -2,11 +2,11 @@
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Microsoft Azure services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
-author: BrianQu
-ms.author: yuanzhiqu
+author: RobBagby
+ms.author: pnp
 ms.date: 11/18/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
@@ -69,12 +69,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### AI and machine learning architectures
 
-<ul class="grid">
-
-[!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
-[!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization-with-content-based-recommendation-system.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Image classification on Azure](/azure/architecture/ai-ml/idea/intelligent-apps-image-processing) | Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions. |
+| [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search) | This architecture describes how to use a dedicated search service to dramatically increase the relevance of search results for your e-commerce customers. |
 
 [view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
@@ -89,12 +87,9 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### Data warehouse architectures
 
-<ul class="grid">
-
-[!INCLUDE [Modern Data Warehouse Architecture](../../includes/cards/modern-data-warehouse.md)]
-[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -104,14 +99,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
-### Time series architectures
+### Time series architecture
 
-<ul class="grid">
-
-[!INCLUDE [IoT analytics with Azure Data Explorer](../../includes/cards/iot-azure-data-explorer.md)]
-[!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide variety of streaming data from IoT devices. |
 
 ### Big data processing
 
@@ -124,13 +116,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### Big data architectures
 
-<ul class="grid">
-
-[!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
-[!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
-[!INCLUDE [Big data analytics with Azure Data Explorer](../../includes/cards/big-data-azure-data-explorer.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Azure data platform end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) | Use Azure services to ingest, process, store, serve, and visualize data from different sources. |
+| [Personalized offers](/azure/architecture/ai-ml/idea/personalized-offers) | This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.  |
+| [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer) | Big data analytics with Azure Data Explorer demonstrates how Azure Data Explorer caters to volume, velocity, and variety of data, the three V's of big data. |
 
 [view all](../browse/index.yml?azure_categories=databases)
 
@@ -153,13 +143,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### Analytics architectures
 
-<ul class="grid">
-
-[!INCLUDE [Advanced Analytics Architecture](../../includes/cards/advanced-analytics-on-big-data.md)]
-[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
-[!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/news-feed-ingestion-and-near-real-time-analysis.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
+| [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
@@ -180,7 +167,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Developer Tools](https://aws.amazon.com/products/developer-tools) | [Developer Tools](https://azure.microsoft.com/services/devops/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
 | [CodeBuild](https://aws.amazon.com/codebuild) | [DevOps Pipeline](https://azure.microsoft.com/services/devops/pipelines) <br/><br/> [GitHub Actions](https://github.com/features/actions) | Fully managed build service that supports continuous integration and continuous deployment (CI/CD). |
 | [Command-line interface](https://aws.amazon.com/cli) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
-| [`eksctl`](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [`az aks`](/cli/azure/aks) | Manage Azure Kubernetes Service using these Azure CLI commands. |
+| [`eksctl`](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [`az aks`](/cli/azure/aks) | Manage Azure Kubernetes Service (AKS) using these Azure CLI commands. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks) | [Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
@@ -188,12 +175,9 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### DevOps architectures
 
-<ul class="grid">
-
-[!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
-[!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [CI/CD for AKS apps with GitHub Actions and GitFlow](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | This architecture is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration for build, and GitOps for continuous deployment. |
 
 [view all](../browse/index.yml?azure_categories=devops)
 
@@ -208,13 +192,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### IoT architectures
 
-<ul class="grid">
-
-[!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
-[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
-[!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot) | A recommended architecture for IoT applications on Azure by using platform as a service (PaaS) components. |
+| [Process real-time vehicle data by using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot) | This example builds a real-time data ingestion and processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure. |
 
 [view all](../browse/index.yml?azure_categories=iot)
 
@@ -256,7 +237,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
-| [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
+| [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) | Azure role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
 | [Organizations](https://aws.amazon.com/organizations) | [Subscription Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
 | [Multi-Factor Authentication](https://aws.amazon.com/iam/features/mfa) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
 | [Directory Service](https://aws.amazon.com/directoryservice) | [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds) | Provides managed domain services, such as domain join, group policy, LDAP, and Kerberos/NTLM authentication, which are fully compatible with Windows Server Active Directory. |
@@ -290,13 +271,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 #### Security architectures
 
-<ul class="grid">
-
-[!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
-[!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
-[!INCLUDE [Threat indicators for cyber threat intelligence in Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection) | Detect fraudulent activity in real-time by using Azure Event Hubs and Stream Analytics. |
+| [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps) | Learn about deploying secure applications using the App Service Environment, the Azure Application Gateway service, and Web Application Firewall. |
+| [Threat indicators for cyber threat intelligence in Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel. |
 
 [view all](../browse/index.yml?azure_categories=security)
 
@@ -319,13 +298,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 ### Web architectures
 
-<ul class="grid">
-
-[!INCLUDE [Architect scalable e-commerce web app](../../includes/cards/scalable-ecommerce-web-app.md)]
-[!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
-[!INCLUDE [Serverless web application](../../includes/cards/web-app.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app) | The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure. |
+| [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) | Deploy an application on Azure Virtual Machines in multiple regions for high availability and resiliency. |
+| [Serverless web application](/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API by using Azure Functions. |
 
 [view all](../browse/index.yml?azure_categories=web)
 

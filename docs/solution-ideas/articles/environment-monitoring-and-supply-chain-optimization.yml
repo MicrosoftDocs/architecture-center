@@ -5,9 +5,9 @@ metadata:
   description: Learn how to use Azure IoT for environment monitoring and supply chain optimization.
   author: falloutxAY
   ms.author: ansyeo
-  ms.date: 01/05/2023
+  ms.date: 07/09/2024
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
