@@ -98,7 +98,7 @@ The components are:
 
 The time window is another important aspect of this calculation. Carbon emissions vary for any energy consuming device or system, since the energy grid might have renewable or alternate energy sources at some times but not at others. For example, solar power is variable. To be as precise as possible, start with the shortest possible time frame, for example a daily or hourly calculation.
 
-The Emissions Impact Dashboard provides monthly carbon information based on the services within a subscription. T get this number for a single resource group, use the following equation:
+The Emissions Impact Dashboard provides monthly carbon information based on the services within a subscription. To get this number for a single resource group, use the following equation:
 
 ```text
 Carbon (res-group) = (Carbon(subscription) * Cost(res-group)) / Cost(subscription)
@@ -138,7 +138,7 @@ For more information, see:
 Data on the application carbon, performance, and cost allows you to build a correlation algorithm that is specific to your application. That information provides guidance when planning for cost, performance, and carbon optimization.
 
 > [!NOTE]
-> Equations with costs that discounts, such as Azure reservations or cost savings plans, create discrepancies in the correlation algorithm.
+> Equations that include discounted costs, such as Azure reservations or cost savings plans, create discrepancies in the correlation algorithm.
 
 For more information about the choice of algorithm, see [How to select algorithms for Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms).
 
