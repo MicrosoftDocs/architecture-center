@@ -2971,6 +2971,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-sitecore.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/digital-marketing-sitecore",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/serverless-quest/validate-commit-serverless-adoption.yml",
       "redirect_url": "/azure/architecture/web-apps/",
       "redirect_document_id": false
