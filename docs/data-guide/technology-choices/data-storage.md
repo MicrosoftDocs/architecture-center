@@ -4,13 +4,18 @@ description: Compare big data storage technology options in Azure, including key
 author: nabilshams
 ms.author: nasiddi
 categories: azure
-ms.date: 07/25/2022
+ms.date: 09/17/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-storage
   - azure-blob-storage
+  - azure-data-lake
+  - azure-data-lake-storage
+  - azure-cosmos-db
+  - azure-data-explorer
+  - fabric
 ms.custom:
   - guide
   - internal-intro
@@ -31,10 +36,14 @@ This topic compares options for data storage for big data solutions—specifical
 
 There are several options for ingesting data into Azure, depending on your needs.
 
+**Unified logical data lake:**
+
+[Microsoft Fabric OneLake](fabric/onelake/)
+
 **File storage:**
 
-- [Azure Storage blobs](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Lake Storage Gen1](/azure/data-lake-store)
+- [Azure Storage blobs](/azure/storage/blobs/storage-blobs-introduction)
 
 **NoSQL databases:**
 
@@ -44,6 +53,22 @@ There are several options for ingesting data into Azure, depending on your needs
 **Analytical databases:**
 
 [Azure Data Explorer](/azure/data-explorer/)
+
+## Microsoft Fabric OneLake
+
+[Microsoft Fabric OneLake](fabric/onelake/) is a unified, logical data lake for the entire organization, designed to be the single place for all analytics data. It comes automatically with every Microsoft Fabric tenant and is built on top of Azure Data Lake Storage (ADLS) Gen2. OneLake supports any type of file, structured or unstructured, and stores all tabular data in Delta Parquet format. It allows for collaboration across different business groups by providing a single data lake that is governed by default with distributed ownership for collaboration within a tenant's boundaries. Workspaces within a tenant enable different parts of the organization to distribute ownership and access policies, and all data in OneLake can be accessed through data items such as Lakehouses and Warehouses.
+
+In terms of data stores, OneLake serves as the common storage location for ingestion, transformation, real-time insights, and Business Intelligence visualizations. It centralizes the different Fabric services and is the storage for data items consumed by all workloads in Fabric. You can use [Microsoft Fabric decision guide: choose a data store](fabric/get-started/decision-guide-data-store) as a reference guide to help you choose the right data store for your Microsoft Fabric workloads.
+
+## Azure Data Lake Storage Gen1
+
+[Azure Data Lake Storage Gen1](/azure/data-lake-store) is an enterprise-wide hyperscale repository for big data analytic workloads. Data Lake enables you to capture data of any size, type, and ingestion speed in one single [secure](/azure/data-lake-store/data-lake-store-overview#DataLakeStoreSecurity) location for operational and exploratory analytics.
+
+Azure Data Lake Storage Gen1 doesn't impose any limits on account sizes, file sizes, or the amount of data that can be stored in a data lake. Data is stored durably by making multiple copies and there's no limit on the duration of time that the data can be stored in the Data Lake. In addition to making multiple copies of files to guard against any unexpected failures, Data lake spreads parts of a file over a number of individual storage servers. This improves the read throughput when reading the file in parallel for performing data analytics.
+
+Azure Data Lake Storage Gen1 can be accessed from Hadoop (available through HDInsight) using the WebHDFS-compatible REST APIs. You may consider using this as an alternative to Azure Storage when your individual or combined file sizes exceed that which is supported by Azure Storage. However, there are [performance tuning guidelines](/azure/data-lake-store/data-lake-store-performance-tuning-guidance#optimize-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight) you should follow when using Azure Data Lake Storage Gen1 as your primary storage for an HDInsight cluster, with specific guidelines for [Spark](/azure/data-lake-store/data-lake-store-performance-tuning-spark), [Hive](/azure/data-lake-store/data-lake-store-performance-tuning-hive), and [MapReduce](/azure/data-lake-store/data-lake-store-performance-tuning-mapreduce). Also, be sure to check Azure Data Lake Storage Gen1's [regional availability](https://azure.microsoft.com/regions/#services), because it isn't available in as many regions as Azure Storage, and it needs to be located in the same region as your HDInsight cluster.
+
+Coupled with Azure Data Lake Analytics, Azure Data Lake Storage Gen1 is designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Azure Data Lake Storage Gen1 can also be accessed via Azure Synapse using its PolyBase feature.
 
 ## Azure Storage blobs
 
@@ -61,16 +86,6 @@ Other features that make Azure Storage a good choice are:
 - [Disaster recovery and high-availability options](/azure/storage/common/storage-disaster-recovery-guidance).
 - [Encryption at rest](/azure/storage/common/storage-service-encryption).
 - [Azure role-based access control (RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Microsoft Entra users and groups.
-
-## Azure Data Lake Storage Gen1
-
-[Azure Data Lake Storage Gen1](/azure/data-lake-store) is an enterprise-wide hyperscale repository for big data analytic workloads. Data Lake enables you to capture data of any size, type, and ingestion speed in one single [secure](/azure/data-lake-store/data-lake-store-overview#DataLakeStoreSecurity) location for operational and exploratory analytics.
-
-Azure Data Lake Storage Gen1 doesn't impose any limits on account sizes, file sizes, or the amount of data that can be stored in a data lake. Data is stored durably by making multiple copies and there's no limit on the duration of time that the data can be stored in the Data Lake. In addition to making multiple copies of files to guard against any unexpected failures, Data lake spreads parts of a file over a number of individual storage servers. This improves the read throughput when reading the file in parallel for performing data analytics.
-
-Azure Data Lake Storage Gen1 can be accessed from Hadoop (available through HDInsight) using the WebHDFS-compatible REST APIs. You may consider using this as an alternative to Azure Storage when your individual or combined file sizes exceed that which is supported by Azure Storage. However, there are [performance tuning guidelines](/azure/data-lake-store/data-lake-store-performance-tuning-guidance#optimize-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight) you should follow when using Azure Data Lake Storage Gen1 as your primary storage for an HDInsight cluster, with specific guidelines for [Spark](/azure/data-lake-store/data-lake-store-performance-tuning-spark), [Hive](/azure/data-lake-store/data-lake-store-performance-tuning-hive), and [MapReduce](/azure/data-lake-store/data-lake-store-performance-tuning-mapreduce). Also, be sure to check Azure Data Lake Storage Gen1's [regional availability](https://azure.microsoft.com/regions/#services), because it isn't available in as many regions as Azure Storage, and it needs to be located in the same region as your HDInsight cluster.
-
-Coupled with Azure Data Lake Analytics, Azure Data Lake Storage Gen1 is designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Azure Data Lake Storage Gen1 can also be accessed via Azure Synapse using its PolyBase feature.
 
 ## Azure Cosmos DB
 
@@ -102,6 +117,8 @@ Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-clu
 
 To narrow the choices, start by answering these questions:
 
+- Do you need a unified data lake with multi-cloud support, robust governance, and seamless integration with analytical tools? If yes, then choose Microsoft Fabric OneLake for simplified data management and enhanced collaboration.
+
 - Do you need managed, high-speed, cloud-based storage for any type of text or binary data? If yes, then select one of the file storage or analytics options.
 
 - Do you need file storage that is optimized for parallel analytics workloads and high throughput/IOPS? If yes, then choose an option that is tuned to analytics workload performance.
@@ -113,6 +130,19 @@ To narrow the choices, start by answering these questions:
 ## Capability matrix
 
 The following tables summarize the key differences in capabilities.
+
+## Microsoft Fabric OneLake capabilities
+
+|Capability|Microsoft Fabric OneLake|
+| --- | --- |
+| Unified Data Lake|Provides a single, unified data lake for the entire organization, eliminating data silos.|
+| Multi-Cloud Support|Supports integration and compatibility with various cloud platforms.|
+| Data Governance| Includes features like data lineage, data protection, certification, and catalog integration.|
+| Centralized Data Hub| Acts as a centralized hub for data discovery and management.|
+| Analytical Engine Support| Compatible with multiple analytical engines, allowing diverse tools and technologies on the same data.|
+| Security and Compliance| Ensures sensitive data is secure and access is restricted to authorized users.|
+| Ease of Use| User-friendly design, automatically available with every Microsoft Fabric tenant, no setup required.|
+| Scalability| Capable of handling large volumes of data from various sources.| 
 
 ### File storage capabilities
 
@@ -165,6 +195,8 @@ Principal author:
 
 ## Next steps
 
+- [What is Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
+- [Introduction to end-to-end analytics using Microsoft Fabric](/training/modules/introduction-end-analytics-use-microsoft-fabric/)
 - [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
 - [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
