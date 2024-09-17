@@ -61,6 +61,7 @@ Some structural elements may not add meaning to the document and can safely be i
 The following questions about the structure of the document will give you insight that will help you understand if you need to pre-process the document to make it easier to process and will help inform your chunking strategy.
 
 - Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
+- How is the document structured? For example, we have seen HTML documents that have used tables for their structure that required pre-processing in order to differentiate between document structure and actual tables.
 - How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
 - What languages, language variant, or dialects are in the documents?
 - Does the document contain Unicode characters?
@@ -82,7 +83,7 @@ Understanding the images in your document will help you determine your image pro
   - The surrounding text has information that must be chunked with the image
   - Both the image and surrounding text have all required information
 
-Tables, charts and other content
+#### Questions about tables, charts and other content
 
 Understanding what information is encapsulated in tables, charts, and other media will help you understand what and how you want to process it. The following questions will help you understand your tables, charts, and other media processing requirements.
 
@@ -90,6 +91,7 @@ Understanding what information is encapsulated in tables, charts, and other medi
 - Does the document contain tables?
   - Are the tables complex (nested tables) or noncomplex?
   - Are there captions for the tables?
+  - What are the length of the tables? Long tables may require repeating headers in chunks.
 - Are there other types of embedded media like videos or audio?
 - Are there any mathematical equations/scientific notations in the document?
 

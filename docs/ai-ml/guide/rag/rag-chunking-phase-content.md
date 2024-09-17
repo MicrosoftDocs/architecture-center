@@ -17,6 +17,41 @@ The following are factors to consider when looking at the cost of your overall s
 - **Number of initial documents** - The number of initial documents you need to process to launch your solution.
 - **Number of incremental documents** - The number and rate of new documents that you must process for ongoing maintenance of the system.
 
+## Loading and chunking
+
+Logically, during chunking, you must first load the document into memory in some format. The chunking code then operates against the in-memory representation of the document. You can choose to combine the loading code with chunking, or you can separate loading into its own phase. The approach you choose should largely be based upon architectural constraints and your preferences. This section will briefly explore both options and then provide you with some general recommendations.
+
+### Separate loading and chunking
+
+There are several reasons you might choose to separate the loading and chunking phases. You might just simply want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking. Lastly, you might want to run the loading and chunking code in separate processes.
+
+#### Encapsulate logic in the loading code
+
+You might choose to encapsulate pre-processing logic in the loading phase. This simplifies the chunking code because it does not need to do any pre-processing. Pre-processing can be as simple as removing or annotating parts of the document you determined you want to ignore in document analysis, such as watermarks, headers, and footers or as complex as reformatting the document. The following are some examples of preprocessing you might choose to encapsulate in the loading phase:
+
+- Remove or annotate items you want to ignore.
+- Replace image references with image descriptions. During this phase, you use an LLM to generate a description for the image and update the document with that description.
+- Reformat tables so they are more easily processed.
+
+#### Persisting the result of the loading code
+
+There are multiple reasons you might choose to persist the result of the loading code. One reason is if you want the ability to inspect the documents after they have been loaded and pre-processed, but before the chunking logic is run. Another reason is that you might want to run different chunking logic against the same pre-processed code while in development or in production. Persisting the loaded code will speed up this process.
+
+#### Run loading and chunking code in separate processes
+
+Separating the loading and chunking code into separate processes will help enable running multiple chunking implementations against the same pre-processed code. This separation will also allow you to run loading and chunking code in different compute environments and on different hardware. Further, this design will allow you to scale the loading and chunking in or out independently.
+
+### Combine loading and chunking
+
+Combining the loading and chunking code is a simpler implementation in most cases. Many of the operations that you might consider doing in pre-processing in a separate loading phase can be accomplished in the chunking phase. For example, instead of replacing image URLs with a description in the loading phase, the chunking logic can make calls to the LLM to get a text description and chunk the description.
+
+### Recommendations
+
+The following are some recommendations to consider when determining whether you will combine or separate your chunking logic.
+
+- Start with combining loading and chunking logic. Separate them when your solution requires it.
+- Avoid converting documents to an intermediate format if you choose to separate the processes. Operations such as that can be lossy.
+
 ## Chunking approaches
 
 This section gives you an overview of some common chunking approaches. This list isn't meant to be exhaustive, rather some common representative approaches. You can use multiple approaches in implementation, such as combining the use of a large language model to get a text representation of an image with many of the listed approaches.
