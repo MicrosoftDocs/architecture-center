@@ -9,20 +9,20 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 ### Workflow
 
 1. Client applications access Azure OpenAI endpoints to perform text generation (completions) and model training (fine-tuning).
-2. Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides access to APIs, for internal applications the gateway also enables hybrid access from external cloud sources.
-   1. Application Gateway Web Application Firewall (WAF) provides protection against common web vulnerabilities and exploits.
-   2. Application Gateway health probes can be used to monitor health of backend services.
+2. Azure Application Gateway provides a single point of entry for clients to the private network that contains the Azure OpenAI models and APIs. For internal applications the gateway also enables hybrid access from cross-premises clients.
+   - Application Gateway Web Application Firewall (WAF) provides protection against common web vulnerabilities and exploits.
+   - Application Gateway health probes are used to monitor health of the APIs.
     
     > [!NOTE]
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
 
-3. GenAI Gateway (Azure API Management) enables security controls, auditing, and monitoring of the Azure OpenAI models.
-   1. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.
-   2. Auditing is enabled for all interactions with the models via Azure Monitor request logging.
-   3. Monitoring provides detailed Azure OpenAI model usage key performance indicators (KPIs) and metrics, including prompt information and token statistics for usage traceability.
-4. API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
-5. Multiple Azure OpenAI instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
-6. For capturing Azure OpenAI model inputs and outputs that exceed the default logging capabilities, APIM policies can forward requests to Azure Event Hubs and Azure Stream Analytics to extract payload information and store in Azure Data Storage service such as Azure SQL DB or Azure Data Explorer.  This enables capture of specific data for compliance and auditing purposes without any limits on payload sizing and minimal performance impacts.
+3. Azure API Management enables security controls, auditing, and monitoring of the Azure OpenAI models.
+   - In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.
+   - Auditing is enabled for all interactions with the models via Azure Monitor request logging.
+   - Monitoring provides detailed Azure OpenAI model usage, key performance indicators (KPIs), and metrics, including prompt information and token statistics for usage traceability.
+4. API Management connects to all origin resources via Azure Private Link. This configuration provides enhanced privacy for all traffic by containing traffic in the private network.
+5. This topology also supports [multiple Azure OpenAI instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend) to enable scale-out of API usage to ensure high availability and disaster recovery for the service.
+6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, APIM policies forward requests to Azure Event Hubs and Azure Stream Analytics to extract payload information and store in Azure Data Storage service such as Azure SQL DB or Azure Data Explorer.  This enables capture of specific data for compliance and auditing purposes without any limits on payload sizing and minimal performance impacts.
     
     > [!NOTE]
     > For streaming responses Azure OpenAI models, additional configuration is required to capture model completions. This configuration is not covered in this architecture.  See reference: [Azure OpenAI Log Proxy Helper](https://github.com/scallighan/openai-log-helper-proxy)
@@ -41,9 +41,9 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/). Fast and highly scalable data exploration service for log and telemetry data.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Managed relational database service that provides a secure, scalable database for storing structured data.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/). Enables user authentication and authorization to the application and to platform services that support the application. Features include:
-  - Granular access granted using Entra ID roles or Azure RBAC.  
+  - Granular access granted using Azure RBAC.  
   - Conditional Access and Just-in-Time (JIT) Access with Privileged Identity Management.  
-  - Replacement for key-based access to Azure OpenAI service.
+  - Recommended over key-based access to Azure OpenAI service.
 
 ### Alternatives
 
@@ -123,8 +123,8 @@ Output:
 ### Potential use cases
 
 - Deployment of Azure OpenAI for internal enterprise users to accelerate productivity
-- Token-based quota management for Generative AI API usage
-- High availability of Azure OpenAI for internal applications
+- Quota management for token-based Azure OpanAI APIs
+- [High availability of Azure OpenAI for internal applications](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend)
 - Enhanced-security use of Azure OpenAI within regulated industries
 
 ## Considerations
