@@ -103,7 +103,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Scalability
 
 - [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 
 ### Security
 
@@ -113,7 +112,6 @@ The following sections, organized by category, provide links to sample web app a
 ### SharePoint
 
 - [Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)
 
 ## Stay current with web development
 

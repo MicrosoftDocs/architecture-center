@@ -44,11 +44,7 @@ The [Azure Sponsorship for ISVs program](https://azure.microsoft.com/partners/is
 
 Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy cloud software from Microsoft and Microsoft partners.
 
-This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
-
-We also recommend you browse our open-source solutions for Microsoft Azure:
-- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
+This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions. For more information, see [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios).
 
 ## Advanced
 
@@ -249,7 +245,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 ## Related resources
 
 - [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
 - [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)

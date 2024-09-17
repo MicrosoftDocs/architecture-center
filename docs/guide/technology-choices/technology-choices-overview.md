@@ -157,9 +157,3 @@ IoT solutions use a combination of technologies to connect devices, events, and 
 |Article |Summary  |
 |---------|---------|
 |[Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about the supported native and cross-platform languages for building client applications.    |
-
-## Choose a mixed reality engine
-
-|Article |Summary  |
-|---------|---------|
-|[Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn about the engine choices for mixed reality development for HoloLens and virtual reality.    |

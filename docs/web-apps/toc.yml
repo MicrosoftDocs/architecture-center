@@ -86,7 +86,7 @@ items:
                 href: guides/reliable-web-app/java/plan-implementation.yml
               - name: Apply the pattern
                 href: guides/reliable-web-app/java/apply-pattern.yml
-    - name: Hosting applications
+    - name: Hosting Wordpress on Azure
       items:
       - name: WordPress
         items:
@@ -98,5 +98,4 @@ items:
           href: ../example-scenario/infrastructure/wordpress-app-service.yml
         - name: VM hosting
           href: ../example-scenario/infrastructure/wordpress-iaas.yml
-      - name: Umbraco
-        href: hosting-applications/medium-umbraco-web-app.yml                
+             
