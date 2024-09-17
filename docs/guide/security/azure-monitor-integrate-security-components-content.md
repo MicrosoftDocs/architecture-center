@@ -22,7 +22,7 @@ To make the architecture more comprehensive, it was designed to be layered onto 
 - Office 365 services that provide Microsoft Office apps
 - Azure public cloud services, including servers, storage, and identity services
 
-:::image type="content" alt-text="Diagram of the complete and final architecture that is described in this series of five articles." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png":::
+image type="content" alt-text="Diagram of the complete and final architecture that is described in this series of five articles." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png"
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
