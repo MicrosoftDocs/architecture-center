@@ -25,7 +25,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, APIM policies forward requests to Azure Event Hubs and Azure Stream Analytics to extract payload information and store in Azure Data Storage service such as Azure SQL DB or Azure Data Explorer.  This enables capture of specific data for compliance and auditing purposes without any limits on payload sizing and minimal performance impacts.
     
     > [!NOTE]
-    > For streaming responses Azure OpenAI models, additional configuration is required to capture model completions. This configuration is not covered in this architecture.
+    > For streaming responses with Azure OpenAI models, additional configuration is required to capture model completions. This configuration is not covered in this architecture.
 
 ### Components
 
@@ -44,7 +44,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 
 ### Alternatives
 
-Azure OpenAI provides native logging and monitoring as consistent with all Azure AI Service resources. You can use this native functionality to track telemetry of the service, but the default Azure AI Service logging doesn't track or record inputs and outputs of the service, like prompts, tokens, and models. These metrics are especially important for compliance and to ensure that the service operates as expected. Also, by tracking interactions with the language models deployed to Azure OpenAI, you can analyze how your organization is using the service to identify cost and usage patterns that can help inform decisions on scaling and resource allocation.
+Azure OpenAI provides native logging and monitoring capabilities. You can use this native functionality to track telemetry of the service, but the default Azure AI Service logging doesn't track or record inputs and outputs of the service, like prompts, tokens, and models. These metrics are especially important for compliance and to ensure that the service operates as expected. Also, by tracking interactions with the language models deployed to Azure OpenAI, you can analyze how your organization is using the service to identify cost and usage patterns that can help inform decisions on scaling and resource allocation.
 
 The following table provides a comparison of the metrics provided by the default Azure OpenAI logging and those provided by this solution.
 
@@ -120,7 +120,7 @@ Output:
 ### Potential use cases
 
 - Deployment of Azure OpenAI for internal enterprise users to accelerate productivity
-- Quota management for token-based Azure OpanAI APIs
+- Quota management for token-based Azure OpenAI APIs
 - [High availability of Azure OpenAI for internal applications](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend)
 - Enhanced-security use of Azure OpenAI within regulated industries
 
