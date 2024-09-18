@@ -51,7 +51,15 @@ There are several options for ingesting data into Azure, depending on your needs
 
 ## Microsoft Fabric OneLake
 
-[Microsoft Fabric OneLake](/fabric/onelake) is a unified, logical data lake for the entire organization, designed to be the single place for all analytics data. It comes automatically with every Microsoft Fabric tenant and is built on top of Azure Data Lake Storage (ADLS) Gen2. OneLake supports any type of file, structured or unstructured, and stores all tabular data in Delta Parquet format. It allows for collaboration across different business groups by providing a single data lake that is governed by default with distributed ownership for collaboration within a tenant's boundaries. Workspaces within a tenant enable different parts of the organization to distribute ownership and access policies, and all data in OneLake can be accessed through data items such as Lakehouses and Warehouses.
+[Microsoft Fabric OneLake](/fabric/onelake/onelake-overview) is a unified, logical data lake for the entire organization, designed to be the single place for all analytics data. It comes automatically with every Microsoft Fabric tenant and is built on top of Azure Data Lake Storage (ADLS) Gen2. 
+
+OneLake offers the following features:
+
+- Supports any file type, structured or unstructured.
+- Stores all tabular data in Delta Parquet format. 
+- Provides a single data lake within tenant boundaries that's governed by default.
+- Supports the creation of workspaces within a tenant to enable parts of an organization to distribute ownership and access policies.
+- Supports the creation of various data items, such as Lakehouses and Warehouses, from which you can access data.
 
 In terms of data stores, OneLake serves as the common storage location for ingestion, transformation, real-time insights, and Business Intelligence visualizations. It centralizes the different Fabric services and is the storage for data items consumed by all workloads in Fabric. You can use [Microsoft Fabric decision guide: choose a data store](/fabric/get-started/decision-guide-data-store) as a reference guide to help you choose the right data store for your Microsoft Fabric workloads.
 
