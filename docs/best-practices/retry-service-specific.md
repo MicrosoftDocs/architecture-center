@@ -114,7 +114,7 @@ Retry behavior in the Azure Event Hubs Client Library is controlled by the `Retr
 ### Example
 
 ```csharp
-EventHubClient client = EventHubClient.CreateFromConnectionString("[event_hub_connection_string]");
+EventHubClient client = EventHubClient.CreateWithManagedIdentity(new Uri("sb://full_namespace_url", "entity_path");
 client.RetryPolicy = RetryPolicy.Default;
 ```
 
@@ -380,9 +380,10 @@ Set the `Mode` property to configure the [ServiceBusRetryMode](/dotnet/api/azure
 Example:
 
 ```csharp
+using Azure.Identity;
 using Azure.Messaging.ServiceBus;
 
-string connectionString = "<connection_string>";
+string namespace = "<namespace>";
 string queueName = "<queue_name>";
 
 // Because ServiceBusClient implements IAsyncDisposable, we'll create it
@@ -395,7 +396,7 @@ options.RetryOptions = new ServiceBusRetryOptions
     Mode = ServiceBusRetryMode.Exponential,
     MaxRetries = 3,
 };
-await using var client = new ServiceBusClient(connectionString, options);
+await using var client = new ServiceBusClient(namespace, new DefaultAzureCredential(), options);
 ```
 
 ### Telemetry
@@ -417,11 +418,10 @@ The following code example shows how to use the `Azure.Messaging.ServiceBus` pac
 - Receive using the `ServiceBusReceiver`, which are represented as `ServiceBusReceivedMessage` objects.
 
 ```csharp
-// using Azure.Messaging.ServiceBus;
-
+using Azure.Identity;
 using Azure.Messaging.ServiceBus;
 
-string connectionString = "<connection_string>";
+string namespace = "<namespace>";
 string queueName = "queue1";
 
 // Because ServiceBusClient implements IAsyncDisposable, we'll create it 
@@ -434,7 +434,7 @@ options.RetryOptions = new ServiceBusRetryOptions
     Mode = ServiceBusRetryMode.Exponential,
     MaxRetries = 3,
 };
-await using var client = new ServiceBusClient(connectionString, options);
+await using var client = new ServiceBusClient(namespace, new DefaultAzureCredential(), options);
 
 // The sender is responsible for publishing messages to the queue.
 ServiceBusSender sender = client.CreateSender(queueName);
@@ -834,10 +834,10 @@ There are many reasons why failure can occur when a client application attempts 
 Retry policies are configured programmatically. The configuration is based on the [RetryOption class](/dotnet/api/azure.core.retryoptions). There is an attribute on [TableClientOptions](/dotnet/api/azure.data.tables.tableclientoptions) inherited  from [ClientOptions](/dotnet/api/azure.core.clientoptions)
 
 ```csharp
-      var tableClientOptions = new TableClientOptions();
-      tableClientOptions.Retry.Mode = RetryMode.Exponential;
-      tableClientOptions.Retry.MaxRetries = 5;
-      var serviceClient = new TableServiceClient(connectionString, tableClientOptions);
+var tableClientOptions = new TableClientOptions();
+tableClientOptions.Retry.Mode = RetryMode.Exponential;
+tableClientOptions.Retry.MaxRetries = 5;
+var serviceClient = new TableServiceClient("<endpoint>", new DefaultAzureCredential(), tableClientOptions);
 ```
 
 The following tables show the possibilities for the built-in retry policies.
@@ -863,8 +863,8 @@ The following tables show the possibilities for the built-in retry policies.
 The simplest way to see the logs is to enable console logging. To create an Azure SDK log listener that outputs messages to console use AzureEventSourceListener.CreateConsoleLogger method.
 
 ```csharp
-      // Setup a listener to monitor logged events.
-      using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
+// Setup a listener to monitor logged events.
+using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
 ```
 
 ### Examples
@@ -876,12 +876,12 @@ using Azure.Core;
 using Azure.Core.Diagnostics;
 using Azure.Data.Tables;
 using Azure.Data.Tables.Models;
+using Azure.Identity;
 
 namespace RetryCodeSamples
 {
     class AzureStorageCodeSamples
     {
-        private const string connectionString = "UseDevelopmentStorage=true";
         private const string tableName = "RetryTestTable";
 
         public async static Task SamplesAsync()
@@ -893,7 +893,7 @@ namespace RetryCodeSamples
             tableClientOptions.Retry.Mode = RetryMode.Exponential;
             tableClientOptions.Retry.MaxRetries = 5;
 
-            var serviceClient = new TableServiceClient(connectionString, tableClientOptions);
+            var serviceClient = new TableServiceClient("<endpoint>", new DefaultAzureCredential(), tableClientOptions);
 
             TableItem table = await serviceClient.CreateTableIfNotExistsAsync(tableName);
             Console.WriteLine($"The created table's name is {table.Name}.");
@@ -970,14 +970,10 @@ The following are the typical types of retry strategy intervals:
 
 ### Next steps
 
-- [connection resiliency](/ef/core/miscellaneous/connection-resiliency)
-- [Data Points - EF Core 1.1](/archive/msdn-magazine/2017/january/data-points-ef-core-1-1-a-few-of-my-favorite-things)
+- Entity Framework [connection resiliency](/ef/core/miscellaneous/connection-resiliency)
 
 <!-- links -->
 
-[msal]: /azure/active-directory/develop/msal-overview
 [autorest]: https://github.com/Azure/autorest/tree/main/docs
 [dotnet-foundation]: https://dotnetfoundation.org
-[redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
-[SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet&preserve-view=true
-[SearchServiceClient]: /dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet&preserve-view=true
+[redis-cache-troubleshoot]: /azure/azure-cache-for-redis/cache-troubleshoot-server
