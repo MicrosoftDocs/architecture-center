@@ -1,20 +1,20 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article explains how to diagram the essential IT environment of your organization and develop a threat map. These diagrams can help you to plan and build your defensive layer of security. Understanding your IT environment and how it's architected is essential to defining the security services that the environment requires for necessary levels of protection.
+This article outlines how to diagram your organization's essential IT environment and create a threat map. These diagrams are valuable tools for planning and building a robust defensive security layer. Gaining a clear understanding of your IT environment and its architecture is crucial for determining the security services needed to achieve adequate protection levels.
 
-Computer systems contain information that is valuable to the organizations that produce it—and to malicious actors. A malicious actor can be an individual or a group of people who perform malicious acts against a person or organization. Their efforts can cause harm to the computers, devices, systems, and networks of companies. Their goals are to compromise or steal valuable information by using threats like malware or brute force attacks.
+Computer systems hold information that is valuable not only to the organizations that create it but also to malicious actors. These actors can be individuals or groups that engage in harmful activities against people or organizations. Their actions can damage computers, devices, systems, and networks, aiming to compromise or steal sensitive information through threats like malware or brute force attacks.
 
 In this article, we look at a way to map the threats against your IT environment so that you can plan how to use Microsoft security services to implement your security strategy. This is the second article in a series of five articles that are introduced in [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml).
 
-The good news is that you don't need to create a threat map from scratch. The MITRE ATT&CK matrix is a great solution to help you develop a threat map. MITRE ATT&CK is a global knowledge database that maps threats that are based on the tactics and techniques that are observed in the real world. The MITRE Corporation catalogs every threat available and discovers many details of how those threats work and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org).
+The good news is that you don't have to build a threat map from scratch. The MITRE ATT&CK matrix offers an excellent solution to help you create one. MITRE ATT&CK is a global knowledge base that maps real-world threats using tactics and techniques observed in practice. The MITRE Corporation documents every known threat and provides detailed insights into how these threats operate and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org).
 
 This article uses a subset of those threats to present an example of how you could map threats against your IT environment.
 
 ## Potential use cases
 
-Some threats are widespread regardless of the industry segment, such as ransomware, DDoS attacks, cross-site scripting, SQL injection, and so on. However, some organizations have concerns about specific types of threats that are particular to their industry or that were the basis of cyber-attacks that they've experienced. The diagram presented in this article can help you map such threats for your organization according to the area that malicious actors are likely to attack. Developing a threat map helps you to plan the layers of defense that are necessary to have a more secure environment.
+Some threats are common across all industries, such as ransomware, DDoS attacks, cross-site scripting, and SQL injection. However, some organizations may face specific threats unique to their industry or based on past cyberattacks they've encountered. The diagram in this article can help you map threats that are relevant to your organization, focusing on the areas most likely to be targeted by malicious actors. Creating a threat map enables you to design the necessary layers of defense for a more secure environment.
 
-You can use this diagram with different combinations of attacks to understand how to avoid and mitigate those attacks. You don't necessarily need to use the MITRE ATT&CK framework. The framework is only an example. Microsoft Sentinel, and other Microsoft security services, have worked with MITRE to provide insightful information regarding threats.
+This diagram can be adapted with various combinations of attacks to help you understand how to prevent and mitigate them. While the MITRE ATT&CK framework is a useful example, it’s not mandatory. Microsoft Sentinel and other Microsoft security services also provide valuable insights into threats, often leveraging information from the MITRE framework.
 
 Some organizations use Cyber Kill Chain®, a methodology from Lockheed Martin, to map and understand how an attack or a series of attacks are performed against an IT environment. Cyber Kill Chain organizes threats and attacks by considering fewer tactics and techniques than the MITRE ATT&CK framework. Still, it's effective in helping you to understand threats and how they might be executed. For more information about this methodology, see [Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html).
 
@@ -52,7 +52,8 @@ The diagram represents Microsoft 365 through the components listed in the follow
 
 ### Workflow
 
-To help you understand which part of your IT environment those threats are likely to attack, the architecture diagram in this article is based on a typical IT environment for an organization that has on-premises systems, a Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers are services that are common to many companies. They're classified in the diagram according to the pillars of Microsoft Zero Trust: network, infrastructure, endpoint, application, data, and identity. For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust).
+To help you identify which areas of your IT environment are most likely to be targeted by threats, the architecture diagram in this article is based on a typical IT setup for an organization with on-premises systems, a Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers represent services commonly used by many companies. They are categorized in the diagram according to the pillars of Microsoft's Zero Trust framework: network, infrastructure, endpoint, application, data, and identity.
+For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust).
 
 The architecture diagram includes the following layers:
 
