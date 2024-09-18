@@ -40,7 +40,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Real-time data stream processing from Azure Event Hub. Stream Analytics provides real-time processing of steam messages.
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/). Fast and highly scalable data exploration service for log and telemetry data. Data Explorer can be used to store all logged conversations which are sent in streaming mode from the LLM.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Managed relational database service that provides a secure, scalable database for storing structured data. Azure SQL DB can be used to store all logged conversations which are sent in streaming mode from the LLM.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/). Enables user authentication and authorization to the application and to platform services that support the application.  Entra ID provides secure access to all Azure resources which includes using identity based access control.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/). Enables user authentication and authorization to the application and to platform services that support the application.  Microsoft Entra ID provides secure access to all Azure resources which includes using identity based access control.
 
 ### Alternatives
 
