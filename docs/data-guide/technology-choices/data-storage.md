@@ -61,7 +61,7 @@ OneLake offers the following features:
 - Supports the creation of workspaces within a tenant to enable parts of an organization to distribute ownership and access policies.
 - Supports the creation of various data items, such as Lakehouses and Warehouses, from which you can access data.
 
-In terms of data stores, OneLake serves as the common storage location for ingestion, transformation, real-time insights, and Business Intelligence visualizations. It centralizes the different Fabric services and is the storage for data items consumed by all workloads in Fabric. You can use [Microsoft Fabric decision guide: choose a data store](/fabric/get-started/decision-guide-data-store) as a reference guide to help you choose the right data store for your Microsoft Fabric workloads.
+OneLake serves as the common storage location for ingestion, transformation, real-time insights, and Business Intelligence visualizations. It centralizes the different Fabric services and is the storage for data items consumed by all workloads in Fabric. You can use [Microsoft Fabric decision guide: choose a data store](/fabric/get-started/decision-guide-data-store) as a reference guide to help you choose the right data store for your Microsoft Fabric workloads.
 
 ## Azure Storage blobs
 
