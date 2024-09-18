@@ -18,7 +18,7 @@ This series of articles uses architectural diagrams to explain how Microsoft sec
 
 To make the architecture more comprehensive, it was designed to be layered onto the architecture of a typical hybrid IT environment, which in many companies has three layers:
 
-- On-premises services, such as a private datacenter
+- On-premises services, such as a private Data Center
 - Office 365 services that provide Microsoft Office apps
 - Azure public cloud services, including servers, storage, and identity services
 
