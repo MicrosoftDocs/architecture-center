@@ -8,7 +8,25 @@ This article describes various chunking approaches, and examines how the structu
 
 ## Chunking economics
 
-When determining your overall chunking strategy, you must consider your budget along with your quality and throughput requirements for your text corpus. There are engineering costs for the design and implementation of each unique chunking implementation and per-document processing costs that differ depending upon the approach.
+When determining your overall chunking strategy, you must consider your budget along with your quality and throughput requirements for your text corpus. There are engineering costs for the design and implementation of each unique chunking implementation and per-document processing costs that differ depending upon the approach. If your documents have images, you must consider the economics of processing those images. For chunking, this processing generally uses LLMs to generate descriptions of the models and those descriptions are then chunked. An alternate approach with images is to pass the image to a multi-modal model at inferencing time, but that approach would not affect the chunking economics.
+
+This section examines the economics of both chunking images and the overall solution.
+
+### Image chunking economics
+
+There is a cost to using an LLM to generate a description of an image which is then chunked. For example, cloud-based services such as Azure OpenAI either charge on a per-transaction basic or on a pre-paid provisioning basis. Larger images incur a larger cost. Through your document analysis, you should determine what images are valuable to chunk and what images you should ignore. From there, you need to understand the number and sizes of the images in your solution and you should weigh the value of chunking the image descriptions against the cost of generating those descriptions.
+
+One way to determine what images to process is to use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to classify images, tag images, or do logo detection. You can then use the results and confidence indicators to determine whether or not you want to process the image. Calls to Azure AI Vision are less expensive than calls to LLMs, so this approach can lead to cost savings. You need to experiment to determine what confidence levels and what classifications or tags provide the best results for your data. Another option is to build your own classifier. You need to take into account the costs of building, running, and maintaing your own classifier into account.
+
+Another cost optimization is image caching. You can generate a key based on the hash of the image. As a first step, you can check to see if you have a cached result. If you do, you can use that result. That approach will keep you from the costs of calling a classifier or an LLM. If there is no cache, when you call to the classifier, you would cache the result. If you call to an LLM to generate the description, you cache the result. Future calls for this image would use the cache.
+
+A simple workflow integrating all of these cost optimization processes would be:
+
+1. Check to see if the image processing has been cached. If so, use the cached results.
+1. Run your classifier to determine if you should process the image. Cache the classification result. Only proceed if your classificaiton logic tells you to do so.
+1. Generate the description for your image. Cache the result.
+
+### Economics of the overall solution
 
 The following are factors to consider when looking at the cost of your overall solution:
 
@@ -23,14 +41,15 @@ Logically, during chunking, you must first load the document into memory in some
 
 ### Separate loading and chunking
 
-There are several reasons you might choose to separate the loading and chunking phases. You might just simply want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking. Lastly, you might want to run the loading and chunking code in separate processes.
+There are several reasons you might choose to separate the loading and chunking phases. You might simply want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking. Lastly, you might want to run the loading and chunking code in separate processes for architectural reasons.
 
 #### Encapsulate logic in the loading code
 
 You might choose to encapsulate pre-processing logic in the loading phase. This simplifies the chunking code because it does not need to do any pre-processing. Pre-processing can be as simple as removing or annotating parts of the document you determined you want to ignore in document analysis, such as watermarks, headers, and footers or as complex as reformatting the document. The following are some examples of preprocessing you might choose to encapsulate in the loading phase:
 
 - Remove or annotate items you want to ignore.
-- Replace image references with image descriptions. During this phase, you use an LLM to generate a description for the image and update the document with that description.
+- Replace image references with image descriptions. During this phase, you use an LLM to generate a description for the image and update the document with that description. If you determined in the document analysis that there is surrounding text that provides valuable context to the image, pass that, along with the image, to the LLM.
+- Download or copy images to file storage like Azure Data Lake to be processed separately from the document text. If you determined in the document analysis that there is surrounding text that provides valuable context to the image, you will need to store this text along with the image in file storage.
 - Reformat tables so they are more easily processed.
 
 #### Persisting the result of the loading code
@@ -44,6 +63,8 @@ Separating the loading and chunking code into separate processes will help enabl
 ### Combine loading and chunking
 
 Combining the loading and chunking code is a simpler implementation in most cases. Many of the operations that you might consider doing in pre-processing in a separate loading phase can be accomplished in the chunking phase. For example, instead of replacing image URLs with a description in the loading phase, the chunking logic can make calls to the LLM to get a text description and chunk the description.
+
+When you have document formats like HTML that have tags with references to images, you will need to ensure that the reader or parser that the chunking code is using does not strip out the tags. The chunking code will need to be able to identify image references.
 
 ### Recommendations
 
