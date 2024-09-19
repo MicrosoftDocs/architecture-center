@@ -78,10 +78,8 @@ Understanding the images in your document will help you determine your image pro
 - What resolution are the images?
 - What kind of data do you have on images?
 - Is there text embedded in the images?
-- What is the relationship between the image and surrounding text
-  - The image has all the information required to chunk
-  - The surrounding text has information that must be chunked with the image
-  - Both the image and surrounding text have all required information
+- Are there abstract images that do not add value? For example, icons may not add any semantic value. Adding a description for images may actually be detremental, as the icon visual will likely have little to do with the document content.
+- What is the relationship between the image and surrounding text. Determine whether the images have stand-alone content or whether there is context around the image you should use when passing it to an LLM to get the textual representation. Captions are an example of surrounding text that may have valuable context not included in the image.
 
 #### Questions about tables, charts and other content
 
@@ -120,7 +118,6 @@ The success factor in this step is being *qualitatively confident* that you have
 - Make sure that the documents can address the questions that are being gathered.
 - You should have at least two documents for each document variant.
 - You can use large language models or other tools to help evaluate the document quality.
-
 
 ## Gather test queries
 
@@ -167,6 +164,10 @@ It's important to gather queries that the documents don't address, along with qu
 
 - Responding that you don't know
 - Responding that you don't know and providing a link where the user might find more information
+
+### Gather test queries for images
+
+LIke with text, you should gather a diverse set of questions for the images. If you have images with graphs, tables, screenshots, make sure you have questions that cover all the use cases. If you determined in the [images portion of the document analysis section](#questions-about-images) that the text before or after the image is required to answer some questions, make sure you have those questions in your test queries.
 
 ### Gather test queries guidance
 
