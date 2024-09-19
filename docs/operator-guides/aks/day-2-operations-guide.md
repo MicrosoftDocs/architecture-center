@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about Azure Kubernetes Services (AKS) day-2 operations, such as triage, patching, upgrading, and troubleshooting.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 04/11/2022
+ms.date: 07/18/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
