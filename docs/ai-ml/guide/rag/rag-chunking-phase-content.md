@@ -1,4 +1,4 @@
-Now that you've gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized, semantically relevant chunks is a key factor in the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a large language model that is irrelevant to the query can lead to hallucinations. You have to determine what parts of a document are relevant and what parts are irrelevant and should be ignored.
+Now that you gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized, semantically relevant chunks is a key factor in the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a large language model that is irrelevant to the query can lead to hallucinations. You have to determine what parts of a document are relevant and what parts are irrelevant and should be ignored.
 
 Passing chunks that are too small and don't contain sufficient context to address the query also leads to poor results. Relevant context that exists across multiple chunks might not be captured. The art is implementing effective chunking approaches for your specific document types and their structures and content. There are a various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document they're applied to.
 
@@ -8,22 +8,22 @@ This article describes various chunking approaches, and examines how the structu
 
 ## Chunking economics
 
-When determining your overall chunking strategy, you must consider your budget along with your quality and throughput requirements for your text corpus. There are engineering costs for the design and implementation of each unique chunking implementation and per-document processing costs that differ depending upon the approach. If your documents have images, you must consider the economics of processing those images. For chunking, this processing generally uses LLMs to generate descriptions of the models and those descriptions are then chunked. An alternate approach with images is to pass the image to a multi-modal model at inferencing time, but that approach would not affect the chunking economics.
+When determining your overall chunking strategy, you must consider your budget along with your quality and throughput requirements for your text corpus. There are engineering costs for the design and implementation of each unique chunking implementation and per-document processing costs that differ depending upon the approach. If your documents have images, you must consider the economics of processing those images. For chunking, this processing generally uses LLMs to generate descriptions of the models and those descriptions are then chunked. An alternate approach with images is to pass the image to a multi-modal model at inferencing time, but that approach wouldn't affect the chunking economics.
 
 This section examines the economics of both chunking images and the overall solution.
 
 ### Image chunking economics
 
-There is a cost to using an LLM to generate a description of an image which is then chunked. For example, cloud-based services such as Azure OpenAI either charge on a per-transaction basic or on a pre-paid provisioning basis. Larger images incur a larger cost. Through your document analysis, you should determine what images are valuable to chunk and what images you should ignore. From there, you need to understand the number and sizes of the images in your solution and you should weigh the value of chunking the image descriptions against the cost of generating those descriptions.
+There's a cost to using an LLM to generate a description of an image which is then chunked. For example, cloud-based services such as Azure OpenAI either charge on a per-transaction basic or on a prepaid provisioning basis. Larger images incur a larger cost. Through your document analysis, you should determine what images are valuable to chunk and what images you should ignore. From there, you need to understand the number and sizes of the images in your solution and you should weigh the value of chunking the image descriptions against the cost of generating those descriptions.
 
-One way to determine what images to process is to use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to classify images, tag images, or do logo detection. You can then use the results and confidence indicators to determine whether or not you want to process the image. Calls to Azure AI Vision are less expensive than calls to LLMs, so this approach can lead to cost savings. You need to experiment to determine what confidence levels and what classifications or tags provide the best results for your data. Another option is to build your own classifier. You need to take into account the costs of building, running, and maintaing your own classifier into account.
+One way to determine what images to process is to use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to classify images, tag images, or do logo detection. You can then use the results and confidence indicators to determine whether or not you want to process the image. Calls to Azure AI Vision are less expensive than calls to LLMs, so this approach can lead to cost savings. You need to experiment to determine what confidence levels and what classifications or tags provide the best results for your data. Another option is to build your own classifier. You need to take into account the costs of building, running, and maintaining your own classifier into account.
 
-Another cost optimization is image caching. You can generate a key based on the hash of the image. As a first step, you can check to see if you have a cached result. If you do, you can use that result. That approach will keep you from the costs of calling a classifier or an LLM. If there is no cache, when you call to the classifier, you would cache the result. If you call to an LLM to generate the description, you cache the result. Future calls for this image would use the cache.
+Another cost optimization is image caching. You can generate a key based on the hash of the image. As a first step, you can check to see if you have a cached result. If you do, you can use that result. That approach keeps you from the costs of calling a classifier or an LLM. If there's no cache, when you call to the classifier, you would cache the result. If you call to an LLM to generate the description, you cache the result. Future calls for this image would use the cache.
 
 A simple workflow integrating all of these cost optimization processes would be:
 
-1. Check to see if the image processing has been cached. If so, use the cached results.
-1. Run your classifier to determine if you should process the image. Cache the classification result. Only proceed if your classificaiton logic tells you to do so.
+1. Check to see if the image processing was cached. If so, use the cached results.
+1. Run your classifier to determine if you should process the image. Cache the classification result. Only proceed if your classification logic tells you to do so.
 1. Generate the description for your image. Cache the result.
 
 ### Economics of the overall solution
@@ -37,38 +37,38 @@ The following are factors to consider when looking at the cost of your overall s
 
 ## Loading and chunking
 
-Logically, during chunking, you must first load the document into memory in some format. The chunking code then operates against the in-memory representation of the document. You can choose to combine the loading code with chunking, or you can separate loading into its own phase. The approach you choose should largely be based upon architectural constraints and your preferences. This section will briefly explore both options and then provide you with some general recommendations.
+Logically, during chunking, you must first load the document into memory in some format. The chunking code then operates against the in-memory representation of the document. You can choose to combine the loading code with chunking, or you can separate loading into its own phase. The approach you choose should largely be based upon architectural constraints and your preferences. This section briefly explores both options and then provide you with some general recommendations.
 
 ### Separate loading and chunking
 
-There are several reasons you might choose to separate the loading and chunking phases. You might simply want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking. Lastly, you might want to run the loading and chunking code in separate processes for architectural reasons.
+There are several reasons you might choose to separate the loading and chunking phases. You might want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking. Lastly, you might want to run the loading and chunking code in separate processes for architectural reasons.
 
 #### Encapsulate logic in the loading code
 
-You might choose to encapsulate pre-processing logic in the loading phase. This simplifies the chunking code because it does not need to do any pre-processing. Pre-processing can be as simple as removing or annotating parts of the document you determined you want to ignore in document analysis, such as watermarks, headers, and footers or as complex as reformatting the document. The following are some examples of preprocessing you might choose to encapsulate in the loading phase:
+You might choose to encapsulate preprocessing logic in the loading phase. This simplifies the chunking code because it doesn't need to do any preprocessing. Preprocessing can be as simple as removing or annotating parts of the document you determined you want to ignore in document analysis, such as watermarks, headers, and footers or as complex as reformatting the document. The following are some examples of preprocessing you might choose to encapsulate in the loading phase:
 
 - Remove or annotate items you want to ignore.
-- Replace image references with image descriptions. During this phase, you use an LLM to generate a description for the image and update the document with that description. If you determined in the document analysis that there is surrounding text that provides valuable context to the image, pass that, along with the image, to the LLM.
-- Download or copy images to file storage like Azure Data Lake to be processed separately from the document text. If you determined in the document analysis that there is surrounding text that provides valuable context to the image, you will need to store this text along with the image in file storage.
-- Reformat tables so they are more easily processed.
+- Replace image references with image descriptions. During this phase, you use an LLM to generate a description for the image and update the document with that description. If you determined in the document analysis that there's surrounding text that provides valuable context to the image, pass that, along with the image, to the LLM.
+- Download or copy images to file storage like Azure Data Lake to be processed separately from the document text. If you determined in the document analysis that there's surrounding text that provides valuable context to the image, you need to store this text along with the image in file storage.
+- Reformat tables so they're more easily processed.
 
 #### Persisting the result of the loading code
 
-There are multiple reasons you might choose to persist the result of the loading code. One reason is if you want the ability to inspect the documents after they have been loaded and pre-processed, but before the chunking logic is run. Another reason is that you might want to run different chunking logic against the same pre-processed code while in development or in production. Persisting the loaded code will speed up this process.
+There are multiple reasons you might choose to persist the result of the loading code. One reason is if you want the ability to inspect the documents after they're loaded and pre-processed, but before the chunking logic is run. Another reason is that you might want to run different chunking logic against the same pre-processed code while in development or in production. Persisting the loaded code speeds up this process.
 
 #### Run loading and chunking code in separate processes
 
-Separating the loading and chunking code into separate processes will help enable running multiple chunking implementations against the same pre-processed code. This separation will also allow you to run loading and chunking code in different compute environments and on different hardware. Further, this design will allow you to scale the loading and chunking in or out independently.
+Separating the loading and chunking code into separate processes helps enable running multiple chunking implementations against the same pre-processed code. This separation also allows you to run loading and chunking code in different compute environments and on different hardware. Further, this design allows you to scale the loading and chunking in or out independently.
 
 ### Combine loading and chunking
 
-Combining the loading and chunking code is a simpler implementation in most cases. Many of the operations that you might consider doing in pre-processing in a separate loading phase can be accomplished in the chunking phase. For example, instead of replacing image URLs with a description in the loading phase, the chunking logic can make calls to the LLM to get a text description and chunk the description.
+Combining the loading and chunking code is a simpler implementation in most cases. Many of the operations that you might consider doing in preprocessing in a separate loading phase can be accomplished in the chunking phase. For example, instead of replacing image URLs with a description in the loading phase, the chunking logic can make calls to the LLM to get a text description and chunk the description.
 
-When you have document formats like HTML that have tags with references to images, you will need to ensure that the reader or parser that the chunking code is using does not strip out the tags. The chunking code will need to be able to identify image references.
+When you have document formats like HTML that have tags with references to images, you need to ensure that the reader or parser that the chunking code is using doesn't strip out the tags. The chunking code needs to be able to identify image references.
 
 ### Recommendations
 
-The following are some recommendations to consider when determining whether you will combine or separate your chunking logic.
+The following are some recommendations to consider when determining whether you combine or separate your chunking logic.
 
 - Start with combining loading and chunking logic. Separate them when your solution requires it.
 - Avoid converting documents to an intermediate format if you choose to separate the processes. Operations such as that can be lossy.
@@ -87,7 +87,7 @@ This straightforward approach breaks down text documents into chunks made up of 
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose, or full sentences, and your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
-**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, a novel or an essay
+**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, a novel, or an essay
 
 ### Fixed-size parsing (with overlap)
 
@@ -99,7 +99,7 @@ You must choose the fixed size of the chunks and the amount of overlap. Because 
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose or non-prose with complete or incomplete sentences. Your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
-**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal or research notes or lists
+**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal, or research notes or lists
 
 ### Custom code
 
@@ -115,9 +115,9 @@ This approach parses documents using custom code to create chunks. This approach
 
 Large language models can be used to create chunks. Common use cases are to use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that can be used as chunks. Large language model augmentation is used with other chunking approaches such as custom code.
 
-If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#questions-about-images) that the text before or after the image is required to answer some questions, you will need to pass this additional context to the large language model. It is important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
+If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#questions-about-images) that the text before or after the image is required to answer some questions, you need to pass this additional context to the large language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
 
-If your chunking logic splits the image description into multiple chunks, make sure you include the image URL in each chunk. This will ensure that the image URL is returned for all queries that the image serves.
+If your chunking logic splits the image description into multiple chunks, make sure you include the image URL in each chunk. Including the image URL in each chunk ensures that the URL is returned for all queries that the image serves.
 
 **Tools**: [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service), [OpenAI](https://platform.openai.com/docs/introduction)<br/>
 **Engineering effort**: Medium<br/>
@@ -127,7 +127,7 @@ If your chunking logic splits the image description into multiple chunks, make s
 
 ### Document layout analysis
 
-Document layout analysis libraries and services combine optical character recognition (OCR) capabilities with deep learning models to extract both the structure of documents, and text. Structural elements can include headers, footers, titles, section headings, tables and figures. The goal is to provide better semantic meaning to content contained in documents.
+Document layout analysis libraries and services combine optical character recognition (OCR) capabilities with deep learning models to extract both the structure of documents, and text. Structural elements can include headers, footers, titles, section headings, tables, and figures. The goal is to provide better semantic meaning to content contained in documents.
 
 Document layout analysis libraries and services expose a model that represents the content, both structural and text, of the document. You still have to write code that interacts with the model.
 
@@ -171,7 +171,7 @@ Documents vary in the amount of structure they have. Some documents, like govern
 
 ### Structured documents
 
-Structured documents, sometimes referred to as fixed-format documents, have defined layouts. The data in these documents is located at fixed locations. For example, the date, or customer last name, is found in the same location in every document of the same fixed format. Examples of fixed format documents are the W-2 U.S. tax document.
+Structured documents, sometimes referred to as fixed-format documents, have defined layouts. The data in these documents is located at fixed locations. For example, the date, or customer family name, is found in the same location in every document of the same fixed format. Examples of fixed format documents are the W-2 U.S. tax document.
 
 Fixed format documents might be scanned images of original documents that were hand-filled or have complex layout structures, making them difficult to process with a basic text parsing approach. A common approach to processing complex document structures is to use machine learning models to extract data and apply semantic meaning to that data, where possible.
 
@@ -210,7 +210,7 @@ A good approach for documents with little to no structure are sentence-based or 
 
 ### Experimentation
 
-Although the best fit for each of the chunking approach are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. Part of optimizing your RAG solution will be experimenting with various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
+Although the best fit for each of the chunking approaches are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. Part of optimizing your RAG solution is experimenting with various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
 
 ## Next steps
 
