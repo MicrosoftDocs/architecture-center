@@ -35,7 +35,7 @@ The Day-2 operations guide assumes that you deployed the [Azure Kubernetes Servi
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors originally wrote it.*
 
 Principal author:
 
