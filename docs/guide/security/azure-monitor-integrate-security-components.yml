@@ -2,7 +2,7 @@
 metadata:
   title: Use Microsoft Sentinel to integrate with Microsoft XDR security components
   description: Integrate Azure monitoring services and Azure security services to provide defense in depth to your IT environment. This article introduces a series of articles.
-  author: rudnei oliveira
+  author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
   ms.date: 9/18/2024
