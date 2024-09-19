@@ -88,8 +88,6 @@ items:
                 href: guides/reliable-web-app/java/apply-pattern.yml
     - name: Hosting Wordpress on Azure
       items:
-      - name: WordPress
-        items:
         - name: Overview
           href: ../guide/infrastructure/wordpress-overview.yml
         - name: Container hosting (AKS)
