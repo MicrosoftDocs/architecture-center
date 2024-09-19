@@ -1,4 +1,4 @@
-The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of performing document analysis, gathering documents, and gathering sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The document analysis helps you determine what test documents and test queries you should gather. They are further interrelated in that the questions must be answerable by content in the documents and the documents must answer relevant questions.
+The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of performing document analysis, gathering documents, and gathering sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The document analysis helps you determine what test documents and test queries you should gather. They're further interrelated in that the questions must be answerable by content in the documents and the documents must answer relevant questions.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
@@ -15,29 +15,29 @@ The goal of document analysis is to gather enough information about your documen
 - The security constraints - For example, whether the documents are publicly accessible or not, or whether they require authentication and authorization to access them
 - The structure of the documents - For example, the length of documents, whether they have images and tables, and information about the images and tables
 
-The following sections discuss how this information will help inform your loading and chunking strategies.
+The following sections discuss how this information helps inform your loading and chunking strategies.
 
 ### Classification of documents
 
-You need to understand the different classifications of documents to help you determine the number of test documents you require. This part of the analysis should tell you not only the high-level classifications such as insurance or finance, but also subclassifications, such as health insurance vs. car insurance documents. You also want to understand if the subclassifications have different structures or content. 
+You need to understand the different classifications of documents to help you determine the number of test documents you require. This part of the analysis should tell you not only the high-level classifications such as insurance or finance, but also subclassifications, such as health insurance vs. car insurance documents. You also want to understand if the subclassifications have different structures or content.
 
-The goal is to understand all of the different document variants you have. This understanding will help you determine the number and breakdown of test documents you require.
+The goal is to understand all of the different document variants you have. This understanding helps you determine the number and breakdown of test documents you require.
 
 ### Document types
 
-Understanding the different document formats in your corpus will also help you determine the number and breakdown of test documents. For example, if you have PDF and docx document types for quarterly reports, you will need test documents for each document type. Understanding your document types will also help you understand your technical requirements for loading and chunking your documents.
+Understanding the different document formats in your corpus helps you determine the number and breakdown of test documents. For example, if you have PDF and docx document types for quarterly reports, you need test documents for each document type. Understanding your document types also helps you understand your technical requirements for loading and chunking your documents.
 
 ### Security constraints
 
-Understanding the security constraints will help you determine your loading and chunking strategies. For example, if some or all of your documents are HTML documents that require authentication and/or authorization, you need to ensure that either your loader can access the documents, or you need another process prior to loading that can access the documents and download them to a location your loader has access to.
+Understanding the security constraints helps you determine your loading and chunking strategies. For example, you need to understand if some or all of your documents are HTML documents that require authentication and/or authorization. If they do require authentication and/or authroization, you need to ensure that your code can access the documents, or you need another process to run before your code that can access the documents to download the docuemnts to a location your code has access to.
 
-You also have to understand the security constraints for images referenced in documents. If those images require authentication and/or authorization, you again need to either make sure the loader can access the images or you have a prior process that has access that can download the images.
+You also have to understand the security constraints for images referenced in documents. If those images require authentication and/or authorization, you again need to either make sure your code can access the images or you have a prior process that has access that can download the images.
 
 ### Document structure
 
-You need to understand the structure of the document, including how it is laid out and the types of content in the document. Understanding the structure and content of your documents will help you make the following determinations:
+You need to understand the structure of the document, including how it's laid out and the types of content in the document. Understanding the structure and content of your documents helps you make the following determinations:
 
-- Whether the document requires pre-processing to clean up noise, extract media, reformat, or annotate items to ignore
+- Whether the document requires preprocessing to clean up noise, extract media, reformat, or annotate items to ignore
 - What in the document you want to ignore or exclude
 - What in the document you want to capture
 - How you want to chunk the document
@@ -56,12 +56,12 @@ Some structural elements may not add meaning to the document and can safely be i
 - Are there watermarks?
 - Are there annotations or comments, for example, in PDFs or Word documents? Do you need them?
 
-#### Questions that will help inform preprocessing and chunking strategy
+#### Questions that help inform preprocessing and chunking strategy
 
-The following questions about the structure of the document will give you insight that will help you understand if you need to pre-process the document to make it easier to process and will help inform your chunking strategy.
+The following questions about the structure of the document gives you insight that helps you understand if you need to preprocess the document to make it easier to process and helps inform your chunking strategy.
 
 - Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
-- How is the document structured? For example, we have seen HTML documents that have used tables for their structure that required pre-processing in order to differentiate between document structure and actual tables.
+- How is the document structured? For example, we have seen HTML documents that used tables for their structure that required preprocessing in order to differentiate between document structure and actual tables.
 - How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
 - What languages, language variant, or dialects are in the documents?
 - Does the document contain Unicode characters?
@@ -72,24 +72,24 @@ The following questions about the structure of the document will give you insigh
 
 #### Questions about Images
 
-Understanding the images in your document will help you determine your image processing strategy. You need to understand information like what kind of images you have, whether they have sufficient resolution to process, and whether the image contains all the required information. The following questions will help you understand your image processing requirements.
+Understanding the images in your document helps you determine your image processing strategy. You need to understand information like what kind of images you have, whether they have sufficient resolution to process, and whether the image contains all the required information. The following questions help you understand your image processing requirements.
 
 - Does the document contain images?
 - What resolution are the images?
 - What kind of data do you have on images?
 - Is there text embedded in the images?
-- Are there abstract images that do not add value? For example, icons may not add any semantic value. Adding a description for images may actually be detremental, as the icon visual will likely have little to do with the document content.
-- What is the relationship between the image and surrounding text. Determine whether the images have stand-alone content or whether there is context around the image you should use when passing it to an LLM to get the textual representation. Captions are an example of surrounding text that may have valuable context not included in the image.
+- Are there abstract images that don't add value? For example, icons may not add any semantic value. Adding a description for images may actually be detrimental, as the icon visual generally has little to do with the document content.
+- What is the relationship between the image and surrounding text? Determine whether the images have stand-alone content or whether there's context around the image you should use when passing it to a large language model to get the textual representation. Captions are an example of surrounding text that may have valuable context not included in the image.
 
-#### Questions about tables, charts and other content
+#### Questions about tables, charts, and other content
 
-Understanding what information is encapsulated in tables, charts, and other media will help you understand what and how you want to process it. The following questions will help you understand your tables, charts, and other media processing requirements.
+Understanding what information is encapsulated in tables, charts, and other media helps you understand what and how you want to process it. The following questions help you understand your tables, charts, and other media processing requirements.
 
 - Does the document have charts with numbers?
 - Does the document contain tables?
   - Are the tables complex (nested tables) or noncomplex?
   - Are there captions for the tables?
-  - What are the length of the tables? Long tables may require repeating headers in chunks.
+  - What are the lengths of the tables? Long tables may require repeating headers in chunks.
 - Are there other types of embedded media like videos or audio?
 - Are there any mathematical equations/scientific notations in the document?
 
@@ -102,9 +102,9 @@ In this step, you're gathering documents that are the best representation of the
 Consider these areas when evaluating potential representative test documents:
 
 - **Pertinence** - The documents must meet the business requirements of the conversational application. For example, if you're building a chat bot tasked with helping customers perform banking operations, the documents should match that requirement, such as documents showing how to open or close a bank account. The documents must be able to address the test questions that are being gathered in the parallel step. If the documents don't have the information relevant to the questions, it cannot produce a valid response.
-- **Representative** - The documents should be representative of the different types of documents that your solution will use. For example, a car insurance document is different to a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only had two car insurance documents, your solution would perform poorly for both health and life insurance. You should have at least 2 for each variation.
+- **Representative** - The documents should be representative of the different types of documents that your solution uses. For example, a car insurance document is different to a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only had two car insurance documents. Your solution would perform poorly for both health and life insurance. You should have at least 2 for each variation.
 - **Physical document quality** - The documents need to be in a usable shape. Scanned images, for example, might not allow you to extract usable information.
-- **Document content quality** - The documents must have high content quality. There should not be misspellings or grammatical errors. Large language models don't perform well if you provide them with poor quality content.
+- **Document content quality** - The documents must have high content quality. There shouldn't be misspellings or grammatical errors. Large language models don't perform well if you provide them with poor quality content.
 
 The success factor in this step is being *qualitatively confident* that you have a good representation of test documents for your particular domain.
 
@@ -113,7 +113,7 @@ The success factor in this step is being *qualitatively confident* that you have
 ### Test document guidance
 
 - Prefer real documents over synthetic. Real documents must go through a cleaning process to remove personally identifiable information (PII).
-- Consider augmenting your documents with synthetic data to ensure you're handling all kinds of scenarios.
+- To ensure you're handling all kinds of scenarios, consider augmenting your documents with synthetic data.
 - If you must use synthetic data, do your best to make it as close to real data as possible.
 - Make sure that the documents can address the questions that are being gathered.
 - You should have at least two documents for each document variant.
@@ -121,7 +121,7 @@ The success factor in this step is being *qualitatively confident* that you have
 
 ## Gather test queries
 
-In this step, you're gathering test queries that you'll use to evaluate your chunks, search solution, and your prompt engineering. You'll do this in lockstep with gathering the representative documents, as you're not only gathering the queries, you're also gathering how the representative documents address the queries. Having both the sample queries, combined with the parts of the sample documents that address those queries, allow you to evaluate every stage of the RAG solution as you're experimenting with different strategies and approaches.
+In this step, you're gathering test queries that you use to evaluate your chunks, search solution, and your prompt engineering. You do this in lockstep with gathering the representative documents, as you're not only gathering the queries, you're also gathering how the representative documents address the queries. Having both the sample queries, combined with the parts of the sample documents that address those queries, allow you to evaluate every stage of the RAG solution as you're experimenting with different strategies and approaches.
 
 ### Gather test query output
 
@@ -135,7 +135,7 @@ The output of this phase includes content from both the [Gather representative t
 
 It's often challenging for the subject matter experts (SMEs) for a particular domain to put together a comprehensive list of questions for the use case. One solution to this challenge is to generate synthetic questions from the representative test documents that were gathered. The following is a real-world approach for generating synthetic questions from representative documents:
 
-1. **Chunk the documents** - Break down the documents into chunks. This chunking step isn't using the chunking strategy for your overall solution. It's a one-off step that will be used for generating synthetic queries. The chunking can be done manually if the number of documents is reasonable.
+1. **Chunk the documents** - Break down the documents into chunks. This chunking step isn't using the chunking strategy for your overall solution. It's a one-off step that you use to generate synthetic queries. The chunking can be done manually if the number of documents is reasonable.
 2. **Generate queries per chunk** - For each chunk, generate queries either manually or using a large language model. When using a large language model, we generally start by generating two queries per chunk. The large language model can also be used to create the answer. The following example shows a prompt that generates questions and answers for a chunk.
 
     ```text
@@ -167,11 +167,11 @@ It's important to gather queries that the documents don't address, along with qu
 
 ### Gather test queries for images
 
-LIke with text, you should gather a diverse set of questions for the images. If you have images with graphs, tables, screenshots, make sure you have questions that cover all the use cases. If you determined in the [images portion of the document analysis section](#questions-about-images) that the text before or after the image is required to answer some questions, make sure you have those questions in your test queries.
+Like with text, you should gather a diverse set of questions for the images. If you have images with graphs, tables, screenshots, make sure you have questions that cover all the use cases. If you determined in the [images portion of the document analysis section](#questions-about-images) that the text before or after the image is required to answer some questions, make sure you have those questions in your test queries.
 
 ### Gather test queries guidance
 
-- Determine whether there is a system that contains real customer questions that you can use. For example, if you're building a chat bot to answer customer questions, you might be able to use customer questions from your help desk, FAQs, or ticketing system.
+- Determine whether there's a system that contains real customer questions that you can use. For example, if you're building a chat bot to answer customer questions, you might be able to use customer questions from your help desk, FAQs, or ticketing system.
 - The customer or SME for the use case should act as a quality gate to determine whether or not the gathered documents, the associated test queries, and the answers to the queries from the documents are comprehensive, representative, and are correct.
 - Reviewing the body of questions and answers should be done periodically to ensure that they continue to accurately reflect the source documents.
 
