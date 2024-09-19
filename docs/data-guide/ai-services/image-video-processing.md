@@ -187,23 +187,7 @@ The following table provides a list of possible use cases for Azure AI Face serv
 |Content moderation|Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.|
 |Recommendations|Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that matches their needs.|
 
-## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta/) | Azure Senior Fast-Track Engineer
-
-Other contributors:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
-- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
-- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332/) | Software Engineer
-- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup/) | Azure Senior Fast-Track Engineer
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

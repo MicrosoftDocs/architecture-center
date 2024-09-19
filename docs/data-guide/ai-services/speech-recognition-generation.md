@@ -98,19 +98,6 @@ The following table provides a list of capabilities available in Immersive Reade
 
 
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-
-Other contributors:
-
-
-
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - [What is the Speech service?](/azure/ai-services/speech-service/overview)

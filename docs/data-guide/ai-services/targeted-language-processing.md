@@ -140,17 +140,7 @@ The following table provides a list of some of the capabilities available in AI 
 
 To learn more about how to choose a model that works for your scenario, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
 
-## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-
-Other contributors:
-
-
- *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

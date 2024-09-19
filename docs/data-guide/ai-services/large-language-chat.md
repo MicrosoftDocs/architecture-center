@@ -71,18 +71,7 @@ For more information on Azure AI Search service, see the [Azure AI Search servic
 
 
 
-## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-
-Other contributors:
-
-
-
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
