@@ -21,7 +21,7 @@ categories:
 
 # Artificial intelligence (AI) architecture design
 
-*Artificial intelligence (AI)* is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
+*Artificial intelligence (AI)* is a technology that allows machines to imitate intelligent human behavior. Through AI, machines can analyze data to create images and videos; they can analyze and synthesize speech, as well as verbally interact in natural ways, make predictions, and generate new data.
 
 ![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](_images/ai-overview-img-001.png)
 
@@ -43,8 +43,6 @@ The predictive models are validated against known data, measured by performance 
 
 *Deep learning* is a type of ML that can learn through its own data processing. Like machine learning, it also uses algorithms to analyze data, but it does by using artificial neural networks that contains many inputs, outputs, and layers of processing. Each layer can process the data in a different way, and the output of one layer becomes the input for the next. This allows deep learning to create more complex models than traditional machine learning.
 
-
-
 - [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
 
 
@@ -55,11 +53,11 @@ The predictive models are validated against known data, measured by performance 
 - [Incorporate generative AI into your apps](https://azure.microsoft.com/products/machine-learning/generative-ai)
 
 
-### Bots
+### AI Agents
 
-A *bot* is an automated software program designed to perform a particular task. Think of it as a robot without a body. Early bots were comparatively simple, handling repetitive and voluminous tasks with relatively straightforward algorithmic logic. An example would be web crawlers used by search engines to automatically explore and catalog web content.
+AI Agents are designed to perform a particular task. These agents vary widely in complexity. They range from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can run complex workflows autonomously.
 
-Bots have become much more sophisticated, using AI and other technologies to mimic human activity and decision-making, often while interacting directly with humans through text or even speech. Examples include bots that can take a dinner reservation, chatbots (or conversational AI) that help with customer service interactions, and social bots that post breaking news or scientific data to social media sites.
+AI Agents use AI and other technologies to mimic human activity and decision-making by interacting directly with humans through text and speech. Agents can be used to take a dinner reservation, converse the customers in a customer service application, and socialize by posting breaking news or scientific data to social media sites.
 
 Microsoft offers the Azure Bot Service, a managed service purpose-built for enterprise-grade bot development.
 
@@ -69,11 +67,16 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 
 - [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
-### Autonomous systems
+#### Copilots
+
+#### Autonomous Agents
 
 *Autonomous systems* are part of an evolving new class that goes beyond basic automation. Instead of performing a specific task repeatedly with little or no variation (like bots do), autonomous systems bring intelligence to machines so they can adapt to changing environments to accomplish a desired goal.
 
 Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
+
+
+#### Multi-agent systems
 
 ### General info on Microsoft AI
 
