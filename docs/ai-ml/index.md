@@ -216,6 +216,9 @@ quickly as possible. The classic example is credit card fraud detection, but rea
 
 - [Train R models using the Azure ML CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
+## Azure AI service offerings
+
+
 ## Azure AI platform offerings
 
 Following is a breakdown of Azure technologies, platforms, and services you can use to develop AI solutions for your needs.
@@ -331,6 +334,21 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
+
+
+## Language models
+
+
+## Data solutions
+
+### Data storage
+
+
+### Data processing
+
+
+### Data connectors
+
 
 ## Customer stories
 
