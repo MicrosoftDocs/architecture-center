@@ -83,7 +83,7 @@ Each approach is accompanied by a summarized decision-making matrix that highlig
 
 This straightforward approach breaks down text documents into chunks made up of complete sentences. The benefits of this approach include that it's inexpensive to implement, it has low processing cost, and it can be applied to any text-based document that is written in prose, or full sentences. A challenge with this approach is that each chunk might not capture the complete context of a thought or meaning. Often, multiple sentences must be taken together to capture the semantic meaning.
 
-**Tools**: [SpaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)<br/>
+**Tools**: [SpaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/how_to/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)<br/>
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose, or full sentences, and your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
@@ -95,7 +95,7 @@ This approach breaks up a document into chunks based on a fixed number of charac
 
 You must choose the fixed size of the chunks and the amount of overlap. Because the results differ for different document types, it's best to use a tool like the HuggingFace chunk visualizer to do exploratory analysis. Tools like this allow you to visualize how your documents are chunked, given your decisions. It's best practice to use BERT tokens over character counts when using fixed-sized parsing. BERT tokens are based on meaningful units of language, so they preserve more semantic information than character counts.
 
-**Tools**:  [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [Hugging Face chunk visualizer](https://huggingface.co/spaces/m-ric/chunk_visualizer)<br/>
+**Tools**:  [LangChain recursive text splitter](https://python.langchain.com/docs/how_to/recursive_text_splitter/), [Hugging Face chunk visualizer](https://huggingface.co/spaces/m-ric/chunk_visualizer)<br/>
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose or non-prose with complete or incomplete sentences. Your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
@@ -114,6 +114,10 @@ This approach parses documents using custom code to create chunks. This approach
 ### Large language model augmentation
 
 Large language models can be used to create chunks. Common use cases are to use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that can be used as chunks. Large language model augmentation is used with other chunking approaches such as custom code.
+
+If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#questions-about-images) that the text before or after the image is required to answer some questions, you will need to pass this additional context to the large language model. It is important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
+
+If your chunking logic splits the image description into multiple chunks, make sure you include the image URL in each chunk. This will ensure that the image URL is returned for all queries that the image serves.
 
 **Tools**: [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service), [OpenAI](https://platform.openai.com/docs/introduction)<br/>
 **Engineering effort**: Medium<br/>
