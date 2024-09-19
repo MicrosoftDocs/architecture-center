@@ -1,6 +1,7 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can build a complete IT infrastructure for your organization using a variety of Azure services. In addition to these, Azure provides security services designed to protect your infrastructure. By leveraging these Azure security services, you can enhance the security posture of your IT environment, mitigate vulnerabilities, and prevent breaches through a well-architected solution based on Microsoft's best practices.
+You can create a complete IT infrastructure for your organization using a wide range of Azure services. Azure also provides security services to protect this infrastructure. By utilizing Azure’s security solutions, you can enhance your IT environment's security posture, mitigate vulnerabilities, and prevent breaches by following Microsoft's best practice recommendations for a well-architected solution.
+While some security services come with associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
 
 Some security services come with additional costs, while others are available at no extra charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and many more. This article focuses on these cost-free security services.
 
@@ -12,6 +13,7 @@ This article is the third in a series of five. To review the previous two articl
 ## Potential use cases
 
 This article organizes Azure security services by each Azure resource, allowing you to focus on specific threats targeting resources such as virtual machines (VMs), operating systems, Azure networks, or applications, as well as attacks that could compromise users and passwords. The diagram provided will guide you in identifying the appropriate Azure security services to safeguard both resources and user identities from these types of threats.
+
 
 ## Architecture
 
