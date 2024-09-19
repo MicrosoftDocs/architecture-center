@@ -3,7 +3,7 @@ title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: RobBagby
 ms.author: robbag
-ms.date: 07/25/2022
+ms.date: 09/19/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -41,13 +41,19 @@ The predictive models are validated against known data, measured by performance 
 
 ### Deep learning
 
-*Deep learning* is a type of ML that can determine for itself whether its predictions are accurate. It also uses algorithms to analyze data, but it does so on a larger scale than ML.
+*Deep learning* is a type of ML that can learn through its own data processing. Like machine learning, it also uses algorithms to analyze data, but it does by using artificial neural networks that contains many inputs, outputs, and layers of processing. Each layer can process the data in a different way, and the output of one layer becomes the input for the next. This allows deep learning to create more complex models than traditional machine learning.
 
-Deep learning uses artificial neural networks, which consist of multiple layers of algorithms. Each layer looks at the incoming data, performs its own specialized analysis, and produces an output that other layers can understand. This output is then passed to the next layer, where a different algorithm does its own analysis, and so on.
 
-With many layers in each neural network-and sometimes using multiple neural networks-a machine can learn through its own data processing. This requires much more data and much more computing power than ML.
 
 - [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
+
+
+### Generative AI
+
+*Generative AI* is a type of AI that can generate new data, such as images, music, or text, based on patterns it has learned from Large Language Models. Generative AI can be used to create new content, such as images of people who don't exist, music in the style of a particular artist, or text that sounds like it was written by a human.
+
+- [Incorporate generative AI into your apps](https://azure.microsoft.com/products/machine-learning/generative-ai)
+
 
 ### Bots
 
@@ -57,7 +63,7 @@ Bots have become much more sophisticated, using AI and other technologies to mim
 
 Microsoft offers the Azure Bot Service, a managed service purpose-built for enterprise-grade bot development.
 
-- [About Azure Bot Service](/azure/bot-service/bot-service-overview-introduction)
+- [Microsoft Copilot Studio](/azure/bot-service/bot-service-overview-introduction)
 
 - [Ten guidelines for responsible bots](https://www.microsoft.com/research/publication/responsible-bots/)
 
