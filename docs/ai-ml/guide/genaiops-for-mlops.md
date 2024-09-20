@@ -11,7 +11,7 @@ ms.subservice: architecture-guide
 ms.custom: arb-aiml
 products:
   - azure-machine-learning
-azureCategories:
+categories:
   - ai-machine-learning
 ---
 
@@ -113,7 +113,7 @@ There are multiple dimensions to experiment on for prompt engineering solutions,
 - Configuration of your search index
 - What searches to perform (vector, full text, hybrid, etc.)
 
-As discussed in [DataOps](#dataops), keys to experimentation are reproducibility and data versioning. A good experimentation framework allows you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when [evaluating the experiment](#evaluation).
+As discussed in [DataOps](#dataops), keys to experimentation are reproducibility and data versioning. A good experimentation framework allows you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when [evaluating the experiment](#evaluation-and-experimentation).
 
 Like with your existing MLOps environment, you can take advantage of frameworks like Azure Machine Learning pipelines. Azure Machine Learning pipelines have features that support indexing, integrating with vector stores such as Azure AI Search. Your GenAIOps environment can take advantage of these features of pipelines and combine them with prompt flow features that manage prompt engineering and custom preprocessing logic.
 
