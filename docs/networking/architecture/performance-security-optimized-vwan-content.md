@@ -9,7 +9,7 @@ Typical use cases for this architecture include:
 - A global organization that requires a centralized file solution for business-critical work.
 - High-performing file workloads that require localized cached files.
 - A flexible remote workforce for users both in and out of the office.
-- A customer that requires the use of self hosted NVA's
+- A requirement to use self-hosted NVAs.
 
 ## Architecture
 
