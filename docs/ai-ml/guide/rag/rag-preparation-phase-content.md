@@ -11,9 +11,9 @@ The first step in this process is to clearly define the business requirements fo
 The goal of document analysis is to gather enough information about your document corpus to help you understand:
 
 - The different classifications of documents - For example, do you have product specifications, quarterly reports, car insurance contracts, health insurance contracts, etc.
-- The different document types - For example, do you have PDFs, MD files, HTML files, DOCX files, etc.
+- The different document types - For example, do you have PDFs, Markdown files, HTML files, DOCX files, etc.
 - The security constraints - For example, whether the documents are publicly accessible or not, or whether they require authentication and authorization to access them
-- The structure of the documents - For example, the length of documents, whether they have images and tables, and information about the images and tables
+- The structure of the documents - For example, the length of documents, topic breaks, and whether they have contextually relevant images or tabular data
 
 The following sections discuss how this information helps inform your loading and chunking strategies.
 
@@ -21,17 +21,19 @@ The following sections discuss how this information helps inform your loading an
 
 You need to understand the different classifications of documents to help you determine the number of test documents you require. This part of the analysis should tell you not only the high-level classifications such as insurance or finance, but also subclassifications, such as health insurance vs. car insurance documents. You also want to understand if the subclassifications have different structures or content.
 
-The goal is to understand all of the different document variants you have. This understanding helps you determine the number and breakdown of test documents you require.
+The goal is to understand all of the different document variants you have. This understanding helps you determine the number and breakdown of test documents you require. You don't want to over or underrepresent a specific document classification in your experimentation.
 
 ### Document types
 
-Understanding the different document formats in your corpus helps you determine the number and breakdown of test documents. For example, if you have PDF and docx document types for quarterly reports, you need test documents for each document type. Understanding your document types also helps you understand your technical requirements for loading and chunking your documents.
+Understanding the different file formats in your corpus helps you determine the number and breakdown of test documents. For example, if you have PDF and Office Open XML document types for quarterly reports, you need test documents for each document type. Understanding your document types also helps you understand your technical requirements for loading and chunking your documents, such as specific libraries suited for processing those file formats.
 
 ### Security constraints
 
-Understanding the security constraints helps you determine your loading and chunking strategies. For example, you need to understand if some or all of your documents are HTML documents that require authentication and/or authorization. If they do require authentication and/or authroization, you need to ensure that your code can access the documents, or you need another process to run before your code that can access the documents to download the docuemnts to a location your code has access to.
+Understanding the security constraints helps you determine your loading and chunking strategies. For example, you need to understand if some or all of your documents are documents that require authentication and/or authorization or even network line of sight. If the documents are behind a security perimeter, you need to ensure that your code has access to the documents, or you need another process to run before your code that can securely replicate the documents to a location your processing code has access to.
 
-You also have to understand the security constraints for images referenced in documents. If those images require authentication and/or authorization, you again need to either make sure your code can access the images or you have a prior process that has access that can download the images.
+Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document, those might also be subject to similar access controls as the document itself.  If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
+
+Also, if certain users of your workload should only have access to certain documents or certain parts of documents while other users have a different set of access rights, ensure you understand how you are going to retain those access permissions and if your chunking needs to reflect this user segmentation.
 
 ### Document structure
 
@@ -47,7 +49,7 @@ The following are some categorized questions you can use to help you make some o
 
 #### Questions about common items you can consider ignoring
 
-Some structural elements may not add meaning to the document and can safely be ignored when chunking. The following are some common questions you can ask to identify elements you might consider ignoring.
+Some structural elements might not add meaning to the document and can safely be ignored when chunking. In some situations, these elements can add valuable context and aid in relevancy queries to your index, but not all. The following are some common document features you need to evaluate to see if they add relevancy or should be ignored.
 
 - Does the document contain a table of contents?
 - Are there headers and footers? Do you need them?
@@ -60,8 +62,8 @@ Some structural elements may not add meaning to the document and can safely be i
 
 The following questions about the structure of the document gives you insight that helps you understand if you need to preprocess the document to make it easier to process and helps inform your chunking strategy.
 
-- Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
-- How is the document structured? For example, we have seen HTML documents that used tables for their structure that required preprocessing in order to differentiate between document structure and actual tables.
+- Is there multi-column data or multi-column paragraphs? You don't want to parse multi-column content as though it were a single column.
+- How is the document structured? For example, HTML files sometimes use tables for their layout that needs to be differentiated from embedded tabular data.
 - How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
 - What languages, language variant, or dialects are in the documents?
 - Does the document contain Unicode characters?
@@ -70,7 +72,7 @@ The following questions about the structure of the document gives you insight th
 - Is there a header structure where semantic meaning can be extracted?
 - Are there bullets or meaningful indentations?
 
-#### Questions about Images
+#### Questions about images
 
 Understanding the images in your document helps you determine your image processing strategy. You need to understand information like what kind of images you have, whether they have sufficient resolution to process, and whether the image contains all the required information. The following questions help you understand your image processing requirements.
 
@@ -80,8 +82,9 @@ Understanding the images in your document helps you determine your image process
 - Is there text embedded in the images?
 - Are there abstract images that don't add value? For example, icons may not add any semantic value. Adding a description for images may actually be detrimental, as the icon visual generally has little to do with the document content.
 - What is the relationship between the image and surrounding text? Determine whether the images have stand-alone content or whether there's context around the image you should use when passing it to a large language model to get the textual representation. Captions are an example of surrounding text that may have valuable context not included in the image.
+- Is there rich textual representation of the images, such as accessibility descriptions?
 
-#### Questions about tables, charts, and other content
+#### Questions about tables, charts, and other rich content
 
 Understanding what information is encapsulated in tables, charts, and other media helps you understand what and how you want to process it. The following questions help you understand your tables, charts, and other media processing requirements.
 
@@ -113,8 +116,8 @@ The success factor in this step is being *qualitatively confident* that you have
 ### Test document guidance
 
 - Prefer real documents over synthetic. Real documents must go through a cleaning process to remove personally identifiable information (PII).
-- To ensure you're handling all kinds of scenarios, consider augmenting your documents with synthetic data.
-- If you must use synthetic data, do your best to make it as close to real data as possible.
+- To ensure you're handling all kinds of scenarios, including predicted future scenarios, consider selectively augmenting your documents with synthetic data.
+  - If you must use synthetic data, do your best to make it as close to real data as possible.
 - Make sure that the documents can address the questions that are being gathered.
 - You should have at least two documents for each document variant.
 - You can use large language models or other tools to help evaluate the document quality.
@@ -165,9 +168,9 @@ It's important to gather queries that the documents don't address, along with qu
 - Responding that you don't know
 - Responding that you don't know and providing a link where the user might find more information
 
-### Gather test queries for images
+### Gather test queries for embedded media
 
-Like with text, you should gather a diverse set of questions for the images. If you have images with graphs, tables, screenshots, make sure you have questions that cover all the use cases. If you determined in the [images portion of the document analysis section](#questions-about-images) that the text before or after the image is required to answer some questions, make sure you have those questions in your test queries.
+Like with text, you should gather a diverse set of questions that involve using the embedded media to generate highly relevant answers. If you have images with graphs, tables, screenshots, make sure you have questions that cover all the use cases. If you determined in the [images portion of the document analysis section](#questions-about-images) that the text before or after the image is required to answer some questions, make sure you have those questions in your test queries.
 
 ### Gather test queries guidance
 
