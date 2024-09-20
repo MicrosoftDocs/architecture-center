@@ -126,7 +126,6 @@ Most costs in ValOps for organizations are typically compute and storage. Due to
 Here are some further recommendations to help organizations save cost with various types of compute cost models and profiles. 
 - Select the right virtual machine (VM) for your job by using the [VM selector guide](https://azure.microsoft.com/pricing/vm-selector/?msockid=3338580647b1602718c8499943b1663a) to help with the selection process
 - Deploy Azure resources based on your needs. Avoid deploying components that aren't adding value or meeting your requirements.  
-Refer to scalability and performance targets for [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account).
 - Ensure that the organization is following best practices for [Batch and performance efficiency guide](https://learn.microsoft.com/azure/well-architected/service-guides/azure-batch/performance-efficiency)
 - Ensure that the organization is following best practices for AKS scaling by following the scalability considerations for [AKS guide](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/app-platform/aks/scalability)
 - Taking advantage of various options that Azure offers for hosting application code. For guidance about how to choose the right service for your deployment, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).  
@@ -149,50 +148,12 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Ensure that the storage location used for ValOps data is in the same region as compute, to avoid cross-region latency.  
 - When data is larger, it isn't recommended to use Azure Files as blobs of data. For example, images, video transaction rates or that use smaller objects IO performance slows  ML training or require consistently low storage latency workloads. 
 - Performance for storage is essential in HPC applications such as ValOps. This guidance doesn't recommend using [Standard Azure Blob](https://learn.microsoft.com/azure/storage/common/storage-account-overview) for most scenarios and recommends utilizing [Premium Azure Blob](https://learn.microsoft.com/azure/storage/blobs/storage-blob-block-blob-premium) for HPC applications. Except in cases where there are many small files (KB magnitude) that can't be processed into "fewer and larger" blobs. Refer to [Blob storage performance and scalability checklist](https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist)
-- Recommend using blobfuse2 over virtual system mount or NFS due to its superior caching and streaming performance. Blobfuse2 is optimized for Azure Blob Storage, providing efficient data access and reduced latency. It supports advanced caching mechanisms that significantly improve read and write speeds, making it ideal for high-performance computing tasks in Azure Batch. Unlike traditional virtual system mounts or NFS, which can suffer from higher latency and lower throughput, blobfuse2 leverages Azure's infrastructure to deliver faster data transfer rates and better scalability. This results in more efficient processing of large datasets and improved overall performance for autonomous vehicle validation operations. For more information, see [Blobfuse](https://learn.microsoft.com/azure/storage/blobs/blobfuse2-what-is). Blobfuse2 can be mounted via scripts, enabling seamless integration into your existing workflows.  
+- When mounting your storage account, use blobfuse2 instead of a virtual system mount or NFS. Blobfuse2 is optimized for Azure Storage and provides better caching and streaming performance, which improves data access efficiency and reduces latency. It supports advanced caching mechanisms that significantly improve read and write speeds, making it ideal for high-performance computing tasks in Azure Batch.  
 
-    An example startup script that could be used as a start task in Azure Batch 
-:::image type="content" source="./images/azure-batch-blobfuse2-startup-script.png" alt-text="Example start task for blobfuse2 in Azure Batch" border="false" lightbox="./images/azure-batch-blobfuse2-startup-script.png":::
+  Unlike traditional virtual system mounts or NFS, which can suffer from higher latency and lower throughput, blobfuse2 leverages Azure's infrastructure to deliver faster data transfer rates and better scalability. This results in more efficient processing of large datasets and improved overall performance for autonomous vehicle validation operations. For more information, see [Blobfuse](/azure/storage/blobs/blobfuse2-what-is).  
+  
+  Blobfuse2 can be mounted via scripts, enabling seamless integration into your existing workflows.  
 
-```bash
-#!/bin/bash
-
-# Download the Microsoft packages configuration
-sudo wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
-
-# Install the downloaded package
-sudo dpkg -i packages-microsoft-prod.deb
-
-# Update the package list
-sudo apt-get update
-
-# Install required dependencies
-sudo apt-get install -y libfuse3-dev fuse3
-
-# Install blobfuse2
-sudo apt-get install -y blobfuse2
-
-# Create the mount point directory
-sudo mkdir -p /landing
-sudo mkdir -p /blobfuse/cache/landing
-
-sudo mkdir -p /rosbag
-sudo mkdir -p /blobfuse/cache/rosbag
-
-sudo mkdir -p /extracted
-sudo mkdir -p /blobfuse/cache/rosbag
-
-# Unmount other specified mount points
-sudo blobfuse2 unmount /landing || echo "Warning: Failed to unmount /landing, continuing..."
-sudo blobfuse2 unmount /rosbag || echo "Warning: Failed to unmount /rosbag, continuing..."
-sudo blobfuse2 unmount /extracted || echo "Warning: Failed to unmount /extracted, continuing..."
-
-# Mount the Blobfuse2 file system
-sudo blobfuse2 mount /landing --config-file=blobfuse_config_landing.yaml --allow-other --use-adls=true
-sudo blobfuse2 mount /rosbag --config-file=blobfuse_config_rosbag.yaml --allow-other --use-adls=true 
-sudo blobfuse2 mount /extracted --config-file=blobfuse_config_extracted.yaml --allow-other --use-adls=true 
-echo "Mounted all containers"
-```
 - Refer to scalability and performance targets for [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account)
 - Based on the simulation requirements, [Azure Batch](https://learn.microsoft.com/azure/batch/) can set up and maintain the necessary containers or virtual machines (VMs) to meet the Service Level Objective (SLO) requirements. This involves:
     - Provisioning: Setting up the required containers or VMs.
@@ -203,7 +164,10 @@ echo "Mounted all containers"
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 It's important to understand the division of responsibility between an automotive OEM and Microsoft. In a vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform as a service (PaaS) layers provide built-in security on the physical stack, including the operating system. You can add the following capabilities to the existing infrastructure security components:
 
-- Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to maintain end-to-end security when you handle sensitive and business-critical elements, such as encryption keys, certificates, connection strings, and passwords. Key Vault offer a robust solution that fortifies the entire software development and supply chain process. With Key Vault, you can use automotive applications to help securely store and manage sensitive assets and ensure that they remain protected from potential cyber security threats. You can further enhance security by regulating access and permissions to critical resources with RBAC. If regulatory requirements require an enhanced security solution with dedicated hardware, Key Vault w/HSM (Hardware Security Module) should be used.
+- Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to maintain end-to-end security when you handle sensitive and business-critical elements, such as encryption keys, certificates, connection strings, and passwords. Key Vault offer a robust solution that fortifies the entire software development and supply chain process. With Key Vault, you can use automotive applications to help securely store and manage sensitive assets and ensure that they remain protected from potential cyber security threats. You can further enhance security by regulating access and permissions to critical resources with RBAC.  
+
+  If regulatory requirements require an enhanced security solution with dedicated hardware, consider using [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview. For even more stringent requirements, evaluate [Azure Dedicated HSM](/azure/dedicated-hsm/overview).  
+
 - Automated driving data requires a strict data governance to help with data classification, lineage, tracking, and compliance.  [Microsoft Purview](https://azure.microsoft.com/services/purview) allow organizations involved in autonomous driving to ensure their data is well-governed, secure, and compliant, ultimately supporting the development and deployment of safe and reliable autonomous vehicles.
 - In addition to enforcing compliance on data, an organization needs to enforce compliance and governance rules across organizations Azure resources. Compliance can be achieved with [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 - Implement role-based access control (RBAC) to grant permissions to users and services on a least-privilege basis
