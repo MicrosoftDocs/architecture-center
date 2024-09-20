@@ -2,7 +2,7 @@
 metadata:
   title: Secure research environment for regulated data
   description: Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.
-  author: PageWriter-MSFT
+  author: moodaddy
   ms.author: clbarlow
   ms.date: 08/26/2024
   ms.topic: example-scenario
