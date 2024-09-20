@@ -157,4 +157,3 @@ Principal author:
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
 - [Web applications architecture design](../../web-apps/index.md)
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)

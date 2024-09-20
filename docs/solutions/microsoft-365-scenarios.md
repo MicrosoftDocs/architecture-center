@@ -88,7 +88,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |--|--|--|
 |[Enterprise-scale disaster recovery](../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)|Learn about a large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers that runs on an on-premises datacenter and fails over to Azure infrastructure.| Management/Governance|
 |[Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml)|Deploy a highly available SharePoint farm that uses Microsoft Entra ID, a SQL Server Always On instance, and SharePoint resources.|Web|
-|[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)| Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Microsoft Entra ID, and SQL Server.|Web|
 
 ### Teams
 

@@ -44,11 +44,7 @@ The [Azure Sponsorship for ISVs program](https://azure.microsoft.com/partners/is
 
 Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy cloud software from Microsoft and Microsoft partners.
 
-This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
-
-We also recommend you browse our open-source solutions for Microsoft Azure:
-- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
+This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions. For more information, see [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios).
 
 ## Advanced
 
@@ -199,12 +195,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |--|--|--|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid.|Compute|
 
-## Sitecore
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
-
 ## Skytap
 
 |Architecture|Summary|Technology focus|
@@ -255,7 +245,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 ## Related resources
 
 - [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
 - [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
