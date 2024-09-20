@@ -33,7 +33,7 @@ Understanding the security constraints helps you determine your loading and chun
 
 Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself.  If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
 
-Also, if certain users of your workload should only have access to certain documents or certain parts of documents while other users have a different set of access rights, ensure you understand how you are going to retain those access permissions and if your chunking needs to reflect this user segmentation.
+If your workload requires that different users only have access to distinct documents or document segments, ensure you understand how you are going to retain those access permissions in your chunking solution.
 
 ### Document structure
 

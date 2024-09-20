@@ -127,6 +127,12 @@ Moreover, the framework provides comprehensive support for large language model 
 
 Whether you are a seasoned researcher pushing the boundaries of natural language understanding or an industry professional seeking to enhance text generation capabilities, this experimentation framework is the ultimate solution to accelerate your RAG development journey. Embrace the future of RAG experimentation and unlock the true potential of your models with this cutting-edge tool.
 
+## RAG with Vision Application Framework
+
+Much of the guidance in this article around working with media in your RAG solution came from another engineering team that works with Microsoft's top customers. This team wrote a framework called the [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision). This framework provides a Python-based retrieval-augmented generation (RAG) pipeline that processes both textual and image content from MHTML documents.
+
+The framework loads, chunks, and enriches both text and images from MHTML files and ingests the chunks to Azure Search. The framework implements caching for image enrichment for both processing and cost efficiency. The framework also encorporates evaluation as part of the pipeline.
+
 ## Contributors
 
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
@@ -135,11 +141,17 @@ Whether you are a seasoned researcher pushing the boundaries of natural language
 - [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
 - [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
+- [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/)
+- [Soubhi Hadri](https://www.linkedin.com/in/soubhihadri/)
+- [Paul Butler](https://www.linkedin.com/in/paulfbutler2016/)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Rag accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+> [RAG accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+
+> [!div class="nextstepaction"]
+> [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
 
 ## Related resources
 
