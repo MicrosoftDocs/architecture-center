@@ -107,21 +107,26 @@ In this reference architecture, the job is a Java archive with classes written i
 The data processing logic uses [Spark structured streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) to read from the two Azure event hub instances:
 
 ```scala
-val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
-      .setConsumerGroup(conf.taxiRideConsumerGroup())
-      .setStartingPosition(EventPosition.fromStartOfStream)
-    val rideEvents = spark.readStream
-      .format("eventhubs")
-      .options(rideEventHubOptions.toMap)
-      .load
+// Create a token credential using Managed Identity
+val credential = new DefaultAzureCredentialBuilder().build()
 
-    val fareEventHubOptions = EventHubsConf(fareEventHubConnectionString)
-      .setConsumerGroup(conf.taxiFareConsumerGroup())
-      .setStartingPosition(EventPosition.fromStartOfStream)
-    val fareEvents = spark.readStream
-      .format("eventhubs")
-      .options(fareEventHubOptions.toMap)
-      .load
+val rideEventHubOptions = EventHubsConf(rideEventHubEntraIdAuthConnectionString)
+  .setTokenProvider(EventHubsUtils.buildTokenProvider(..., credential))
+  .setConsumerGroup(conf.taxiRideConsumerGroup())
+  .setStartingPosition(EventPosition.fromStartOfStream)
+val rideEvents = spark.readStream
+  .format("eventhubs")
+  .options(rideEventHubOptions.toMap)
+  .load
+
+val fareEventHubOptions = EventHubsConf(fareEventHubEntraIdAuthConnectionString)
+  .setTokenProvider(EventHubsUtils.buildTokenProvider(..., credential))
+  .setConsumerGroup(conf.taxiFareConsumerGroup())
+  .setStartingPosition(EventPosition.fromStartOfStream)
+val fareEvents = spark.readStream
+  .format("eventhubs")
+  .options(fareEventHubOptions.toMap)
+  .load
 ```
 
 #### Enriching the data with the neighborhood information
@@ -141,40 +146,40 @@ val neighborhoodFinder = (lon: Double, lat: Double) => {
 First the ride and fare data is transformed:
 
 ```scala
-    val rides = transformedRides
-      .filter(r => {
-        if (r.isNullAt(r.fieldIndex("errorMessage"))) {
-          true
-        }
-        else {
-          malformedRides.add(1)
-          false
-        }
-      })
-      .select(
-        $"ride.*",
-        to_neighborhood($"ride.pickupLon", $"ride.pickupLat")
-          .as("pickupNeighborhood"),
-        to_neighborhood($"ride.dropoffLon", $"ride.dropoffLat")
-          .as("dropoffNeighborhood")
-      )
-      .withWatermark("pickupTime", conf.taxiRideWatermarkInterval())
+val rides = transformedRides
+  .filter(r => {
+    if (r.isNullAt(r.fieldIndex("errorMessage"))) {
+      true
+    }
+    else {
+      malformedRides.add(1)
+      false
+    }
+  })
+  .select(
+    $"ride.*",
+    to_neighborhood($"ride.pickupLon", $"ride.pickupLat")
+      .as("pickupNeighborhood"),
+    to_neighborhood($"ride.dropoffLon", $"ride.dropoffLat")
+      .as("dropoffNeighborhood")
+  )
+  .withWatermark("pickupTime", conf.taxiRideWatermarkInterval())
 
-    val fares = transformedFares
-      .filter(r => {
-        if (r.isNullAt(r.fieldIndex("errorMessage"))) {
-          true
-        }
-        else {
-          malformedFares.add(1)
-          false
-        }
-      })
-      .select(
-        $"fare.*",
-        $"pickupTime"
-      )
-      .withWatermark("pickupTime", conf.taxiFareWatermarkInterval())
+val fares = transformedFares
+  .filter(r => {
+    if (r.isNullAt(r.fieldIndex("errorMessage"))) {
+      true
+    }
+    else {
+      malformedFares.add(1)
+      false
+    }
+  })
+  .select(
+    $"fare.*",
+    $"pickupTime"
+  )
+  .withWatermark("pickupTime", conf.taxiFareWatermarkInterval())
 ```
 
 And then the ride data is joined with the fare data:
@@ -224,7 +229,7 @@ Access to the Azure Databricks workspace is controlled using the [administrator 
 
 #### Managing secrets
 
-Azure Databricks includes a [secret store](/azure/databricks/security/secrets/) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
+Azure Databricks includes a [secret store](/azure/databricks/security/secrets/) that is used to store credentials and reference them in notebooks and jobs. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
 
 ```bash
 databricks secrets create-scope --scope "azure-databricks-job"
@@ -237,7 +242,7 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
 > [!NOTE]
-> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
+> An Azure Key Vault-backed scope should be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
 
 In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
 
@@ -248,10 +253,10 @@ Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.
 As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
 ```scala
-    @transient val appMetrics = new AppMetrics(spark.sparkContext)
-    appMetrics.registerGauge("metrics.malformedrides", AppAccumulators.getRideInstance(spark.sparkContext))
-    appMetrics.registerGauge("metrics.malformedfares", AppAccumulators.getFareInstance(spark.sparkContext))
-    SparkEnv.get.metricsSystem.registerSource(appMetrics)
+@transient val appMetrics = new AppMetrics(spark.sparkContext)
+appMetrics.registerGauge("metrics.malformedrides", AppAccumulators.getRideInstance(spark.sparkContext))
+appMetrics.registerGauge("metrics.malformedfares", AppAccumulators.getFareInstance(spark.sparkContext))
+SparkEnv.get.metricsSystem.registerSource(appMetrics)
 ```
 
 Apache Spark uses the Dropwizard library to send metrics, and some of the native Dropwizard metrics fields are incompatible with Azure Log Analytics. Therefore, this reference architecture includes a custom Dropwizard sink and reporter. It formats the metrics in the format expected by Azure Log Analytics. When Apache Spark reports metrics, the custom metrics for the malformed ride and fare data are also sent.

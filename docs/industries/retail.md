@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 keywords:
   - Azure
 products:
@@ -79,7 +79,6 @@ The following are other ideas that you can use as a starting point for your reta
 
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
-- [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 
 **Analytics**:
 

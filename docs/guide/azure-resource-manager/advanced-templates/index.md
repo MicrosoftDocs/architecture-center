@@ -5,8 +5,8 @@ author: brandonmartinez
 ms.author: brmar
 ms.date: 01/05/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.category:
   - developer-tools
   - devops
