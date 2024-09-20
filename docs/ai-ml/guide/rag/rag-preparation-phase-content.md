@@ -31,7 +31,7 @@ Understanding the different file formats in your corpus helps you determine the 
 
 Understanding the security constraints helps you determine your loading and chunking strategies. For example, you need to understand if some or all of your documents are documents that require authentication and/or authorization or even network line of sight. If the documents are behind a security perimeter, you need to ensure that your code has access to the documents, or you need another process to run before your code that can securely replicate the documents to a location your processing code has access to.
 
-Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document, those might also be subject to similar access controls as the document itself.  If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
+Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself.  If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
 
 Also, if certain users of your workload should only have access to certain documents or certain parts of documents while other users have a different set of access rights, ensure you understand how you are going to retain those access permissions and if your chunking needs to reflect this user segmentation.
 
@@ -49,25 +49,25 @@ The following are some categorized questions you can use to help you make some o
 
 #### Questions about common items you can consider ignoring
 
-Some structural elements might not add meaning to the document and can safely be ignored when chunking. In some situations, these elements can add valuable context and aid in relevancy queries to your index, but not all. The following are some common document features you need to evaluate to see if they add relevancy or should be ignored.
+Some structural elements might not add meaning to the document and can safely be ignored when chunking. In some situations, these elements can add valuable context and aid in relevancy queries to your index, but not all. The following are some questions about common document features you need to evaluate to see if they add relevancy or should be ignored.
 
 - Does the document contain a table of contents?
-- Are there headers and footers? Do you need them?
-- Are there copyrights or disclaimers? Do you need them?
-- Are there footnotes or endnotes? Do you need them?
+- Are there headers and footers?
+- Are there copyrights or disclaimers?
+- Are there footnotes or endnotes?
 - Are there watermarks?
-- Are there annotations or comments, for example, in PDFs or Word documents? Do you need them?
+- Are there annotations or comments?
 
 #### Questions that help inform preprocessing and chunking strategy
 
 The following questions about the structure of the document gives you insight that helps you understand if you need to preprocess the document to make it easier to process and helps inform your chunking strategy.
 
 - Is there multi-column data or multi-column paragraphs? You don't want to parse multi-column content as though it were a single column.
-- How is the document structured? For example, HTML files sometimes use tables for their layout that needs to be differentiated from embedded tabular data.
+- How is the document structured? For example, HTML files sometimes use tables for their layout that need to be differentiated from embedded tabular data.
 - How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
 - What languages, language variant, or dialects are in the documents?
 - Does the document contain Unicode characters?
-- How are numbers formatted? Are they using commas or decimals?
+- How are numbers formatted? Are they using commas or decimals? Are they consistent?
 - What in the document is uniform and what isn't uniform?
 - Is there a header structure where semantic meaning can be extracted?
 - Are there bullets or meaningful indentations?
@@ -78,7 +78,6 @@ Understanding the images in your document helps you determine your image process
 
 - Does the document contain images?
 - What resolution are the images?
-- What kind of data do you have on images?
 - Is there text embedded in the images?
 - Are there abstract images that don't add value? For example, icons may not add any semantic value. Adding a description for images may actually be detrimental, as the icon visual generally has little to do with the document content.
 - What is the relationship between the image and surrounding text? Determine whether the images have stand-alone content or whether there's context around the image you should use when passing it to a large language model to get the textual representation. Captions are an example of surrounding text that may have valuable context not included in the image.

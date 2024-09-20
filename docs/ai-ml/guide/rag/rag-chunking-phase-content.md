@@ -16,9 +16,9 @@ This section examines the economics of both chunking images and the overall solu
 
 There's a cost to using a language model to generate a description of an image which is then chunked. For example, cloud-based services such as Azure OpenAI either charge on a per-transaction basic or on a prepaid provisioning basis. Larger images incur a larger cost. Through your document analysis, you should determine what images are valuable to chunk and what images you should ignore. From there, you need to understand the number and sizes of the images in your solution and you should weigh the value of chunking the image descriptions against the cost of generating those descriptions.
 
-One way to determine what images to process is to use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to classify images, tag images, or do logo detection. You can then use the results and confidence indicators to determine whether the image adds meaningful, contextual value and as such must be processed. Calls to Azure AI Vision might be less expensive than calls to language models, so this approach could lead to cost savings. You need to experiment to determine what confidence levels and what classifications or tags provide the best results for your data. Another option is to build your own classifier model. You need to take into account the costs of building, hosting, and maintaining your own classifier model.
+One way to determine what images to process is to use a service such as [Azure AI Vision](/azure/ai-services/computer-vision) to classify images, tag images, or do logo detection. You can then use the results and confidence indicators to determine whether the image adds meaningful, contextual value and should be processed. Calls to Azure AI Vision might be less expensive than calls to language models, so this approach could lead to cost savings. You need to experiment to determine what confidence levels and what classifications or tags provide the best results for your data. Another option is to build your own classifier model. You need to take into account the costs of building, hosting, and maintaining your own classifier model.
 
-Another cost optimization is caching using the [cache-aside pattern](/azure/architecture/patterns/cache-aside). You can generate a key based on the hash of the image. As a first step, you can check to see if you have a cached result from a prior run or previous document. If you do, you can use that result. That approach keeps you from the costs of calling a classifier or a language model. If there's no cache, when you call to the classifier or language model, you would cache the result. Future calls for this image would use the cache.
+Another cost optimization is caching using the [cache-aside pattern](/azure/architecture/patterns/cache-aside). You can generate a key based on the hash of the image. As a first step, you can check to see if you have a cached result from a prior run or previously processed document. If you do, you can use that result. That approach keeps you from the costs of calling a classifier or a language model. If there's no cache, when you call to the classifier or language model, you would cache the result. Future calls for this image would use the cache.
 
 A simple workflow integrating all of these cost optimization processes would be:
 
@@ -41,7 +41,7 @@ Logically, during chunking, you must first load the document into memory in some
 
 ### Separate loading and chunking
 
-There are several reasons you might choose to separate the loading and chunking phases. You might want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking, especially when experimenting with various chunking permutations to save on processing time/costs. Lastly, you might want to run the loading and chunking code in separate processes for architectural reasons such as process bulkheading or security segmentation involving removing PII.
+There are several reasons you might choose to separate the loading and chunking phases. You might want to encapsulate logic in the loading code. You might want to persist the result of the loading code before chunking, especially when experimenting with various chunking permutations to save on processing time or cost. Lastly, you might want to run the loading and chunking code in separate processes for architectural reasons such as process bulkheading or security segmentation involving removing PII.
 
 #### Encapsulate logic in the loading code
 
@@ -117,7 +117,7 @@ Large language models can be used to create chunks. Common use cases are to use 
 
 If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#questions-about-images) that the text before or after the image is required to answer some questions, you need to pass this additional context to the large language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
 
-If your chunking logic splits the image description into multiple chunks, make sure you include the image URI in each chunk. Including the image URI in each chunk ensures that metadata is returned for all queries that the image serves, especially for scenarios where the end user has the ability to access the source image through that URI.
+If your chunking logic splits the image description into multiple chunks, make sure you include the image URI in each chunk. Including the image URI in each chunk ensures that metadata is returned for all queries that the image serves, especially for scenarios where the end user requires the ability to access the source image through that URI.
 
 **Tools**: [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service), [OpenAI](https://platform.openai.com/docs/introduction)<br/>
 **Engineering effort**: Medium<br/>
