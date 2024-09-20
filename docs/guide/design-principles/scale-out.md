@@ -20,6 +20,8 @@ ms.custom:
 
 A primary advantage of the cloud is elastic scaling &mdash; the ability to use as much capacity as you need, scaling out as load increases, and scaling in when the extra capacity is not needed. Design your application so that it can scale horizontally, adding or removing new instances as demand requires.
 
+Scalability is measured by the ratio of throughput gain to resource increase. A perfectly scalable system is characterized by both numbers being proportional: a twofold allocation of resources will double the throughput. Scalability is typically limited by the introduction of bottlenecks or synchronization points within the system. 
+
 ## Recommendations
 
 **Avoid instance stickiness**. Stickiness, or *session affinity*, is when requests from the same client are always routed to the same server. Stickiness limits the application's ability to scale out. For example, traffic from a high-volume user will not be distributed across instances. Causes of stickiness include storing session state in memory, and using machine-specific keys for encryption. Make sure that any instance can handle any request.
@@ -48,6 +50,8 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 - Put work items on a queue so that another instance can pick up the work, if an instance is removed in the middle of processing.
 
 **Consider scaling for redundancy.** Scaling out can improve your application's reliability. For example, consider scaling out across multiple [availability zones](/azure/reliability/availability-zones-overview), such as by using zone-redundant services. This approach can improve your application's throughput as well as provide resiliency if one zone experiences an outage.
+
+**Model and optimize your system's scalability.** Universal Scalability Law (USL) can help you to model and to optimize scalability of your system. USL quantifies scalability based on parameters such as contention and coherency.  Contention refers to delay due to waiting or queueing for shared resources. Coherence refers to delay for data to become consistent. For example, having a high contention indicates sequential processing that could be parallelized, while having a high coherency suggests excessive dependencies among processes, prompting you to minimize interactions. Also, with help of USL, you can, in advance, calculate the maximum effective capacity of your system: scaling up your system beyond that point is a waste.
 
 ## Related resources
 
