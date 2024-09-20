@@ -99,7 +99,8 @@ Configure routes for the Virtual WAN hub as follows:
 - [Network virtual appliances](https://azure.microsoft.com/solutions/network-appliances). Network virtual appliances are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here.
 
 ### Alternatives
-If the customer is flexible about self hosting NVA's a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each vnet connection. This does not allow the customer to discriminate between VNET->VNET and VNET->Onprem traffic though: [https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies]
+
+If self-hosting NVAs is not a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. This does not allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies) though.
 
 To deploy only a high-security NVA environment, you can follow this model: [Route traffic through an NVA](/azure/virtual-wan/scenario-route-through-nva).
 
