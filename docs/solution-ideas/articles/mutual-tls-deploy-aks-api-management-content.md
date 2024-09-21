@@ -18,13 +18,13 @@ Please see [Secure backend services using client certificate authentication in A
 
 You will need to configure mTLS the [managed AKS ingress controller](/azure/aks/app-routing) as well. The server certificate that AKS presents to APIM can be either imported directly as a kubernetes secret, or can be accessed via a KeyVault secret. Please see [/azure/aks/app-routing-dns-ssl](Set up a custom domain name and SSL certificate with the application routing add-on) for details on configuring the server certificate in AKS managed ingress controller. Additionally, you will need to perform client certificate validation as well to validate the certificate presented by Azure APIM. You will need a CA certificate (that is accessible as a Kubernetes secret) in the AKS cluster to verify the client certificate presented by API management. Additionally, annotations may need to be configured in the ingress controller to validate the client certificate. For example, 
 
-`
+``
     nginx.ingress.kubernetes.io/auth-tls-secret: ca-secret
     
     nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
     
     nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
-`
+``
 
 ## Architecture
 
