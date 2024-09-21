@@ -7,13 +7,14 @@ This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and A
 Azure API management allows secure access to back-end services in multiple mechanisms. At the transport (network) layer, Azure API management can present client certificates to the backend, and can additionally verify the certificate presented by the back-end server. In mutual TLS authentication scenario, the following handshakes occur: 
 
 1. Azure API management connects to the server (in this example scenario, to the ingress controller in AKS).
-2. The back-end server (in this case, the ingress controller in AKS) presents the server certificate.
-3. Azure API management verifies the server certificate.
-4. Azure API management presents the client certificate to the server (in this case the ingress controller in AKS).
-5. The server (ingress controller in AKS) verifies the certificate presented by Azure APIM.
+2. The back-end server (the ingress controller in AKS) presents the server certificate.
+3. Azure API management validates the server certificate.
+4. Azure API management presents the client certificate to the server (to ingress controller in AKS).
+5. The server (ingress controller in AKS) validates the certificate presented by Azure APIM.
 6. The server (ingress controller in AKS) grants access.
-7. Azure API management is able to invoke the backend service in AKS ingress controller. 
+7. Azure API management is able to invoke the backend service in AKS ingress controller.
 
+Please see [Secure backend services using client certificate authentication in Azure API Management](/azure/api-management/api-management-howto-mutual-certificates) for instructions on how to configure back-end certificates on Azure API management. 
 
 ## Architecture
 
