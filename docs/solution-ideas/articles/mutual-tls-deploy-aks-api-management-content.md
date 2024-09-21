@@ -20,7 +20,9 @@ You will need to configure mTLS the [managed AKS ingress controller](/azure/aks/
 
 `
     nginx.ingress.kubernetes.io/auth-tls-secret: ca-secret
+    
     nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
+    
     nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
 `
 
