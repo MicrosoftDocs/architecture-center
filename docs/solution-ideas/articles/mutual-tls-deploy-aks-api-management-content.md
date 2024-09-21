@@ -2,6 +2,19 @@
 
 This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and Azure API Management via mutual TLS (mTLS) in an architecture that provides end-to-end encryption.
 
+## Concepts
+
+Azure API management allows secure access to back-end services in multiple mechanisms. At the transport (network) layer, Azure API management can present client certificates to the backend, and can additionally verify the certificate presented by the back-end server. In mutual TLS authentication scenario, the following handshakes occur: 
+
+1. Azure API management connects to the server (in this example scenario, to the ingress controller in AKS).
+2. The back-end server (in this case, the ingress controller in AKS) presents the server certificate.
+3. Azure API management verifies the server certificate.
+4. Azure API management presents the client certificate to the server (in this case the ingress controller in AKS).
+5. The server (ingress controller in AKS) verifies the certificate presented by Azure APIM.
+6. The server (ingress controller in AKS) grants access.
+7. Azure API management is able to invoke the backend service in AKS ingress controller. 
+
+
 ## Architecture
 
 :::image type="content" source="../media/mutual-tls-deploy-aks-api-management.png" alt-text="Diagram that shows an architecture for integrating AKS and API Management via mTLS." lightbox="../media/mutual-tls-deploy-aks-api-management.png" border="false":::
