@@ -33,6 +33,9 @@ Here is the general process to conduct an FMA:
 
 As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services.
 
+> [!NOTE]
+> Failures should be distinguished from errors. A failure is an unexpected event within a service that prevents it from continuing to function normally for example hardware malfunctions, etc. Usually, failures require intervention. In contrast, errors are an expected part of normal operations, are dealt with immediately and the system will continue to operate at the same capacity following an error. For example, errors discovered during input validation.
+
 ## App Service
 
 ### App Service app shuts down.
