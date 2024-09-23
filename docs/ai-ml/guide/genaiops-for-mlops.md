@@ -212,7 +212,24 @@ As part of your current MLOps investments, you might have leveraged the [MLOps m
 
 As you start extending your MLOps investments to include generative AI, it is important to understand that you don't need to start over. You can leverage your existing MLOps investments for some of the generative AI technical patterns. Fine-tuning generative models is a great example. There are areas of generative AI solutions, such as prompt engineering and RAG, that are net new processes and you will have to extend your existing operations investments and gain new skills.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+- [Paulo Lacerda](https://www.linkedin.com/in/paulolacerda/) | Cloud Solution Architect - Microsoft
+- [Marco Aurelio Cardoso](https://www.linkedin.com/in/marco-cardoso/) | Senior Software Engineer - Microsoft
+- [Luiz Braz](https://www.linkedin.com/in/lfbraz/) | Sr. Technical Specialist - Microsoft
+- [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer - Microsoft
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next step
 
-!!TODO ROB!!
+> [!div class="nextstepaction"]
+> [Azure OpenAI](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
 
+## Related resources
+
+- [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
+- [Baseline OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
+- [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2)
