@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 09/16/2024
+ms.date: 09/23/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -27,7 +27,28 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Provide custom authentication to Azure OpenAI Service through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)  ([#ba18376e10](https://github.com/MicrosoftDocs/architecture-center/commit/ba18376e10))
 - [Modern data warehouses for small and medium-sized businesses](./example-scenario/data/small-medium-data-warehouse.yml)  ([#dca68ab84a](https://github.com/MicrosoftDocs/architecture-center/commit/dca68ab84a))
+- [Implement logging and monitoring for Azure OpenAI language models](./ai-ml/openai/architecture/log-monitor-azure-openai.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
+- [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
+- [Enterprise business intelligence](./example-scenario/analytics/enterprise-bi-synapse.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
+- [Optimize inventory and forecast demand with Power Platform and Azure](./example-scenario/analytics/optimize-inventory-forecast-demand.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
+- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
+- [Securely managed web applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
+- [Line-of-business application using Azure App Service Environment v3](./example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
+- [Build the second layer of defense with Microsoft Defender XDR Solutions](./solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)  ([#289c90dbe9](https://github.com/MicrosoftDocs/architecture-center/commit/289c90dbe9))
+- [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)  ([#52c2b51cb9](https://github.com/MicrosoftDocs/architecture-center/commit/52c2b51cb9))
+- [Integrate Azure and Microsoft Defender XDR security services](./solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)  ([#e95d6c7cb4](https://github.com/MicrosoftDocs/architecture-center/commit/e95d6c7cb4))
+- [Use Microsoft Sentinel to integrate with Microsoft XDR security components](./guide/security/azure-monitor-integrate-security-components.yml)  ([#ca6770ed3f](https://github.com/MicrosoftDocs/architecture-center/commit/ca6770ed3f))
+- [Map threats to your IT environment](./solution-ideas/articles/map-threats-it-environment.yml)  ([#13ad98822e](https://github.com/MicrosoftDocs/architecture-center/commit/13ad98822e))
+- [Azure Files accessed from on-premises and secured by AD DS in a private network](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#dcf697b0f4](https://github.com/MicrosoftDocs/architecture-center/commit/dcf697b0f4))
+- [AKS (Kubernetes) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)  ([#9d8625304f](https://github.com/MicrosoftDocs/architecture-center/commit/9d8625304f))
+- [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#4531b20f65](https://github.com/MicrosoftDocs/architecture-center/commit/4531b20f65))
+- [Manage Microsoft 365 tenant configuration with Azure DevOps](./example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)  ([#596d0cc6c4](https://github.com/MicrosoftDocs/architecture-center/commit/596d0cc6c4))
+- [Azure service retry guidance](./best-practices/retry-service-specific.md)  ([#976f6d5a85](https://github.com/MicrosoftDocs/architecture-center/commit/976f6d5a85))
+- [Gridwich operations for Azure Storage](./reference-architectures/media-services/gridwich-storage-service.yml)  ([#976f6d5a85](https://github.com/MicrosoftDocs/architecture-center/commit/976f6d5a85))
+- [Azure App Configuration considerations for multitenancy](./guide/multitenant/service/app-configuration.md)  ([#70b49bcb27](https://github.com/MicrosoftDocs/architecture-center/commit/70b49bcb27))
+- [Azure Key Vault considerations for multitenancy](./guide/multitenant/service/key-vault.md)  ([#70b49bcb27](https://github.com/MicrosoftDocs/architecture-center/commit/70b49bcb27))
 - [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](./example-scenario/analytics/pipelines-disaster-recovery.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
 - [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
 - [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
@@ -37,7 +58,6 @@ The following new and updated articles have recently been published in the Azure
 - [Real-time anomaly detection for conveyor belts](./example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
 - [Risk prediction models for surgeries](./example-scenario/ai/risk-stratification-surgery.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
 - [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
-- [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
 - [Use Azure Front Door to secure AKS workloads](./example-scenario/aks-front-door/aks-front-door.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
 - [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
 - [News feeds with near real-time analytics](./example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)  ([#4316bc199a](https://github.com/MicrosoftDocs/architecture-center/commit/4316bc199a))
@@ -208,7 +228,7 @@ The following new and updated articles have recently been published in the Azure
 
 - [Use AI enrichment with image and text processing](./solution-ideas/articles/ai-search-skillsets.yml)
 - [Use Azure Front Door to secure AKS workloads](./example-scenario/aks-front-door/aks-front-door.yml)
-- [Provide alternative authentication to Azure OpenAI services through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)
+- [Provide custom authentication to Azure OpenAI Service through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)
 - [Use Azure Red Hat OpenShift in the financial services industry](./reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml)
 - [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure](./example-scenario/mainframe/deploy-ibm-power-workloads.yml)
 - [Use Azure OpenAI to process podcast audio files](./ai-ml/idea/process-audio-files.yml)
