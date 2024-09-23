@@ -89,11 +89,12 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 ## Azure AI solutions
 
-Azure offers a variety of solutions from PaaS to IaaS to platforms you can use to build the AI/ML solution that meets your needs.
 
 ### Azure AI services
 
-Azure offers a number of AI services that provide APIs for easy integration into your solutions.
+Solutions that are exposed as APIs that you can easily integrate into your solutions.  
+
+- [Choose the right Azure AI service](../data-guide/technology-choices/ai-services.md)
 
 
 
