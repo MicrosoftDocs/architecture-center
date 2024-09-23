@@ -65,7 +65,6 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 ### Live streaming
 
 - [Live streaming with Azure Media Services v3](/azure/media-services/latest/stream-live-streaming-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Instant broadcasting with serverless code](/azure/architecture/serverless-quest/serverless-overview)
 
 ### Video on demand
 
