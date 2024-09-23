@@ -136,7 +136,7 @@ For this architecture, the workload team and platform team need to collaborate o
 
 ## Compute
 
-The compute that hosts the prompt flow and the chat UI remains the same as the [baseline architecture](./baseline-openai-e2e-chat.yml#prompt-flow-runtimes).
+The compute that hosts the prompt flow and the chat UI remains the same as the [baseline architecture](./baseline-openai-e2e-chat.yml).
 
 An organization might impose requirements on the workload team that mandates the use of a specific Machine Learning runtime. For example, the requirement might be to avoid automatic runtimes or compute instance runtimes and instead favors a prompt flow container host that fulfills compliance, security, and observability mandates.
 
