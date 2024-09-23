@@ -70,45 +70,46 @@ Copilot Studio is available as both a standalone web app, and as a discrete app 
 - [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
 
 
-### General info on Microsoft AI
-
-Learn more about Microsoft AI, and keep up-to-date with related news:
-
-- [Microsoft AI School](https://aischool.microsoft.com/)
-
-- [Azure AI platform page](https://azure.microsoft.com/overview/ai-platform/)
-
-- [Microsoft AI platform page](https://www.microsoft.com/ai)
-
-- [Microsoft AI Blog](https://blogs.microsoft.com/ai/)
-
-- [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
-
-- [Azure Architecture Center](../index.yml)
-
 
 ## Azure AI solutions
 
 
-### Azure AI services
+### AI services
 
-Solutions that are exposed as APIs that you can easily integrate into your solutions.  
+[Azure AI services](https://azure.microsoft.com/services/ai-services/) help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
-- [Choose the right Azure AI service](../data-guide/technology-choices/ai-services.md)
+- [Azure AI services documentation](/azure/ai-services/what-are-ai-services)
 
+- [Try Azure AI services for free](https://azure.microsoft.com/solutions/ai)
 
+- [Choosing an Azure AI services technology](../data-guide/technology-choices/cognitive-services.md)
 
-### Azure AI platforms
-
-Azure AI platforms provide a range of services and tools to help you build custom AI solutions. These platforms include Azure Machine Learning, Azure Databricks, and Azure AI Studio.
-
-
-### Language Models
-
-Large language models (LLMs) and small language models (SLMs) you can use to build your generative AI solutions
+- [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
 
-### Data
+### AI Development platforms and tools
+
+- [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, LLMs, playground, and resources to help you build, train, and deploy AI models.
+
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).
+
+    You can create a model in Machine Learning or use a model built from an open-source platform, such as PyTorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models.
+
+- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It makes prompt engineering much easier and enables you to build LLM apps with production quality.
+
+
+### AI Language Models
+
+- Large Language Models (LLMs), such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
+
+- [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
+
+
+
+
+### Data platform
+
+The data platform is the underlying infrastructure that supports the storage, processing, and analysis of large volumes of data used by Generative AI applications. It includes databases, data lakes, and other storage systems, as well as the tools and services for data ingestion, transformation, and querying. A robust data platform is essential for prompt engineering, fine-tuning and operating Generative AI models effectively.
 
 #### Data storage
 
@@ -369,20 +370,6 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 
-## Language models
-
-
-## Data solutions
-
-### Data storage
-
-
-### Data processing
-
-
-### Data connectors
-
-
 ## Customer stories
 
 Different industries are applying AI in innovative and inspiring ways. Following are a number of customer case studies and success stories:
@@ -420,3 +407,20 @@ Different industries are applying AI in innovative and inspiring ways. Following
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI) organizes the Microsoft open source AI-based repositories, providing tutorials and learning materials.
 
 - [Find architecture diagrams and technology descriptions for AI solutions reference architectures](/azure/architecture/browse/?azure_categories=ai-machine-learning).
+
+
+## General info on Microsoft AI
+
+Learn more about Microsoft AI, and keep up-to-date with related news:
+
+- [Microsoft AI School](https://aischool.microsoft.com/)
+
+- [Azure AI platform page](https://azure.microsoft.com/overview/ai-platform/)
+
+- [Microsoft AI platform page](https://www.microsoft.com/ai)
+
+- [Microsoft AI Blog](https://blogs.microsoft.com/ai/)
+
+- [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
+
+- [Azure Architecture Center](../index.yml)
