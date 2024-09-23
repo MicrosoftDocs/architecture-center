@@ -95,7 +95,7 @@ For data transfer scenarios, choose the appropriate system for your needs by ans
 
 - Do you need to transfer data to or from a relational database? If yes, choose an option that supports one or more relational databases. Some of these options also require a Hadoop cluster.
 
-- Do you need an automated Data Pipeline or workflow orchestration? If yes, consider Data Factory.
+- Do you need an automated data pipeline or workflow orchestration? If yes, consider Data Factory.
 
 ## Capability matrix
 

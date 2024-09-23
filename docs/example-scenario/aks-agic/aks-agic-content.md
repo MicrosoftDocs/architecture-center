@@ -1,4 +1,4 @@
-This solution utilizes [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) to provide centralized protection for web applications deployed on a multi-tenant Azure Kubernetes Service (AKS) cluster. It safeguards against common exploits and vulnerabilities. To protect web applications running on [Azure Kubernetes Service (AKS) cluster](/azure/aks/intro-kubernetes) and exposed via [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) from malicious attacks like SQL injection and cross-site scripting, you can use a [WAF Policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway. The WAF Azure Policy on Azure Application Gateway is pre-configured with the Open Worldwide Application Security Project (OWASP) core rule sets and supports other OWASP Core Rule Set (CRS) versions. Additionally, you have the option to create custom rules.
+This solution utilizes [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) to provide centralized protection for web applications deployed on a multi-tenant Azure Kubernetes Service (AKS) cluster. It safeguards against common exploits and vulnerabilities. To protect web applications running on [Azure Kubernetes Service (AKS) cluster](/azure/aks/intro-kubernetes) and exposed via [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) from malicious attacks like SQL injection and cross-site scripting, you can use a [WAF Policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway. The WAF policy on Azure Application Gateway is pre-configured with the Open Worldwide Application Security Project (OWASP) core rule sets and supports other OWASP Core Rule Set (CRS) versions. Additionally, you have the option to create custom rules.
 
 ## Architecture
 
@@ -36,7 +36,7 @@ A virtual machine (VM) is deployed in the same virtual network that is hosting t
 
 An Azure Bastion host provides secure and seamless SSH connectivity to the jump-box VM, directly in the Azure portal over SSL. Azure Container Registry is used to build, store, and manage container images and artifacts (such as Helm charts).
 
-The architecture includes an application gateway that is used by the ingress controller. The application gateway is deployed to a dedicated subnet and exposed to the public internet via a public IP address that is shared by all the tenant workloads. A Web Access Firewall (WAF) Azure Policy is associated to the application gateway at the root level and at the HTTP listener level, to protect tenant workloads from malicious attacks. The policy is configured in Prevention mode and uses [OWASP 3.1](https://owasp.org/www-project-application-security-verification-standard) to block intrusions and attacks that are detected by rules. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records these attacks in the WAF logs.
+The architecture includes an application gateway that is used by the ingress controller. The application gateway is deployed to a dedicated subnet and exposed to the public internet via a public IP address that is shared by all the tenant workloads. A Web Application Firewall (WAF) policy is associated to the application gateway at the root level and at the HTTP listener level, to protect tenant workloads from malicious attacks. The policy is configured in Prevention mode and uses [OWASP 3.1](https://owasp.org/www-project-application-security-verification-standard) to block intrusions and attacks that are detected by rules. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records these attacks in the WAF logs.
 
 A key vault is used as a secret store by workloads that run on Azure Kubernetes Service (AKS) to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure platform as a service (PaaS) Services, such as Key Vault, over a private endpoint in the virtual network.
 
@@ -120,7 +120,7 @@ To enable multi-namespace support, do the following:
 Once deployed with the ability to observe multiple namespaces, AGIC will do the following:
 
 - List ingress resources from all the accessible namespaces
-- Filter to ingress resources that are annotated with kubernetes.io/ingress.class: Azure/application-gateway
+- Filter to ingress resources that are annotated with `kubernetes.io/ingress.class: azure/application-gateway`
 - Compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
 - Apply the config to the associated application gateway via [ARM](/azure/azure-resource-manager/management/overview)
 
@@ -219,7 +219,7 @@ Although the availability and reliability considerations are not fully pertainin
 
 #### Container registry
 
-- We suggest storing container images in Azure Container Registry, and then geo-replicate the registry to each AKS region using [Azure Container Registry geo-replication](/azure/container-registry/container-registry-geo-replication). Geo-replication is a feature of Premium SKU Container Registry registries.
+- We suggest storing container images in Azure Container Registry, and then geo-replicate the registry to each AKS region using [Azure Container Registry geo-replication](/azure/container-registry/container-registry-geo-replication). Geo-replication is a feature of Premium SKU Container Registries.
 - Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, and then redeploy your workloads in the AKS cluster.
 - Limit the image registries that pods and deployments can use. Only allow trusted registries, where you validate and control the images that are available.
 - As you use base images for application images, use automation to build new images, when the base image is updated. Because those base images typically include security fixes, update any downstream application container images. We recommend that you scan the container images for vulnerabilities as part of CI/CD pipeline before you publish the images to Container Registry. [Azure Defender for Containers](/azure/defender-for-cloud/defender-for-containers-cicd) can be integrated to CI/CD workflows.
@@ -305,7 +305,7 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 
 ## Deploy this scenario
 
-The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). You can also find a demo application, as shown in the following figure, in [This GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
+The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). You can also find a demo application, as shown in the following figure, in this [GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
 
 :::image type="content" border="false" source="./media/aks-agic-sample.png" alt-text="The diagram shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.png":::
 

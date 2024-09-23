@@ -207,7 +207,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 - Use a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline to deploy your workloads to AKS.
 
 - Use A/B testing and canary deployments in your application lifecycle management to properly test an application before you make it available to users.
-- Use [Azure Container Registry](/azure/container-registry/container-registry-intro) or a non-Microsoft Container Registry, such as [Harbor](https://goharbor.io/) or [Docker Hub](https://hub.docker.com/), to store private container images that are deployed to the cluster.
+- Use [Azure Container Registry](/azure/container-registry/container-registry-intro) or a non-Microsoft container registry, such as [Harbor](https://goharbor.io/) or [Docker Hub](https://hub.docker.com/), to store private container images that are deployed to the cluster.
 - Test ingress and egress on your workloads in a separate preproduction environment that mirrors the network topology and firewall rules of your production environment.
 
 #### Monitoring
