@@ -539,6 +539,9 @@
     </radialGradient>
   </defs>
   <g class="cls-51">
+    <g id="Shapes">
+      <rect class="cls-36" x="3.09" width="1057.31" height="237.6"/>
+    </g>
     <g id="Text">
       <rect class="cls-37" x="756.8" y="153.42" width="189.2" height="57.2"/>
       <rect class="cls-35" x="624.8" y="13.2" width="189.2" height="83.6"/>
