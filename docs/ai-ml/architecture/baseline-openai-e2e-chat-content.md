@@ -206,6 +206,10 @@ To help ensure alignment with security, consider using Azure Policy and network 
 - Require specific configuration of network access rules or NSGs.
 - Require encryption, such as the use of customer-managed keys.
 
+#### Azure Machine Learning workspace role assignments for Azure Key Vault
+
+The [Azure Machine Learning workspace managed identity requires both control plane (Contributor) and data plane (Key Vault Administrator) role assignments](/azure/machine-learning/how-to-identity-based-service-authentication#workspace). This means that this identity has read and write access to all secrets, keys, and certificates stored in the Azure Key Vault. If your workload has services other than Azure Machine Learning that require access to secrets, keys, or certificates in Key Vault, your workload or security team may not be comfortable with the Azure Machine Learning workspace managed identity having access to those artifacts. In this case, consider deploying a  Key Vault instance specifically for the Azure Machine Learning workspace, and other Azure Key Vault instances as appropriate for other parts of your workload.
+
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).

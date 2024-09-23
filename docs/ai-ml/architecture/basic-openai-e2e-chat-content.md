@@ -123,6 +123,7 @@ This architecture follows the principle of least privilege by only assigning rol
 | Workspace managed identity | Workspace Storage Account | Storage File Data Privileged Contributor |
 | Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
 | Workspace managed identity | Workspace Container Registry | AcrPush |
+| Online endpoint managed identity | Azure OpenAI | Cognitive Services OpenAI User |
 | Online endpoint managed identity | Workspace Container Registry | AcrPull |
 | Online endpoint managed identity | Workspace Storage Account | Storage Blob Data Reader |
 | Online endpoint managed identity | Machine Learning workspace | AzureML Workspace Connection Secrets Reader |
