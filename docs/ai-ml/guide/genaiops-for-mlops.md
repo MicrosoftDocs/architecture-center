@@ -192,9 +192,25 @@ Solutions that are using generative models to reason over grounding data use [me
 
 Solutions that use generative models for non-predictive tasks, such as RAG solutions often benefit from human feedback to evaluate usefulness sentiments from end users. User interfaces can capture feedback such as thumbs up/down and this data can be used to periodically evaluate the responses.
 
+A common pattern for generative AI solutions is to [deploy a gateway in front of the generative models](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide). One of the [use cases for the gateway is for monitoring the foundational models](/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai). The gateway can be used to log input prompts and output.
+
+Another key area to monitor for generative solutions is content safety. The goal is to moderate responses and detect harmful or undesirable content. [Azure AI Content Safety Studio](/azure/ai-services/content-safety/overview#content-safety-studio) is an example of a tool you can use to moderate content.
+
+#### Resource management
+
+For generative solutions that are using models exposed as a service, such as Azure OpenAI, have different resource management concerns than models you deploy yourself. You are not concerned with the infrastructure, rather you are concerned with your service throughput, quota, and throttling. Azure OpenAI uses the concept of tokens for billing, throttling and quotas. You should monitor quota usage for cost management and performance efficiency. Azure OpenAI allows you to log token usage.
+
 ## Tooling
 
 Many MLOps practitioners have standardized on a toolkit to organize the various activities around automation, tracking, deployment, experimentation, and so on to abstract away the many common concerns and implementation details of those processes. A common unified platform is [MLflow](/azure/machine-learning/concept-mlflow). Before looking for new tooling to support GenAIOps patterns, you should look to your existing MLOps tooling to evaluate its support for generative AI. For example, MLflow supports a [wide range features for language models](https://mlflow.org/docs/latest/llms/index.html).
+
+## MLOps and GenAIOps maturity models
+
+As part of your current MLOps investments, you might have leveraged the [MLOps maturity model](/azure/architecture/ai-ml/guide/mlops-maturity-model) to evaluate the maturity of you machine learning operations and environment. As you extend your MLOps investments for generative AI workloads, you should use the GenAIOps [maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might be tempted to try to combine the two maturity models, but it is our recommendation to measure each independently. MLOps and GenAIOps will evolve independently from each other. As an example, you may be at level four in the MLOps maturity model, but just starting with generative AI and may only be at level one.
+
+## Summary
+
+As you start extending your MLOps investments to include generative AI, it is important to understand that you don't need to start over. You can leverage your existing MLOps investments for some of the generative AI technical patterns. Fine-tuning generative models is a great example. There are areas of generative AI solutions, such as prompt engineering and RAG, that are net new processes and you will have to extend your existing operations investments and gain new skills.
 
 ## Next step
 
