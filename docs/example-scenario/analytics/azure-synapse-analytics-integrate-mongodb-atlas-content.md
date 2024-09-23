@@ -220,7 +220,7 @@ Other contributors:
 
 - [Krishnakumar Rukmangathan](https://www.linkedin.com/in/krishnakumar-rukmangathan) | Senior Program Manager
 - [Sunil Sabat](https://www.linkedin.com/in/sunilsabat) | Principal Program Manager
-- [Wee Hyong T.](https://www.linkedin.com/in/weehyongtok) | Principal Director
+- [Wee Hyong T](https://www.linkedin.com/in/weehyongtok). | Principal Director
 - [Paresh Saraf](https://www.linkedin.com/in/pareshsaraf) | Technical Director
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -251,4 +251,3 @@ For information about Azure solution components, see these resources:
 
 - [Enterprise business intelligence](./enterprise-bi-synapse.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
-

@@ -95,7 +95,7 @@ For data transfer scenarios, choose the appropriate system for your needs by ans
 
 - Do you need to transfer data to or from a relational database? If yes, choose an option that supports one or more relational databases. Some of these options also require a Hadoop cluster.
 
-- Do you need an automated data pipeline or workflow orchestration? If yes, consider Data Factory.
+- Do you need an automated Data Pipeline or workflow orchestration? If yes, consider Data Factory.
 
 ## Capability matrix
 
@@ -128,7 +128,7 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-| Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
+| Capability | The Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse Analytics |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
