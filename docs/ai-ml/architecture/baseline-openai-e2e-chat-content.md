@@ -101,7 +101,7 @@ If you deploy to compute clusters behind the Machine Learning-managed online end
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). The architecture implements a a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
+This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). The architecture implements a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
 
 Along with networking considerations, this section describes security considerations for key rotation and Azure OpenAI model fine tuning.
 
