@@ -30,4 +30,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-decentralized-trust.png
 content: |
-   [!include[](decentralized-trust-content.md)]
+   [!INCLUDE[](decentralized-trust-content.md)]
