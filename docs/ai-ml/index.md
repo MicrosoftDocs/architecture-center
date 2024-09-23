@@ -113,7 +113,7 @@ The data platform is the underlying infrastructure that supports the storage, pr
 
 #### Data storage
 
-- Databircks
+- Databricks
 - Fabric
 - Data Lake
 - SMPL Storage Accounts
@@ -121,6 +121,25 @@ The data platform is the underlying infrastructure that supports the storage, pr
 
 #### Data processing
 
+##### Azure Databricks Runtime for Machine Learning
+
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
+
+[Databricks Runtime for Machine Learning (Databricks Runtime ML)](/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
+
+- [Azure Databricks product home page](https://azure.microsoft.com/services/databricks/)
+
+- [Azure Databricks documentation](/azure/azure-databricks/)
+
+- [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
+
+- [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
+
+- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
+
+- [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
+- 
+- 
 - Data Factgory
 - Fabric
 - Databricks
@@ -130,37 +149,7 @@ The data platform is the underlying infrastructure that supports the storage, pr
 
 ## High-level architectural types
 
-### Prebuilt AI
 
-*Prebuilt AI* is exactly what it sounds like: off-the-shelf AI models, services, and APIs that are ready to use. These help you add intelligence to apps, websites, and flows without having to gather data and then build, train, and publish your own models.
-
-One example of prebuilt AI might be a pretrained model that can be incorporated as is or used to provide a baseline for further custom training. Another example would be a cloud-based API service that can be called at will to process natural language in a desired fashion.
-
-#### Azure AI services
-
-[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provide developers the opportunity to use prebuilt APIs and integration toolkits to create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure AI services can be categorized into five main pillars: Vision, Speech, Language, Web Search, and Decision/Recommendation.
-
-- [Azure Cognitive Services documentation](/azure/cognitive-services/)
-
-- [Try Azure Cognitive Services for free](https://azure.microsoft.com/try/cognitive-services/)
-
-- [Choosing an Azure Cognitive Services technology](../data-guide/technology-choices/cognitive-services.md)
-
-- [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
-
-#### Prebuilt AI models in AI Builder
-
-AI Builder is a new capability in [Microsoft Power Platform](/power-platform/) that provides a point-and-click interface for adding AI to your apps, even if you have no coding or data science skills. (Some features in AI Builder have not yet released for general availability and remain in preview status. For more information, refer to the [Feature availability by region](/ai-builder/availability-region) page.)
-
-You can build and train your own models, but AI Builder also provides [select prebuilt AI models](/ai-builder/prebuilt-overview) that are ready for use right away. For example, you can add a component in Microsoft Power Apps based on a prebuilt model that recognizes contact information from business cards.
-
-- [Power Apps on Azure](https://powerapps.microsoft.com)
-
-- [AI Builder documentation](/ai-builder/)
-
-- [AI model types in AI Builder](/ai-builder/model-types)
-
-- [Overview of prebuilt AI models in AI Builder](/ai-builder/prebuilt-overview)
 
 ### Custom AI
 
@@ -250,7 +239,6 @@ quickly as possible. The classic example is credit card fraud detection, but rea
 
 - [Train R models using the Azure ML CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
-## Azure AI service offerings
 
 
 ## Azure AI platform offerings
@@ -293,41 +281,7 @@ Azure provides extensive support for automated ML. Developers can build models u
 
 - [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 
-### Azure AI services
 
-This is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps. These domain-specific, pretrained AI models can be customized with your data.
-
-- [Cognitive Services product home page](https://azure.microsoft.com/services/cognitive-services/)
-
-- [Azure Cognitive Services documentation](/azure/cognitive-services/)
-
-### Azure Cognitive Search
-
-This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
-
-- [Azure Cognitive Search product home page](https://azure.microsoft.com/services/search/)
-
-- [Getting started with AI enrichment](/azure/search/cognitive-search-concept-intro)
-
-- [Azure Cognitive Search documentation overview](/azure/search/)
-
-- [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
-
-- [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](/azure/search/cognitive-search-quickstart-blob)
-
-### Azure Bot Service
-
-This is a purpose-built bot development environment with out-of-the-box templates to get started quickly.
-
-- [Azure Bot Service product home page](https://azure.microsoft.com/services/bot-service/)
-
-- [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
-
-- [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
-
-- [Microsoft Bot Framework](https://dev.botframework.com/)
-
-- [Microsoft Bot Framework SDK repo](https://github.com/Microsoft/BotBuilder)
 
 ### Apache Spark on Azure
 
@@ -351,23 +305,7 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 
 - [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
 
-### Azure Databricks Runtime for Machine Learning
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
-
-[Databricks Runtime for Machine Learning (Databricks Runtime ML)](/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
-
-- [Azure Databricks product home page](https://azure.microsoft.com/services/databricks/)
-
-- [Azure Databricks documentation](/azure/azure-databricks/)
-
-- [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
-
-- [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
-
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
-
-- [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 
 ## Customer stories
