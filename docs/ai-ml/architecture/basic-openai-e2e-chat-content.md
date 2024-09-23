@@ -108,6 +108,8 @@ The following guidance extends the [identity and access management guidance in t
   - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
 - Implement identity-access controls for the chat UI by using Microsoft Entra ID
 
+Currently, the chat UI is using keys to connect to the deployed managed online endoint. The keys are stored in Azure KeyVault. When moving to production, you should use Managed Identity to authenticate the chat UI to the managed online endpoint.
+
 ### Machine Learning role-based access roles
 
 There are five [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) that you can use to manage access to your Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there's an Azure Machine Learning Workspace Connection Secrets Reader and an AzureML Registry User that can grant access to workspace resources such as the workspace secrets and registry.
@@ -129,7 +131,9 @@ This architecture follows the principle of least privilege by only assigning rol
 
 #### Network security
 
-In order to make it easy for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as Azure AI Search, Azure OpenAI, and Azure App Service are all reachable from the internet. This adds surface area to the attack vector of the architecture. To learn how to include network as an additional perimeter in your architecture, see the [networking section of the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking).
+In order to make it easy for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as Azure AI Search, Azure KeyVault, Azure OpenAI, the deployed managed online endpont, and Azure App Service are all reachable from the internet. The Azure KeyVault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
+
+To learn how to include network as an additional perimeter in your architecture, see the [networking section of the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking).
 
 ### Cost optimization
 
