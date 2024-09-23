@@ -50,33 +50,25 @@ The predictive models are validated against known data, measured by performance 
 
 *Generative AI* is a type of AI that can generate new data, such as images, music, or text, based on patterns it has learned from Large Language Models. Generative AI can be used to create new content, such as images of people who don't exist, music in the style of a particular artist, or text that sounds like it was written by a human.
 
-- [Incorporate generative AI into your apps](https://azure.microsoft.com/products/machine-learning/generative-ai)
+- [Baseline OpenAI end-to-end chat reference architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) is a reference architecture that shows how to build an end-to-end chat architecture with OpenAI's GPT models.
+
+    :::image type="complex" source="architecture/_images/openai-end-to-end-aml-deployment.svg" border="false" lightbox="architecture/_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
+    The diagram shows the App Service baseline architecture with a private endpoint that connects to a managed online endpoint in a Machine Learning managed virtual network. The managed online endpoint sits in front of a Machine Learning compute cluster. The diagram shows the Machine Learning workspace with a dotted line that points to the compute cluster. This arrow represents that the executable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources that are required by the executable flow, such as Container Registry and Storage. The diagram further shows user-defined private endpoints that provide private connectivity to the Azure OpenAI Service and Azure AI Search.
+:::image-end:::
+
+- [Azure OpenAI chat baseline architecture in an Azure landing zone](../ai-ml/architecture/baseline-openai-e2e-chat.yml) shows you how to build on the Azure OpenAI baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
+
+### Copilots
+
+A copilot is an AI-powered conversational interface based on large language models (LLMs) and additional sources of knowledge. It's a powerful AI companion that can handle a range of requests, from providing simple responses to common questions to resolving issues requiring complex conversations.
+
+Copilots can engage with customers and employees in multiple languages across websites, mobile apps, Facebook, Microsoft Teams, or any channel supported by the Azure Bot Service.
+
+Copilot Studio is available as both a standalone web app, and as a discrete app within Teams. Most of the functionality between the two is the same. However, there might be different reasons to choose one version or the other based on the ways you want to use Copilot Studio.
 
 
-### AI Agents
+- [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
 
-AI Agents are designed to perform a particular task. These agents vary widely in complexity. They range from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can run complex workflows autonomously.
-
-AI Agents use AI and other technologies to mimic human activity and decision-making by interacting directly with humans through text and speech. Agents can be used to take a dinner reservation, converse the customers in a customer service application, and socialize by posting breaking news or scientific data to social media sites.
-
-Microsoft offers the Azure Bot Service, a managed service purpose-built for enterprise-grade bot development.
-
-- [Microsoft Copilot Studio](/azure/bot-service/bot-service-overview-introduction)
-
-- [Ten guidelines for responsible bots](https://www.microsoft.com/research/publication/responsible-bots/)
-
-- [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
-
-#### Copilots
-
-#### Autonomous Agents
-
-*Autonomous systems* are part of an evolving new class that goes beyond basic automation. Instead of performing a specific task repeatedly with little or no variation (like bots do), autonomous systems bring intelligence to machines so they can adapt to changing environments to accomplish a desired goal.
-
-Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
-
-
-#### Multi-agent systems
 
 ### General info on Microsoft AI
 
@@ -94,11 +86,51 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 - [Azure Architecture Center](../index.yml)
 
+
+## Azure AI solutions
+
+Azure offers a variety of solutions from PaaS to IaaS to platforms you can use to build the AI/ML solution that meets your needs.
+
+### Azure AI services
+
+Azure offers a number of AI services that provide APIs for easy integration into your solutions.
+
+
+
+### Azure AI platforms
+
+Azure AI platforms provide a range of services and tools to help you build custom AI solutions. These platforms include Azure Machine Learning, Azure Databricks, and Azure AI Studio.
+
+
+### Language Models
+
+Large language models (LLMs) and small language models (SLMs) you can use to build your generative AI solutions
+
+
+### Data
+
+#### Data storage
+
+- Databircks
+- Fabric
+- Data Lake
+- SMPL Storage Accounts
+
+
+#### Data processing
+
+- Data Factgory
+- Fabric
+- Databricks
+- Spark
+
+#### Data connectivity
+
 ## High-level architectural types
 
 ### Prebuilt AI
 
-*Prebuilt AI* is exactly what it sounds like-off-the-shelf AI models, services, and APIs that are ready to use. These help you add intelligence to apps, websites, and flows without having to gather data and then build, train, and publish your own models.
+*Prebuilt AI* is exactly what it sounds like: off-the-shelf AI models, services, and APIs that are ready to use. These help you add intelligence to apps, websites, and flows without having to gather data and then build, train, and publish your own models.
 
 One example of prebuilt AI might be a pretrained model that can be incorporated as is or used to provide a baseline for further custom training. Another example would be a cloud-based API service that can be called at will to process natural language in a desired fashion.
 
@@ -385,3 +417,5 @@ Different industries are applying AI in innovative and inspiring ways. Following
 - For training in how to develop AI solutions, refer to [Microsoft AI School](https://aischool.microsoft.com/learning-paths).
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI) organizes the Microsoft open source AI-based repositories, providing tutorials and learning materials.
+
+- [Find architecture diagrams and technology descriptions for AI solutions reference architectures](/azure/architecture/browse/?azure_categories=ai-machine-learning).
