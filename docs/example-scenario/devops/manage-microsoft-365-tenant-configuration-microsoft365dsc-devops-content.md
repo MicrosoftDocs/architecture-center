@@ -82,7 +82,6 @@ Using a configuration-as-code model isn't a one-time task. It's a shift in your 
 
 You can use this solution when you're working with multiple environments, multiple workloads, and/or multiple teams. You can configure the validation process so that experts need to approve each workload. You can also extend the solution to deploy to multiple tenants, for a dev/test/acceptance/production scenario and/or for multiple organizations.
 
-To increase scalability even further, you can use an aggregated-configuration data solution like [Datum](https://github.com/gaelcolas/datum).
 
 ## Deploy this scenario
 
