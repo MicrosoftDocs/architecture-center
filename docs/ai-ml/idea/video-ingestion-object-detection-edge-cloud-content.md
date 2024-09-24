@@ -28,23 +28,23 @@ This workflow describes how the system processes the incoming data:
 
 ### Components
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. We're using it to host Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency. 
+- [Azure Stack Edge](/azure/databox-online/) is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. This architecture uses it to host Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency.
 
-- [Azure Kubernetes Service on Azure Stack Edge](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge). Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, we're using a version of AKS that runs on Azure Stack Edge device to manage containers responsible for system's logic.
+- [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge). Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, we're using a version of AKS that runs on Azure Stack Edge device to manage containers responsible for system's logic.
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a bridge that extends Azure services to the edge. By utilizing Azure Arc in this architecture, we're able to control edge services through the cloud portal.
+- [Azure Arc](/azure/azure-arc/overview) is a bridge that extends Azure services to the edge. By utilizing Azure Arc in this architecture, we're able to control edge services through the cloud portal.
 
-- [Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision) is a unified service that offers innovative computer vision capabilities. In this architecture, we're using the image analysis feature to detect objects in key frames of the video stream.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a unified service that offers computer vision capabilities. In this architecture, the image analysis feature is used to detect objects in key frames of the video stream.
 
-- [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. In this architecture, it's used to store images of key frames that are extracted from the video stream.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. In this architecture, it's used to store images of key frames that are extracted from the video stream.
 
-- [Azure SQL Edge](https://azure.microsoft.com/products/azure-sql/edge/) is a small-footprint, edge-optimized SQL engine with built-in AI. In this architecture, we specifically went for the edge version of SQL engine to store image analysis metadata, keeping it close to the service that consumes and processes.
+- [Azure SQL Edge](/azure/azure-sql-edge/overview) is a small-footprint, edge-optimized SQL engine with built-in AI. In this architecture, we specifically went for the edge version of SQL engine to store image analysis metadata, keeping it close to the service that consumes and processes.
 
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is a registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. In this architecture, we're using it to store Docker container images for anomaly detection and AI vision containers.
+- [Azure Container Registry](/azure/container-registry/) is a registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. In this architecture, the registry stores Docker container images for anomaly detection and AI vision containers.
 
-- [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault/) is a service to provide secure key management in the cloud. In this architecture, we're using it to store secrets and keys to allow system's logic to interact with external services (AI Vision, SQL Edge etc.).
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service to provide secure key management in the cloud. In this architecture, it's used to store secrets and keys to allow system's logic to interact with external services where managed identity is not available.
 
-- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, we're using this service to implement observability for the system.
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, this service is the primary observability platform for the workload.
 
 ## Scenario details
 
