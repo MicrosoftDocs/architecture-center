@@ -44,7 +44,6 @@ Each service has its own capabilities and use cases.
 ### Azure AI Language 
 
 [Azure AI Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
-
 #### Capabilities
 
 The following table provides a list of capabilities available in Azure AI Language service.
@@ -119,7 +118,6 @@ The following table provides a list of possible use cases for Azure AI Translato
 ### Azure AI Document Intelligence
 
 [Azure AI Language](/azure/ai-services/document-intelligence/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
-
 #### Capabilities
 
 The following table provides a list of some of the capabilities available in AI Document Intelligence service.
@@ -132,7 +130,6 @@ The following table provides a list of some of the capabilities available in AI 
 | [Health insurance card extraction](/azure/ai-services/document-intelligence/concept-health-insurance-card)|The Document Intelligence health insurance card model combines Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images; extracts key information such as insurer, member, prescription, and group number; and returns a structured JSON representation. Health insurance cards can be presented in various formats and quality including phone-captured images, scanned documents, and digital PDFs.|
 | [US tax document extraction](/azure/ai-services/document-intelligence/concept-tax-document)|The Document Intelligence contract model uses Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of tax documents. Tax documents can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports certain English tax document formats.|
 | [Many more...](/azure/ai-services/document-intelligence/concept-model-overview)|Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries.|
-
 To learn more about how to choose a model that works for your scenario, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
 
 ## Next steps
