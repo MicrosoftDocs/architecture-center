@@ -54,11 +54,7 @@ The predictive models are validated against known data, measured by performance 
 
 ### Generative AI
 
-Artificial Intelligence (AI) imitates human behavior by using machine learning to interact with the environment and execute tasks without explicit directions on what to output.
-
-*Generative AI* describes a category of capabilities within AI that create original content. Humans typically interact with generative AI that has been built into chat applications. 
-
-Generative AI applications take in natural language input, and return appropriate responses in a variety of formats such as natural language, images, or code.
+*Generative AI* is a form of artificial intelligence in which models are trained to generate new original content based on natural language input. With generative AI, you can describe a desired output in normal everyday language, and the model can respond by creating appropriate text, image, code, and more. One popular example of such an application is [Microsoft Copilot](https://m365.cloud.microsoft/chat/), a chatbot companion to browse the web more effectively.
 
 
 ### Language models
@@ -74,7 +70,7 @@ Generative AI applications are powered by language models, which are a specializ
 
 The availability of language models has led to the emergence of new ways to interact with applications and systems through digital copilots. Copilots are generative AI assistants that are integrated into applications often as chat interfaces. They provide contextualized support for common tasks in those applications.
 
-Microsoft Copilot is integrated into a wide range of Microsoft applications and user experiences. It is based on an open architecture that enables third-party developers to create their own plug-ins to extend or customize the user experience with Microsoft Copilot. Additionally, third-party developers can create their own copilots using the same open architecture.
+[Microsoft Copilot](https://m365.cloud.microsoft/chat/) is integrated into a wide range of Microsoft applications and user experiences. It is based on an open architecture that enables third-party developers to create their own plug-ins to extend or customize the user experience with Microsoft Copilot. Additionally, third-party developers can create their own copilots using the same open architecture.
 
 - [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/microsoft-cloud/dev/copilot/overview).
 
@@ -96,7 +92,7 @@ Retrieval Augmented Generation (RAG) is an architecture that augments the capabi
 Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
 
 
-## Uncertain
+## Orphan content
 
 - [Baseline OpenAI end-to-end chat reference architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) is a reference architecture that shows how to build an end-to-end chat architecture with OpenAI's GPT models.
 
@@ -106,8 +102,7 @@ Smart buildings use autonomous systems to automatically control operations like 
 
 - [Azure OpenAI chat baseline architecture in an Azure landing zone](../ai-ml/architecture/baseline-openai-e2e-chat.yml) shows you how to build on the Azure OpenAI baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
 
-## Azure AI solutions
-
+## AI products and services
 
 ### AI services
 
@@ -122,7 +117,7 @@ Smart buildings use autonomous systems to automatically control operations like 
 - [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
 
-### AI Development platforms and tools
+### AI development platforms and tools
 
 - [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, LLMs, playground, and resources to help you build, train, and deploy AI models.
 
@@ -133,7 +128,7 @@ Smart buildings use autonomous systems to automatically control operations like 
 - [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It makes prompt engineering much easier and enables you to build LLM apps with production quality.
 
 
-### AI Language Models
+### Language models
 
 - Large Language Models (LLMs), such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
 
@@ -144,7 +139,6 @@ Smart buildings use autonomous systems to automatically control operations like 
 
 ### Data platform
 
-The data platform is the underlying infrastructure that supports the storage, processing, and analysis of large volumes of data used by Generative AI applications. It includes databases, data lakes, and other storage systems, as well as the tools and services for data ingestion, transformation, and querying. A robust data platform is essential for prompt engineering, fine-tuning and operating Generative AI models effectively.
 
 #### Data storage
 
