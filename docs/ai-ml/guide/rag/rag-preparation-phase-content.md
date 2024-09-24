@@ -29,7 +29,7 @@ Understanding the different file formats in your corpus helps you determine the 
 
 ### Security constraints
 
-Understanding the security constraints helps you determine your loading and chunking strategies. For example, you need to understand if some or all of your documents are documents that require authentication and/or authorization or even network line of sight. If the documents are behind a security perimeter, you need to ensure that your code has access to the documents, or you need another process to run before your code that can securely replicate the documents to a location your processing code has access to.
+Understanding security constraints is crucial for determining your loading and chunking strategies. For instance, you need to identify whether some or all of your documents require authentication, authorization, or even network visibility. If the documents are within a secure perimeter, ensure your code can access them, or implement a process to securely replicate the documents to an accessible location for your processing code.
 
 Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself.  If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
 
