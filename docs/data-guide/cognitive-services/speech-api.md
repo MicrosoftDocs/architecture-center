@@ -7,8 +7,8 @@ categories:
   - analytics
 ms.date: 06/01/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - ai-services
 ms.custom:

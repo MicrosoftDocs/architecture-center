@@ -251,5 +251,3 @@ For information about Azure solution components, see these resources:
 
 - [Enterprise business intelligence](./enterprise-bi-synapse.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
-- [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
-- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)

@@ -4,9 +4,8 @@ description: Learn about the tasks that a group manager performs on a Team Data 
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.date: 07/12/2024

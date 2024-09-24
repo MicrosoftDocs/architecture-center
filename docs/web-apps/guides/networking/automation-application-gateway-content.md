@@ -131,7 +131,6 @@ Browse our architectures:
 - [Azure Architecture Center: Serverless](/azure/architecture/browse/?terms=serverless)
 
 Related guidance:
-- [Serverless Functions architecture](/azure/architecture/serverless-quest/serverless-overview)
 - [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)

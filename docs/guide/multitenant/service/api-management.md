@@ -5,8 +5,8 @@ author: johndowns
 ms.author: jodowns
 ms.date: 07/24/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
  - azure-api-management
 categories:
@@ -80,7 +80,7 @@ Alternatively, you can identify the tenant by using other methods. Here are some
 
 - **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path, `tenant1`, and treat it as a tenant identifier. Similarly, given the incoming URL `https://tenant1.contoso.com/products`, you might extract the subdomain, `tenant1`. To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
 
-- **Use a request header.** For example, your client applications might add a custom `X-TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
+- **Use a request header.** For example, your client applications might add a custom `TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
 
 - **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in a JWT that's issued by your identity provider. To use this approach, use the [validate-jwt](/azure/api-management/validate-jwt-policy) policy and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
 

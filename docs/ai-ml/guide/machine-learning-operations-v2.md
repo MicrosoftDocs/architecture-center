@@ -6,8 +6,8 @@ ms.author: robbag
 ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: arb-aiml
 products:
   - azure-machine-learning
@@ -656,5 +656,4 @@ Other contributors:
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-- [Machine learning operations framework to upscale machine learning lifecycle with Machine Learning](mlops-technical-paper.yml)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

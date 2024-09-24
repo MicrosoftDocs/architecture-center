@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-kubernetes-service
   - azure-netapp-files
@@ -44,11 +44,7 @@ The [Azure Sponsorship for ISVs program](https://azure.microsoft.com/partners/is
 
 Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy cloud software from Microsoft and Microsoft partners.
 
-This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
-
-We also recommend you browse our open-source solutions for Microsoft Azure:
-- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
+This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions. For more information, see [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios).
 
 ## Advanced
 
@@ -124,7 +120,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute. MongoDB can provide IaaS services that support geo-replication.|Hybrid|
 |[Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)|Use the proven practices in this reference architecture to improve redundancy, scalability and performance in an App Service web application. MongoDB is recommended for non-relational data. |Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, MongoDB, PostgreSQL, and Redis components.|Analytics|
-|[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network. In this solution, microservices store data in Azure Cosmos DB, using the MongoDB Node.js driver.|Security|
 
 ## NetApp
 
@@ -200,12 +195,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |--|--|--|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid.|Compute|
 
-## Sitecore
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
-
 ## Skytap
 
 |Architecture|Summary|Technology focus|
@@ -256,7 +245,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 ## Related resources
 
 - [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
-- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
 - [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)

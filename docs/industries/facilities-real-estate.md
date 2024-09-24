@@ -2,12 +2,12 @@
 title: Solutions for the facilities and real estate industries
 titleSuffix: Azure Architecture Center
 description: Get an overview  of architectures and ideas for using Azure services to build solutions for the facilities and real estate industries.
-author: martinekuan
-ms.author: martinek
+author: RobBagby
+ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp 
 keywords:
   - Azure

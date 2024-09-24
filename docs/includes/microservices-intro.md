@@ -1,8 +1,8 @@
 ---
-author: martinekuan
+author: RobBagby
 ms.author: pnp
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability within a bounded context. A bounded context is a natural division within a business and provides an explicit boundary within which a domain model exists.
