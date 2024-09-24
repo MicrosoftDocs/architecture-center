@@ -101,7 +101,7 @@ One example of prebuilt AI might be a pretrained model that can be incorporated 
 
 - [Try Azure Cognitive Services for free](https://azure.microsoft.com/try/cognitive-services/)
 
-- [Choosing an Azure Cognitive Services technology](../data-guide/technology-choices/ai-services.md)
+- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
 
 - [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 

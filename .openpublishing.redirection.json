@@ -5423,7 +5423,7 @@
     {
       "source_path": "docs/data-guide/technology-choices/cognitive-services.yml",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/data-guide/cognitive-services/language-api.md",
@@ -5445,7 +5445,5 @@
       "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
     }
-
-    
   ]
 }

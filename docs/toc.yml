@@ -1,6 +1,6 @@
 items:
 - name: Azure Architecture Center
-  href: ./index.yml 
+  href: ./index.yml
 - name: Browse all Architectures
   href: browse/index.yml
 - name: Architecture icons
@@ -222,10 +222,10 @@ items:
       - name: Streaming analytics
         href: /azure/stream-analytics/streaming-technologies
         maintainContext: true
-    - name: Choose an AI service 
+    - name: Choose an AI service
       items:
       - name: AI services
-        href: data-guide/technology-choices/ai-services.md  
+        href: data-guide/technology-choices/ai-services.md
       - name: Targeted language processing
         href: data-guide/ai-services/targeted-language-processing.md
       - name: Speech recognition and generation

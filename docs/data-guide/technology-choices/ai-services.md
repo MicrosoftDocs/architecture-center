@@ -1,5 +1,5 @@
 ---
-title: Choose an AI services technology
+title: Choose an Azure AI services technology
 description: Learn about Azure AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
 author: robbagby
 ms.author: pnp
@@ -35,22 +35,19 @@ This article provides a comparison and decision guide between the different offe
 Azure offers a number of AI services that can be grouped into categories based on their capabilities:
 
 | Category guide | Service descriptions |
-| --- |  --- |
-|  [Targeted language processing guide ](../ai-services/targeted-language-processing.md) |Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence |
-|[Speech recognition and generation guide ](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader |
+| --- | --- |
+| [Targeted language processing](../ai-services/targeted-language-processing.md) | Azure AI Language &bullet; Azure AI Translator &bullet; Azure AI Document Intelligence |
+| [Speech recognition and generation](../ai-services/speech-recognition-generation.md) | Azure AI Speech &bullet; Immersive Reader |
 | [Image and video processing guide](../ai-services/image-video-processing.md) | Azure AI Vision &bullet; Azure AI Custom Vision &bullet; Azure AI Video Indexer &bullet; Azure AI Face &bullet; Azure OpenAI|
-|  [Large language chat models ](../ai-services/large-language-chat.md) | Azure AI Search &bullet; Azure OpenAI |
-| [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) | Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and sprocesses images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
-|[Custom Machine Learning](https://azure.microsoft.com/products/ai-services/openai-service/) |  Azure Machine Learning service procures and exposes many proprietary and open source models that you can use directly or customize further with more training. It also supports the creation of brand new models of any type using your own data. |
-
-
+| [Language chat models](../ai-services/large-language-chat.md) | Azure AI Search &bullet; Azure OpenAI |
+| [Azure AI Content Safety](/azure/ai-services/content-safety/) | Azure AI Content Safety is an AI service that detects harmful user-generated and AI-generated content in applications and processes images and text to flag content that's potentially offensive or unwanted. It's able to automatically detect and scan content regardless of its source language. |
+| [Custom Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) | Azure Machine Learning service procures and exposes many proprietary and open-source models that you can use directly or customize further with more training. It also supports the creation of new models of any type trained using your own data. |
 
 ## Next steps
 
 - [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
 - [Azure AI Services documentation](/azure/ai-services/)
 - [What are Azure AI Services?](/azure/ai-services/what-are-ai-services)
-
 
 ## Related resources
 
