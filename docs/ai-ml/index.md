@@ -121,6 +121,15 @@ The data platform is the underlying infrastructure that supports the storage, pr
 
 #### Data processing
 
+- Data Factgory
+- Fabric
+- Databricks
+- Spark
+
+#### Data connectivity
+
+## High-level architectural types
+
 ##### Azure Databricks Runtime for Machine Learning
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
@@ -139,17 +148,6 @@ The data platform is the underlying infrastructure that supports the storage, pr
 
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 - 
-- 
-- Data Factgory
-- Fabric
-- Databricks
-- Spark
-
-#### Data connectivity
-
-## High-level architectural types
-
-
 
 ### Custom AI
 
