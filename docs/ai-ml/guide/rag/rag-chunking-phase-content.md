@@ -37,7 +37,7 @@ The following are factors to consider when looking at the cost of your overall s
 
 ## Loading and chunking
 
-Logically, during chunking, you must first load the document into memory in some format. The chunking code then operates against the in-memory representation of the document. You can choose to combine the loading code with chunking, or you can separate loading into its own phase. The approach you choose should largely be based upon architectural constraints and your preferences. This section briefly explores both options and then provide you with some general recommendations.
+Logically, during chunking, you must first load the document into memory in some format. The chunking code then operates against the in-memory representation of the document. You can choose to combine the loading code with chunking, or you can separate loading into its own phase. The approach you choose should largely be based upon architectural constraints and your preferences. This section briefly explores both options and then provides you with some general recommendations.
 
 ### Separate loading and chunking
 
@@ -210,7 +210,7 @@ A good approach for documents with little to no structure are sentence-based or 
 
 ### Experimentation
 
-Although the best fit for each of the chunking approaches are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. Part of optimizing your RAG solution is experimenting with various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
+Although the best fits for each of the chunking approaches are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. Part of optimizing your RAG solution is experimenting with various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
 
 ## Next steps
 
