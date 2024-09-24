@@ -10,6 +10,7 @@ In a multitenant architecture, you share some or all of your resources between t
 - Do any of your tenants have unusual or special requirements? For example, does your biggest customer need higher performance or stronger guarantees than others?
 - How will you monitor, manage, automate, scale, and govern your Azure environment, and how will multitenancy impact your management strategy?
 - Which components of your solution handle tenant onboarding and management, and how should these components be designed?
+- How related and correlated are your workloads? Do they tend to peak at the same time or different?
 
 Whatever your architecture, it's essential that you have a clear understanding of your customers' or tenants' requirements. If you have made sales commitments to customers, or if you have contractual obligations or compliance requirements to meet, then you need to know what those requirements are when you architect your solution. But equally, your customers might have implicit expectations about how things *should* work, or how you *should* behave, which could affect the way you design a multitenant solution.
 
