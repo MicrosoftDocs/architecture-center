@@ -3,7 +3,7 @@ title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: RobBagby
 ms.author: robbag
-ms.date: 09/19/2024
+ms.date: 09/24/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -17,15 +17,16 @@ categories:
   - ai-machine-learning
 ---
 
-<!-- cSpell:ignore maggsl scikit -->
 
 # Artificial intelligence (AI) architecture design
 
 *Artificial intelligence (AI)* is a technology that allows machines to imitate intelligent human behavior. Through AI, machines can analyze data to create images and videos; they can analyze and synthesize speech, as well as verbally interact in natural ways, make predictions, and generate new data.
 
-![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](_images/ai-overview-img-001.png)
+
 
 ## AI concepts
+
+
 
 ### Machine learning algorithms
 
@@ -80,6 +81,13 @@ Microsoft Copilot is integrated into a wide range of Microsoft applications and 
 - [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 
 - [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio/)
+
+
+### Retrieval Augmented Generation (RAG) 
+
+Retrieval Augmented Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides grounding data. Adding an information retrieval system gives you control over grounding data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture means that you can constrain generative AI to your enterprise content sourced from vectorized documents and images, and other data formats if you have embedding models for that content.
+
+- [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
 
 ### Autonomous systems
 
