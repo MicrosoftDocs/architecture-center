@@ -79,7 +79,7 @@ The availability of language models has led to the emergence of new ways to inte
 
 - [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 
-- [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio/)
+- [Azure AI Studio](https://azure.microsoft.com/products/ai-studio/)
 
 
 ### Retrieval Augmented Generation (RAG) 
@@ -364,7 +364,7 @@ Different industries are applying AI in innovative and inspiring ways. Following
 
 - [AXA Global P&C: Global insurance firm models complex natural disasters with cloud-based high-performance computing (HPC)](https://customers.microsoft.com/story/axa-global-p-and-c)
 
-[Browse more AI customer stories](https://customers.microsoft.com/en-us/search?sq=&ff=story_product_categories%26%3EArtificial%20Intelligence&p=0&so=story_publish_date%20desc)
+[Browse more AI customer stories](https://customers.microsoft.com/search?sq=&ff=story_product_categories%26%3EArtificial%20Intelligence&p=0&so=story_publish_date%20desc)
 
 ## Next steps
 
