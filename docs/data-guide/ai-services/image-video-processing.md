@@ -83,7 +83,6 @@ The following table provides a list of capabilities available in Azure AI Vision
 | Detect image types.| For example, identify clip art images or line drawings.|
 | Detect color schemes.| Identify the dominant foreground, background, and dominant and accent colors in an image.|
 | Generate thumbnails.| Create small versions of images.|
-| Moderate content.| Detect images that contain adult content or depict gory scenes.|
 | Detect domain-specific content.| Use two specialized domain models: Celebrities from sports, entertainment, and business domains and landmarks; and Landmarks such as Taj Mahal and Statue of Liberty.|
 | Detect objects.| Identify common objects and return the coordinates of a bounding box.|
 | Detect brands.| Identify logos from an existing database of thousands of globally recognized product logos.|
