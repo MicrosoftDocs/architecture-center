@@ -1,5 +1,5 @@
 ---
-title: Generative AI Ops for organizations with existing MLOps investments
+title: Generative AI ops for organizations with existing MLOps investments
 description: Guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload.
 author: robbagby
 ms.author: robbag
