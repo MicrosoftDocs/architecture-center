@@ -141,7 +141,7 @@ The following table provides a list of possible use cases for Azure AI Face serv
 
 ### Azure AI Video Indexer
 
-[Azure AI Face service](/azure/ai-services/computer-vision/overview-identity) provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many scenarios, such as identification, touchless access control, and automatic face blurring for privacy.
+[Azure AI Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a cloud application, part of Azure AI services, built on Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
 
 #### Capabilities
 
