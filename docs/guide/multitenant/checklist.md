@@ -58,6 +58,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 * Review the [Azure Well-Architected Cost Optimization checklist](/azure/architecture/framework/cost/design-checklist), which is applicable to all workloads.
 * Ensure you can adequately [measure per-tenant consumption](./considerations/measure-consumption.md) and correlate it with [your infrastructure costs](./approaches/cost-management-allocation.yml).
+* Try to group unrelated and uncorrelated workloads together. If you mix a lot of different workloads, with different needs and patterns, you can hide the patterns of each. Grouping workloads reduces the peak-to-average ratio of the overall system; individual workloads can utilize more resources during peak times without significantly increasing the overall cost structure of the system and subsequently helps you to achieve more cost efficiency. Note that multiple workloads from the same application, customer or industry, tend to behave as a single workload. 
 * Avoid [antipatterns](./approaches/cost-management-allocation.yml#antipatterns-to-avoid). Antipatterns include failing to track costs, tracking costs with unnecessary precision, real-time measurement, and using monitoring tools for billing.
 
 ## Operational Excellence considerations
