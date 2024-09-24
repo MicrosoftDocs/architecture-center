@@ -59,12 +59,15 @@ The predictive models are validated against known data, measured by performance 
 
 ### Language models
 
-Generative AI applications are powered by language models, which are a specialized type of machine learning model that you can use to perform natural language processing (NLP) tasks, including:
+*Language models* are powerful machine learning models used for natural language processing (NLP) tasks, such as text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
 
-- Determining sentiment or otherwise classifying natural language text.
-- Summarizing text.
-- Comparing multiple text sources for semantic similarity.
-- Generating new natural language.
+Conventional language models have been used in supervised settings for research purposes where the models are trained on well-labeled text datasets for specific tasks. Pre-trained language models offer an accessible way to get started with AI and have become more widely used in recent years. These models are trained on large-scale text corpora from the internet using deep learning neural networks and can be fine-tuned on smaller datasets for specific tasks.
+
+The size of a language model is determined by its number of parameters, or weights, that determine how the model processes input data and generates output. Parameters are learned during the training process by adjusting the weights within layers of the model to minimize the difference between the model's predictions and the actual data. The more parameters a model has, the more complex and expressive it is, but also the more computationally expensive it is to train and use.
+
+In general, small language models have fewer than 10 billion parameters, and large language models have more than 10 billion parameters. For example, the new Microsoft Phi-3 model family has three versions with different sizes: mini (3.8 billion parameters), small (7 billion parameters), and medium (14 billion parameters).
+
+- [Language model catalog](https://ai.azure.com/explore/models)
 
 ### Copilots
 
