@@ -86,12 +86,11 @@ Retrieval Augmented Generation (RAG) is an architecture that augments the capabi
 
 - [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
 
-### Autonomous systems
+### Automated machine learning (AutoML)
 
-*Autonomous systems* are part of an evolving new class that goes beyond basic automation. Instead of performing a specific task repeatedly with little or no variation (like bots do), autonomous systems bring intelligence to machines so they can adapt to changing environments to accomplish a desired goal.
+AAutomated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
 
-Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
-
+- [What is automated machine learning?](/azure/machine-learning/concept-automated-ml?view=azureml-api-2)
 
 ## AI services
 
@@ -106,16 +105,17 @@ Smart buildings use autonomous systems to automatically control operations like 
 - [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
 
-## AI development platforms and tools
-
-### Language models
+## AI Language models
 
 - Large Language Models (LLMs), such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
 
 - [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
 
 
-### Azure Machine Learning
+
+## AI development platforms and tools
+
+### Azure Machine Learning service
 
 Azure Machine Learning is an enterprise-grade machine learning service to build and deploy models faster. Azure Machine Learning offers web interfaces and SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 
@@ -143,9 +143,9 @@ Azure Machine Learning is an enterprise-grade machine learning service to build 
 
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
-### Azure automated machine learning
+### Automated machine learning (AutoML)
 
-Azure provides extensive support for automated ML. Developers can build models using a no-code UI or through a code-first notebooks experience.
+Quickly build ML models at scale using the AutoML capability in Azure Machine Learning to automate tasks
 
 - [Azure automated machine learning product home page](https://azure.microsoft.com/services/machine-learning/automatedml/)
 
@@ -159,8 +159,11 @@ Azure provides extensive support for automated ML. Developers can build models u
 
 - [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 
-### Tools for machine learning
+### Generative AI tools
+
 - [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, LLMs, playground, and resources to help you build, train, and deploy AI models.
+
+- [Azure Copilot Studio](https://learn.microsoft.com/microsoft-copilot-studio/)is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for interna and external scenarios. With Copilot Studio, makers can design, test, and publish copilots using the comprehensive authoring canvas. Makers can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
 
 - [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It makes prompt engineering much easier and enables you to build LLM apps with production quality.
 
@@ -228,6 +231,10 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 
 
 ## Custom AI solutions
+
+<!-- Custom AI should include Generative AI, Azure OpenAI, fine-tuning, as well as Custom traditional ML (which is what the current custom AI refers to)
+
+-->
 
 Although prebuilt AI is useful (and increasingly flexible), the best way to get what you need from AI is probably to build a system yourself. This is obviously a very deep and complex subject, but let's look at some basic concepts beyond what we've just covered.
 
