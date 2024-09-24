@@ -32,7 +32,7 @@ This workflow describes how the system processes the incoming data:
 
 - [Azure Kubernetes Service on Azure Stack Edge](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge). Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, we're using a version of AKS that runs on Azure Stack Edge device to manage containers responsible for system's logic.
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a bridge that extends Azure services to the edge. By utilizing Azure Arc in this architecture we're able to control edge services through the cloud portal.
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a bridge that extends Azure services to the edge. By utilizing Azure Arc in this architecture, we're able to control edge services through the cloud portal.
 
 - [Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision) is a unified service that offers innovative computer vision capabilities. In this architecture, we're using the image analysis feature to detect objects in key frames of the video stream.
 
