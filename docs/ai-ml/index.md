@@ -27,28 +27,68 @@ categories:
 
 ## AI concepts
 
-### Algorithm
+### Machine learning algorithms
 
-An *algorithm* is a sequence of calculations and rules used to solve a problem or analyze a set of data. It is like a flow chart, with step-by-step instructions for questions to ask, but written in math and programming code. An algorithm may describe how to determine whether a pet is a cat, dog, fish, bird, or lizard. Another far more complicated algorithm may describe how to identify a written or spoken language, analyze its words, translate them into a different language, and then check the translation for accuracy.
+Machine learning algorithms are pieces of code that help humans explore, analyze, and find meaning in complex data sets. Each algorithm is a finite set of unambiguous step-by-step instructions that a machine can follow to achieve a certain goal. In a machine learning model, the goal is to establish or discover patterns that humans can use to make predictions or categorize information. An algorithm may describe how to determine whether a pet is a cat, dog, fish, bird, or lizard. Another far more complicated algorithm may describe how to identify a written or spoken language, analyze its words, translate them into a different language, and then check the translation for accuracy.
 
-### Machine learning
+- [What are machine learning algorithms?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms)
 
-*Machine learning* is an AI technique that uses mathematical algorithms to create predictive models. An algorithm is used to parse data fields and to "learn" from that data by using patterns found within it to generate models. Those models are then used to make informed predictions or decisions about new data.
+### Machine learning (ML)
+
+*Machine learning* is an AI technique that uses machine learning algorithms to create predictive models. The machine learning algorithm is used to parse data fields and to "learn" from that data by using patterns found within it to generate models. Those models are then used to make informed predictions or decisions about new data.
 
 The predictive models are validated against known data, measured by performance metrics selected for specific business scenarios, and then adjusted as needed. This process of learning and validation is called *training*. Through periodic retraining, ML models are improved over time.
 
-- [What are the machine learning products at Microsoft?](../ai-ml/guide/data-science-and-machine-learning.md)
+- [What is machine learning?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-machine-learning-platform/)
+
 
 ### Deep learning
 
 *Deep learning* is a type of ML that can learn through its own data processing. Like machine learning, it also uses algorithms to analyze data, but it does by using artificial neural networks that contains many inputs, outputs, and layers of processing. Each layer can process the data in a different way, and the output of one layer becomes the input for the next. This allows deep learning to create more complex models than traditional machine learning.
 
-- [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
+- [What is Deep Learning?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-deep-learning)
+
+- [Deep learning versus machine learning](https://azure.microsoft.com/resources/cloud-computing-dictionary/artificial-intelligence-vs-machine-learning)
 
 
 ### Generative AI
 
-*Generative AI* is a type of AI that can generate new data, such as images, music, or text, based on patterns it has learned from Large Language Models. Generative AI can be used to create new content, such as images of people who don't exist, music in the style of a particular artist, or text that sounds like it was written by a human.
+Artificial Intelligence (AI) imitates human behavior by using machine learning to interact with the environment and execute tasks without explicit directions on what to output.
+
+*Generative AI* describes a category of capabilities within AI that create original content. Humans typically interact with generative AI that has been built into chat applications. 
+
+Generative AI applications take in natural language input, and return appropriate responses in a variety of formats such as natural language, images, or code.
+
+
+### Language models
+
+Generative AI applications are powered by language models, which are a specialized type of machine learning model that you can use to perform natural language processing (NLP) tasks, including:
+
+- Determining sentiment or otherwise classifying natural language text.
+- Summarizing text.
+- Comparing multiple text sources for semantic similarity.
+- Generating new natural language.
+
+### Copilots
+
+The availability of language models has led to the emergence of new ways to interact with applications and systems through digital copilots. Copilots are generative AI assistants that are integrated into applications often as chat interfaces. They provide contextualized support for common tasks in those applications.
+
+Microsoft Copilot is integrated into a wide range of Microsoft applications and user experiences. It is based on an open architecture that enables third-party developers to create their own plug-ins to extend or customize the user experience with Microsoft Copilot. Additionally, third-party developers can create their own copilots using the same open architecture.
+
+- [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/microsoft-cloud/dev/copilot/overview).
+
+- [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+
+- [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio/)
+
+### Autonomous systems
+
+*Autonomous systems* are part of an evolving new class that goes beyond basic automation. Instead of performing a specific task repeatedly with little or no variation (like bots do), autonomous systems bring intelligence to machines so they can adapt to changing environments to accomplish a desired goal.
+
+Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
+
+
+## Uncertain
 
 - [Baseline OpenAI end-to-end chat reference architecture](../ai-ml/architecture/baseline-openai-e2e-chat.yml) is a reference architecture that shows how to build an end-to-end chat architecture with OpenAI's GPT models.
 
@@ -57,19 +97,6 @@ The predictive models are validated against known data, measured by performance 
 :::image-end:::
 
 - [Azure OpenAI chat baseline architecture in an Azure landing zone](../ai-ml/architecture/baseline-openai-e2e-chat.yml) shows you how to build on the Azure OpenAI baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
-
-### Copilots
-
-A copilot is an AI-powered conversational interface based on large language models (LLMs) and additional sources of knowledge. It's a powerful AI companion that can handle a range of requests, from providing simple responses to common questions to resolving issues requiring complex conversations.
-
-Copilots can engage with customers and employees in multiple languages across websites, mobile apps, Facebook, Microsoft Teams, or any channel supported by the Azure Bot Service.
-
-Copilot Studio is available as both a standalone web app, and as a discrete app within Teams. Most of the functionality between the two is the same. However, there might be different reasons to choose one version or the other based on the ways you want to use Copilot Studio.
-
-
-- [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
-
-
 
 ## Azure AI solutions
 
@@ -128,9 +155,9 @@ The data platform is the underlying infrastructure that supports the storage, pr
 
 #### Data connectivity
 
-## High-level architectural types
 
-##### Azure Databricks Runtime for Machine Learning
+
+#### Azure Databricks Runtime for Machine Learning
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
 
@@ -147,7 +174,7 @@ The data platform is the underlying infrastructure that supports the storage, pr
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
-- 
+
 
 ### Custom AI
 
