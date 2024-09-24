@@ -1,5 +1,5 @@
 ---
-title: Azure AI image and video processing guide 
+title: Choose Azure AI image and video processing technology
 description: Learn about vision capabilities of Azure AI services. Learn which service to use for a specific use cases.
 author: robbagby
 ms.author: pnp
@@ -19,9 +19,9 @@ ms.custom:
   - guide
 ---
 
-# Image and video processing guide 
+# Choose an Azure AI image and video processing technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
+[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
 
 This article covers Azure AI services that offer video and image processing capabilities, such as visual analysis and generation of images, object detection, image classification, and facial recognition.
 
@@ -30,24 +30,24 @@ This article covers Azure AI services that offer video and image processing capa
 The following services provide video and image processing capabilities for Azure AI services:
 
 - [Azure OpenAI](#azure-openai)
-    - **Use** Azure OpenAI for image generation from natural language using one of the world's most powerful generative imaging models.
-    - **Use** Azure OpenAI when you need to perform complex analysis on images.
+    - **Use** Azure OpenAI for image generation from natural language using pre-trained generative imaging models. For example, on-demand generation of custom art.
+    - **Use** Azure OpenAI when you need to perform non-specific, broad analysis on images. For example, generating accessibility descriptions.
     - **Don't use** Azure OpenAI if you want to use open source image generation models available in Azure Machine Learning.
-    - **Don't use** Azure OpenAI if you need to perform specific types of image processing like forms extraction and face recognition. For these scenarios, use more cost effective Azure AI models designed specifically for those purposes instead.
+    - **Don't use** Azure OpenAI if you need to perform specific types of image processing like forms extraction, face recognition, or domain-specialized image characteristic detection. For these scenarios, use or build AI solutions designed specifically trained for those purposes instead.
 
 - [Azure AI Vision](#azure-ai-vision)
     - **Use** Vision service when you need basic OCR, image analysis, or basic video analysis to detect motion and other events.
-    - **Don't use** the Vision service for in-depth analysis that large multi-modal models like GPT-4o support. 
+    - **Don't use** the Vision service for analysis that large, multi-modal, foundation models already support.
     - **Don't use** the Vision service to moderate content. Use the Content Safety service instead.
 
 - [Azure AI Custom Vision](#azure-ai-custom-vision)
     - **Use** the service when you have specific requirements that the basic Vision service's image analysis can't provide. For example, it's good for recognizing unusual objects, manufacturing defects, or providing detailed custom classifications.
     - **Don't use** the service if you need basic object detection or face detection. Use Face or Vision services instead.
-    - **Don't use** the service for in-depth visual analysis. Use Azure OpenAI with GPT-4o, GPT-4 Turbo, or vision capable open source models in Azure Machine Learning instead.
+    - **Don't use** the service for basic visual analysis. Use vision capable models from Azure OpenAI or open-source models in Azure Machine Learning instead.
 
 - [Azure AI Face](#azure-ai-face)
     - **Use** Face service when you need to check whether faces are live or spoofed/faked, or to identify, group, or find similar faces.
-    - **Don't use** Face service to detect emotions in faces or perform other high-level reasoning about faces. Use multi-modal large language models like GPT-4o for those tasks instead.
+    - **Don't use** Face service to detect emotions in faces or perform other high-level reasoning about faces. Use multi-modal language models for those tasks instead.
 
 - [Azure AI Video Indexer](#azure-ai-video-indexer)
     - **Use** Azure Video Indexer service for more advanced video analysis related tasks that the Vision service's basic video analysis can't provide.
@@ -55,7 +55,7 @@ The following services provide video and image processing capabilities for Azure
 
 ### Azure OpenAI
 
-[Azure OpenAI](/azure/ai-services/openai/index) provides access to all of OpenAI's powerful language models, including [GPT-4o & GPT-4 Turbo](/azure/ai-services/openai/concepts/models#gpt-4o-and-gpt-4-turbo). These support visual analysis and generations of images, and [DALL-E](/azure/ai-services/openai/concepts/models#dall-e-models) supports image generation.
+[Azure OpenAI](/azure/ai-services/openai/index) provides access to OpenAI's powerful language models, including the latest generation of [GPT models](/azure/ai-services/openai/concepts/models). These support visual analysis and generations of images, and [DALL-E](/azure/ai-services/openai/concepts/models#dall-e-models) supports image generation.
 
 ### Azure AI Vision
 
@@ -112,7 +112,7 @@ The following table provides a list of possible use cases for Azure AI Custom Vi
 | Use case |  Description |
 |----------|-----------------|
 |[Use Custom Vision with an IoT device to report visual states](/azure/ai-services/custom-vision-service/iot-visual-alerts-tutorial)| use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device using an exported ONNX model. A visual state describes the content of an image: an empty room or a room with people, an empty driveway or a driveway with a truck, and so on. |
-|[Recognize Azure service logos in camera pictures](/azure/ai-services/custom-vision-service/logo-detector-mobile)| Analyze photos of Azure service logos and then deploy those services to the user's Azure account.|
+|[Recognize logos in camera pictures](/azure/ai-services/custom-vision-service/logo-detector-mobile)| Analyze photos, looking for specific logos.|
 
 ### Azure AI Face
 
@@ -135,7 +135,7 @@ The following table provides a list of possible use cases for Azure AI Face serv
 
 | Use case |  Description |
 |----------|---------------|
-|Verify user identity.| Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. |
+|Verify user identity.| Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. |
 |Liveness detection.| Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, recorded video, or a 3D mask of the user's face.|
 |Touchless access control.| Compared to methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.|
 
@@ -163,7 +163,7 @@ To review more capabilities of the Azure AI Video Indexer service, see the [Azur
 
 #### Use cases
 
-The following table provides a list of possible use cases for Azure AI Face service.
+The following table provides a list of possible use cases for Azure AI Video Indexer service.
 
 | Use case |  Description |
 |----------|---------------|
