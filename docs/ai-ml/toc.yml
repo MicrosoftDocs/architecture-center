@@ -52,6 +52,8 @@ items:
       items:
       - name: Chat bots
         items:
+        - name: Azure OpenAI chat basic architecture
+          href: architecture/basic-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline architecture
           href: architecture/baseline-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline in an Azure landing zone
@@ -168,6 +170,8 @@ items:
       items:
       - name: Design architectures
         items:
+        - name: Azure OpenAI chat basic architecture
+          href: architecture/basic-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline architecture
           href: architecture/baseline-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline in an Azure landing zone

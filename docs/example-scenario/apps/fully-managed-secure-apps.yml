@@ -30,4 +30,4 @@ products:
   - azure-web-application-firewall
 thumbnailUrl: /azure/architecture/browse/thumbs/fully-managed-secure-apps-thumb.png
 content: |
-   [!include[](fully-managed-secure-apps-content.md)]
+   [!INCLUDE[](fully-managed-secure-apps-content.md)]

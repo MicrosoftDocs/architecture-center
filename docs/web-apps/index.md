@@ -77,7 +77,6 @@ The following sections, organized by category, provide links to sample web app a
 - [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 
 ### Healthcare
 
@@ -104,7 +103,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Scalability
 
 - [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 
 ### Security
 
@@ -114,7 +112,6 @@ The following sections, organized by category, provide links to sample web app a
 ### SharePoint
 
 - [Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)
 
 ## Stay current with web development
 

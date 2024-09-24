@@ -25,4 +25,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-hpc-saas.png
 content: |
-   [!include[](hpc-saas-content.md)]
+   [!INCLUDE[](hpc-saas-content.md)]
