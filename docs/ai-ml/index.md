@@ -34,7 +34,7 @@ Machine learning algorithms are pieces of code that help humans explore, analyze
 
 - [What are machine learning algorithms?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms)
 
-### Machine learning (ML)
+### Machine learning
 
 *Machine learning* is an AI technique that uses machine learning algorithms to create predictive models. The machine learning algorithm is used to parse data fields and to "learn" from that data by using patterns found within it to generate models. Those models are then used to make informed predictions or decisions about new data.
 
