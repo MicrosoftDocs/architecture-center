@@ -80,6 +80,8 @@ As a hybrid of IaaS and PaaS, AKS prioritizes control over simplicity. Though AK
 
 AKS also provides access to the Kubernetes API server, which enables you to customize the container orchestration and thus deploy projects from the Cloud Native Computing Foundation (CNCF). Consequently, there's a significant learning curve for workload teams that are new to Kubernetes. If you're new to containerized solutions, this learning curve must be taken in consideration. The following PaaS solutions offer a lower barrier to entry. You can move to Kubernetes when your requirements dictate that move.
 
+#### AKS Automatic
+
 #### Azure Container Apps  
 
 Container Apps, a PaaS offering, balances control with simplicity. It offers both serverless and dedicated compute options, which abstract away the need to patch the operating system or build guardrails around applications, relative to the operating system. Container Apps also completely abstracts away the container orchestration API and provides a subset of its key functionality through Azure APIs that your team might already be familiar with. Additionally, Layer 7 ingress, traffic splitting, A/B testing, and application lifecycle management are all fully available out of the box.
