@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Resource Conveyor Pattern
+  description: The Resource Conveyor Pattern efficiently manages long-running, non-managed external resources by rotating them in a conveyor-style queue to maintain optimal performance and prevent degradation.
+  ms.author: ubiquio
+  author: Ubiquio
+  ms.date: 09/25/2024
+  ms.topic: design-pattern
+  ms.service: azure-architecture-center
+  ms.subservice: design-pattern
+azureCategories:
+  - performance
+  - resiliency
+  - cloud-design
+products:
+  - azure
+  - azure-functions
+  - azure-app-service
+  - azure-container-instances
+name: Resource Conveyor Pattern
+summary: The Resource Conveyor Pattern helps in lifecycle management of long-running, non-managed external resources, using a rotational queue to prevent degradation and ensure system stability.
+thumbnailUrl: /azure/architecture/browse/thumbs/resource-conveyor-pattern.png
+content: |
+  [!include[](resource-conveyor-pattern-content.md)]
