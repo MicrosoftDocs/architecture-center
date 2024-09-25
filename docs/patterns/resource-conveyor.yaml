@@ -19,6 +19,6 @@ products:
   - azure-container-instances
 name: Resource Conveyor Pattern
 summary: The Resource Conveyor Pattern helps in lifecycle management of long-running, non-managed external resources, using a rotational queue to prevent degradation and ensure system stability.
-thumbnailUrl: /azure/architecture/browse/thumbs/resource-conveyor-pattern.png
+thumbnailUrl: /azure/architecture/browse/thumbs/resource-conveyor.png
 content: |
   [!include[](resource-conveyor-content.md)]
