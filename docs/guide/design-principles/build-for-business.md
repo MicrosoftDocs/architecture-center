@@ -44,6 +44,8 @@ The following recommendations help you design and build solutions to meet busine
 
   Also consider operations costs. In the cloud, you don't have to manage hardware or infrastructure, but you still need to manage application DevOps, incident response, and disaster recovery.
 
+- **Align business model and cost**. The durability of a system depends on how well its costs are aligned to the business model. As an architect, you should think about revenue – and use that knowledge to inform your choices. Because growth at all costs leads to a trail of destruction. When designing and building systems, you should consider the revenue sources and profit levers. It’s important to find the dimension you’re going to make money over, then make sure the architecture follows the money. For example an e-commerce application can be architected so that when the number of orders go up, infrastructure and operation costs rise. If the system is architected well, you can start to exploit economies of scale. What’s important is that infrastructure costs have a measurable impact on the business.
+
 ## Next steps
 
 - [Domain Model](https://martinfowler.com/eaaCatalog/domainModel.html)
