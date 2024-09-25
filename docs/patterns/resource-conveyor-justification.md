@@ -1,3 +1,15 @@
+---
+ms.date: 09/25/2024
+author: ubiquio
+title: Resource Conveyor Pattern Justification
+description: A detailed justification for the addition of the Resource Conveyor Pattern to Microsoft's Cloud Design Patterns repository.
+products:
+  - azure
+categories:
+  - cloud-design-patterns
+---
+
+
 # Justification for the Resource Conveyor Pattern
 
 The **Resource Conveyor Pattern** is proposed to address a persistent challenge in cloud architectures — the management of long-running, non-managed external resources that degrade over time. Below are key arguments supporting the addition of this pattern to the existing catalog of cloud design patterns.
