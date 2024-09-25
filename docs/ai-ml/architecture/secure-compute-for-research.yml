@@ -22,6 +22,6 @@ products:
   - azure-data-science-vm
   - azure-machine-learning
   - azure-data-factory
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-research-env.png
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-research-env.svg
 content: |
    [!INCLUDE[](secure-compute-for-research-content.md)]
