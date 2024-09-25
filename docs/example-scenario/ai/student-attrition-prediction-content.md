@@ -222,4 +222,4 @@ Other contributors:
 - [Solutions for the education industry](../../industries/education.md)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
