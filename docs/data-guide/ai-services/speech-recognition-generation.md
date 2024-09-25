@@ -19,7 +19,7 @@ ms.custom:
 
 # Choose an Azure AI speech recognition and generation technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
+[Azure AI services](/azure/ai-services/what-are-ai-services) help workload designers and developers to create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
 This article covers Azure AI services that offer speech recognition and generation capabilities such as speech-to-text and text-to-speech conversions, audio translation, speaker recognition, as well as reading support for people with learning differences.
 
