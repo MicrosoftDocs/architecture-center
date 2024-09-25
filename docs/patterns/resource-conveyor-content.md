@@ -51,7 +51,7 @@ By maintaining a **distributed array of instances** across the three stages (**P
 
 ## Diagram
 
-![Resource Conveyor Diagram](./diagram.png)
+![Resource Conveyor Diagram](./_images/resource-conveyor.png)
 
 ## Implementation
 
