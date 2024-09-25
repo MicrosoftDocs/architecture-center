@@ -4,7 +4,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 
 :::image type="content" source="_images/azure-openai-monitor-log.svg" alt-text="Diagram that shows an architecture that provides monitoring and logging for Azure OpenAI." lightbox="_images/azure-openai-monitor-log.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-openai-monitor-log.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-openai-monitor-log-update.vsdx) of this architecture.*
 
 ### Workflow
 
