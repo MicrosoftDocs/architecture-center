@@ -40,11 +40,12 @@ The following recommendations help you design and build solutions to meet busine
 
 - **Plan for growth**. A solution might support current needs for number of users, transaction volume, and data storage, but it also needs to handle growth without major architectural changes. Also consider that your business model and business requirements might change over time. It's hard to evolve a solution for new use cases and scenarios if the application's service model and data models are too rigid. 
 
+- **Align business model and cost**. The durability of a system depends on how well its costs are aligned to the business model. As an architect, you should think about revenue – and use that knowledge to inform your choices. Because growth at all costs leads to a trail of destruction. When designing and building systems, you should consider the revenue sources and profit levers. It’s important to find the dimension you’re going to make money over, then make sure the architecture follows the money. For example an e-commerce application can be architected so that when the number of orders go up, infrastructure and operation costs rise. If the system is architected well, you can start to exploit economies of scale. What’s important is that infrastructure costs have a measurable impact on the business.
+
 - **Manage costs**. In a traditional on-premises application, you pay up front for hardware as a capital expenditure. In a cloud application, you pay for the resources you consume. Make sure that you understand your services' pricing model. Total costs might include network bandwidth usage, storage, IP addresses, and service consumption.
 
   Also consider operations costs. In the cloud, you don't have to manage hardware or infrastructure, but you still need to manage application DevOps, incident response, and disaster recovery.
 
-- **Align business model and cost**. The durability of a system depends on how well its costs are aligned to the business model. As an architect, you should think about revenue – and use that knowledge to inform your choices. Because growth at all costs leads to a trail of destruction. When designing and building systems, you should consider the revenue sources and profit levers. It’s important to find the dimension you’re going to make money over, then make sure the architecture follows the money. For example an e-commerce application can be architected so that when the number of orders go up, infrastructure and operation costs rise. If the system is architected well, you can start to exploit economies of scale. What’s important is that infrastructure costs have a measurable impact on the business.
 
 ## Next steps
 
