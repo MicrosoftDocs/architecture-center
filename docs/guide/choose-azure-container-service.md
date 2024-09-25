@@ -82,6 +82,8 @@ AKS also provides access to the Kubernetes API server, which enables you to cust
 
 #### AKS Automatic
 
+<placeholder>
+
 #### Azure Container Apps  
 
 Container Apps, a PaaS offering, balances control with simplicity. It offers both serverless and dedicated compute options, which abstract away the need to patch the operating system or build guardrails around applications, relative to the operating system. Container Apps also completely abstracts away the container orchestration API and provides a subset of its key functionality through Azure APIs that your team might already be familiar with. Additionally, Layer 7 ingress, traffic splitting, A/B testing, and application lifecycle management are all fully available out of the box.
