@@ -24,7 +24,7 @@ ms.custom:
 This article covers Azure AI services that offer speech recognition and generation capabilities such as speech-to-text and text-to-speech conversions, audio translation, speaker recognition, as well as reading support for people with learning differences.
 
 > [!NOTE]
-> Use [Azure AI Service for Language](/azure/ai-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
+> To gather insights on terms or phrases or get detailed contextual analysis of spoken or written language, see [Choose an Azure AI targeted language processing technology](targeted-language-processing.md).
 
 ## Services
 
