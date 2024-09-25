@@ -5,7 +5,7 @@ author: robbagby
 ms.author: pnp
 categories:
 - ai-machine-learning
-ms.date: 09/09/2024
+ms.date: 09/25/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -40,8 +40,6 @@ The following services provide targeted language processing capabilities for Azu
     - **Use** Document Intelligence to identify key structures (headers, footers, chapter breaks, and so on) in diverse document corpuses to further programmatically interact with the document, such as in a retrieval augmented generation (RAG) implementation.
     - **Don't use** Document Intelligence service for searching or creating chat applications with your documents. It also isn't used for analyzing documents for sentiment or classification.
 
-Each service has its own capabilities and use cases.
-
 ### Azure AI Language 
 
 [Azure AI Language](/azure/ai-services/language-service/overview) is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
@@ -51,6 +49,7 @@ The following table provides a list of capabilities available in Azure AI Langua
 
 | Capability | Description | 
 |----------|-------------|
+|[Custom question answering](/azure/ai-services/language-service/question-answering/overview)| Finds the most appropriate answer for inputs from your users, and is commonly used to build conversational client applications, such as social media applications, chat bots, and speech-enabled desktop applications. |
 |[Custom text classification](/azure/ai-services/language-service/custom-text-classification/overview) |Use to build custom AI models to classify unstructured text documents into custom classes you define.|
 |[Conversational language understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview)| Use to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it.|
 |[Entity linking](/azure/ai-services/language-service/entity-linking/overview) | Disambiguates the identity of entities (words or phrases) found in unstructured text and returns links to Wikipedia. |
@@ -59,33 +58,33 @@ The following table provides a list of capabilities available in Azure AI Langua
 |[Named entity recognition (NER)](/azure/ai-services/language-service/named-entity-recognition/overview) | Categorizes entities (words or phrases) in unstructured text across several predefined category groups. For example: people, events, places, dates, [and more](/azure/ai-services/language-service/named-entity-recognition/concepts/named-entity-categories).|
 |[Orchestration workflow](/azure/ai-services/language-service/language-detection/overview)| Use to connect [Conversational Language Understanding (CLU)](/azure/ai-services/language-service/conversational-language-understanding/overview).|
 |[Personally identifying (PII) and health (PHI) information detection](/azure/ai-services/language-service/personally-identifiable-information/overview)| Identifies, categorizes, and redacts sensitive information in both [unstructured text documents](/azure/ai-services/language-service/personally-identifiable-information/how-to-call), and [conversation transcripts](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations). For example: phone numbers, email addresses, forms of identification, [and more](/azure/ai-services/language-service/personally-identifiable-information/concepts/entity-categories).|
-|[Custom question answering](/azure/ai-services/language-service/question-answering/overview)| Finds the most appropriate answer for inputs from your users, and is commonly used to build conversational client applications, such as social media applications, chat bots, and speech-enabled desktop applications. |
 |[Sentiment analysis and opinion mining](/azure/ai-services/language-service/sentiment-opinion-mining/overview) |Help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.|
-|[Text analysis for health](/azure/ai-services/language-service/text-analytics-for-health/overview) | Extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. |
 |[Summarization](/azure/ai-services/language-service/summarization/overview)| Uses extractive text summarization to produce a summary of documents and conversation transcriptions. It extracts sentences that collectively represent the most important or relevant information within the original content.|
+|[Text analysis for health](/azure/ai-services/language-service/text-analytics-for-health/overview) | Extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. |
+
 
 #### Use cases
 
 The following table provides a list of possible use cases for Azure AI Language service.
 
-| Use case | Documentation |  Customizable* |
-|----------|-----------------|---|
-|Predict the intention of user inputs and extract information from them.|[AI Services conversational language understanding](/azure/ai-services/language-service/conversational-language-understanding/overview)|  Yes
-|Identify and/or redact sensitive information such as PII. |[AI Services Personally Identifiable Information (PII) detection](/azure/ai-services/language-service/personally-identifiable-information/overview)|  |
-|Identify the language that a text was written in.| [Azure AI Language service language detection](/azure/ai-services/language-service/language-detection/overview) | |
-|Extract medical information from clinical/medical documents, without building a model.|[AI Services Text Analytics for health](/azure/ai-services/language-service/text-analytics-for-health/overview)|   |
-|Extract medical information from clinical/medical documents using a model that's trained on your data. |[AI Services key phrase extraction](/azure/ai-services/language-service/custom-text-analytics-for-health/overview)|   |
-|Extract categories of information without creating a custom model.|[Named Entity Recognition (NER) in Azure AI Language](/azure/ai-services/language-service/named-entity-recognition/overview)|   |
-|Extract categories of information using a model specific to your data.|[Custom named entity recognition (NER)](/azure/ai-services/language-service/custom-named-entity-recognition/overview)|   Yes |
-|Extract main topics and important phrases.|[AI Services key phrase extraction](/azure/ai-services/language-service/key-phrase-extraction/overview)|  |
-|Summarize a document|[Using text, document and conversation summarization](/azure/ai-services/language-service/summarization/quickstart?tabs=text-summarization)|   |
-| Classify text by using sentiment analysis. | [Azure AI Language service sentiment analysis and opinion mining](/azure/ai-services/language-service/sentiment-opinion-mining/quickstart) |  Yes |
-| Classify text by using custom classes. | [Azure AI Language service custom text classification](/azure/ai-services/language-service/custom-text-classification/quickstart)|  Yes |
-| Classify items into categories provided at inference time. | [Azure AI Language service custom text classification](/azure/ai-services/openai/how-to/completions#classification) |  |
-|Link an entity with knowledge base articles. | [Azure AI Language service Entity Linking](/azure/ai-services/language-service/entity-linking/overview) | |
-| Understand questions and answers (generic). | [Azure AI Language service question answering](/azure/ai-services/language-service/question-answering/overview) |   Yes| 
-| Build a conversational application that responds to user inputs. | [Azure AI Language service custom question answering](/azure/ai-services/language-service/question-answering/overview) |   |
-| Connect apps from conversational language understanding, LUIS, and question answering. | [Azure AI Language service orchestration workflow](/azure/ai-services/language-service/orchestration-workflow/overview) |   Yes |
+| Use case | Customizable* |
+|----------|-----------------|-
+|[Predict the intention of user inputs and extract information from them.](/azure/ai-services/language-service/conversational-language-understanding/overview)|  Yes
+|[Identify and/or redact sensitive information such as PII.](/azure/ai-services/language-service/personally-identifiable-information/overview)|  |
+|[Identify the language that a text was written in.](/azure/ai-services/language-service/language-detection/overview) | |
+|[Extract medical information from clinical/medical documents, without building a model](/azure/ai-services/language-service/text-analytics-for-health/overview)|   |
+|[Extract medical information from clinical/medical documents using a model that's trained on your data.](/azure/ai-services/language-service/custom-text-analytics-for-health/overview)| Yes   |
+|[Extract categories of information without creating a custom model.](/azure/ai-services/language-service/named-entity-recognition/overview)|   |
+|[Extract categories of information using a model specific to your data.](/azure/ai-services/language-service/custom-named-entity-recognition/overview)| Yes |
+|[Extract main topics and important phrases.](/azure/ai-services/language-service/key-phrase-extraction/overview)|  |
+|[Summarize a document](/azure/ai-services/language-service/summarization/quickstart?tabs=text-summarization)|   |
+|[ Classify text by using sentiment analysis.](/azure/ai-services/language-service/sentiment-opinion-mining/quickstart) |  Yes |
+| [Classify text by using custom classes.](/azure/ai-services/language-service/custom-text-classification/quickstart)|  Yes |
+|[ Classify items into categories provided at inference time.](/azure/ai-services/openai/how-to/completions#classification) |  |
+|[Link an entity with knowledge base articles.](/azure/ai-services/language-service/entity-linking/overview) | |
+|[ Understand questions and answers (generic).](/azure/ai-services/language-service/question-answering/overview) |   Yes| 
+|[ Build a conversational application that responds to user inputs.](/azure/ai-services/language-service/question-answering/overview) |   |
+| [Connect apps from conversational language understanding and question answering.](/azure/ai-services/language-service/orchestration-workflow/overview) |   Yes |
 
 *If a feature is customizable, you can train an AI model using our tools to fit your data specifically. Otherwise a feature is preconfigured, meaning the AI models it uses cannot be changed. You just send your data, and use the feature's output in your applications.
 
@@ -123,14 +122,15 @@ The following table provides a list of possible use cases for Azure AI Translato
 
 The following table provides a list of some of the capabilities available in AI Document Intelligence service.
 
-| Capability | Description | 
+| Capability | Description|
 |----------|-------------|
-| [Business card extraction](/azure/ai-services/document-intelligence/concept-business-card) |The Document Intelligence business card model combines Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract data from business card images. The API analyzes printed business cards; extracts key information such as first name, surname, company name, email address, and phone number; and returns a structured JSON data representation.|
+| [Business card extraction](/azure/ai-services/document-intelligence/concept-business-card) | The Document Intelligence business card model combines Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract data from business card images. The API analyzes printed business cards; extracts key information such as first name, surname, company name, email address, and phone number; and returns a structured JSON data representation.| 
 | [Contract model extraction](/azure/ai-services/document-intelligence/concept-contract) |The Document Intelligence contract model uses Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of important contract entities. Contracts can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Parties, Jurisdictions, Contract ID, and Title; and returns a structured JSON data representation. The model currently supports English-language document formats.|
 | [Credit card extraction](/azure/ai-services/document-intelligence/concept-credit-card)|The Document Intelligence credit/debit card model uses Optical Character Recognition (OCR) capabilities to analyze and extract key fields from credit and debit cards. Credit cards and debit cards can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Card Number, Issuing Bank, and Expiration Date; and returns a structured JSON data representation. The model currently supports English-language document formats.|
 | [Health insurance card extraction](/azure/ai-services/document-intelligence/concept-health-insurance-card)|The Document Intelligence health insurance card model combines Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images; extracts key information such as insurer, member, prescription, and group number; and returns a structured JSON representation. Health insurance cards can be presented in various formats and quality including phone-captured images, scanned documents, and digital PDFs.|
 | [US tax document extraction](/azure/ai-services/document-intelligence/concept-tax-document)|The Document Intelligence contract model uses Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of tax documents. Tax documents can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports certain English tax document formats.|
 | [Many more...](/azure/ai-services/document-intelligence/concept-model-overview)|Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries.|
+
 To learn more about how to choose a model that works for your scenario, see [Which model should I choose?](/azure/ai-services/document-intelligence/choose-model-feature)
 
 ## Next steps
