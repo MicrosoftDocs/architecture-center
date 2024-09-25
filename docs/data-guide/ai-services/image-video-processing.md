@@ -70,23 +70,7 @@ The following table provides a list of capabilities available in Azure AI Vision
 | [Optical Character Recognition (OCR)](/azure/ai-services/computer-vision/overview-ocr)|The Optical Character Recognition (OCR) service extracts text from images. You can use the Read API to extract printed and handwritten text from photos and documents. It uses deep-learning-based models and works with text on various surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](/azure/ai-services/computer-vision/language-support).|
 |[Image Analysis](/azure/ai-services/computer-vision/overview-image-analysis)| The Image Analysis service extracts many visual features from images, such as objects, faces, and auto-generated text descriptions. With [Image Analysis 4.0](/azure/ai-services/computer-vision/how-to/model-customization) that's based on Florence foundational model, you can also create custom image identifier models. |
 |[Video Analysis](/azure/ai-services/computer-vision/intro-to-spatial-analysis-public-preview)| Video Analysis includes video-related features like Spatial Analysis and Video Retrieval. Spatial Analysis analyzes the presence and movement of people on a video feed and produces events that other systems can respond to. |
-|[Video Retrieval](/azure/ai-services/computer-vision/how-to/video-retrieval)| Video Retrieval lets you create search index of metadata enriched videos and images that you can search with natural language. |
 
-#### Use cases
-
-| Use case | Description |
-|----------|-----------------|
-| Describe an image.| Analyze an image, evaluate the objects that are detected, and generate a human-readable phrase or sentence that describes the image.|
-| Tag visual features.| Apply tags that are based on a set of thousands of recognizable objects.|
-| Categorize an image.| Categorize images based on their content.|
-| Implement OCR.| Detect printed and handwritten text in images.|
-| Detect image types.| For example, identify clip art images or line drawings.|
-| Detect color schemes.| Identify the dominant foreground, background, and dominant and accent colors in an image.|
-| Generate thumbnails.| Create small versions of images.|
-| Detect domain-specific content.| Use two specialized domain models: Celebrities from sports, entertainment, and business domains and landmarks; and Landmarks such as Taj Mahal and Statue of Liberty.|
-| Detect objects.| Identify common objects and return the coordinates of a bounding box.|
-| Detect brands.| Identify logos from an existing database of thousands of globally recognized product logos.|
-| Detect faces.| Detect and analyze human faces in an image. You can determine the age of the subject and return a bounding box that specifies the locations of faces. The facial analysis capabilities of the Computer Vision service are a subset of the ones provided by the dedicated Face service.|
 
 ### Azure AI Custom Vision
 
@@ -123,11 +107,12 @@ The following table provides a list of capabilities available in Azure AI Face s
 
 | Capability | Description | 
 |----------|-------------|
-| [Face detection](/azure/ai-services/computer-vision/concept-face-detection)| Identify the regions of an image that contain a human face, typically by returning bounding-box coordinates that form a rectangle around the face.|
+| [Face detection and analysis](/azure/ai-services/computer-vision/concept-face-detection)| Identify the regions of an image that contain a human face, typically by returning bounding-box coordinates that form a rectangle around the face.|
 | [Find similar faces](/azure/ai-services/computer-vision/overview-identity#find-similar-faces)|The Find Similar operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.|
 | [Group faces](/azure/ai-services/computer-vision/overview-identity#group-faces)|The Group operation divides a set of unknown faces into several smaller groups based on similarity. Each group is a disjoint proper subset of the original set of faces. It also returns a single "messyGroup" array that contains the face IDs for which no similarities were found.|
 | [Identification](/azure/ai-services/computer-vision/overview-identity#identification)|Face identification can address "one-to-many" matching of one face in an image to a set of faces in a secure repository. Match candidates are returned based on how closely their face data matches the query face. |
-
+|[Face recognition operations](/azure/ai-services/computer-vision/overview-identity#face-recognition-operations)| Modern enterprises and apps can use the Face recognition technologies, including Face verification ("one-to-one" matching) and Face identification ("one-to-many" matching) to confirm that a user is who they claim to be.|
+|[Liveness detection](/azure/ai-services/computer-vision/overview-identity#liveness-detection)| Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, recorded video, or a 3D mask of the user's face.|
 #### Use cases
 
 The following table provides a list of possible use cases for Azure AI Face service.
@@ -135,7 +120,7 @@ The following table provides a list of possible use cases for Azure AI Face serv
 | Use case |  Description |
 |----------|---------------|
 |Verify user identity.| Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. |
-|Liveness detection.| Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, recorded video, or a 3D mask of the user's face.|
+|Face redaction | Redact or blur detected faces of people recorded in a video to protect their privacy.|
 |Touchless access control.| Compared to methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.|
 
 ### Azure AI Video Indexer
