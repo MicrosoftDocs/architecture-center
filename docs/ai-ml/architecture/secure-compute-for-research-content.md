@@ -47,7 +47,7 @@ Here are the core components that move and process research data.
 
 - [**Azure Data Factory:**](/azure/data-factory/) Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
-- [**Azure Synapse:**](/azure/synapse-analytics/) Analytical tools for big data as well as Pipelines for data integration and ETL/ELT. Synapse is also a preffered service to run Apache Spark workloads.  
+- [**Azure Synapse:**](/azure/synapse-analytics/) Analytical tools for big data as well as Pipelines for data integration and ETL/ELT. Synapse is also a preferred service to run Apache Spark workloads.  
 
 - [**Azure Virtual Desktop**](/azure/virtual-desktop/) is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use [Azure Bastion](/azure/bastion/). But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
