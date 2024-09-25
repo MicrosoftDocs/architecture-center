@@ -122,6 +122,8 @@ items:
           href: guide/mlops-python.yml
         - name: Network security for MLOps
           href: guide/network-security-mlops.yml
+        - name: Generative AI ops with MLOps
+          href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
           href: guide/mlops-maturity-model.yml
       - name: Proxy Azure OpenAI usage
