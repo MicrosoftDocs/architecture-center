@@ -32,11 +32,12 @@ The following services provide targeted language processing capabilities for Azu
     - **Don't use** Language service if you need to search documents with chat, check them for content safety, or translate them.
 
 - [Azure AI Translator](#azure-ai-translator) is a machine translation service. It can perform [real-time text translation](/azure/ai-services/translator/text-translation-overview), batch and single file [document translation](/azure/ai-services/translator/document-translation/overview), and [custom translations](/azure/ai-services/translator/custom-translator/overview) that allow you to incorporate specialized terminology or industry-specific language for your scenario. It supports [many languages](/azure/ai-services/translator/language-support).
-    - **Use**  Translator service when you need to perform translation specifically. While you could use other models like `GPT-4` to perform translation, using the translator for its specialized purpose is equally effective and can be more cost effective by using targeted translation models.
+    - **Use** Translator service when you need to perform translation specifically. While you could use other general purpose foundation language models to perform translation, using the translator for its specialized purpose can prove more reliably effective and can be more cost effective by using targeted translation models.
     - **Don't use** Translator service if you need engage with chat, to analyze content for sentiment, or for content moderation.
 
 - [Azure AI Document Intelligence](#azure-ai-document-intelligence) is a service that can convert images directly into electronic forms. You can specify expected fields and then searches images you provide to capture those fields without human intervention. The service hosts many prebuilt models, and also allows you to build custom form models of your own.
     - **Use** Document Intelligence service when you know exactly which fields you need to extract from scanned documents to fill electronic forms appropriately.
+    - **Use** Document Intelligence to identify key structures (headers, footers, chapter breaks, and so on) in diverse document corpuses to further programmatically interact with the document, such as in a retrieval augmented generation (RAG) implementation.
     - **Don't use** Document Intelligence service for searching or creating chat applications with your documents. It also isn't used for analyzing documents for sentiment or classification.
 
 Each service has its own capabilities and use cases.

@@ -74,24 +74,19 @@ The following table describes some of the ways that you can use Azure AI Speech.
 
 ### Immersive Reader
 
-[Immersive Reader](https://www.onenote.com/learningtools), part of Azure AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications.
+[Immersive Reader](https://www.onenote.com/learningtools), part of Azure AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can use the same technology used in Microsoft Word and Microsoft OneNote to provide a great experience to your workload's users.
 
 
 #### Capabilities
 
-The following table provides a list of capabilities available in Immersive Reader.
+The following is a list of capabilities your workload could use to help your users' reach their reading comprehension goals.
 
-| Capability | Description | 
-|----------|-------------|
-|**Isolate content for improved readability.**| Isolate content to improve readability.|
-|**Display pictures for common words.**|  Displays pictures for commonly used terms.|
-|**Highlight parts of speech.** | Help learners understand parts of speech and grammar by highlighting verbs, nouns, pronouns, and more.|
-|**Read content aloud.**|Converts audio streams to text in real time or in batch.|  Readers can select text to be read aloud. |
-|**Translate content in real-time.** |Translate text into many languages in real time, which helps to improve comprehension for readers learning a new language. |
-|**Split words into syllables.** | Break words into syllables to improve readability or to sound out new words. |
-
-
-
+- Isolate content to improve readability
+- Display pictures for common words and terms
+- Help understand parts of speech and grammar by highlighting verbs, nouns, pronouns, and more
+- Read content aloud, such as user selected text in your workload's UI
+- Translate content into many languages in real time, which helps to improve comprehension for readers learning a new language
+- Break words into syllables to improve readability or to sound out new words
 
 ## Next steps
 
