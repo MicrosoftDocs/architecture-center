@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: pnp 
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp 
 keywords:
   - Azure
@@ -56,7 +56,6 @@ The following are other ideas that you can use as a starting point for your ener
 
 - [Azure IoT Edge data storage and processing](/azure/architecture/solution-ideas/articles/data-storage-edge)
 - [Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)
-- [Demand forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
 - [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
 - [Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
 - [IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)

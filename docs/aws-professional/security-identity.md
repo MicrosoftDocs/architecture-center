@@ -5,7 +5,7 @@ author: dougkl007
 ms.author: dougkl
 ms.date: 01/02/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 categories:
   - security

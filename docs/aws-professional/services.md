@@ -6,7 +6,7 @@ author: RobBagby
 ms.author: pnp
 ms.date: 11/18/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
@@ -89,7 +89,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | Architecture | Description |
 |----|----|
-| [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) | Explore a cloud data warehouse that uses big data. An enterprise data warehouse brings together all your data and scales easily as your data grows. |
 | [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
 
 [view all](../browse/index.yml?azure_categories=databases)
@@ -100,12 +99,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
-### Time series architectures
+### Time series architecture
 
 | Architecture | Description |
 |----|----|
 | [IoT analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/iot-azure-data-explorer) | IoT telemetry analytics with Azure Data Explorer demonstrates near real-time analytics over a fast flowing, high volume, wide variety of streaming data from IoT devices. |
-| [Azure Data Explorer interactive analytics](/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer) | Interactive analytics with Azure Data Explorer focuses on its integration with the rest of the data platform ecosystem. |
 
 ### Big data processing
 
@@ -147,7 +145,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | Architecture | Description |
 |----|----|
-| [Advanced analytics architecture](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) | Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning. |
 | [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) | Automate an extract, load, transform (ELT) workflow in Azure by using Azure Data Factory with Azure Synapse Analytics. |
 | [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis) | Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds by using only Azure services, including Azure Cosmos DB and Azure AI services. |
 
@@ -170,7 +167,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Developer Tools](https://aws.amazon.com/products/developer-tools) | [Developer Tools](https://azure.microsoft.com/services/devops/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
 | [CodeBuild](https://aws.amazon.com/codebuild) | [DevOps Pipeline](https://azure.microsoft.com/services/devops/pipelines) <br/><br/> [GitHub Actions](https://github.com/features/actions) | Fully managed build service that supports continuous integration and continuous deployment (CI/CD). |
 | [Command-line interface](https://aws.amazon.com/cli) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
-| [`eksctl`](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [`az aks`](/cli/azure/aks) | Manage Azure Kubernetes Service (AKS) using these Azure CLI commands. |
+| [`eksctl`](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [`az aks` command group](/cli/azure/aks) | Manage Azure Kubernetes Service (AKS) using these Azure CLI commands. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks) | [Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.

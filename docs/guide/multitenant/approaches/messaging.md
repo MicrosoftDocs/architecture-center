@@ -6,8 +6,8 @@ author: paolosalvatori
 ms.author: paolos
 ms.date: 05/18/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-service-bus
   - azure-event-grid

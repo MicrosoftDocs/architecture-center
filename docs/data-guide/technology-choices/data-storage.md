@@ -6,8 +6,8 @@ ms.author: nasiddi
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-storage
   - azure-blob-storage
@@ -20,11 +20,6 @@ ms.custom:
 
 # Choose a big data storage technology in Azure
 
-> [!NOTE]
-> On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. To learn how, see [Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal](/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal).
->
-> Unless you already have an Azure Data Lake Storage Gen1 account, you cannot create new ones.
-
 This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or real-time streaming ingestion.
 
 ## What are your options when choosing data storage in Azure?
@@ -34,7 +29,7 @@ There are several options for ingesting data into Azure, depending on your needs
 **File storage:**
 
 - [Azure Storage blobs](/azure/storage/blobs/storage-blobs-introduction)
-- [Azure Data Lake Storage Gen1](/azure/data-lake-store)
+- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
 **NoSQL databases:**
 
@@ -62,15 +57,13 @@ Other features that make Azure Storage a good choice are:
 - [Encryption at rest](/azure/storage/common/storage-service-encryption).
 - [Azure role-based access control (RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Microsoft Entra users and groups.
 
-## Azure Data Lake Storage Gen1
+## Azure Data Lake Storage Gen2
 
-[Azure Data Lake Storage Gen1](/azure/data-lake-store) is an enterprise-wide hyperscale repository for big data analytic workloads. Data Lake enables you to capture data of any size, type, and ingestion speed in one single [secure](/azure/data-lake-store/data-lake-store-overview#DataLakeStoreSecurity) location for operational and exploratory analytics.
+[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a single, centralized repository where you can store all your data, both structured and unstructured. A data lake enables your organization to quickly and more easily store, access, and analyze a wide variety of data in a single location. With a data lake, you don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects (blobs).
 
-Azure Data Lake Storage Gen1 doesn't impose any limits on account sizes, file sizes, or the amount of data that can be stored in a data lake. Data is stored durably by making multiple copies and there's no limit on the duration of time that the data can be stored in the data lake. In addition to making multiple copies of files to guard against any unexpected failures, Data lake spreads parts of a file over a number of individual storage servers. This improves the read throughput when reading the file in parallel for performing data analytics.
+Data Lake Storage Gen2 converges the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
-Azure Data Lake Storage Gen1 can be accessed from Hadoop (available through HDInsight) using the WebHDFS-compatible REST APIs. You may consider using this as an alternative to Azure Storage when your individual or combined file sizes exceed that which is supported by Azure Storage. However, there are [performance tuning guidelines](/azure/data-lake-store/data-lake-store-performance-tuning-guidance#optimize-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight) you should follow when using Azure Data Lake Storage Gen1 as your primary storage for an HDInsight cluster, with specific guidelines for [Spark](/azure/data-lake-store/data-lake-store-performance-tuning-spark), [Hive](/azure/data-lake-store/data-lake-store-performance-tuning-hive), and [MapReduce](/azure/data-lake-store/data-lake-store-performance-tuning-mapreduce). Also, be sure to check the Azure Data Lake Storage Gen1 [regional availability](https://azure.microsoft.com/regions/#services), because it isn't available in as many regions as Azure Storage, and it needs to be located in the same region as your HDInsight cluster.
-
-Coupled with Azure Data Lake Analytics, Azure Data Lake Storage Gen1 is designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Azure Data Lake Storage Gen1 can also be accessed via Azure Synapse using its PolyBase feature.
+Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
 ## Azure Cosmos DB
 
@@ -116,7 +109,7 @@ The following tables summarize the key differences in capabilities.
 
 ### File storage capabilities
 
-| Capability | Azure Data Lake Storage Gen1 | Azure Blob Storage containers |
+| Capability | Azure Data Lake Storage Gen2 | Azure Blob Storage containers |
 | --- | --- | --- |
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
@@ -175,4 +168,4 @@ Principal author:
 - [Big data architectures](../big-data/index.yml)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+

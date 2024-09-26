@@ -2,7 +2,7 @@
 author: svchandramohan
 ms.author: schandra
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 | Type | AWS Service | Azure Service | Description |
