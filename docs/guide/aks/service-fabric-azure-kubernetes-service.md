@@ -102,7 +102,7 @@ For more information about Helm and Kustomize, see these resources:
 ## Networking
 
 AKS provides two options for the underlying network: 
-- You can create a new Azure virtual network and place the AKS cluster in it. 
+- Bring your own virtual network: Bringing your own Azure virtual network will provision the AKS cluster nodes into a subnet from a virtual network provided by you.  
 - You can let the AKS resource provider create a new Azure virtual network for you in the node resource group that contains all the Azure resources that a cluster uses.
 
 If you choose the second option, Azure manages the virtual network. 
