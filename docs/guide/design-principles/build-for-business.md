@@ -2,8 +2,8 @@
 title: Build for business needs
 titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design and build cloud applications that meet functional and nonfunctional business requirements for performance, availability, scalability, growth, and cost management.
-author: martinekuan
-ms.author: pnp
+author: RobBagby
+ms.author: robbag
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: azure-architecture-center

@@ -133,7 +133,7 @@ Principal author:
 ## Related resources
 
 - [Artificial intelligence](../../data-guide/big-data/ai-overview.md)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
 - [Customer churn prediction using real-time analytics](../../solution-ideas/articles/customer-churn-prediction.yml)
 - [Predict Length of Stay and Patient Flow](../../example-scenario/digital-health/predict-patient-length-of-stay.yml)
 - [Create, evaluate, and score a churn prediction model in Microsoft Fabric](/fabric/data-science/customer-churn)

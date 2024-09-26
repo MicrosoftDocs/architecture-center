@@ -2721,6 +2721,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/guide/mobile/azure-communication-services-architecture.md",
+      "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/microsoft-cloud/overview.md",
       "redirect_url": "/microsoft-cloud/dev/overview/introduction",
       "redirect_document_id": false
@@ -3532,8 +3537,13 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/mlops-python.yml",
-      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-python",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/mlops-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
