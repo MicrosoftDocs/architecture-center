@@ -76,8 +76,7 @@ As a starting point, we recommend that you familiarize yourself with some key Ku
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 
 > [!Note]
-> When you migrate a workload from Service Fabric to AKS, you can replace [Service Fabric Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) with the Dapr [actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) building block. You can replace [Service Fabric Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) with the Dapr [state management](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) building block. 
->
+> When you migrate a workload from Service Fabric to AKS, you can replace [Service Fabric Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) with the Dapr [actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) building block. You can replace [Service Fabric Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) with the Dapr [state management](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) building block.  
 > The [Distributed Application Runtime (Dapr)](https://dapr.io/) provides APIs that simplify microservice connectivity. For more information, see [Introduction to the Distributed Application Runtime](https://docs.dapr.io/concepts/overview/).
 
 ## Application and service manifest
