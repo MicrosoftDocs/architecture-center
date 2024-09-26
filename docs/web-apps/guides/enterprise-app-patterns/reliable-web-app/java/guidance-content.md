@@ -114,7 +114,7 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
 
 [!INCLUDE [Code updates](../includes/code-updates.md)]
 
-#### Implement the Retry pattern
+### Implement the Retry pattern
 
 [!INCLUDE [Retry pattern intro](../includes/retry.md)]
 
@@ -132,13 +132,13 @@ Use [Resilience4j](https://github.com/resilience4j/resilience4j), a lightweight,
     }
 ```
 
-#### Implement the Circuit Breaker pattern
+### Implement the Circuit Breaker pattern
 
 [!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)]
 
 Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3) to implement the Circuit-Breaker pattern. For example, the reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
 
-#### Implement the Cache-Aside pattern
+### Implement the Cache-Aside pattern
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
