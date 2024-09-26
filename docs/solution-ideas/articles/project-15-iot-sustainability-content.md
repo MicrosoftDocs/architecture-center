@@ -73,7 +73,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [API Apps][API Apps] is a feature of App Service that you can use to build and consume APIs in the cloud while using the language of your choice.
 
-- [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps.
 
 - [Azure Digital Twins][Azure Digital Twins] creates models of IoT devices and environments. You can use these digital representations to develop better products, optimize operations, minimize costs, and improve customer experiences.
 
