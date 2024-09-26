@@ -6,17 +6,11 @@ The Project 15 Open Platform was developed in partnership with the GEF Small Gra
 
 The following sections provide insight into Project 15 Open Platform functionality and architecture.
 
-:::image type="complex" source="../media/project-15-open-platform-overview-new.png" alt-text="Diagram providing an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires.":::
-Diagram showing components and functionality of the Project 15 Open Platform. Bars show areas of functionality, such as user management and security. Boxes represent actions that the platform handles like connect devices and ingest data. Between the boxes are arrows that indicate the flow of data in the system. The components are color coded. Light green elements are fully included in the platform. Dark green elements are included but need customization. Blue elements aren't included by default and require full customization. Images of animals and plants connected to sensors and trackers are also visible. Arrows indicate that their data flows into the system, and the system can manage these devices.
-:::image-end:::
-
-*Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
-
-### Workflow
-
 :::image type="complex" source="../media/project-15-ref-arch-2023.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
 Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
 :::image-end:::
+
+### Workflow
 
 Various Azure services and configurations make up the Project 15 Open Platform:
 
@@ -99,6 +93,12 @@ The core goals of the Project 15 (P15) Open Platform are:
 * **Increase the speed to deployment**: The P15 Open Platform gets teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
 * **Lower the development cost**: The P15 Open Platform lowers the cost of overall development and reduces complexity in building connected device-based solutions on Azure. Additionally, the Open Platform opens up opportunities for partnering with the open-source developer community and universities.
 
+:::image type="complex" source="../media/project-15-open-platform-overview-new.png" alt-text="Diagram providing an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires.":::
+Diagram showing components and functionality of the Project 15 Open Platform. Bars show areas of functionality, such as user management and security. Boxes represent actions that the platform handles like connect devices and ingest data. Between the boxes are arrows that indicate the flow of data in the system. The components are color coded. Light green elements are fully included in the platform. Dark green elements are included but need customization. Blue elements aren't included by default and require full customization. Images of animals and plants connected to sensors and trackers are also visible. Arrows indicate that their data flows into the system, and the system can manage these devices.
+:::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
+
 Currently maintained by developers at Microsoft, Project 15’s Open Platform is not an official product from Microsoft.
 
 The solution has three main categories:
@@ -116,7 +116,7 @@ The solution has three main categories:
 
 * **Not Included, requires full customization**
 
-  This is the part where your IP will reside.  How this works is once you `Deploy` the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
+   You `Deploy` the solution to your own Azure account where it can then be customized to create your solution. This is where your IP will reside. 
 
 ### Potential use cases
 
