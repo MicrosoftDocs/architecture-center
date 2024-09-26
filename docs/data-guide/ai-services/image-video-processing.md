@@ -6,17 +6,17 @@ ms.author: pnp
 categories:
   - ai-machine-learning
   - analytics
-ms.collection: ce-skilling-ai-copilot
 ms.date: 09/11/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
+ms.collection: ce-skilling-ai-copilot
 products:
   - ai-services
-  - azure-custom-vision
 ms.custom:
   - analytics
   - guide
+  - arb-aiml
 ---
 
 # Choose an Azure AI image and video processing technology

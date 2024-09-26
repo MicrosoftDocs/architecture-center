@@ -15,6 +15,7 @@ products:
 ms.custom:
   - analytics
   - guide
+  - arb-aiml
 ---
 
 # Choose an Azure AI speech recognition and generation technology
