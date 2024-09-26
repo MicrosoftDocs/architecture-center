@@ -152,7 +152,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 
-- *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they're ready.
+- *Disable prefetching.* Disable message prefetching of messages so consumers fetch messages only when they're ready.
 
 - *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retries messages that fail processing. This mode enhances reliability over deletion-first methods. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times.
 
