@@ -53,7 +53,6 @@ The following new and updated articles have recently been published in the Azure
 - [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
 - [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
 - [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#5003ac7034](https://github.com/MicrosoftDocs/architecture-center/commit/5003ac7034))
-- Azure Communication Services architecture design  ([#782bc379b0](https://github.com/MicrosoftDocs/architecture-center/commit/782bc379b0))
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#4b01645043](https://github.com/MicrosoftDocs/architecture-center/commit/4b01645043))
 - [Real-time anomaly detection for conveyor belts](./example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
 - [Risk prediction models for surgeries](./example-scenario/ai/risk-stratification-surgery.yml)  ([#e2248966dd](https://github.com/MicrosoftDocs/architecture-center/commit/e2248966dd))
