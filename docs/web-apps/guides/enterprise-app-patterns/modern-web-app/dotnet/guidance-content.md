@@ -63,8 +63,6 @@ For each Azure service in your architecture, consult the relevant [Azure service
     | **Azure Kubernetes Service (AKS)** | Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.    |
     | **Web Apps for Container**     | Choose Web App for Containers on Azure App Service for the simplest PaaS experience.                                                      |
 
-This should provide a clear and organized way to present the information using Markdown tables.
-
 - *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
 ## Code guidance
