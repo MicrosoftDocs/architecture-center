@@ -1,6 +1,6 @@
 ---
 title: Azure AI large language chat models guide 
-description: Learn about Azure AI large language chat models such as chatbots, document search, and content generation.
+description: Learn about Azure services you can use to build chat applications that answer questions, search documents, and generate content.
 author: robbagby
 ms.author: pnp
 categories:
