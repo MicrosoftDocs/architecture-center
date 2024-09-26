@@ -41,7 +41,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 1. Other Azure components provide more functionality:
 
    - Azure Functions and Azure API Management work to make device management events available in websites.
-   - Azure Active Directory (Azure AD) manages users.
+   - Microsoft Entra ID manages users.
    - API Management and Event Grid manage external data.
    - Azure Digital Twins offers modeling capabilities for optimizing operations.
    - Microsoft Defender for Cloud secures the solution by establishing security policies and access controls.
