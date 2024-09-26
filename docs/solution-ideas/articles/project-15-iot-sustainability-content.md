@@ -109,7 +109,7 @@ The solution has three main categories:
 
 * **Included Components but needs customization**
 
-  Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide]. The high level architecture of what services are involved, see below.
+  Services that are deployed for you that you will need to modify based on your use case. See [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide] for details on these services.
 
 * **Not Included, requires full customization**
 
