@@ -42,7 +42,7 @@ The following services provide large language chat model capabilities for Azure 
 
 ### Azure AI Search
 
-[Azure AI Speech service](/azure/ai-services/speech-service/overview) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
+[Azure AI Search service](/azure/search/search-what-is-azure-search) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
 
 
 #### Capabilities
