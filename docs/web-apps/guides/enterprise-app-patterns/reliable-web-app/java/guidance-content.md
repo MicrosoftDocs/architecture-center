@@ -269,14 +269,7 @@ For example, the reference implementation has an optional parameter that deploys
 
 [!INCLUDE [Monitoring](../includes/monitor.md)]
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes. Spring Boot registers several core metrics in Application Insights such as Java virtual machine (JVM), CPU, Tomcat, and others. Application Insights automatically collects from logging frameworks such as Log4j and Logback. For more information, see:
-
-- [Configure Azure Monitor Application Insights for Spring Boot](/azure/azure-monitor/app/java-spring-boot#enabling-programmatically)
-- [Configuration options - Azure Monitor Application Insights for Java - Azure Monitor](/azure/azure-monitor/app/java-standalone-config#auto-collected-logging)
-- [Enable Azure Monitor OpenTelemetry for Java applications](https://learn.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-- [Using Azure Monitor Application Insights with Spring Boot](https://learn.microsoft.com/azure/azure-monitor/app/java-spring-boot).
-
-    For example, the reference implementation uses Application Insights enabled through Terraform as part of the App Service's `app_settings` configuration. (*see the following code*).
+- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes. Spring Boot registers several core metrics in Application Insights such as Java virtual machine (JVM), CPU, Tomcat, and others. Application Insights automatically collects from logging frameworks such as Log4j and Logback. For example, the reference implementation uses Application Insights enabled through Terraform as part of the App Service's `app_settings` configuration. (*see the following code*).
 
     ```terraform
     app_settings = {
@@ -285,6 +278,13 @@ For example, the reference implementation has an optional parameter that deploys
         ...
     }
     ```
+
+    For more information, see:
+
+    - [Configure Azure Monitor Application Insights for Spring Boot](/azure/azure-monitor/app/java-spring-boot#enabling-programmatically)
+    - [Azure Monitor Application Insights for Java](/azure/azure-monitor/app/java-standalone-config#auto-collected-logging)
+    - [Enable Azure Monitor OpenTelemetry for Java applications](/azure/azure-monitor/app/java-in-process-agent)
+    - [Using Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot).
 
 - *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API.
 
