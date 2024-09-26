@@ -1,9 +1,3 @@
-:::row:::
-    :::column:::
-        *Well-Architected Framework benefit: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))*
-    :::column-end:::
-:::row-end:::
-
 Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to for all Azure services that support managed identities. A managed identity allows Azure resources ([workload identities](/entra/workload-id/workload-identities-overview)) to authenticate to and interact with other Azure services without managing credentials. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible. To implement managed identities, follow these recommendations:
 
 - *Pick the right type of managed identity*. Prefer user-assigned managed identities when you have two or more Azure resources that need the same set of permissions. This setup is more efficient than creating system-assigned managed identities for each of those resources and assigning the same permissions to all of them. Otherwise, use system-assigned managed identities.

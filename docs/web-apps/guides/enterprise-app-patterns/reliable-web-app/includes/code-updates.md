@@ -11,8 +11,8 @@ Each design pattern provides workload design benefits that align with one of mor
 
 1. *Cache-Aside pattern*: The Cache-Aside pattern adds and retrieves from a cache instead of a datastore. Implement this pattern on requests to the database.
 
-|Design pattern |Reliability (RE)|Security (SE) |Cost Optimization (CO) |Operational Excellence (OE)|Performance Efficiency (PE)| Link(s) to WAF guidance
+|Design pattern |Reliability (RE)|Security (SE) |Cost Optimization (CO) |Operational Excellence (OE)|Performance Efficiency (PE)| WAF principles
 |---|---|---|---|---|---| --- |
 | [Retry pattern](#implement-the-retry-pattern) |✔| | | | |[RE:07](/azure/well-architected/reliability/self-preservation) |
-| [Circuit-Breaker pattern](#implement-the-circuit-breaker-pattern) |✔| | | |✔| [RE:03](/azure/well-architected/reliability/failure-mode-analysis)<br>[RE:07](/azure/well-architected/reliability/handle-transient-faults), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) <br> [PE:11](/azure/well-architected/performance-efficiency/respond-live-performance-issues) |
+| [Circuit-Breaker pattern](#implement-the-circuit-breaker-pattern) |✔| | | |✔| [RE:03](/azure/well-architected/reliability/failure-mode-analysis)<br>[RE:07](/azure/well-architected/reliability/handle-transient-faults) <br> [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) <br> [PE:11](/azure/well-architected/performance-efficiency/respond-live-performance-issues) |
 | [Cache Aside pattern](#implement-the-cache-aside-pattern) |✔| | | |✔| [RE:05](/azure/well-architected/reliability/redundancy)<br>[PE:08](/azure/well-architected/performance-efficiency/optimize-data-performance)<br>[PE:12](/azure/well-architected/performance-efficiency/continuous-performance-optimize) |

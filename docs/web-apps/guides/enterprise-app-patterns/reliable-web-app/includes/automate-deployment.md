@@ -1,9 +1,3 @@
-:::row:::
-    :::column:::
-        *Well-Architected Framework benefit: Operational Excellence ([OE:05](/azure/well-architected/operational-excellence/infrastructure-as-code-design))*
-    :::column-end:::
-:::row-end:::
-
 Use automation to deploy and update Azure resources and code across all environments. Follow these recommendations:
 
 - *Use infrastructure as code.* Deploy [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource.
