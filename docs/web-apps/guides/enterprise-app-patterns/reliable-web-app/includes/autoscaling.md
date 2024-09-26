@@ -1,9 +1,3 @@
-:::row:::
-    :::column:::
-        *Well-Architected Framework benefit: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
-    :::column-end:::
-:::row-end:::
-
 Autoscaling ensures web app remains resilient, responsive, and capable of handling dynamic workloads efficiently. To implement autoscaling, follow these recommendations:
 
 - *Automate scale-out.* Use [Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Configure autoscaling rules to scale out based on key performance metrics, so your application can handle varying loads.
