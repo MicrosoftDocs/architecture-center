@@ -120,7 +120,7 @@ Output:
 
 Use cases for this solution include:
 
-- The deployment of Azure OpenAI for your organizaiton's internal users to accelerate productivity.
+- The deployment of Azure OpenAI for your organization's internal users to accelerate productivity.
 - Quota management for token-based Azure OpenAI APIs.
 - [High availability of Azure OpenAI for internal applications](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend).
 - Enhanced security for the use of Azure OpenAI within regulated industries.
