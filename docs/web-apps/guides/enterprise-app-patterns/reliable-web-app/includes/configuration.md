@@ -1,6 +1,6 @@
 The following sections provide guidance on implementing the configurations updates. Each section aligns with one or more pillars of the Well-Architected Framework.
 
-|Configuration|Reliability (RE) |Security (SE) |Cost Optimization (CO) |Operational Excellence (OE)|Performance Efficiency (PE) | WAF principles |
+|Configuration|Reliability (RE) |Security (SE) |Cost Optimization (CO) |Operational Excellence (OE)|Performance Efficiency (PE) | Supporting WAF principles |
 |---|---|---|---|---|---| --- |
 |[Configure user authentication & authorization](#configure-user-authentication-and-authorization)||✔||✔|| [SE:05](/azure/well-architected/security/identity-access) <br> [OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization) |
 |[Implement managed identities](#implement-managed-identities)||✔||✔|| [SE:05](/azure/well-architected/security/identity-access) <br> [OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization) |
