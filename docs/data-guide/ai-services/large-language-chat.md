@@ -1,5 +1,5 @@
 ---
-title: Azure AI large language chat models guide 
+title: Choose an Azure AI large language chat model technology 
 description: Learn about Azure AI large language chat models such as chatbots, document search, and content generation.
 author: robbagby
 ms.author: pnp
@@ -17,11 +17,11 @@ ms.custom:
   - guide
 ---
 
-# Large language chat models 
+# Choose an Azure AI large language chat model technology 
 
 [Azure AI services](/azure/ai-services/what-are-ai-services) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
 
-This article covers Azure large language chat services that offer natural conversation with users. Chat models can answer questions, provide information, and guide users through scripts. They can also generate text based on prompts. These models are useful for chatbots, document search, and content generation.
+This article covers Azure AI services that offer large language chat models that offer natural conversation with users. Chat models can answer questions, provide information, and guide users through scripts. They can also generate text based on prompts. These models are useful for chatbots, document search, and content generation.
 
 
 ## Services
@@ -32,8 +32,9 @@ The following services provide large language chat model capabilities for Azure 
     - **Use** Azure AI Search when you have documents you want to make searchable through natural language chat embedded in your applications.
     - **Don't use** Azure AI Search for traditional searching. It's also not intended to analyze images, for sentiment analysis, or for other types of textual analysis.
 
-- [Azure OpenAI](#azure-openai) provides REST API access to all of OpenAI's powerful language models. It allows you to use the full breadth of models to fit any solution or budget.
-    - **Use** Azure OpenAI when you want to work with OpenAI's powerful models using REST APIs in your applications. Its offerings cover a wide range of budgets..
+- [Azure OpenAI](#azure-openai) provides REST API access to all of OpenAI's powerful language models. It allows you to use choose models tailored for different tasks and at different cost ranges.
+    - **Use** Azure OpenAI when you want to work with OpenAI's powerful models using REST APIs in your applications. Its offerings cover a wide range of budgets.
+    - **Use** Azure OpenAI if you want Enterprise-grade security features, such as private networking and managed identity through Microsoft Entra ID.
     - **Don't use** Azure OpenAI if you want to use open source models.
     - **Don't use** Azure OpenAI for any specific use cases such as content safety, where it's cheaper to use optimized, task-specific models. While you could use an OpenAI model to moderate content safety, it would be much more expensive than using a custom solution like the Content Safety service.
 
@@ -75,10 +76,11 @@ For more information on Azure AI Search service, see the [Azure AI Search servic
 
 ## Next steps
 
-- [What is the Speech service?](/azure/ai-services/speech-service/overview)
-- [Learning path: Develop natural language processing solutions with Azure AI Services](/training/paths/develop-language-solutions-azure-ai/)
+- [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
+
 
 ## Related resources
 
 - [Azure AI Language capabilities guide](targeted-language-processing.md)
 - [Azure AI Vision capabilities guide](image-video-processing.md)
+- [Baseline OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
