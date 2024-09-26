@@ -39,11 +39,11 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
 
 **Application platform:** Use [Azure App Service](/azure/app-service/overview) as your application platform. Contoso Fiber chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
 
-- *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Spring Apps is also an attractive alternative for this app. If the Contoso Fiber CAMS web app used Jakarta EE instead of Spring Boot, Azure Spring Apps would be a better fit. For more information, see [What is Azure Spring Apps?](/azure/spring-apps/overview) and [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
-- *High SLA.* It has a high SLA that meets the requirements for the production environment.
-- *Reduced management overhead.* It's a fully managed hosting solution.
-- *Containerization capability.* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
-- *Autoscaling.* The web app can rapidly scale up, down, in, and out based on user traffic.
+- *Natural progression:* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Spring Apps is also an attractive alternative for this app. If the Contoso Fiber CAMS web app used Jakarta EE instead of Spring Boot, Azure Spring Apps would be a better fit. For more information, see [What is Azure Spring Apps?](/azure/spring-apps/overview) and [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
+- *High SLA:* It has a high SLA that meets the requirements for the production environment.
+- *Reduced management overhead:* It's a fully managed hosting solution.
+- *Containerization capability:* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
+- *Autoscaling:* The web app can rapidly scale up, down, in, and out based on user traffic.
 
 **Identity management:** Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Contoso Fiber chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
 
@@ -54,12 +54,12 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
 
 **Database:** Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree). Contoso Fiber chose Azure Database for PostgreSQL and the flexible-server option for the following reasons:
 
-- *Reliability.* The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration and maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
-- *Cross-region replication.* It has a read replica feature that allows you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
-- *Performance.* It provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
-- *Reduced management overhead.* It's a fully managed Azure service that reduces management obligations.
-- *Migration support.* It supports database migration from on-premises single-server PostgreSQL databases. They can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
-- *Consistency with on-premises configurations.* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
+- *Reliability:* The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration and maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
+- *Cross-region replication:* It has a read replica feature that allows you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
+- *Performance:* It provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
+- *Reduced management overhead:* It's a fully managed Azure service that reduces management obligations.
+- *Migration support:* It supports database migration from on-premises single-server PostgreSQL databases. They can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
+- *Consistency with on-premises configurations:* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
 - *Resiliency.* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them using zone-redundant storage (ZRS) within the same region. They can restore their database to any point-in-time within the backup retention period. The backup and restoration capability creates a better RPO (acceptable amount of data loss) than Contoso Fiber could create on-premises.
 
 **Application performance monitoring:** Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry on your application. Contoso Fiber chose to use Application Insights for the following reasons:
@@ -72,10 +72,10 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
 
 **Cache:** Choose whether to add cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is Azure's primary cache solution. It's a managed in-memory data store based on the Redis software. Contoso Fiber's added Azure Cache for Redis for the following reasons:
 
-- *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
-- *Diverse supportability.* It's a unified cache location that all instances of the web app can use.
+- *Speed and volume:* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
+- *Diverse supportability:* It's a unified cache location that all instances of the web app can use.
 - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-- *Nonsticky sessions.* The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
+- *Nonsticky sessions:* The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
 **Load balancer:** Web applications using PaaS solutions should use Azure Front Door, Azure Application Gateway, or both based on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Contoso Fiber needed a layer-7 load balancer that could route traffic across multiple regions. Contoso Fiber needed a multi-region web app to meet the SLO of 99.9%. Contoso Fiber chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
