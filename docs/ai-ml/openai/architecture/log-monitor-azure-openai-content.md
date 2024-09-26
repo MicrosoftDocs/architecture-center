@@ -9,7 +9,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 ### Workflow
 
 1. Client applications access Azure OpenAI endpoints to perform text generation, or completions, and model training, or fine-tuning.
-2. Azure Application Gateway provides a single point of entry for clients to the private network that contains the Azure OpenAI models and APIs. For internal applications the gateway also enables hybrid access from cross-premises clients.
+2. Azure Application Gateway provides a single point of entry for clients to the private network that contains the Azure OpenAI models and APIs. For internal applications, the gateway also enables hybrid access from cross-premises clients.
    - An Application Gateway web application firewall (WAF) provides protection against common web vulnerabilities and exploits.
    - Application Gateway health probes monitor the health of the APIs.
 
@@ -22,7 +22,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
    - Monitoring provides detailed Azure OpenAI model usage, key performance indicators (KPIs), and metrics, including prompt information and token statistics for usage traceability.
 4. API Management connects to all origin resources via Azure Private Link. This configuration provides enhanced privacy for all traffic by containing traffic in the private network.
 5. This topology also supports [multiple Azure OpenAI instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend) so that API usage can scale out to ensure high availability and disaster recovery for the service.
-6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, API management policies forward requests to Azure Event Hubs and Azure Stream Analytics to extract payload information and store it in an Azure data storage service like Azure SQL Database or Azure Data Explorer. This process captures specific data for compliance and auditing purposes without any limits on payload sizing and with minimal effect on performance.
+6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, API management policies forward requests to Azure Event Hubs and Azure Stream Analytics. These services extract payload information and store it in an Azure data storage service like Azure SQL Database or Azure Data Explorer. This process captures specific data for compliance and auditing purposes without any limits on payload sizing and with minimal effect on performance.
 
     > [!NOTE]
     > For streaming responses with Azure OpenAI models, additional configuration is required to capture model completions. This configuration isn't covered in this architecture.
@@ -44,7 +44,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 
 ### Alternatives
 
-Azure OpenAI provides native logging and monitoring capabilities. You can use this native functionality to track telemetry of the service, but the default Azure OpenAI logging doesn't track or record inputs and outputs, like prompts, tokens, and models, of the service. These metrics are especially important for compliance and to ensure that the service operates as expected. Also, by tracking interactions with the language models that you deployed to Azure OpenAI, you can analyze how your organization uses the service to identify cost and usage patterns that can help inform your decisions on scaling and resource allocation.
+Azure OpenAI provides native logging and monitoring capabilities. You can use this native functionality to track telemetry of the service, but the default Azure OpenAI logging doesn't track or record inputs and outputs, like prompts, tokens, and models, of the service. These metrics are especially important for compliance and to ensure that the service operates as expected. Also, by tracking interactions with the language models that you deploy to Azure OpenAI, you can analyze how your organization uses the service. Then, you can use that information to identify cost and usage patterns that can inform your decisions on scaling and resource allocation.
 
 The following table compares the metrics that the default Azure OpenAI logging provides and the metrics that this solution provides.
 
@@ -71,12 +71,12 @@ The following table compares the metrics that the default Azure OpenAI logging p
 
 ## Scenario details
 
-Large organizations that use generative AI models need to audit and log the use of these models to ensure responsible use and corporate compliance. This solution provides organization-level logging and monitoring for all interactions with AI models to mitigate harmful use of the models and help ensure that security and compliance standards are met. The solution integrates with existing APIs for Azure OpenAI with little modification, so you can take advantage of existing code bases. Administrators can also monitor service usage for reporting.
+Large organizations that use generative AI models need to audit and log the use of these models to ensure responsible use and corporate compliance. This solution provides organization-level logging and monitoring for all interactions with AI models. You can use this information to mitigate harmful use of the models and help ensure that you meet security and compliance standards. The solution integrates with existing APIs for Azure OpenAI with little modification, so you can take advantage of existing code bases. Administrators can also monitor service usage for reporting.
 
 The advantages of this solution include:
 
 - Comprehensive logging of Azure OpenAI model execution, tracked to the source IP address. Log information includes text that users submit to the model and text received back from the model. This logging helps ensure that models are used responsibly and within the approved use cases of the service.
-- High availability of the model APIs to ensure that user requests are met even if the traffic exceeds the limits of a single Azure OpenAI service.
+- High availability of the model APIs to ensure that you can meet user requests even if traffic exceeds the limits of a single Azure OpenAI service.
 - Role-based access managed via Microsoft Entra ID to ensure that the principle of least privilege is applied.
 
 **Example query for usage monitoring**
@@ -133,13 +133,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This scenario ensures high availability of the language models for your organization users. Application Gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of Azure OpenAI ensure service resilience in case of application-level failures. These architecture components can help you ensure the reliability of your application at organization scale.
+This scenario ensures high availability of the language models for your organization users. Application Gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of Azure OpenAI ensure service resilience if application-level failures occur. These architecture components can help you ensure the reliability of your application at organization scale.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-By implementing best practices for application-level and network-level isolation of your cloud services, this scenario mitigates risks of data exfiltration and data leakage. All network traffic that contains potentially sensitive data and is input to the model is isolated in a private network. This traffic doesn't traverse public internet routes. You can use Azure ExpressRoute to further isolate network traffic to the corporate intranet and help ensure end-to-end network security.
+This scenario mitigates the risk of data exfiltration and leakage by implementing best practices for application-level and network-level isolation of your cloud services. All network traffic that contains potentially sensitive data and is input to the model is isolated in a private network. This traffic doesn't traverse public internet routes. You can use Azure ExpressRoute to further isolate network traffic to the corporate intranet and help ensure end-to-end network security.
 
 ### Cost optimization
 
