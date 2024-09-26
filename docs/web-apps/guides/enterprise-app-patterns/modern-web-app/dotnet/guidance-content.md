@@ -152,7 +152,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 
-- *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they're ready.
+- *Disable prefetching.* Disable message prefetching of messages so consumers fetch messages only when they're ready.
 
 - *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retries messages that fail processing. This mode enhances reliability over deletion-first methods. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times.
 
@@ -168,7 +168,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting.
 
-For example, the reference implementation uses the Competing Consumers pattern a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue. It configures a queue processor with:
+For example, the reference implementation uses the Competing Consumers pattern on a stateless service running in Azure Container App to process ticket-rendering requests from an Azure Service Bus queue. It configures a queue processor with:
 
 - *AutoCompleteMessages*: Automatically completes messages if processed without failure.
 - *ReceiveMode*: Uses PeekLock mode and redelivers messages if they aren't settled.
