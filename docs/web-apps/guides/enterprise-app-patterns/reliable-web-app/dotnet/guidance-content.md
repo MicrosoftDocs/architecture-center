@@ -69,7 +69,7 @@ For example, before the move to the cloud, Relecloud's ticketing web app was an 
     - *Monitoring:* It collects information about how users are using the app and allows you to easily track custom events.
     - *Visibility gap:* The on-premises solution didn't have application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
-*Cache:* Choose whether to add cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is Azure's primary cache solution. It's a managed in-memory data store based on the Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details, and it added Azure Cache for Redis for the following reasons:
+- *Cache:* Choose whether to add cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is Azure's primary cache solution. It's a managed in-memory data store based on the Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details, and it added Azure Cache for Redis for the following reasons:
 
     - *Reduced management overhead:* It's a fully managed service.
     - *Speed and volume:* It has high-data throughput and low latency reads for commonly accessed, slow changing data.
