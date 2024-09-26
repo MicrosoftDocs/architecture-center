@@ -96,7 +96,7 @@ The goal of [Project 15 Open Platform][Project 15 from Microsoft] is to bring th
 The core goals of the Project 15 (P15) Open Platform are:
 
 * **Close the skills gap, boost innovation, and accelerate solutioning**: The P15 Open Platform is a ready-made platform that allows the scientific developer to expand into specific use cases.
-* Increasing the speed to deployment; The P15 Open Platform gets teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
+* **Increase the speed to deployment**: The P15 Open Platform gets teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
 * **Lower the development cost**: The P15 Open Platform lowers the cost of overall development and reduces complexity in building connected device-based solutions on Azure. Additionally, the Open Platform opens up opportunities for partnering with the open-source developer community and universities.
 
 Currently maintained by developers at Microsoft, Project 15’s Open Platform is not an official product from Microsoft.
