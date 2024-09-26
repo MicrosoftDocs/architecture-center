@@ -105,7 +105,10 @@ The solution has three main categories:
 
 * **Components that are fully included**
 
-  These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins   and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path][Internet of Things Learning Path]. Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT][Introduction to Azure IoT] has all you need. All our learning resources here, are free to you.
+  Azure services that make up the core infrastructure of the solution. These services are only deployed once and then are expanded as devices are added to the solution. It is not necessary for you to fully understand these services to take advantage of the platform. See the following resources to get a better understanding of these core components:
+
+  - [Internet of Things Learning Path][Internet of Things Learning Path]
+  - [Introduction to Azure IoT][Introduction to Azure IoT]
 
 * **Included Components but needs customization**
 
