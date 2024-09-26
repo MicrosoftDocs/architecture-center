@@ -110,7 +110,7 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
 
 **Network security:** Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) allows you to connect to virtual machines securely without exposing RDP/SSH ports. Contoso Fiber adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Contoso Fiber needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
 
-### Code guidance
+## Code guidance
 
 [!INCLUDE [Code updates](../includes/code-updates.md)]
 
