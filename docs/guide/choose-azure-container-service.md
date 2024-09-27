@@ -74,19 +74,24 @@ For a general introduction into the terminology and concepts around service mode
 
 ### Comparing the service models of Azure container solutions
 
-#### AKS
+#### AKS Standard
 
-As a hybrid of IaaS and PaaS, AKS prioritizes control over simplicity. Though AKS streamlines the management of the underlying core infrastructure, this VM-based platform is still exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by additional Azure resources that are hosted directly in your subscription, like Azure load balancers.
+As a hybrid of IaaS and PaaS, AKS prioritizes control over simplicity, leveraging the de facto standard for container orchestration: Kubernetes. Though AKS streamlines the management of the underlying core infrastructure, this VM-based platform is still exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by additional Azure resources that are hosted directly in your subscription, like Azure load balancers.
 
 AKS also provides access to the Kubernetes API server, which enables you to customize the container orchestration and thus deploy projects from the Cloud Native Computing Foundation (CNCF). Consequently, there's a significant learning curve for workload teams that are new to Kubernetes. If you're new to containerized solutions, this learning curve must be taken in consideration. The following PaaS solutions offer a lower barrier to entry. You can move to Kubernetes when your requirements dictate that move.
 
 #### AKS Automatic
 
-<placeholder>
+[AKS Automatic](https://learn.microsoft.com/en-us/azure/aks/intro-aks-automatic) simplifies the adoption of Kubernetes by automating complex cluster management tasks, reducing the need for deep Kubernetes expertise. It offers a more streamlined, PaaS-like experience while retaining the flexibility and extensibility of Kubernetes. Azure handles cluster setup, node provisioning, scaling, security patching, and applies best-practice configurations by default. This reduces operational overhead and accelerates time-to-market. 
+
+Compared to standard AKS, AKS Automatic minimizes the learning curve associated with Kubernetes, making it more accessible for teams new to container orchestration. While it still provides access to the Kubernetes API for advanced configurations, many operational complexities are abstracted away.
+
+> [!note]
+> This guide will distinguish between AKS Standard and AKS Automatic where applicable. It can otherwise be assumed that functionality described has parity between both Standard and Automatic offerings.
 
 #### Azure Container Apps  
 
-Container Apps, a PaaS offering, balances control with simplicity. It offers both serverless and dedicated compute options, which abstract away the need to patch the operating system or build guardrails around applications, relative to the operating system. Container Apps also completely abstracts away the container orchestration API and provides a subset of its key functionality through Azure APIs that your team might already be familiar with. Additionally, Layer 7 ingress, traffic splitting, A/B testing, and application lifecycle management are all fully available out of the box.
+Container Apps, a PaaS offering, balances control with simplicity. It offers both serverless and dedicated compute options. It maximizes simplicity by abstracting the underlying Kubernetes infrastructure which abstract away the need to patch the operating system or build guardrails around applications. It also completely abstracts away the container orchestration API and provides a subset of its key functionality through Azure APIs that your team might already be familiar with. Additionally, Layer 7 ingress, traffic splitting, A/B testing, and application lifecycle management are all fully available out of the box. It is ideal for teams that want to deploy containerized applications without managing Kubernetes complexities.
 
 #### Web App for Containers
 
@@ -118,7 +123,7 @@ AKS provides the most configurability, but this configurability requires more op
 
 ### Rule of thumb
 
-Generally, services that offer more simplicity tend to suit customers who prefer to focus more on feature development and less on infrastructure. Services that offer more control tend to suit customers who need more configurability and have the skills, resources, and business justification necessary to manage their own infrastructure.
+Generally, services that offer more simplicity tend to suit customers who prefer to focus on feature development rather than infrastructure management. Services that offer more control tend to suit customers who need more configurability and have the skills, resources, and business justification necessary to manage their own infrastructure. AKS Automatic provides a balanced approach, reducing operational overhead while offering more control than fully managed PaaS services like Azure Container Apps and App Service. Standard AKS offer the most control and are suited for customers with advanced Kubernetes expertise and the need for extensive configurability.
 
 ## Shared considerations across all workloads
 
