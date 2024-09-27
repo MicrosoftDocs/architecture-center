@@ -5432,7 +5432,7 @@
     },
     {
       "source_path": "docs/data-guide/cognitive-services/speech-api.md",
-      "redirect_url": "/azure/architecture/data-guide/ai-services/speech-service-capabilitiies",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/speech-service-capabilities",
       "redirect_document_id": false
     },
     {
