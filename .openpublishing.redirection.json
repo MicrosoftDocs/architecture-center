@@ -5499,6 +5499,31 @@
       "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/cognitive-services.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/language-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/targeted-language-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/speech-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/speech-service-capabilities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/vision-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/image-video-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
+      "redirect_document_id": false
     }
   ]
 }
