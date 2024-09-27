@@ -8,9 +8,18 @@ To handle tasks efficiently based on their priority, workloads need a mechanism 
 
 ## Solution
 
-Priority queues allow workloads to process tasks based on their priority rather than their arrival order. The application sending a message to the queue assigns a priority to the message, and consumers process the messages by priority. There are two main approaches to implementing this solution:
+Priority queues allow workloads to process tasks based on their priority rather than their arrival order. The application sending a message to the queue assigns a priority to the message, and consumers process the messages by priority. Use the priority queue pattern when you have the following requirements:
+
+- *Handle tasks of varying urgency and importance.* You have tasks with different levels of urgency and importance and need to ensure you process more critical tasks before less critical ones.
+
+- *Handle different service level agreements.* You offer different service level guarantees to clients requires and need to ensure high-priority clients receive better performance and availability.
+
+- *Accommodate different workload management needs.* You have a workload that needs to address certain tasks immediately and less urgent tasks can wait.
+
+There are two main approaches to implementing the Priority Queue pattern:
 
 - *Single queue*: All messages are sent to one queue and each message assigned a priority.
+
 - *Multiple queues*: Separate queues are used for each message priority.
 
 ### Single queue
@@ -49,7 +58,7 @@ Use a single consumer pool for:
 ![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-multiple-queues-single-pool.svg)<br>
 *Figure 3. Architecture of multiple queues and a single consumer pool.*
 
-## Recommendations for the priority queue pattern
+## Recommendations for the Priority Queue pattern
 
 Consider the following recommendations when you decide how to implement the priority queue pattern:
 
@@ -77,16 +86,6 @@ Consider the following recommendations when you decide how to implement the prio
 
 - *Optimize costs.* Optimize operational costs by scaling back the number of consumers when using the single-queue approach. High-priority messages process first, though possibly more slowly, while lower-priority messages might face longer delays.
 
-## When to use the priority queue pattern
-
-Use the priority queue pattern when you have the following requirements: 
-
-- *Handle tasks of varying urgency and importance*: Tasks with different levels of urgency and importance need to ensure that more critical tasks are processed before less critical ones.
-
-- *Handle different service level agreements*: Offering different service level guarantees to clients requires, ensuring that high-priority clients receive better performance and availability.
-
-- *Accommodate different workload management needs*: Managing workloads involves addressing tasks that require immediate attention while allowing less urgent tasks to wait.
-
 ## Workload design
 
 An architect should evaluate how the Priority Queue pattern can address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
@@ -98,9 +97,9 @@ An architect should evaluate how the Priority Queue pattern can address the goal
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
-## Priority queues pattern example
+## Example of the Priority Queue pattern
 
-The following example on [GitHub][priority-queues] demonstrates the implementation of the Priority Queues pattern using Azure Service Bus.
+The following example in [GitHub][priority-queues] demonstrates an implementation of the Priority Queues pattern using Azure Service Bus.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus.](./_images/priority-queue-example.svg)<br>
 *Figure 4. Architecture of the PriorityQueue example in GitHub*

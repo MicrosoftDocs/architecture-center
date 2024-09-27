@@ -5,8 +5,10 @@ author: MarcosMMartinez
 ms.author: mamartin
 ms.date: 01/02/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-containers
 products:
   - azure-kubernetes-service
   - azure-container-apps

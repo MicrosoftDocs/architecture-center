@@ -6,9 +6,11 @@ metadata:
   author: matthansen0
   ms.author: mahans
   ms.date: 03/04/2024
-  ms.custom: arb-healthcare
+  ms.custom:
+    - arb-healthcare
+    - arb-aiml 
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 azureCategories:
 - ai-machine-learning
@@ -21,4 +23,4 @@ name: Predict hospital readmissions with traditional and automated machine learn
 summary: Learn how healthcare and life science organizations can centralize data and use data science and machine learning to stay relevant to their customers.
 thumbnailUrl: /azure/architecture/browse/thumbs/predict-hospital-readmissions-machine-learning.png
 content: |
-  [!include[](predict-hospital-readmissions-machine-learning-content.md)]
+  [!INCLUDE[](predict-hospital-readmissions-machine-learning-content.md)]

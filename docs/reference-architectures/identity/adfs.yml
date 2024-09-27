@@ -3,11 +3,11 @@ metadata:
   title: Extend on-premises AD FS to Azure
   titleSuffix: Azure Reference Architectures
   description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
-  author: spUK2020
-  ms.author: meparkes
+  author: billmath
+  ms.author: billmath
   ms.date: 12/21/2022
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - identity

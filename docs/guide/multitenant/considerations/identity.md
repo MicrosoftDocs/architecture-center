@@ -6,18 +6,16 @@ author: plagueho
 ms.author: dascottr
 ms.date: 06/25/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - entra-id
 categories:
   - identity
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural considerations for identity in a multitenant solution
@@ -172,8 +170,6 @@ Decide on the authorization model that makes the most sense for your solution. T
 
 These models are distinct, and the approach you select affects your implementation and the complexity of the authorization policies that you can implement.
 
-For more information, see [Role-based and resource-based authorization](../../../multitenant-identity/authorize.md).
-
 ### Entitlements and licensing
 
 In some solutions, you might use [per-user licensing](pricing-models.md#per-user-pricing) as part of your commercial pricing model. You would provide different tiers of user licenses with different capabilities. For example, users with one license might be permitted to use a subset of the features of the application. The capabilities that specific users are allowed to access, based on their licenses, is sometimes called an *entitlement*.
@@ -196,15 +192,16 @@ As multitenant solutions grow, the number of users and sign-in requests that nee
 
 Principal authors:
 
- - [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- - [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+ - [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
- - [Jelle Druyts](http://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
- - [Sander van den Hoven](http://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
- - [Nick Ward](http://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+ - [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+ - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Senior Customer Engineer
+ - [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+ - [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 
 ## Next steps
 

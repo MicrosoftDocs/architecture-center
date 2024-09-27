@@ -27,7 +27,7 @@ This example scenario demonstrates delivery of a software-as-a-service (SaaS) pl
 
 ### Alternatives
 
-- [Azure CycleCloud](/azure/cyclecloud/overview) simplifies creating, managing, operating, and optimizing HPC clusters. It offers advanced policy and governance features. CycleCloud supports any job scheduler or software stack.
+- [Azure CycleCloud](/azure/cyclecloud/overview) simplifies creating, managing, operating, and optimizing HPC clusters. It offers advanced policy and governance features. Azure CycleCloud supports any job scheduler or software stack.
 - [HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options) can create and manage an Azure HPC cluster for Windows Server-based workloads. HPC Pack isn't an option for Linux-based workloads.
 - [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure as code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with autoscaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell Desired State Configuration (DSC) configuration script.
 - [Azure Functions](/azure/azure-functions/functions-overview)
@@ -54,11 +54,11 @@ This scenario relates to the media, finance, manufacturing, education, energy, a
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-- While using an infrastructure-as-code approach is a great way to manage virtual machine build definitions, it can take a long time to provision a new virtual machine using a script. This solution found a good middle ground by using the DSC script to periodically create a golden image, which can then be used to provision a new virtual machine faster than completely building a VM on demand using DSC. Azure DevOps Services or other CI/CD tooling can periodically refresh golden images using DSC scripts.
+- While using an infrastructure as code approach is a great way to manage virtual machine build definitions, it can take a long time to provision a new virtual machine using a script. This solution found a good middle ground by using the DSC script to periodically create a golden image, which can then be used to provision a new virtual machine faster than completely building a VM on demand using DSC. Azure DevOps Services or other CI/CD tooling can periodically refresh golden images using DSC scripts.
 - Balancing overall solution costs with fast availability of compute resources is a key consideration. Provisioning a pool of N-series virtual machine instances and putting them in a deallocated state lowers the operating costs. When an additional virtual machine is needed, reallocating an existing instance will involve powering up the virtual machine on a different host, but the PCI bus detection time required by the OS to identify and install drivers for the GPU is eliminated because a virtual machine that is deprovisioned and then reprovisioned will retain the same PCI bus for the GPU when restarted.
-- The original architecture relied entirely on Azure virtual machines for running simulations. In order to reduce costs for workloads that didn't require all the capabilities of a virtual machine, these workloads were containerized and deployed to Azure Kubernetes Service (AKS).
+- The original architecture relied entirely on Azure Virtual Machines for running simulations. In order to reduce costs for workloads that didn't require all the capabilities of a virtual machine, these workloads were containerized and deployed to Azure Kubernetes Service (AKS).
 - The company's workforce had existing skills in open-source technologies. They can take advantage of these skills by building on technologies like Linux and Kubernetes.
 
 ### Cost optimization
@@ -70,7 +70,7 @@ To help you explore the cost of running this scenario, many of the required serv
 The following considerations will drive a substantial portion of the costs for this solution:
 
 - Azure virtual machine costs increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
-- Azure Kubernetes Services costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
+- Azure Kubernetes Service costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
 
 ## Next steps
 
@@ -82,7 +82,6 @@ The following considerations will drive a substantial portion of the costs for t
 - [High-performance computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
 - [Digital image-based modeling on Azure](/azure/architecture/example-scenario/infrastructure/image-modeling)
 - [Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
-- [Run CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
 - [Manage virtual machine compliance](/azure/architecture/example-scenario/security/virtual-machine-compliance)
 - [Monitoring and diagnostics guidance](/azure/architecture/best-practices/monitoring)
 

@@ -16,10 +16,10 @@ The architecture consists of the workflow described in the following sections. E
 
 #### Data management
 
-2. **Data management zone** – The data management zone is responsible for data governance across the platform and enforces guardrails to provide more flexibility downstream in the data landing zones. It has its own subscription and hosts centralized services such as data cataloging, monitoring, audits, and so on. This environment is highly controlled and subject to stringent audits. All data classification types are stored in the central data catalog (Azure Purview). Depending on metadata, different policies and access patterns are enforced. There's only one data management zone subscription for the whole tenant. The data management zone is peered (through VNET peering) with all other data landing zones. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
+2. **Data management zone** – The data management zone is responsible for data governance across the platform and enforces guardrails to provide more flexibility downstream in the data landing zones. It has its own subscription and hosts centralized services such as data cataloging, monitoring, audits, and so on. This environment is highly controlled and subject to stringent audits. All data classification types are stored in the central data catalog (Microsoft Purview). Depending on metadata, different policies and access patterns are enforced. There's only one data management zone subscription for the whole tenant. The data management zone is peered (through virtual network peering) with all other data landing zones. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, network security groups, and all other networking-related resources needed for the data management zone are provisioned within the networking resource group.
-1. **Deployment resource group** – A deployment resource group hosts private Azure DevOps CI/CD agents (virtual machines) needed for the data management zone and a Key Vault for storing any deployment-related secrets.
-1. **Data governance resource group** – Azure Purview is used as a data governance and data catalog solution and is used to enforce the necessary guardrails for datasets to follow data requirements and data regulations that are imposed by law or other entities. Purview is hosted centrally within this resource group, along with a Key Vault instance for storing secrets.
+1. **Deployment resource group** – A deployment resource group hosts private Azure DevOps CI/CD agents (virtual machines) needed for the data management zone and a key vault for storing any deployment-related secrets.
+1. **Data governance resource group** – Microsoft Purview is used as a data governance and data catalog solution and is used to enforce the necessary guardrails for datasets to follow data requirements and data regulations that are imposed by law or other entities. Microsoft Purview is hosted centrally within this resource group, along with a Key Vault instance for storing secrets.
 1. **Centralized assets** – Centralized assets hosts important and valuable assets that are central to the platform, such as:
    - Azure Container Registries that host base images used in Azure Machine Learning-based data products (images that are previously scanned and vulnerability-free)
    - AI/Machine Learning models that are published and made available to consumers on the platform (so they can be deployed to one or more data landing zones if needed).
@@ -29,26 +29,26 @@ The architecture consists of the workflow described in the following sections. E
 
 #### Data landing zones
 
-10. **Data landing zone 001** – A data landing zone is a subscription that represents a unit of scale within the data platform. Data landing zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics and AI platform. There can be one or many data landing zones within the environment. Azure Policy is applied to keep access and configurations of various Azure services secure. The data landing zone is peered (through VNET peering) with all other data landing zones and the data management zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
+10. **Data landing zone 001** – A data landing zone is a subscription that represents a unit of scale within the data platform. Data landing zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics and AI platform. There can be one or many data landing zones within the environment. Azure Policy is applied to keep access and configurations of various Azure services secure. The data landing zone is peered (through virtual network peering) with all other data landing zones and the data management zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, network security groups, and all other networking-related resources needed for the data landing zone are provisioned within this resource group.
-1. **Deployment resource group** – A deployment resource group hosts private Azure DevOps CI/CD agents (virtual machines) needed for the data landing zone and a Key Vault for storing any deployment-related secrets.
+1. **Deployment resource group** – A deployment resource group hosts private Azure DevOps CI/CD agents (virtual machines) needed for the data landing zone and a key vault for storing any deployment-related secrets.
 1. **Data storage resource group** – A data storage resource group contains the main data storage accounts for this data landing zone, deployed as Azure Data Lake Storage Gen2, with hierarchical namespace. They're spread across three main areas:
    - **Raw** – Data is ingested from the data source in its original state
    - **Curated and Enriched** – Data is cleansed, validated, and aggregated
    - **Workspace** – Specific data products can store their datasets or the outputs of the Machine Learning models, and so on
 
     The arrows in the diagrams show the expected data flow, from raw data to curated and enriched (trusted) data, and over to workspace for exploration, analytics, and providing extra value out of the data product.
-1. **Data integration resource group** – The data integration resource group hosts an Azure Data Factory that shares connectivity with the on-premises self-hosted integration runtime (SHIR). Its main purpose is to establish connectivity. Other Data Factory instances reuse it so that connectivity is maintained only in one place. Its other purpose is to host the self-hosted integration runtime for the Azure Purview service so that it can access the data sources on this data landing zone, for scanning purposes.
-1. **Metadata management resource group** – The metadata management resource group hosts metadata for Azure Databricks (the Hive meta store) and Azure Data Factory ingestion and processing pipelines. It also hosts a Key Vault to store secrets for accessing this data. Azure SQL Database is used to host the metadata.
+1. **Data integration resource group** – The data integration resource group hosts an Azure data factory that shares connectivity with the on-premises self-hosted integration runtime (SHIR). Its main purpose is to establish connectivity. Other Data Factory instances reuse it so that connectivity is maintained only in one place. Its other purpose is to host the self-hosted integration runtime for the Azure Microsoft Purview service so that it can access the data sources on this data landing zone, for scanning purposes.
+1. **Metadata management resource group** – The metadata management resource group hosts metadata for Azure Databricks (the Hive meta store) and Azure Data Factory ingestion and processing pipelines. It also hosts a key vault to store secrets for accessing this data. Azure SQL Database is used to host the metadata.
 1. **Data ingestion resource group** – The data ingestion resource group hosts an Azure Data Factory instance where all data ingestion pipelines specific for a data domain are deployed. Azure Databricks is used as a processing engine to load and transform the data and store it in the data lake accounts.
 1. **Analytics resource group** – The analytics resource group includes two shared services for further data analytics and exploration: Azure Synapse and Azure Databricks. Both of these services provide extensive compute and scale for massive data exploration and analytics purposes.
 1. **Data product resource group** – The data product resource group is a blueprint for a data product, with a resource group containing basic Azure resources that a data product might need. The deployment should be configurable through an Azure DevOps pipeline based on the specific needs of the business. The core Azure services deployed here are as follows:
    - Azure Machine Learning workspace as the basis for any enterprise machine learning project with related services such as Key Vault (for storing secrets)
    - Application Insights (for model monitoring)
-   - Azure storage (for storing datasets)
-   - An Azure Container Registry for storing model images during development
+   - Azure Storage (for storing datasets)
+   - An Azure container registry for storing model images during development
 
-   Cognitive Services is deployed as a bundle to provide API access to multiple AI-backed services, and Azure Machine Learning compute instance and compute clusters are used for development, model building, and testing purposes. Azure Data Factory is used to orchestrate batch scoring of models, if needed. Azure App Service and Azure Cosmos DB provide an extra layer for deployment of the data product, where a custom application or API can be hosted with its own internal data store.
+   Azure AI services is deployed as a bundle to provide API access to multiple AI-backed services, and Azure Machine Learning compute instance and compute clusters are used for development, model building, and testing purposes. Azure Data Factory is used to orchestrate batch scoring of models, if needed. Azure App Service and Azure Cosmos DB provide an extra layer for deployment of the data product, where a custom application or API can be hosted with its own internal data store.
 
    Regulated industries usually have strict data access restrictions, and usually allow production data to be hosted only within the production environment. Because of this reason, the development lifecycle of data products is occurring only in the production data landing zone, and a separate environment, or resource group, is provisioned for development, testing, and deployment purposes.
 1. **Additional data products** – These resource groups host other data products, since one data landing zone can host one or many data products.
@@ -80,11 +80,11 @@ In distributed organizations, business groups operate independently and with hig
 
 ## Scenario details
 
-Scaling AI and machine learning initiatives in regulated environments poses significant challenges to organizations, no matter their digital maturity and size. In this article, we discuss key architectural decisions to consider when adopting Azure's data engineering and machine learning services in regulated industries. These decisions are based on what was learned from a recent implementation in a Fortune 500 global life sciences and healthcare company.
+Scaling AI and machine learning initiatives in regulated environments poses significant challenges to organizations, no matter their digital maturity and size. In this article, we discuss key architectural decisions to consider when adopting the Azure data engineering and machine learning services in regulated industries. These decisions are based on what was learned from a recent implementation in a Fortune 500 global life sciences and healthcare company.
 
 The architecture presented in this article follows the enterprise-scale analytics and AI reference architecture design and was one of its first implementations.
 
-If you set up data science projects and develop machine learning models in life sciences and healthcare environments, then in almost all cases, you need access to high business impact (HBI) data sources. For example, these sources can be clinical trial protocol information without patient data, molecule's chemical formulae, or manufacturing process secrets.
+If you set up data science projects and develop machine learning models in life sciences and healthcare environments, then in almost all cases, you need access to high business impact (HBI) data sources. For example, these sources can be clinical trial protocol information without patient data, molecule's chemical formulas, or manufacturing process secrets.
 
 In regulated industries, IT systems are classified based on the classification of the data sources those systems access. AI and machine learning environments running on Azure are classified as HBI, and are required to comply with an extensive set of ISRM policies and controls.
 
@@ -92,7 +92,7 @@ In regulated industries, IT systems are classified based on the classification o
 
 This architecture is based on the following principles:
 
-- Enterprise-scale is an architectural approach and a reference implementation aligned with the Azure roadmap and part of the Microsoft Cloud Adoption Framework (CAF). It enables effective construction and operationalization of landing zones on Azure, at scale. The name *landing zone* is used as a boundary in which new or migrated applications land in Azure. In this scenario, it also refers to parts of the data platform that are used to host the data and the AI and Machine Learning models.
+- Enterprise-scale is an architectural approach and a reference implementation aligned with the Azure roadmap and part of the Microsoft Cloud Adoption Framework. It enables effective construction and operationalization of landing zones on Azure, at scale. The name *landing zone* is used as a boundary in which new or migrated applications land in Azure. In this scenario, it also refers to parts of the data platform that are used to host the data and the AI and Machine Learning models.
 - Traditional monolithic data platform architectures have an inherent limitation that slows the delivery of features and values. The architecture described here lets organizations scale their data estate and address the challenges of a centralized monolithic data lake by using a decentralized approach with separation of ownership (data mesh). The approach lets organizations scale to thousands of ingest pipelines and data products, while keeping the data platform secure and maintainable by decoupling the core data platform and data management services (deployed in a separate landing zone called data management zone) from data domains and data products (deployed to one or more data landing zones).
 - Subscriptions are used as units of management and scale aligned with business needs and priorities. Scaling is achieved by providing new subscriptions (data landing zones) to business units based on criteria such as different business stakeholders, different business goals and requirements, and data residency requirements (where data needs to be hosted in a specific geo-region).
 - Azure Policy is used to provide guardrails and ensure continued compliance within the company's IT landscape.
@@ -112,7 +112,7 @@ Implementation of enterprise-scale analytics and AI reference architecture in re
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 In this section, we discuss lessons learned from the implementation of the architecture described earlier in a life sciences and healthcare regulated environment. We also cover high-level design considerations to meet common ISRM controls and policies.
 
@@ -130,7 +130,7 @@ AI and data science development activities should be carried out in production e
 
 #### Encryption
 
-IT systems accessing, storing, and processing sensitive business data are required to implement specific requirements on encryption keys management, like FIPS 140-2 level 2 or level 3 policies, with customer-managed keys (CMKs) integration. Protected data must always be encrypted at rest and in transit, using TLS 1.2 or higher protocols.
+IT systems accessing, storing, and processing sensitive business data are required to implement specific requirements on encryption keys management, like FIPS 140-2 Level 2 or level 3 policies, with customer-managed keys (CMKs) integration. Protected data must always be encrypted at rest and in transit, using TLS 1.2 or higher protocols.
 
 During architecture design, a careful analysis of the support and integration of Azure services to an organization's CMK infrastructure is required. Any exceptions to data encryption must be documented. Support for hardware security module (HSM) vendors is always being expanded, and additional information can be found at [Azure Key Vault Managed Hardware Security Module](/azure/storage/common/customer-managed-keys-overview).
 
@@ -156,7 +156,7 @@ Role-based access control uses security groups in Microsoft Entra ID.
 
 #### Multifactor authentication
 
-Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high business impact. Multifactor authentication can be enforced using Microsoft Entra multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Services – should be configured in multifactor authentication access control policies.
+Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high business impact. Multifactor authentication can be enforced using Microsoft Entra multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Service – should be configured in multifactor authentication access control policies.
 
 Multifactor authentication must be enforced to all users, including Azure service managers, data engineers, and data scientists.
 
@@ -202,7 +202,7 @@ To scale AI and machine learning in regulated environments, and drive rapid adop
 
 **Acceleration of AI development** – To accelerate AI and machine learning solution development, the following KPIs are suggested:
 
-- Number of different business units consuming Azure's AI and machine learning services
+- Number of different business units consuming the Azure AI and machine learning services
 - Number of users onboarded, per category – for example, data engineers, data scientists, citizen data scientists, and business users
 - Number of experiments ran
 - Time between onboarding of users and active usage
@@ -266,4 +266,4 @@ Product documentation:
 
 Azure Architecture Center overview articles:
 
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)

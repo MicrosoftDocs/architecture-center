@@ -68,7 +68,7 @@ This approach can also be used to:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this architecture were chosen because they met the company's requirements for scalability and availability, while helping them control costs.
 
@@ -116,6 +116,3 @@ Principal author:
 
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 
-## Related resources
-
-- [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)

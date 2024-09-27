@@ -302,11 +302,9 @@ Related retail guidance:
 - [Solutions for the retail industry](/azure/architecture/industries/retail)
 - [Migrate your e-commerce solution to Azure](/azure/architecture/industries/retail/migrate-ecommerce-solution)
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
-- [Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection)
 
 Related architectures:
 
-- [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
 - [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app)
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
 - [Magento e-commerce platform in Azure Kubernetes Service](/azure/architecture/example-scenario/magento/magento-azure)

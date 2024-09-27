@@ -6,8 +6,8 @@ author: johndowns
 ms.author: jodowns
 ms.date: 11/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - dynamics-365
@@ -17,6 +17,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 # The journey to SaaS: Dynamics 365
 

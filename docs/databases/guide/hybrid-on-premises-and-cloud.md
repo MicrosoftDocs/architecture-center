@@ -1,13 +1,13 @@
 ---
 title: Extend on-premises data solutions to the cloud
 description: Learn about using hybrid cloud environments that span cloud and on-premises datacenters for migrating to the cloud or extending on-premises infrastructures.
-author: martinekuan
-ms.author: pnp
+author: josearper
+ms.author: joaria
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
   - analytics
   - compute
@@ -19,6 +19,7 @@ products:
 ms.custom:
   - guide
   - e2e-hybrid
+  - arb-data
 ---
 
 # Extend on-premises data solutions to the cloud
@@ -98,7 +99,7 @@ Organizations might also wish to move their network shares entirely to the cloud
 
 Another way to use on-premises network shares alongside cloud-based file storage is with [Azure Files](/azure/storage/files/storage-files-introduction). Azure Files offers fully managed file shares that you can access with the standard [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview?f=255&MSPPError=-2147217396) protocol (sometimes referred to as CIFS). You can mount Azure Files as a file share on your local computer, or use them with existing applications that access local or network share files.
 
-To synchronize file shares in Azure Files with your on-premises Windows Servers, use [Azure File Sync](/azure/storage/files/storage-sync-files-planning). One major benefit of Azure File Sync is the ability to tier files between your on-premises file server and Azure Files. This capability lets you keep only the newest and most recently accessed files locally.
+To synchronize file shares in Azure Files with your on-premises Windows servers, use [Azure File Sync](/azure/storage/files/storage-sync-files-planning). One major benefit of Azure File Sync is the ability to tier files between your on-premises file server and Azure Files. This capability lets you keep only the newest and most recently accessed files locally.
 
 For more information, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](/azure/storage/common/storage-decide-blobs-files-disks).
 

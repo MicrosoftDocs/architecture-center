@@ -129,7 +129,7 @@ Include the preceding recommended reference tables in your logging design as sta
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -283,4 +283,4 @@ Principal author:
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)
-- [Real time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+

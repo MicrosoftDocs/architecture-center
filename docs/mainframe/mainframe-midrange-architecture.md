@@ -6,7 +6,7 @@ author: Venkat-Github-Account
 ms.author: vramakrishna
 ms.date: 07/10/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.category:
   - hybrid
@@ -210,7 +210,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+- See the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Related resources
 

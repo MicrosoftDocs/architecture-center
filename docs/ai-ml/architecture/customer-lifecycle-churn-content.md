@@ -72,7 +72,7 @@ This solution is ideal for the retail industry. It's helpful in the following us
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -133,7 +133,7 @@ Principal author:
 ## Related resources
 
 - [Artificial intelligence](../../data-guide/big-data/ai-overview.md)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
 - [Customer churn prediction using real-time analytics](../../solution-ideas/articles/customer-churn-prediction.yml)
 - [Predict Length of Stay and Patient Flow](../../example-scenario/digital-health/predict-patient-length-of-stay.yml)
 - [Create, evaluate, and score a churn prediction model in Microsoft Fabric](/fabric/data-science/customer-churn)

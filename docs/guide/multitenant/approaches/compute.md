@@ -6,21 +6,19 @@ author: DixitArora-MSFT
 ms.author: dixitaro
 ms.date: 06/05/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
- - azure
- - azure-app-service
- - azure-functions
- - azure-kubernetes-service
+  - azure
+  - azure-app-service
+  - azure-functions
+  - azure-kubernetes-service
 categories:
- - compute
- - web
-ms.category:
-  - fcp
+  - compute
+  - web
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for compute in multitenant solutions
@@ -167,11 +165,11 @@ Consider the tradeoffs for each piece of state you maintain in your compute tier
 Principal authors:
 
  * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
  
 Other contributors:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

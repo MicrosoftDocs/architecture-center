@@ -157,9 +157,9 @@ Principal author:
 ## Next steps
 
 - [Develop and test on Azure](https://azure.microsoft.com/solutions/dev-test/#overview)
-- [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework)
+- [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework/)
 - [Cloud Adoption Framework Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
 
 ## Related resources
 

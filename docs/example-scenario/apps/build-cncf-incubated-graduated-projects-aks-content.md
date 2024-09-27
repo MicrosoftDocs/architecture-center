@@ -32,7 +32,7 @@ The workload is a simple web application that employees can use to submit and vi
 
 **b.** Developers push the code to GitHub from their local workspace in Visual Studio Code.
 
-**c.** Github Webhook triggers Tekton pipelines which clones the GitHub code.
+**c.** GitHub Webhook triggers Tekton pipelines which clones the GitHub code.
 
 **d.** Pipelines build and push and the container images to a Harbor registry.
 
@@ -56,7 +56,7 @@ The workload is a simple web application that employees can use to submit and vi
 
 #### Cluster operations
 
-You might find it beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator. It's often paired with GitHub Actions to enable validation on updated manifests and Helm charts. 
+You might find it beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator. It's often paired with GitHub Actions to enable validation on updated manifests and Helm charts.
 
 ### Components
 
@@ -71,7 +71,7 @@ You might find it beneficial to manage clusters and cluster bootstrapping by usi
 - [Kubernetes](https://kubernetes.io). CNCF. Automates deployment, scaling, and management of containerized applications.
 - [Flux](https://fluxcd.io/). CNCF. GitOps provider for infrastructure delivery.
 - [Rook](https://rook.io). CNCF. Provides storage management for the clusters.
-- [Harbor](https://goharbor.io). CNCF. Container registry for the images.
+- [Harbor](https://goharbor.io). CNCF. Container Registry for the images.
 - [Linkerd](https://linkerd.io). CNCF. Service mesh that integrates with OpenFaaS, NGINX, Prometheus, and Jaeger.
 - [Prometheus](https://prometheus.io). CNCF. Captures application metrics.
 - [Jaeger](https://www.jaegertracing.io). CNCF. Provides overall application tracking on the Kubernetes cluster.
@@ -97,7 +97,7 @@ This project uses CNCF graduated and incubated projects. There could be multiple
 
 You can consider various Azure services as alternatives. For example, Web Application Routing, Azure Container Registry, Azure Container Storage, Azure Monitor, Azure Monitor managed service for Prometheus, Azure Managed Grafana.
 
-Microsoft also supports open-source software projects as Managed Addons/Derived projects in AKS, including Nginx, Istio, Prometheus, Grafana and OpenEBS.
+Microsoft also supports open-source software projects as Managed Addons/Derived projects in AKS, including NGINX, Istio, Prometheus, Grafana and OpenEBS.
 
 ## Scenario details
 
@@ -114,12 +114,12 @@ These other uses cases have similar design patterns:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 * For the Kubernetes cluster, you need at least a 3-node user-node pool with virtual machine (VM) SKU DS2_v2 or larger.
 * Volumes that use Azure managed disks can't be attached across zones. They must be located in the same zone.
 * Rook installation can take between 20 and 25 minutes. Be sure the Ceph cluster is completely provisioned before you move on to the next step.
-* The Jaeger setup takes about 5 minutes. 
+* The Jaeger setup takes about 5 minutes.
 * It takes about 12 minutes for Linkerd to appear in the dashboard.
 
 ### Cost optimization
@@ -159,6 +159,6 @@ This repo is a community project. It accepts and approves pull requests (PRs) fo
 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
 - [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
-- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml) 
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Basic web application](../../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)

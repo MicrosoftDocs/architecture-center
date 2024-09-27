@@ -111,7 +111,7 @@ The Kusto query language is native to Azure Data Explorer. This language is also
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Keep the following points in mind when you implement this solution.
 
@@ -189,7 +189,6 @@ Principal author:
 - [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
 - [Big data analytics with Azure Data Explorer][Big data analytics with Azure Data Explorer]
 
-[Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Archive data from Log Analytics workspace to Azure storage using Logic App]: /azure/azure-monitor/logs/logs-export-logic-app
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer

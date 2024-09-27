@@ -6,18 +6,16 @@ author: johndowns
 ms.author: jodowns
 ms.date: 07/09/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
- - azure
- - azure-virtual-network
+  - azure
+  - azure-virtual-network
 categories:
- - networking
-ms.category:
-  - fcp
+  - networking
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Azure NAT Gateway considerations for multitenancy

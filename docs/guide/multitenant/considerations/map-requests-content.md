@@ -27,7 +27,7 @@ If you don't use tenant-specific domain names, you might still be able to use as
 
 - **The URL path structure**, such as `https://app.contoso.com/tailwindtraders/`.
 - **A query string** in the URL, such as `https://contoso.com/app?tenant=tailwindtraders`.
-- **A custom HTTP request header**, such as `X-Tenant-Id: tailwindtraders`.
+- **A custom HTTP request header**, such as `Tenant-Id: tailwindtraders`.
 
 > [!IMPORTANT]
 > Custom HTTP request headers aren't useful where HTTP GET requests are issued from a web browser, or where the requests are handled by some types of web proxy. You should only use custom HTTP headers for GET operations when you're building an API, or if you control the client that issues the request and there's no web proxy included in the request processing chain.
@@ -132,13 +132,13 @@ Tenants often need to be moved to new infrastructure as part of the [tenant life
 
 Principal author:
 
-- [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
 
 Other contributors:
 
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

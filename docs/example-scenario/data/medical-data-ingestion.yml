@@ -6,8 +6,9 @@ metadata:
   ms.author: dsutton
   ms.date: 07/20/2023
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-data
 azureCategories:
   - storage
 products:
