@@ -5427,17 +5427,17 @@
     },
     {
       "source_path": "docs/data-guide/cognitive-services/language-api.md",
-      "redirect_url": "/azure/architecture/ai-services/targeted-language-processing",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/targeted-language-processing",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/data-guide/cognitive-services/speech-api.md",
-      "redirect_url": "/azure/architecture/ai-services/speech-service-capabilitiies",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/speech-service-capabilitiies",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/data-guide/cognitive-services/vision-api.md",
-      "redirect_url": "/azure/architecture/ai-services/image-video-processing",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/image-video-processing",
       "redirect_document_id": false
     },
     {
