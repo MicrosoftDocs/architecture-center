@@ -246,7 +246,7 @@ SAS and Microsoft have tested a series of data platforms that you can use to hos
 - [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
 - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview), which provides the Lustre parallel filesystem
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
-- [Azure Premium Files](https://azure.microsoft.com/products/storage/files/), a platform as a service file share services that supports the NFS protocol
+- [Azure Premium Files](https://azure.microsoft.com/products/storage/files/), which is a file share service that supports the NFS protocol
 
 SAS offers performance-testing scripts for the Viya and Grid architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
 
