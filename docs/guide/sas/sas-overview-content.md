@@ -261,22 +261,28 @@ For sizing, Sycomp makes the following recommendations:
 
 ##### Azure Managed Lustre (AMLFS)
 
-Azure Managed Lustre is a managed file system purpose-built for high-performance computing (HPC) and AI workloads. Testing by SAS and Microsoft on AMLFS performance show that [AMLFS can run SAS workloads in a parallel manner](https://communities.sas.com/t5/Administration-and-Deployment/SAS-and-Azure-Managed-Lustre-file-system/td-p/898127) for both SAS 9 and Viya workloads. It is  recommended to run a tuning command on all client nodes when deploying AMLFS to optimize performance:
+Azure Managed Lustre is a managed file system purpose-built for high-performance computing (HPC) and AI workloads. AMLFS can run SAS 9 and Viya workloads in parallel. To optimize the performance of your file system, follow these recommendations:
+
+- Perform tuning on all client nodes when deploying AMLFS to increase Lustre client readahead and optimize concurrency for SAS I/O patterns. Run the following command to perform this tuning:
 
 ```shell
 lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.max_rpcs_in_flight=16 osc.*.max_dirty_mb=1024 llite.*.max_read_ahead_mb=2048 osc.*.checksums=0  llite.*.max_read_ahead_per_file_mb=256
 ```
 
-Additionally it is recommended to enable Accelerated Networking on all SAS VMs for optimal performance and place the SAS VMs in the same availability zone that AMLFS is deployed in.
+- Enable [accelerated networking](/azure/virtual-network/accelerated-networking-overview) on all SAS VMs.
 
-##### Azure Premium Files (NFS)
+- Place the SAS VMs in the same availability zone that AMLFS is deployed in, to reduce network latency.
 
-Microsoft provides a managed NFS v4.1 service as part of Azure Premium Files. SAS has extensively tested and [validated the performance of Azure Premium Files with NFS](https://communities.sas.com/t5/SAS-Communities-Library/Using-NFS-Premium-shares-in-Azure-Files-for-SAS-Viya-on/ta-p/901701) and found performance to be more than sufficient to power SAS installations. When using nconnect, SAS can spread IO requests over multiple channels, improving performance even further. Using Azure Premium Files you can benefit from a cost efficient, elastic, performant and POSIX compliant file system. The shares' throughput grows linearly with its size, providing increased performance with data increases. 
+##### Azure Files premium tier
 
-When using Azure Premium Files, please consider the following points:
-- Pick Azure Premium Files and size the file share for the performance desired. You can always size up or down if less performance is needed.
-- Use ```nconnect``` in your mounts with a setting of ```nconnect=4``` for optimal performance parallel channel use.
-- Optimize read-ahead settings to be 15x of the rsize and wsize, recommended is 15MB. 
+Azure Files premium tier is a managed service that supports the NFS 4.1 protocol. It provides a cost-efficient, elastic, performant, and POSIX-compliant file system. The IOPS and throughput of NFS shares scale with the provisioned capacity. SAS has extensively tested Azure Files in premium tier and has found that performance is more than sufficient to power SAS installations. 
+ 
+You can use `nconnect` to improve performance. This mount option spreads IO requests over multiple channels. For more information, see [NFS performance](/azure/storage/files/nfs-performance#nconnect).
+
+When using an NFS Azure file share in Azure Files, consider the following points:
+- Adjust the provisioned capacity to meet performance requirements. The IOPS and throughput of NFS shares scale with the provisioned capacity. For more information, see [NFS performance](/azure/storage/files/files-nfs-protocol#performance).
+- Use nconnect in your mounts with a setting of `nconnect=4` for optimal performance parallel channel use.
+- Optimize read-ahead settings to be 15x of the rsize and wsize, recommended is 15MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput)
 
 ##### Azure NetApp Files (NFS)
 
@@ -291,11 +297,13 @@ Consider the following points when using this service:
 
 ##### NFS read-ahead tuning
 
-It is important for SAS performance to tune the NFS mount options used to mounts NFS shares. One of the cores ones the ```read-ahead``` kernel setting. This setting allows the Linux kernel to requests blocks in advance of the actual I/O by the application resulting in improved sequential read throughput. Generally speaking, SAS workloads read many large files for further processing, and as such SAS benefits tremendously from large read-ahead buffers.
+To improve the performance of your SAS workload, it's important to tune the `read-ahead` kernel setting, which affects how NFS shares are mounted. When read-ahead is enabled, the Linux kernel can request blocks in advance of any actual I/O by the application. The effect is improved sequential read throughput. Most SAS workloads read many large files for further processing, and as such SAS benefits tremendously from large read-ahead buffers.
 
-With Linux kernels 5.4 or newer the default read-ahead changed from 15MB to 128KB penalizing read performance. In order to maximie performance it is necessary to increase the read-ahead setting on your SAS Linux machines from 128KB. SAS and Microsoft recommend tuning to a factor 15 of the rsize/wsize. Ideally the rsize/wsize is 1MB, resulting in a 15MB read-ahead configuration.
+With Linux kernels 5.4 or newer the default read-ahead changed from 15MB to 128KB, which reduces read performance for SAS. In order to maximize your performance, increase the read-ahead setting on your SAS Linux VMs. SAS and Microsoft recommend tuning to a factor 15 of the rsize/wsize. Ideally the rsize/wsize is 1MB, resulting in a 15MB read-ahead configuration.
 
-Setting the read-ahead on a virtual machine is done relatively straightforward by adding a ```udev rule``` as documented in our [NFS performance documentation](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput). For Kubernetes, this is a bit more complicated as this needs to be done on the host and not on the pod. SAS has provided [scripts in their benchmark post](https://communities.sas.com/t5/SAS-Communities-Library/Using-NFS-Premium-shares-in-Azure-Files-for-SAS-Viya-on/ta-p/901701) to make this for Viya on AKS and automatically set the read-ahead on the host.
+Setting the read-ahead on a virtual machine is straightforward, and [requires adding a udev rule](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
+
+For Kubernetes, this process is more complex because it needs to be done on the host and not on the pod. SAS provides scripts for Viya on AKS that automatically set the read-ahead value on the post. For more information, see [Using NFS Premium shares in Azure Files for SAS Viya on Kubernetes](https://communities.sas.com/t5/SAS-Communities-Library/Using-NFS-Premium-shares-in-Azure-Files-for-SAS-Viya-on/ta-p/901701).
 
 #### Other data sources
 
