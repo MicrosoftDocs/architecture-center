@@ -34,7 +34,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
@@ -152,8 +152,6 @@ When creating templates, group resources as a way to organize and isolate them p
 
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
-For more information, see the [DevOps checklist][AWAF-devops-checklist].
-
 ### Disaster recovery
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of geo-distribution features in the various services:
@@ -216,8 +214,7 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 
 [AAF-cost]: /azure/architecture/framework/cost/overview
 [AAF-devops]: /azure/architecture/framework/devops/overview
-[AWAF-overview]: /azure/architecture/framework/
-[AWAF-devops-checklist]: ../../checklist/dev-ops.md
+[AWAF-overview]: /azure/well-architected/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

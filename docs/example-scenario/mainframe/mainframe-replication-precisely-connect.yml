@@ -3,11 +3,11 @@ metadata:
   title: Replicate mainframe data by using Precisely Connect
   titleSuffix: Azure Architecture Center
   description: Learn how to use Precisely Connect to migrate legacy mainframe and midrange systems to the Azure platform.
-  author: martinekuan
+  author: raman-wk
   ms.author: sesankar
   ms.date: 05/02/2023
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 azureCategories:
   - migration

@@ -4,19 +4,17 @@ titleSuffix: Azure Architecture Center
 description: Learn how to build multitenant solutions on Azure through the guidance we provide in this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/28/2023
+ms.date: 07/11/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
   - management-and-governance
   - security
-ms.category:
-  - fcp
 ms.custom:
-  - guide
+  - arb-saas
 ---
 
 # Architect multitenant solutions on Azure
@@ -34,13 +32,13 @@ In this series, we provide guidance about how to design, build, and operate your
 > [!NOTE]
 > In this series, we use the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. Our guidance is intended to help you to build your own multitenant software solutions on top of the Azure platform.
 >
-> Microsoft Entra ID also includes the concept of a tenant to refer to individual directories, and it uses the term *multitenancy* to refer to interactions between multiple Microsoft Entra tenants. Although the terms are the same, the concepts are not. When we need to refer to the Microsoft Entra concept of a tenant, we disambiguate it by using the full term *Microsoft Entra tenant*.
+> Microsoft Entra ID also includes the concept of a *tenant* to refer to individual directories, and it uses the term *multitenancy* to refer to interactions between multiple Microsoft Entra tenants. Although the terms are the same, the concepts are not. When we need to refer to the Microsoft Entra concept of a tenant, we disambiguate it by using the full term *Microsoft Entra tenant*.
 
 ## Scope
 
 Azure is itself a multitenant service, and some of our guidance is based on our experience with running large multitenant solutions. However, the focus of this series is on helping you build your own multitenant services, while harnessing the power of the Azure platform.
 
-Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) and the documentation for each Azure service that you use.
+Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/well-architected/) and the documentation for each Azure service that you use.
 
 ## Intended audience
 
@@ -69,7 +67,7 @@ The content in this series is composed of three main sections:
 
   The service-specific guidance is useful for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution.
 
-Additionally, we provide a [list of related resources and links](related-resources.md) for architects and developers of multitenant solutions.
+We also provide a [checklist to use when designing and building a multitenant solution](checklist.md), and a [list of related resources and links](related-resources.md) for architects and developers of multitenant solutions.
 
 ## Video
 

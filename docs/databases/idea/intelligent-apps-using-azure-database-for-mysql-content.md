@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for automating data analysis and visualization using artificial intelligence (AI). Core components in the solution are Azure Functions, Azure Cognitive Services, and Azure Database for MySQL.
+This article presents a solution for automating data analysis and visualization using artificial intelligence (AI). Core components in the solution are Azure Functions, Azure AI services, and Azure Database for MySQL.
 
 ## Architecture
 
@@ -10,11 +10,11 @@ This article presents a solution for automating data analysis and visualization 
 
 ### Dataflow
 
-1. An Azure Function activity allows you to trigger an Azure Functions App in the Azure Data Factory pipeline. You create a linked service connection and use the linked service with an activity to specify the Azure Function you want to execute.
+1. An Azure function activity allows you to trigger an Azure Functions App in the Azure Data Factory pipeline. You create a linked service connection and use the linked service with an activity to specify the Azure function you want to execute.
 1. Data comes from various sources such as Azure Storage or Azure Event Hubs for high-volume data. When the pipeline receives new data, it triggers the Azure Functions App.
-1. The Azure Functions App calls the Cognitive Services API to analyze the data.
-1. The Cognitive Services API returns the results of the analysis in JSON format to the Azure Functions App.
-1. The Azure Functions App stores the data and results from the Cognitive Services API in Azure Database for MySQL.
+1. The Azure Functions App calls the Azure AI services API to analyze the data.
+1. The Azure AI services API returns the results of the analysis in JSON format to the Azure Functions App.
+1. The Azure Functions App stores the data and results from the Azure AI services API in Azure Database for MySQL.
 1. Azure Machine Learning uses custom machine learning algorithms to provide further insights into the data.
 1. The MySQL database connector for Power BI provides options for data visualization and analysis in Power BI or a custom web application.
 
@@ -43,7 +43,7 @@ This article presents a solution for automating data analysis and visualization 
 
 The automated pipeline uses the following services to analyze the data:
 
-- Cognitive Services uses AI for question answering, sentiment analysis, and text translation.
+- Azure AI services uses AI for question answering, sentiment analysis, and text translation.
 - Azure Machine Learning supplies machine-learning tools for predictive analytics.
 
 The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI.
@@ -63,9 +63,9 @@ This solution is ideal for organizations that run predictive analytics on data f
 
 ## Considerations
 
-- For most features, the Cognitive Service for Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+- For most features, the Azure AI Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
 
-- Previous versions of this solution used the Cognitive Services Text Analytics API. Azure Cognitive Service for Language now unifies three individual language services in Cognitive Services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Cognitive Service for Language API. For instructions, see [Migrate to the latest version of Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/migrate-language-service-latest).
+- Previous versions of this solution used the Azure AI services Text Analytics API. Azure AI Language now unifies three individual language services in Azure AI services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Azure AI Language API. For instructions, see [Migrate to the latest version of Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/migrate-language-service-latest).
 
 ## Contributors
 
@@ -93,8 +93,4 @@ Principal author:
 ## Related resources
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-
-The following solution ideas feature Azure Database for MySQL:
-
-- [Finance management apps using Azure Database for MySQL](../../solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)

@@ -2,22 +2,23 @@
 title: Security considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without dependencies to other company resources - Security.
 author: msimecek
-ms.author: prwilk
+ms.author: msimecek
 ms.date: 09/01/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-containers
 products:
-- azure-kubernetes-service
-- azure-front-door
-- azure-container-registry
-- azure-key-vault
-- azure-cosmos-db
+  - azure-kubernetes-service
+  - azure-front-door
+  - azure-container-registry
+  - azure-key-vault
+  - azure-cosmos-db
 ms.category:
-- containers
-- networking
-- database
-- monitoring
+  - containers
+  - networking
+  - database
+  - monitoring
 categories: featured
 ---
 
@@ -238,8 +239,8 @@ kind: Ingress
 metadata:
   # ...
   annotations:
-    # To restric traffic coming only through our Front Door instance, we use a header check on the X-Azure-FDID
-    # The value gets injected by the pipeline. Hence, this ID should be treated as a senstive value
+    # To restrict traffic coming only through our Front Door instance, we use a header check on the X-Azure-FDID
+    # The value gets injected by the pipeline. Hence, this ID should be treated as a sensitive value
     nginx.ingress.kubernetes.io/modsecurity-snippet: |
       SecRuleEngine On
       SecRule &REQUEST_HEADERS:X-Azure-FDID \"@eq 0\"  \"log,deny,id:106,status:403,msg:\'Front Door ID not present\'\"
@@ -255,7 +256,7 @@ Deployment pipelines ensure that this header is properly populated, but there's 
 #
 $header = @{
   "X-Azure-FDID" = "$frontdoorHeaderId"
-  "X-TEST-DATA"  = "true" # Header to indicate that posted comments and rating are just for test and can be deleted again by the app
+  "TEST-DATA"  = "true" # Header to indicate that posted comments and rating are just for test and can be deleted again by the app
 }
 ```
 
@@ -311,7 +312,7 @@ Dependabot creates a separate pull request (PR) for each update, which can get o
 
 API calls can fail due to various reasons, code errors, malfunctioned deployments, infrastructure failures, or others. In that case, the caller (client application) shouldn't receive extensive debugging information, because that could provide adversaries with helpful data points about the application.
 
-The reference implementation demonstrates this principle by **returning only the correlation ID** in the failed response and doesn't share the failure reason (like exception message or stack trace). Using this ID (and with the help of `X-Server-Location` header) an operator is able to investigate the incident using Application Insights
+The reference implementation demonstrates this principle by **returning only the correlation ID** in the failed response and doesn't share the failure reason (like exception message or stack trace). Using this ID (and with the help of `Server-Location` header) an operator is able to investigate the incident using Application Insights
 
 ```csharp
 //
@@ -327,10 +328,10 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (o is HttpContext ctx)
             {
-                context.Response.Headers.Add("X-Server-Name", Environment.MachineName);
-                context.Response.Headers.Add("X-Server-Location", sysConfig.AzureRegion);
-                context.Response.Headers.Add("X-Correlation-ID", Activity.Current?.RootId);
-                context.Response.Headers.Add("X-Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
+                context.Response.Headers.Add("Server-Name", Environment.MachineName);
+                context.Response.Headers.Add("Server-Location", sysConfig.AzureRegion);
+                context.Response.Headers.Add("Correlation-ID", Activity.Current?.RootId);
+                context.Response.Headers.Add("Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
             }
             return Task.CompletedTask;
         }, context);

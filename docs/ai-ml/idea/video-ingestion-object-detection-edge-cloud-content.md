@@ -28,23 +28,23 @@ This workflow describes how the system processes the incoming data:
 
 ### Components
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is used to host running Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency.
+- [Azure Stack Edge](/azure/databox-online/) is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. This architecture uses it to host Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency.
 
-- [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge) is used to run a Kubernetes cluster of containers that contain the system's logic on Azure Stack Edge in a simple and managed way.
+- [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge). Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, we're using a version of AKS that runs on Azure Stack Edge device to manage containers responsible for system's logic.
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) controls the Kubernetes cluster that runs on the edge device.
+- [Azure Arc](/azure/azure-arc/overview) is a bridge that extends Azure services to the edge. By utilizing Azure Arc in this architecture, we're able to control edge services through the cloud portal.
 
-- [Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision) is used to detect objects in key frames of the video stream.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a unified service that offers computer vision capabilities. In this architecture, the image analysis feature is used to detect objects in key frames of the video stream.
 
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is used to store images of key frames that are extracted from the video stream.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. In this architecture, it's used to store images of key frames that are extracted from the video stream.
 
-- [Azure SQL Edge](https://azure.microsoft.com/products/azure-sql/edge/) is used to store data on the edge, close to the service that consumes and processes it.
+- [Azure SQL Edge](/azure/azure-sql-edge/overview) is a small-footprint, edge-optimized SQL engine with built-in AI. In this architecture, we specifically went for the edge version of SQL engine to store image analysis metadata, keeping it close to the service that consumes and processes.
 
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is used to store Docker container images.
+- [Azure Container Registry](/azure/container-registry/) is a registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. In this architecture, the registry stores Docker container images for anomaly detection and AI vision containers.
 
-- [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault/) provides enhanced-security storage for any secrets or cryptographic keys that are used by the system.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service to provide secure key management in the cloud. In this architecture, it's used to store secrets and keys to allow system's logic to interact with external services where managed identity is not available.
 
-- [Azure Monitor](https://azure.microsoft.com/products/monitor/) provides observability for the system.
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, this service is the primary observability platform for the workload.
 
 ## Scenario details
 
@@ -68,7 +68,7 @@ Offloading the object detection functionality to Azure AI services significantly
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 

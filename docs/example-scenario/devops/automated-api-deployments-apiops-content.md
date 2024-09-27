@@ -55,7 +55,7 @@ This APIOps architecture uses [Azure API Management](/azure/api-management) as t
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -174,7 +174,7 @@ Principal author:
 - [APIOps for Azure API Management](https://azure.github.io/apiops/)
 - [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 - [GitOps Overview](https://www.gitops.tech)
-- [Weave GitOps](https://github.com/weaveworks/weave-gitops)
+- [Weave GitOps](https://gitops.weave.works/)
 - [Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster)
 
 ## Related resources

@@ -7,8 +7,8 @@ metadata:
   ms.author: stebuchanan
   ms.date: 10/03/2022
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ms.category:
     - containers
     - devops
@@ -19,6 +19,7 @@ metadata:
     - microservices
     - example-scenario
     - e2e-aks
+    - arb-containers
 name: CI/CD for AKS apps with GitHub Actions and GitFlow
 azureCategories:
   - containers

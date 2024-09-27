@@ -7,15 +7,13 @@ metadata:
   ms.reviewer: mabhavsar
   ms.date: 09/14/2023
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - storage
   ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
+    - arb-hybrid
 name: Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI
 azureCategories:
   - hybrid

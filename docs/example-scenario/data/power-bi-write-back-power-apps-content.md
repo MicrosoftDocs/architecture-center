@@ -78,7 +78,7 @@ This screenshot shows the process for a bulk update:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Scalability
 
@@ -151,7 +151,5 @@ Microsoft Learn Training modules:
 
 ## Related resources
 
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)
-- [Data governance with Profisee and Azure Purview](../../databases/architecture/profisee-master-data-management-purview.yml)

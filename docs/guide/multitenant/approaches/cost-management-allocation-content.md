@@ -29,7 +29,7 @@ Azure enables you to [apply tags to your resources](/azure/azure-resource-manage
 
 The way you use tags in a multitenant solution is likely to be different, depending on your architecture.
 
-In some solutions, you might deploy dedicates resources for each tenant, such as if you deploy dedicated [Deployment Stamps](../../../patterns/deployment-stamp.yml) for each tenant. In these situations, it's clear that any Azure consumption for those resources should be allocated to that tenant, and so you can tag your Azure resources with the tenant ID.
+In some solutions, you might deploy dedicated resources for each tenant, such as if you deploy dedicated [Deployment Stamps](../../../patterns/deployment-stamp.yml) for each tenant. In these situations, it's clear that any Azure consumption for those resources should be allocated to that tenant, and so you can tag your Azure resources with the tenant ID.
 
 In other situations, you might have sets of shared resources. For example, when you apply the [Sharding pattern](../../../patterns/sharding.yml), you might deploy multiple databases and spread your tenants across them. Consider tagging the resources with an identifier for the *group* of tenants. You might not be able to easily allocate costs to a single tenant, but you can at least narrow down the cost to a set of tenants, when you use this approach. You can also use the consumption information to help you rebalance tenants across the shards, if you notice that a specific shard is accruing higher costs than the others.
 
@@ -95,12 +95,12 @@ Reservation scopes can also be helpful, when you have tenants with unpredictable
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
- * [Sherri Babylon](http://www.linkedin.com/in/sbabylon) | Senior Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Sherri Babylon](https://linkedin.com/in/sbabylon) | Senior Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

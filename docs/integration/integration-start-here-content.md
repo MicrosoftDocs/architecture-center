@@ -46,7 +46,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Hybrid systems
 
 - [Cross-cloud scaling—on-premises data][Cross-cloud scaling - on-premises data]: See a hybrid app that spans Azure and Azure Stack Hub and uses a single on-premises data source, which is a compliance requirement for some organizations.
-- [Cross-cloud scaling with Traffic Manager][Cross-cloud scaling with Traffic Manager]: Use Azure Traffic Manager to extend a local app by connecting it to public cloud resources.
 
 #### Microservice architectures
 
@@ -81,7 +80,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Forecast energy and power demand with machine learning][Forecast energy and power demand with machine learning]: Forecast spikes in demand for energy products and services.
 - [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
 - [Energy supply optimization][Energy supply optimization]: Accommodate external tools like Pyomo and CBC to solve large-scale numerical optimization problems.
-- [AI-based footfall detection][AI-based footfall detection]: Analyze visitor traffic in retail stores by detecting footfalls.
 - [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
 #### E-commerce
@@ -103,10 +101,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 #### Architecture, engineering, and construction (AEC)
 
 [Azure digital twins builder][Azure digital twins builder]: Use building information modeling data from Autodesk Forge to automate the creation of an Azure Digital Twins foundational dataset.
-
-#### Analytics
-
-[Geospatial data processing and analytics][Geospatial data processing and analytics]: Make large volumes of geospatial data available for analytics.
 
 #### Healthcare
 
@@ -137,7 +131,6 @@ These resources can help you spot-check your design against current recommended 
 These reference architectures provide baseline implementations for various scenarios:
 
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
-- [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)][Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: Build logic apps that run in ISEs and access protected resources.
 - [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
 - [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
@@ -172,7 +165,6 @@ The following resources provide practical recommendations and information for sp
 
 [About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[AI-based footfall detection]: ../solution-ideas/articles/hybrid-footfall-detection.yml
 [Apache NiFi on Azure]: ../example-scenario/data/azure-nifi.yml
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
@@ -188,7 +180,6 @@ The following resources provide practical recommendations and information for sp
 [Business continuity and disaster recovery for Azure Logic Apps]: /azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Choose between virtual network peering and VPN gateways]: ../reference-architectures/hybrid-networking/vnet-peering.yml
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
-[Cross-cloud scaling with Traffic Manager]: ../example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
 [Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
 [Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
@@ -201,10 +192,9 @@ The following resources provide practical recommendations and information for sp
 [Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
-[Explore Event Grid integration]: /training/modules/explore-event-grid-integration
+[Explore Event Grid integration]: /training/browse/?products=azure&terms=event%20grid
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Forecast energy and power demand with machine learning]: ../solution-ideas/articles/forecast-energy-power-demand.yml
-[Geospatial data processing and analytics]: ../example-scenario/data/geospatial-data-processing-analytics-azure.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
 [Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml

@@ -5,8 +5,8 @@ description: Use these data management patterns for cloud applications. Data man
 ms.author: robbag
 author: RobBagby
 ms.date: 07/28/2022
-ms.topic: design-pattern
-ms.service: architecture-center
+ms.topic: conceptual
+ms.service: azure-architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern

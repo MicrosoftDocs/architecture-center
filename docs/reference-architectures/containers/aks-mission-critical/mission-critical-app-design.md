@@ -5,16 +5,18 @@ author: msimecek
 ms.author: msimecek
 ms.date: 06/05/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom:
+  - arb-containers
 products:
-- azure-kubernetes-service
-- azure-front-door
+  - azure-kubernetes-service
+  - azure-front-door
 ms.category:
-- containers
-- networking
-- database
-- monitoring
+  - containers
+  - networking
+  - database
+  - monitoring
 categories: featured
 ---
 
@@ -278,9 +280,9 @@ app.Use(async (context, next) =>
         if (o is HttpContext ctx)
         {
             // ... code omitted for brevity
-            context.Response.Headers.Add("X-Server-Location", sysConfig.AzureRegion);
-            context.Response.Headers.Add("X-Correlation-ID", Activity.Current?.RootId);
-            context.Response.Headers.Add("X-Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
+            context.Response.Headers.Add("Server-Location", sysConfig.AzureRegion);
+            context.Response.Headers.Add("Correlation-ID", Activity.Current?.RootId);
+            context.Response.Headers.Add("Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
         }
         return Task.CompletedTask;
     }, context);

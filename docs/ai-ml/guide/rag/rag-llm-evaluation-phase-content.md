@@ -1,4 +1,4 @@
-Once you have reached this phase, you've generated your search index and determined what searches you want to perform. This phase addresses the process of evaluating of your Retrieval-Augmented Generation (RAG) solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the large language model. Before you reach this phase, you should have completed the preparation phase where you collected your test documents and queries, chunked your test documents, enriched the chunks, embedded the chunks, created a search index, and implemented a search strategy. You should have evaluated each of these phases and are happy with the results. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
+By the time you reach this phase, you have already generated your search index and determined what searches you want to perform. This phase addresses the process of evaluating of your Retrieval-Augmented Generation (RAG) solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the large language model. Before you reach this phase, you should complete the preparation phase where you collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. You should evaluate each of these phases and be happy with the results. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
 
 This grounding data forms the context for the prompt that you send to the large language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the large language model from the perspective of the grounding data. This article covers *some* common large language model evaluation metrics, and some specific similarity and evaluation metrics that can be used in the large language model evaluation calculations or as stand alone metrics.
 
@@ -21,7 +21,7 @@ Groundedness, sometimes referred to as faithfulness, measures whether the respon
 
 - [Azure AI Content Safety Service (AACS) based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#aacs-based-groundedness) is a custom model that uses Natural Language Inference (NLI) to determine whether claims, in this case chunks, are entailed or not entailed by a source document.
 - [Large language model based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a large language model to determine the level of groundedness of the response.
-- [Ragas faithfulness library](https://docs.ragas.io/en/latest/concepts/metrics/faithfulness.html)
+- [Ragas faithfulness library](https://docs.ragas.io/en/latest/concepts/metrics/faithfulness/)
 - [MLflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 **Evaluating**
@@ -30,24 +30,24 @@ If groundedness is low, it indicates that the large language model doesn't see t
 
 ### Completeness
 
-Completeness measures whether the response is answering all parts of the query. This helps you understand whether the chunks in the context are pertinent and directly related to the query and provide a complete answer.
+Completeness measures whether the response is answering all parts of the query. Completeness helps you understand whether the chunks in the context are pertinent and directly related to the query and provide a complete answer.
 
 **Calculating**
 
 - [AI-assisted: Retrieval Score prompting](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score)
-- A large language model can help you measure the quality of the large language model response. You need the question, context, and generated answer to do this. The following outlines the high level process:
-  1. Use the large language model to rephrase, summarize, or simplify the question. This identifies the intent.
-  2. Ask the model to check if the intent or the answer to the intent is found or can be derived from retrieved documents where the answer can be "No", or "Yes" for each document. Answers that start with "Yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
+- A large language model can help you measure the quality of the large language model response. You need the question, context, and generated answer to perform this measurement. The following outlines the high level process:
+  1. Use the large language model to rephrase, summarize, or simplify the question. This step identifies the intent.
+  2. Ask the model to check if the intent or the answer to the intent is found or can be derived from retrieved documents where the answer can be "No," or "Yes" for each document. Answers that start with "Yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
   3. Calculate the ratio of the intents that have an answer beginning with "Yes".
   4. Square the score to highlight the errors.
 
 **Evaluating**
 
-If completeness is low, start by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your chosen embedding model. Determine whether you need a domain specific embedding model or you need to fine-tune an existing model. As a next step, evaluate your chunking strategy. If you are using fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
+If completeness is low, start by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your chosen embedding model. Determine whether you need a domain specific embedding model or you need to fine-tune an existing model. As a next step, evaluate your chunking strategy. If you're using fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
 
 ### Utilization
 
-Utilization measures the extent to which the response is made up of information from the chunks in the context. The goal is to determine the extent to which each chunk is part of the response. If utilization is low, this indicates that our results might not be relevant to the query. Utilization should be evaluated along side completeness.
+Utilization measures the extent to which the response is made up of information from the chunks in the context. The goal is to determine the extent to which each chunk is part of the response. Low utilization indicates that your results might not be relevant to the query. Utilization should be evaluated along side completeness.
 
 **Calculating**
 
@@ -60,7 +60,7 @@ The following table provides guidance, taking both completeness and utilization 
 | | High utilization | Low utilization |
 | --- | --- | --- |
 | **High completeness** | No action needed | In this case, the data returned is able to address the question, but irrelevant chunks were returned. Consider reducing the top-k parameter value to yield more probable/deterministic results. |
-| **Low completeness** | In this case, the chunks you are providing are being used, but are not fully addressing the question. Consider the following:<br /><ul><li>Review your chunking strategy to increase the context within the chunks</li><li>Increase the number of chunks by increasing the top-k parameter value</li><li>Evaluate whether you have chunks that were not returned that can increase the completeness. If so, investigate why they were not returned.</li><li>Follow the guidance in the [completeness section](#completeness)</li></ul> | In this case, you are not fully answering the question and the chunks you are providing are not being well utilized. Consider the following to address these issues:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you are using fixed size chunking, consider increasing the chunk sizes.</li><li>Tune your prompts to improve responses</li></ul> |
+| **Low completeness** | In this case, the chunks you're providing are being used, but aren't fully addressing the question. Consider the following:<br /><ul><li>Review your chunking strategy to increase the context within the chunks</li><li>Increase the number of chunks by increasing the top-k parameter value</li><li>Evaluate whether you have chunks that weren't returned that can increase the completeness. If so, investigate why they weren't returned.</li><li>Follow the guidance in the [completeness section](#completeness)</li></ul> | In this case, you're not fully answering the question and the chunks you're providing aren't being well utilized. Consider the following to address these issues:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you're using fixed size chunking, consider increasing the chunk sizes.</li><li>Tune your prompts to improve responses</li></ul> |
 
 ### Relevance
 
@@ -69,7 +69,7 @@ Measures the extent to which the large language model's response is pertinent an
 **Calculating**
 
 - [AI-assisted: Relevance in Azure AI Studio](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance) - You can use Azure AI Studio to perform the calculations, or use the guidance in this article to calculate relevance for yourself.
-- [Ragas answer relevancy library](https://docs.ragas.io/en/latest/concepts/metrics/answer_relevance.html)
+- [Ragas answer relevancy library](https://docs.ragas.io/en/latest/concepts/metrics/answer_relevance/)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 **Evaluating**
@@ -77,8 +77,8 @@ Measures the extent to which the large language model's response is pertinent an
 When relevance is low, evaluate the following:
 
 - Ensure that the chunks provided to the large language model are relevant.
-  - Determine whether there are viable chunks that are relevant that were not returned. If there are, evaluate your embedding model.
-  - If there are not viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
+  - Determine whether there are viable chunks that are relevant that weren't returned. If there are, evaluate your embedding model.
+  - If there aren't viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
 - If relevant chunks were returned, evaluate your prompt.
 
 Other evaluation methods like [Completeness](#completeness) should be calculated and should yield similar scores to the ones observed in the relevance measure.
@@ -113,19 +113,25 @@ You should document both the hyperparameters you chose for an experiment and the
 
 During design and development, you might be able to track the hyperparameters and results manually. However, while performing multiple evaluations against your entire test document and test query corpus might involve hundreds of evaluation runs and thousands of results. You should automate the persistence of parameters and results for your evaluations.
 
-Once your hyperparameters and results are persisted, you should consider building charts and graphs to allow you to more easily visualize the effects the hyperparameter choices have on the metrics. This will help you identify which choices lead to dips or spikes in performance.
+Once your hyperparameters and results are persisted, you should consider building charts and graphs to allow you to more easily visualize the effects the hyperparameter choices have on the metrics. Visualization helps you identify which choices lead to dips or spikes in performance.
 
-It is important for you to understand that designing and evaluating your RAG solution isn't a one-time operation. Your corpus of documents will change over time. The questions your customers are asking will change over time and your understanding of the types of questions will evolve as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
+It's important for you to understand that designing and evaluating your RAG solution isn't a one-time operation. Your corpus of documents will change over time. The questions your customers are asking will change over time and your understanding of the types of questions will evolve as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
 
 ## The RAG Experiment Accelerator
 
-These articles walk you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft's top customers has developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a state-of-the-art experimentation framework designed to optimize and enhance the development of Retrieval Augmented Generation (RAG) solutions. RAG Experiment Accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance, ultimately leading to more accurate and coherent text generation.
+These articles walk you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft's top customers developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a state-of-the-art experimentation framework designed to optimize and enhance the development of Retrieval Augmented Generation (RAG) solutions. RAG Experiment Accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance, ultimately leading to more accurate and coherent text generation.
 
 With its CLI based interface, you can effortlessly experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development while abstracting away the complexities of hyper-parameter tuning using simple configuration.
 
 Moreover, the framework provides comprehensive support for large language model configuration, enabling you to strike the perfect balance between model complexity and generation quality. This tool allows you to streamline the experimentation process, save valuable time, and significantly improve the performance of your RAG models.
 
-Whether you are a seasoned researcher pushing the boundaries of natural language understanding or an industry professional seeking to enhance text generation capabilities, this experimentation framework is the ultimate solution to accelerate your RAG development journey. Embrace the future of RAG experimentation and unlock the true potential of your models with this cutting-edge tool.
+Whether you're a seasoned researcher pushing the boundaries of natural language understanding or an industry professional seeking to enhance text generation capabilities, this experimentation framework is the ultimate solution to accelerate your RAG development journey. Embrace the future of RAG experimentation and unlock the true potential of your models with this cutting-edge tool.
+
+## RAG with Vision Application Framework
+
+Much of the guidance in this article around working with media in your RAG solution came from another engineering team that works with Microsoft's top customers. This team wrote a framework called the [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision). This framework provides a Python-based retrieval-augmented generation (RAG) pipeline that processes both textual and image content from MHTML documents.
+
+The framework loads, chunks, and enriches both text and images from MHTML files and ingests the chunks to Azure Search. The framework implements caching for image enrichment for both processing and cost efficiency. The framework also incorporates evaluation as part of the pipeline.
 
 ## Contributors
 
@@ -135,11 +141,17 @@ Whether you are a seasoned researcher pushing the boundaries of natural language
 - [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
 - [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
 - [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
+- [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/)
+- [Soubhi Hadri](https://www.linkedin.com/in/soubhihadri/)
+- [Paul Butler](https://www.linkedin.com/in/paulfbutler2016/)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Rag accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+> [RAG accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+
+> [!div class="nextstepaction"]
+> [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
 
 ## Related resources
 
