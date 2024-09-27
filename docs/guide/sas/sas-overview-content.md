@@ -244,7 +244,7 @@ For best performance:
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
 - [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
-- [Azure Managed Lustre](https://azure.microsoft.com/en-us/products/managed-lustre/), a service providing the Lustre parallel filesystem
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview), which provides the Lustre parallel filesystem
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 - [Azure Premium Files](https://azure.microsoft.com/products/storage/files/), a platform as a service file share services that supports the NFS protocol
 
