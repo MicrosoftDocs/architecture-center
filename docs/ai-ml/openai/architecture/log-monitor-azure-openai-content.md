@@ -161,7 +161,7 @@ Principal authors:
 
 - [Jake Wang](https://www.linkedin.com/in/jake-wang/) | Cloud Solution Architect – AI / Machine Learning
 - [Matthew Felton](https://www.linkedin.com/in/matthewfeltonma/) | Cloud Solution Architect – Infrastructure
-- [Shaun Callighan](https://www.linkedin.com/in/shauncallighan/) | Technical Specialist – App Innovation
+- [Shaun Callighan](https://www.linkedin.com/in/shaun-callighan-6007ba5/) | Technical Specialist – App Innovation
 
 Other contributors:
 
