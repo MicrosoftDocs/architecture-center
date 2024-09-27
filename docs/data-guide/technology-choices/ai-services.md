@@ -46,7 +46,7 @@ Azure offers a number of AI services that can be grouped into categories based o
 
 - [Learning path: Get started with Azure AI Services](/training/paths/get-started-azure-ai/)
 - [Azure AI Services documentation](/azure/ai-services/)
-- [What are Azure AI Services?](/azure/ai-services/what-are-ai-services)
+- [What are Azure AI services?](/azure/ai-services/what-are-ai-services)
 
 ## Related resources
 
