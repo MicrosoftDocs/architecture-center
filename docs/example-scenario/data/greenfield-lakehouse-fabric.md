@@ -1,6 +1,6 @@
-This example workload illustrates a Greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric. Microsoft Fabric is a cutting-edge platform that seamlessly integrates data storage, processing, and analytics. Unlike traditional data warehouses, which often involve complex migrations and costly transformations, a Greenfield lakehouse provides a clean slate for designing an efficient, future-proof data ecosystem.
+This example workload illustrates a Greenfield solution to build a scalable data platform using Microsoft Fabric and the lakehouse design paradigm. Microsoft Fabric is a platform that integrates data storage, processing, and analytics. A Greenfield lakehouse provides a clean slate for designing an efficient, future-proof data ecosystem.
 
-The Greenfield data lakehouse architecture with Microsoft Fabric is beneficial for a wide range of scenarios including:
+This architecture is applicable to the following scenarios:
 
 - Organizations looking to start fresh, unencumbered by legacy systems, when developing a data platform.
 - Organizations that anticipate data volumes between 0.5 TB to 1.5 TB.
