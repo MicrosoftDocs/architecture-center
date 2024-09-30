@@ -27,7 +27,7 @@ The automotive, mobility, and transportation industries strive to satisfy the ev
 
 Microsoft works closely with partners to redefine mobility. Organizations can use Azure services to develop innovative digital and physical products and services, support the development of software-defined vehicles, develop autonomous driving, and improve business operations with connectivity, data, and AI. For more information, see [How does Microsoft support mobility?](/industry/mobility/overview)
 
-Azure services address the varied needs of the automotive, mobility and transportation value chain:
+Azure services address the varied needs of the automotive, mobility, and transportation value chain:
 
 * [High-performance computing (HPC) on Azure](https://azure.microsoft.com/solutions/high-performance-computing) addresses the demanding automotive computing needs. HPC uses specialized virtual machines to support areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software.
 

@@ -28,7 +28,7 @@ The following dataflow corresponds to the preceding diagram:
 
 1. R&D engineers and data scientists use notebooks to analyze data and build test and validation use cases.
 
-    1. R&D engineers use [KQL querysets](/fabric/real-time-intelligence/kusto-query-set) and [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence) to perform interactive data analysis.
+    1. R&D engineers use [KQL query sets](/fabric/real-time-intelligence/kusto-query-set) and [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence) to perform interactive data analysis.
 
     1. Data engineers and data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can use Azure Spark to run analytics and use Git to [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment). Users can take advantage of [Copilot for Data Science and Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support their workflow with contextual code suggestions.
 
@@ -123,7 +123,7 @@ This approach provides the following benefits:
 
 - The combination of Functions and Batch supports plug-and-play processing in Docker containers.
 
-- You can use [spot virtual machines](/azure/batch/batch-spot-vms) to process files during off-peak times, which saves money.
+- You can use [spot virtual machines](/azure/batch/batch-spot-vms) to process files during off-peak times. This approach saves money.
 
 ## Scenario details
 
