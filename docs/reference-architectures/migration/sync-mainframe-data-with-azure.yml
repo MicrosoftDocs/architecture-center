@@ -5,7 +5,7 @@ metadata:
   description: Replicate data while you modernize mainframe and midrange systems. Sync on-premises data with Azure data during modernization.
   author: ms-amsolo
   ms.author: askhande
-  ms.date: 09/27/2024
+  ms.date: 09/30/2024
   ms.topic: reference-architecture
   ms.service: azure-architecture-center
   ms.subservice: reference-architecture

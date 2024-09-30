@@ -622,7 +622,7 @@
 			<v:textRect cx="108.876" cy="1027" width="217.76" height="20"/>
 			<rect x="0" y="1017" width="217.751" height="20" class="st13"/>
 			<text x="23.66" y="1030.61" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data storage, analytics, and BI</text>		</g>
-		<g id="group1237-136" transform="translate(1212.12,-450.003)" v:mID="1237" v:groupContext="group">
+		<g id="group1237-136" transform="translate(1212.12,-448.96)" v:mID="1237" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(52000):26"/>
 			</v:userDefs>
@@ -804,7 +804,7 @@
 				<rect x="0" y="1020.26" width="90" height="16.7414" class="st13"/>
 				<text x="10.45" y="1025.63" class="st19" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <tspan
 							x="21.71" dy="1.2em" class="st17">for MySQL</tspan></text>			</g>
-			<g id="shape1217-190" v:mID="1217" v:groupContext="shape" transform="translate(-1.27898E-13,-87.75)">
+			<g id="shape1217-190" v:mID="1217" v:groupContext="shape" transform="translate(9.59233E-13,-87.75)">
 				<title>Sheet.1217</title>
 				<desc>Azure Database for PostgreSQL</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -812,7 +812,7 @@
 				<rect x="0" y="1020.26" width="90" height="16.7414" class="st13"/>
 				<text x="10.45" y="1025.63" class="st19" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database <tspan
 							x="11.77" dy="1.2em" class="st17">for PostgreSQL</tspan></text>			</g>
-			<g id="shape1218-194" v:mID="1218" v:groupContext="shape" transform="translate(123.588,-87.75)">
+			<g id="shape1218-194" v:mID="1218" v:groupContext="shape" transform="translate(127.249,-93.7562)">
 				<title>Sheet.1218</title>
 				<desc>Azure Cosmos DB</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -867,12 +867,12 @@
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
 			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
-		<g id="shape1300-210" v:mID="1300" v:groupContext="shape" transform="translate(349.371,-677.189)">
+		<g id="shape1300-210" v:mID="1300" v:groupContext="shape" transform="translate(360,-677.189)">
 			<title>Sheet.1300</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(74000):26"/>
 			</v:userDefs>
-			<path d="M0 1037 L200.59 1037" class="st2"/>
+			<path d="M0 1037 L189.96 1037" class="st2"/>
 		</g>
 		<g id="shape1307-215" v:mID="1307" v:groupContext="shape" transform="translate(873,-655.507)">
 			<title>Sheet.1307</title>
@@ -1456,7 +1456,7 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="987.359" width="53.7362" height="49.6463" class="st35"/>
 		</g>
-		<g id="shape4-273" v:mID="4" v:groupContext="shape" transform="translate(308.003,-642.205)">
+		<g id="shape4-273" v:mID="4" v:groupContext="shape" transform="translate(315,-640.437)">
 			<title>Sheet.4</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(91000):26"/>
@@ -1935,7 +1935,7 @@
 			<v:textRect cx="27.5734" cy="1027.33" width="55.15" height="19.3461"/>
 			<rect x="0" y="1017.66" width="55.1468" height="19.3461" class="st38"/>
 			<text x="4" y="1032.46" class="st39" v:langID="1033"><v:paragraph/><v:tabList/>Azure</text>		</g>
-		<g id="group1348-290" transform="translate(319.578,-378.528)" v:mID="1348" v:groupContext="group">
+		<g id="group1348-290" transform="translate(310.5,-379.744)" v:mID="1348" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(95000):26"/>
 			</v:userDefs>
@@ -2042,7 +2042,7 @@
 							 1.88 1036 1.88 1035.74 Z" class="st41"/>
 			</g>
 		</g>
-		<g id="shape1358-308" v:mID="1358" v:groupContext="shape" transform="translate(274.8,-341.259)">
+		<g id="shape1358-308" v:mID="1358" v:groupContext="shape" transform="translate(270,-341.259)">
 			<title>Sheet.1358</title>
 			<desc>Non-Microsoft tools</desc>
 			<v:userDefs>
@@ -2933,14 +2933,14 @@
 			</v:userDefs>
 			<path d="M10.2 1037 L10.56 1037 L43.96 1037" class="st43"/>
 		</g>
-		<g id="shape1367-331" v:mID="1367" v:groupContext="shape" transform="translate(374.408,-504)">
+		<g id="shape1367-331" v:mID="1367" v:groupContext="shape" transform="translate(362.919,-504)">
 			<title>Sheet.1367</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(102000):26"/>
 			</v:userDefs>
-			<path d="M0 1037 L810.3 1037" class="st2"/>
+			<path d="M0 1037 L821.79 1037" class="st2"/>
 		</g>
-		<g id="group1368-336" transform="translate(1355.24,-568.658)" v:mID="1368" v:groupContext="group">
+		<g id="group1368-336" transform="translate(1355.4,-558)" v:mID="1368" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(103000):26"/>
 			</v:userDefs>
@@ -2955,28 +2955,28 @@
 					<v:userDefs>
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
-					<path d="M7.19 1003.03 C6.9 1003.03 6.66 1002.81 6.66 1002.55 C6.66 1002.55 6.66 1002.54 6.66 1002.54 C6.65 999.45
-								 3.92 996.95 0.54 996.94 C0.24 996.94 0 996.72 0 996.45 C0 996.18 0.24 995.96 0.54 995.96 C3.92 995.96
-								 6.65 993.45 6.66 990.36 C6.66 990.09 6.89 989.87 7.19 989.87 C7.19 989.87 7.19 989.87 7.19 989.87
-								 C7.49 989.87 7.73 990.09 7.73 990.36 C7.73 990.36 7.73 990.36 7.73 990.36 C7.74 993.45 10.47 995.95
-								 13.85 995.96 C14.15 995.96 14.38 996.17 14.39 996.45 C14.39 996.45 14.39 996.45 14.39 996.45 C14.39
-								 996.72 14.15 996.94 13.86 996.94 C13.85 996.94 13.85 996.94 13.85 996.94 C10.47 996.94 7.73 999.45
-								 7.73 1002.54 C7.73 1002.81 7.49 1003.03 7.19 1003.03 ZM45.76 1037 C45.52 1037 45.33 1036.83 45.33
-								 1036.61 C45.32 1034.13 43.13 1032.14 40.43 1032.13 C40.19 1032.13 40 1031.96 40 1031.74 C40 1031.53
-								 40.19 1031.34 40.43 1031.34 C43.13 1031.34 45.32 1029.34 45.33 1026.87 C45.33 1026.65 45.52 1026.48
-								 45.76 1026.48 C45.99 1026.48 46.19 1026.65 46.19 1026.87 C46.19 1029.34 48.38 1031.34 51.08 1031.34
-								 C51.32 1031.34 51.51 1031.52 51.51 1031.74 C51.51 1031.96 51.32 1032.14 51.08 1032.14 C48.38 1032.14
-								 46.19 1034.14 46.19 1036.61 C46.19 1036.83 45.99 1037 45.76 1037 Z" class="st45"/>
+					<path d="M7.19 1002.1 C6.9 1002.1 6.66 1001.88 6.66 1001.6 C6.66 1001.6 6.66 1001.6 6.66 1001.6 C6.65 998.42
+								 3.92 995.85 0.54 995.84 C0.24 995.84 0 995.62 0 995.34 C0 995.06 0.24 994.84 0.54 994.84 C3.92 994.84
+								 6.65 992.26 6.66 989.08 C6.66 988.81 6.89 988.58 7.19 988.58 C7.19 988.58 7.19 988.58 7.19 988.58
+								 C7.49 988.58 7.73 988.8 7.73 989.08 C7.73 989.08 7.73 989.08 7.73 989.08 C7.74 992.26 10.47 994.83
+								 13.85 994.84 C14.15 994.84 14.38 995.06 14.39 995.33 C14.39 995.34 14.39 995.34 14.39 995.34 C14.39
+								 995.62 14.15 995.84 13.86 995.84 C13.85 995.84 13.85 995.84 13.85 995.84 C10.47 995.85 7.73 998.42
+								 7.73 1001.6 C7.73 1001.87 7.49 1002.1 7.19 1002.1 ZM45.76 1037 C45.52 1037 45.33 1036.82 45.33 1036.6
+								 C45.32 1034.06 43.13 1032 40.43 1032 C40.19 1032 40 1031.82 40 1031.6 C40 1031.38 40.19 1031.19
+								 40.43 1031.19 C43.13 1031.19 45.32 1029.13 45.33 1026.59 C45.33 1026.37 45.52 1026.19 45.76 1026.19
+								 C45.99 1026.19 46.19 1026.37 46.19 1026.59 C46.19 1029.13 48.38 1031.19 51.08 1031.19 C51.32 1031.19
+								 51.51 1031.37 51.51 1031.6 C51.51 1031.82 51.32 1032 51.08 1032 C48.38 1032.01 46.19 1034.06 46.19
+								 1036.6 C46.19 1036.83 45.99 1037 45.76 1037 Z" class="st45"/>
 				</g>
-				<g id="shape1371-340" v:mID="1371" v:groupContext="shape" transform="translate(6.28247,-4.8578)">
+				<g id="shape1371-340" v:mID="1371" v:groupContext="shape" transform="translate(6.28247,-4.99081)">
 					<title>Sheet.1371</title>
 					<v:userDefs>
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
-					<path d="M38.77 1014.2 C41.17 1023.38 34.98 1032.62 24.93 1034.81 C14.89 1037 4.8 1031.34 2.4 1022.15 C0 1012.96
-								 6.2 1003.73 16.24 1001.54 C26.29 999.34 36.38 1005.01 38.77 1014.2 Z" class="st46"/>
+					<path d="M38.77 1013.57 C41.17 1023.01 34.98 1032.5 24.93 1034.75 C14.89 1037 4.8 1031.18 2.4 1021.74 C0 1012.3
+								 6.2 1002.82 16.24 1000.57 C26.29 998.31 36.38 1004.13 38.77 1013.57 Z" class="st46"/>
 				</g>
-				<g id="group1372-344" transform="translate(7.33666,-12.0372)" v:mID="1372" v:groupContext="group">
+				<g id="group1372-344" transform="translate(7.33666,-12.3668)" v:mID="1372" v:groupContext="group">
 					<v:userDefs>
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
@@ -2986,31 +2986,30 @@
 						<v:userDefs>
 							<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 						</v:userDefs>
-						<path d="M9.51 1036.94 C12.26 1037 14.55 1035.02 14.62 1032.5 C14.7 1029.98 12.52 1027.88 9.77 1027.81 C9.69
-									 1027.81 9.6 1027.81 9.52 1027.81 C9.54 1027.68 9.54 1027.55 9.54 1027.42 C9.52 1024.89 7.25
-									 1022.85 4.48 1022.87 L0.74 1022.87 C0 1027.98 1.78 1033.14 5.6 1036.94 L9.51 1036.94 ZM37.95
-									 1022.17 C37.95 1022.13 37.95 1022.09 37.93 1022.05 C37.33 1019.07 35.84 1016.29 33.65 1014.02
-									 C33.36 1013.92 33.07 1013.83 32.77 1013.77 C29.84 1013.01 26.8 1014.56 25.97 1017.23 C25.85
-									 1017.62 25.78 1018.01 25.76 1018.41 C25.57 1018.39 25.36 1018.37 25.15 1018.37 C22.23 1018.37
-									 19.87 1020.54 19.87 1023.21 C19.87 1025.26 21.27 1027.09 23.39 1027.77 C23.91 1027.96 24.47
-									 1028.06 25.04 1028.05 L31.22 1028.05 C33.69 1026.33 35.96 1024.36 37.95 1022.17 Z"
-								class="st47"/>
+						<path d="M9.51 1036.94 C12.26 1037 14.55 1034.97 14.62 1032.37 C14.7 1029.79 12.52 1027.63 9.77 1027.56 C9.69
+									 1027.56 9.6 1027.56 9.52 1027.56 C9.54 1027.43 9.54 1027.29 9.54 1027.16 C9.52 1024.56 7.25
+									 1022.46 4.48 1022.48 L0.74 1022.48 C0 1027.73 1.78 1033.04 5.6 1036.94 L9.51 1036.94 ZM37.95
+									 1021.77 C37.95 1021.72 37.95 1021.68 37.93 1021.64 C37.33 1018.58 35.84 1015.72 33.65 1013.39
+									 C33.36 1013.28 33.07 1013.2 32.77 1013.14 C29.84 1012.35 26.8 1013.94 25.97 1016.69 C25.85 1017.08
+									 25.78 1017.49 25.76 1017.9 C25.57 1017.88 25.36 1017.86 25.15 1017.86 C22.23 1017.86 19.87 1020.09
+									 19.87 1022.83 C19.87 1024.94 21.27 1026.82 23.39 1027.52 C23.91 1027.71 24.47 1027.81 25.04
+									 1027.81 L31.22 1027.81 C33.69 1026.04 35.96 1024.01 37.95 1021.77 Z" class="st47"/>
 					</g>
 				</g>
-				<g id="shape1374-347" v:mID="1374" v:groupContext="shape" transform="translate(0,-6.86725)">
+				<g id="shape1374-347" v:mID="1374" v:groupContext="shape" transform="translate(0,-7.05528)">
 					<title>Sheet.1374</title>
 					<v:userDefs>
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
-					<path d="M51.83 1005.9 C49.91 1002.98 45.42 1001.85 39.17 1002.7 C37.02 1002.98 34.9 1003.4 32.82 1003.96 C34.47
-								 1004.48 36.04 1005.2 37.48 1006.1 C38.21 1005.95 38.94 1005.77 39.66 1005.68 C40.77 1005.52 41.89
-								 1005.44 43.02 1005.43 C45.25 1005.13 47.5 1005.89 48.99 1007.45 C50.16 1009.23 49.17 1012.27 46.29
-								 1015.81 C42.28 1020.37 37.37 1024.2 31.82 1027.09 C26.39 1030.2 20.37 1032.34 14.07 1033.4 C9.31
-								 1034.05 5.9 1033.4 4.73 1031.63 C3.57 1029.85 4.55 1026.81 7.43 1023.28 C7.79 1022.85 7.88 1022.63
-								 8.28 1022.19 C8.09 1020.68 8.12 1019.15 8.36 1017.65 C7.07 1018.84 5.88 1020.12 4.8 1021.47 C1.02
-								 1026.09 0 1030.24 1.91 1033.16 C3.97 1035.67 7.34 1037 10.75 1036.64 C12.03 1036.63 13.3 1036.54
-								 14.56 1036.36 C21.28 1035.24 27.71 1032.97 33.51 1029.67 C39.43 1026.57 44.66 1022.47 48.93 1017.6
-								 C52.71 1012.97 53.74 1008.82 51.83 1005.9 Z" class="st45"/>
+					<path d="M51.83 1005.05 C49.91 1002.05 45.42 1000.88 39.17 1001.76 C37.02 1002.05 34.9 1002.48 32.82 1003.05
+								 C34.47 1003.59 36.04 1004.33 37.48 1005.25 C38.21 1005.1 38.94 1004.92 39.66 1004.82 C40.77 1004.65
+								 41.89 1004.57 43.02 1004.56 C45.25 1004.26 47.5 1005.04 48.99 1006.64 C50.16 1008.47 49.17 1011.59
+								 46.29 1015.23 C42.28 1019.91 37.37 1023.85 31.82 1026.82 C26.39 1030.01 20.37 1032.21 14.07 1033.31
+								 C9.31 1033.97 5.9 1033.31 4.73 1031.48 C3.57 1029.66 4.55 1026.53 7.43 1022.9 C7.79 1022.46 7.88
+								 1022.24 8.28 1021.79 C8.09 1020.23 8.12 1018.67 8.36 1017.12 C7.07 1018.34 5.88 1019.65 4.8 1021.05
+								 C1.02 1025.79 0 1030.06 1.91 1033.05 C3.97 1035.64 7.34 1037 10.75 1036.63 C12.03 1036.62 13.3 1036.53
+								 14.56 1036.34 C21.28 1035.19 27.71 1032.86 33.51 1029.47 C39.43 1026.29 44.66 1022.08 48.93 1017.06
+								 C52.71 1012.31 53.74 1008.05 51.83 1005.05 Z" class="st45"/>
 				</g>
 			</g>
 		</g>
@@ -3021,12 +3020,12 @@
 			</v:userDefs>
 			<path d="M0 1037 L767.68 1037" class="st48"/>
 		</g>
-		<g id="shape1376-352" v:mID="1376" v:groupContext="shape" transform="translate(375.081,-402.313)">
+		<g id="shape1376-352" v:mID="1376" v:groupContext="shape" transform="translate(362.421,-404.256) rotate(0.133779)">
 			<title>Sheet.1376</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(105000):26"/>
 			</v:userDefs>
-			<path d="M0 1037 L810.3 1037" class="st2"/>
+			<path d="M0 1037 L825.39 1037" class="st2"/>
 		</g>
 		<g id="group1377-357" transform="translate(1339.37,-448.96)" v:mID="1377" v:groupContext="group">
 			<v:userDefs>
@@ -15704,7 +15703,7 @@
 						oC0HCwAAAAAAAACANkL4/yIKeW2Cd+iSAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="998.607" width="50.3143" height="38.3983" class="st13"/>
 		</g>
-		<g id="shape1403-408" v:mID="1403" v:groupContext="shape" transform="translate(1267.37,-360)">
+		<g id="shape1403-408" v:mID="1403" v:groupContext="shape" transform="translate(1263.68,-364.916)">
 			<title>Sheet.1403</title>
 			<desc>Azure Database for MySQL</desc>
 			<v:userDefs>
@@ -19817,7 +19816,7 @@
 						JRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="1003.63" width="45" height="33.375" class="st13"/>
 		</g>
-		<g id="shape1407-429" v:mID="1407" v:groupContext="shape" transform="translate(288,-419.4)">
+		<g id="shape1407-429" v:mID="1407" v:groupContext="shape" transform="translate(280.8,-419.4)">
 			<title>Circle.1407</title>
 			<desc>8</desc>
 			<v:userDefs>

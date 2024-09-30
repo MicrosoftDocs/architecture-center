@@ -1,9 +1,9 @@
-This example architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services.
+This example architecture outlines an implementation plan to replicate and sync data during modernization to Azure. It discusses technical aspects like data stores, tools, and services.
 
 ## Architecture
 
 :::image type="complex" source="./images/sync-mainframe-data-with-azure.svg" alt-text="An architecture diagram that shows how to sync on-premises data and Azure databases data during mainframe modernization." border="false" lightbox="./images/sync-mainframe-data-with-azure.svg":::
-   The diagram contains two areas, one for on-premises components and one for Azure components. The on-premises area contains two rectangles. One rectangle pictures databases and the other contains integration tools. The on-premises area also includes a server icon that represents the self-hosted integration runtime. The Azure area of the diagram also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
+   The diagram has two areas, one for on-premises components and one for Azure components. The on-premises area has two rectangles. One rectangle pictures databases and the other lists integration tools. The on-premises area also includes a server icon that represents the self-hosted integration runtime. The Azure area of the diagram also has rectangles. One is for pipelines. Others are for services that the solution uses to stage and prepare data. Another lists Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sync-mainframe-data-with-azure.vsdx) of this architecture.*
@@ -16,8 +16,8 @@ Mainframe and midrange systems update on-premises application databases at regul
 
    Pipelines group the activities that perform tasks. To extract data, Data Factory dynamically creates one pipeline for each on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. You can also configure the solution to meet your requirements: 
 
-   - Full replication: You replicate the entire database and make the necessary modifications to data types and fields in the target Azure database. 
-   - Partial, delta, or incremental replication: You use *watermark columns* in source tables to sync the updated rows with Azure databases. These columns contain either a continuously incrementing key or a time stamp that indicates the table's last update. 
+   - **Full replication**: You replicate the entire database and make the necessary modifications to data types and fields in the target Azure database. 
+   - **Partial, delta, or incremental replication**: You use watermark columns in source tables to sync the updated rows with Azure databases. These columns contain either a continuously incrementing key or a time stamp that indicates the table's last update. 
 
     Data Factory also uses pipelines for the following transformation tasks:
 
@@ -42,7 +42,7 @@ Mainframe and midrange systems update on-premises application databases at regul
    - Azure Database for MySQL 
 
 1. SQL Server Integration Services (SSIS): This platform can extract, transform, and load data. 
-1. Non-Microsoft tools: When the solution requires near real-time replication, you can use Non-Microsoft tools.
+1. Non-Microsoft tools: When the solution requires near real-time replication, you can use non-Microsoft tools.
 
 ### Components
 
@@ -98,7 +98,7 @@ This section describes other tools that you can use during data modernization, s
 
 ## Scenario details
 
-Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help keep data intact and available during the migration to Azure. To avoid affecting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+Data availability and integrity are essential in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help keep data intact and available during the migration to Azure. To prevent disruptions during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
 
 Specifically, this solution covers:
 
@@ -132,7 +132,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - Infrastructure management, including [availability][Types of Databases on Azure], is automated in Azure databases.
 
-- See [Pooling and failover][Pooling and failover] for information on Microsoft Service for DRDA failover protection.
+- See [Pooling and failover][Pooling and failover] for information about Microsoft Service for DRDA failover protection.
 
 - You can cluster the on-premises data gateway and integration runtime (IR) to provide higher availability guarantees.
 
@@ -140,7 +140,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Make use of [network security groups](/azure/virtual-network/manage-network-security-group) to limit services' access to only what they need to function.
+- Use [network security groups](/azure/virtual-network/manage-network-security-group) to limit access to only what each service needs to function.
 
 - Use [private endpoints](/azure/private-link/private-endpoint-overview) for your PaaS services. Use service firewalls that are both reachable and unreachable through the internet to supplement security for your services.
 
