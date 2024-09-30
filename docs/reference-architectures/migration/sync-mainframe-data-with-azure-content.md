@@ -3,7 +3,7 @@ This example architecture outlines an implementation plan for replicating and sy
 ## Architecture
 
 :::image type="complex" source="./images/sync-mainframe-data-with-azure.svg" alt-text="An architecture diagram that shows how to sync on-premises data and Azure databases data during mainframe modernization." border="false" lightbox="./images/sync-mainframe-data-with-azure.svg":::
-   The diagram contains two parts, one for on-premises components and one for Azure components. The on-premises part contains two rectangles. One rectangle pictures databases and the other contains integration tools. A server icon that represents the self-hosted integration runtime (IR) is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
+   The diagram contains two areas, one for on-premises components and one for Azure components. The on-premises area contains two rectangles. One rectangle pictures databases and the other contains integration tools. The on-premises area also includes a server icon that represents the self-hosted integration runtime. The Azure area of the diagram also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sync-mainframe-data-with-azure.vsdx) of this architecture.*
@@ -12,9 +12,9 @@ This example architecture outlines an implementation plan for replicating and sy
 
 Mainframe and midrange systems update on-premises application databases at regular intervals. To maintain consistency, the solution syncs the latest data with Azure databases. The sync process involves the following steps:
 
-1. Azure Data Factory dynamic pipelines orchestrate activities that range from data extraction to data loading. You can schedule pipeline activities, start them manually, or automatically trigger them.
+1. Azure Data Factory dynamic pipelines orchestrate activities that range from data extraction to data loading. You can schedule pipeline activities, start them manually, or trigger them automatically.
 
-   Pipelines group the activities that perform tasks. To extract data, Data Factory dynamically creates one pipeline for each on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. But you can also configure the solution to meet your requirements: 
+   Pipelines group the activities that perform tasks. To extract data, Data Factory dynamically creates one pipeline for each on-premises table. You can then use a massively parallel implementation when you replicate data in Azure. You can also configure the solution to meet your requirements: 
 
    - Full replication: You replicate the entire database and make the necessary modifications to data types and fields in the target Azure database. 
    - Partial, delta, or incremental replication: You use *watermark columns* in source tables to sync the updated rows with Azure databases. These columns contain either a continuously incrementing key or a time stamp that indicates the table's last update. 
@@ -31,8 +31,8 @@ Mainframe and midrange systems update on-premises application databases at regul
 
 1. On-premises databases like Db2 zOS, Db2 for i, and Db2 LUW store the application data.
 1. A self-hosted integration runtime (SHIR) provides the environment that Data Factory uses to run and dispatch activities.
-1. Azure Data Lake Storage Gen2 and Azure Blob Storage provide a place for data staging. This step is sometimes required for transforming and merging data from multiple sources.
-1. Data preparation takes place next. Data Factory uses Azure Databricks, custom activities, and pipeline data flows to transform data quickly and effectively.
+1. Azure Data Lake Storage Gen2 and Azure Blob Storage provide a place for data staging. This step is sometimes required to transform and merge data from multiple sources.
+1. For data preparation, Data Factory uses Azure Databricks, custom activities, and pipeline data flows to transform data quickly and effectively.
 1. Data Factory loads data into the following relational and nonrelational Azure databases:
 
    - Azure SQL
@@ -80,7 +80,7 @@ This section describes other tools that you can use during data modernization, s
 
 #### Data storage
 
-- [SQL Database][Azure SQL Database] is part of the [Azure SQL][Azure SQL] family and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
+- [SQL Database][Azure SQL Database] is part of the [Azure SQL][Azure SQL] family and is built for the cloud. This service offers the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
 
 - [Azure SQL Managed Instance][Azure SQL Managed Instance] is part of the Azure SQL service portfolio. This intelligent and scalable cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. With SQL Managed Instance, you can modernize existing apps at scale.
 
@@ -88,7 +88,7 @@ This section describes other tools that you can use during data modernization, s
 
 - [Azure Database for PostgreSQL][Azure Database for PostgreSQL] is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine. Use this service to focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
-- [Azure Cosmos DB][Azure Cosmos DB] is a globally distributed, [multimodel][The rise of the multimodel database] database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit millisecond latencies at the ninety-ninth percentile anywhere in the world.
+- [Azure Cosmos DB][Azure Cosmos DB] is a globally distributed, [multimodel][The rise of the multimodel database] database. Use Azure Cosmos DB to ensure that your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit, millisecond latencies at the ninety-ninth percentile anywhere in the world.
 
 - [Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured. [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] combines Data Lake Storage Gen1 capabilities with Blob Storage. This next-generation data lake solution provides file system semantics, file-level security, and scale. It also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
@@ -134,7 +134,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - See [Pooling and failover][Pooling and failover] for information on Microsoft Service for DRDA failover protection.
 
-- You can cluster the on-premises data gateway and IR to provide higher availability guarantees.
+- You can cluster the on-premises data gateway and integration runtime (IR) to provide higher availability guarantees.
 
 ### Security
 
@@ -170,7 +170,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
 
-- Choose the right [integration runtime configuration](/azure/data-factory/choose-the-right-integration-runtime-configuration) for your scenario.
+- Choose the right [IR configuration](/azure/data-factory/choose-the-right-integration-runtime-configuration) for your scenario.
 
 ## Next steps
 
