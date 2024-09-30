@@ -2653,8 +2653,6 @@ items:
         href: example-scenario/devops/automate-sentinel-integration.yml
       - name: Microsoft Entra ID in security operations
         href: example-scenario/aadsec/azure-ad-security.yml
-      - name: Confidential computing for healthcare
-        href: example-scenario/confidential/healthcare-inference.yml
       - name: Cyber threat intelligence
         href: example-scenario/data/sentinel-threat-intelligence.yml
       - name: Homomorphic encryption with SEAL
@@ -3328,8 +3326,6 @@ items:
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
       - name: Clinical insights with Cloud for Healthcare
         href: example-scenario/mch-health/medical-data-insights.yml
-      - name: Confidential computing for healthcare
-        href: example-scenario/confidential/healthcare-inference.yml
       - name: Consumer health portal on Azure
         href: example-scenario/digital-health/health-portal.yml
       - name: Donor-patient cross matching

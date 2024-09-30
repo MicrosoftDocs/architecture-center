@@ -143,4 +143,3 @@ Other contributors:
 - [Solutions for the healthcare industry](../../industries/healthcare.md)
 - [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
-- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
