@@ -1,21 +1,18 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution offers a multilayered strategy for protecting virtual machines (VMs) in Azure. Users need to connect to VMs for management and administrative purposes. It's crucial to maintain accessibility while minimizing the attack surface.
+This solution offers a multilayered strategy for protecting virtual machines (VMs) in Azure, ensuring accessibility while minimizing the attack surface for management and administrative purposes.
 
-This solution achieves non-persistent granular access to VMs by incorporating several protection mechanisms offered by Microsoft Azure and Entra services. The solution aligns with the *principle of least privilege (PoLP)* and the concept of separation of duties. To reduce exposure to attacks, inbound traffic to VMs is locked down. However, connectivity to VM is possible only when needed. In addition, authorization to Azure cloud resources is only granted only for legit reasons. Implementing these types of protection minimize the risk of many popular cyber-attacks on VMs, such as brute-force and distributed denial-of-service (DDoS) attacks.
+Aligned with Microsoft's **Secure Future Initiative** (SFI), this solution incorporates several protection mechanisms offered by Microsoft Azure and Entra services, adhering to the principles of Secure by Design, Secure by Default, and Secure Operations.
 
-This solution uses many Azure services and features including:
+- Secure by Design: The solution achieves *non-persistent granular access* to VMs by implementing the *principle of least privilege* (PoLP) and the concept of *separation of duties*. This ensures that authorization to Azure cloud resources is granted only for legitimate reasons, reducing the risk of unauthorized access.
 
-- Microsoft Entra Privileged Identity Management (PIM).
-- The just-in-time (JIT) VM access feature of Microsoft Defender for Cloud.
-- Azure Bastion.
-- Azure role-based access control (Azure RBAC) custom roles.
-- Microsoft Entra Conditional Access, optionally.
-- Azure Key Vault, optionally.
+- Secure by Default: Inbound traffic to VMs is locked down, allowing connectivity only when needed. This *default security posture* minimizes exposure to many popular cyber-attacks such as brute-force and distributed denial-of-service (DDoS) attacks.
+
+- Secure Operations: Continuous monitoring and improvement of security controls are implemented to meet current and future threats. This includes using various Azure services and features such as Microsoft Entra Privileged Identity Management (PIM), the just-in-time (JIT) VM access feature of Microsoft Defender for Cloud, Azure Bastion, Azure role-based access control (Azure RBAC) custom roles, and optionally, Microsoft Entra Conditional Access and Azure Key Vault.
 
 ## Potential use cases
 
-*Defense in depth* is the main idea behind this architecture. This strategy challenges users with several lines of defense before granting the users access to VMs. The goal is to ensure that:
+*Defense in depth* is the premise behind this architecture. This strategy challenges users with several lines of defense before granting the users access to VMs. The goal is to ensure that:
 
 - Each user is verified.
 - Each user has legitimate intentions.
