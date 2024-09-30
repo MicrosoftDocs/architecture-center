@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Automotive messaging, data & analytics
+  title: Automotive messaging, data, and analytics
   titleSuffix: Azure Architecture Center
   description: Learn how to create a scalable, secure, and reliable messaging and data analytics solution for the automotive industry.
   author: msmarioo
   ms.author: marioo  
-  ms.date: 08/14/2024
+  ms.date: 10/01/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -18,8 +18,8 @@ products:
   - azure-event-grid
   - azure-event-hubs
   - azure-functions
-name: Automotive messaging, data & analytics
-summary: The automotive messaging, data & analytics reference architecture provides a comprehensive guide for developing advanced connected vehicle applications and digital services.
+name: Automotive messaging, data and analytics
+summary: Learn how to create a scalable, secure, and reliable messaging and data analytics solution for the automotive industry.
 thumbnailUrl: /azure/architecture/browse/thumbs/automotive-connectivity-and-data-solution.png
 content: |
-  [!include[](automotive-messaging-data-analytics-content.md)]
+  [!INCLUDE[](automotive-messaging-data-analytics-content.md)]
