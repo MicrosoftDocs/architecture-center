@@ -592,16 +592,16 @@
 			<v:textRect cx="79.7321" cy="1027" width="159.47" height="20"/>
 			<rect x="0" y="1017" width="159.464" height="20" class="st13"/>
 			<text x="7.55" y="1031.2" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data factory pipelines</text>		</g>
-		<g id="shape1234-127" v:mID="1234" v:groupContext="shape" transform="translate(902.72,-809.67)">
+		<g id="shape1234-127" v:mID="1234" v:groupContext="shape" transform="translate(898.241,-810)">
 			<title>Sheet.1234</title>
-			<desc>Staging</desc>
+			<desc>Stage</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(49000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="51.2796" cy="1027" width="102.56" height="20"/>
 			<rect x="0" y="1017" width="102.559" height="20" class="st13"/>
-			<text x="29.59" y="1030.61" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Staging</text>		</g>
+			<text x="35.39" y="1030.61" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Stage</text>		</g>
 		<g id="shape1235-130" v:mID="1235" v:groupContext="shape" transform="translate(1026,-808)">
 			<title>Sheet.1235</title>
 			<desc>Prepare</desc>
@@ -836,7 +836,7 @@
 		</g>
 		<g id="shape1293-201" v:mID="1293" v:groupContext="shape" transform="translate(635.4,-779.4)">
 			<title>Circle.1094</title>
-			<desc>2</desc>
+			<desc>1</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(68000):26"/>
@@ -844,10 +844,10 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
-			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
 		<g id="shape1296-204" v:mID="1296" v:groupContext="shape" transform="translate(280.8,-550.8)">
 			<title>Circle.1296</title>
-			<desc>4</desc>
+			<desc>7</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(71000):26"/>
@@ -855,7 +855,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
-			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
 		<g id="shape1298-207" v:mID="1298" v:groupContext="shape" transform="translate(280.8,-691.168)">
 			<title>Circle.1298</title>
 			<desc>3</desc>
@@ -883,7 +883,7 @@
 		</g>
 		<g id="shape1309-220" v:mID="1309" v:groupContext="shape" transform="translate(900,-810)">
 			<title>Circle.1309</title>
-			<desc>5</desc>
+			<desc>4</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(81000):26"/>
@@ -891,10 +891,10 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
-			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
 		<g id="shape1310-223" v:mID="1310" v:groupContext="shape" transform="translate(1020.16,-805.719)">
 			<title>Circle.1310</title>
-			<desc>6</desc>
+			<desc>5</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(82000):26"/>
@@ -902,10 +902,10 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
-			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
 		<g id="shape1311-226" v:mID="1311" v:groupContext="shape" transform="translate(1193.4,-728.319)">
 			<title>Circle.1311</title>
-			<desc>7</desc>
+			<desc>6</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(83000):26"/>
@@ -913,7 +913,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
-			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
+			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
 		<g id="group1326-229" transform="translate(98.7116,-667.943)" v:mID="1326" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(86000):26"/>
@@ -15728,7 +15728,7 @@
 			</v:userDefs>
 			<path d="M7.68 1037 L8.04 1037 L294.32 1037" class="st55"/>
 		</g>
-		<g id="shape1406-422" v:mID="1406" v:groupContext="shape" transform="translate(655.366,-778.433)">
+		<g id="shape1406-422" v:mID="1406" v:groupContext="shape" transform="translate(660.683,-778.433)">
 			<title>Sheet.1406</title>
 			<desc>Azure Database for MySQL</desc>
 			<v:userDefs>
@@ -15737,7 +15737,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="59.3168" cy="1023.92" width="118.64" height="26.1672"/>
 			<rect x="0" y="1010.84" width="118.634" height="26.1672" class="st13"/>
-			<text x="10.39" y="1027.52" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Dynamic pipeline</text>		</g>
+			<text x="7.75" y="1027.52" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Dynamic pipelines</text>		</g>
 		<g id="shape7-425" v:mID="7" v:groupContext="shape" transform="translate(1464.76,-891.403)">
 			<title>Sheet.7</title>
 			<v:userDefs>
@@ -19819,7 +19819,7 @@
 		</g>
 		<g id="shape1407-429" v:mID="1407" v:groupContext="shape" transform="translate(288,-419.4)">
 			<title>Circle.1407</title>
-			<desc>5</desc>
+			<desc>8</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(114000):26"/>
@@ -19827,10 +19827,10 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
-			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
 		<g id="shape1408-432" v:mID="1408" v:groupContext="shape" transform="translate(64.8,-756)">
 			<title>Circle.1408</title>
-			<desc>1</desc>
+			<desc>2</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(115000):26"/>
@@ -19838,6 +19838,6 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="12.6" cy="1024.4" width="22.05" height="18.9"/>
 			<path d="M0 1024.4 A12.6 12.6 0 0 1 25.2 1024.4 A12.6 12.6 0 1 1 0 1024.4 Z" class="st27"/>
-			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+			<text x="9.44" y="1027.7" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
 	</g>
 </svg>
