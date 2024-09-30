@@ -1,4 +1,4 @@
-This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end data warehousing solutions integrate easily with tools like Azure Machine Learning, Azure Open AI, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies, but offer an easy entry point to the fully managed SaaS data platfrom on Microsoft Fabric that can be expanded at a later stage. 
+This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skillsets. Microsoft has end-to-end data warehousing solutions integrate easily with tools like Azure Machine Learning, Azure Open AI, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies. They also offer an easy entry point to the fully managed SaaS data platform on Microsoft Fabric that you can expand at a later stage. 
 
 ## Who may benefit from this architecure
 Legacy SMB data warehouses might contain several types of data:
