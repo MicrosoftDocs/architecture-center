@@ -1845,7 +1845,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
         <updated>2024-06-10T13:15:45.000Z</updated>
-        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant enterprise chat application with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
