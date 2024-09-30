@@ -1,12 +1,18 @@
 This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skillsets. Microsoft has end-to-end data warehousing solutions integrate easily with tools like Azure Machine Learning, Azure Open AI, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies. They also offer an easy entry point to the fully managed SaaS data platform on Microsoft Fabric that you can expand at a later stage. 
 
-## Who may benefit from this architecure
-Legacy SMB data warehouses might contain several types of data:
+## Who may benefit from this architecture
+
+Ideal candidates include those that match the following description:
+
+- Data warehouse data: Legacy data warehouses with the following types of data:
 - Unstructured data, like documents and graphics
 - Semi-structured data, such as logs, CSVs, JSON, and XML files
 - Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
 
-Most of SMB customers who would benefit from implemeting this pattern are on prem SQL Server customers with DW solution under 1/2 TB, currently using a mix of tools like SSIS, SSAS and SSRS. SQL Stored procedures are also common, as well as external ETL/ELT tool and SQL replication/snapshotting and SQL Agent jobs to engest data into Datawarehousing solution. Most of data sync operations are snapshot based and are only done once a day. No realtime reporting requirements currently. 
+- Current Environment: On-premises SQL Server customers with data warehouse solutions under 0.5 TB
+- Tools in Use: A mix of SSIS, SSAS, SSRS, SQL stored procedures, external ETL/ELT tools, SQL replication/snapshotting, and SQL Agent jobs for data ingestion
+- Data Sync Operations: Primarily snapshot-based, performed once a day
+- Reporting Requirements: No real-time reporting needs currently
 
 ## Simplified Architecture
 
