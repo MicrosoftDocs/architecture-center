@@ -4,7 +4,7 @@ description: Compare big data storage technology options in Azure, including key
 author: nabilshams
 ms.author: nasiddi
 categories: azure
-ms.date: 09/17/2024
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -25,7 +25,7 @@ ms.custom:
 
 # Choose a big data storage technology in Azure
 
-This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or real-time streaming ingestion.
+This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical datastores](./analytical-data-stores.md) or real-time streaming ingestion.
 
 ## What are your options when choosing data storage in Azure?
 
@@ -33,7 +33,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 **Unified logical data lake:**
 
-[Microsoft Fabric OneLake](/fabric/onelake)
+- [Microsoft Fabric OneLake](/fabric/onelake)
 
 **File storage:**
 
@@ -49,19 +49,19 @@ There are several options for ingesting data into Azure, depending on your needs
 
 [Azure Data Explorer](/azure/data-explorer/)
 
-## Microsoft Fabric OneLake
+## Fabric OneLake
 
-[Microsoft Fabric OneLake](/fabric/onelake/onelake-overview) is a unified, logical data lake for the entire organization, designed to be the single place for all analytics data. It comes automatically with every Microsoft Fabric tenant and is built on top of Azure Data Lake Storage (ADLS) Gen2. 
+[Fabric OneLake](/fabric/onelake/onelake-overview) is a unified and logical data lake that's tailored for the entire organization. It serves as the central hub for all analytics data and is included with every Microsoft Fabric tenant. Fabric OneLake is built on the foundation of Data Lake Storage Gen2.
 
-OneLake offers the following features:
+Fabric OneLake:
 
-- Supports any file type, structured or unstructured.
-- Stores all tabular data in Delta Parquet format. 
+- Supports structured and unstructured file types.
+- Stores all tabular data in Delta Parquet format.
 - Provides a single data lake within tenant boundaries that's governed by default.
-- Supports the creation of workspaces within a tenant to enable parts of an organization to distribute ownership and access policies.
+- Supports the creation of workspaces within a tenant so that an organization can distribute ownership and access policies.
 - Supports the creation of various data items, such as Lakehouses and Warehouses, from which you can access data.
 
-OneLake serves as the common storage location for ingestion, transformation, real-time insights, and Business Intelligence visualizations. It centralizes the different Fabric services and is the storage for data items consumed by all workloads in Fabric. You can use [Microsoft Fabric decision guide: choose a data store](/fabric/get-started/decision-guide-data-store) as a reference guide to help you choose the right data store for your Microsoft Fabric workloads.
+Fabric OneLake serves as the common storage location for ingestion, transformation, real-time insights, and Business Intelligence visualizations. It centralizes various Fabric services and stores data items used by all workloads in Fabric. To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/get-started/decision-guide-data-store).
 
 ## Azure Storage blobs
 
@@ -80,9 +80,9 @@ Other features that make Azure Storage a good choice are:
 - [Encryption at rest](/azure/storage/common/storage-service-encryption).
 - [Azure role-based access control (RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Microsoft Entra users and groups.
 
-## Azure Data Lake Storage Gen2
+## Data Lake Storage Gen2
 
-[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a single, centralized repository where you can store all your data, both structured and unstructured. A data lake enables your organization to quickly and more easily store, access, and analyze a wide variety of data in a single location. With a data lake, you don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects (blobs).
+[Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is a single, centralized repository where you can store all your data, both structured and unstructured. A data lake enables your organization to quickly and more easily store, access, and analyze a wide variety of data in a single location. With a data lake, you don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects (blobs).
 
 Data Lake Storage Gen2 converges the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
@@ -90,7 +90,7 @@ Data Lake Storage Gen2 makes Azure Storage the foundation for building enterpris
 
 ## Azure Cosmos DB
 
-[Azure Cosmos DB](/azure/cosmos-db) is Microsoft's globally distributed multi-model database. Azure Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
+[Azure Cosmos DB](/azure/cosmos-db) is Microsoft's globally distributed multi-model database. Azure Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, provides multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
 
 Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It's also multi-model, natively supporting document, key-value, graph, and column-family data models.
 
@@ -106,11 +106,11 @@ Azure Cosmos DB features:
 
 Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is schemaless in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
-The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) uses the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. In most cases, you'll want to [create the HBase cluster inside a virtual network](/azure/hdinsight/hbase/apache-hbase-provision-vnet) so other HDInsight clusters and applications can directly access the tables.
+The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) uses the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. In most cases, you want to [create the HBase cluster inside a virtual network](/azure/hdinsight/hbase/apache-hbase-provision-vnet) so other HDInsight clusters and applications can directly access the tables.
 
 ## Azure Data Explorer
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex ad hoc queries on the data in seconds.
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex unplanned queries on the data in seconds.
 
 Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks.
 
@@ -118,13 +118,13 @@ Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-clu
 
 To narrow the choices, start by answering these questions:
 
-- Do you need a unified data lake with multi-cloud support, robust governance, and seamless integration with analytical tools? If yes, then choose Microsoft Fabric OneLake for simplified data management and enhanced collaboration.
+- Do you need a unified data lake with multicloud support, robust governance, and seamless integration with analytical tools? If yes, then choose Microsoft Fabric OneLake for simplified data management and enhanced collaboration.
 
-- Do you need managed, high-speed, cloud-based storage for any type of text or binary data? If yes, then select one of the file storage or analytics options.
+- Do you need managed, high-speed, cloud-based storage for any type of text or binary data? If yes, then choose one of the file storage or analytics options.
 
 - Do you need file storage that is optimized for parallel analytics workloads and high throughput/IOPS? If yes, then choose an option that is tuned to analytics workload performance.
 
-- Do you need to store unstructured or semi-structured data in a schemaless database? If so, select one of the non-relational or analytics options. Compare options for indexing and database models. Depending on the type of data you need to store, the primary database models may be the largest factor.
+- Do you need to store unstructured or semi-structured data in a schemaless database? If so, select one of the nonrelational or analytics options. Compare options for indexing and database models. Depending on the type of data you need to store, the primary database models might be the largest factor.
 
 - Can you use the service in your region? Check the regional availability for each Azure service. For more information, see [Products available by region](https://azure.microsoft.com/regions/services).
 
@@ -134,20 +134,20 @@ The following tables summarize the key differences in capabilities.
 
 ## Microsoft Fabric OneLake capabilities
 
-|Capability|Microsoft Fabric OneLake|
+|Capability|Fabric OneLake|
 | --- | --- |
-| Unified Data Lake|Provides a single, unified data lake for the entire organization, eliminating data silos.|
-| Multi-Cloud Support|Supports integration and compatibility with various cloud platforms.|
-| Data Governance| Includes features like data lineage, data protection, certification, and catalog integration.|
-| Centralized Data Hub| Acts as a centralized hub for data discovery and management.|
-| Analytical Engine Support| Compatible with multiple analytical engines, allowing diverse tools and technologies on the same data.|
-| Security and Compliance| Ensures sensitive data is secure and access is restricted to authorized users.|
-| Ease of Use| User-friendly design, automatically available with every Microsoft Fabric tenant, no setup required.|
-| Scalability| Capable of handling large volumes of data from various sources.| 
+| Unified data lake|Provides a single, unified data lake for the entire organization, which eliminates data silos.|
+| Multicloud support|Supports integration and compatibility with various cloud platforms.|
+| Data governance| Includes features like data lineage, data protection, certification, and catalog integration.|
+| Centralized data hub| Acts as a centralized hub for data discovery and management.|
+| Analytical engine support| Compatible with multiple analytical engines. This compatibility enables diverse tools and technologies to operate on the same data.|
+| Security and compliance| Ensures that sensitive data remains secure and access is restricted to authorized users only.|
+| Ease of use| Provides a user-friendly design that's automatically available with every Fabric tenant and requires no setup.|
+| Scalability| Capable of handling large volumes of data from various sources.|
 
 ### File storage capabilities
 
-| Capability | Azure Data Lake Storage Gen2 | Azure Blob Storage containers |
+| Capability | Data Lake Storage Gen2 | Azure Blob Storage containers |
 | --- | --- | --- |
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
@@ -160,7 +160,7 @@ The following tables summarize the key differences in capabilities.
 | Developer SDKs | .NET, Java, Python, Node.js | .NET, Java, Python, Node.js, C++, Ruby |
 | Analytics workload performance | Optimized performance for parallel analytics workloads, High Throughput and IOPS | Not optimized for analytics workloads |
 | Size limits | No limits on account sizes, file sizes or number of files | Specific limits documented [here](/azure/azure-subscription-service-limits#storage-limits) |
-| Geo-redundancy | Locally-redundant (locally redundant storage (LRS)), globally redundant (geo-redundant storage (GRS)), read-access globally redundant (read-access geo-redundant storage (RA-GRS)), zone-redundant (zone-redundant storage (ZRS)). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [Azure Storage redundancy](/azure/storage/common/storage-redundancy) for more information |
+| Geo-redundancy | Locally redundant (locally redundant storage (LRS)), globally redundant (geo-redundant storage (GRS)), read-access globally redundant (read-access geo-redundant storage (RA-GRS)), zone-redundant (zone-redundant storage (ZRS)). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [Azure Storage redundancy](/azure/storage/common/storage-redundancy) for more information |
 
 ### NoSQL database capabilities
 
@@ -196,8 +196,8 @@ Principal author:
 
 ## Next steps
 
-- [What is Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
-- [Introduction to end-to-end analytics using Microsoft Fabric](/training/modules/introduction-end-analytics-use-microsoft-fabric/)
+- [What is Fabric](/fabric/get-started/microsoft-fabric-overview)
+- [Introduction to end-to-end analytics using Fabric](/training/modules/introduction-end-analytics-use-microsoft-fabric/)
 - [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
 - [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
@@ -208,4 +208,3 @@ Principal author:
 - [Big data architectures](../big-data/index.yml)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-
