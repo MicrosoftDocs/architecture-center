@@ -33,7 +33,7 @@ Mainframe and midrange systems update on-premises application databases at regul
 1. A self-hosted integration runtime (SHIR) provides the environment that Data Factory uses to run and dispatch activities.
 1. Azure Data Lake Storage Gen2 and Azure Blob Storage provide a place for data staging. This step is sometimes required for transforming and merging data from multiple sources.
 1. Data preparation takes place next. Data Factory uses Azure Databricks, custom activities, and pipeline data flows to transform data quickly and effectively.
-1. Data Factory loads data into the following relational and non-relational Azure databases:
+1. Data Factory loads data into the following relational and nonrelational Azure databases:
 
    - Azure SQL
    - Azure Database for PostgreSQL
@@ -52,7 +52,7 @@ This section describes other tools that you can use during data modernization, s
 
 - [Microsoft Service for Distributed Relational Database Architecture (DRDA)][Microsoft Service for DRDA] is a component of [Host Integration Server (HIS)][What is HIS]. Microsoft Service for DRDA is an application server that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the application server to convert Db2 SQL statements and run them on SQL Server.
 
-- [SQL Server Migration Assistant (SSMA) for Db2][SQL Server Migration Assistant for Db2] automates migration from Db2 to Microsoft database services. While running on a virtual machine (VM), this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. SSMA for Db2 then migrates data from Db2 to the following services:
+- [SQL Server Migration Assistant (SSMA) for Db2][SQL Server Migration Assistant for Db2] automates migration from Db2 to Microsoft database services. While it runs on a virtual machine (VM), this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. SSMA for Db2 then migrates data from Db2 to the following services:
 
   - SQL Server 2012
   - SQL Server 2014
@@ -67,7 +67,12 @@ This section describes other tools that you can use during data modernization, s
 
 - [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract, transform, and load (ETL) workflows and extract, load, and transform [ELT][ELT] workflows.
 
-- [Azure Synapse Analytics][Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics brings together the best of SQL technologies that are used in enterprise data warehousing, Spark technologies that are used for big data, Azure Data Explorer for log and time series analytics, Azure Pipelines for data integration and ETL and ELT workflows, and deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Machine Learning.
+- [Azure Synapse Analytics][Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics brings together the best of the following technologies and services:
+   - SQL technologies, which you use in enterprise data warehousing.
+   - Spark technologies, which you use for big data.
+   - Azure Data Explorer, which you use for log and time series analytics.
+   - Azure Pipelines, which you use for data integration and ETL and ELT workflows.
+   - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Machine Learning.
 
 - [SSIS][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -93,7 +98,7 @@ This section describes other tools that you can use during data modernization, s
 
 ## Scenario details
 
-Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help keep data intact and available during the migration to Azure. To avoid affecting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
 
 Specifically, this solution covers:
 
@@ -119,7 +124,7 @@ When you use Data Factory to extract data, take steps to [tune the performance o
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-Keep these points in mind when considering this architecture.
+Keep these points in mind when you consider this architecture.
 
 ### Reliability
 
@@ -127,7 +132,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - Infrastructure management, including [availability][Types of Databases on Azure], is automated in Azure databases.
 
-- See [Pooling and failover][Pooling and failover] for information on the failover protection that Microsoft Service for DRDA provides.
+- See [Pooling and failover][Pooling and failover] for information on Microsoft Service for DRDA failover protection.
 
 - You can cluster the on-premises data gateway and IR to provide higher availability guarantees.
 
@@ -135,21 +140,19 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Make use of [network security groups](/azure/virtual-network/manage-network-security-group) to limit access of services to only what they need to function.
+- Make use of [network security groups](/azure/virtual-network/manage-network-security-group) to limit services' access to only what they need to function.
 
-- Use [private endpoints](/azure/private-link/private-endpoint-overview) for your PaaS services. Use service firewalls to supplement security for your services that are both reachable and unreachable through the Internet.
-
-- Be aware of the differences between on-premises client identities and client identities in Azure. You will need to compensate for any differences.
+- Use [private endpoints](/azure/private-link/private-endpoint-overview) for your PaaS services. Use service firewalls that are both reachable and unreachable through the internet to supplement security for your services.
 
 - Use managed identities for component-to-component data flows.
 
-- See [Planning and Architecting Solutions Using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports. Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
+- See [Planning and architecting solutions by using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports. Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- Pricing models vary between component services. Review the pricing models of the available component services to ensure the pricing models fit your budget.
+- Pricing models vary between component services. Review the pricing models of the available component services to ensure that they fit your budget.
 
 - Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
 
@@ -161,17 +164,13 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - You can [scale out the self-hosted IR][Self-hosted IR compute resource and scaling] by associating the logical instance with multiple on-premises machines in active-active mode.
 
-- You can cluster the on-premises data gateway and IR for scalability.
-
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
-
 - Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
 
-- The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
+- Choose the right [integration runtime configuration](/azure/data-factory/choose-the-right-integration-runtime-configuration) for your scenario.
 
 ## Next steps
 
