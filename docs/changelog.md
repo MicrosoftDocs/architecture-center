@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 09/23/2024
+ms.date: 09/30/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -25,11 +25,27 @@ The following new and updated articles have recently been published in the Azure
 
 ## September 2024
 
+### New articles
+
+- [Choose Azure AI image and video processing technology](./data-guide/ai-services/image-video-processing.md)
+- [Choose an Azure AI speech recognition and generation technology](./data-guide/ai-services/speech-recognition-generation.md)
+- [Choose an Azure AI targeted language processing technology](./data-guide/ai-services/targeted-language-processing.md)
+- [Choose an Azure AI services technology](./data-guide/technology-choices/ai-services.md)
+- [Generative AI ops for organizations with existing MLOps investments](./ai-ml/guide/genaiops-for-mlops.md)
+- [Basic OpenAI end-to-end chat reference architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)
+
 ### Updated articles
 
+- [Secure research environment for regulated data](./ai-ml/architecture/secure-compute-for-research.yml)  ([#6b45c309ce](https://github.com/MicrosoftDocs/architecture-center/commit/6b45c309ce))
 - [Provide custom authentication to Azure OpenAI Service through a gateway](./ai-ml/guide/azure-openai-gateway-custom-authentication.yml)  ([#ba18376e10](https://github.com/MicrosoftDocs/architecture-center/commit/ba18376e10))
 - [Modern data warehouses for small and medium-sized businesses](./example-scenario/data/small-medium-data-warehouse.yml)  ([#dca68ab84a](https://github.com/MicrosoftDocs/architecture-center/commit/dca68ab84a))
-- [Implement logging and monitoring for Azure OpenAI language models](./ai-ml/openai/architecture/log-monitor-azure-openai.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
+- [Implement logging and monitoring for Azure OpenAI language models](./ai-ml/openai/architecture/log-monitor-azure-openai.yml)  ([#699ed20b14](https://github.com/MicrosoftDocs/architecture-center/commit/699ed20b14))
+- [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#45b60c7737](https://github.com/MicrosoftDocs/architecture-center/commit/45b60c7737))
+- [Developing a RAG solution - Chunking phase](./ai-ml/guide/rag/rag-chunking-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
+- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
+- [Developing a RAG solution - Preparation phase](./ai-ml/guide/rag/rag-preparation-phase.yml)  ([#6f02c9d429](https://github.com/MicrosoftDocs/architecture-center/commit/6f02c9d429))
+- [Video ingestion and object detection on the edge and in the cloud](./ai-ml/idea/video-ingestion-object-detection-edge-cloud.yml)  ([#b7daa6c24f](https://github.com/MicrosoftDocs/architecture-center/commit/b7daa6c24f))
+- [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)  ([#1d351f3ef2](https://github.com/MicrosoftDocs/architecture-center/commit/1d351f3ef2))
 - [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
 - [Enterprise business intelligence](./example-scenario/analytics/enterprise-bi-synapse.yml)  ([#a6149d7e3e](https://github.com/MicrosoftDocs/architecture-center/commit/a6149d7e3e))
 - [Optimize inventory and forecast demand with Power Platform and Azure](./example-scenario/analytics/optimize-inventory-forecast-demand.yml)  ([#60193ea1ce](https://github.com/MicrosoftDocs/architecture-center/commit/60193ea1ce))
@@ -74,7 +90,6 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Data Factory on Azure landing zones baseline architecture](./databases/architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
 - [Design a medallion lakehouse with Azure Data Factory](./databases/architecture/azure-data-factory-on-azure-landing-zones-index.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
 - [Citizen AI with Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)  ([#7cebe56052](https://github.com/MicrosoftDocs/architecture-center/commit/7cebe56052))
-- [Types of decision APIs and Azure AI services](./data-guide/cognitive-services/decision-applied-ai.md)  ([#3f00c22db6](https://github.com/MicrosoftDocs/architecture-center/commit/3f00c22db6))
 - [Data store classification for Azure workloads](./data-guide/technology-choices/data-store-classification.md)  ([#3f00c22db6](https://github.com/MicrosoftDocs/architecture-center/commit/3f00c22db6))
 - [Azure Data Factory enterprise hardened architecture](./databases/architecture/azure-data-factory-enterprise-hardened.yml)  ([#3f00c22db6](https://github.com/MicrosoftDocs/architecture-center/commit/3f00c22db6))
 
@@ -160,7 +175,6 @@ The following new and updated articles have recently been published in the Azure
 - [Migrate a simple app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)  ([#810d06f775](https://github.com/MicrosoftDocs/architecture-center/commit/810d06f775))
 - [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#233dc039e0](https://github.com/MicrosoftDocs/architecture-center/commit/233dc039e0))
 - [Cloud design patterns](./patterns/index.md)  ([#790ad01066](https://github.com/MicrosoftDocs/architecture-center/commit/790ad01066))
-- [Choose a cognitive services technology](./data-guide/technology-choices/ai-services.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
 - [Choose a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
 - [Natural language processing technology](./data-guide/technology-choices/natural-language-processing.yml)  ([#8572512d54](https://github.com/MicrosoftDocs/architecture-center/commit/8572512d54))
 - [Group manager tasks in the Team Data Science Process](./data-science-process/group-manager-tasks.md)  ([#3cf6a613d3](https://github.com/MicrosoftDocs/architecture-center/commit/3cf6a613d3))
@@ -169,14 +183,11 @@ The following new and updated articles have recently been published in the Azure
 - [Architectural approaches for storage and data in multitenant solutions](./guide/multitenant/approaches/storage-data.yml)  ([#9080f70ced](https://github.com/MicrosoftDocs/architecture-center/commit/9080f70ced))
 - [Run a Windows VM on Azure](./reference-architectures/n-tier/windows-vm.yml)  ([#dc428f7b59](https://github.com/MicrosoftDocs/architecture-center/commit/dc428f7b59))
 - [Microsoft partner and third-party scenarios on Azure](./guide/partner-scenarios.md)  ([#5c0d9b3b86](https://github.com/MicrosoftDocs/architecture-center/commit/5c0d9b3b86))
-- [Types of vision API services](./data-guide/cognitive-services/vision-api.md)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
 - [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#07890bef5b](https://github.com/MicrosoftDocs/architecture-center/commit/07890bef5b))
-- [Types of language API services](./data-guide/cognitive-services/language-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
-- [Types of speech API services](./data-guide/cognitive-services/speech-api.md)  ([#1272a0f0cc](https://github.com/MicrosoftDocs/architecture-center/commit/1272a0f0cc))
 - [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
 - [Architectural approaches for governance and compliance in multitenant solutions](./guide/multitenant/approaches/governance-compliance.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
 - [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)  ([#4e6e8652cb](https://github.com/MicrosoftDocs/architecture-center/commit/4e6e8652cb))
