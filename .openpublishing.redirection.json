@@ -5106,6 +5106,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/infrastructure/image-modeling.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/safe-buildings.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
