@@ -145,19 +145,17 @@ Fabric automatically replicates resources across availability zones without any 
 
 ### Security
 
-Fabric has many robust security features to ensure network security, data protection, regulatory compliance, and more. You can use the expertise and resources of Microsoft to keep your data secure, patch vulnerabilities, monitor threats, and comply with regulations. Fabric also allows you to manage, control and audit your security settings, in line with your changing needs and demands.
+Fabric also allows you to manage, control and audit your security settings, in line with your changing needs and demands. Key security considerations in Fabric include: 
 
-Key security considerations in Fabric include: 
+- Authentication: Configure single sign-on (SSO) in Microsoft Entra ID for access across various devices and locations.
 
-- Authentication: Microsoft Entra Every is used for authenticated in Microsoft Fabric, providing secure, single sign-on (SSO) access across various devices and locations.
+- Role-Based Access Control (RBAC): Implement workspace-based access control to precisely manage who can access and interact with specific datasets, ensuring users only access what they are authorized to.
 
-- Role-Based Access Control (RBAC): Fabric’s workspace-based access control allows for precise management of who can access and interact with specific datasets. This ensures that users only access what they're authorized to.
+- Network Security: Utilize Fabric’s inbound and outbound network security controls when connecting to data or services within or outside your network. Key features include: [Conditional Access](https://learn.microsoft.com/en-us/fabric/security/security-conditional-access), [Private Links](https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview), [Trusted Workspace Access](https://learn.microsoft.com/en-us/fabric/security/security-trusted-workspace-access), [Managed Private Endpoints](https://learn.microsoft.com/en-us/fabric/security/security-managed-private-endpoints-overview), and more.
 
-- Network Security: Microsoft Fabric provides inbound and outbound network security controls when connecting to data or services in your own network or outside of your network. These include: [Conditional Access](https://learn.microsoft.com/en-us/fabric/security/security-conditional-access), [Private Links](https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview), [Trusted Workspace Access](https://learn.microsoft.com/en-us/fabric/security/security-trusted-workspace-access), [Managed Private Endpoints](https://learn.microsoft.com/en-us/fabric/security/security-managed-private-endpoints-overview), and more.
+- Audit Logs: Use Fabric’s detailed audit logs to track user activities and ensure accountability across the platform.
 
-- Audit Logs: Fabric provides detailed audit logs for tracking user activities and ensuring accountability across the platform.
-
-For a complete overview of Security in Microsoft Fabric, see the [documentation](https://learn.microsoft.com/en-us/fabric/security/security-overview). 
+For more information, see [Security in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/security/security-overview). 
 
 ### Cost optimization
 
