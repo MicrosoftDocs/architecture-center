@@ -141,9 +141,7 @@ The following considerations apply to this scenario.
 
 ### Reliability
 
-Fabric makes commercially reasonable efforts to support zone-redundant availability zones, where resources automatically replicate across zones, without any need for you to set up or configure.
-
-During a zone-wide outage, no action is required during zone recovery. Fabric capabilities in regions listed in [supported regions](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric#supported-regions) self-heal and rebalance automatically to take advantage of the healthy zone.
+Fabric automatically replicates resources across availability zones without any need for you to set up or configure. For example, during a zone-wide outage, no action is required to recover a zone. In [supported regions](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric#supported-regions), Fabric can self-heal and rebalance automatically to take advantage of the healthy zone.
 
 ### Security
 
