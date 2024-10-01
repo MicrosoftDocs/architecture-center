@@ -16,8 +16,8 @@ This architecture is applicable to the following scenarios:
 
 This design reflects the Lambda architecture, which separates data processing into two layers:
 
-1. A high-consistency batch processing layer for historical analysis.
-2. A low-latency, high-throughput stream processing layer for real-time analytics.
+1. A high-volume batch processing layer for processed periodically for historical analysis.
+2. A low-latency high-throughput stream processing layer for real-time analytics.
 
 The stream processing path ingests and processes data in near real-time, making it ideal for dashboards and anomaly detection. The batch processing path handles the complete dataset, ensuring data consistency and enabling complex historical analysis. This two-pronged approach offers real-time insights while maintaining a reliable record for later exploration.
 
