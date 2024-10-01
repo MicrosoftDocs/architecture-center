@@ -5,8 +5,7 @@ This solution offers a multilayered strategy for protecting virtual machines (VM
 Aligned with Microsoft's security recommendation, this solution incorporates several protection mechanisms offered by Microsoft Azure and Entra services, adhering to the principles of secure by design, secure by default, and secure operations.
 
 - **Secure by design**. The solution achieves non-persistent granular access to virtual machines by implementing the principle of least privilege and the concept of separation of duties. This ensures that authorization to the virtual machines is granted only for legitimate reasons, reducing the risk of unauthorized access.
-
-- Secure by Default: Inbound traffic to VMs is locked down, allowing connectivity only when needed. This *default security posture* minimizes exposure to many popular cyber-attacks such as brute-force and distributed denial-of-service (DDoS) attacks.
+- **Secure by Default**. Inbound traffic to virtual machines is locked down, allowing connectivity only when needed. This default security posture minimizes exposure to many popular cyber-attacks such as brute-force and distributed denial-of-service (DDoS) attacks.
 - **Secure Operations**. It's critical to implement continuous monitoring and invest in improving of security controls to meet current and future threats. Use various Azure services and features such as Microsoft Entra Privileged Identity Management (PIM), the just-in-time (JIT) VM access feature of Microsoft Defender for Cloud, Azure Bastion, Azure role-based access control (Azure RBAC) custom roles. Microsoft Entra Conditional Access and Azure Key Vault should be used as well.
 
 ## Potential use cases
@@ -86,7 +85,7 @@ This solution uses the following components:
 
   Azure Bastion is optional in this solution. Users can connect directly to Azure VMs by using the RDP protocol. If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet`. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. By using this configuration, you block connections that don't come from the user's on-premises environment.
   
-- [Azure Key Vault][Azure Key Vault] provides a secure mechanism to store the VM user's password as a *secret*. The secret RBAC can be configured so only the VM user account has the permission to retrieve it. Retrieving the password value from the key vault can be done through Azure APIs (such as using Azure CLI) or from the Azure portal, as Azure Key Vault integrates with the Azure Bastion user interface.
+- [Azure Key Vault][Azure Key Vault] provides a secure mechanism to store the VM user's password as a *secret*. The secret RBAC can be configured so only the user account accessing the VM has the permission to retrieve it. Retrieving the password value from the key vault can be done through Azure APIs (such as using Azure CLI) or from the Azure portal, as Azure Key Vault integrates with the Azure Bastion user interface at the virtual machine blade in the Azure portal.
 
   ## Contributors
 
