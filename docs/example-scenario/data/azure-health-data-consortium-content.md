@@ -235,7 +235,6 @@ Product documentation:
 ## Related resources
 
 - [Clinical insights with Microsoft Cloud for Healthcare][Clinical insights with Microsoft Cloud for Healthcare]
-- [Confidential computing on a healthcare platform][Confidential computing on a healthcare platform]
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
@@ -245,7 +244,6 @@ Product documentation:
 [Azure IoT Connector]: /azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Clinical insights with Microsoft Cloud for Healthcare]: ../mch-health/medical-data-insights.yml
-[Confidential computing on a healthcare platform]: ../confidential/healthcare-inference.yml
 [Fast Healthcare Interoperability Resources (FHIR)]: https://www.hl7.org/fhir/index.html
 [Genomics]: https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics
 [High availability of Azure Data Explorer]: /azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer

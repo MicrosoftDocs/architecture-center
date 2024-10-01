@@ -5101,8 +5101,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/confidential/healthcare-inference.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/azure-health-data-consortium",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "docs/solution-ideas/articles/sap-netweaver-on-sql-server.yml",
       "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/image-modeling.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
     },
     {

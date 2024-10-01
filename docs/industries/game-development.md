@@ -64,7 +64,6 @@ The following articles provide detailed analysis of architectures created and re
 | Architecture | Summary |
 | ------- | ------- |
 |[3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)|Use Azure Batch to run large-scale 3D video rendering jobs.|
-|[Digital image-based modeling](/azure/architecture/example-scenario/infrastructure/image-modeling)|Perform image-based modeling for your game's visual effects.|
 
 ## Related resources
 
