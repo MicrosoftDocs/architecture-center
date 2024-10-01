@@ -265,9 +265,9 @@ Azure Managed Lustre is a managed file system purpose-built for high-performance
 
 - Perform tuning on all client nodes when deploying AMLFS to increase Lustre client readahead and optimize concurrency for SAS I/O patterns. Run the following command to perform this tuning:
 
-```shell
-lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.max_rpcs_in_flight=16 osc.*.max_dirty_mb=1024 llite.*.max_read_ahead_mb=2048 osc.*.checksums=0  llite.*.max_read_ahead_per_file_mb=256
-```
+    ```shell
+    lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.max_rpcs_in_flight=16 osc.*.max_dirty_mb=1024 llite.*.max_read_ahead_mb=2048 osc.*.checksums=0  llite.*.max_read_ahead_per_file_mb=256
+    ```
 
 - Enable [accelerated networking](/azure/virtual-network/accelerated-networking-overview) on all SAS VMs.
 
