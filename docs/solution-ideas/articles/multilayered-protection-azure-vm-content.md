@@ -4,7 +4,7 @@ This solution offers a multilayered strategy for protecting virtual machines (VM
 
 Aligned with Microsoft's security recommendation, this solution incorporates several protection mechanisms offered by Microsoft Azure and Entra services, adhering to the principles of secure by design, secure by default, and secure operations.
 
-- Secure by Design: The solution achieves *non-persistent granular access* to VMs by implementing the *principle of least privilege* (PoLP) and the concept of *separation of duties*. This ensures that authorization to Azure cloud resources is granted only for legitimate reasons, reducing the risk of unauthorized access.
+- **Secure by design**. The solution achieves non-persistent granular access to virtual machines by implementing the principle of least privilege and the concept of separation of duties. This ensures that authorization to the virtual machines is granted only for legitimate reasons, reducing the risk of unauthorized access.
 
 - Secure by Default: Inbound traffic to VMs is locked down, allowing connectivity only when needed. This *default security posture* minimizes exposure to many popular cyber-attacks such as brute-force and distributed denial-of-service (DDoS) attacks.
 
