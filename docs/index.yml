@@ -263,9 +263,6 @@ conceptualContent:
         - text: HPC video rendering
           itemType: get-started
           url:  example-scenario/infrastructure/video-rendering.yml
-        - text: Image modeling
-          itemType: get-started
-          url:  example-scenario/infrastructure/image-modeling.yml
       footerLink:
         text: Introduction to HPC on Azure
         url: topics/high-performance-computing.md

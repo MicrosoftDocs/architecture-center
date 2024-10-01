@@ -1003,8 +1003,6 @@ items:
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
-      - name: Digital image modeling
-        href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Manage virtual machine compliance
@@ -4104,8 +4102,6 @@ items:
           items:
           - name: 3D video rendering
             href: example-scenario/infrastructure/video-rendering.yml
-          - name: Digital image-based modeling
-            href: example-scenario/infrastructure/image-modeling.yml
       - name: Compliance solutions
         items:
         - name: GDPR (EU)
@@ -4196,8 +4192,6 @@ items:
           href: example-scenario/infrastructure/video-rendering.yml
         - name: Analyze news feeds
           href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
-        - name: Digital image-based modeling on Azure
-          href: example-scenario/infrastructure/image-modeling.yml
         - name: Gridwich cloud media system
           href: reference-architectures/media-services/gridwich-architecture.yml
         - name: HPC media rendering
