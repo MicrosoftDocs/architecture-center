@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: ValOps for autonomous vehicle operations
+  titleSuffix: Azure Architecture Center
+  description: Use Azure services to build a validation operations (ValOps) )solution for an automated driving system.
+  author: rmats808
+  ms.author: rmatsumura
+  ms.date: 1/24/2024
+  ms.topic: conceptual
+  ms.service: azure-architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - analytics
+  - databases
+  - storage
+  - compute
+  - networking
+products:
+  - azure-batch
+  - azure-data-lake-storage
+  - azure-kubernetes-service
+  - azure-expressroute
+  - azure-arc
+  - azure-key-vault
+  - azure-virtual-network
+  - azure-firewall
+  - azure-storage-accounts
+  - github
+name: Validation operations for autonomous vehicle operations
+summary: Use Azure services to build a Validation operations (ValOps) solution for an automated driving system.
+thumbnailUrl: /azure/architecture/browse/thumbs/autonomous-vehicle-operations-valops-thumbnail.png
+content: |
+  [!include[](autonomous-vehicle-operations-valops-content.md)]
