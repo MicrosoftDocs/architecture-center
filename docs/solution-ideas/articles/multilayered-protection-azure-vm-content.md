@@ -7,8 +7,7 @@ Aligned with Microsoft's security recommendation, this solution incorporates sev
 - **Secure by design**. The solution achieves non-persistent granular access to virtual machines by implementing the principle of least privilege and the concept of separation of duties. This ensures that authorization to the virtual machines is granted only for legitimate reasons, reducing the risk of unauthorized access.
 
 - Secure by Default: Inbound traffic to VMs is locked down, allowing connectivity only when needed. This *default security posture* minimizes exposure to many popular cyber-attacks such as brute-force and distributed denial-of-service (DDoS) attacks.
-
-- Secure Operations: Continuous monitoring and improvement of security controls are implemented to meet current and future threats. This includes using various Azure services and features such as Microsoft Entra Privileged Identity Management (PIM), the just-in-time (JIT) VM access feature of Microsoft Defender for Cloud, Azure Bastion, Azure role-based access control (Azure RBAC) custom roles, and optionally, Microsoft Entra Conditional Access and Azure Key Vault.
+- **Secure Operations**. It's critical to implement continuous monitoring and invest in improving of security controls to meet current and future threats. Use various Azure services and features such as Microsoft Entra Privileged Identity Management (PIM), the just-in-time (JIT) VM access feature of Microsoft Defender for Cloud, Azure Bastion, Azure role-based access control (Azure RBAC) custom roles. Microsoft Entra Conditional Access and Azure Key Vault should be used as well.
 
 ## Potential use cases
 
