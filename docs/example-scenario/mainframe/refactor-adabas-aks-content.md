@@ -54,9 +54,9 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 ### Components  
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. Alternately (or as a backup) Azure VPN gateway can be leveraged. 
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. Alternately, or as a backup, Azure VPN gateway can be established.
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance.
 
 - [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture.
 
@@ -92,7 +92,7 @@ In the data layer, Adabas runs in the AKS cluster, which scales in and out autom
 
 It is recommended to place Natural batch pods in the same availability zone (data center) as Adabas pods. [Proximity placement groups](/azure/aks/reduce-latency-ppg) can be used to place Adabas and Natural batch pods in the same node pool within the same availability zone. 
 
-### Operations
+### Operational Excellence
 
 Refactoring supports faster cloud adoption. It also promotes adoption of DevOps and Agile working principles. You have full flexibility of development and production deployment options.
 
