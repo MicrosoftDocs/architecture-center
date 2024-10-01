@@ -173,7 +173,7 @@ Other cost optimization considerations include:
 
 ### Operational excellence
 
-Microsoft Fabric provides many different components to help you manage your data platform. Each of these experiences supports unique operations that can be viewed in the [Microsoft Fabric Capacity Metrics app](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app). The Microsoft Fabric Capacity Metrics app is designed to provide monitoring capabilities for Microsoft Fabric capacities. Use the app to monitor your capacity consumption and make informed decisions on how to use your capacity resources.
+Microsoft Fabric provides many different components to help you manage your data platform. Each of these experiences supports unique operations that can be viewed in the [Microsoft Fabric Capacity Metrics app](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app). Use the Microsoft Fabric Capacity Metrics app to monitor your capacity consumption and make informed decisions on how to use your capacity resources.
 
 ### Performance efficiency
 
