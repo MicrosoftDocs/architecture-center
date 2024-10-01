@@ -194,7 +194,7 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 Principal author:
 
 - [Amit Chandra](https://www.linkedin.com/in/amitchandra2005/) | Cloud Solution Architect
-- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect]
+- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 
 To see non-public LinkedIn profiles, sign in to LinkedIn.
 
