@@ -239,7 +239,7 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 #### Authentication
 
-MAS currently supports single sign-on (SSO) with security assertion markup language (SAML) in Microsoft Entra ID. It requires an enterprise application within Microsoft Entra ID and permissions to modify the application. For more, information, see [Microsoft Entra SSO integration with Maximo Application Suite](/entra/identity/saas-apps/maximo-application-suite-tutorial). 
+MAS currently supports single sign-on (SSO) with security assertion markup language (SAML) in Microsoft Entra ID. It requires an enterprise application within Microsoft Entra ID and permissions to modify the application. For more information, see [Microsoft Entra SSO integration with Maximo Application Suite](/entra/identity/saas-apps/maximo-application-suite-tutorial). 
 
 Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
 

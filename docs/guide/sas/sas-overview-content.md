@@ -275,14 +275,14 @@ lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.ma
 
 ##### Azure Files premium tier
 
-Azure Files premium tier is a managed service that supports the NFS 4.1 protocol. It provides a cost-efficient, elastic, performant, and POSIX-compliant file system. The IOPS and throughput of NFS shares scale with the provisioned capacity. SAS has extensively tested Azure Files in premium tier and has found that performance is more than sufficient to power SAS installations. 
+Azure Files premium tier is a managed service that supports the NFS 4.1 protocol. It provides a cost-efficient, elastic, performant, and POSIX-compliant file system. The IOPS and throughput of NFS shares scale with the provisioned capacity. SAS has extensively tested Azure Files with the premium tier and has found that performance is more than sufficient to power SAS installations. 
  
 You can use `nconnect` to improve performance. This mount option spreads IO requests over multiple channels. For more information, see [NFS performance](/azure/storage/files/nfs-performance#nconnect).
 
 When using an NFS Azure file share in Azure Files, consider the following points:
 - Adjust the provisioned capacity to meet performance requirements. The IOPS and throughput of NFS shares scale with the provisioned capacity. For more information, see [NFS performance](/azure/storage/files/files-nfs-protocol#performance).
 - Use nconnect in your mounts with a setting of `nconnect=4` for optimal performance parallel channel use.
-- Optimize read-ahead settings to be 15x of the rsize and wsize, recommended is 15MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput)
+- Optimize read-ahead settings to be 15x of the rsize and wsize. For most workloads, we recommend a rsize and wsize of 1MB, and a read-ahead setting of 15MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput)
 
 ##### Azure NetApp Files (NFS)
 
