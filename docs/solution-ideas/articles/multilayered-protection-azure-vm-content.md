@@ -2,7 +2,7 @@
 
 This solution offers a multilayered strategy for protecting virtual machines (VMs) in Azure, ensuring accessibility while minimizing the attack surface for management and administrative purposes.
 
-Aligned with Microsoft's **Secure Future Initiative** (SFI), this solution incorporates several protection mechanisms offered by Microsoft Azure and Entra services, adhering to the principles of Secure by Design, Secure by Default, and Secure Operations.
+Aligned with Microsoft's security recommendation, this solution incorporates several protection mechanisms offered by Microsoft Azure and Entra services, adhering to the principles of secure by design, secure by default, and secure operations.
 
 - Secure by Design: The solution achieves *non-persistent granular access* to VMs by implementing the *principle of least privilege* (PoLP) and the concept of *separation of duties*. This ensures that authorization to Azure cloud resources is granted only for legitimate reasons, reducing the risk of unauthorized access.
 
