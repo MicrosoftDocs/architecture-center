@@ -181,11 +181,11 @@ Microsoft Fabric provides several features to optimize performance across its co
 
 Some key performance efficiency capabilities in Fabric include:
 
-- [Bursting and smoothing](https://blog.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming?ft=All#BurstSmooth) ensures that CPU-intensive activities are completed quickly without requiring a higher SKU (and can be run at any time of the day).
+- Use [bursting and smoothing](https://blog.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming?ft=All#BurstSmooth) to ensure CPU-intensive activities are completed quickly without requiring a higher SKU. Schedule these activities at any time of the day.
 
-- [Throttling](https://learn.microsoft.com/en-us/fabric/enterprise/throttling) delays or rejects operations when a capacity experiences sustained and high demand for CPU (above the SKU limit).
+- Use [throttling](https://learn.microsoft.com/en-us/fabric/enterprise/throttling) to delay or reject operations when capacity experiences sustained high CPU demand (above the SKU limit). More details here.
 
-- [Fabric Capacity Metrics App](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app) to enable monitoring and visualization of capacity usage, provide granular insights to help optimize performance of artifacts, helping identify and optimize high-compute items. It differentiates between interactive operations (like DAX queries) and background operations (like semantic model refreshes), allowing targeted optimizations.
+- Use the [Fabric Capacity Metrics App](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app) to visualize capacity usage, optimize performance of artifacts, and optimize high-compute items. It differentiates between interactive operations (like DAX queries) and background operations (like semantic model refreshes) for targeted optimizations.
 
 ## Contributors
 
