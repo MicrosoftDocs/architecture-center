@@ -10,8 +10,6 @@ ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 products:
   - azure-storage
-  - azure-blob-storage
-  - azure-data-lake
   - azure-data-lake-storage
   - azure-cosmos-db
   - azure-data-explorer
@@ -174,7 +172,7 @@ The following tables summarize the key differences in capabilities.
 |Automatic global distribution|[Yes](/azure/cosmos-db/distribute-data-globally)|No[HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency|
 |Pricing model|Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage|Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage|
 
-## Analytical database capabilities
+### Analytical database capabilities
 
 |Capability|Azure Data Explorer|
 | --- | --- |
