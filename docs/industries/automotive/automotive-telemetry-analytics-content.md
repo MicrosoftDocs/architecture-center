@@ -18,11 +18,11 @@ The following dataflow corresponds to the preceding diagram:
 
    (**2b**) Event Grid coordinates the file upload from the device client to the lakehouse. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format that's suitable for ingestion, such as parquet or CSV.
 
-1. (**3a**) The eventstream routes the decoded JSON vehicle signals for ingestion in the eventhouse.
+1. (**3a**) The eventstream routes the decoded JSON vehicle signals for ingestion in the Eventhouse.
 
     (**3b**) A data pipeline triggers the ingestion of decoded files from the lakehouse.
 
-1. The eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to enrich the data and to expand the JSON data into a suitable row format, for example location data might be clustered to align with geospatial analytics. Every time a new row is ingested, the real-time analytics engine invokes an associated `Update()` function.
+1. The Eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to enrich the data and to expand the JSON data into a suitable row format, for example location data might be clustered to align with geospatial analytics. Every time a new row is ingested, the real-time analytics engine invokes an associated `Update()` function.
 
 1. Data engineers and data scientists use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to build analytics use cases. Users store frequently used cases as shareable user-defined functions. The engineers use built-in KQL functions such as aggregation, time-series analysis, geospatial clustering, windowing, and machine learning plugins with Copilot support.
 
@@ -34,7 +34,7 @@ The following dataflow corresponds to the preceding diagram:
 
 1. R&D engineers and data scientists can use Power BI with dynamic queries or real-time analytics dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
 
-1. Engineers can also connect more tools to Microsoft Fabric. For instance, they can connect Azure Managed Grafana to the eventhouse or create a web application that queries the eventhouse directly.
+1. Engineers can also connect more tools to Microsoft Fabric. For instance, they can connect Azure Managed Grafana to the Eventhouse or create a web application that queries the Eventhouse directly.
 
 1. Data engineers and R&D engineers use [Data Activator](/fabric/data-activator/) to create reflex items to monitor conditions and trigger actions, such as triggering Power Automate flows for business integration. For example, Data Activator can notify a Teams channel if the health of a device degrades.
 
@@ -109,9 +109,9 @@ You can also use the following Azure services to implement this architecture:
 
 1. The scheduler starts a Functions app that creates a batch job based on the file type, file size, and required decoding algorithm. The app selects a virtual machine with a suitable size from the pool and starts the job.
 
-1. Batch writes the resulting decoded file back to the lakehouse when the job finishes. This file must be suitable for direct ingestion in a format that the eventhouse supports.
+1. Batch writes the resulting decoded file back to the lakehouse when the job finishes. This file must be suitable for direct ingestion in a format that the Eventhouse supports.
 
-1. The lakehouse triggers a function that ingests the data into the eventhouse upon file write. This function creates the table and data mapping if necessary and starts the ingestion process.
+1. The lakehouse triggers a function that ingests the data into the Eventhouse upon file write. This function creates the table and data mapping if necessary and starts the ingestion process.
 
 1. The KQL database ingests the data files from the lakehouse.
 
