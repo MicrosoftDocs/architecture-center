@@ -79,7 +79,7 @@ For *Azure-specified* deployments:
 
 The following decision matrix presents supported workloads, hardware capabilities, and deployment models for several Azure hybrid services. All Azure services include the Azure portal and other Azure operations and management tools.
 
-:::image type="content" source="./images/hybrid-choices.svg" lightbox="./images/hybrid-choices." alt-text="Diagram that shows Azure hybrid services capabilities and characteristics." border="false":::
+:::image type="content" source="./images/hybrid-choices.svg" lightbox="./images/hybrid-choices.svg" alt-text="Diagram that shows Azure hybrid services capabilities and characteristics." border="false":::
 
 Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
