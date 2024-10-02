@@ -1,4 +1,4 @@
-This article demonstrates how to deploy an Azure Arc-enabled SQL managed instance in a highly available architecture across two sites. It's based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops) implementation.
+This article demonstrates how to deploy an Azure Arc-enabled SQL managed instance in a highly available architecture across two sites. It's based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps) implementation.
 
 ## Architecture
 
@@ -20,7 +20,7 @@ The following workflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services. 
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services.
 - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes). You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, you can deploy Azure Arc data services to it, services like Azure Arc-enabled SQL Managed Instance.
 - [Azure Arc data controller](/azure/azure-arc/data/create-data-controller-direct-cli). Azure Arc data controller is the orchestrator in the Azure Arc-enabled data services architecture. It manages services like provisioning, elasticity, recoverability, monitoring, and high availability.
 - [Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview). You can deploy Azure Arc-enabled [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) to host your data workloads. It supports the Azure PaaS data services on your hybrid and multicloud infrastructure.
@@ -28,7 +28,7 @@ The following workflow corresponds to the preceding diagram:
 
 ## Scenario details
 
-This scenario is based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops) implementation. ArcBox is a solution that provides an easy-to-deploy sandbox for Azure Arc. ArcBox for DataOps is a version of ArcBox that can help you experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
+This scenario is based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps) implementation. ArcBox is a solution that provides an easy-to-deploy sandbox for Azure Arc. ArcBox for DataOps is a version of ArcBox that can help you experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
 
 ### Potential use cases
 
@@ -79,12 +79,13 @@ For more best practices and guidance, see [Business continuity and disaster reco
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-- Define your targets for [recovery point objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) (RPO) and [recovery time objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) (RTO).
+
+- Define your targets for [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto).
 - Configure [point-in-time restore](/azure/azure-sql/managed-instance/point-in-time-restore) so that you can restore your databases to a previous point in time.
 - Determine how many replicas, between one and three, to deploy in the Business Critical service tier.
 - Determine the number of secondary replicas to deploy in the Business Critical service tier. When you deploy an instance in a Business Critical service tier with two or more replicas, you can configure the secondary replicas as readable. For information on changing the number, see [Configure readable secondaries](/azure/azure-arc/data/configure-managed-instance#configure-readable-secondaries).
@@ -124,7 +125,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - Review the upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone accelerator](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) for best practices on how to keep your instances up to date.
-- Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/day2) to learn about more operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
+- Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data/day2) to learn about more operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
 
 ### Performance efficiency
 
@@ -135,21 +136,23 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops), which is part of the [Azure Arc Jumpstart](https://azurearcjumpstart.io) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc. 
+You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc.
 
 To get started, go to Jumpstart ArcBox for DataOps:
 
 > [!div class="nextstepaction"]
-> [Deploy the reference implementation](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops/#deployment-options-and-automation-flow)
+> [Deploy the reference implementation](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps/#deployment-options-and-automation-flow)
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Seif Bassem](https://www.linkedin.com/in/seif-bassem) | Senior Cloud Solution Architect
 
 Other contributor:
+
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -167,13 +170,13 @@ Other contributor:
 - [Manage configurations for Azure Arc-enabled servers](azure-arc-hybrid-config.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 
-[Arc Jumpstart]: https://azurearcjumpstart.io
+[Arc Jumpstart]: https://aka.ms/AzureArcJumpstart
 [Azure Arc docs]: /azure/azure-arc
 [Azure Arc-enabled SQL Managed Instance docs]: /azure/azure-arc/data/managed-instance-overview
 [Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
 [Azure Arc]: /azure/azure-arc
-[Arc Jumpstart data services scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data
+[Arc Jumpstart data services scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
 [Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
 [Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud

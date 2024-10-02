@@ -49,7 +49,7 @@ By using Azure NetApp Files volume placement and replication capabilities across
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -147,6 +147,8 @@ Azure NetApp Files provides a [cost-effective storage solution with a pay-as-you
 
 Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) and [SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) database applications by allowing you to run storage-I/O intensive databases on smaller Azure VM SKUs within a series. You should use [Azure constrained vCPU SKUs](/azure/virtual-machines/constrained-vcpu) when you can save on compute and software license costs.
 
+**Consider using Azure NetApp Files standard storage with cool access.** Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. Using Azure [NetApp Files standard storage with cool access](/azure/azure-netapp-files/cool-access-introduction), you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier). In doing so, data blocks that haven't been accessed for some time will be kept and stored in the cool tier, resulting in cost savings. You can use the [Azure NetApp Files standard storage with cool access cost savings estimator](https://aka.ms/anfcoolaccesscalc) to interactively estimate cost savings based on changeable input parameters.
+
 **Understand performance requirements.** Use your capacity and performance requirements to determine the Azure NetApp Files service level that you need (Standard, Premium, or Ultra). Then use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to evaluate the costs for these components:
 
 - Teamcenter PLM components on Azure
@@ -155,7 +157,7 @@ Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.micro
 - Managed disks (OS boot disks)
 - Networking components
 
-**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
+**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://aka.ms/anfcalc) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
 
 **Consult an Azure Cloud Solutions Architect.** We recommend that you consult an Azure Cloud Solutions Architect (CSA) to help you with application sizing and selecting the smallest applicable VM SKU.
 

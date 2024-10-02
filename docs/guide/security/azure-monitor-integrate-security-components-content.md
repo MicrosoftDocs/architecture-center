@@ -1,16 +1,16 @@
-This article introduces a series of articles about how to integrate security services with your IT environment to protect its systems and resources, on site and in the cloud. Microsoft provides a wide range of security services to help your organization monitor and protect your systems and information. This series of articles describes how to integrate these services with your IT environment to improve its security posture. 
+This article kicks off a series focused on integrating security services into your IT environment to safeguard systems and resources, both on-premises and in the cloud. Microsoft offers a variety of security services designed to help organizations monitor and protect their systems and data. Throughout this series, you'll learn how to incorporate these services into your IT environment to enhance its overall security posture.
 
-Microsoft offers many documents and reference architectures about IT security. For example, you can learn about Zero Trust concepts, understand how Microsoft 365 Defender services work to protect your Office environment, and get an architectural design with various security services from Microsoft Azure Cloud. You can find a compilation of various security-oriented reference architectures on [Microsoft Cybersecurity Reference Architectures](/security/cybersecurity-reference-architecture/mcra).
+Microsoft provides extensive documentation and reference architectures on IT security. For instance, you can explore Zero Trust concepts, understand how Microsoft Defender XDR services protect your Office environment, and access architectural designs that utilize various security services from Microsoft Azure Cloud. You can find a compilation of various security-oriented reference architectures on [Microsoft Cybersecurity Reference Architectures](/security/cybersecurity-reference-architecture/mcra).
 
 ## Architectures in this series
 
-This article is the first in a series of five articles that present a logical and organized way to understand and integrate the security solutions that are available from Microsoft Azure public cloud and from Microsoft 365 services. This first article provides an overview of the series. It briefly explains the content of the architecture and how it was built. The other articles in this series explain each part in more detail.
+This is the first article in a series of five that provides a structured and logical approach to understanding and integrating the security solutions available through Microsoft Azure public cloud and Microsoft 365 services. In this initial article, you'll find an overview of the series, with a brief explanation of the architecture's content and how it was developed. The subsequent articles will delve into each component in greater detail.
 
-This series explores in depth the defense that you can build with these Microsoft cloud security services:
+This series takes an in-depth look at the defense strategies you can build using these Microsoft cloud security services:
 
 - Azure security services
-- Microsoft 365 Defender Services
-- Azure Monitor services
+- Microsoft Defender XDR Services
+- Azure Monitor services, including Microsoft Sentinel and Log Analytics
 
 ### Diagrams
 
@@ -18,7 +18,7 @@ This series of articles uses architectural diagrams to explain how Microsoft sec
 
 To make the architecture more comprehensive, it was designed to be layered onto the architecture of a typical hybrid IT environment, which in many companies has three layers:
 
-- On-premises services, such as a private datacenter
+- On-premises services, such as a private Data Center
 - Office 365 services that provide Microsoft Office apps
 - Azure public cloud services, including servers, storage, and identity services
 
@@ -44,13 +44,13 @@ In addition to this introductory article, this series includes the following art
 
   The third article in this series explores in detail the security services of Microsoft's cloud services. It describes how to protect Azure services, like virtual machines, storage, network, application, database, and other Azure services.
 
-- [Build the second layer of defense with Microsoft 365 Defender Security services](../../solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)
+- [Build the second layer of defense with Microsoft Defender XDR Security services](../../solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)
 
-  The fourth article in this series explores security for Microsoft 365 services, like Office 365, Teams, and OneDrive, provided by Microsoft 365 Defender services.
+  The fourth article in this series explores security for Microsoft 365 services, like Office 365, Teams, and OneDrive, provided by Microsoft Defender XDR services.
 
-- [Integrate Azure and Microsoft 365 Defender security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
+- [Integrate Azure and Microsoft Defender XDR security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
 
-  The fifth article in this series explains the relationship between Azure Security and Microsoft 365 Defender services and their integration. It describes how integration works and how you can accomplish it by using Microsoft Sentinel and Log Analytics, which are shown on the left side of the architecture diagram. This series calls these *core monitoring services*, because the services that are depicted in the graph can work with the comprehensive services of Azure and Microsoft 365.
+  The fifth article in this series explains the relationship between Azure Security and Microsoft Defender XDR services and their integration. It describes how integration works and how you can accomplish it by using Microsoft Sentinel and Log Analytics, which are shown on the left side of the architecture diagram. This series calls these *core monitoring services*, because the services that are depicted in the graph can work with the comprehensive services of Azure and Microsoft 365.
 
 
 ## Contributors
@@ -59,7 +59,7 @@ In addition to this introductory article, this series includes the following art
 
 Principal author: 
 
- * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Azure Security Engineer
 
 Other contributors: 
 
@@ -75,7 +75,7 @@ This document refers to some services, technologies, and terminologies. You can 
 - [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
 - [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
 - [Microsoft 365](https://www.microsoft.com/microsoft-365) subscription information
-- [Microsoft 365 Defender](https://www.microsoft.com/security/business/threat-protection/microsoft-365-defender)
+- [Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection/microsoft-365-defender)
 - [MITRE ATT&CK®](https://attack.mitre.org)
 - [The Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) from Lockheed Martin
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
@@ -87,7 +87,7 @@ For more details about this reference architecture, see the other articles in th
 
 - Part 2: [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml)
 - Part 3: [Build the first layer of defense with Azure Security services](../../solution-ideas/articles/azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](../../solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)
-- Part 5: [Integrate Azure and Microsoft 365 Defender security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
+- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](../../solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)
+- Part 5: [Integrate Azure and Microsoft Defender XDR security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
 
 

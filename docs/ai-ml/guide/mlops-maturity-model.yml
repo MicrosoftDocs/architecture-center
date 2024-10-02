@@ -3,10 +3,11 @@ metadata:
   title: Machine Learning operations maturity model
   description: A detailed explanation of the MLOps maturity model stages which lists defining characteristics of each stage.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 07/25/2022
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.collection: ce-skilling-ai-copilot  
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
     - developer-tools
@@ -15,6 +16,7 @@ metadata:
     - fcp
     - cse
     - e2e-hybrid
+    - arb-aiml
 name: Machine Learning operations maturity model
 azureCategories:
   - developer-tools
@@ -24,4 +26,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/data-science-initial-methodology.png
 content: |
-   [!include[](mlops-maturity-model-content.md)]
+   [!INCLUDE[](mlops-maturity-model-content.md)]

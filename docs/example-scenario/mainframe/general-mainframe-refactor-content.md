@@ -125,7 +125,7 @@ Refactoring on Azure can help organizations to:
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution:
+The following considerations, based on the [Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
 
 ### Availability
 
@@ -151,7 +151,7 @@ Azure Bastion maximizes administrative access security by minimizing open ports.
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/well-architected/) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 
 - The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
@@ -185,6 +185,6 @@ Principal author:
 - [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
 - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
-- [IBM z/OS mainframe migration with Avanade AMT](asysco-zos-migration.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](avanade-amt-zos-migration.yml)
 - [High-volume batch transaction processing](process-batch-transactions.yml)
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

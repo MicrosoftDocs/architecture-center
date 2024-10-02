@@ -67,7 +67,7 @@ In particular, video analytics based on computer vision models is used by variou
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). The framework consists of five pillars of architectural excellence:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/). The framework consists of five pillars of architectural excellence:
 
 - Reliability
 - Security
@@ -120,6 +120,6 @@ Principal author:
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Low-latency network connections for industry](../../solution-ideas/articles/low-latency-network.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
-- [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)
+- [Low-latency network connections for industry](../../networking/idea/low-latency-network.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)
+- [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)

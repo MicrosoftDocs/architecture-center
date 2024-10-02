@@ -17,7 +17,7 @@ Use Azure Pipelines to deploy AKS applications.
 
 1. A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks such as linting, building, and unit testing the code. If any of the checks fail, the PR doesn't merge. The result of a successful run of this pipeline is a successful merge of the PR.
 2. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline runs integration tests. These tests require secrets, so this pipeline gets those secrets from Azure Key Vault.
-3. The result of a successful run of this pipeline is the creation and publishing of a container image in a non-production Azure Container Repository.
+3. The result of a successful run of this pipeline is the creation and publishing of a container image in a non-production Azure Container Registry.
 4. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
 5. The CD pipeline deploys a YAML template to the staging AKS environment. The template specifies the container image from the non-production environment. The pipeline then performs acceptance tests against the staging environment to validate the deployment. A manual validation task is run if the tests succeed, requiring a person to validate the deployment and resume the pipeline. The manual validation step is optional. Some organizations will automatically deploy.
 6. If the manual intervention is resumed, the CD pipeline promotes the image from the non-production Azure Container Registry to the production registry.
@@ -34,7 +34,7 @@ Use Azure Pipelines to deploy AKS applications.
 
 ## Next steps
 
-- To learn about the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+- To learn about the AKS product roadmap, see [Azure Kubernetes Service (AKS) Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 - If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/training/paths/intro-to-kubernetes-on-azure).
 
 ## Related resources

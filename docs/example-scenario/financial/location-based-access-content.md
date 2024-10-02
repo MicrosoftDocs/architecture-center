@@ -69,7 +69,7 @@ Potential use cases aren't limited to the financial sector. Other industries may
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -121,7 +121,7 @@ Also see [Use the Conditional Access auth context to perform step-up authenticat
 Principal authors:
 
 - [Caleb Baker](https://www.linkedin.com/in/baker-caleb) | Principal Product Manager - Identity Engineering
-- [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Senior Program Manager - Cloud for Industry (FSI)
+- [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Principal Program Manager - Cloud for Industry (FSI)
 - [Paresh Nhathalal](https://www.linkedin.com/in/paresh-nhathalal-72613b2) | Senior Customer Engineering Manager - Identity Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

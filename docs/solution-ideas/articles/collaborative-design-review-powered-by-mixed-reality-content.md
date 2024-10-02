@@ -44,7 +44,4 @@ Businesses and teams across industries have to spend time and money on design re
 
 ## Related resources
 
-- [Prototyping and manufacturing for enterprises](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing)
-- [Mixed reality architecture design](/azure/architecture/guide/mixed-reality/mixed-reality-overview)
 - [Mixed reality structural elements](/windows/mixed-reality/design/core-concepts-landingpage)
-- [Design and prototype for mixed reality](/windows/mixed-reality/design/design)

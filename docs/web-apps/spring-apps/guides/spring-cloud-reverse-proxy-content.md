@@ -2,7 +2,7 @@ When you host your apps or microservices in [Azure Spring Apps](/azure/spring-cl
 
 When you deploy a common reverse proxy service like [Azure Application Gateway](/azure/application-gateway) or [Azure Front Door](/azure/frontdoor) in front of Azure Spring Apps, you should ensure your apps can be reached only through the reverse proxy. This safeguard helps to prevent malicious users from trying to bypass the WAF or circumvent throttling limits.
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable Azure DDOS Protection Standard on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable Azure DDOS Protection on any perimeter virtual network.
 
 This article describes how to enforce access restrictions so applications hosted in Azure Spring Apps are accessible only through a reverse proxy service. The recommended way to enforce these restrictions depends on how you deploy your Azure Spring Apps instance and which reverse proxy you use. The are different points to consider depending on whether you deploy within or outside of a virtual network. This article provides information about *four scenarios*.
 
@@ -171,7 +171,7 @@ Fortunately, Azure Spring Apps always adds the logical client's IP address to th
 To filter requests based on the `X-Forwarded-For` header, you can use the built-in [`XForwarded Remote Addr` route predicate](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#the-xforwarded-remote-addr-route-predicate-factory). This predicate allows you to configure a list of the IP addresses or IP ranges of your reverse proxy that are allowed as the right-most value.
 
 > [!NOTE]
-> The `XForwarded Remote Addr` route predicate requires Spring Cloud Gateway version 3.1.1 or later. Version 3.1.1 is available in the [Spring Cloud 2021.0.1](https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-2021.0-Release-Notes#202101) release train. If you can't use make a few code changes to your Spring Cloud Gateway app to [modify the way the `RemoteAddr` route predicate determines the client IP address](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html#modifying-the-way-remote-addresses-are-resolved). You can achieve the same result as you would with the `XForwarded Remote Addr` route predicate. Configure the `RemoteAddr` route predicate to use `XForwardedRemoteAddressResolver` and configure the latter with a `maxTrustedIndex` value of `1`. This approach configures your Spring Cloud Gateway app to use the right-most value of the `X-Forwarded-For` header as the logical client IP address.
+> The `XForwarded Remote Addr` route predicate requires Spring Cloud Gateway version 3.1.1 or later. If you can't use make a few code changes to your Spring Cloud Gateway app to [modify the way the `RemoteAddr` route predicate determines the client IP address](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html#modifying-the-way-remote-addresses-are-resolved). You can achieve the same result as you would with the `XForwarded Remote Addr` route predicate. Configure the `RemoteAddr` route predicate to use `XForwardedRemoteAddressResolver` and configure the latter with a `maxTrustedIndex` value of `1`. This approach configures your Spring Cloud Gateway app to use the right-most value of the `X-Forwarded-For` header as the logical client IP address.
 
 ##### Configure your app to see the correct host name and request URL
 
@@ -227,7 +227,7 @@ In this scenario, your Spring Cloud Gateway route predicate configuration might 
 (...)
 predicates:
 - XForwardedRemoteAddr="13.73.248.16/29","20.21.37.40/29","20.36.120.104/29","20.37.64.104/29", ...(and many more)...
-- Header="X-Azure-FDID", "e483e3cc-e7f3-4e0a-9eca-5f2a62bde229"
+- Header="X-Azure-FDID", "00112233-4455-6677-8899-aabbccddeeff"
 ```
 
 ## Contributors
@@ -237,7 +237,7 @@ predicates:
 Principal author:
 
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823/) | Principal Customer Engineer
- 
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

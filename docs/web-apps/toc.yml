@@ -66,10 +66,6 @@ items:
         items:
         - name: Single-page application authorization
           href: guides/security/secure-single-page-application-authorization.yml
-      - name: Monitoring guidance for web apps
-        items:
-        - name: Monitoring a web application
-          href: guides/monitoring/app-monitoring.yml
       - name: Application development guidance for web apps
         items:
         - name: Enterprise app patterns
@@ -90,23 +86,13 @@ items:
                 href: guides/reliable-web-app/java/plan-implementation.yml
               - name: Apply the pattern
                 href: guides/reliable-web-app/java/apply-pattern.yml
-    - name: Hosting applications
+    - name: Hosting Wordpress on Azure
       items:
-      - name: WordPress
-        items:
-        - name: Overview
-          href: ../guide/infrastructure/wordpress-overview.yml
-        - name: Scalable and secure WordPress
-          href: hosting-applications/wordpress.yml
-        - name: Container hosting (AKS)
-          href: ../example-scenario/infrastructure/wordpress-container.yml
-        - name: App Service hosting
-          href: ../example-scenario/infrastructure/wordpress-app-service.yml
-        - name: VM hosting
-          href: ../example-scenario/infrastructure/wordpress-iaas.yml
-      - name: Episerver
-        href: hosting-applications/digital-marketing-episerver.yml
-      - name: Sitecore
-        href: hosting-applications/digital-marketing-sitecore.yml
-      - name: Umbraco
-        href: hosting-applications/medium-umbraco-web-app.yml                
+      - name: Overview
+        href: ../guide/infrastructure/wordpress-overview.yml
+      - name: Container hosting (AKS)
+        href: ../example-scenario/infrastructure/wordpress-container.yml
+      - name: App Service hosting
+        href: ../example-scenario/infrastructure/wordpress-app-service.yml
+      - name: VM hosting
+        href: ../example-scenario/infrastructure/wordpress-iaas.yml

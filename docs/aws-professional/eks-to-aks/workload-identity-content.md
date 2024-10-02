@@ -7,7 +7,7 @@ This guide explains how AKS clusters, built-in services, and add-ons use [manage
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
-## Amazon EKS identity and access management
+## Amazon EKS Identity and Access Management
 
 Amazon EKS has two native options to call AWS services from within a Kubernetes pod: IAM roles for service accounts, and Amazon EKS service-linked roles.
 
@@ -31,7 +31,7 @@ Managed identities are essentially wrappers around service principals that simpl
 
 AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable. When you create or use an AKS virtual network, attached Azure disk, static IP address, route table, or user-assigned `kubelet` identity with resources outside the [node resource group](/azure/aks/faq#why-are-two-resource-groups-created-with-aks), the Azure CLI adds the role assignment automatically.
 
-If you use another method to create the AKS cluster, such as a Bicep template, Azure Resource Manager (ARM) template, or Terraform module, you need to use the principal ID of the cluster managed identity to do a role assignment. The AKS cluster identity must have at least [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role on the subnet within your virtual network. To define a custom role instead of using the built-in Network Contributor role, you need the following permissions:
+If you use another method to create the AKS cluster, such as a Bicep template, Azure Resource Manager template, or Terraform module, you need to use the principal ID of the cluster managed identity to do a role assignment. The AKS cluster identity must have at least [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role on the subnet within your virtual network. To define a custom role instead of using the built-in Network Contributor role, you need the following permissions:
 
 - `Microsoft.Network/virtualNetworks/subnets/join/action`
 - `Microsoft.Network/virtualNetworks/subnets/read`
@@ -44,13 +44,12 @@ AKS uses the following [user-assigned managed identities](/azure/active-director
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | AKS Cluster Name | Manages cluster resources including ingress load balancers and AKS-managed public IPs, cluster autoscaler, and Azure Disk and Azure File CSI drivers | Contributor role for node resource group | Supported
-| Kubelet | AKS Cluster Name-agentpool | Authenticates with Azure Container Registry | NA (for kubernetes v1.15+) | Supported
-| Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, contributor role for DNS zone | No
+| Control plane | AKS Cluster Name | Manages cluster resources including ingress load balancers and AKS-managed public IPs, cluster autoscaler, and Azure Disk and Azure file CSI drivers | Contributor role for node resource group | Supported
+| Kubelet | AKS Cluster Name-agentpool | Authenticates with Azure Container Registry | NA (for Kubernetes v1.15+) | Supported
+| Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, Contributor role for DNS zone | No
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances | Contributor role for node resource group | No
-| OSS project | Microsoft Entra ID-pod-identity | Allows applications to access cloud resources securely with Microsoft Entra ID | NA | See steps to grant permission at [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity#role-assignment).
 
 For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
 
@@ -58,11 +57,9 @@ For more information, see [Use a managed identity in Azure Kubernetes Service](/
 
 ## Microsoft Entra Workload ID for Kubernetes
 
-Kubernetes workloads require Microsoft Entra application credentials to access Microsoft Entra ID protected resources, such as Azure Key Vault and Microsoft Graph. A common challenge for developers is managing secrets and credentials to secure communication between different components of a solution.
+Kubernetes workloads require Microsoft Entra application credentials to access Microsoft Entra protected resources, such as Azure Key Vault and Microsoft Graph. A common challenge for developers is managing secrets and credentials to secure communication between different components of a solution.
 
 [Microsoft Entra Workload ID for Kubernetes](https://azure.github.io/azure-workload-identity/docs) eliminates the need to manage credentials to access cloud services like Azure Cosmos DB, Azure Key Vault, or Azure Blob Storage. An AKS-hosted workload application can use Microsoft Entra Workload ID to access an Azure managed service by using a Microsoft Entra security token, instead of explicit credentials like a connection string, username and password, or primary key.
-
-The [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity) open-source project introduced a way to avoid needing secrets, such as connection strings and primary keys, by using Azure managed identities. Microsoft Entra Workload ID for Kubernetes integrates with Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and it overcomes several limitations of Microsoft Entra Pod Identity.
 
 As shown in the following diagram, the Kubernetes cluster becomes a security token issuer that issues tokens to Kubernetes service accounts. You can configure these tokens to be trusted on Microsoft Entra applications. The tokens can then be exchanged for Microsoft Entra access tokens by using the [Azure Identity SDKs](/dotnet/api/overview/azure/identity-readme) or the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
@@ -85,7 +82,7 @@ For more information, automation, and documentation for Microsoft Entra Workload
 - [Minimal Microsoft Entra Workload ID federation](https://cookbook.geuer-pollmann.de/azure/workload-identity-federation)
 - [Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/introduction.html)
 - [Microsoft Entra Workload ID quick start](https://azure.github.io/azure-workload-identity/docs/quick-start.html)
-- [Use Microsoft Entra Workload ID for Kubernetes in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity/azure-ad-workload-identity)
+- [Use Microsoft Entra Workload ID for Kubernetes with a user-assigned managed identity in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity-mi/azure-ad-workload-identity-mi/)
 
 ### Example workload
 
@@ -98,7 +95,7 @@ The example workload runs a frontend and a backend service on an AKS cluster. Th
 
 #### Prerequisites
 
-1. Set up an AKS cluster with the [OIDC issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) enabled.
+1. Set up an AKS cluster with the [OIDC issuer](/azure/aks/use-oidc-issuer) enabled.
 1. Install the [mutating admission webhook](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html).
 1. Create a Kubernetes service account for the workloads.
 1. Create a Microsoft Entra application as shown in the [quickstart](https://azure.github.io/azure-workload-identity/docs/quick-start.html).
@@ -110,7 +107,7 @@ The example workload runs a frontend and a backend service on an AKS cluster. Th
 
 #### Microsoft Entra Workload ID message flow
 
-AKS applications get security tokens for their service account from the [OIDC issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster. Microsoft Entra Workload ID exchanges the security tokens with security tokens issued by Microsoft Entra ID, and the applications use the Microsoft Entra ID-issued security tokens to access Azure resources.
+AKS applications get security tokens for their service account from the [OIDC issuer](/azure/aks/use-oidc-issuer) of the AKS cluster. Microsoft Entra Workload ID exchanges the security tokens with security tokens issued by Microsoft Entra ID, and the applications use the Microsoft Entra ID-issued security tokens to access Azure resources.
 
 The following diagram shows how the frontend and backend applications acquire Microsoft Entra security tokens to use Azure platform as a service (PaaS) services.
 

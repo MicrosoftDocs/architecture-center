@@ -52,7 +52,7 @@ The recommended solution that's described in this article isn't the only way to 
 
 ## Scenario details
 
-Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified by integrating with Microsoft Azure services. This applies not only to the workloads that run on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, the benefits of integration with Azure cloud services are evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.
+Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified by integrating with Microsoft Azure services. This applies not only to the workloads that run on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, the benefits of integration with Azure services are evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.
 
 While one of the primary strengths of Azure Stack Hub is that it supports the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads can include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs that run on hyperconverged, highly resilient clusters that have administrative and programming models that are consistent with Microsoft Azure results in minimized management and maintenance overhead.
 
@@ -190,7 +190,7 @@ Planning for and implementing backup and restore of Azure Stack Hub–based work
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -387,7 +387,6 @@ Related hybrid guidance:
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
-- [Deploy a hybrid app with on-premises data that scales cross-cloud](deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md)
 
 Related architectures:
 

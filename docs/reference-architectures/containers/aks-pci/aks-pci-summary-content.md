@@ -119,11 +119,11 @@ You can use managed identities for Azure resources and pods and scope them to th
 
 Minimize standing access by using [just-in-time Microsoft Entra group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). Harden the control with [Conditional Access Policies in Microsoft Entra ID](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as multifactor authentication, restricting authentication to devices that are managed by your Microsoft Entra tenant, or blocking atypical sign-in attempts.
 
-## Secret management
+### Secret management
 
-Store secrets, certificates, keys, and passwords outside the CDE. You can use the native Kubernetes secrets or a managed key store, such as Azure Key Vault. Using a managed store will help in secret management tasks, such as key rotation and certificate renewal.
+Store secrets, certificates, keys, and passwords outside the CDE. You can use native Kubernetes secrets objects or a managed key store, such as Azure Key Vault. Using a managed store will help in secret management tasks, such as key rotation and certificate renewal.
 
-Make sure access to the key store has a balance of network and access controls. When you enable managed identities, the cluster has to authenticate itself against Key Vault to get access. Also, the connectivity to the key store must not be over the public internet. Use a private network, such as Private Link.
+Make sure access to the key store has a combination of network and access controls. When you enable managed identities, the cluster has to authenticate itself against Key Vault to get access. Also, the connectivity to the key store must not be over the public internet. Use a private network, such as Private Link.
 
 ## Operational Excellence
 
@@ -171,9 +171,9 @@ Partitioning is a key factor for performance efficiency in regulated workloads. 
 
 The shared-nothing architecture is designed to remove contention between colocated workloads. Also, this is a strategy for removing single points of failure. In a regulated environment, components are required to be isolated by logical or physical boundaries. This aligns with the shared-nothing architecture, resulting in scalability benefits. Also, it allows for targeting of relevant security controls and tighter auditing capabilities of the various components.
 
-### Lightweight frameworks
+### Lightweight workloads
 
-Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Evaluate choices that have more breath than is needed, because that increases the attack surface area and the potential for misuse or misconfiguration.
+Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Reconsider choices that have more breadth than is needed, because that increases the attack surface area and the potential for misuse or misconfiguration.
 
 ## Reliability
 
@@ -199,7 +199,7 @@ Reliability extends to all operational processes in and adjacent to the CDE. Wel
 
 Follow the fundamental guidance provided in the [Cost Optimization principles](/azure/architecture/framework/cost/overview).
 
-Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend, that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 Here's a high-level representation of the cost impact of the main resources that this architecture uses.
 
@@ -211,8 +211,10 @@ Have a clear understanding of what constitutes the price of a service. Azure tra
 
 ![Diagram that illustrates cost management in an Azure Firewall example.](.\images\firewall-cost.png)
 
-The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units and/or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. We do *not* recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
+The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. However, we do *not* recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
 
-To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you still able to scale appropriately to meet spikes in traffic.
+To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you still able to scale appropriately to meet spikes in traffic?
 
-As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
+As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Microsoft Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
+
+Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.

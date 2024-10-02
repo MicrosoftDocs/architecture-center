@@ -211,7 +211,7 @@ For smaller SAP solutions, it might be beneficial to simplify the network design
 
 *Microsoft maintains this article. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect
 - [Pankaj Meshram](https://www.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager

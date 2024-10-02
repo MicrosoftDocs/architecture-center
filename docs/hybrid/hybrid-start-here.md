@@ -2,7 +2,7 @@
 title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
 author: martinekuan
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 07/26/2022
@@ -41,12 +41,9 @@ Explore some options for [connecting an on-premises network to Azure](../referen
 
 When you adopt a hybrid model, you can choose from multiple solutions to confidently deliver hybrid workloads. See these documents for information on running Azure data services anywhere, modernizing applications anywhere, and managing your workloads anywhere:
 
-- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
-- [Run containers](hybrid-containers.yml)
 - [Use Azure file shares](azure-file-share.yml)
 - [Back up files](azure-stack-backup.yml)
-- [Manage workloads](hybrid-server-os-mgmt.yml)
 - [Monitor performance](hybrid-perf-monitoring.yml)
 - [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
 
@@ -64,6 +61,5 @@ The typical hybrid solution journey ranges from learning how to get started with
 Here are some example implementations to consider:
 
 - [Cross-cloud scaling](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Cross-platform chat](../solution-ideas/articles/cross-platform-chat.yml)
 - [Hybrid connections](../solution-ideas/articles/hybrid-connectivity.yml)
 - [Unlock legacy data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)

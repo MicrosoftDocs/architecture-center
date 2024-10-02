@@ -3,10 +3,10 @@ title: Autonomous Vehicle Operations (AVOps) design guide
 description: Get an overview about using Azure services to build an Autonomous Vehicle Operations (AVOps) solution.
 author: rmats808
 ms.author: rmatsumura
-ms.date: 03/13/2023
+ms.date: 06/07/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-machine-learning
 categories: 
@@ -32,7 +32,7 @@ The development of an autonomous driving (AD) solution typically involves three 
 
 AVOps implements an autonomous driving development lifecycle:  
 
-:::image type="content" source="media\autonomous-driving-development-lifecycle.png" alt-text="Diagram that shows the autonomous driving development lifecycle." lightbox="media\autonomous-driving-development-lifecycle.png" border="false":::
+:::image type="content" source="media/autonomous-driving-development-lifecycle.png" alt-text="Diagram that shows the autonomous driving development lifecycle." lightbox="media/autonomous-driving-development-lifecycle.png" border="false":::
 
 ## Elements of the architecture
 
@@ -43,7 +43,7 @@ The AVOps architecture consists of the following four main elements. The next ar
 - **ValOps.** Validate autonomous driving functions based on trained models and raw ground truth data.
 - **AVOps centralized functions.** Provide overarching functionalities like metadata search, data catalog, overall orchestration, platform governance, and standardized infrastructure templates.
 
-:::image type="content" source="media\avops-design.png" alt-text="Diagram that shows the elements of an AVOps architecture." lightbox="media\avops-design.png" border="false":::
+:::image type="content" source="media/avops-design.png" alt-text="Diagram that shows the elements of an AVOps architecture." lightbox="media/avops-design.png" border="false":::
 
 ## Challenges
 
@@ -82,7 +82,7 @@ To learn more about the information here, technology recommendations, and partne
 
 You might also find the following resources useful: 
 
-- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/cse/2023/03/02/large-scale-data-operations-platform-for-autonomous-vehicles/)
+- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/ise/large-scale-data-operations-platform-for-autonomous-vehicles/)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
 ## Related resources

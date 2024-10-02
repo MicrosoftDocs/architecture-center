@@ -4,10 +4,13 @@ metadata:
   description: Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.
   author: nfmoore
   ms.author: nimoore
-  ms.date: 03/16/2023
+  ms.date: 05/28/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
+  ms.custom:
+    - arb-data
+    - arb-aiml
 azureCategories:
   - ai-machine-learning
 products:
@@ -20,4 +23,4 @@ name: Employee retention with Databricks and Kubernetes
 summary: Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.
 thumbnailUrl: /azure/architecture/browse/thumbs/employee-retention-databricks-kubernetes.png
 content: |
-  [!include[](employee-retention-databricks-kubernetes-content.md)]
+  [!INCLUDE[](employee-retention-databricks-kubernetes-content.md)]

@@ -7,7 +7,7 @@ This architecture uses [API Management](https://azure.microsoft.com/products/api
 - Store the token in an `HttpOnly` cookie.
 - Proxy all API calls that require authorization.
 
-Because the backend handles token acquisition, no other code or library, like [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application. When you use this design, no tokens are stored in the browser session or local storage. Encrypting and storing the access token in an `HttpOnly` cookie helps to protect it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks. Scoping it to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
+Because the backend handles token acquisition, no other code or library, like [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application. When you use this design, no tokens are stored in the browser session or local storage. Encrypting and storing the access token in an `HttpOnly` cookie helps to protect it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks. Scoping it to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ The architecture described here increases the security of applications by moving
 
 In this architecture, API Management policies handle the acquisition of the access token and the encryption and decryption of the cookie. *Policies* are collections of statements that are run sequentially on the request or response of an API and that are made up of XML elements and C# scripts.
 
-Storing the cooking in an `HttpOnly` cookie helps to protect the token from XSS attacks and to ensure that it can't be accessed by JavaScript. Scoping the cookie to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This design enables the access token to be automatically added to the `Authorization` header of all API calls made from the single-page application by the backend.
+Storing the cookie in an `HttpOnly` cookie helps to protect the token from XSS attacks and to ensure that it can't be accessed by JavaScript. Scoping the cookie to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This design enables the access token to be automatically added to the `Authorization` header of all API calls made from the single-page application by the backend.
 
 Because this architecture uses a `SameSite=Strict` cookie, the domain of the API Management gateway must be the same as the domain of the single-page application. That's because a cookie is sent to the API Management gateway only when the API request comes from a site in the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
 

@@ -177,7 +177,7 @@ For more information, see [Use Azure Firewall in front of an internal Standard L
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Some of the following considerations are general recommendations that aren't specific to using Azure Firewall to improve the protection of an AKS cluster. We believe they're essential requirements of this solution. This applies to the security, performance, availability and reliability, storage, service mesh, and monitoring considerations.
 
@@ -216,7 +216,7 @@ The availability and reliability considerations here aren't specific to multiten
 
 #### Intra-region resiliency
 
-- During deployment, you can configure [Azure Firewall](/azure/firewall/overview) to span multiple availability zones for increased availability. For uptime percentages, see the Azure Firewall [SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1). You can also associate Azure Firewall with a specific zone for the sake of proximity, although this configuration affects the SLA. There's no extra cost for a firewall deployed in an availability zone. However, there are added costs for inbound and outbound data transfers that are associated with availability zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth).
+- During deployment, you can configure [Azure Firewall](/azure/firewall/overview) to span multiple availability zones for increased availability. For uptime percentages, see the Azure Firewall [SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1). You can also associate Azure Firewall with a specific zone for the sake of proximity, although this configuration affects the SLA. There's no extra cost for a firewall deployed in an availability zone, including inter-availability zone data transfers.
 - Consider deploying the node pools of your AKS cluster across all [availability zones](/azure/aks/availability-zones) in a region. Use an [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) in front of the node pools. This topology provides better resiliency if there's a single datacenter outage. The cluster nodes are distributed across multiple datacenters, in three separate availability zones within a region.
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [pod topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how pods are spread across your AKS cluster among failure domains like regions, availability zones, and nodes.
@@ -299,7 +299,7 @@ Principal author:
 
 ## Next steps
 
-Review the recommendations and best practices for AKS in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework):
+Review the recommendations and best practices for AKS in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/):
 
 - [Reliability](/azure/architecture/framework/services/compute/azure-kubernetes-service/reliability)
 - [Security](/azure/architecture/framework/services/compute/azure-kubernetes-service/security)
@@ -318,7 +318,7 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 
 ### Azure Kubernetes Service
 
-- [Create a private Azure Kubernetes Service cluster](https://github.com/paolosalvatori/private-aks-cluster)
+- [Create a private Azure Kubernetes Service cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Best practices for multitenancy and cluster isolation](/azure/aks/operator-best-practices-cluster-isolation)
 - [Best practices for basic scheduler features in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)
@@ -345,4 +345,3 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
-- [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)

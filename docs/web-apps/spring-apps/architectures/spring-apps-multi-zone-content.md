@@ -169,7 +169,7 @@ You can use a [blue-green](/azure/architecture/web-apps/spring-apps/guides/blue-
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The following considerations provide guidance for implementing the pillars of the Azure Well-Architected Framework in the context of this architecture.
 
@@ -195,7 +195,7 @@ Implement the following suggestions to create a more secure application:
 
 - Use mature identity and access management (IAM) solutions, like Microsoft Entra ID. Enable multifactor authentication. For more information, see:
   - [Add sign-in with a Microsoft Entra account to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
-  - [Add sign-in with Azure Active Directory B2C (Azure AD B2C) to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc).
+  - [Add sign-in with Azure Active Directory (Azure AD) B2C to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc).
 
 - Avoid using passwords when possible. For more information, see:
   - [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection)

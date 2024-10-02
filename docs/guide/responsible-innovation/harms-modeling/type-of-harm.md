@@ -7,8 +7,8 @@ ms.reviewer: tozimmergren
 categories: azure
 ms.date: 01/19/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-devops
 ms.category:

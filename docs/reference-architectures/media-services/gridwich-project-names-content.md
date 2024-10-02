@@ -70,13 +70,11 @@ Gridwich project names and namespaces have the following characteristics.
 
 `Gridwich.Core.{Technology}` namespaces don't include the purpose of the technology, mainly to avoid *bike-shedding*. `Core` namespaces are internal projects that `SagaParticipants` or `Host.FunctionApp` projects use, and don't need well-defined names.
 
-For example, the `Gridwich.Core.MediaServicesV3` project could have been named `Gridwich.Core.Media.MediaServicesV3` or `Gridwich.Core.Processing.MediaServicesV3`. The `Gridwich.Core.EventGrid` project could be `Gridwich.Core.Events.EventGrid` or `Gridwich.Core.Messaging.EventGrid`. However, the `Core` project names already suggest that the technologies contribute to the core system.
+For example, the `Gridwich.Core.EventGrid` project could be `Gridwich.Core.Events.EventGrid` or `Gridwich.Core.Messaging.EventGrid`. However, the `Core` project names already suggest that the technologies contribute to the core system.
 
 A technology could also contribute to the system in more than one way. For example, you could call Redis a data store or a messaging transport, depending on usage, but it always uses the same SDK wrapper.
 
 The `Gridwich.SagaParticipants.Encode.CloudPort` and `Gridwich.SagaParticipants.Encode.Flip` technology namespaces use components from the `Gridwich.SagaParticipants.Encode` namespace. This code isn't under `Gridwich.Core.Encode` namespace because it's specific to encoding tasks, and doesn't cross into other capabilities like publication.
-
-On the other hand, both `Gridwich.SagaParticipants.Encode.MediaServicesV3` and `Gridwich.SagaParticipants.Publish.MediaServicesV3` use components from `Gridwich.Core.MediaServicesV3`, so those namespaces include the purpose of the technology.
 
 ### SagaParticipants packages
 
@@ -105,5 +103,4 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Gridwich clean monolith architecture](gridwich-clean-monolith.yml)
-- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
 - [Gridwich saga orchestration](gridwich-saga-orchestration.yml)

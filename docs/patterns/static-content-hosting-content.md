@@ -24,7 +24,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - When some content is located in a storage account and other content is in a hosted compute instance, it becomes more challenging to deploy and update the application. You might have to perform separate deployments, and version the application and content to manage it more easily&mdash;especially when the static content includes script files or UI components. However, if only static resources have to be updated, they can simply be uploaded to the storage account without needing to redeploy the application package.
 
-- Storage services might not support the use of custom domain names. In this case it's necessary to specify the full URL of the resources in links because they'll be in a different domain from the dynamically-generated content containing the links.
+- Storage services might not support the use of custom domain names. In this case it's necessary to specify the full URL of the resources in links because they'll be in a different domain from the dynamically generated content containing the links.
 
 - The storage containers must be configured for public read access, but it's vital to ensure that they aren't configured for public write access to prevent users being able to upload content.
 
@@ -50,56 +50,28 @@ This pattern might not be useful in the following situations:
 
 - The volume of static content is very small. The overhead of retrieving this content from separate storage can outweigh the cost benefit of separating it out from the compute resource.
 
+## Workload design
+
+An architect should evaluate how the Static Content Hosting pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | Dynamic application hosts are usually more expensive than static hosts because dynamic hosts can run your coded business logic. Using an application platform to deliver static content isn't cost-effective.<br/><br/> - [CO:09 Flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs)<br/> - [CO:10 Data costs](/azure/well-architected/cost-optimization/optimize-data-costs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Offloading responsibility to an externalized host helps mitigate congestion and enables you to use your application platform only to deliver business logic.<br/><br/> - [PE:07 Code an infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 Azure Storage supports serving static content directly from a storage container. Files are served through anonymous access requests. By default, files have a URL in a subdomain of `core.windows.net`, such as `https://contoso.z4.web.core.windows.net/image.png`. You can configure a custom domain name, and use Azure CDN to access the files over HTTPS. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 
 ![Delivering static parts of an application directly from a storage service](./_images/static-content-hosting-pattern.png)
 
-Static website hosting makes the files available for anonymous access. If you need to control who can access the files, you can store files in Azure blob storage and then generate [shared access signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to limit access.
+Static website hosting makes the files available for anonymous access. If you need to control who can access the files, you can store files in Azure blob storage and then generate time and scope limited [shared access signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to restrict access. Access signatures generated should use Microsoft Entra [user delegated tokens](/azure/storage/common/storage-sas-overview#user-delegation-sas) and be short lived.
 
 The links in the pages delivered to the client must specify the full URL of the resource. If the resource is protected with a valet key, such as a shared access signature, this signature must be included in the URL.
 
-A sample application that demonstrates using external storage for static resources is available on [GitHub][sample-app]. This sample uses configuration files to specify the storage account and container that holds the static content.
-
-```xml
-<Setting name="StaticContent.StorageConnectionString"
-         value="UseDevelopmentStorage=true" />
-<Setting name="StaticContent.Container" value="static-content" />
-```
-
-The `Settings` class in the file Settings.cs of the StaticContentHosting.Web project contains methods to extract these values and build a string value containing the cloud storage account container URL.
-
-```csharp
-public class Settings
-{
-  public static string StaticContentStorageConnectionString {
-    get
-    {
-      return RoleEnvironment.GetConfigurationSettingValue(
-                              "StaticContent.StorageConnectionString");
-    }
-  }
-
-  public static string StaticContentContainer
-  {
-    get
-    {
-      return RoleEnvironment.GetConfigurationSettingValue("StaticContent.Container");
-    }
-  }
-
-  public static string StaticContentBaseUrl
-  {
-    get
-    {
-        var blobServiceClient = new BlobServiceClient(StaticContentStorageConnectionString);
-
-        return string.Format("{0}/{1}", blobServiceClient.Uri.ToString().TrimEnd('/'), StaticContentContainer.TrimStart('/'));
-    }
-  }
-}
-```
+A sample application that demonstrates using external storage for static resources is available on [GitHub][sample-app]. This sample uses a configuration file to specify the storage account URL and container that holds the public, static content.
 
 The `StaticContentUrlHtmlHelper` class in the file StaticContentUrlHtmlHelper.cs exposes a method named `StaticContentUrl` that generates a URL containing the path to the cloud storage account if the URL passed to it starts with the ASP.NET root path character (~).
 
@@ -138,4 +110,4 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 - [Valet Key pattern](./valet-key.yml). If the target resources aren't supposed to be available to anonymous users, use this pattern to restrict direct access.
 - [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml). A reference architecture that uses static website hosting with Azure Functions to implement a serverless web app.
 
-[sample-app]: https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting
+[sample-app]: https://github.com/mspnp/cloud-design-patterns/tree/main/static-content-hosting

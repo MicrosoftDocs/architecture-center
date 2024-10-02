@@ -1,6 +1,8 @@
-The articles in this series describe an approach for designing a disaster recovery (DR) strategy for an Azure-based data platform. 
+The articles in this series describe an approach for designing a disaster recovery (DR) strategy for an Azure-based data platform.
 
-Every organization's data needs are different, but the guidance provided will act as starting point, enabling the design of a DR strategy that fits your business requirements.  
+Every organization's data needs are different, but the guidance provided will act as starting point, enabling the design of a DR strategy that fits your business requirements.
+
+<!-- docutune:disable -->
 
 ## Key terms glossary
 
@@ -19,7 +21,7 @@ DR|Disaster Recovery|
 DNS|Domain Name System| 
 DSC|Desired State Configuration| 
 E2E|End to End| 
-GRS|Geo-redundant storage |[Storage Redundancy](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region)
+GRS|Geo-redundant storage |[Storage Redundancy](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region)
 HA|High Availability| 
 HSM|Hardware Security Module|[Azure Managed HSM documentation](/azure/key-vault/managed-hsm/)
 IAC|Infrastructure As Code| 
@@ -48,7 +50,9 @@ UDR|User Defined Route|[Azure virtual network traffic routing](/azure/virtual-ne
 VM|Virtual Machine|[Virtual Machines (VMs) for Linux and Windows](https://azure.microsoft.com/en-us/services/virtual-machines/)
 VNET|Azure – Virtual Network|[Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 WRT|Work Recovery Time|The maximum acceptable amount of time that is required to update the platform data/processing from the recovery point to the current period, enabling the business/solutions to use the service as BAU.
-ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy)
+ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region)
+
+<!-- docutune:enable -->
 
 ## Contributors
 
@@ -73,7 +77,6 @@ Other contributors:
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/business-resilience)
 - [Mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview)
 - [Well-Architected Framework](/azure/architecture/framework/resiliency/)
-
 
 ## Related resources
 

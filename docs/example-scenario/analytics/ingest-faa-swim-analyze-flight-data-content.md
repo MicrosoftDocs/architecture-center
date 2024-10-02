@@ -39,7 +39,7 @@ For ingestion, the solution uses Apache Kafka in a single VM. This design config
 - [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
 - [Apache Kafka for Confluent Cloud](/azure/partner-solutions/apache-kafka-confluent-cloud/overview)
 
-Both are managed services and offer multiple benefits, like SLAs, simplified configuration, and scalability. They're also more expensive.
+Both are managed services and offer multiple benefits, like service-level agreements (SLAs), simplified configuration, and scalability. They're also more expensive.
 
 As an alternative to Power BI, you can use Tableau or another visualization option.
 
@@ -71,7 +71,7 @@ SWIM provides a single point of access for aviation data. Data producers publish
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -129,7 +129,7 @@ In this solution, two GitHub Actions workflows automate the infrastructure that 
 
 - **chef-kafka.yml** performs static code analysis by using ***Cookstyle***, performs unit tests by using ***Chef InSpec***, and performs integration tests by using ***Test Kitchen***. These tests ensure the cookbook is properly tested before it's uploaded to Chef Server.
 
-   :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::  
+   :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::
 
 ## Deploy this scenario
 
@@ -143,7 +143,7 @@ The deployment process is divided into three parts: infrastructure, configuratio
   - Subnets
   - A resource group
   - Kafka server
-  - An Azure storage account  
+  - An Azure Storage account
   - Azure Data Lake Storage on top of the storage account
   - Network security groups
   - An Azure Databricks workspace created with virtual network injection, which keeps the traffic internal
@@ -175,4 +175,3 @@ Other contributor:
 
 - [All aerospace architectures](/azure/architecture/browse/?terms=aircraft)
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

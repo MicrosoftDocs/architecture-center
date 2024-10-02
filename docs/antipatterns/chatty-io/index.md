@@ -2,11 +2,12 @@
 title: Chatty I/O antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn about the cumulative effect of many I/O requests, which can have a significant impact on performance and responsiveness.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
+ms.service: azure-architecture-center
+ms.subservice: best-practice
 categories:
  - databases
 products:
@@ -262,7 +263,7 @@ This graph shows the results of load testing. Median response time is measured i
 
 ### Monitor the application
 
-You can use an application performance monitoring (APM) package to capture and analyze the key metrics that might identify chatty I/O. Which metrics are important will depend on the I/O workload. For this example, the interesting I/O requests were the database queries.
+You can use an application performance management (APM) package to capture and analyze the key metrics that might identify chatty I/O. Which metrics are important will depend on the I/O workload. For this example, the interesting I/O requests were the database queries.
 
 The following image shows results generated using [New Relic APM][new-relic]. The average database response time peaked at approximately 5.6 seconds per request during the maximum workload. The system was able to support an average of 410 requests per minute throughout the test.
 
@@ -313,7 +314,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 
 [api-design]: ../../best-practices/api-design.md
 [caching-guidance]: ../../best-practices/caching.yml
-[code-sample]: https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
+[code-sample]: https://github.com/mspnp/performance-optimization/tree/main/ChattyIO
 [data-consistency-guidance]: /previous-versions/msp-n-p/dn589800(v=pandp.10)
 [ef]: /ef
 [extraneous-fetching]: ../extraneous-fetching/index.md

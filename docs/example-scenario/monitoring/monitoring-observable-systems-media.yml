@@ -5,9 +5,9 @@ metadata:
   description: Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data. 
   author: ThePedestrian
   ms.author: unathaniel
-  ms.date: 03/02/2023
+  ms.date: 06/07/2024
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 azureCategories:
   - media

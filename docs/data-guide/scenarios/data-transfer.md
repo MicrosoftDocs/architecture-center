@@ -1,14 +1,14 @@
 ---
 title: Choose a data transfer technology
 description: Learn about data transfer options like the Azure Import/Export service, Azure Data Box, Azure Data Factory, and command-line and graphical interface tools.
-author: martinekuan
-ms.author: architectures
+author: josearper
+ms.author: joaria
 ms.reviewer: tozimmergren
 categories: azure
 ms.date: 10/04/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
   - analytics
   - compute
@@ -18,9 +18,7 @@ products:
   - azure-cloud-services
   - azure-sql-database
   - azure-storage
-ms.custom:
-  - guide
-  - engagement-fy23
+ms.custom: arb-data
 ---
 
 <!-- cSpell:ignore SATA HDDs SDDs Distcp WASB Sqoop -->
@@ -43,7 +41,7 @@ There are two main options for physically transporting data to Azure:
 
 ### The Azure Import/Export service
 
-The [Azure Import/Export service](/azure/import-export/storage-import-export-service) lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA HDDs or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have the drives shipped to you for loading on-premises.
+The [Azure Import/Export service](/azure/import-export/storage-import-export-service) lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA hard disk drives (HDDs) or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have the drives shipped to you for loading on-premises.
 
 ### Azure Data Box
 
@@ -73,7 +71,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 Consider the following options if you're only transferring a few files or data objects and don't need to automate the process.
 
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) is a cross-platform tool that lets you manage the contents of your Azure Storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob Storage to manage blobs and folders, and upload and download blobs between your local file system and Blob Storage, or between storage accounts.
 
 - **Azure portal**. Both Blob Storage and Data Lake Storage provide a web-based interface for exploring files and uploading new files. This option is a good one if you don't want to install tools or issue commands to quickly explore your files, or if you want to upload a handful of new ones.
 
@@ -83,7 +81,7 @@ Consider the following options if you're only transferring a few files or data o
 
 - [Pipelines and activities](/azure/data-factory/concepts-pipelines-activities) in Data Factory and Azure Synapse Analytics can be used to construct end-to-end data-driven workflows for your data movement and data processing scenarios. Additionally, the [Azure Data Factory integration runtime](/azure/data-factory/concepts-integration-runtime) is used to provide data integration capabilities across different network environments.
 
-- [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) transfers data to and from Azure, but it's a virtual appliance, not a hard drive. Virtual machines residing in your on-premises network write data to Data Box Gateway by using the NFS and SMB protocols. The device then transfers your data to Azure.
+- [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) transfers data to and from Azure, but it's a virtual appliance, not a hard drive. Virtual machines residing in your on-premises network write data to Data Box Gateway by using the Network File System (NFS) and SMB protocols. The device then transfers your data to Azure.
 
 ## Key selection criteria
 
@@ -118,7 +116,7 @@ The following tables summarize the key differences in capabilities.
 
 **Hadoop/HDInsight:**
 
-| Capability | Distcp | Sqoop | Hadoop CLI |
+| Capability | DistCp | Sqoop | Hadoop CLI |
 | --- | --- | --- | --- |
 | Optimized for big data | Yes | Yes |  Yes |
 | Copy to relational database |  No | Yes | No |
@@ -130,7 +128,7 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-| Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
+| Capability | The Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse Analytics |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
@@ -162,7 +160,7 @@ The following tables summarize the key differences in capabilities.
 | Custom data transformations | No | No | Yes | No |
 | Pricing model | Free | Free | Pay per usage | Pay per unit |
 
-\* Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.
+*Azure portal in this case represents the web-based exploration tools for Blob Storage and Data Lake Storage.*
 
 ## Contributors
 

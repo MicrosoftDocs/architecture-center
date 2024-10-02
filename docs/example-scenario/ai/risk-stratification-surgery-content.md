@@ -11,7 +11,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 1. Data source
 
    Patient-centric data is sourced from [Fast Healthcare Interoperability Resources (FHIR®)](https://www.hl7.org/fhir/index.html), real-time Electronic Health Records (EHR), on-premises, and third-party data sources.
-   
+
    > [!IMPORTANT]
    > When you use patient-centric data, you need to be sure that personally identifiable data is carefully handled and is excluded from the training and test dataset.
 
@@ -20,32 +20,32 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
    - Patient demographic information
    - Information about existing comorbidities and their severity
    - Information about the patient's current medication plan
-   - Patient pre-operative blood test information 
-   - Other critical health-related information  
+   - Patient pre-operative blood test information
+   - Other critical health-related information
 
 1. Data preparation
 
    *Data preparation* is the process of gathering, combining, structuring, and organizing data so that you can use it to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
 
-   - [Azure Data Factory](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing. 
-   - [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables the rapid exchange of data. 
-   - [Azure Synapse Analytics](/azure/synapse-analytics/index) processes data and triggers Azure Machine Learning experiments. 
+   - [Azure Data Factory](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing.
+   - [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables the rapid exchange of data.
+   - [Azure Synapse Analytics](/azure/synapse-analytics/index) processes data and triggers Azure Machine Learning experiments.
    - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
 
 1. AI / machine learning - training
 
    *Model training* is the process of using a machine learning algorithm to learn patterns based on data and picking a model that's capable of predicting the surgery risk of previously unseen patients.
- 
-   [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) trains the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle. The lifecycle includes training models, deploying models, and managing Machine Learning Operations (MLOps). 
- 
+
+   [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) trains the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle. The lifecycle includes training models, deploying models, and managing Machine Learning Operations (MLOps).
+
    For this use case, you need to use models that can be explained. With the help of the interactive interpretability dashboard in [Responsible AI Toolbox](https://responsibleaitoolbox.ai), stakeholders can clearly understand the factors that play a key role in determining a particular risk for all patients. Responsible AI Toolbox also provides interpretation at the patient level. This interpretation helps clinicians to customize treatments for specific treatments.
 
-   Responsible AI Toolbox provides an interactive dashboard for detecting bias towards protected classes like gender and race in models. Because the training data is based on patients who have undergone the surgery, stakeholders need to understand any inherent biases in the data that the model has picked up. When the chosen model is biased towards protected classes, you can use Responsible AI Toolbox for model mitigation.
+   Responsible AI Toolbox provides an interactive dashboard for detecting bias toward protected classes like gender and race in models. Because the training data is based on patients who have undergone the surgery, stakeholders need to understand any inherent biases in the data that the model has picked up. When the chosen model is biased toward protected classes, you can use Responsible AI Toolbox for model mitigation.
 
 1. AI / machine learning - inference
 
    *Machine learning inference* is the process of feeding previously unseen data points into a machine learning model to calculate an output, like a numerical score. In this case, it's used to determine risks to patients.
- 
+
    The model registry is built into Azure Machine Learning. It's used to store and version models in the Azure cloud. The model registry makes it easy to organize and keep track of trained models.
 
    A trained machine learning model needs to be deployed so that new data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints).
@@ -62,7 +62,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
 ### Components
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Azure Data Explorer for log and time-series analytics, pipelines for data integration and ETL/ELT, and deep integration with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Azure Data Explorer for log and time-series analytics, pipelines for data integration and extract, transform, load (ETL)/extract, load, transform (ELT), and deep integration with other Azure services, like Power BI, Azure Cosmos DB, and Azure Machine Learning.
 - [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables the rapid exchange of data through FHIR APIs. It's backed by a managed platform as a service (PaaS) offering in the cloud. This API makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud.
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud-based data integration service that automates data movement and transformation.
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache for training the machine learning model.
@@ -85,17 +85,19 @@ Advancements in data collection technologies and developments in data standards 
 
 Risk stratification can use either a binary or a multiclass classification model. In the case of binary classification, outcomes are a surgery resulting in either a successful or a risky outcome. In the multiclass classification approach, there's an opportunity to further refine outcomes as successful, moderate, or severe/death. For either approach, you need patient-centric data, including demographic information, comorbidities, current medication plan, blood test reports, and anything else that can shed light on a patient's overall health.
 
-Developing a transparent system that provides the ability to explain potential surgical outcomes to a patient must be the primary goal of models like this one. Transparency and interpretability help clinicians to have meaningful conversations with patients and lets them establish a treatment plan before surgery takes place. 
+Developing a transparent system that provides the ability to explain potential surgical outcomes to a patient must be the primary goal of models like this one. Transparency and interpretability help clinicians to have meaningful conversations with patients and lets them establish a treatment plan before surgery takes place.
 
 It's also important to acknowledge that patients come from diverse backgrounds. You need to create a model that's free from bias toward protected classes like gender and race. An unbiased model provides unbiased medical support for patients, irrespective of their backgrounds, to maximize their chances of a positive surgical outcome. The architecture in this article uses interpretability and bias-detection tools from the Responsible AI Toolbox.
 
-One of the largest healthcare organizations in the world, National Health Services in the United Kingdom, uses the Azure machine learning platform and the Responsible AI Toolbox for risk stratification models for orthopedic surgery. For more information, see [Two NHS surgeons are using Azure AI to spot patients facing increased risks during surgery](https://news.microsoft.com/en-gb/features/two-nhs-surgeons-are-using-azure-ai-to-spot-patients-facing-increased-risks-during-surgery).
+One of the largest healthcare organizations in the world, National Health Services in the United Kingdom, uses the Azure Machine Learning platform and the Responsible AI Toolbox for risk stratification models for orthopedic surgery. For more information, see [Two NHS surgeons are using Azure AI to spot patients facing increased risks during surgery](https://news.microsoft.com/en-gb/features/two-nhs-surgeons-are-using-azure-ai-to-spot-patients-facing-increased-risks-during-surgery).
 
 Or watch this short video:
 
 <br>
 
 > [!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
+
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
 
 ### Potential use cases
 
@@ -107,7 +109,7 @@ This solution is ideal for the healthcare industry. Risk stratification models a
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this architecture were chosen for scalability and availability, with the aim of managing and controlling costs.
 
@@ -149,7 +151,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
 
-- [MLOps v2](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx?xsdata=MDV8MDF8fDVhM2M4ZDViNjM1ODRhMWFjMDM3MDhkYTFiZjIwYTkzfDcyZjk4OGJmODZmMTQxYWY5MWFiMmQ3Y2QwMTFkYjQ3fDB8MHw2Mzc4NTMwMjM1OTk4MzcyMzl8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TXpCak9HUmlOR1JsTkRSbE5EVmlaR0UwWVRNMFpqQmpPV1kzT1RWa1pqaEFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=czFMOUVSa3J1WjBSbm5haDc3NStGUVVGYTZyZE93MmF4d3U1cW92NlB2QT0%3D&ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cchulahlou%40microsoft.com&OR=Teams-HL&CT=1649705566054&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjAzMjEwMDEwNyJ9) 
+- [MLOps v2](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
 Responsible AI as a part of Azure Machine Learning is based on the six pillars of AI development and use: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For an overview and implementation details, see [What is responsible AI?](/azure/machine-learning/concept-responsible-ml).
@@ -192,8 +194,6 @@ Other contributor:
 
 ## Related resources
 
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
-- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

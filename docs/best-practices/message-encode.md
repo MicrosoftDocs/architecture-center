@@ -1,10 +1,11 @@
 ---
 title: Message encoding considerations
 description: Review how to choose an encoding format for asynchronous messaging. Explore encoding format considerations and choices for encoding formats.
-author: PageWriter-MSFT
+ms.author: robbag
+author: RobBagby
 ms.date: 03/16/2020
-ms.topic: conceptual
-ms.service: architecture-center
+ms.topic: best-practice
+ms.service: azure-architecture-center
 ms.subservice: best-practice
 categories:
   - networking
@@ -30,7 +31,7 @@ A message exchange between a producer and a consumer needs:
 - An encoding format to represent the payload.
 - Serialization libraries to read and write the encoded payload.
 
-The producer of the message defines the message shape based on the business logic and the information it wants to send to the consumer(s). To structure the shape, divide the information into discrete or related subjects (fields). Decide the characteristics of the values for those fields. Consider: What is the most efficient datatype? Will the payload always have certain fields? Will the payload have a single record or a repeated set of values?
+The producer of the message defines the message shape based on the business logic and the information it wants to send to the consumers. To structure the shape, divide the information into discrete or related subjects (fields). Decide the characteristics of the values for those fields. Consider: What is the most efficient data type? Will the payload always have certain fields? Will the payload have a single record or a repeated set of values?
 
 Then, choose an encoding format depending on your need. Certain factors include the ability to create highly structured data if you need it, time taken to encode and transfer the message, and the ability to parse the payload. Depending on the encoding format, choose a serialization library that is well supported.
 
@@ -60,9 +61,9 @@ If there is sensitive data in the messages, consider whether those messages shou
 
 ### Encoding size
 
-Message size impacts network I/O performance across the wire. Binary formats are more compact than text-based formats. Binary formats require serialization/deserialization libraries.  The payload can't be read unless it's decoded.
+Message size impacts network I/O performance across the wire. Binary formats are more compact than text-based formats. Binary formats require serialization/deserialization libraries. The payload can't be read unless it's decoded.
 
-Use a binary format if you want to reduce wire footprint and transfer messages faster. This category of format is recommended in scenarios where storage or network bandwidth is a concern. Options for binary formats include Apache Avro, Google Protocol Buffers (protobuf), MessagePack, and Concise Binary Object Representation (CBOR). The pros and cons of those formats are described in [this section](#choices-for-encoding-formats).
+Use a binary format if you want to reduce wire footprint and transfer messages faster. This category of format is recommended in scenarios where storage or network bandwidth is a concern. Options for binary formats include Apache Avro, Google Protocol Buffers (protobuf), MessagePack, and Concise Binary Object Representation (CBOR). The pros and cons of those formats are described in [This section](#choices-for-encoding-formats).
 
 The disadvantage is that the payload isn't human readable. Most binary formats use complex systems that can be costly to maintain. Also, they need specialized libraries to decode, which may not be supported if you want to retrieve archival data.
 
@@ -86,7 +87,7 @@ Before choosing an approach, decide what is more important: the transfer data si
 
 Storing the schema along with the payload yields a larger encoding size and is preferred for intermittent messages. Choose this approach if transferring smaller chunks of bytes is crucial or you expect a sequence of records. The cost of maintaining an external schema store can be high.
 
-However, if on-demand decoding of the payload is more important than size, including the schema with the payload or the tagged metadata approach guarantees decoding afterwards. There might be a significant increase in message size and may impact the cost of storage.
+However, if on-demand decoding of the payload is more important than size, including the schema with the payload or the tagged metadata approach guarantees decoding afterwards. There might be a significant increase in message size and may affect the cost of storage.
 
 ### Schema versioning
 
@@ -130,7 +131,7 @@ For example:
 
 - Azure Stream Analytics has native support for JSON, CSV, and Avro. When using Stream Analytics, it makes sense to choose one of these formats if possible. If not, you can provide a [custom deserializer](/azure/stream-analytics/custom-deserializer), but this adds some additional complexity to your solution.
 
-- JSON is a standard interchange format for HTTP REST APIs. If your application receives JSON payloads from clients and then places these onto a message queue for asynchronous processing, it might make sense to use JSON for the messaging, rather than re-encode into a different format.
+- JSON is a standard interchange format for HTTP REST APIs. If your application receives JSON payloads from clients and then places these onto a message queue for asynchronous processing, it might make sense to use JSON for the messaging, rather than reencode into a different format.
 
 These are just two examples of interoperability considerations. In general, standardized formats will be more interoperable than custom formats. In text-based options, JSON is one of the most interoperable.
 
@@ -150,7 +151,7 @@ Being a text-based format, it isn't efficient over the wire and not an ideal cho
 
 Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.
 
-There are other variations of JSON such as [BSON](http://bsonspec.org), which is a binary encoding aligned to work with MongoDB.
+There are other variations of JSON such as [binary JSON (BSON)](http://bsonspec.org), which is a binary encoding aligned to work with MongoDB.
 
 ### Comma-Separated Values (CSV)
 
@@ -160,7 +161,7 @@ The disadvantage is lack of standardization. There are many ways of expressing s
 
 ### Protocol Buffers (protobuf)
 
-[Google Protocol Buffers](https://github.com/google/protobuf) (or protobuf) is a serialization format that uses strongly typed definition files to define schemas in key/value pairs. These definition files are then compiled to language-specific classes that are used for serializing and deserializing messages.
+[Protocol Buffers](https://protobuf.dev) (or protobuf) is a serialization format that uses strongly typed definition files to define schemas in key/value pairs. These definition files are then compiled to language-specific classes that are used for serializing and deserializing messages.
 
 The message contains a compressed binary small payload, which results is faster transfer. The downside is the payload isn't human readable. Also, because the schema is external, it's not recommended for cases where you have to retrieve archived data.
 
@@ -176,7 +177,7 @@ The preamble can hold the header or a schema identifier. Because of the smaller 
 
 ### CBOR
 
-[Concise Binary Object Representation](http://cbor.io) (CBOR) (Specification) is a binary format that offers small encoding size. The advantage of CBOR over MessagePack is that its compliant with IETF in RFC7049.
+[Concise Binary Object Representation (CBOR)](http://cbor.io) (Specification) is a binary format that offers small encoding size. The advantage of CBOR over MessagePack is that its compliant with IETF in RFC7049.
 
 ## Next steps
 

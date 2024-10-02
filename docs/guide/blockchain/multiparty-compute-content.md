@@ -26,9 +26,9 @@ Another possibility for multiparty computing uses hardware protected memory on t
 
 Since secure enclaves have the capability to remotely attest themselves to other enclaves, you can design a multiple organization network where the system runs from the enclaves. This approach is called the *trusted execution environment*.
 
-Azure offers a managed service called Azure Confidential Ledger that lets you run a blockchain model on secure enclaves.
+[Azure Confidential Ledger](/azure/confidential-ledger/overview) is an Azure-managed service that allows you to run blockchain models on secure enclaves.
 
-Finally, you could choose a centralized system, which offers immutability and trustworthiness. Azure SQL Database ledger offers the trust needed for multiparty computing in a relational database. You may not need a decentralized consensus, but just the immutability aspect of the ledger.
+Finally, you could choose a centralized system, which offers immutability and trustworthiness. [Azure SQL Database ledger](/azure/azure-sql/database/ledger-overview) offers the trust needed for multiparty computing in a relational database. You might not need a decentralized consensus, but just the immutability aspect of the ledger.
 
 ## Blockchain network models
 
@@ -61,7 +61,7 @@ There are deployment templates available on Azure for most blockchain ledgers fo
 
 ### Blockchain on Kubernetes
 
-Since most blockchain ledgers support deploying into Docker containers, you can use Kubernetes to manage the containers. Azure has a managed Kubernetes offering called Azure Kubernetes Service (AKS) that you can use to deploy and configure your blockchain nodes.
+Since most blockchain ledgers support deploying into containers, you can use Kubernetes to manage the containers. Azure Kubernetes Service (AKS) is an Azure-managed Kubernetes service that you can use to deploy and configure your blockchain nodes.
 
 AKS implementations come with a managed service for the virtual machines that power the AKS cluster. However, your organization must still manage your AKS clusters and any networking or storage options in your architecture.
 
@@ -71,13 +71,13 @@ There are deployment templates available on Azure for most blockchain ledgers fo
 
 Azure supports third-party services that run ledger software on Azure. The service provider manages the infrastructure. They handle maintenance and updates. High availability and consortium management are included in the service.
 
-ConsenSys offers Quorum on Azure. Quorum is an open-source protocol layer that supports Ethereum-based applications.
+[ConsenSys](https://consensys.io/) offers Quorum on Azure. Quorum is an open-source protocol layer that supports Ethereum-based applications.
 
 There may be other offerings in the future.
 
 ### Azure Confidential Ledger
 
-Azure Confidential Ledger is a managed service built on the Confidential Consortium Framework. It implements a permissioned blockchain network of nodes within Azure confidential computing. Confidential Ledger builds on existing encryption.
+[Azure Confidential Ledger](/azure/confidential-ledger/overview) is a managed service built on the Confidential Consortium Framework. It implements a permissioned blockchain network of nodes within Azure confidential computing. Confidential Ledger builds on existing encryption.
 
 - Existing encryption
   - **Data at rest.** Encrypt inactive data when stored in blob storage or a database.
@@ -91,12 +91,10 @@ Data stored in Confidential Ledger is immutable and tamper-proof in the append-o
 
 ### Azure SQL Database ledger
 
-Azure SQL Database ledger allows participants to verify the data integrity of centrally-housed data without the network consensus of a blockchain network. For some centralized solutions trust is important, but decentralized infrastructure isn't necessary. This approach avoids complexity and performance implications of such an infrastructure.
+[Azure SQL Database ledger](/azure/azure-sql/database/ledger-overview) allows participants to verify the data integrity of centrally-housed data without the network consensus of a blockchain network. For some centralized solutions trust is important, but decentralized infrastructure isn't necessary. This approach avoids complexity and performance implications of such an infrastructure.
 
 ![Diagram shows database ledger architecture.](images/database-ledger.png)
 
-> [!NOTE]
-> Azure SQL Database ledger is currently in public preview.
 
 Ledger provides tamper-evidence capabilities for your database. These capabilities allow you to cryptographically attest that your data hasn't been tampered with.
 
@@ -151,9 +149,7 @@ This diagram summarizes options for the multiparty computing with Azure services
 
 ## Related resources
 
-- [Supply chain track and trace](../../solution-ideas/articles/supply-chain-track-and-trace.yml)
 - [Blockchain workflow application](https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
-- [Multi-cloud blockchain DLT](../../example-scenario/blockchain/multi-cloud-blockchain.yml)
 - [Decentralized trust between banks](../../example-scenario/apps/decentralized-trust.yml)
 - [Authenticating Azure confidential ledger nodes](/azure/confidential-ledger/authenticate-ledger-nodes)
 - [Azure Confidential Ledger Architecture](/azure/confidential-ledger/architecture)

@@ -5,14 +5,13 @@ author: martinekuan
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-app-service
-  - vs-app-center
-  - xamarin
   - azure-communication-services
   - azure-notification-hubs
+  - dotnet-maui
 categories:
   - mobile
   - developer-tools
@@ -24,11 +23,9 @@ The Azure platform can help you quickly build Android, iOS, and Windows apps tha
 
 These are just some of the services that Azure provides to help you with mobile development and back-end infrastructure:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service). Build and host mobile back ends and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps). Build and host mobile back ends and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
 
-- [Visual Studio App Center](https://azure.microsoft.com/services/app-center). Build, test, release, and monitor your mobile apps.
-
-- [Xamarin](https://azure.microsoft.com/features/xamarin). Quickly create cloud-powered mobile apps.
+- [.NET MAUI](/dotnet/maui/). Build mobile applications using a .NET cross-platform UI toolkit that targets the mobile and desktop form factors on Android, iOS, macOS, Windows, and Tizen.
 
 - [Azure Communication Services](https://azure.microsoft.com/services/communication-services). Use a set of rich communication APIs, video APIs, and SMS APIs to deploy your applications across any device, on any platform.
 
@@ -72,12 +69,6 @@ The following sections provide links to reference architectures in some key cate
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
 - [Scalable web and mobile applications using Azure Database for PostgreSQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)
 
-### Scenario-specific apps
-
-- [Custom mobile workforce app](../../solution-ideas/articles/custom-mobile-workforce-app.yml)
-- [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
-- [Task-based consumer mobile app](../../solution-ideas/articles/task-based-consumer-mobile-app.yml)
-
 ## Stay current with mobile development on Azure
 
 Get the latest updates on [Azure mobile development services and features](https://azure.microsoft.com/updates/?category=mobile).
@@ -89,9 +80,4 @@ Get the latest updates on [Azure mobile development services and features](https
 Following are a few more architectures to consider:
 
 - [Add a mobile front end to a legacy app](../../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)
-- [Azure Communication Services architecture design](../../guide/mobile/azure-communication-services-architecture.yml)
 - [Analyze and understand mobile application use](/azure/developer/mobile-apps/analytics?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-
-#### AWS professionals
-
-- [AWS to Azure services comparison - Mobile services](../../aws-professional/services.md#mobile-services)

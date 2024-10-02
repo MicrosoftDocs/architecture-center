@@ -26,7 +26,7 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
 1. A new EFT starts with an HTTP request received by the Channel Holder service.
 
-    The service provides synchronous responses to requesters using a _publish-subscribe_ pattern through an Azure Cache for Redis and waits for a backend response.
+    The service provides synchronous responses to requesters using a *publish-subscribe* pattern through an Azure Cache for Redis and waits for a backend response.
 
 1. The solution validates this initial request using the EFT Pilot Password service.
 
@@ -38,13 +38,11 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
 1. One of these services is the EFT Processor, where the solution effectuates the actual transaction, carrying out credit and debit operations.
 
-    The CSE team used [KEDA](https://keda.sh). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
+    The CSE team used [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
 
-    KEDA is only supported on AKS.
+    KEDA is supported on AKS and Azure Container Apps
 
-1. Next is load testing. It contains a custom solution based on JMeter, Azure Container Instances (ACI), and Terraform.
-
-    The team used the Load Testing block of the solution to provision the necessary integration with Azure Pipelines. This solution generated enough load on the backend services to validate that the autoscaling mechanisms were in place, creating thousands of EFT transactions per second.
+1. Next is load testing. Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications without the needing of deploying additional resources. Azure Load Testing also comes with the capability to take an existing Apache JMeter script and use it to run a load test.
 
 1. Finally, monitoring was responsible for integrating load testing results, infrastructure, and application metrics.
 
@@ -62,7 +60,7 @@ The solution involves three major capabilities:
 
 #### Horizontal Pod Autoscaler for Channel Holder
 
-In this solution, the team used a Kubernetes/OpenShift HPA mechanism. HPA automatically scales the number of pods based on a selected metric. Doing so provides an efficient _scale in and out_ mechanism for containers. Given the CPU-bound nature of the Channel Holder REST API, the team opted for using HPA with CPU so that the service replicas can grow as new EFTs occur.
+In this solution, the team used a Kubernetes/OpenShift HPA mechanism. HPA automatically scales the number of pods based on a selected metric. Doing so provides an efficient *scale in and out* mechanism for containers. Given the CPU-bound nature of the Channel Holder REST API, the team opted for using HPA with CPU so that the service replicas can grow as new EFTs occur.
 
 This component runs a service called Channel Holder on Azure Red Hat OpenShift. It carries out pod autoscaling tests on this service. The component had to achieve the following capabilities:
 
@@ -242,7 +240,7 @@ They used a formula to calculate the estimated ideal number of partitions per to
 
 #### CI/CD velocity
 
-For DevOps, Contoso Bank already used an on-premises instance of GitLab for their code repository. They created continuous integration/continuous delivery (CI/CD) pipelines for development environments using a custom Jenkins-based solution that they developed internally. It wasn't providing an optimal DevOps experience.
+For DevOps, Contoso Bank already used an on-premises instance of GitLab for their code repository. They created continuous integration and continuous delivery (CI/CD) pipelines for development environments using a custom Jenkins-based solution that they developed internally. It wasn't providing an optimal DevOps experience.
 
 To deliver an improved DevOps experience for Contoso, the CSE team used Azure Pipelines on [Azure DevOps](https://azure.microsoft.com/services/devops/) to manage the application lifecycle. The CI pipeline runs on every pull request, while the CD pipeline runs on every successful merge to the main branch. Each member of the development team was responsible for managing the repositories and pipelines for each service. They also  had to enforce code reviews, unit tests and linting (static source code analysis).
 
@@ -294,15 +292,13 @@ At the end of the project, the CSE team shared the following insights:
 
   * A product's end-of-life might require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
+  * At the creation of this article, the CSE team created a load testing solution integrating ACI and JMeter in an Azure DevOps Pipeline. [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) has since been made available as a fully managed load-testing service without the need of deploying additional compute resources.
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
   * The Kafka protocol with Schema Registry was not supported by Event Hubs Scaler in KEDA.
 
 ## Next steps
-
-* [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform): GitHub project site
 
 * [Autoscaling Java applications with KEDA using Azure Event Hubs](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
 
@@ -313,5 +309,3 @@ At the end of the project, the CSE team shared the following insights:
 For more detail about the processes and technologies used to create this solution, see the following articles:
 
 * [Patterns and implementations](patterns-and-implementations.yml)
-
-* [JMeter implementation reference for load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml)

@@ -3,14 +3,16 @@ title: Overview of the journey for designing SaaS and multitenant solutions
 description: This guide provides an overview of the journey to create a SaaS solution. It also provides links to resources used in many SaaS, multitenant, Azure Marketplace, and ISV & Startup scenarios.
 author: landonpierce 
 ms.author: landonpierce 
-ms.date: 04/21/2023
+ms.date: 06/05/2024 
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
   - management-and-governance
+ms.custom:
+  - arb-saas
 ---
 # Plan your journey to SaaS
 
@@ -50,7 +52,7 @@ After deciding what your business requirements are, the next stage in the journe
 - [Multitenant architecture considerations](../multitenant/considerations/overview.yml) - Key considerations of designing a multitenant architecture.
 - [Tenancy models](../multitenant/considerations/tenancy-models.yml) - An overview of the main tenancy models and the differences between them.
 - [Independent software vendor (ISV) considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone) - A comparison between different landing zones for ISV scenarios.
-- [Azure Well-Architected Framework](/azure/architecture/framework) - A set of guiding tenets that help improve the quality of a workload.
+- [Azure Well-Architected Framework](/azure/well-architected/) - A set of guiding tenets that help improve the quality of a workload.
 - [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) -  An assessment of your SaaS product examining your knowledge of multitenant architecture.
 - [Technical guide to building SaaS apps on Azure](https://azure.microsoft.com/resources/technical-guide-to-building-saas-apps-on-azure/) - An E-book created for ISVs, technical professionals, and technical business leaders that outlines several SaaS technical decision points.
 - [Architecture for startups](../startups/startup-architecture.md) - An introduction to architectures for startups.
@@ -60,7 +62,7 @@ After deciding what your business requirements are, the next stage in the journe
 You need to implement the architecture you developed. In this stage, you develop and iterate on your SaaS product using the normal software development life cycle (SDLC) process. It's important in this stage to not put too many requirements into development at one time. Try to figure out which features would provide the most benefit to your customers and start from a minimum viable product (MVP). More iterations with smaller improvements over time are easier to implement than larger chunks of development. For more information, see these articles:
 
 - [SaaS starter web app architecture](../../example-scenario/apps/saas-starter-web-app.yml) - A reference architecture for a starter web-based SaaS application.
-- [Azure SaaS Dev Kit](https://github.com/azure/azure-saas) - A modular implementation of the architecture designed to provide a starting place for building a SaaS application in .NET.
+- [Azure SaaS Development Kit (ASDK)](https://github.com/azure/azure-saas) - A modular implementation of the architecture designed to provide a starting place for building a SaaS application in .NET.
 
 ## 4. Operate your SaaS solution
 
@@ -71,7 +73,7 @@ In this stage, you begin to onboard customers to your new SaaS product and begin
 
 ## 5. Market and sell your SaaS solution
 
-In this stage, you begin to market and sell your SaaS solution. Explore all avenues available to you for selling your application, including but not limited to the [Azure Marketplace](https://azure.microsoft.com/partners/marketplace). This stage is also when you begin to take the KPI data from the previous stage and use it to analyze how your customers are interacting with your SaaS application. Then use that analysis to make business and technical decisions about the roadmap of your SaaS product. For more information, see these articles:
+In this stage, you begin to market and sell your SaaS solution. Explore all avenues available to you for selling your application, including but not limited to the [Azure Marketplace](https://azure.microsoft.com/partners/marketplace) and [Microsoft AppSource](https://appsource.microsoft.com/). This stage is also when you begin to take the KPI data from the previous stage and use it to analyze how your customers are interacting with your SaaS application. Then use that analysis to make business and technical decisions about the roadmap of your SaaS product. For more information, see these articles:
 
 - [Mastering the marketplace](https://aka.ms/MasteringTheMarketplace) - Learning content that is focused around how to best take advantage of the Azure Marketplace.
 - [Marketplace publishing guide](/azure/marketplace/publisher-guide-by-offer-type) -  The offer types that are available in the Azure Marketplace and the key differences between them.
@@ -106,10 +108,10 @@ Other contributors:
 
 - [Foundations of SaaS](/training/saas/saas-foundations/)
 - [Technical guide to building SaaS apps on Azure](https://azure.microsoft.com/resources/technical-guide-to-building-saas-apps-on-azure/)
-- [Azure Well-Architected Framework](/azure/architecture/framework)
+- [Azure Well-Architected Framework](/azure/well-architected/)
 
 ## Related resources
 
-- [SaaS and multitenant solution architecture](overview.md)
+- [SaaS and multitenant solution architecture](../saas-multitenant-solution-architecture/index.md)
 - [Understand how startups architect their solutions](../startups/startup-architecture.md)
 - [Learn about multitenant architectural approaches](../multitenant/overview.md)

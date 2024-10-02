@@ -3,16 +3,17 @@ title: Scale out an Azure IoT solution to support millions of devices
 description: Learn how to scale out your Azure IoT solution to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 04/18/2023
+ms.date: 06/17/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-iot
 products:
-  - azure-iot
-  - azure-iot-hub
-  - azure-iot-sdk
+- azure-iot
+- azure-iot-hub
+- azure-iot-sdk
 categories:
-  - iot
+- iot
 ---
 
 # Scale out an Azure IoT solution to support millions of devices
@@ -41,7 +42,7 @@ Knowing how many devices you need to deploy helps you pick the right Azure IoT s
 
 **Determine data exchange requirements**. A solution that sends basic telemetry such as “current temperature” once an hour is different from a solution that uploads 1-MB sample files once every 10 minutes. A solution that's primarily a one-way, device-to-cloud (D2C) solution differs from a bidirectional device-to-cloud and cloud-to-device (C2D) solution. Also, product scalability limitations treat message size and message quantity as different dimensions.
 
-**Document expected high availability and disaster recovery requirements**. Like any production solution, full IoT solution designs include availability (uptime) requirements. The design needs to cover both planned maintenance scenarios and unplanned downtime, including user error, environmental factors, and solution bugs. Such designs also need to have a documented [recovery point objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) (RPO) and [recovery time objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) (RTO) if a disaster occurs, such as a permanent region loss or malicious actors. Because this article focuses on device scale, there’s only a limited amount of information around high availability and disaster recovery (HA/DR) concerns.
+**Document expected high availability and disaster recovery requirements**. Like any production solution, full IoT solution designs include availability (uptime) requirements. The design needs to cover both planned maintenance scenarios and unplanned downtime, including user error, environmental factors, and solution bugs. Such designs also need to have a documented [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) if a disaster occurs, such as a permanent region loss or malicious actors. Because this article focuses on device scale, there’s only a limited amount of information around high availability and disaster recovery (HA/DR) concerns.
 
 **Decide on a customer tenancy model (if appropriate)**. In a multitenant independent software vendor (ISV) solution, where the solution developer is creating a solution for external customers, the design must take into account how customer data is segregated and managed. The Azure Architecture Center discusses [general patterns](/azure/architecture/guide/multitenant/considerations/tenancy-models) and has [IoT-specific guidance](/azure/architecture/guide/multitenant/approaches/iot).
 
@@ -65,9 +66,8 @@ The requirements for your solution drive the necessary size and number of IoT hu
 
 ### Azure IoT Hub device provisioning service
 
-Azure IoT Hub device provisioning service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. It has a soft limit of [10 DPS instances per Azure subscription](/azure/iot-dps/about-iot-dps#quotas-and-limits). You can adjust this limit on a case-by-case basis, but changing the limit might require [proper governance procedures](https://aka.ms/FTAISVGovernance) to be in place for Azure subscription management.
-
-It also has a [soft limit of 1 million registrations](/azure/iot-dps/about-iot-dps#quotas-and-limits) per service instance. Although it's a [soft limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits), the service has a hard limit as well. Just like with the IoT hub device limits, you should design with the soft limit as your design limit to avoid issues in the future.
+Azure IoT Hub device provisioning service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. It has a hard limit of [10 DPS instances per Azure subscription](/azure/iot-dps/about-iot-dps#quotas-and-limits).
+The service also has a [hard limit of 1 million registrations](/azure/iot-dps/about-iot-dps#quotas-and-limits) per service instance. You must address service limits in your workload design limit to avoid issues in the future.
 
 Service instances for DPS are geographically located, but [by default](/azure/iot-dps/virtual-network-support#private-endpoint-limitations) have a global public endpoint. Specific instances are accessed through [ID scope](/azure/iot-dps/concepts-service#id-scope). Because instances are in specific regions and each instance has its own ID scope, you should be able to configure ID scope for your devices.
 
@@ -171,7 +171,7 @@ There are other possible variations not detailed in this article. For example, y
 
 **General DPS provisioning guidance:** You should apply the following recommendations to your DPS deployment, which represent general best practices for this Azure service:
 
-**Don’t provision on every boot**. The [DPS documentation](/azure/iot-dps/how-to-reprovision#send-a-provisioning-request-from-the-device) specifies that the best practice isn't to provision on every boot. For small use cases, it might seem reasonable to provision at every boot because that’s the shortest path to deployment. However, when scaling up to millions of devices, DPS can become a bottleneck, given [its default limit of 1,000 registrations per minute per service instance](/azure/iot-dps/about-iot-dps#quotas-and-limits). Even device registration status lookup can be a bottleneck because it has a limit of 5 to 10 polling operations per second. Provisioning results are usually a static mapping to an IoT hub. So, unless your requirements include automated reprovisioning requests, it's best to perform them only on demand. Although this limit is a soft limit and you can increase it on a case-by-case basis by [contacting Microsoft Support](/azure/iot-dps/about-iot-dps#quotas-and-limits), the increase isn't to the scale of tens of thousands of devices per minute. So scaling out to multiple DPS instances might be the only way to support such scenarios, depending on the anticipated traffic.
+**Don't provision on every boot**. The [DPS documentation](/azure/iot-dps/how-to-reprovision#send-a-provisioning-request-from-the-device) specifies that the best practice isn't to provision on every boot. For small use cases, it might seem reasonable to provision at every boot because that’s the shortest path to deployment. However, when scaling up to millions of devices, DPS can become a bottleneck, given [its hard limit of 1,000 registrations per minute per service instance](/azure/iot-dps/about-iot-dps#quotas-and-limits). Even device registration status lookup can be a bottleneck because it has a limit of 5 to 10 polling operations per second. Provisioning results are usually a static mapping to an IoT hub. So, unless your requirements include automated reprovisioning requests, it's best to perform them only on demand. If you anticipate more traffic, scaling out to multiple DPS instances might be the only way to support such scenarios.
 
 **Use a staggered provisioning schedule**. One recommendation for mitigating some of the time-based limitations is using a [staggered provisioning schedule](/azure/iot-dps/concepts-deploy-at-scale#device-deployment-using-a-staggered-provisioning-schedule). For an initial provisioning, depending on the deployment requirements, this schedule might be based on a random offset of a few seconds, or it might be a maximum of many minutes. 
 
@@ -244,11 +244,11 @@ Scaling up an IoT solution to support millions, or even tens or hundreds of mill
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Michael C. Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer, Microsoft Azure CXP G&I
 
-**Other contributors:**
+Other contributors:
 
 - [David Crook](https://www.linkedin.com/in/drcrook/) | Principal Customer Engineer, Microsoft Azure CXP G&I
 - [Alberto Gorni](https://www.linkedin.com/in/gornialberto/) | Senior Customer Engineer

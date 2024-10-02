@@ -1,11 +1,12 @@
 ---
 title: Advanced Azure Resource Manager templates
 description: Learn tips for getting the most out of Azure Resource Manager template functionality by following advanced examples.
-author: hallihan
+author: brandonmartinez
+ms.author: brmar
 ms.date: 01/05/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.category:
   - developer-tools
   - devops
@@ -14,8 +15,7 @@ categories:
   - devops
 products:
   - azure-resource-manager
-ms.custom:
-  - article
+ms.custom: arb-devops
 ---
 
 # Advanced Azure Resource Manager template functionality

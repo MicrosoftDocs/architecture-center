@@ -2,22 +2,19 @@
 metadata:
   title: Deploy AI and machine learning at the edge
   description: Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations with Azure Stack Edge.
-  author: martinekuan
-  ms.author: architectures
+  author: asergaz
+  ms.author: sergaz
   ms.date: 07/26/2022
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.collection: ce-skilling-ai-copilot  
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - ai-machine-learning
   ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-hybrid
-    - internal-intro
-    - ai-machine-learning
-    - aml-project-improvement
+    - arb-iot
+    - arb-aiml
 name: Deploy AI and machine learning computing on-premises and to the edge
 azureCategories:
   - hybrid
@@ -30,4 +27,4 @@ products:
   - azure-stack-edge
 thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ai-ml-azure-stack-edge.png
 content: |
-  [!include[](deploy-ai-ml-azure-stack-edge-content.md)]
+  [!INCLUDE[](deploy-ai-ml-azure-stack-edge-content.md)]

@@ -65,7 +65,7 @@ Kubeadm is a plain vanilla installation of Kubernetes from the ground up.
 
 -   The control-plane node must be a machine running a deb/rpm-compatible Linux OS.
 
--   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to _kubeadm_ and to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
+-   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to *kubeadm* and to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
 
 ## Management/Automation
 
@@ -96,7 +96,5 @@ For more information, see the following articles:
 -   [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 -   [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-
--   [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 
 -   [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.yml)

@@ -4,17 +4,15 @@ titleSuffix: Azure Architecture Center
 description: Learn about image storage and management in an Azure IoT Edge vision AI solution. See an image storage workflow that uses an IoT Edge blob storage module.
 author: MSKeith
 ms.author: keith
-ms.date: 02/16/2022
+ms.date: 01/16/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories: iot
 products:
   - azure-iot-edge
   - azure-blob-storage
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 ---
 
 # Image storage in Azure IoT Edge vision AI

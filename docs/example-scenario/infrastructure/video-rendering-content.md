@@ -50,7 +50,7 @@ This solution is ideal for the media and entertainment industries. Other relevan
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Machine Sizes available for Azure Batch
 
@@ -149,7 +149,6 @@ Click the link below to deploy the solution.
 Product documentation:
 
 - [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [Using containers on Azure Batch][batch-containers]
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Azure Storage accounts](/azure/storage/common/storage-account-overview)
 - [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
@@ -163,7 +162,6 @@ Learn modules:
 
 - [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [Run CFD simulations](../../example-scenario/infrastructure/hpc-cfd.yml)
 
 <!-- links -->
 
@@ -185,7 +183,6 @@ Learn modules:
 [batch-pricing]: https://azure.microsoft.com/pricing/details/batch
 [batch-doc]: /azure/batch
 [batch-overview]: https://azure.microsoft.com/services/batch
-[batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure
 [visio-download]: https://arch-center.azureedge.net/architecture-video-rendering.vsdx

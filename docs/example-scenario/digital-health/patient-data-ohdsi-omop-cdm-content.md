@@ -11,7 +11,8 @@ OHDSI on Azure allows organizations that want to use the OMOP CDM and the associ
 *Download a [Visio file](https://arch-center.azureedge.net/ohdsi-azure.vsdx ) of this architecture.*
 
 The preceding diagram illustrates the solution architecture at a high level. The solution is made up of two major resource groups:
-- **Bootstrap resource group.** Contains a foundational set of Azure resources that support the deployment of the OMOP resource group. 
+
+- **Bootstrap resource group.** Contains a foundational set of Azure resources that support the deployment of the OMOP resource group.
 - **OMOP resource group.** Contains the OHDSI-specific Azure resources.
 
 Azure Pipelines orchestrates all deployment automation.
@@ -26,7 +27,7 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 1. Deploy the OHDSI applications:
    1. Set up the Atlas UI and WebAPI by using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/software-tools/) is a web UI that integrates features from various OHDSI applications. It's supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
    1. Set up Achilles and Synthea by using the BroadSea Methods image. [Achilles](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:achilles) is an R-based script that runs data characterization and quality assessments on the OMOP CDM. The [Synthea ETL](https://github.com/OHDSI/ETL-Synthea) script is an optional tool that enables users to load synthetic patient data into the OMOP CDM.
-   
+
 ### Components
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multitenant cloud-based directory and identity management service. Microsoft Entra ID is used to manage permissions for environment deployment.
@@ -37,7 +38,7 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine. SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service houses the OMOP CDM and all associated relational data.
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) helps protect applications from common web-based attacks like [OWASP](https://owasp.org) vulnerabilities, SQL injection, and cross-site scripting. This technology is cloud native. It doesn't require licensing and is pay-as-you-go.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this solution, it stores OHDSI application images (BroadSea WebTools and BroadSea Methods) for deployment into Azure App Service.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. This service supports the OHDSI WebAPI and Atlas applications.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. This service supports the OHDSI WebAPI and Atlas applications.
 
 ### Alternatives
 
@@ -62,7 +63,7 @@ Several types of healthcare organizations can benefit from this solution, includ
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -109,7 +110,7 @@ See these resources for more information on deploying an OHDSI tool suite and fo
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -123,7 +124,7 @@ Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Heather Camm](https://www.linkedin.com/in/heather-camm-2367ba15) | Senior Program Manager
 - [Gayatri Jaiswal](https://www.linkedin.com/in/gayatrijaiswal) | Program Manager
- 
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -136,10 +137,9 @@ Other contributors:
 - [OHDSI Atlas demo environment](https://atlas-demo.ohdsi.org/#/home)
 - [OHDSI GitHub](https://github.com/OHDSI)
 - [OHDSI YouTube channel](https://www.youtube.com/user/OHDSIJoinTheJourney)
- 
+
 ## Related resources
 
 - [Solutions for the healthcare industry](../../industries/healthcare.md)
 - [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
-- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)

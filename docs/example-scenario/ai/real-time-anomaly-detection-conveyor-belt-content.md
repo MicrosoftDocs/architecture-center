@@ -1,8 +1,8 @@
 The manufacturing industry is undergoing revolutionary changes as an increasing number of firms adopt smart factory floors enabled by AI and machine learning. This article provides an overview of an architecture to enable real-time anomaly detection for conveyor belts.
- 
+
 ## Architecture
 
-:::image type="content" source="media/real-time-anomaly-detection.png" alt-text="Architecture diagram that shows a solution for real-time anomaly detection." lightbox="media/real-time-anomaly-detection.png" border="false"::: 
+:::image type="content" source="media/real-time-anomaly-detection.png" alt-text="Architecture diagram that shows a solution for real-time anomaly detection." lightbox="media/real-time-anomaly-detection.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/realtime-anomaly-detection.vsdx) of this architecture.*
 
@@ -11,7 +11,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 1. Data source
 
    A sophisticated data-collection sensor is a crucial Internet of Things (IoT) component. Sensors collect analog data from the physical world and translate it into digital data assets. Sensors can measure just about any aspect of the physical world. The calibration of sensors allows them to be tailored to application-specific functions. In this dataset, sensors are calibrated to accurately measure temperature and vibrations.
-   
+
    On most factory floors, conveyor belts run on schedules. Anomaly detection of temperature and vibrations is needed when the conveyor belt is running. Time Series API is used to capture and relay conveyor belt status.
 
 1. Ingest
@@ -19,17 +19,17 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
    We recommend [Azure IoT Hub](/azure/iot-fundamentals/iot-introduction) for streaming data from IoT sensors and connecting IoT devices. For ingesting data from Time Series API and data orchestration, we recommend [Azure Data Factory](/azure/data-factory/introduction).
 
 1. Store
-   
+
    Data collected from IoT sensors (temperature and vibrations) and Time Series API (conveyor belt status) are all time series. Time series data is a collection of observations obtained through repeated measurements over time. This data is collected as flat files. Each flat file is tagged with an IoT sensor ID and the date and time of collection and stored in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake).
 
 1. AI / machine learning - data preparation and training
 
    *Data preparation* is the process of gathering, combining, structuring, and organizing data so it can be used to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
-   
+
    [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to prepare the data before the data is used to build models. Azure Databricks provides an interactive workspace that enables collaboration between data engineers, data scientists, and machine learning engineers. In analytics workflow, Azure Databricks is used to read data from [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) to perform data wrangling and data exploration.
 
    *Model training* is the process of using a machine learning algorithm to learn patterns based on data and pick a suitable model for making predictions.
- 
+
    [Azure Machine learning](https://azure.microsoft.com/services/machine-learning) is used to train the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle. The lifecycle includes training, deploying models, and managing machine learning operations (MLOps).
 
 1. AI / machine learning - inference
@@ -38,7 +38,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
    The model registry is built into [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning). It's used to store and version models in Azure. The model registry makes it easy to organize and keep track of trained models.
 
-   After a machine learning model is trained, the model needs to be deployed so that newly available data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints). 
+   After a machine learning model is trained, the model needs to be deployed so that newly available data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints).
 
 1. Analytical workload
 
@@ -81,18 +81,17 @@ Because sensors capture data in real time, anomaly detection should be able to d
 
 The data necessary to predictively maintain motors attached to conveyor belts are temperature, vibrations, and conveyor belt status. Sample data is presented here.
 
-**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyer belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. This sample graph shows how conveyor belt status is recorded:
+**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyor belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. This sample graph shows how conveyor belt status is recorded:
 
 :::image type="content" source="media/conveyor-belt-status.png" alt-text="Graph that shows conveyor belt status data." lightbox="media/conveyor-belt-status.png" border="false":::
 
 **Temperature:** Sensors attached to conveyor belts and the factory floor can record the temperature of the motor and baseline the ambient temperature. Temperature is seasonally affected because of sunlight exposure, air conditioning settings, and numerous other factors. You need to address the seasonal aspect of temperature. There are many ways to do so. One method, if we take motor temperature as an example, is to subtract the baseline ambient temperature of the factory floor from the motor temperature:
 
-*(Adjusted Temperature = Motor Temperature - Ambient Temperature)*
+*(Adjusted Temperature = Motor Temperature - Ambient Temperature)*
 
  This sample graph shows temperatures recorded from motors and the ambient baseline temperature:
 
 :::image type="content" source="media/motor-ambient-baseline-temperatures.png" alt-text="Graph that shows temperatures recorded from motors and the ambient baseline temperature." lightbox="media/motor-ambient-baseline-temperatures.png" border="false":::
-
 
 The following sample graph shows how the temperature from a conveyor belt motor is adjusted for seasonality by using the ambient temperature of the factory floor. It also shows anomalies, in red, that are detected by a model that uses the architecture suggested in this article.
 
@@ -117,8 +116,8 @@ You can apply this solution to the following scenarios:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
- 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
 The technologies in this architecture were chosen for scalability and availability, with the aim of managing and controlling costs.
 
 Azure Industrial IoT can help you accelerate your path to modernize your connected factory. Also, Azure Digital Twins can help you to model the connected physical environments in a manufacturing setup. For more information, see these resources:
@@ -161,7 +160,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
-- [MLOps v2](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx?xsdata=MDV8MDF8fDVhM2M4ZDViNjM1ODRhMWFjMDM3MDhkYTFiZjIwYTkzfDcyZjk4OGJmODZmMTQxYWY5MWFiMmQ3Y2QwMTFkYjQ3fDB8MHw2Mzc4NTMwMjM1OTk4MzcyMzl8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TXpCak9HUmlOR1JsTkRSbE5EVmlaR0UwWVRNMFpqQmpPV1kzT1RWa1pqaEFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=czFMOUVSa3J1WjBSbm5haDc3NStGUVVGYTZyZE93MmF4d3U1cW92NlB2QT0%3D&ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cchulahlou%40microsoft.com&OR=Teams-HL&CT=1649705566054&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjAzMjEwMDEwNyJ9)
+- [MLOps v2](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
 ### Performance efficiency
@@ -182,7 +181,7 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect, US National CSA Team
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -206,12 +205,7 @@ Other contributors:
 ## Related resources
 
 - [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
-- [Extract actionable insights from IoT data](../..//industries/manufacturing/extract-insights-iot-data.yml)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

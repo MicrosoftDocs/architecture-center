@@ -15,7 +15,7 @@ This article describes an Azure architecture that you can use to replace costly 
 1. The logic app sends the location of the PDF file to a function app for processing. The function app is built by using the capabilities of Azure Functions.
 1. The function app receives the location of the file and takes these actions:
    1. It splits the file into single pages if the file has multiple pages. Each page contains one independent form. Split files are saved to a second container in Data Lake Storage.
-   1. It uses HTTPS POST, an Azure REST API, to send the location of the single-page PDF file to Azure Form Recognizer for processing. When Form Recognizer completes its processing, it sends a response back to the function app, which places the information into a data structure.
+   1. It uses HTTPS POST, an Azure REST API, to send the location of the single-page PDF file to AI Document Intelligence for processing. When Azure AI Document Intelligence completes its processing, it sends a response back to the function app, which places the information into a data structure.
    1. It creates a JSON data file that contains the response data and stores the file to a third container in Data Lake Storage.
 1. The forms processing logic app receives the processed response data.
 1. The forms processing logic app sends the processed data to Azure Cosmos DB, which saves the data in a database and in collections.
@@ -24,7 +24,7 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ### Components
 
-- [Azure Applied AI Services](https://azure.microsoft.com/products/applied-ai-services) is a category of Azure AI products that use Azure Cognitive Services, task-specific AI, and business logic to provide turnkey AI services for common business processes. One of these products is [Form Recognizer](https://azure.microsoft.com/products/form-recognizer), which uses machine learning models to extract key-value pairs, text, and tables from documents.
+- [Azure AI services](https://azure.microsoft.com/products/applied-ai-services) is a category of Azure AI products that use Azure AI services, task-specific AI, and business logic to provide turnkey AI services for common business processes. One of these products is [Azure AI Document Intelligence](https://azure.microsoft.com/products/form-recognizer), which uses machine learning models to extract key-value pairs, text, and tables from documents.
 - [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems.
 - [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs.
 - [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is the foundation for building enterprise data lakes on Azure.
@@ -40,7 +40,7 @@ This article describes an Azure architecture that you can use to replace costly 
 
 Forms processing is often a critical business function. Many companies still rely on manual processes that are costly, time consuming, and prone to error. Replacing manual processes reduces cost and risk and makes a company more agile.
 
-This article describes an architecture that you can use to replace manual PDF forms processing or costly legacy systems that automate PDF forms processing. Form Recognizer processes the PDF forms, Logic Apps provides the workflow, and Functions provides data processing capabilities.
+This article describes an architecture that you can use to replace manual PDF forms processing or costly legacy systems that automate PDF forms processing. Azure AI Document Intelligence processes the PDF forms, Logic Apps provides the workflow, and Functions provides data processing capabilities.
 
 For deployment information, see [Deploy this scenario](#deploy-this-scenario) in this article.
 
@@ -60,19 +60,19 @@ The solution that's described in this article can process many types of forms, i
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-A reliable workload is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
+A reliable workload is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
 
 This architecture is intended as a starter architecture that you can quickly deploy and prototype to provide a business solution. If your prototype is a success, you can then extend and enhance the architecture, if necessary, to meet additional requirements.
 
 This architecture utilizes scalable and resilient Azure infrastructure and technologies. For example, Azure Cosmos DB has built-in redundancy and global coverage that you can configure to meet your needs.
 
-For the availability guarantees of the Azure services that this solution uses, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+For the availability guarantees of the Azure services that this solution uses, see [Service-level agreements (SLAs) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ### Security
 
@@ -91,7 +91,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and to
 
 Here are some guidelines for optimizing costs:
 
-- Use the pay-as-you-go strategy for your architecture, and [scale out](/azure/architecture/framework/cost/optimize-autoscale) as needed rather than investing in large-scale resources at the start.
+- Use the pay-as-you-go strategy for your architecture, and [scale out](/azure/architecture/framework/cost/optimize-autoscale) as needed rather than investing in large-scale resources at the start.
 - The implementation of the architecture that's described in [Deploy this scenario](#deploy-this-scenario) deploys a starting solution that's suitable for proof of concept. The deployment scripts create a working architecture with minimal resource requirements. For example, the deployment scripts create a smallest serverless Linux host to run the function app.
 
 ### Performance efficiency
@@ -111,23 +111,11 @@ The accelerator receives the PDF forms, extracts the data fields, and saves the 
 
 You can use the accelerator as is, without code modification, to process and visualize any single-page PDF forms such as safety forms, invoices, incident records, and many others. To use it, you only need to collect sample PDF forms, train a new model to learn the layout of the forms, and plug the model into the solution. You also need to redesign the Power BI report for your datasets so that it provides the insights that you want.
 
-The implementation uses [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) to create custom models. The accelerator uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process a variety of forms.
+The implementation uses [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) to create custom models. The accelerator uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process a variety of forms.
 
 ### Deployment repository
 
-The GitHub repository for the solution accelerator is:
-
-> [https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator)
-
-The readme file that's displayed at that location provides an overview of the accelerator.
-
-The deployment files are in the top-level Deployment folder of the repository:
-
-> [https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/tree/main/Deployment](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/tree/main/Deployment)
-
-The readme file that's displayed at that location is the deployment guide. You deploy by following the steps.
-
-Step 2 provides details about using sample PDF forms to create a custom-built machine learning model. You plug the model into the solution by setting the environment variable called **CUSTOM\_BUILT\_MODEL\_ID** to the machine model name in the function app. For more information, see step 3.
+The GitHub repository for the solution accelerator is at [Azure PDF Form Processing Automation Solution Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) which contains the deployment guide for this solution.
 
 ### Deployment prerequisites
 
@@ -135,7 +123,7 @@ To deploy, you need an Azure subscription. For information about free subscripti
 
 To learn about the services that are used in the accelerator, see the overview and reference articles that are listed in:
 
-- [Azure Form Recognizer documentation](/azure/applied-ai-services/form-recognizer/?view=form-recog-3.0.0)
+- [AI Document Intelligence documentation](/azure/applied-ai-services/form-recognizer/?view=form-recog-3.0.0)
 - [Azure Logic Apps documentation](/azure/logic-apps)
 - [Azure Functions documentation](/azure/azure-functions)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
@@ -157,7 +145,7 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 - Follow the guidelines in [Business continuity and disaster recovery](/azure/logic-apps/business-continuity-disaster-recovery-guidance) when you design and provision the logic apps.
 - Follow the guidelines in [Reliability in Azure Functions](/azure/reliability/reliability-functions?toc=%2Fazure%2Fazure-functions%2FTOC.json&tabs=azure-portal) when you design and provision the function app.
 - Follow the guidelines in [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability) when you design and provision a database that was created by using Azure Cosmos DB.
-- If you consider putting this system into production to process large volumes of PDF forms, you can modify the deployment scripts to create a Linux Host that has more resources. To do so, modify the code inside [https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/blob/main/Deployment/1_deployment_scripts/deploy-functionsapp.bicep](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/blob/main/Deployment/1_deployment_scripts/deploy-functionsapp.bicep)
+- If you consider putting this system into production to process large volumes of PDF forms, you can modify the deployment scripts to create a Linux host that has more resources. To do so, modify the code inside [deploy-functionsapp.bicep](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/blob/main/Deployment/1_deployment_scripts/deploy-functionsapp.bicep)
 
 ## Contributors
 
@@ -165,13 +153,13 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 
 Principal author:
 
-- [Gail Zhou](http://linkedin.com/in/gailzhou) | Sr. Architect
+- [Gail Zhou](https://linkedin.com/in/gailzhou) | Sr. Architect
 
 Other contributors:
 
-- [Nalini Chandhi](http://linkedin.com/in/nalinichandhi) | Principal Technical Specialist
-- [Steve DeMarco](http://linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
-- [Travis Hilbert](http://linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
+- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
+- [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
+- [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
 - [DB Lee](https://www.linkedin.com/in/dongbum) | Sr. Technical Specialist
 - [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Technical Specialist Global Black Belt
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk) | Sr. Cloud Solution Architect
@@ -181,7 +169,7 @@ Other contributors:
 
 ## Next steps
 
-- [Video: Azure PDF Form Processing Automation SA](https://www.youtube.com/watch?v=2zvoO1jc8CE).
+- [Video: Azure PDF Form Processing Automation](https://www.youtube.com/watch?v=2zvoO1jc8CE).
 - [Azure PDF Form Processing Automation Solution Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator)
 - [Azure invoice Process Automation Solution Accelerator](https://github.com/microsoft/Azure-Invoice-Process-Automation-Solution-Accelerator)
 - [Business Process Automation Accelerator](https://github.com/Azure/business-process-automation)
@@ -192,4 +180,4 @@ Other contributors:
 - [Custom document processing models on Azure](../../example-scenario/document-processing/build-deploy-custom-models.yml)
 - [Index file content and metadata by using Azure Cognitive Search](../../example-scenario/data/search-blob-metadata.yml)
 - [Automate document identification, classification, and search by using Durable Functions](../../example-scenario/ai/automate-document-classification-durable-functions.yml)
-- [Automate document processing by using Azure Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Automate document processing by using Azure AI Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)

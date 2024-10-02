@@ -4,18 +4,18 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
   author: hitarusa
-  ms.author: hitarusa, daniem
+  ms.author: hitarusa
   ms.date: 06/27/2023
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - containers
     - web
     - management-and-governance
   ms.custom:
-    - reference-architecture
-    - internal-intro
+    - linux-related-content
+    - arb-containers
 azureCategories:
   - containers
   - web

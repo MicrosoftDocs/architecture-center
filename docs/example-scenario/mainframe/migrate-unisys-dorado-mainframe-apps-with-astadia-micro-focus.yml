@@ -3,11 +3,11 @@ metadata:
   title: Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus
   titleSuffix: Azure Example Scenarios
   description: Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.
-  author: martinekuan
-  ms.author: jfrost
-  ms.date: 05/13/2022
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 12/01/2023
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp

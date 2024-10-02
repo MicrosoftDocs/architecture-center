@@ -6,8 +6,8 @@ author: johndowns
 ms.date: 07/21/2022
 ms.author: jodowns
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - identity
 products:

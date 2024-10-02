@@ -4,9 +4,9 @@ metadata:
   description: In this scenario, an e-commerce company in the travel industry uses Azure API Management to migrate a legacy web application.
   author: begim
   ms.author: begim
-  ms.date: 12/01/2022
+  ms.date: 05/23/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
     - web
@@ -30,4 +30,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-apim-api-scenario.png
 content: |
-   [!include[](apim-api-scenario-content.md)]
+   [!INCLUDE[](apim-api-scenario-content.md)]

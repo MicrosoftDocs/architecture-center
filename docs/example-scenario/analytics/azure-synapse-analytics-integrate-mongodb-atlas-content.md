@@ -36,7 +36,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Change streams](https://www.mongodb.com/docs/manual/changeStreams) in MongoDB Atlas give applications access to real-time data changes so that the apps can immediately react to those changes. The change streams provide a way for applications to receive notifications about changes to a particular collection, database, or entire deployment cluster.
 
-- [App Service](https://azure.microsoft.com/services/app-service) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
 
   - [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid)
   - [Storage version](https://github.com/Azure/SynapseRTSStorage)
@@ -45,7 +45,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
 
-- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, and load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
+- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
 
 - [Mapping data flows](/azure/data-factory/concepts-data-flow-overview) are visually designed data transformations in Azure Synapse Analytics. Data flows provide a way for data engineers to develop data transformation logic without writing code. You can run the resulting data flows as activities within Azure Synapse Analytics pipelines that use scaled-out Apache Spark clusters. You can put data flow activities into operation by using existing Azure Synapse Analytics scheduling, control, flow, and monitoring capabilities.
 
@@ -171,7 +171,7 @@ If your model achieves high accuracy, it provides a list of products that you ca
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -251,6 +251,3 @@ For information about Azure solution components, see these resources:
 
 - [Enterprise business intelligence](./enterprise-bi-synapse.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
-- [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
-- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)

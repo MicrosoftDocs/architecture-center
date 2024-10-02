@@ -57,7 +57,6 @@ For information about security for sensitive IaaS workloads, see [Security consi
  
 ### Identity and access management
 
-- [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](../../example-scenario/secrets/secure-refresh-tokens.yml)
 - [Resilient identity and access management with Microsoft Entra ID](/azure/architecture/guide/resilience/resilience-overview)
 - [Microsoft Entra identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
 
@@ -69,10 +68,7 @@ For information about security for sensitive IaaS workloads, see [Security consi
 
 ### Information protection
 
-- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [Homomorphic encryption with SEAL](../../solution-ideas/articles/homomorphic-encryption-seal.yml)
-- [SQL Managed Instance with customer-managed keys](../../databases/architecture/sql-managed-instance-cmk.yml)
-- [Virtual network integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 
 ### Discover and respond
 

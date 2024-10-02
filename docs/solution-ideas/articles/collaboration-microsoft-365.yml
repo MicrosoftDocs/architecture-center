@@ -5,9 +5,9 @@ metadata:
   description: Learn about a custom collaboration solution that uses libraries and Azure services. 
   author: DanWahlin
   ms.author: dwahlin
-  ms.date: 01/30/2023
+  ms.date: 05/22/2024
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: fcp
 azureCategories:
@@ -17,7 +17,6 @@ products:
   - entra-id
   - ms-graph
   - azure-app-service
-  - azure-fluid-relay
   - m365
 name: Real-time collaboration with Azure and Microsoft 365
 summary: Learn about a custom collaboration solution that uses libraries and Azure services. 

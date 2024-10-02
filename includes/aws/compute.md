@@ -1,8 +1,8 @@
 ---
-author: martinekuan
-ms.author: martinek
+author: RobBagby
+ms.author: pnp
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 ### Virtual machines and servers
@@ -58,18 +58,16 @@ Several AWS and Azure services provide containerized application deployment and 
 | ----------- | ------------- | ----------- |
 | [Amazon Elastic Container Service (Amazon ECS)](https://aws.amazon.com/ecs), [AWS Fargate](https://aws.amazon.com/fargate) | [Azure Container Apps](https://azure.microsoft.com/products/container-apps/) | Azure Container Apps is a scalable service that lets you deploy thousands of containers without requiring access to the control plane. |
 | [Amazon Elastic Container Registry (Amazon ECR)](https://aws.amazon.com/ecr) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Container registries store Docker formatted images and create all types of container deployments in the cloud. |
-| [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | EKS and AKS let you orchestrate Docker containerized application deployments with Kubernetes. AKS simplifies monitoring and cluster management through auto upgrades and a built-in operations console. See [Container runtime configuration](/azure/aks/cluster-configuration#container-runtime-configuration) for specifics on the hosting environment.|
-| [AWS App Mesh](https://aws.amazon.com/app-mesh) | [Open Service Mesh on AKS](/azure/aks/open-service-mesh-integrations)| The Open Service Mesh add-on integrates with features provided by Azure as well as open source projects. |
+| [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | EKS and AKS let you orchestrate Docker containerized application deployments with Kubernetes. AKS simplifies monitoring and cluster management through auto upgrades and a built-in operations console. See [Container runtime configuration](/azure/aks/concepts-clusters-workloads#container-runtime-configuration) for specifics on the hosting environment.|
+| [AWS App Mesh](https://aws.amazon.com/app-mesh) | [Istio add-on for AKS](/azure/aks/istio-about)| The Istio add-on for AKS provides a fully-supported integration of the open-source Istio service mesh. |
 
 #### Example container architectures
 
-<ul class="grid">
-
-[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
-[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
-[!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Baseline architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks/baseline-aks) | Deploy a baseline infrastructure that deploys an AKS cluster with a focus on security. |
+| [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices) | Deploy a microservices architecture on Azure Kubernetes Service (AKS). |
+| [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) | Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Azure Cosmos DB, and Grafana. |
 
 [View all the container architectures](/azure/architecture/browse/?azure_categories=containers)
 
@@ -83,12 +81,10 @@ Serverless computing lets you integrate systems and run backend processes withou
 
 #### Example serverless architectures
 
-<ul class="grid">
-
-[!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
-[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
-[!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
-
-</ul>
+| Architecture | Description |
+|-----|-----|
+| [Query a data lake or lakehouse by using Azure Synapse Analytics serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics) | This architecture can reduce the challenges of extract, transform, load (ETL) operations. You can use this architecture to generate business insights and then solve modeling and ETL tasks. |
+| [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
+| [Cross-cloud scaling architecture](/azure/architecture/solution-ideas/articles/cross-cloud-scaling) | Learn how to improve cross-cloud scalability with a solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 [View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions)

@@ -10,8 +10,8 @@ categories:
 ms.author: robbag
 ms.date: 09/20/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories: 
   - devops
   - hybrid
@@ -59,6 +59,12 @@ The following options provide an opinionated approach to deploy and operate the 
 | [Azure landing zone Terraform accelerator](terraform/landing-zone-terraform.md) | This accelerator provides an orchestrator module and also allows you to deploy each capability individually or in part. |
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md) | A modular accelerator where each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
+### Variants
+
+| Deployment option | Description |
+| --- | ---|
+| [Sovereign landing zone](/industry/sovereignty/slz-overview) | The sovereign landing zone (SLZ) is a variant of the enterprise scale Azure landing zone intended for organizations that need advanced sovereign controls. |
+
 ### Operate Azure landing zones
 
 After you deploy the landing zone, you need to operate and maintain it. For more information, see the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
@@ -67,7 +73,7 @@ After you deploy the landing zone, you need to operate and maintain it. For more
 
 ### Alternative platform deployment for policies with Enterprise Policy as Code (EPAC)
 
-[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy, manage, and operate Azure Policy in your environment. You can use EPAC instead of the preceding [platform options](#platform) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones]( https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
+[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy, manage, and operate Azure Policy in your environment. You can use EPAC instead of the preceding [platform options](#platform) to manage the policies in an Azure landing zones environment. For more information on the integration approach, see [Integrate EPAC with Azure landing zones](https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/).
 
 EPAC is best suited for more advanced and mature DevOps and infrastructure-as-code customers. However, customers of any size can use EPAC if they want to after they assess it. To ensure that you're aligned, see [Who should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code#who-should-use-epac) first.
 
@@ -82,7 +88,7 @@ After the platform landing zone is in place, the next step is to create and oper
 
 | Deployment option | Description |
 | --- | ---|
-| [Bicep subscription vending](https://github.com/Azure/bicep-lz-vending) | The subscription vending Bicep module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. |
+| [Bicep subscription vending](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending) | The subscription vending Bicep module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. |
 | [Terraform subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | The subscription vending Terraform module is designed to accelerate deployment of the individual landing zones (also known as subscriptions) within a Microsoft Entra tenant on EA, MCA, and MPA billing accounts |
 
 ## Application
@@ -94,13 +100,16 @@ You can use the following options to deploy and manage applications or workloads
 | Application | Description |
 | --- | --- |
 | [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | An open-source collection of Azure Resource Manager (ARM), Bicep, and Terraform templates that represent the strategic design path and target technical state for an AKS deployment. |
+| [Azure OpenAI chat baseline architecture in an Azure landing zone](/azure/architecture/ai-ml/architecture/azure-openai-baseline-landing-zone) | Outlines how to integrate an Azure OpenAI chat application within Azure landing zones to utilize centralized shared resources while adhering to governance and cost efficiency, offering guidance for workload teams on deployment and management. |
 | [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) | Proven recommendations and considerations across both multitenant and App Service environment use cases with a reference implementation for ASEv3-based deployment. |
 | [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) | Proven recommendations and considerations for deploying APIM management with a reference implementation showcasing Azure Application Gateway with an internal APIM instance-backed Azure Functions as back end. |
 | [SAP on Azure landing zone accelerator](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | Terraform and Ansible templates that accelerate SAP workload deployments by using Azure landing zone best practices, including the creation of infrastructure components like compute, networking, storage, monitoring, and build of SAP systems. |
 | [HPC landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator) | An end-to-end HPC cluster solution in Azure that uses tools like Terraform, Ansible, and Packer. It addresses Azure landing zone best practices, including implementing identity, jumpbox access, and autoscale. |
 | [Azure VMware Solution landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) | ARM, Bicep, and Terraform templates that accelerate VMware deployments, including Azure VMware Solution private cloud, jumpbox, networking, monitoring, and add-ons. |
-| [Azure Virtual Desktop landing zone accelerator](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) | ARM, Bicep, and Terraform templates that accelerate Azure Virtual Desktop deployments, including creation of host pools, networking, storage, monitoring, and add-ons. |
+| [Azure Virtual Desktop landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/enterprise-scale-landing-zone) | ARM, Bicep, and Terraform templates that accelerate Azure Virtual Desktop deployments, including creation of host pools, networking, storage, monitoring, and add-ons. |
 | [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) | An open-source collection of Terraform templates that represent an optimal Azure Red Hat OpenShift deployment that includes Azure and Red Hat resources. |
 | [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) | Azure Arc-enabled servers, Kubernetes, and Azure Arc-enabled SQL Managed Instance. See the Jumpstart ArcBox overview. |
 | [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) | Azure Spring Apps landing zone accelerator is intended for an application team that builds and deploys Spring Boot applications in a typical landing enterprise zone design. As the workload owner, use architectural guidance provided in this accelerator to achieve your target technical state with confidence. |
-| [Enterprise-scale landing zone for Citrix on Azure](/azure/cloud-adoption-framework/scenarios/wvd/landing-zone-citrix/citrix-enterprise-scale-landing-zone) | Design guidelines for the Cloud Adoption Framework for Citrix Cloud in an Azure enterprise-scale landing zone cover for many design areas. |
+| [Enterprise-scale landing zone for Citrix on Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone) | Design guidelines for the Cloud Adoption Framework for Citrix Cloud in an Azure enterprise-scale landing zone cover for many design areas. |
+| [Azure Container Apps Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/container-apps/landing-zone-accelerator) | This Azure Container Apps landing zone accelerator outlines the strategic design path and defines the target technical state for deploying Azure Container Apps. It is owned and operated by a dedicated workload team. |
+| [Landing Zone for Red Hat Enterprise Linux (RHEL) on Azure](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-enterprise-linux/landing-zone-accelerator) | The Landing Zone for Red Hat Enterprise Linux (RHEL) on Azure is an open-source collection of architectural guidance and reference implementation recommendations used accelerate the migration and deployment of RHEL-based workloads to Microsoft Azure. |

@@ -24,7 +24,7 @@ Use [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities)
   - Unstructured data (for example, video, images, audio, and free text)
   - Semi-structured data (for example, JSON, XML, CSV, and logs)
   - Structured data (for example, relational databases and Azure Data Services)
-  
+
     [Azure Synapse Link](/azure/cosmos-db/synapse-link) creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
     [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) can be triggered based on a predefined schedule or in response to an event. They can also be invoked by calling REST APIs.
 
@@ -38,13 +38,13 @@ Ingested data can land directly in raw format and then be transformed on the [Az
 A batch or real-time model published in Machine Learning can generate a REST endpoint that can be consumed in a [custom application built by using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
 
 > [!NOTE]
-> Both Machine Learning and Power Platform stack have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimum viable product (MVP). However, the "Ingest" and "Store" sections of the architecture advise on the role of standardized data pipelines for the sourcing and storage of data from different sources at scale. These patterns are typically implemented and maintained by the enterprise data platform teams.
+> Both Machine Learning and Microsoft Power Platform stack have a range of built-in connectors to help ingest data directly. These connectors might be useful for a one-off minimum viable product (MVP). However, the "Ingest" and "Store" sections of the architecture advise on the role of standardized data pipelines for the sourcing and storage of data from different sources at scale. These patterns are typically implemented and maintained by the enterprise data platform teams.
 
 ### Components
 
 You can use the following components.
 
-#### Power Platform services
+#### Microsoft Power Platform services
 
 - [Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power Apps, Power Automate, Power BI, and Power Virtual Agents.
 - [Power Apps](https://powerapps.microsoft.com): A suite of apps, services, connectors, and data platform. It provides a rapid application development environment to build custom apps for your business needs.
@@ -62,7 +62,7 @@ You can use the following components.
 
 #### Platform services
 
-To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/architecture/framework). The framework consists of five pillars of architectural excellence:
+To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/well-architected/). The framework consists of five pillars of architectural excellence:
 
 - Cost optimization
 - Operational excellence
@@ -73,7 +73,7 @@ To improve the quality of your Azure solutions, follow the recommendations and g
 To create a design that respects these recommendations, consider the following services:
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Identity services, single sign-on, and multifactor authentication across Azure workloads.
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Secure credential and certificate management.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Collection, analysis, and display of telemetry from your Azure resources. Use Monitor to proactively identify problems to maximize performance and reliability.
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): Strengthen and monitor the security posture of your Azure workloads.
@@ -92,7 +92,7 @@ Because of a well-known high failure rate to such initiatives, the ability to ra
 
 - **An ML toolkit for all skill levels**
   - Supports no-code to fully coded ML development
-  - Has a flexible, low-code GUI
+  - Has a flexible, low-code graphical user interface (GUI)
   - Enables users to rapidly source and prep data
   - Enables users to rapidly build and deploy models
   - Has advanced, automated ML capabilities for ML algorithm development
@@ -111,7 +111,7 @@ These toolkits minimize the time and effort needed to prototype the benefits of 
 
 ## Considerations
 
-When you use these services to create a proof of concept or MVP, you're not finished. There's more work to make a production solution. Frameworks such as the [Well-Architected Framework](/azure/architecture/framework) provide reference guidance and best practices to apply to your architecture.
+When you use these services to create a proof of concept or MVP, you're not finished. There's more work to make a production solution. Frameworks such as the [Well-Architected Framework](/azure/well-architected/) provide reference guidance and best practices to apply to your architecture.
 
 ### Availability
 
@@ -121,11 +121,9 @@ Apps based on ML typically require one set of resources for training and another
 
 ### DevOps
 
-DevOps practices are used to orchestrate the end-to-end approach used in this example. If your organization is new to DevOps, the [DevOps Checklist](/azure/architecture/checklist/dev-ops) can help you get started.
+DevOps practices are used to orchestrate the end-to-end approach used in this example. The [Machine Learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
 
-The [Machine Learning DevOps Guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
-
-DevOps automation can be applied to the Power Platform solution provided in this example. For more information about Power Platform DevOps, see [Power Platform Build Tools for Azure DevOps: Power Platform](/power-platform/alm/devops-build-tools).
+DevOps automation can be applied to Microsoft Power Platform solution provided in this example. For more information about Microsoft Power Platform DevOps, see [Power Platform Build Tools for Azure DevOps: Power Platform](/power-platform/alm/devops-build-tools).
 
 ### Cost optimization
 
@@ -133,13 +131,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 **Azure pricing:** First-party infrastructure as a service (IaaS) and platform as a service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
-**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are SaaS applications and have their own pricing models, including per app plan and per user.
+**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software as a service (SaaS) applications and have their own pricing models, including per app plan and per user.
 
 ## Deploy this scenario
 
 Consider this business scenario. A field agent uses an app that estimates a car's market price. You can use Machine Learning to quickly prototype an ML model of this app. You use a low-code designer and ML features to create the model, and then deploy it as a real-time REST endpoint.
 
-The model might prove the concept, but a user has no easy way to consume a model implemented as a REST API. Power Platform can help close this last mile, as represented here.
+The model might prove the concept, but a user has no easy way to consume a model implemented as a REST API. Microsoft Power Platform can help close this last mile, as represented here.
 
 :::image type="content" source="media/citizen-ai-power-platform-rest-ui.png" alt-text="Screenshot that shows an ML model that's created in Machine Learning. The model obtains car data from Azure Data Lake, and it provides inferences to an endpoint." lightbox="media/citizen-ai-power-platform-rest-ui.png" :::
 
@@ -151,7 +149,7 @@ You can use Power Automate to build a low-code workflow to parse the user's inpu
 
 :::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="Diagram that shows architecture showing the schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
 
-To deploy this end-to-end example, follow [step by step instructions by using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
+To deploy this end-to-end example, follow step by step instructions in [Car Price Predictor - Azure ML + Power App Solution](https://github.com/Azure/carprice-aml-powerapp).
 
 ## Extended scenarios
 
@@ -163,7 +161,7 @@ The sample app provided in the preceding example can also be deployed to Microso
 
 ### Consume the API from multiple apps and automations
 
-In this example, we configure a Power Automate cloud flow to consume the REST endpoint as an HTTP action. We can instead set up a custom connector for the REST endpoint and consume it directly from Power Apps or from Power Automate. This approach is useful when we want multiple apps to consume the same endpoint. It also provides governance by using the connector data loss prevention (DLP) policy in the Power Platform admin center. To create a custom connector, see [Use a custom connector from a Power Apps app](/connectors/custom-connectors/use-custom-connector-powerapps). For more information on the Power Platform connector DLP, see [Data loss prevention policies: Power Platform](/power-platform/admin/wp-data-loss-prevention).
+In this example, we configure a Power Automate cloud flow to consume the REST endpoint as an HTTP action. We can instead set up a custom connector for the REST endpoint and consume it directly from Power Apps or from Power Automate. This approach is useful when we want multiple apps to consume the same endpoint. It also provides governance by using the connector data loss prevention (DLP) policy in Microsoft Power Platform admin center. To create a custom connector, see [Use a custom connector from a Power Apps app](/connectors/custom-connectors/use-custom-connector-powerapps). For more information on Microsoft Power Platform connector DLP, see [Data loss prevention policies: Power Platform](/power-platform/admin/wp-data-loss-prevention).
 
 ## Contributors
 
@@ -182,4 +180,3 @@ This article is maintained by Microsoft. It was originally written by:
 - [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the ML products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-- [Machine learning operations (MLOps) framework to upscale ML lifecycle with Machine Learning](../mlops/mlops-technical-paper.yml)

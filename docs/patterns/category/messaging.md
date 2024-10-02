@@ -2,11 +2,11 @@
 title: Messaging patterns
 titleSuffix: Cloud Design Patterns
 description: Use these messaging patterns to support cloud applications by using a messaging that connects the components and services in a manner to maximize scalability.
-author: martinekuan
-ms.author: architectures
+ms.author: robbag
+author: RobBagby
 ms.date: 07/28/2022
-ms.topic: design-pattern
-ms.service: architecture-center
+ms.topic: conceptual
+ms.service: azure-architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern

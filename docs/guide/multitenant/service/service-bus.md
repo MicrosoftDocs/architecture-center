@@ -2,22 +2,20 @@
 title: Azure Service Bus considerations for multitenancy
 titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems. It provides links to guidance for how to use Azure Service Bus in a multitenant solution.
-author: willvelida
-ms.author: willvelida
-ms.date: 02/15/2023
+author: landonpierce
+ms.author: landonpierce
+ms.date: 06/05/2024 
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-service-bus
 categories:
- - integration
-ms.category:
-  - fcp
+  - integration
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Service Bus
@@ -117,23 +115,20 @@ Partitioning is available when you deploy namespaces with specific SKUs. For mor
 
 See [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-partitioning).
 
-> [!NOTE]
-> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It isn't available for the Premium messaging SKU anymore, but any previously existing partitioned entities from when they were supported in Premium namespaces will continue to work as expected.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-* [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+* [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-* [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 * [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
-* [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-* [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+* [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

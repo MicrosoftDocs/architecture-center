@@ -82,6 +82,7 @@ This pattern is useful for the following cases:
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Jon Dobrzeniecki](https://www.linkedin.com/in/jonathan-dobrzeniecki) | Sr. Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -96,7 +97,6 @@ Principal author:
 
 ## Related resources
 
-- [Enterprise data warehouse](enterprise-data-warehouse.yml)
 - [Secure a data lakehouse with Azure Synapse Analytics](../../example-scenario/analytics/secure-data-lakehouse-synapse.yml)
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](../../example-scenario/data/synapse-exploratory-data-analytics.yml)

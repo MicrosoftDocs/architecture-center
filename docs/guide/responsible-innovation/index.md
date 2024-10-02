@@ -7,14 +7,13 @@ ms.author: tozimmergren
 ms.reviewer: tozimmergren
 ms.date: 01/19/2023
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 products: azure
-ms.subservice: guide
+ms.subservice: architecture-guide
 azureCategories: developer-tools
 categories: developer-tools
 ms.custom:
   - guide
-  - seo-aac-fy21q3
 keywords:
   - Innovation toolkit
   - responsible innovation

@@ -10,47 +10,47 @@ This article describes how to use a mobile robot with a live streaming camera to
 
 This workflow describes how the system processes the incoming data:
 
-1.  A camera that's installed on the robot streams video in real time by using Real Time Streaming Protocol ([RTSP](/openspecs/windows_protocols/ms-dmct/fee912b4-f90e-458c-b44d-a03821c23fc3)).
+1. A camera that's installed on the robot streams video in real time by using Real Time Streaming Protocol ([RTSP](/openspecs/windows_protocols/ms-dmct/fee912b4-f90e-458c-b44d-a03821c23fc3)).
 
-2.  A container in the Kubernetes cluster on Azure Stack Edge reads the incoming stream and splits video into separate images. An open-source software tool called [FFmpeg](https://ffmpeg.org/about.html) ingests and processes the video stream.
+2. A container in the Kubernetes cluster on Azure Stack Edge reads the incoming stream and splits video into separate images. An open-source software tool called [FFmpeg](https://ffmpeg.org/about.html) ingests and processes the video stream.
 
-3.  Images are stored in the local Azure Stack Edge storage account.
+3. Images are stored in the local Azure Stack Edge storage account.
 
-4.  Each time a new key frame is saved in the storage account, an AI Vision container picks it up. For information about the separation of logic into multiple containers, see [Scenario details](#scenario-details).
+4. Each time a new key frame is saved in the storage account, an AI Vision container picks it up. For information about the separation of logic into multiple containers, see [Scenario details](#scenario-details).
 
-5.  When it loads a key frame from the storage container, the AI Vision container sends it to Azure AI services in the cloud. This architecture uses Azure AI Vision, which enables object detection via image analysis.
+5. When it loads a key frame from the storage container, the AI Vision container sends it to Azure AI services in the cloud. This architecture uses Azure AI Vision, which enables object detection via image analysis.
 
-6.  The results of image analysis (detected objects and a confidence rating) are sent to the anomaly detection container.
+6. The results of image analysis (detected objects and a confidence rating) are sent to the anomaly detection container.
 
-7.  The anomaly detection container stores the results of image analysis and anomaly detection in the local Azure Stack Edge Azure SQL database for future reference. Using a local instance of the database improves access time, which helps to minimize delays in data access.
+7. The anomaly detection container stores the results of image analysis and anomaly detection in the local Azure SQL Database instance of Azure Stack Edge for future reference. Using a local instance of the database improves access time, which helps to minimize delays in data access.
 
-8.  Data processing is run to detect any anomalies in the incoming real-time video stream. If anomalies are detected, a front-end UI shows an alert.
+8. Data processing is run to detect any anomalies in the incoming real-time video stream. If anomalies are detected, a front-end UI shows an alert.
 
 ### Components
 
--   [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is used to host running Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency.
+- [Azure Stack Edge](/azure/databox-online/) is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. This architecture uses it to host Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency.
 
--   [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge) is used to run a Kubernetes cluster of containers that contain the system's logic on Azure Stack Edge in a simple and managed way.
+- [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge). Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, we're using a version of AKS that runs on Azure Stack Edge device to manage containers responsible for system's logic.
 
--   [Azure Arc](https://azure.microsoft.com/products/azure-arc/) controls the Kubernetes cluster that runs on the edge device.
+- [Azure Arc](/azure/azure-arc/overview) is a bridge that extends Azure services to the edge. By utilizing Azure Arc in this architecture, we're able to control edge services through the cloud portal.
 
--   [Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision) is used to detect objects in key frames of the video stream.
+- [Azure AI Vision](/azure/ai-services/computer-vision/overview) is a unified service that offers computer vision capabilities. In this architecture, the image analysis feature is used to detect objects in key frames of the video stream.
 
--   [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is used to store images of key frames that are extracted from the video stream.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a Microsoft object storage solution for the cloud. In this architecture, it's used to store images of key frames that are extracted from the video stream.
 
--   [Azure SQL Edge]( https://azure.microsoft.com/products/azure-sql/edge/) is used to store data on the edge, close to the service that consumes and processes it.
+- [Azure SQL Edge](/azure/azure-sql-edge/overview) is a small-footprint, edge-optimized SQL engine with built-in AI. In this architecture, we specifically went for the edge version of SQL engine to store image analysis metadata, keeping it close to the service that consumes and processes.
 
--   [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is used to store Docker container images.
+- [Azure Container Registry](/azure/container-registry/) is a registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. In this architecture, the registry stores Docker container images for anomaly detection and AI vision containers.
 
--   [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault/) provides enhanced-security storage for any secrets or cryptographic keys that are used by the system.
+- [Azure Key Vault](/azure/key-vault/general/overview) is a service to provide secure key management in the cloud. In this architecture, it's used to store secrets and keys to allow system's logic to interact with external services where managed identity is not available.
 
--   [Azure Monitor](https://azure.microsoft.com/products/monitor/) provides observability for the system.
+- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. In this architecture, this service is the primary observability platform for the workload.
 
 ## Scenario details
 
 This architecture demonstrates a system that processes a real-time video stream, compares the extracted real-time data with a set of reference data, and makes decisions based on the results. For example, it could be used to provide scheduled inspections of a fenced perimeter around a secured location.
 
-The architecture uses Stack Edge to ensure that the most resource-intensive processes are performed on-premises, close to the source of the video. This design significantly improves the response time of the system, which is important when an immediate response to an anomaly is critical.
+The architecture uses Azure Stack Edge to ensure that the most resource-intensive processes are performed on-premises, close to the source of the video. This design significantly improves the response time of the system, which is important when an immediate response to an anomaly is critical.
 
 Because the parts of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to demand. For example, if you increase the number of cameras for the video feed, you can scale the container that's responsible for video ingestion and processing to handle the demand but keep the rest of the cluster at the original level.
 
@@ -59,15 +59,16 @@ Offloading the object detection functionality to Azure AI services significantly
 ### Potential use cases
 
 - Monitoring the security of a perimeter
--   Detecting an unsafe working environment in a factory
 
--   Detecting anomalies in an automated assembly line
+- Detecting an unsafe working environment in a factory
 
--   Detecting a lack of de-icing fluid on aircraft
+- Detecting anomalies in an automated assembly line
+
+- Detecting a lack of de-icing fluid on aircraft
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -91,8 +92,8 @@ To see a pricing example for this scenario, use the [Azure pricing calculator](h
 
 The cost of using Azure AI services for object detection varies based on how long the system runs. The preceding pricing example is based on a system that produces one image per second and operates for 8 hours per day. One FPS is sufficient for this scenario. However, if your system needs to run for longer periods of time, the cost of using Azure AI services is higher:
 
--   [Medium workload. 12 hours per day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a).
--   [High workload. 24 hours per day]( https://azure.com/e/06e155e46e6546b79fa07824f2c124f7).
+- [Medium workload. 12 hours per day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a).
+- [High workload. 24 hours per day](https://azure.com/e/06e155e46e6546b79fa07824f2c124f7).
 
 ### Performance efficiency
 
@@ -106,12 +107,12 @@ Because the code is deployed in a Kubernetes cluster, you can take advantage of 
 
 Principal author:
 
--   [Nick Sologoub](https://www.linkedin.com/in/ncksol/) | Principal Software Engineering Lead
+- [Nick Sologoub](https://www.linkedin.com/in/ncksol/) | Principal Software Engineering Lead
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
--   [Frédéric Le Coquil](https://www.linkedin.com/in/frederic-le-coquil-449a4b) | Principal Software Engineer
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+- [Frédéric Le Coquil](https://www.linkedin.com/in/frederic-le-coquil-449a4b) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -119,19 +120,19 @@ Other contributors:
 
 Product documentation:
 
--   [Object detection](/azure/cognitive-services/computer-vision/concept-object-detection)
--   [Responsible use of AI](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
--   [What is Azure Stack Edge Pro 2?](/azure/databox-online/azure-stack-edge-pro-2-overview)
--   [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
--   [Azure Arc overview](/azure/azure-arc/overview)
+- [Object detection](/azure/cognitive-services/computer-vision/concept-object-detection)
+- [Responsible use of AI](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
+- [What is Azure Stack Edge Pro 2?](/azure/databox-online/azure-stack-edge-pro-2-overview)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Arc overview](/azure/azure-arc/overview)
 
 Guided learning path:
 
--   [Bring Azure innovation to your hybrid environments with Azure Arc](/training/paths/manage-hybrid-infrastructure-with-azure-arc/)
--   [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service/)
--   [Introduction to Azure Stack](/training/modules/intro-to-azure-stack/)
--   [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
+- [Bring Azure innovation to your hybrid environments with Azure Arc](/training/paths/manage-hybrid-infrastructure-with-azure-arc/)
+- [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service/)
+- [Introduction to Azure Stack](/training/modules/intro-to-azure-stack/)
+- [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
 ## Related resources
 
--   [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
+- [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)

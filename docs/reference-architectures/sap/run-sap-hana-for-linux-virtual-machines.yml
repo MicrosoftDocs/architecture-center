@@ -6,7 +6,7 @@ metadata:
   ms.author: robiro
   ms.date: 07/20/2023
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - databases
@@ -15,6 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-sap
+    - linux-related-content
 name: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
 azureCategories:
   - databases

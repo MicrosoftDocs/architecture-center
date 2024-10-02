@@ -4,11 +4,13 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
   author: DixitArora-MSFT
-  ms.author: dixitaro, jyravi  
+  ms.author: dixitaro
   ms.date: 08/04/2023
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.collection: ce-skilling-ai-copilot
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
+  ms.custom: arb-aiml
 azureCategories:
   - analytics
   - ai-machine-learning
@@ -21,4 +23,4 @@ name: Extract and analyze call center data
 summary: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/call-center-analytics.png
 content: |
-   [!include[](call-center-openai-analytics-content.md)]
+   [!INCLUDE[](call-center-openai-analytics-content.md)]

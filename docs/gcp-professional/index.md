@@ -1,21 +1,12 @@
 ---
 title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
-author: cjnova
-ms.author: petuton
-ms.date: 11/30/2022
+author: ZacharyRiffle
+ms.author: zriffle
+ms.date: 07/11/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom:
-  - fcp
-keywords:
-  - Google Cloud experts
-  - Azure comparison
-  - Google Cloud comparison
-  - difference between Azure and Google Cloud
-  - Azure and GCP
-  - Azure and Google Cloud
 products:
   - azure
 categories:
@@ -128,7 +119,7 @@ The following table summarizes each option.
 
 ### **Availability sets**
 
-To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more _fault domains_ that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
+To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
 When VM instances are added to availability sets, they are also assigned an [update domain](/azure/virtual-machines/linux/manage-availability). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
 
@@ -146,7 +137,7 @@ Like Google Cloud, Azure regions can have Availability zones. An [Availability Z
 
 Zone redundant VM deployment on Azure
 
-For more information, see [Build solutions for high availability using Availability Zones](../high-availability/building-solutions-for-high-availability.yml).
+For more information, see - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
 
 ### Paired regions
 

@@ -3,11 +3,11 @@ metadata:
   title: Container orchestration for microservices
   description: Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.
   author: veerashayyagari
-  ms.author: veeray
+  ms.author: pnp
   ms.date: 05/27/2021
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
 azureCategories:
   - web
   - developer-tools

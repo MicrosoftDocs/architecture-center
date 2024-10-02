@@ -6,18 +6,16 @@ author: johndowns
 ms.author: jodowns
 ms.date: 07/07/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-cosmos-db
 categories:
   - data
-ms.category:
-  - fcp
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Cosmos DB
@@ -71,9 +69,9 @@ More information:
 
 When working with a multitenant system that uses Azure Cosmos DB, you need to make a decision about the level of isolation you want to use. Business-to-business (B2B) refers to selling to a business. Business-to-consumer (B2C) refers to selling directly to an individual customer who uses the product or service. Azure Cosmos DB supports several isolation models:
 
-|  | Partition key per tenant | Container per tenant (shared   throughput) | Container per tenant (dedicated   throughput) | Database per tenant | Database account per tenant |
+| Workload need | Partition key per tenant | Container per tenant (shared throughput) | Container per tenant (dedicated throughput) | Database per tenant | Database account per tenant |
 |---|:---:|:---:|:---:|:---:|:---:|
-| Queries   across tenants | Easy (container acts as boundary for   queries) | Hard | Hard | Hard | Hard |
+| Queries across tenants | Easy (container acts as boundary for   queries) | Hard | Hard | Hard | Hard |
 | Tenant density | High (lowest cost per tenant) | Medium | Low | Low | Low |
 | Tenant data deletion | Hard | Easy (drop container when tenant leaves) | Easy (drop container when tenant leaves) | Easy (drop database when tenant leaves) | Easy (drop database when tenant leaves) |
 | Data access security isolation | Needs to be implemented within the   application | Container RBAC | Container RBAC | Database RBAC | RBAC |
@@ -140,15 +138,15 @@ You can consider a combination of the above approaches to suit different tenants
 
 Principal authors:
 
-- [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [Paul Burpo](https://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 
 - [Mark Brown](https://www.linkedin.com/in/markjbrown1) | Principal PM Manager, Azure Cosmos DB
 - [Deborah Chen](https://www.linkedin.com/in/deborah-chen-62212437) | Principal Program Manager
 - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130) | Senior Program Manager, Azure Cosmos DB
-- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 - Thomas Weiss | Principal Program Manager
 - [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 
@@ -171,6 +169,5 @@ Refer to some of our other Cosmos DB architectural scenarios:
 - [Serverless apps using Azure Cosmos DB](/azure/architecture/databases/idea/serverless-apps-using-cosmos-db)
 - [Azure Cosmos DB in IoT workloads](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
 - [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/databases/guide/transactional-outbox-cosmos)
-- [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
 - [Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)

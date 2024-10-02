@@ -2,16 +2,18 @@
 title: AKS (Kubernetes) day-2 operations guide
 titleSuffix: Azure Architecture Center
 description: Learn about Azure Kubernetes Services (AKS) day-2 operations, such as triage, patching, upgrading, and troubleshooting.
-author: kevingbb
-ms.date: 04/11/2022
+author: paolosalvatori
+ms.author: paolos
+ms.date: 07/18/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom:
+  - e2e-aks
+  - arb-containers
 products:
   - azure-kubernetes-service
   - azure-monitor
-ms.custom:
-  - e2e-aks
 categories:
   - compute
 ---
@@ -29,17 +31,17 @@ Day-2 operations help you:
 
 ## Prerequisites
 
-The Day-2 operations guide assumes that you've deployed the [Azure Kubernetes Service (AKS) baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) as an example of a production cluster.
+The Day-2 operations guide assumes that you deployed the [Azure Kubernetes Service (AKS) baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) as an example of a production cluster.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*Microsoft maintains this article. The following contributors originally wrote it.*
 
 Principal author:
 
- - [Kevin Harris](https://www.linkedin.com/in/kevbhar/) | Principal Solution Spec GBB
- 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -50,6 +52,5 @@ Principal author:
 
 - [Patch and upgrade AKS worker nodes](./aks-upgrade-practices.md)
 - [Troubleshoot AKS networking](./troubleshoot-network-aks.md)
-- [Troubleshoot virtual nodes](./troubleshoot-virtual-nodes-aks.md)
 - [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [AKS troubleshooting](/azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

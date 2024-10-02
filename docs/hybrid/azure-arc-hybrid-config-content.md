@@ -1,4 +1,4 @@
-This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
+This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
 
 ## Architecture
 
@@ -61,9 +61,9 @@ Azure Arc-enabled servers support [Azure Policy](/azure/governance/policy/overvi
 
 There are several [Azure Policy built-in definitions for Azure Arc][arc-built-in-policies]. These policies provide auditing and configuration settings for both Windows and Linux-based machines.
 
-### Enable Azure Update Management
+### Enable Azure Update Manager
 
-Update Management. You can perform update management for Arc-enabled servers. [Update management](/azure/automation/update-management/overview) in Azure Automation enables you to manage operating system updates and quickly assess the status of available updates on all agent machines. You can also manage the process of installing required updates for servers.
+Update Manager. You need to adopt an update management for Arc-enabled servers. [Update manager](/azure/update-manager/overview) is recommended to manage operating system updates and assess the status of available updates on all agent machines. Update manager should also be used to manage the process of installing required updates for servers.
 
 Change Tracking and Inventory. [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview) for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
@@ -96,7 +96,7 @@ Consult [Network topology and connectivity for Azure Arc-enabled servers](/azure
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -145,18 +145,19 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ## Deploy this scenario
 
-The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro), included as part of the [Arc Jumpstart](https://azurearcjumpstart.io/) project. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
+The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro), included as part of the [Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
 
 To deploy the reference implementation, follow the steps in the GitHub repo by selecting the **Jumpstart ArcBox for IT Pros** button below.
 
 > [!div class="nextstepaction"]
-> [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#deployment-options-and-automation-flow)
+> [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro#deployment-options-and-automation-flow)
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -180,11 +181,11 @@ Explore related architectures:
 [agent-overview]: /azure/azure-arc/servers/agent-overview
 [Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
 [arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
-[Arc Jumpstart]: https://azurearcjumpstart.io
-[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
-[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
-[ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
-[ArcBox workbook]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/itpro/
+[Arc Jumpstart]: https://aka.ms/AzureArcJumpstart
+[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/
+[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/day2/
+[ArcBox for IT Pros]: https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro
+[ArcBox workbook]: https://azurearcjumpstart.com/azure_jumpstart_arcbox/workbook/flavors/ITPro/
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.pptx
 [Azure Arc docs]: /azure/azure-arc/

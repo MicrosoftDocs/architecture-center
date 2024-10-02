@@ -19,7 +19,7 @@ Elastic Enterprise Search streamlines the search process for searches of all typ
 
 The architecture components depend on your deployment choice: Elastic Cloud managed service, Elastic Cloud on Linux VMs, or Elastic Cloud on Kubernetes on Azure Kubernetes Service (AKS).
 
-- [Azure App Service](https://azure.microsoft.com/products/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, .NET Core, Node.js, Java, Python, or PHP. Apps can run in containers or on Windows or Linux.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, .NET Core, Node.js, Java, Python, or PHP. Apps can run in containers or on Windows or Linux.
 - [AKS](https://azure.microsoft.com/products/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications.
 - [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer) is a layer 4 (TCP, UDP) load balancer.
 - [Linux virtual machines in Azure](https://azure.microsoft.com/products/virtual-machines/linux) are on-demand, scalable Linux computing resources that give you the flexibility of virtualization, but eliminate the maintenance demands of physical hardware. The VMs are an on-demand and scalable resource.
@@ -62,4 +62,3 @@ Elastic site:
 
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](../../example-scenario/magento/magento-azure.yml)
 - [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
-- [Compliance risk analysis by using Azure Cognitive Search](../../guide/ai/compliance-risk-analysis.yml)

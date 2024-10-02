@@ -5,8 +5,8 @@ author: robbagby
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-app-service
   - azure-web-application-firewall
@@ -26,7 +26,7 @@ This article provides an overview of Azure web app technologies, guidance, solut
 
 Azure provides a wide range of tools and capabilities for creating, hosting, and monitoring web apps. These are just some of the key web app services available in Azure:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to easily create enterprise-ready web and mobile apps for any platform or device and deploy them on a scalable cloud infrastructure.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to easily create enterprise-ready web and mobile apps for any platform or device and deploy them on a scalable cloud infrastructure.
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) provides powerful protection for web apps.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) provides full observability into your applications, infrastructure, and network. Monitor includes [Application Insights](/azure/azure-monitor/app/app-insights-overview), which provides application performance management and monitoring for live web apps.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) enables you to easily add real-time web functionalities.
@@ -74,13 +74,9 @@ The following sections, organized by category, provide links to sample web app a
 
 ### E-commerce
 
-- [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
 - [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml)
-- [Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Episerver marketing website](../web-apps/hosting-applications/digital-marketing-episerver.yml)
-- [Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 
 ### Healthcare
 
@@ -106,9 +102,7 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Scalability
 
-- [Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)
 - [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 
 ### Security
 
@@ -118,7 +112,6 @@ The following sections, organized by category, provide links to sample web app a
 ### SharePoint
 
 - [Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)
 
 ## Stay current with web development
 
@@ -135,7 +128,6 @@ Here are some additional implementations to consider:
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
-- [Web application monitoring on Azure](../web-apps/guides/monitoring/app-monitoring.yml)
 
 ### AWS or Google Cloud professionals
 

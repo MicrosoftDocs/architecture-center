@@ -153,13 +153,13 @@ The addition of a user to a tenant workflow consists of the following steps:
 
 This architecture uses the following Azure services:
 
-- [App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) easily enables identity and access management for end user applications.
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you quickly build powerful integrations using a simple GUI tool.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you quickly build powerful integrations using a simple graphical user interface (GUI) tool.
 
 ### Alternatives
 
@@ -173,7 +173,7 @@ The effectiveness of any alternative choices depends greatly on the [tenancy mod
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can follow to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
@@ -197,12 +197,11 @@ The components in this solution have some cost associated with their operation, 
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
-This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (PaaS) services, you have many options to adjust the scale of the solution based on your requirements and load.
+This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
 ## Deploy this scenario
 
 If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) on GitHub. It's a deployable reference implementation of this architecture.
-
 
 ## Contributors
 
@@ -210,19 +209,19 @@ If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://gith
 
 Principal author:
 
- - [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
 
-Other contributors: 
+Other contributors:
 
- - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
- - [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
- - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
- - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
- - [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
- - [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
- - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
+- [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
+- [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
+- [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+- [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
 
 ## Next steps
 
@@ -230,7 +229,7 @@ Here are some additional recommended resources for building a SaaS application o
 
 - [Architect multitenant solutions on Azure](../../guide/multitenant/overview.md) - Describes best practices.
 - [ISV Considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
+- [Microsoft Azure Well-Architected Framework](/azure/well-architected/)
 - [WingTips Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) - Provides details about tradeoffs between various tenancy models within the database layer.
 
 ## Related resources

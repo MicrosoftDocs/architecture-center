@@ -2,18 +2,18 @@
 title: No Caching antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 ms.date: 06/05/2017
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
+ms.service: azure-architecture-center
+ms.subservice: best-practice
 categories:
   - databases
 products:
   - azure-cache-redis
 ms.custom:
   - article
-  - seo-aac-fy21q3
 keywords:
   - antipattern
   - anti-pattern
@@ -27,7 +27,7 @@ keywords:
 
 # No Caching antipattern
 
-Anti-patterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
+Antipatterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. A *no caching antipattern* occurs when a cloud application that handles many concurrent requests, repeatedly fetches the same data. This can reduce performance and scalability.
 
 When data is not cached, it can cause a number of undesirable behaviors, including:
 
@@ -220,7 +220,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Caching best practices][caching-guidance]
 - [Circuit Breaker pattern][circuit-breaker]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/NoCaching
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/NoCaching
 [cache-aside-pattern]: ../../patterns/cache-aside.yml
 [caching-guidance]: ../../best-practices/caching.yml
 [circuit-breaker]: ../../patterns/circuit-breaker.yml

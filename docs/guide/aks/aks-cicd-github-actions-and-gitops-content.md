@@ -2,9 +2,6 @@ GitOps is an operating model for cloud-native applications that stores applicati
 
 The example scenario in this article is applicable to businesses that want to modernize end-to-end application development by using containers, continuous integration (CI) for build, and GitOps for continuous deployment (CD). In this scenario, a [Flask app](/azure/app-service/quickstart-python) is used as an example. This web app consists of a front-end written using Python and the Flask framework.
 
-> [!NOTE]
-> You can use any containerized app with this scenario. For example, you could use the [Azure voting app](/samples/azure-samples/aks-voting-app/aks-voting-app).
-
 ## Architecture
 
 The following options explore push-based and pull-based CI/CD approaches.
@@ -116,7 +113,7 @@ Reasons to use a pull-based approach:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 

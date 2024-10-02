@@ -61,7 +61,7 @@ Databricks is set up so you can load and deploy your trained models to make pred
 - Unlimited clusters that can scale to any size.
 - Advanced security, role-based access controls, and audit logs.
 
-To interact with the Azure Databricks service, use the Databricks [Workspace][workspace] interface in a web browser or the [command-line interface][cli] (CLI). Access the Databricks CLI from any platform that supports Python 2.7.9 to 3.6.
+To interact with the Azure Databricks service, use the Databricks [Workspace][workspace] interface in a web browser or the [command-line interface (CLI)][cli]. Access the Databricks CLI from any platform that supports Python 2.7.9 to 3.6.
 
 The reference implementation uses [notebooks][notebooks] to execute tasks in sequence. Each notebook stores intermediate data artifacts (training, test, scoring, or results data sets) to the same data store as the input data. The goal is to make it easy for you to use it as needed in your particular use case. In practice, you would connect your data source to your Azure Databricks instance for the notebooks to read and write directly back into your storage.
 
@@ -69,11 +69,11 @@ Monitor job execution through the Databricks user interface, the data store, or 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Performance
 
-An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline may be more computationally demanding than others. Databricks adds extra workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
+An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline might be more computationally demanding than others. Databricks adds extra workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
 
 Develop more complex scheduled pipelines by using [Azure Data Factory][adf] with Azure Databricks.
 
@@ -89,11 +89,11 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 Azure Databricks is a premium Spark offering with an associated cost. In addition, there are standard and premium Databricks [pricing tiers][pricing].
 
-For this scenario, the standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the premium level could increase costs further.
+For this scenario, the Standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the Premium tier could increase costs further.
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
 
-- [SQL Server R services][sql-r]
+- [SQL Server R Services][sql-r]
 - [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
 
 ## Deploy this scenario
@@ -102,12 +102,12 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [John Ehrlinger](https://www.linkedin.com/in/ehrlinger) | Senior Applied Scientist
- 
+- [John Ehrlinger](https://www.linkedin.com/in/ehrlinger) | Senior Applied Scientist
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -116,17 +116,8 @@ Principal author:
 - [Deploy batch inference pipelines with Azure Machine Learning][learn2]
 - [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][aml-tut]
 
-## Related resources
-
-- [Build a Real-time Recommendation API on Azure][aac-recommendation]
-- [Batch scoring for deep learning models using Azure Machine Learning pipelines][aac-batch-deep]
-- [Batch scoring of Python Models on Azure][aac-batch-python]
-
 <!-- links -->
 
-[aac-batch-deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
-[aac-batch-python]: ../../ai-ml/architecture/batch-scoring-python.yml
-[aac-recommendation]: ../../reference-architectures/ai/real-time-recommendation.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification

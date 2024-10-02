@@ -4,7 +4,7 @@ An event-driven architecture consists of **event producers** that generate a str
 
 Events are delivered in near real time, so consumers can respond immediately to events as they occur. Producers are decoupled from consumers &mdash; a producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and every consumer sees all of the events. This differs from a [Competing Consumers][competing-consumers] pattern, where consumers pull messages from a queue and a message is processed just once (assuming no errors). In some systems, such as IoT, events must be ingested at very high volumes.
 
-An event driven architecture can use a [publish/subscribe](/azure/architecture/patterns/publisher-subscriber) (also called _pub/sub_) model or an event stream model.
+An event driven architecture can use a [publish/subscribe](/azure/architecture/patterns/publisher-subscriber) (also called *pub/sub*) model or an event stream model.
 
 - **Pub/sub**: The messaging infrastructure keeps track of subscriptions. When an event is published, it sends the event to each subscriber. After an event is received, it can't be replayed, and new subscribers don't see the event.
 
@@ -23,6 +23,12 @@ On the consumer side, there are some common variations:
 The source of the events may be external to the system, such as physical devices in an IoT solution. In that case, the system must be able to ingest the data at the volume and throughput that is required by the data source.
 
 In the logical diagram above, each type of consumer is shown as a single box. In practice, it's common to have multiple instances of a consumer, to avoid having the consumer become a single point of failure in system. Multiple instances might also be necessary to handle the volume and frequency of events. Also, a single consumer might process events on multiple threads. This can create challenges if events must be processed in order or require exactly-once semantics. See [Minimize Coordination][minimize-coordination].
+
+There are two primary topologies within many event-driven architectures:
+
+- **Broker topology**. Components broadcast occurrences as events to the entire system, and other components either act upon the event or just ignore the event. This topology is useful when the event processing flow is relatively simple. There is no central coordination or orchestration, so this topology can be very dynamic. This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. Subsequently, distributed transactions are risky because there is no native means to be restarted or replayed. Error handling and manual intervention strategies need to be carefully considered because this topology can be a source of data inconsistency.
+
+- **Mediator topology**. This topology addresses some of the shortcomings of broker topology. There is an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. Unlike broker topology, components broadcast occurrences as commands and only to designated channels, usually message queues. These commands aren't expected to be ignored by their consumers. This topology offers more control, better distributed error handling, and potentially better data consistency. This topology does introduce increased coupling between components, and the event mediator could become a bottleneck or a reliability concern.
 
 ## When to use this architecture
 

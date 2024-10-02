@@ -74,7 +74,7 @@ The system also contains the following components:
 
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) is a cloud-native WAF service that protects web apps against malicious attacks and common web vulnerabilities.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
@@ -123,7 +123,7 @@ Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include t
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/well-architected/), apply to this solution:
 
 ### Availability
 
@@ -186,7 +186,6 @@ Principal author:
 
 ## Related resources
 
-- [High availability and disaster recovery scenarios for IaaS apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)

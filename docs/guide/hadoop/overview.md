@@ -1,12 +1,12 @@
 ---
 title: Hadoop migration to Azure
 description: Learn about migrating Hadoop to Azure. This is an overview that has links to articles about Hadoop features such as HBase, HDFS, Kafka, Sqoop, and Storm.
-author: martinekuan
+author: namrata01Apr
 ms.author: namratam
-ms.date: 09/29/2022
+ms.date: 11/08/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - migration
 products:
@@ -84,8 +84,7 @@ The following diagram shows this approach:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
-For more information, see [Guide to migrating Big
-Data workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrating-big-data-workloads-hdinsight). That article provides a link for downloading a migration guide and also provides an email address that you can use to ask questions or make suggestions.
+For more information, see [Migrate on-premises Apache Hadoop clusters to Azure HDInsight](/azure/hdinsight/hadoop/apache-hadoop-on-premises-migration-motivation).
 
 ### Lift and shift to Azure infrastructure as a service (IaaS)
 
@@ -141,10 +140,10 @@ Other contributors:
 - [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Senior Software Engineer
 - [Eugene Chung](https://www.linkedin.com/in/eugenesc) | Senior Cloud Solution Architect
 - [Pawan Hosatti](https://www.linkedin.com/in/pawanhosatti) | Senior Cloud Solution Architect - Engineering
-- [Daman Kaur](https://www.linkedin.com/in/damankaur-architect) | Cloud Solution Architect
+- [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect
 - [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
-- [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
+- [Ben Sadeghi](https://www.linkedin.com/in/bensadeghi) | Senior Specialist
 - [Sunil Sattiraju](https://www.linkedin.com/in/sunilsattiraju) | Senior Cloud Solution Architect
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004) | Principal Program Manager
 - [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Cloud Solution Architect - Engineering
@@ -156,10 +155,11 @@ Other contributors:
 ### Azure product introductions
 
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [What is Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
+- [What is Apache Spark in Azure HDInsight?](/azure/hdinsight/spark/apache-spark-overview)
 - [What is Apache Hadoop in Azure HDInsight?](/azure/hdinsight/hadoop/apache-hadoop-introduction)
-- [What is Apache HBase in Azure HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
-- [What is Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [What is Apache HBase in Azure HDInsight?](/azure/hdinsight/hbase/apache-hbase-overview)
+- [What is Apache Kafka in Azure HDInsight?](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [Overview of enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
 
 ### Azure product reference
 

@@ -1,4 +1,4 @@
-This architecture demonstrates a way to provide file shares in the cloud to on-premises users and applications that also access files on Windows Server.
+This architecture demonstrates a way to provide file shares in the cloud to on-premises users and applications that also access files on Windows Server through a private endpoint.
 
 ## Architecture
 
@@ -34,15 +34,15 @@ This architecture demonstrates a way to provide file shares in the cloud to on-p
 
 ## Scenario details
 
-Consider the following common situation. An on-premises Windows Server provides files to users and applications. Windows Server Active Directory Domain Services (AD DS) secures the files, and there's an on-premises DNS server. Everything is on the same private network.
+Consider the following common scenario: an on-premises Windows Server is used to provide file shares for users and applications. Active Directory Domain Services (AD DS) is used to secure the files, and an on-premises DNS server manages network resources. Everything operates within the same private network.
 
-Now suppose that the need arises to have file shares in the cloud.
+Now, imagine the need arises to extend file shares to the cloud.
 
-The architecture that's described here shows how to use Azure to satisfy this need, and how to do it at low cost, and by continuing to use the on-premises network, AD DS, and DNS.
+The architecture described here demonstrates how Azure can meet this need cost-effectively while maintaining the use of your on-premises network, AD DS, and DNS.
 
-In this architecture, Azure Files provides the file share. Site-to-site VPN or Azure ExpressRoute provides secure connections between the on-premises network and Azure virtual network. Users and applications use the connections to access the files. Microsoft Entra ID and Azure DNS cooperate with on-premises AD DS and DNS to secure the access.
+In this setup, Azure Files is used to host the file shares, while a site-to-site VPN or Azure ExpressRoute provides secure connections between the on-premises network and Azure virtual network. Users and applications access the files via these secure connections. Microsoft Entra ID and Azure DNS work together with on-premises AD DS and DNS to ensure secure access.
 
-In short, if you're in the described situation, you can provide cloud files to your on-premises users at low cost, and continue to provide secure file access with your on-premises AD DS and DNS.
+In summary, if you're facing this scenario, you can offer cloud-based file shares to your on-premises users at a low cost while maintaining secure access using your existing AD DS and DNS infrastructure.
 
 ### Potential use cases
 
@@ -52,7 +52,7 @@ In short, if you're in the described situation, you can provide cloud files to y
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -92,9 +92,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Your Azure Storage accounts contain all of your Azure Storage data objects, including file shares. A storage account provides a unique namespace for its data, a namespace that's accessible from anywhere in the world over HTTP or HTTPS. For this architecture, your storage account contains file shares that are provided by Azure Files. For best performance, we recommend the following:
   - Don't put databases, blobs, and so on, in storage accounts that contain file shares.
   - Have no more than one highly active file share per storage account. You can group file shares that are less active into the same storage account.
-  - Use SSD-based storage rather than HDD. For more information about the scalability and performance of file shares, see [Azure Files scalability and performance targets](/azure/storage/files/storage-files-scale-targets).
-  - Don't select a general-purpose v1 storage account, because it lacks important features. The storage account types are described in [Storage account overview](/azure/storage/common/storage-account-overview).
-  - Pay attention to size, speed, and other limitations. For this information, refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+  - If your workload requires large amounts of IOPS, extremely fast data transfer speeds, or very low latency, then you should choose premium (FileStorage) storage accounts. A standard general-purpose v2 account is appropriate for most SMB file share workloads. For more information about the scalability and performance of file shares, see [Azure Files scalability and performance targets](/azure/storage/files/storage-files-scale-targets).
+  - Don't use a general-purpose v1 storage account, because it lacks important features. Instead, [upgrade to a general-purpose v2 storage account](/azure/storage/common/storage-account-upgrade). The storage account types are described in [Storage account overview](/azure/storage/common/storage-account-overview).
+  - Pay attention to size, speed, and other limitations. Refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - There's little you can do to improve the performance of non-storage components, except to be sure that your deployment honors the limits, quotas, and constraints that are described in [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - For scalability information for Azure components, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
@@ -104,7 +104,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Azure Security Engineer
 
 ## Next steps
 

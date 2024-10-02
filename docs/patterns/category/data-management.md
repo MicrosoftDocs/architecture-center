@@ -2,11 +2,11 @@
 title: Data management patterns
 titleSuffix: Cloud Design Patterns
 description: Use these data management patterns for cloud applications. Data management is a key element that influences most of the quality attributes.
-author: martinekuan
-ms.author: architectures
+ms.author: robbag
+author: RobBagby
 ms.date: 07/28/2022
-ms.topic: design-pattern
-ms.service: architecture-center
+ms.topic: conceptual
+ms.service: azure-architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern

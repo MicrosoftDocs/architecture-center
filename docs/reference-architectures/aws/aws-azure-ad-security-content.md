@@ -36,9 +36,9 @@ Microsoft Entra ID offers several capabilities for direct integration with AWS:
 
 Other advanced Microsoft Entra features can provide extra layers of control for the most sensitive AWS accounts. Microsoft Entra ID P2 licenses include these advanced features:
 
-- **Privileged Identity Management (PIM)** to provide advanced controls for all delegated roles within Azure and Microsoft 365. For example, instead of an administrator always using the Global Admin role, they have permission to activate the role on demand. This permission deactivates after a set time limit (one hour, for example). PIM logs all activations and has other controls that can further restrict the activation capabilities. PIM further protects your identity architecture by ensuring extra layers of governance and protection before administrators can make changes.
+- **Privileged Identity Management (PIM)** to provide advanced controls for all delegated roles within Azure and Microsoft 365. For example, instead of a user administrator being staticly assigned the User Administrator role, they have permission to activate the role on demand. This permission deactivates after a set time limit (one hour, for example). PIM logs all activations and has other controls that can further restrict the activation capabilities. PIM further protects your identity architecture by ensuring extra layers of governance and protection before privileged users can make changes.
 
-  [You can expand PIM to any delegated permission by controlling access to custom groups](/azure/active-directory/privileged-identity-management/concept-pim-for-groups), such as the ones you created for access to AWS roles. For more information about deploying PIM, see [Deploy Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
+  You can expand [PIM to any delegated permission by controlling access to custom groups](/entra/id-governance/privileged-identity-management/concept-pim-for-groups), such as the ones you created for access to AWS roles. For more information about deploying PIM, see [Plan a Privileged Identity Management deployment](/entra/id-governance/privileged-identity-management/pim-deployment-plan).
 
 - **Advanced Identity Protection** increases Microsoft Entra sign-in security by monitoring user or session risk. User risk defines the potential of the credentials being compromised, such as the user ID and password appearing in a publicly released breach list. Session risk determines whether the sign-in activity comes from a risky location, IP address, or other indicator of compromise. Both detection types draw on Microsoft's comprehensive threat intelligence capabilities.
 
@@ -217,9 +217,9 @@ If there's more than one AWS account to administer, such as DevTest and Producti
 
 Follow the steps below to configure Microsoft Entra SSO for AWS:
 
-   1. On **Azure Portal**, follow the steps on [Configure Microsoft Entra SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
+1. On **Azure Portal**, follow the steps on [Configure Microsoft Entra SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you've created for single sign-on to **AWS**.
 
-   1. On **AWS Console**, follow the steps on [Configure AWS SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you'll create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
+1. On **AWS Console**, follow the steps on [Configure AWS SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign-on. As part of this configuration, you'll create a new IAM user that acts on behalf of the Microsoft Entra provisioning agent to allow synchronization of all available **AWS IAM roles** into **Microsoft Entra ID**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
 
 - Make it easy to identify the components you create to support this integration. For example, name service accounts with a standard naming convention like "Svc-".
 - Be sure to document all new items.
@@ -231,34 +231,36 @@ Based on these configuration steps, you can diagram the interactions like this:
 
 On **AWS Console**, follow the steps below to create more roles.
 
-   1. In **AWS IAM**, select **Roles -> Create Role**.
+1. In **AWS IAM**, select **Roles -> Create Role**.
 
-   1. On the **Create** role page, perform the following steps:
-       1. Under **Select type of trusted entity**, select **SAML 2.0 federation**.
-       1. Under **Choose a SAML 2.0 Provider**, select the SAML provider you created in the previous step.
-       1. Select **Allow programmatic and AWS Management Console access**.
-       1. Select **Next: Permissions**.
+1. On the **Create** role page, perform the following steps:
+   1. Under **Select type of trusted entity**, select **SAML 2.0 federation**.
+   1. Under **Choose a SAML 2.0 Provider**, select the SAML provider you created in the previous step.
+   1. Select **Allow programmatic and AWS Management Console access**.
+   1. Select **Next: Permissions**.
 
-   1. On the **Attach permissions policies** dialog box, select **AdministratorAccess**. Then select **Next: Tags**.
-   1. In the **Add Tags** dialog box, leave it blank and select **Next: Review**.
-   1. In the **Review** dialog box, perform the following steps:
-       - In **Role Name**, enter your role name **(Administrator)**.
-       - In **Role Description**, enter the description.
-       - Select **Create Role**.
+1. On the **Attach permissions policies** dialog box, select **AdministratorAccess**. Then select **Next: Tags**.
 
-   1. Create another role by following the steps listed above. Name the role **Developer** and give it a few selected permissions of your choice (such as **AmazonS3FullAccess**).
+1. In the **Add Tags** dialog box, leave it blank and select **Next: Review**.
 
-      You've successfully created an **Administrator** and a **Developer** role in **AWS**.
+1. In the **Review** dialog box, perform the following steps:
+   1. In **Role Name**, enter your role name **(Administrator)**.
+   1. In **Role Description**, enter the description.
+   1. Select **Create Role**.
 
-   1. Create the following users and groups in **Microsoft Entra ID**:
-      - **User 1**: Test-AWSAdmin
-      - **User 2**: Test-AWSDeveloper
-      - **Group 1**: AWS-Account1-Administrators
-      - **Group 2**: AWS-Account1-Developers
-      - **Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
-      - **Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
+1. Create another role by following the steps listed above. Name the role **Developer** and give it a few selected permissions of your choice (such as **AmazonS3FullAccess**).
 
-   1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](/azure/active-directory/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. It can take up to one hour to complete the first provisioning cycle.
+   You've successfully created an **Administrator** and a **Developer** role in **AWS**.
+
+1. Create the following users and groups in **Microsoft Entra ID**:
+   - **User 1**: Test-AWSAdmin
+   - **User 2**: Test-AWSDeveloper
+   - **Group 1**: AWS-Account1-Administrators
+   - **Group 2**: AWS-Account1-Developers
+   - **Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
+   - **Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
+
+1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](/azure/active-directory/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. It can take up to one hour to complete the first provisioning cycle.
 
 ### How to update role mapping
 

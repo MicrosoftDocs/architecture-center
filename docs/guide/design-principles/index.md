@@ -1,18 +1,17 @@
 ---
 title: Design principles for Azure applications
 description: Follow these design principles to make your Azure application more scalable, resilient, and manageable.
-author: martinekuan
-ms.author: pnp
+author: RobBagby
+ms.author: robbag
 ms.date: 07/19/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - management-and-governance
 products:
   - azure
 ms.custom:
-  - seojan19
   - guide
 ---
 
@@ -34,7 +33,7 @@ Follow these design principles to make your application more scalable, resilient
 
 * **[Use managed services](managed-services.md)**. When possible, use platform as a service (PaaS) rather than infrastructure as a service (IaaS).
 
-  * **[Use an identity service](identity.md)**. Use an identity as a service (IDaaS) platform instead of building or operating your own.
+* **[Use an identity service](identity.md)**. Use an identity as a service (IDaaS) platform instead of building or operating your own.
 
 * **[Design for evolution](design-for-evolution.md)**. All successful applications change over time. An evolutionary design is key for continuous innovation.
 

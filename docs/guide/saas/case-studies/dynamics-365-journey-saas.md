@@ -4,10 +4,10 @@ titleSuffix: Azure Architecture Center
 description: Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.
 author: johndowns
 ms.author: jodowns
-ms.date: 10/26/2023
+ms.date: 11/14/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - dynamics-365
@@ -17,6 +17,7 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - arb-saas
 ---
 # The journey to SaaS: Dynamics 365
 
@@ -240,3 +241,11 @@ Here are key considerations that we hope you take away from our experiences and 
 - **Provide ongoing value through updates.** Think about when and how to deploy updates. Plan to fix issues quickly or fall back to previous versions. Decide how to handle breaking changes. Avoid one-off changes for specific customers, because every point of difference is an opportunity for something to go wrong.
 
 The biggest lesson we’ve learned is that the journey to SaaS never ends. A product roadmap is a living document that's constantly evolving. You always have many items in the backlog to improve your product, both for adding new features and for improving how you operate and deliver the product. Delivering SaaS requires continuous improvement to your processes, investment in quality, and vigilance to ensure that you provide a reliable, secure, performant, and trustworthy service for your customers. Advances in technologies, like generative AI, bring along tremendous opportunity for you to provide capabilities that were unimaginable before.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+- [Mike Ehrenberg](https://www.linkedin.com/in/mike-ehrenberg-5a3492128/) | CTO, Microsoft Dynamics
+- [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager
+- [Arsen Vladimirsky](http://linkedin.com/in/arsenv) | Principal Customer Engineer

@@ -5,7 +5,7 @@ author: martinekuan
 ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: reference-architecture
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 categories:
   - analytics
@@ -29,7 +29,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 There are many tools and capabilities to implement DataOps processes, like:
 
 - [Apache NiFi](https://nifi.apache.org/). Apache NiFi provides a system for processing and distributing data.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory). Azure Data Factory is a cloud-based ETL and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory). Azure Data Factory is a cloud-based extract, transform, load (ETL) and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks). Use Azure Databricks to unlock insights from all your data and build AI solutions. You can also quickly set up your Apache Spark environment, autoscale, and collaborate on shared projects.
 - [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage). Use a single data storage platform to optimize costs and protect your data with encryption at rest and advanced threat protection.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics). A limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
@@ -57,7 +57,6 @@ The following resources can help you learn about the core services for DataOps:
 
 To help you get started with DataOps production, consider these resources:
 
-- Assess your DataOps process by using the [DataOps checklist](../checklist/data-ops.md).
 - Get help choosing the right data solution with [Choose a data analytics and reporting technology in Azure](./technology-choices/analysis-visualizations-reporting.md).
 - Start building your data storage system with [Build a scalable system for massive data](./scenarios/build-scalable-database-solutions-azure-services.md).
 
@@ -65,25 +64,18 @@ To help you get started with DataOps production, consider these resources:
 
 Depending on the DataOps technology you use, see the following best practices resources:
 
-- [NiFi System Administrator’s Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
+- [NiFi System Administrator's Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
 - [Microsoft Purview accounts architectures and best practices](/azure/purview/concept-best-practices-accounts)
 - [Continuous integration and delivery in Azure Data Factory](/azure/data-factory/continuous-integration-delivery)
 - [Repos for Git integration](/azure/databricks/repos)
 - [Deploying and Managing Power BI Premium Capacities](/power-bi/guidance/whitepaper-powerbi-premium-deployment)
 - [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery)
 
-You can also learn about the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+You can also learn about the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Specific implementations
 
 To learn about scenario-specific architectures, see the solutions in the following areas.
-
-### Data governance
-
-You can integrate Profisee data management with Azure Purview to build a foundation for data governance and management.
-
-> [!div class="nextstepaction"]
-> [Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)
 
 ### Modern data warehouse
 
@@ -118,7 +110,6 @@ DataOps uses many tools and techniques to deliver data. The following resources 
 
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
-- [Data management across Azure Data Lake with Azure Purview](../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 
 ### Amazon Web Services (AWS) or Google Cloud professionals

@@ -2,17 +2,19 @@
 title: Multitenancy and Azure Event Hubs
 titleSuffix: Azure Architecture Center
 description: Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
-author: willvelida
-ms.author: willvelida
-ms.date: 02/20/2023
+author: landonpierce
+ms.author: landonpierce
+ms.date: 06/05/2024 
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-event-hubs
 categories:
- - analytics
+  - analytics
+ms.custom:
+  - arb-saas
 ---
 
 # Multitenancy and Azure Event Hubs
@@ -160,13 +162,13 @@ For more information, see:
 
 Principal author:
 
-- Will Velida | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](https://linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-- John Downs | Principal Customer Engineer, FastTrack for Azure
-- Paolo Salvatori | Principal Customer Engineer, FastTrack for Azure
-- Arsen Vladimirskiy | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -189,4 +191,3 @@ Other contributors:
 - [Integrate Event Hubs with serverless functions on Azure](../../../serverless/event-hubs-functions/event-hubs-functions.yml)
 - [Monitor Azure Functions and Event Hubs](../../../serverless/event-hubs-functions/observability.yml)
 - [Performance and scale for Event Hubs and Azure Functions](../../../serverless/event-hubs-functions/performance-scale.yml)
-- [Partitioning in Azure Event Hubs and Kafka](../../../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)

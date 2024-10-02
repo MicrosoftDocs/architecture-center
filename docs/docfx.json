@@ -70,14 +70,14 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "feedback_system": "GitHub",
+      "feedback_system": "Standard",
       "feedback_github_repo": "MicrosoftDocs/architecture-center",
       "breadcrumb_path": "/azure/architecture/bread/toc.json",
       "brand": "azure",
       "uhfHeaderId": "azure",
       "titleSuffix": "Azure Architecture Center",
       "ms.author": "pnp",
-      "ms.service": "architecture-center",
+      "ms.service": "azure-architecture-center",
       "_op_documentIdPathDepotMapping": {
         "./": {
           "depot_name": "MSDN.azure-architecture-center",

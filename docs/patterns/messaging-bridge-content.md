@@ -60,6 +60,17 @@ This pattern might not be suitable if:
 - Integration has specific functional or nonfunctional requirements, such as security or privacy concerns.
 - The volume of data for the integration exceeds the capacity of the messaging system or makes messaging an expensive solution to the problem.
 
+## Workload design
+
+An architect should evaluate how the Messaging Bridge pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | This intermediary step can increase the longevity of your existing system without the need for rewrites by allowing interoperability with systems that use a different messaging or eventing technology.<br/><br/> - [CO:07 Component costs](/azure/well-architected/cost-optimization/optimize-component-costs#determine-the-future-of-the-feature) |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This decoupling provides flexibility when you transition messaging and eventing technology within your workload or when you have heterogeneous requirements from external dependencies.<br/><br/> - [OE:06 Deploying workload changes](/azure/well-architected/operational-excellence/workload-supply-chain) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 There's an application written in a .NET framework for managing employee scheduling hosted on-premises. The application is well-structured with separate components communicating via MSMQ. The application works, and the workload team has no intention of rewriting it. A new consumer of the scheduling data needs to be built to meet a business need, and the IT strategy calls for building new software as cloud-native applications to optimize the costs and delivery time.
@@ -90,10 +101,10 @@ Principal authors:
 ## Next steps
 
 - [Messaging Bridge pattern description](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html) from the enterprise integration patterns community.
-- Learn how to implement a [Messaging Bridge](https://docs.spring.io/spring-integration/docs/current/reference/html/bridge.html) in the Spring Java framework.
+- Learn how to implement a [Messaging Bridge](https://docs.spring.io/spring-integration/reference/bridge.html) in the Spring Java framework.
 - [QPid bridge](https://openmama.finos.org/openmama_qpid_bridge.html) can be used to bridge AMQP-enabled messaging technologies.
 - The [NServiceBus Messaging Bridge](https://docs.particular.net/nservicebus/bridge) is a .NET implementation of a queue-to-queue bridge that supports a range of messaging infrastructures including MSMQ, Service Bus, and Azure Queue Storage.
-- [Router](https://github.com/SzymonPobiega/NServiceBus.Router) is an open-source project that implements the Messaging Bridge pattern. It also allows bridging more than two technologies in a single instance and has advanced message-routing capabilities.
+- [NServiceBus.Router](https://github.com/SzymonPobiega/NServiceBus.Router) is an open-source project that implements the Messaging Bridge pattern. It also allows bridging more than two technologies in a single instance and has advanced message-routing capabilities.
 
 ## Related resources
 

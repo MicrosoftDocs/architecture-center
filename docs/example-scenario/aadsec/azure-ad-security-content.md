@@ -8,13 +8,13 @@ Securing identities in the cloud is a high priority.
 
 - A 2019 IBM [study of data breach incidents](https://newsroom.ibm.com/2019-07-23-IBM-Study-Shows-Data-Breach-Costs-on-the-Rise-Financial-Impact-Felt-for-Years) reported that the average global cost of a data breach was $3.9M, with the US average cost closer to $8.2M.
 
-- The [Microsoft 2019 security intelligence report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December of 2018.
+- The [Microsoft 2019 Security Intelligence Report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December 2018.
 
-The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication, authorization, and encryption, while also providing compartmentalized access and better operational agility.
+The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication (AuthN), authorization, and encryption, while also providing compartmentalized access and better operational agility.
 
 Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive security combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
 
-The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.technet.microsoft.com/Cybersecurity-Reference-883fb54c) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments, that use Microsoft Entra ID for *Identity-as-a-Service (IDaaS)*.
+The [Microsoft Cybersecurity Reference Architecture (MCRA)](/security/cybersecurity-reference-architecture/mcra) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments, that use Microsoft Entra ID for *Identity-as-a-Service (IDaaS)*.
 
 This article advances the zero-trust, adaptive security approach to IDaaS, emphasizing components available on the Microsoft Entra platform.
 
@@ -38,7 +38,7 @@ This article advances the zero-trust, adaptive security approach to IDaaS, empha
 1. If authorized, the user or device gains access per *conditional access policies and controls*.
 1. If authorization fails, users can do *real-time remediation* to unblock themselves.
 1. All session data is *logged* for analysis and reporting.
-1. The SOC team's *security information and event management system (SIEM)* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
+1. The SOC team's *security information and event management (SIEM) system (security information and event management (SIEM))* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
 
 ### Components
 
@@ -66,21 +66,21 @@ The following security processes and components contribute to this Microsoft Ent
 
 - [Microsoft Entra provisioning](/azure/active-directory/manage-apps/user-provisioning) lets you automatically create user identities and roles in applications that users need to access. You can configure [Microsoft Entra provisioning](/azure/active-directory/app-provisioning/how-provisioning-works) for third-party *software-as-a-service (SaaS)* apps like [SuccessFactors](/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial), [Workday](/azure/active-directory/saas-apps/workday-inbound-tutorial), and [many more](/azure/active-directory/saas-apps/tutorial-list).
 
-- [Seamless single sign-on (SSO)](/azure/active-directory/hybrid/how-to-connect-sso) automatically authenticates users to cloud-based applications once they sign into their corporate devices. You can use Microsoft Entra seamless SSO with either [password hash synchronization](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [pass-through authentication](/azure/active-directory/hybrid/how-to-connect-pta).
+- [Seamless single sign-on (SSO)](/azure/active-directory/hybrid/how-to-connect-sso) automatically authenticates users to cloud-based applications once they sign in to their corporate devices. You can use Microsoft Entra seamless SSO with either [password hash synchronization](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [pass-through authentication](/azure/active-directory/hybrid/how-to-connect-pta).
 
 - Attestation with [Microsoft Entra access reviews](/azure/active-directory/governance/access-reviews-overview) help meet monitoring and auditing requirements. Access reviews let you do things like quickly identify the number of admin users, make sure new employees can access needed resources, or review users' activity to determine whether they still need access.
 
-#### Conditional access policies and controls
+#### Conditional Access policies and controls
 
-A [conditional access policy](/azure/active-directory/conditional-access/concept-conditional-access-policies) is an if-then statement of assignments and access controls. You define the response ("do this") to the reason for triggering your policy ("if this"), enabling the *authorization engine* to make decisions that enforce organizational policies. With [Microsoft Entra Conditional Access](/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access your apps. The Microsoft Entra ID [What If tool](/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) can help you understand why a conditional access policy was or wasn't applied, or if a policy would apply to a user in a specific circumstance.
+A [conditional access policy](/azure/active-directory/conditional-access/concept-conditional-access-policies) is an if-then statement of assignments and access controls. You define the response ("do this") to the reason for triggering your policy ("if this"), enabling the *authorization engine* to make decisions that enforce organizational policies. With [Microsoft Entra Conditional Access](/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access your apps. The Microsoft Entra ID [What If tool](/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) can help you understand why a Conditional Access policy was or wasn't applied, or if a policy would apply to a user in a specific circumstance.
 
-[Conditional access controls](/azure/active-directory/conditional-access/controls) work in conjunction with conditional access policies to help enforce organizational policy. Microsoft Entra Conditional Access controls let you implement security based on factors detected at the time of the access request, rather than a one-size fits all approach. By coupling conditional access controls with access conditions, you reduce the need to create additional security controls. As a typical example, you can allow users on a domain-joined device to access resources using SSO, but require MFA for users off-network or using their own devices.
+[Conditional access controls](/azure/active-directory/conditional-access/controls) work in conjunction with Conditional Access policies to help enforce organizational policy. Microsoft Entra Conditional Access controls let you implement security based on factors detected at the time of the access request, rather than a one-size fits all approach. By coupling Conditional Access controls with access conditions, you reduce the need to create additional security controls. As a typical example, you can allow users on a domain-joined device to access resources using SSO, but require MFA for users off-network or using their own devices.
 
-Microsoft Entra ID can use the following conditional access controls with conditional access policies:
+Microsoft Entra ID can use the following Conditional Access controls with Conditional Access policies:
 
-- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
+- [Azure role-based access control (RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
 
-- [Privileged identity management (PIM)](/azure/active-directory/privileged-identity-management) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Microsoft Entra PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Microsoft Entra ID, and other Microsoft 365 services with [just-in-time (JIT) access and just-enough-administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
+- [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Microsoft Entra PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Microsoft Entra ID, and other Microsoft 365 services with [just-in-time (JIT) access and just enough administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
@@ -92,7 +92,7 @@ Microsoft Entra ID can use the following conditional access controls with condit
   - [Apply information protection](/cloud-app-security/azip-integration) to guard against information loss
 
   Defender for Cloud Apps can also work with [access policies](/cloud-app-security/access-policy-aad) and [session policies](/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
-  
+
   - [Limit the IP ranges](/azure/active-directory/conditional-access/location-condition) that can access apps
   - [Require MFA](/azure/active-directory/authentication/concept-mfa-howitworks) for app access
   - [Allow activities only from within approved apps](/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -101,9 +101,9 @@ Microsoft Entra ID can use the following conditional access controls with condit
 
 - You can [scope application permissions to specific Exchange Online mailboxes](/graph/auth-limit-mailbox-access) by using **ApplicationAccessPolicy** from the Microsoft Graph API.
 
-- [Terms of Use (TOU)](/azure/active-directory/conditional-access/terms-of-use) provides a way to present information that end users must consent to before gaining access to protected resources. You upload TOU documents to Azure as PDF files, which are then available as controls in conditional access policies. By creating a conditional access policy that requires users to consent to TOU at sign-in, you can easily audit users that accepted the TOU.
+- [Terms of Use (TOU)](/azure/active-directory/conditional-access/terms-of-use) provides a way to present information that end users must consent to before gaining access to protected resources. You upload TOU documents to Azure as PDF files, which are then available as controls in Conditional Access policies. By creating a Conditional Access policy that requires users to consent to TOU at sign-in, you can easily audit users that accepted the TOU.
 
-- [Endpoint management](/azure/active-directory/conditional-access/require-managed-devices) controls how authorized users can access your cloud apps from a broad range of devices, including mobile and personal devices. You can use conditional access policies to restrict access only to devices that meet certain security and compliance standards. These *managed devices* require a [device identity](/azure/active-directory/devices/overview).
+- [Endpoint management](/azure/active-directory/conditional-access/require-managed-devices) controls how authorized users can access your cloud apps from a broad range of devices, including mobile and personal devices. You can use Conditional Access policies to restrict access only to devices that meet certain security and compliance standards. These *managed devices* require a [device identity](/azure/active-directory/devices/overview).
 
 #### Risk detection
 
@@ -157,12 +157,10 @@ Microsoft Entra pricing ranges from free, for features like SSO and MFA, to Prem
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Entra ID](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory)
 - [Overview of the security pillar](/azure/architecture/framework/security/overview)
-- [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
 - [Microsoft Entra demo tenant](https://demos.microsoft.com) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Microsoft Entra deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)
 
 ## Related resources
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
-- [Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+- [Security considerations for highly sensitive infrastructure as a service (IaaS) apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)

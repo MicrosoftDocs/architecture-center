@@ -1,10 +1,10 @@
-The Geode pattern involves deploying a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request for any client in any region. This pattern allows serving requests in an _active-active_ style, improving latency and increasing availability by distributing request processing around the globe.
+The Geode pattern involves deploying a collection of backend services into a set of **ge**ographical n**ode**s, each of which can service any request for any client in any region. This pattern allows serving requests in an *active-active* style, improving latency and increasing availability by distributing request processing around the globe.
 
 ![Geode map](./_images/geode.jpg)
 
 ## Context and problem
 
-Many large-scale services have specific challenges around geo-availability and scale. Classic designs often _bring the data to the compute_ by storing data in a remote SQL server that serves as the compute tier for that data, relying on scale-up for growth.
+Many large-scale services have specific challenges around geo-availability and scale. Classic designs often *bring the data to the compute* by storing data in a remote SQL server that serves as the compute tier for that data, relying on scale-up for growth.
 
 The classic approach may present a number of challenges:
 
@@ -12,11 +12,11 @@ The classic approach may present a number of challenges:
 - Traffic management for demand bursts that can overwhelm the services in a single region
 - Cost-prohibitive complexity of deploying copies of app infrastructure into multiple regions for a 24x7 service
 
-Modern cloud infrastructure has evolved to enable geographic load balancing of front-end services, while allowing for geographic replication of backend services. For availability and performance, getting data closer to the user is good. When data is geo-distributed across a far-flung user base, the geo-distributed datastores should also be colocated with the compute resources that process the data. The geode pattern _brings the compute to the data_.
+Modern cloud infrastructure has evolved to enable geographic load balancing of front-end services, while allowing for geographic replication of backend services. For availability and performance, getting data closer to the user is good. When data is geo-distributed across a far-flung user base, the geo-distributed datastores should also be colocated with the compute resources that process the data. The geode pattern *brings the compute to the data*.
 
 ## Solution
 
-Deploy the service into a number of satellite deployments spread around the globe, each of which is called a _geode_. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so _all_ requests can be served from _all_ geodes.
+Deploy the service into a number of satellite deployments spread around the globe, each of which is called a *geode*. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so *all* requests can be served from *all* geodes.
 
 The key difference between a [deployment stamp](./deployment-stamp.yml) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform.
 
@@ -47,7 +47,7 @@ Use the following techniques and technologies to implement this pattern:
 
 Consider the following points when deciding how to implement this pattern:
 
-- Choose whether to process data locally in each region, or to distribute aggregations in a single geode and replicate the result across the globe. The [Azure Cosmos DB change feed processor](/azure/cosmos-db/change-feed-processor) offers this granular control using its _lease container_ concept, and the _leasecollectionprefix_ in the corresponding [Azure Functions binding](/azure/cosmos-db/change-feed-functions). Each approach has distinct advantages and drawbacks.
+- Choose whether to process data locally in each region, or to distribute aggregations in a single geode and replicate the result across the globe. The [Azure Cosmos DB change feed processor](/azure/cosmos-db/change-feed-processor) offers this granular control using its *lease container* concept, and the *leasecollectionprefix* in the corresponding [Azure Functions binding](/azure/cosmos-db/change-feed-functions). Each approach has distinct advantages and drawbacks.
 - Geodes can work in tandem, using the Azure Cosmos DB change feed and a real-time communication platform like SignalR. Geodes can communicate with remote users via other geodes in a mesh pattern, without knowing or caring where the remote user is located.
 - This design pattern implicitly decouples everything, resulting in an ultra-highly distributed and decoupled architecture. Consider how to track different components of the same request as they might execute asynchronously on different instances. A proper monitoring strategy is crucial. Both Azure Front Door and Azure Cosmos DB can be easily integrated with Log Analytics and Azure Functions should be deployed alongside Application Insights to provide a robust monitoring system at each component in the architecture.
 - Distributed deployments have a greater number of secrets and ingress points that require property security measures. Key Vault provides a secure layer for secret management and each layer within the API architecture should be properly secured so that the only ingress point for the API is the front-end service like Azure Front Door. The Azure Cosmos DB should restrict traffic to the Azure Function Apps, and the Function apps to Azure Front Door using Microsoft Entra ID or practices like IP restriction.
@@ -69,9 +69,18 @@ This pattern might not be suitable for
 - Situations where a legacy platform needs to be retrofitted. This pattern works for cloud-native development only, and can be difficult to retrofit.
 - Simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.
 
+## Workload design
+
+An architect should evaluate how the Geode pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern uses data replication to support the ideal that any client can connect to any geographical instance and by doing so it can help your workload withstand one or more regional outages.<br/><br/> - [RE:05 High-availability multi-region design](/azure/well-architected/reliability/highly-available-multi-region-design)<br/> - [RE:05 Regions and availability zones](/azure/well-architected/reliability/regions-availability-zones) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | You can use this pattern to serve your application from a region that's closest to your distributed user base. Doing so reduces latency by eliminating long-distance traffic and because you share infrastructure only among users that are currently using the same geode.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Examples
 
 - Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but Flexible Single Master Operation (FSMO) roles mean that all geodes aren't equal.
 - The [geode pattern accelerator](https://github.com/mspnp/geode-pattern-accelerator) on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
-- A [QnA sample application](https://github.com/xstof/qnademo) on GitHub showcases this design pattern in practice.
-- Geode [Cache over SAP OData APIs](https://github.com/MartinPankraz/AzCosmosDB-OData-Shim): A sample OData API Geode set backed by Azure Cosmos DB as a globally accelerated data cache for SAP Retail applications.

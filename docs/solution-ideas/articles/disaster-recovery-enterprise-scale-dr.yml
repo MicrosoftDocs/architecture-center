@@ -4,10 +4,10 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: This large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers runs on an on-premises datacenter and fails over to Azure infrastructure.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 05/26/2022
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - management-and-governance
@@ -16,7 +16,8 @@ metadata:
     - acom-architecture
     - bcdr
     - e2e-hybrid
-    - "https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr"
+    - 'https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr'
+    - linux-related-content
 name: Enterprise-scale disaster recovery
 azureCategories:
   - management-and-governance

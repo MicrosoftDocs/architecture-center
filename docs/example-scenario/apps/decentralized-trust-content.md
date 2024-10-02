@@ -48,11 +48,11 @@ Other relevant use cases include:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Availability
 
-[Azure Monitor][monitor] is used to continuously monitor all components of the DLT network for issues to ensure availability. 
+[Azure Monitor][monitor] is used to continuously monitor all components of the DLT network for issues to ensure availability.
 
 ### Scalability
 
@@ -62,9 +62,9 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-[Azure Key Vault][vault] is used to easily store and manage the private keys. 
+[Azure Key Vault][vault] is used to easily store and manage the private keys.
 
-For a production scenario, where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for configuring a VPN are included in the deployment section below.
+For a production scenario, where a private network is desired, members can be connected to each other via VNet-to-VNet VPN Gateway connections. The steps for configuring a VPN are included in the deployment section below.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
@@ -113,7 +113,6 @@ Product documentation of Azure services:
 
 ## Related resources
 
-- [Data management in banking](../../industries/finance/data-management-banking-overview.yml)
 - [Patterns and implementations for a banking cloud transformation](../../example-scenario/banking/patterns-and-implementations.yml)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
 
@@ -121,7 +120,7 @@ Product documentation of Azure services:
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
-[corda]: https://docs.r3.com/en/platform/corda/4.7/enterprise/network/azure-vm.html
+[corda]: https://docs.r3.com/en/platform/corda/4.8/enterprise.html
 [monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [security]: /azure/security

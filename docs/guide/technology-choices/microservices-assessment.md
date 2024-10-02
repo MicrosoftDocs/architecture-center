@@ -3,10 +3,11 @@ title: Microservices assessment and readiness
 description: Use this guide as a checklist of considerations to keep in mind when you move to a microservices architecture. 
 author: ovaismehboob 
 ms.author: ovmehboo
-ms.date: 09/14/2022
+ms.date: 06/07/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.reviewer: nasiddi 
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-devops
   - azure-api-management
@@ -158,7 +159,7 @@ Take these factors into consideration:
  
 ## Assess transaction handling
 
-Distributed transactions facilitate the execution of multiple operations as a single unit of work. In a microservices architecture, the system is decomposed into numerous services. A single business use case is addressed by multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that starts when an event occurs. The event triggers the an operation in the system. If the operation succeeds, it might trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction succeeds. 
+Distributed transactions facilitate the execution of multiple operations as a single unit of work. In a microservices architecture, the system is decomposed into numerous services. A single business use case is addressed by multiple microservices as part of a single distributed transaction. In a distributed transaction, a command is an operation that starts when an event occurs. The event triggers an operation in the system. If the operation succeeds, it might trigger another command, which can then trigger another event, and so on until all the transactions are completed or rolled back, depending on whether the transaction succeeds. 
 
 Take the following considerations into account:
 - How many distributed transactions are there in the system? 

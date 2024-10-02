@@ -69,7 +69,7 @@ This solution outlines a modern data architecture. Azure Databricks forms the co
      - Removing users and denying them access.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provide financial governance services for Azure workloads.
+   - Microsoft Cost Management provides financial governance services for Azure workloads.
 
 ### Components
 
@@ -115,7 +115,7 @@ The solution uses the following components.
 
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
-- [Azure Cost Management and Billing][Azure Cost Management and Billing] manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Microsoft Cost Management][Microsoft Cost Management] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
 
 ## Scenario details
 
@@ -142,8 +142,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 ## Next steps
 
-- [Swiss Re builds a digital payment platform by using Azure Databricks and Power BI][Swiss Re builds a digital payment platform by using Azure Databricks and Power BI].
-- [AGL achieves machine learning at scale][AGL achieves machine learning at scale] with a standardized platform that uses Azure Databricks and Machine Learning.
+- [Tutorial: Build an end-to-end data pipeline in Databricks](/azure/databricks/getting-started/data-pipeline-get-started).
 
 ## Related resources
 
@@ -161,11 +160,9 @@ To learn about related solutions, see this information:
 - [Stream processing with Azure Databricks][Stream processing with Azure Databricks]
 - [Batch scoring of Spark models on Azure Databricks][Batch scoring of Spark models on Azure Databricks]
 - [Observability patterns and metrics for performance tuning][Observability patterns and metrics for performance tuning]
-- [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
-[AGL achieves machine learning at scale]: https://customers.microsoft.com/story/844796-agl-energy-azure
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
-[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management
+[Microsoft Cost Management]: https://azure.microsoft.com/services/cost-management
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure Data Lake Storage Gen2]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
@@ -175,7 +172,6 @@ To learn about related solutions, see this information:
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
-[Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
 [Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
@@ -192,7 +188,6 @@ To learn about related solutions, see this information:
 [Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
 [Spark SQL pools]: /azure/synapse-analytics/spark/apache-spark-overview
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
-[Swiss Re builds a digital payment platform by using Azure Databricks and Power BI]: https://customers.microsoft.com/story/1335371880067885708-swiss-re-drives-deeper-faster-insights-with-azure-synapse-analytics
 [DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops
 [What is Microsoft Purview?]: /azure/purview/overview
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
