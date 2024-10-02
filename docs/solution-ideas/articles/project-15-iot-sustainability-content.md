@@ -59,7 +59,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to send notifications to web apps in real time.
 
-- [App Service][App Service] and its [Web Apps][Web Apps] feature are fully managed platforms for building, deploying, and scaling web apps.
+- [App Service][App Service] and its [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) feature are fully managed platforms for building, deploying, and scaling web apps.
 
 - [Power BI][Power BI] is a collection of software services and apps that you use to connect and visualize unrelated sources of data.
 
@@ -182,7 +182,6 @@ Principal authors:
 [Project 15 YouTube Channel]: https://aka.ms/project15video
 [Solution details]: #solution-details
 [Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
-[Web Apps]: https://azure.microsoft.com/services/app-service/web
 [Microsoft Power Platform]: https://powerplatform.microsoft.com
 [Internet of Things Learning Path]: https://aka.ms/iotlp
 [Introduction to Azure IoT]: https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-iot/
