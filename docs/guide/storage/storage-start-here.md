@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
 author: martinekuan
 ms.author: pnp 
-ms.date: 10/02/2024
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -18,7 +18,6 @@ products:
 - azure-queue-storage
 - azure-table-storage
 - azure-disk-storage
-- azure-netapp-files
 ms.custom: 
 - overview
 - fcp
