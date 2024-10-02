@@ -6,7 +6,7 @@ Organizations can use the Azure Governance Visualizer to capture pertinent gover
 - Azure security and best practice analysis.
 - Microsoft Entra ID insights.
 
-The Azure Governance Visualizer accelerator runs the visualizer in an automated way through GitHub Actions. The visualizer outputs the summary as HTML, MD, and CSV files. Ideally, the generated HTML report is made easily accessible to authorized users in the organization. This article shows you how to automate running the Azure Governance Visualizer and host the reporting output securely and cost effectively on the Web Apps feature of Azure App Service.
+The Azure Governance Visualizer should be automated through GitHub workflows. The visualizer outputs the summary as HTML, MD, and CSV files. Ideally, the generated HTML report is made easily accessible to authorized users in the organization. This article shows you how to automate running the Azure Governance Visualizer and host the reporting output securely and cost effectively on the Web Apps feature of Azure App Service.
 
 An example implementation is available on GitHub at [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
