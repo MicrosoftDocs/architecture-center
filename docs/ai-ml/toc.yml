@@ -36,7 +36,7 @@ items:
           href: ../solution-ideas/articles/ai-search-skillsets.yml
       - name: MLOps
         items:
-        - name: Orchestrate MLOps with Azure Databricks
+        - name: Use Azure Databricks to orchestrate MLOps
           href: idea/orchestrate-mlops-azure-databricks.yml
         - name: Deploy AI and ML at the edge
           href: idea/deploy-ai-ml-azure-stack-edge.yml
