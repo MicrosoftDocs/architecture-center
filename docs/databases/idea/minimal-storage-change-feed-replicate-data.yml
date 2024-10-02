@@ -7,7 +7,7 @@ metadata:
   ms.author: nasiddi
   ms.date: 06/27/2024
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-data
 azureCategories:
@@ -25,4 +25,4 @@ name: Minimal storage – change feed to replicate data
 summary: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
 thumbnailUrl: /azure/architecture/browse/thumbs/minimal-storage-change-feed-replicate-data.png
 content: |
-  [!include[](minimal-storage-change-feed-replicate-data-content.md)]
+  [!INCLUDE[](minimal-storage-change-feed-replicate-data-content.md)]

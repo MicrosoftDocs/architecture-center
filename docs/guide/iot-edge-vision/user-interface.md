@@ -2,12 +2,12 @@
 title: User interfaces and scenarios in IoT Edge vision AI
 titleSuffix: Azure Architecture Center
 description: Examine user interface (UI) types, useful user-facing technology choices, and two user scenarios for Azure IoT Edge vision AI solutions.
-author: MSKeith
-ms.author: keith
+author: asergaz
+ms.author: sergaz
 ms.date: 02/16/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories: iot
 products:
   - power-bi

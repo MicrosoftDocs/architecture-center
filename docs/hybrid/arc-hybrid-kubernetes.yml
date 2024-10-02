@@ -2,11 +2,11 @@
 metadata:
   title: Manage and deploy Kubernetes in Azure Arc
   description: Learn how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.
-  author: pdebruin
-  ms.author: pidebrui
+  author: iamaliyousefi
+  ms.author: aliy
   ms.date: 11/21/2022
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - hybrid

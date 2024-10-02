@@ -1,26 +1,27 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Microsoft Sentinel is a scalable cloud solution for security information and event management (SIEM), and for security orchestration, automation, and response (SOAR). It delivers intelligent security analytics for enterprises of all sizes, and provides the following capabilities:
+Microsoft Sentinel is a scalable cloud-based solution for Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR). It offers intelligent security analytics for organizations of all sizes and provides the following capabilities:
 
 - Business attack detection
 - Proactive hunting
-- Threat response
+- Automated incident response
+- among others
 
-Threat response is provided by Microsoft Sentinel playbooks. When a playbook is triggered by a Microsoft Sentinel alert or incident, the playbook runs a series of actions to counter the threat. The playbooks are built by using Azure Logic Apps.
+Threat response in Microsoft Sentinel is managed through playbooks. When triggered by an alert or incident, a playbook executes a series of automated actions to counter the threat. These playbooks are created using Azure Logic Apps.
 
-Microsoft Sentinel includes many ready-to-use playbooks, including playbooks for these uses:
+Microsoft Sentinel provides hundreds of ready-to-use playbooks, including ones for the following scenarios:
 
-- Block a Microsoft Entra user
-- Block a Microsoft Entra user based on an approve or reject email
-- Post a message on the Microsoft Teams channel about an incident or alert
-- Post a message on Slack
-- Send an email that has incident or alert information
-- Send an email that has a formatted incident report
-- Confirm that a Microsoft Entra user is at risk
-- Send an adaptive card via Microsoft Teams to confirm that a user is compromised
-- Isolate an endpoint on Microsoft Defender for Endpoint
+- Blocking a Microsoft Entra user
+- Blocking a Microsoft Entra user based on approval or rejection via email
+- Posting a message in a Microsoft Teams channel about an incident or alert
+- Posting a message on Slack
+- Sending an email with incident or alert details
+- Sending an email with a formatted incident report
+- Verifying if a Microsoft Entra user is at risk
+- Sending an adaptive card via Microsoft Teams to confirm if a user is compromised
+- Isolating an endpoint through Microsoft Defender for Endpoint
 
-This article shows an example of implementing a playbook to respond to a threat. The playbook blocks a Microsoft Entra user that's compromised by suspicious activity.
+This article includes an example of implementing a playbook that responds to a threat by blocking a Microsoft Entra user compromised by suspicious activity.
 
 ## Potential use case
 
@@ -120,7 +121,7 @@ For more information about building logic apps, see [What is Azure Logic Apps](/
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Azure Security Engineer
 
 Other contributors:
 

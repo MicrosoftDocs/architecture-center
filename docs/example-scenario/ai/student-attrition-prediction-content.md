@@ -61,7 +61,7 @@ The information that's critical for the student attrition model consists of fact
 | Entry type | Early admission | Whether the student was admitted in advance of the usual notification date. |
 | Entry type | First time in college | Whether the student is enrolled in college for the first time. |
 | Entry type | Other | Other admission types, indicated as a numerical value. |
-| Entry type | Re-entry | A numerical value that represents re-entry admission.  |
+| Entry type | Reentry | A numerical value that represents reentry admission.  |
 | Entry type | Transfer | A numerical value that represents transfer admission. |
 | Academic standing | Academic probation | The period in which the student must improve academic standing, expressed as a normalized value in proportion to the enrollment period. |
 | Academic standing | Academic suspension | Whether the student has been suspended, expressed as a normalized value in proportion to the enrollment period. |
@@ -84,7 +84,7 @@ The information that's critical for the student attrition model consists of fact
 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) offers limitless storage for data in different shapes and formats. Besides enterprise-grade security and monitoring support, Azure Data Lake integrates easily with Azure analytics tools. Built on top of [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs), Azure Data Lake can manage large amounts of unstructured data, such as archives and data lakes. The service is a good fit for high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache for training the machine learning model.
 
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database engine for modern cloud applications. This database service offers built-in intelligent optimization, global scalability and availability, advanced security options, and dynamic scalability with no downtime. SQL Database can automatically process relational data and non-relational structures such as graphs and JSON, spatial, and XML data. For this service's availability guarantee, see [service-level agreement (SLA) for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8).
+- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database engine for modern cloud applications. This database service offers built-in intelligent optimization, global scalability and availability, advanced security options, and dynamic scalability with no downtime. SQL Database can automatically process relational data and non-relational structures such as graphs and JSON, spatial, and XML data. For this service's availability guarantee, see [Service-level agreement (SLA) for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8).
 
 - [Data Factory](https://azure.microsoft.com/services/data-factory) is an orchestration and cloud extract, transform, load (ETL) tool. Besides offering over 90 built-in connectors across various data sources, Data Factory provides copy and transformation functionality in a no-code environment. You can use its diagram view to monitor and manage data integration processes.
 
@@ -213,7 +213,6 @@ Other contributors:
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Unleash the power of predictive analytics in Azure Synapse Analytics with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
@@ -221,7 +220,6 @@ Other contributors:
 ## Related resources
 
 - [Solutions for the education industry](../../industries/education.md)
-- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

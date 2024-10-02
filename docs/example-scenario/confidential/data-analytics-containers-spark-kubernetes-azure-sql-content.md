@@ -171,6 +171,4 @@ Other contributor:
 ## Related resources
 
 - [Attestation, authentication, and provisioning](/azure/architecture/example-scenario/iot/attestation-provisioning)
-- [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
-- [Confidential computing on a healthcare platform](/azure/architecture/example-scenario/confidential/healthcare-inference)
 - [Multiparty computing with Azure services](/azure/architecture/guide/blockchain/multiparty-compute)

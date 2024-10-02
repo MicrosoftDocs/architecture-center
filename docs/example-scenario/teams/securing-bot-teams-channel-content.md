@@ -380,6 +380,4 @@ Principal author:
 
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios](../data/sentinel-threat-intelligence.yml)
 
-- [Confidential computing on a healthcare platform - Azure Example Scenarios](../confidential/healthcare-inference.yml)
-
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

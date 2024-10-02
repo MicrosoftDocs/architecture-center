@@ -4,9 +4,8 @@ description: Learn about the outline of key components, personnel roles, and ass
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.date: 07/12/2024
@@ -25,7 +24,7 @@ categories:
 
 The Team Data Science Process (TDSP) is a framework developed by Microsoft that provides a structured methodology to efficiently build predictive analytics solutions and intelligent applications. This article outlines the key personnel roles and associated tasks for a data science team standardizing on this process.
 
-A Git-compatible environment is suggested to supplement the MLflow artifacts stored in Azure Machine Learning. Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?tabs=python), so you can use many git-compatible services, such as  GitHub, GitLab, Bitbucket, Azure DevOps, or any other Git-compatible service.
+A Git-compatible environment is suggested to supplement the MLflow artifacts stored in Azure Machine Learning. Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?tabs=python), so you can use many Git-compatible services, such as  GitHub, GitLab, Bitbucket, Azure DevOps, or any other Git-compatible service.
 
 ## Structure of data science groups and teams
 
@@ -80,7 +79,7 @@ The team lead or a designated project administrator completes the following task
 - Creates the **project template repository** in the project, and seeds it from the group project template repository set up by the group manager or delegate.
 - Creates the **team utility repository**, seeds it from the group utility repository, and adds team-specific utilities to the repository.
 - Optionally creates [Azure file storage](https://azure.microsoft.com/services/storage/files/) to store useful data assets for the team. Other team members can mount this shared cloud file store on their analytics desktops.
-- Optionally mounts the Azure file storage on the team's **data science virtual machine** and adds team data assets to it.
+- Optionally mounts the Azure Files on the team's **data science virtual machine** and adds team data assets to it.
 - Sets up **security control** by adding team members and configuring their permissions.
 
 For more information, see [Team lead tasks for a data science team](team-lead-tasks.md).
@@ -92,7 +91,7 @@ The project lead completes the following tasks to adopt the TDSP:
 - Creates a **project repository** in the team project, and seeds it from the project template repository.
 
 - Optionally creates **Azure file storage** to store the project's data assets.
-- Optionally mounts the Azure file storage to the **data science virtual machine** and adds project data assets to it.
+- Optionally mounts the Azure Files to the **data science virtual machine** and adds project data assets to it.
 - Sets up **security control** by adding project members and configuring their permissions.
 
 For more information, see [Project lead tasks for a data science team](project-lead-tasks.md).
@@ -123,7 +122,7 @@ The workflow steps can be grouped into three activities:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -131,7 +130,7 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Related resources 
+## Related resources
 
 - [Group manager tasks](group-manager-tasks.md)
 - [Team lead tasks](team-lead-tasks.md)

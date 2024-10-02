@@ -6,7 +6,7 @@ ms.author: robbag
 author: RobBagby
 ms.date: 10/11/2022
 ms.topic: best-practice
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: best-practice
 categories:
   - compute
@@ -39,8 +39,8 @@ Many cloud-based systems, including Microsoft Azure, support automatic horizonta
 An autoscaling strategy typically involves the following pieces:
 
 - Instrumentation and monitoring systems at the application, service, and infrastructure levels. These systems capture key metrics, such as response times, queue lengths, CPU utilization, and memory usage.
-- Decision-making logic that evaluates these metrics against predefined thresholds or schedules, and decides whether to scale.
-- Components that scale the system.
+- Decision-making logic that evaluates these live usage metrics against predefined thresholds or schedules and decides whether to scale.
+- Components and mechanisms that perform the scaling action. Ideally, these components and mechanisms should be decoupled from the workload code itself and managed as an external process. Code that is idle or being overwhelmed should not be responsible for scaling itself.
 - Testing, monitoring, and tuning of the autoscaling strategy to ensure that it functions as expected.
 
 Azure provides built-in autoscaling mechanisms that address common scenarios. If a particular service or technology does not have built-in autoscaling functionality, or if you have specific autoscaling requirements beyond its capabilities, you might consider a custom implementation. A custom implementation would collect operational and system metrics, analyze the metrics, and then scale resources accordingly.

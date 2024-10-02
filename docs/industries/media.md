@@ -6,8 +6,8 @@ author: PageWriter-MSFT
 ms.author: prwilk
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 keywords:
   - Azure
 products:
@@ -53,13 +53,9 @@ The following articles provide detailed analysis of architectures developed and 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
 | [3D video rendering with Azure Batch](../example-scenario/infrastructure/video-rendering.yml) | Use Azure Batch as a powerful yet cost-effective alternative to expensive high end computing resources, for 3D video rendering. | Compute |
-| [Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml) | Build a high-performance and scalable image-based modeling architecture using Azure infrastructure-as-a-service (IaaS). | Compute |
 | [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml) | Quickly build an architecture to process, classify, and analyze images, using Azure Computer Vision API. | AI/ML |
 | [Analyze news feeds with near real-time analytics](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml) | Build a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds using Azure services. | Analytics |
 
-## Solution ideas for media and entertainment
+## Solution idea for media and entertainment
 
-The following are other ideas that you can use as a starting point for your media and entertainment solution.
-
-- [HPC Media Rendering](../solution-ideas/articles/azure-batch-rendering.yml)
-- [Keyword search/speech-to-text/OCR digital media](../solution-ideas/articles/digital-media-speech-text.yml)
+You can use [HPC media rendering](../solution-ideas/articles/azure-batch-rendering.yml) as a starting point for your media and entertainment solution.

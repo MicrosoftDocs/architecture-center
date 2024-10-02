@@ -1,4 +1,4 @@
-This article describes a typical architecture of a consumer health portal, that aligns with the pillars of the [Azure Well Architected Framework](/azure/well-architected/). You might choose to customize this architecture to meet your particular needs.
+This article describes an example architecture of a consumer health digital portal on Azure which can facilitate the communication between healthcare providers and patients. In addition, this platform could store medical records, medical images, allow for the patient to track health data, and more.
 
 ## Architecture
 

@@ -2,12 +2,12 @@
 metadata:
   title: Image classification on Azure
   description: Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.
-  author: aschauhan22
-  ms.author: ashchauhan
+  author: FreddyAyala
+  ms.author: freddyayala
   ms.date: 07/17/2024
   ms.topic: solution-idea
   ms.collection: ce-skilling-ai-copilot  
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning

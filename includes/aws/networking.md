@@ -2,7 +2,7 @@
 author: kobile70
 ms.author: vaboya
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 | Area | AWS service | Azure service | Description |
@@ -24,12 +24,10 @@ Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [Ex
 
 ### Networking architectures
 
-<ul class="grid">
-
-[!INCLUDE [Deploy highly available NVAs](../../includes/cards/nva-ha.md)]
-[!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
-[!INCLUDE [Implement a secure hybrid network](../../includes/cards/secure-vnet-dmz.md)]
-
-</ul>
+| Architecture | Description |
+|----|----|
+| [Deploy highly available NVAs](/azure/architecture/networking/guide/nva-ha) | Learn how to deploy network virtual appliances for high availability in Azure. This article includes example architectures for ingress, egress, and both. |
+| [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke) | Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub. |
+| [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) | See a secure hybrid network that extends an on-premises network to Azure with a perimeter network between the on-premises network and an Azure virtual network. |
 
 [view all](/azure/architecture/browse/#networking)

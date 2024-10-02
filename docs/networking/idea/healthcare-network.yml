@@ -3,11 +3,11 @@ metadata:
   title: IoT device connectivity for healthcare facilities
   titleSuffix: Azure Architecture Center
   description: See how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud.
-  author: niravi-msft
-  ms.author: niravi
+  author: asergaz
+  ms.author: sergaz
   ms.date: 05/22/2024
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-iot
 azureCategories:

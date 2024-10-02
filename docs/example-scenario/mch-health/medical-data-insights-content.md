@@ -143,7 +143,6 @@ Principal authors:
 - [Consumer health portal on Azure](../digital-health/health-portal.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Health data consortium on Azure](..//data/azure-health-data-consortium.yml)
-- [Confidential computing on a healthcare platform](../confidential/healthcare-inference.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Predict hospital readmissions with traditional and automated machine learning techniques](../ai/predict-hospital-readmissions-machine-learning.yml)
 - [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

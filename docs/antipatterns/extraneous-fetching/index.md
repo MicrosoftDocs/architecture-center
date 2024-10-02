@@ -7,8 +7,8 @@ author: RobBagby
 categories: azure
 ms.date: 07/25/2022
 ms.topic: design-pattern
-ms.service: architecture-center
-ms.subservice: anti-pattern
+ms.service: azure-architecture-center
+ms.subservice: best-practice
 azureCategories:
   - databases
   - storage
