@@ -59,22 +59,20 @@ The same use case can apply to any industry where devices need to communicate wi
 
 Principal authors:
 
-- [Katrien De Graeve](https://linkedin.com/in/katriendg) | "Software Engineer"
+- [Katrien De Graeve](https://linkedin.com/in/katriendg/) | "Software Engineer"
 - [Vincent Misson](https://www.linkedin.com/in/vmisson/) | "Cloud Solution Architect"
 
 Other contributors:
 
-- [Nacim Allouache](https://www.linkedin.com/in/nacim-allouache) | "Cloud Solution Architect"
+- [Nacim Allouache](https://www.linkedin.com/in/nacim-allouache/) | "Cloud Solution Architect"
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Upload files with IoT Hub](/azure/iot-hub/iot-hub-devguide-file-upload)
+Learn how to [Upload files with IoT Hub](/azure/iot-hub/iot-hub-devguide-file-upload).
 
 ## Related resources
-
-Related architecture guides:
 
 - [Hub-spoke network topology in Azure](/azure/architecture/networking/architecture/hub-spoke)
 - [Industry specific Azure IoT reference architectures](/azure/architecture/reference-architectures/iot/industry-iot-hub-page)

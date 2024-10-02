@@ -11,9 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.category:
     - iot
-  ms.custom:
-    - fcp
-    - example-scenario
+  ms.custom: arb-iot
 name: Azure IoT Hub File Upload to private storage account
 azureCategories:
   - iot
@@ -26,4 +24,4 @@ products:
   - azure-application-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/iothub-file-upload-private-link.png
 content: |
-   [!include[](iot-private-fileupload-content.md)]
+   [!INCLUDE[](iot-private-fileupload-content.md)]
