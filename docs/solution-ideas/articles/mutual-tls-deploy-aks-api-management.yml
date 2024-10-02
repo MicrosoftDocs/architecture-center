@@ -5,7 +5,7 @@ metadata:
   description: Learn how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS in an architecture that provides end-to-end encryption.
   author: saswatmohanty01
   ms.author: samohant
-  ms.date: 21/09/2024
+  ms.date: 09/21/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
