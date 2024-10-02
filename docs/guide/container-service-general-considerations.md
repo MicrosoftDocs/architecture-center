@@ -73,10 +73,10 @@ The considerations in this article are divided into four categories:
 - Resource limits
 - Well-Architected Framework for Reliability
 
- Note that this article focuses on a subset of Azure container services that offer a mature feature set for web applications and APIs, networking, observability, developer tools, and operations: Azure Kubernetes Service (AKS), Azure Container Apps, and Web App for Containers. For a complete list of all Azure container services, see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
+ Note that this article focuses on a subset of Azure container services that offer a mature feature set for web applications and APIs, networking, observability, developer tools, and operations: Azure Kubernetes Service (AKS), AKS Automatic, Azure Container Apps, and Web App for Containers. For a complete list of all Azure container services, see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
 
 > [!note]
-> In this guide, the term *workload* refers to a collection of application resources that support a business goal or the execution of a business process. A workload uses multiple components, like APIs and data stores, that work together to deliver specific end-to-end functionality.
+> Some sections distinguish AKS Standard from AKS Automatic. If a section does not distinguish between the two, feature parity can be assumed.
 
 ## Architectural considerations
 
@@ -88,11 +88,11 @@ These considerations aren't specific to Well-Architected Framework pillars. Howe
 
 Most containerized applications run in Linux containers, which are supported by all Azure container services. Your options are more limited for workload components that require Windows containers.
 
-| |  Container Apps | AKS | Web App for Containers |
-|---|--|--|--|
-| **Linux support** | ✅ | ✅ | ✅ |
-| **Windows support** | ❌ | ✅ | ✅ |
-| **Mixed OS support** | ❌ | ✅ | ❌* |
+| |  Container Apps | AKS | AKS Automatic | Web App for Containers |
+|---|--|--|--|--|
+| **Linux support** | ✅ | ✅ | ✅ |✅ |
+| **Windows support** | ❌ | ✅ | ❌|✅ |
+| **Mixed OS support** | ❌ | ✅ | ❌| ❌* |
 
 *Mixed OS support for Web App for Containers requires separate Azure App Service plans for Windows and Linux.
 
@@ -273,6 +273,8 @@ Most Azure services, including Container Apps, AKS, and Web App for Containers, 
 
 Of the services in this guide, AKS offers the most configurability and extensibility in part by surfacing underlying components, which often can be secured via configuration options. For example, customers can disable local accounts to the Kubernetes API server or turn on automatic updates to underlying nodes via configuration options. 
 
+AKS Automatic clusters come with a hardened default configuration, with many cluster, application, and networking security settings enabled by default. This reduces the operational effort required to secure the cluster, making deployment and management simpler compared to standard AKS.
+
 For a detailed comparison, carefully review the following considerations to ensure that your workload security requirements can be met.
 
 ### Kubernetes control plane security
@@ -398,7 +400,8 @@ In general, most Azure container services integrate Azure security offerings.  O
 - [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline)
 - [Azure security baseline for App Service](/security/benchmark/azure/baselines/app-service-security-baseline)
 
-The security baselines cover other Azure integrations, including hardware encryption and logging, that are out of scope for this article.
+> [!note]
+> AKS Automatic clusters are configured following AKS well-architected recommendations, ensuring a strong security baseline out of the box.
 
 ## Well-Architected Framework for Security
 
@@ -416,13 +419,16 @@ It is important that an application's underlying OS is updated and regularly pat
 
 As a managed Kubernetes service, AKS will provide the updated images for the node OS and control plane components. But workload teams are responsible for applying updates to their clusters. You can manually trigger updates or leverage the [cluster auto-upgrade channels](/azure/aks/auto-upgrade-cluster) feature to ensure your clusters are up to date. See the AKS day-2 operations guide to learn about [patching and upgrading AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
 
+> [!note]
+> AKS Automatic allows you to preconfigure control plane and host OS updates.
+
 Container Apps and Web App for Containers are PaaS solutions. Azure is responsible for managing updates and patches, so customers can avoid the complexity of AKS upgrade management.
 
-| | Container Apps| AKS| Web App for Containers|
-|---|--|--|--|
-| **Control plane updates** | Platform | [Customer](/azure/aks/upgrade-cluster) | Platform |
-| **Host updates and patches** | Platform | [Customer](/azure/aks/node-image-upgrade) | Platform |
-| **Container image updates and patches** | Customer | Customer | Customer |
+| | Container Apps| AKS| AKS Automatic| Web App for Containers|
+|---|--|--|--|--|
+| **Control plane updates** | Platform | [Customer](/azure/aks/upgrade-cluster) |Platform | Platform |
+| **Host updates and patches** | Platform | [Customer](/azure/aks/node-image-upgrade) |Platform | Platform |
+| **Container image updates and patches** | Customer | Customer | Customer| Customer |
 
 ### Container image updates
 
@@ -466,6 +472,9 @@ The typical measure on which to trigger scaling of infrastructure and applicatio
 | **Container scale out** | [HTTP, TCP, or metrics-based (CPU, memory, event-driven)](/azure/container-apps/scale-app). | [Metrics-based (CPU, memory, or custom)](/azure/aks/concepts-scale). | [Manual, metrics-based](), or [automatic (preview)](/azure/app-service/manage-automatic-scaling). |
 | **Event-driven scalability** | Yes. Cloud-native. | Yes. Cloud-native. Additional configuration required. | Yes. Azure-resource specific. |
 
+> [!note]
+> AKS Automatic provides seamless scaling by automatically creating nodes based on workload demands. It enables Horizontal Pod Autoscaler (HPA), Kubernetes Event Driven Autoscaling (KEDA), and Vertical Pod Autoscaler (VPA) by default, simplifying scalability management compared to standard AKS.
+
 ## Observability
 
 ### Workload instrumentation
@@ -491,25 +500,28 @@ Instrumentation within application code is the responsibility of application dev
 - [Application Insights SDKs](/azure/azure-monitor/app/app-insights-overview#supported-languages)
 - [OpenTelemetry distributions](/azure/azure-monitor/app/opentelemetry-add-modify)
 
-### Logs
+### Logs and Metrics
 
-All Azure container services provide application and platform log functionality. *Application logs* are console logs that are generated by your workload. *Platform logs* capture events that occur at the platform level, outside the scope of your application, like scaling and deployments.
+All Azure container services provide application and platform log and metric functionality. Application logs are console logs generated by your workload. Platform logs capture events that occur at the platform level, outside the scope of your application, like scaling and deployments. Metrics are numerical values that describe some aspect of a system at a point in time, allowing you to monitor and alert on system performance and health.
 
-The main differences among the logging functionality for container services pertain to platform logging: what gets logged and how logs are organized internally. Azure Monitor is the main logging service in Azure that integrates with these services. Monitor uses [resource logs](/azure/azure-monitor/essentials/resource-logs) to separate logs that come from different sources into categories. One way to determine which logs are available from each Azure service is to look at the resource log categories that are available for each of the services.
+Azure Monitor is the main logging and metrics service in Azure that integrates with these services. It uses resource logs to separate logs from different sources into categories and collects metrics to provide insights into resource performance. One way to determine which logs and metrics are available from each Azure service is to look at the resource log categories and available metrics for each of the services.
 
-| | Container Apps| AKS| Web App for Containers|
-|---|--|--|--|
-| **Support for log streaming (real-time streaming)** | ✅ | ✅ | ✅ |
-| **Support for Azure Monitor** | ✅ | ✅ | ✅ |
-| **Azure Monitor resource logs** | [Console](/azure/container-apps/logging#container-console-logs) and [system](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, Cluster Autoscaler, and more](/azure/aks/monitor-aks#aks-control-planeresource-logs) | [ConsoleLogs, HTTPLogs, EnvironmentPlatformLogs, and more](/azure/app-service/monitor-app-service-reference#resource-logs)|
+|     | Container Apps | AKS | AKS Automatic | Web App for Containers |
+| --- | --- | --- | --- | --- |
+| **Support for log streaming** | ✅   | ✅   | ✅   | ✅   |
+| **Support for Azure Monitor** | ✅   | ✅   | ✅   | ✅   |
+| **Azure Monitor resource logs** | [Console](/azure/container-apps/logging#container-console-logs) and [System](/azure/container-apps/logging#system-logs) | [Kubernetes API server, Audit, Scheduler, Cluster Autoscaler, and more](/azure/aks/monitor-aks#aks-control-planeresource-logs) | Same as AKS | [ConsoleLogs, HTTPLogs, EnvironmentPlatformLogs, and more](/azure/app-service/monitor-app-service-reference#resource-logs) |
+| **Metric collection and monitoring** | Metrics via Azure Monitor; custom metrics via [Dapr metrics](/azure/container-apps/dapr-overview#observability) | Metrics via Azure Monitor; custom metrics via Prometheus (requires manual setup) | Preconfigured Managed Prometheus for metrics collection and Managed Grafana for visualization; metrics via Azure Monitor | Metrics via Azure Monitor |
+| **Preconfigured Prometheus and Grafana** | ❌   | Requires manual setup | ✅ Managed Prometheus and Managed Grafana are preconfigured by default when using Azure CLI or Azure portal | ❌   |
 
-For a detailed description of each of the resource logs in the table, select the links in the table.
+**Container Apps** abstracts all of its internal Kubernetes logs into two categories: Console logs, which contain workload container logs, and System logs, which contain all platform-related logs. For metrics, Container Apps integrates with Azure Monitor to collect standard metrics and supports custom metrics through Dapr integration for advanced scenarios.
 
-Here's a short summary of the logging capabilities of the container services:
+**AKS** provides comprehensive Kubernetes-related logs and granular control over what gets logged. It retains full compatibility with Kubernetes client tools for log streaming, such as kubectl. For metrics, AKS integrates with Azure Monitor to collect cluster and node metrics. Custom metrics collection using Prometheus and visualization with Grafana are possible but require manual setup and configuration.
 
-- **Container Apps** abstracts all of its internal Kubernetes logs into two categories. One, called *Console* logs, contains the workload container logs. A second *System* category contains all platform-related logs.
-- **AKS** provides all Kubernetes-related logs and granular control over what can be logged. It also retains full compatibility with Kubernetes client tools for log streaming, like kubectl.
-- **Web App for Containers** provides many categories of resource logs because its platform (App Service) isn't exclusively for container workloads. For container-specific operations that manage its internal Docker platform, it provides the AppServicePlatformLogs log category. Another important category is AppServiceEnvironmentPlatformLogs, which logs events like scaling and configuration changes.
+**AKS Automatic** simplifies logging and metrics collection by preconfiguring monitoring tools. It comes with Managed Prometheus for metrics collection and Managed Grafana for visualization out of the box when using the Azure CLI or Azure portal. This means that cluster and application metrics are automatically collected and can be visualized without additional setup. AKS Automatic also integrates with Azure Monitor for log and metric collection, providing a seamless monitoring experience.
+
+**Web App for Containers** provides several categories of resource logs because its platform (App Service) isn't exclusively for container workloads. For container-specific operations that manage its internal Docker platform, it provides the AppServicePlatformLogs log category. Another important category is AppServiceEnvironmentPlatformLogs, which logs events like scaling and configuration changes. Metrics are collected via Azure Monitor, allowing you to monitor application performance and resource utilization.
+
 
 ### Well-Architected Framework for Operational Excellence
 
@@ -634,7 +646,9 @@ This article focuses on the main differences among the container services featur
 
 Well-architected solutions set the foundations for successful workloads. Although architectures can be adjusted as a workload grows and teams progress on their cloud journeys, some decisions, especially around networking, are difficult to reverse without significant downtime or re-deployment.
 
-In general, when you compare Azure container services, a theme emerges: AKS surfaces the most underlying infrastructure, thus offering the greatest configurability and extensibility. The amount of operational overhead and complexity is highly variable for AKS workloads. Some teams can greatly reduce the operational overhead by using Microsoft managed add-ons and extensions, as well as auto-upgrade features. Other customers may prefer full control of the cluster in order to leverage full extensibility of Kubernetes and the CNCF ecosystem. For example, although Microsoft offers Flux as a managed GitOps extension, many teams choose instead to setup and operate ArgoCD on their own.
+In general, when you compare Azure container services, a theme emerges: AKS surfaces the most underlying infrastructure, thus offering the greatest control and configurability, while AKS Automatic offers a balance between control and simplicity by automating many operational tasks. 
+
+The amount of operational overhead and complexity is highly variable for AKS workloads. Some teams can greatly reduce the operational overhead by using Microsoft managed add-ons and extensions, as well as auto-upgrade features. Other customers may prefer full control of the cluster in order to leverage full extensibility of Kubernetes and the CNCF ecosystem. For example, although Microsoft offers Flux as a managed GitOps extension, many teams choose instead to setup and operate ArgoCD on their own.
 
 Workload teams that, for example, do not require CNCF applications, have less operations experience or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
 
