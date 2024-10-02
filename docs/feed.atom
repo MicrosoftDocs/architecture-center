@@ -2,12 +2,68 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-09-23T20:44:38.150Z</updated>
+    <updated>2024-09-30T18:37:06.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Choose Azure AI image and video processing technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/image-video-processing"/>
+        <updated>2024-09-27T18:39:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about vision capabilities of Azure AI services. Learn which service to use for a specific use cases.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure AI speech recognition and generation technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/speech-recognition-generation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/speech-recognition-generation"/>
+        <updated>2024-09-27T18:39:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure AI speech recognition and generation capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure AI targeted language processing technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing"/>
+        <updated>2024-09-27T18:39:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about targeted language of Azure AI services. Learn which service to use for a specific use case.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure AI services technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/ai-services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/ai-services"/>
+        <updated>2024-09-27T18:39:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure AI services that you can use in AI applications and data flows. Choose the appropriate service for your use case.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generative AI ops for organizations with existing MLOps investments]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
+        <updated>2024-09-24T18:41:06.000Z</updated>
+        <summary type="html"><![CDATA[Guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic OpenAI end-to-end chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
+        <updated>2024-09-23T21:48:28.000Z</updated>
+        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure research environment for regulated data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research"/>
+        <updated>2024-09-25T23:40:59.000Z</updated>
+        <summary type="html"><![CDATA[Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Provide custom authentication to Azure OpenAI Service through a gateway]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/azure-openai-gateway-custom-authentication</id>
@@ -28,8 +84,56 @@
         <title type="html"><![CDATA[Implement logging and monitoring for Azure OpenAI language models]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai"/>
-        <updated>2024-09-23T13:34:32.000Z</updated>
+        <updated>2024-09-29T07:17:11.000Z</updated>
         <summary type="html"><![CDATA[Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service language models.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline OpenAI end-to-end chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
+        <updated>2024-09-23T21:48:28.000Z</updated>
+        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - Chunking phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase"/>
+        <updated>2024-09-24T19:14:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - LLM end to end evaluation phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase"/>
+        <updated>2024-09-24T19:14:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn about evaluating your RAG solution from end to end using key LLM and similarity metrics.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - Preparation phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-preparation-phase"/>
+        <updated>2024-09-24T19:14:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn what you should consider when gathering test documents and queries. You use these artifacts to test and validate your chunking, information retrieval, and prompt engineering strategies.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Video ingestion and object detection on the edge and in the cloud]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud"/>
+        <updated>2024-09-24T16:54:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use a mobile robot with a live streaming camera and object detection to implement various use cases.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Application platform considerations for mission-critical workloads on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform"/>
+        <updated>2024-09-24T14:42:30.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Platform.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -217,14 +321,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure Communication Services architecture design]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture"/>
-        <updated>2024-09-11T09:03:32.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to add communications features to your applications by using Azure Communication Services.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[AKS baseline for multiregion clusters]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster"/>
@@ -390,14 +486,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform"/>
         <updated>2024-09-02T15:28:17.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning proof of concept and a production version.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Types of decision APIs and Azure AI services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/decision-applied-ai</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/decision-applied-ai"/>
-        <updated>2024-09-02T15:22:41.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Azure AI services Decision APIs, which can help you make recommendations for decision-making, and Azure AI services, which provides NLP features.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -953,14 +1041,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Choose a cognitive services technology]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/cognitive-services</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/cognitive-services"/>
-        <updated>2024-07-29T14:39:51.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Azure cognitive services that you can use in AI applications and data flows. Choose the appropriate service for your use case.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Choose a data storage technology]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/data-storage</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/data-storage"/>
@@ -1025,14 +1105,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Types of vision API services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/vision-api</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/vision-api"/>
-        <updated>2024-07-22T15:12:08.000Z</updated>
-        <summary type="html"><![CDATA[Learn about using Azure AI Vision to understand and analyze images and video. Learn which service to use for a specific use case.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[DR for Azure Data Platform - Architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture"/>
@@ -1070,22 +1142,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details"/>
         <updated>2024-07-22T15:12:08.000Z</updated>
         <summary type="html"><![CDATA[Third article in a series covering disaster recovery for an Azure data platform]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Types of language API services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/language-api</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/language-api"/>
-        <updated>2024-07-22T13:11:19.000Z</updated>
-        <summary type="html"><![CDATA[Learn about using Azure AI Language to understand and analyze text. Learn which service to use for a specific use case.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Types of speech API services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/speech-api</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/speech-api"/>
-        <updated>2024-07-22T13:11:19.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the Azure AI Speech service, which provides speech-to-text and text-to-speech capabilities.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1789,7 +1845,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
         <updated>2024-06-10T13:15:45.000Z</updated>
-        <summary type="html"><![CDATA[Learn about proven practices for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant enterprise chat application with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
