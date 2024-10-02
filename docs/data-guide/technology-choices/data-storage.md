@@ -23,7 +23,7 @@ ms.custom:
 
 # Choose a big data storage technology in Azure
 
-This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical datastores](./analytical-data-stores.md) or real-time streaming ingestion.
+This article compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical datastores](./analytical-data-stores.md) or real-time streaming ingestion.
 
 ## What are your options when choosing data storage in Azure?
 
@@ -45,7 +45,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 **Analytical databases:**
 
-[Azure Data Explorer](/azure/data-explorer/)
+- [Azure Data Explorer](/azure/data-explorer/)
 
 ## Fabric OneLake
 
@@ -57,9 +57,9 @@ Fabric OneLake:
 - Stores all tabular data in Delta Parquet format.
 - Provides a single data lake within tenant boundaries that's governed by default.
 - Supports the creation of workspaces within a tenant so that an organization can distribute ownership and access policies.
-- Supports the creation of various data items, such as Lakehouses and Warehouses, from which you can access data.
+- Supports the creation of various data items, such as lakehouses and warehouses, from which you can access data.
 
-Fabric OneLake serves as the common storage location for ingestion, transformation, real-time insights, and Business Intelligence visualizations. It centralizes various Fabric services and stores data items used by all workloads in Fabric. To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/get-started/decision-guide-data-store).
+Fabric OneLake serves as the common storage location for ingestion, transformation, real-time insights, and business intelligence visualizations. It centralizes various Fabric services and stores data items that all workloads use in Fabric. To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/get-started/decision-guide-data-store).
 
 ## Azure Storage blobs
 
@@ -130,7 +130,7 @@ To narrow the choices, start by answering these questions:
 
 The following tables summarize the key differences in capabilities.
 
-## Microsoft Fabric OneLake capabilities
+### Microsoft Fabric OneLake capabilities
 
 |Capability|Fabric OneLake|
 | --- | --- |
