@@ -2,7 +2,7 @@
 metadata:
   title: Automotive messaging, data, and analytics
   titleSuffix: Azure Architecture Center
-  description: Learn how to create a scalable and reliable messaging and data analytics solution for the automotive industry.
+  description: Learn how to create a scalable and reliable solution for messaging and data analytics in the automotive industry.
   author: msmarioo
   ms.author: marioo  
   ms.date: 10/02/2024
