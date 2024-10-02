@@ -19,15 +19,15 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 ### Components
 
-* [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) or [Azure AD B2C](https://azure.microsoft.com/products/active-directory-b2c/) authenticates users. The browser performs DNS lookups to resolve addresses to Azure Front Door. In this architecture, Microsoft Entra ID provides customers with secure, granular access to external resources.
+* [Microsoft Entra ID](/entra/) or [Azure AD B2C](/azure/active-directory-b2c/) authenticates users. In this architecture, Microsoft Entra ID provides secure, granular access to external resources.
 * [Azure Front Door](https://azure.microsoft.com/products/frontdoor/) is the public interface for all internet requests. It acts as a global HTTP reverse proxy and cache for back-end services. In this architecture, Azure Front Door enhances the security and performance of your application, like protection from layer 4 distributed denial-of-service (DDoS) attacks. For more information, see the [Well-Architected Framework perspective on Azure Front Door](/azure/well-architected/service-guides/azure-front-door).
 * [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift/) is the Kubernetes-based container orchestrator that hosts the API applications and services, and provides an interface for back-end services. Azure Red Hat OpenShift serves as the primary compute platform in this architecture. 
 * [Container Registry](https://azure.microsoft.com/products/container-registry/) supports Docker and Open Container Initiative (OCI) compliant container images. Container Registry supports zone redundancy, which makes it highly available and resilient to zone failure. It also supports [geo-replication](/azure/container-registry/container-registry-geo-replication), which replicates the service across multiple regions. In this architecture, Container Registry provides applications with secure access to container images. 
 * Azure Red Hat OpenShift uses [virtual network integration](/azure/app-service/overview-vnet-integration#regional-virtual-network-integration) to connect to back-end services over a private virtual network. Virtual network integration provides a secure network with Azure Red Hat OpenShift and other Azure services in this architecture.
-* [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/) provides NoSQL document databases for front-end services. Azure Cosmos DB stores user data in this architecture. For more information, see [Well-Architected Framework review – Azure Cosmos DB for NoSQL](/azure/well-architected/service-guides/cosmos-db).
+* [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) provides NoSQL document databases for front-end services. Azure Cosmos DB is used by the workload in this architecture to store user data.
 * [Private endpoints](/azure/private-link/private-endpoint-overview) enable connections to back-end Azure services from private virtual networks and allow you to disable the public endpoints on these services. In this architecture, private endpoints with virtual network integration provide a secure network for Azure Red Hat OpenShift and other Azure services.   
 * [Azure Private DNS](/azure/dns/private-dns-overview) configures and updates the DNS records that the private endpoint services require. In this architecture, Azure Private DNS is used for name resolution in private networks.
-* [Key Vault](https://azure.microsoft.com/products/key-vault/) securely stores secrets and certificates that are accessed by Azure services. In this architecture, Azure Key Vault securely stores secrets for the applications running on Azure Red Hat OpenShift.  
+* [Key Vault](https://azure.microsoft.com/products/key-vault/) securely stores secrets and certificates that are accessed by Azure services. In this architecture, Azure Key Vault securely stores secrets for the applications running on Azure Red Hat OpenShift.
 * [Azure Monitor](https://azure.microsoft.com/products/monitor/) and [Application Insights](/azure/azure-monitor/app/app-insights-overview) collect service logs and application performance metrics for observability. In this architecture, Azure Monitor and Application insights collect, save, and show logs and metrics.  
 
 ### Alternatives
@@ -35,7 +35,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 * You can use Microsoft Entra ID or Azure AD B2C as an identity provider in this scenario. Microsoft Entra ID is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
 * Azure-managed DNS is recommended, but you can use your own DNS provider.
 * You can use [Azure Application Gateway](https://azure.microsoft.com/products/application-gateway/) instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload and if you don't need content caching. Use [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to protect internet-facing Application Gateway services.
-* Deploy a premium [Azure API Management](https://azure.microsoft.com/products/api-management/) instance with zone-redundancy as an alternative for hosting front-end APIs, back-end APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support](/azure/reliability/migrate-api-mgt).
+* Deploy a premium [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) instance with zone-redundancy as an alternative for hosting front-end APIs, back-end APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support](/azure/reliability/migrate-api-mgt).
 * You can use OpenShift Container Platform or Origin Community Distribution of Kubernetes (OKD) on [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) instead of Azure Red Hat OpenShift. OpenShift Container Platform or OKD are infrastructure-as-a-service (IaaS) alternatives to a fully platform-managed service, like Azure Red Hat OpenShift. For more information, see [Azure Red Hat OpenShift](/azure/openshift/intro-openshift).
 
 ## Scenario details
@@ -72,7 +72,7 @@ The following recommendations apply to most scenarios.
 
 ### Azure Front Door
 
-* Use [Azure-managed certificates](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell#azure-managed-certificates) on all front-end applications to prevent certificate misconfiguration and expiration issues.
+* Use [Azure-managed certificates](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#azure-managed-certificates) on all front-end applications to prevent certificate misconfiguration and expiration issues.
 * Enable [caching](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) on routes to improve availability. The Azure Front Door cache distributes your content to the Azure point-of-presence (POP) edge nodes. Caching reduces the load on origin servers and improves performance.
 * Deploy Azure Front Door Premium and configure a [web application firewall (WAF) policy](/azure/web-application-firewall/afds/afds-overview) with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use prevention mode to mitigate web attacks that might cause an origin-service failure.
 
@@ -88,7 +88,6 @@ The following recommendations apply to most scenarios.
 
 * The Premium Container Registry service tier offers zone redundancy. For information about registry service tiers and limits, see [Container Registry service tiers](/azure/container-registry/container-registry-skus).
 * [The region where a container registry is deployed must support availability zones](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
-* After a container registry is deployed, you can't change the zone redundancy option.
 * ACR Tasks doesn't support availability zones.
 
 For more information, see [Enable zone redundancy in Container Registry for resiliency and high availability](/azure/container-registry/zone-redundancy) and [Use Container Registry with Azure Red Hat OpenShift](/azure/openshift/howto-use-acr-with-aro).
@@ -98,7 +97,6 @@ For more information, see [Enable zone redundancy in Container Registry for resi
 * Enable [zone redundancy](/azure/reliability/reliability-cosmos-db-nosql) when you add the local read/write region to your Azure Cosmos DB account.
 * [Enable continuous backups](/azure/cosmos-db/provision-account-continuous-backup).
 * [Configure Azure Private Link for your Azure Cosmos DB account](/azure/cosmos-db/how-to-configure-private-endpoints). When you enable the private endpoint, you disable the public endpoint.
-* Integrate the private endpoint with a private Azure DNS zone.
 
 ### Key Vault
 
