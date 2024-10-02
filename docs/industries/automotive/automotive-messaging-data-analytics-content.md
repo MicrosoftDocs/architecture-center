@@ -363,7 +363,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Create anomaly detection and early warning for networks, digital services, and electronic control units.
 
-### Cost optimization
+### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
 
@@ -391,13 +391,13 @@ Cost Optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Optimize costs by using reserved instances.
 
-### Operational excellence
+### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the Operational Excellence pillar](/azure/architecture/framework/devops/overview).
 
 To enhance unified IT operations, consider monitoring the vehicle software. This software includes logs, metrics and traces, messaging services, data and analytics services, and related backend services.
 
-### Performance efficiency
+### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the Performance Efficiency pillar](/azure/architecture/framework/scalability/overview).
 
