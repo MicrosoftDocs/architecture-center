@@ -27,7 +27,7 @@ Consider whether to refresh, repurpose, or replace existing hardware. Brownfield
 
 ### Hosting and deployment
 
-Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine hosting location.
+Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine the hosting location.
 
 A large-scale application deployment is different from smaller-scale implementations. A traditional IT deployment to VMs and databases is different from deployments to containers or distributed devices.
 
@@ -79,7 +79,7 @@ For *Azure-specified* deployments:
 
 The following decision matrix presents supported workloads, hardware capabilities, and deployment models for several Azure hybrid services. All Azure services include the Azure portal and other Azure operations and management tools.
 
-:::image type="content" source="./images/hybrid-choices.svg" lightbox="./images/hybrid-choices.svg" alt-text="Diagram that shows Azure hybrid services capabilities and characteristics." border="false":::
+:::image type="content" source="./images/hybrid-choices.svg" lightbox="./images/hybrid-choices." alt-text="Diagram that shows Azure hybrid services capabilities and characteristics." border="false":::
 
 Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
@@ -108,8 +108,8 @@ Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybr
 
 This article is maintained by Microsoft. It was originally written by the following contributors:
 
-- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Sr Service Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Sr Software Engineer
+- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Senior Service Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 
 To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 
