@@ -65,7 +65,7 @@ This guide provides general information for running SAS on Azure, not platform-s
 
 Consider the points in the following sections when designing your implementation.
 
-SAS documentation provides requirements per core, meaning per physical CPU core. But Azure provides vCPU listings. On the VMs that we recommend for use with SAS, there are two vCPU for every physical core. As a result, to calculate the value of a vCPU requirement, use half the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For more information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
+SAS documentation provides requirements per core, meaning per physical CPU core. But Azure provides vCPU listings. On the VMs that we recommend for use with SAS, there are two vCPUs for every physical core. As a result, to calculate the value of a vCPU requirement, use half the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For more information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
 
 > [!NOTE]
 > If you're scaling up and persisting data in a single-node SAS deployment (and not to an externalized file system), the [SAS documentation](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833) recommends bandwidth of at least 150 MB/s. To achieve this bandwidth, you need to stripe multiple P30 Premium (or larger) disks.
@@ -74,13 +74,13 @@ SAS documentation provides requirements per core, meaning per physical CPU core.
 
 Linux works best for running SAS workloads. SAS supports 64-bit versions of the following operating systems:
 
-- Red Hat 7 or newer
+- Red Hat 7 or later
 - SUSE Linux Enterprise Server (SLES) 12.2
 - Oracle Linux 6 or later
 
 For more information about specific SAS releases, see the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
 
-To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. If you use a custom image without additional configurations, it can degrade SAS performance.
+To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. Using a custom image without additional configurations can degrade SAS performance.
 
 #### Kernel issues
 
@@ -89,7 +89,7 @@ When choosing an operating system, be aware of a soft lockup issue that affects 
 - Linux 3.x kernels
 - Versions earlier than 4.4
 
-A problem with the [memory and I/O management of Linux and Hyper-V](https://access.redhat.com/solutions/22621) causes the issue. When it comes up, the system logs contain entries like this one that mention a non-maskable interrupt (NMI):
+A problem with the [memory and I/O management of Linux and Hyper-V](https://access.redhat.com/solutions/22621) causes the issue. When it occurs, the system logs contain entries like this one that mention a non-maskable interrupt (NMI):
 
 ```console
 Message from syslogd@ronieuwe-sas-e48-2 at Sep 13 08:26:08
@@ -101,7 +101,7 @@ Another issue affects older versions of Red Hat. Specifically, it can happen in 
 - Have Linux kernels that precede 3.10.0-957.27.2
 - Use non-volatile memory express (NVMe) drives
 
-When the system experiences high memory pressure, the generic Linux NVMe driver may not allocate sufficient memory for a write operation. As a result, the system reports a soft lockup that stems from an actual deadlock.
+When the system experiences high memory pressure, the generic Linux NVMe driver might not allocate sufficient memory for a write operation. As a result, the system reports a soft lockup that stems from an actual deadlock.
 
 Upgrade your kernel to avoid both issues. Alternatively, try this possible workaround:
 
@@ -176,7 +176,7 @@ With Azure, you can scale SAS Viya systems on demand to meet deadlines:
 > [!NOTE]
 > When scaling computing components, also consider scaling up storage to avoid storage I/O bottlenecks.
 
-With Viya 3.5 and Grid workloads, Azure doesn't support horizontal or vertical scaling at the moment. Viya 2022 supports horizontal scaling.
+With Viya 3.5 and Grid workloads, Azure doesn't currently support horizontal or vertical scaling. Viya 2022 supports horizontal scaling.
 
 ### Network and VM placement considerations
 
@@ -217,7 +217,7 @@ Be aware of latency-sensitive interfaces between SAS and non-SAS applications. C
 
 ### Identity management
 
-SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Microsoft Entra Domain Services (Microsoft Entra Domain Services)](../../reference-architectures/identity/adds-extend-domain.yml). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
+SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Microsoft Entra Domain Services](../../reference-architectures/identity/adds-extend-domain.yml). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 > [!NOTE]
 > In some environments, there's a requirement for on-premises connectivity or shared datasets between on-premises and Azure-hosted SAS environments. In these situations, we strongly recommended deploying a domain controller in Azure.
@@ -286,20 +286,20 @@ When using an NFS Azure file share in Azure Files, consider the following points
 
 ##### Azure NetApp Files (NFS)
 
-SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, testing shows that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines. When [NetApp provided optimizations and Linux features](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) are used, Azure NetApp Files can be the primary option for clusters up to 48 physical cores across multiple machines.
+SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, testing shows that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines. When [NetApp provided-optimizations and Linux features](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) are used, Azure NetApp Files can be the primary option for clusters up to 48 physical cores across multiple machines.
 
 Consider the following points when using this service:
 
 - Azure NetApp Files works well with Viya deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
-- On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This goes up to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) applied.
+- On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This increases to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) is applied.
 - To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
-- Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
+- Read performance and write performance [differ](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600 MiB/s, while read throughput goes beyond that, to around 4500 MiB/s. If you need continuous high write throughput, Azure NetApp Files might not be a good fit.
 
 ##### NFS read-ahead tuning
 
 To improve the performance of your SAS workload, it's important to tune the `read-ahead` kernel setting, which affects how NFS shares are mounted. When read-ahead is enabled, the Linux kernel can request blocks before any actual I/O by the application. The result is improved sequential read throughput. Most SAS workloads read many large files for further processing, so SAS benefits tremendously from large read-ahead buffers.
 
-With Linux kernels 5.4 or later, the default read-ahead changed from 15 MB to 128 KB. The new default reduces read performance for SAS. To maximize your performance, increase the read-ahead setting on your SAS Linux VMs. SAS and Microsoft recommend that you set read-ahead to be 15 times the `rsize` and `wsize`. Ideally, the `rsize` and `wsize` is 1 MB, and the `read-ahead` is 15 MB.
+With Linux kernels 5.4 or later, the default read-ahead changed from 15 MB to 128 KB. The new default reduces read performance for SAS. To maximize your performance, increase the read-ahead setting on your SAS Linux VMs. SAS and Microsoft recommend that you set read-ahead to be 15 times the `rsize` and `wsize`. Ideally, the `rsize` and `wsize` are both 1 MB, and the `read-ahead` is 15 MB.
 
 Setting the read-ahead on a virtual machine is straightforward. It [requires adding a udev rule](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
 
@@ -323,7 +323,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in reporting strategy. It's important, then, to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to protect all data moving in and out of your architecture.
+The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in your reporting strategy. It's important, then, to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to help protect all data moving in and out of your architecture.
 
 Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. Microsoft builds security protections into the service at the following levels:
 
@@ -359,7 +359,7 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 
 It's best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
 
-When building your environment, see quickstart reference material at [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya).
+When building your environment, see the quickstart reference material at [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya).
 
 ## Contributors
 
