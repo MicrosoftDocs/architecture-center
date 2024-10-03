@@ -101,7 +101,7 @@ One example of prebuilt AI might be a pretrained model that can be incorporated 
 
 - [Try Azure Cognitive Services for free](https://azure.microsoft.com/try/cognitive-services/)
 
-- [Choosing an Azure Cognitive Services technology](../data-guide/technology-choices/cognitive-services.md)
+- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
 
 - [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
@@ -225,7 +225,7 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 #### Machine learning reference architectures for Azure
 
-- [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../ai-ml/guide/machine-learning-operations-v2.md)
 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 

@@ -222,20 +222,16 @@ items:
       - name: Streaming analytics
         href: /azure/stream-analytics/streaming-technologies
         maintainContext: true
-    - name: Choose an AI/ML service
+    - name: Choose an AI service
       items:
-      - name: Cognitive Services
-        href: data-guide/technology-choices/cognitive-services.md
-      - name: API services
-        items:
-        - name: Language API services
-          href: data-guide/cognitive-services/language-api.md
-        - name: Speech API services
-          href: data-guide/cognitive-services/speech-api.md
-        - name: Vision API services
-          href: data-guide/cognitive-services/vision-api.md
-        - name: Decision APIs and Applied AI Services
-          href: data-guide/cognitive-services/decision-applied-ai.md
+      - name: AI services
+        href: data-guide/technology-choices/ai-services.md
+      - name: Targeted language processing
+        href: data-guide/ai-services/targeted-language-processing.md
+      - name: Speech recognition and generation
+        href: data-guide/ai-services/speech-recognition-generation.md
+      - name: Image and video processing
+        href: data-guide/ai-services/image-video-processing.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning
@@ -1007,8 +1003,6 @@ items:
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
-      - name: Digital image modeling
-        href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Manage virtual machine compliance
@@ -2407,8 +2401,6 @@ items:
       href: guide/mobile/mobile-start-here.md
     - name: Guides
       items:
-      - name: Azure Communication Services architecture
-        href: guide/mobile/azure-communication-services-architecture.yml
       - name: Choose a mobile development framework
         href: /azure/developer/mobile-apps/choose-mobile-framework
         maintainContext: true
@@ -2659,8 +2651,6 @@ items:
         href: example-scenario/devops/automate-sentinel-integration.yml
       - name: Microsoft Entra ID in security operations
         href: example-scenario/aadsec/azure-ad-security.yml
-      - name: Confidential computing for healthcare
-        href: example-scenario/confidential/healthcare-inference.yml
       - name: Cyber threat intelligence
         href: example-scenario/data/sentinel-threat-intelligence.yml
       - name: Homomorphic encryption with SEAL
@@ -3334,8 +3324,6 @@ items:
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
       - name: Clinical insights with Cloud for Healthcare
         href: example-scenario/mch-health/medical-data-insights.yml
-      - name: Confidential computing for healthcare
-        href: example-scenario/confidential/healthcare-inference.yml
       - name: Consumer health portal on Azure
         href: example-scenario/digital-health/health-portal.yml
       - name: Donor-patient cross matching
@@ -4114,8 +4102,6 @@ items:
           items:
           - name: 3D video rendering
             href: example-scenario/infrastructure/video-rendering.yml
-          - name: Digital image-based modeling
-            href: example-scenario/infrastructure/image-modeling.yml
       - name: Compliance solutions
         items:
         - name: GDPR (EU)
@@ -4206,8 +4192,6 @@ items:
           href: example-scenario/infrastructure/video-rendering.yml
         - name: Analyze news feeds
           href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
-        - name: Digital image-based modeling on Azure
-          href: example-scenario/infrastructure/image-modeling.yml
         - name: Gridwich cloud media system
           href: reference-architectures/media-services/gridwich-architecture.yml
         - name: HPC media rendering

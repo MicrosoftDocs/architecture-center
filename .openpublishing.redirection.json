@@ -2721,6 +2721,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/guide/mobile/azure-communication-services-architecture.md",
+      "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/microsoft-cloud/overview.md",
       "redirect_url": "/microsoft-cloud/dev/overview/introduction",
       "redirect_document_id": false
@@ -3532,8 +3537,13 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/mlops-python.yml",
-      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-python",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/mlops-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
@@ -5091,8 +5101,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/confidential/healthcare-inference.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/azure-health-data-consortium",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "docs/solution-ideas/articles/sap-netweaver-on-sql-server.yml",
       "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/image-modeling.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5488,6 +5508,31 @@
     {
       "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/cognitive-services.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/language-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/targeted-language-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/speech-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/speech-service-capabilities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/vision-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/image-video-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
     }
   ]
