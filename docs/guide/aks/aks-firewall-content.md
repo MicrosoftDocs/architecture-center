@@ -52,7 +52,7 @@ The topology includes private endpoints and private DNS zones for these services
 - [Azure Key Vault](/azure/key-vault/general/private-link-service).
 - [The API server of the Kubernetes cluster](/azure/aks/private-clusters)
 
-There's a virtual network link between the hub-and-spoke virtual networks that host the AKS cluster and the private DNS zones described earlier.
+There's a virtual network link between the virtual network that hosts the AKS cluster and the private DNS zones described earlier.
 
 A Log Analytics workspace is used to collect the diagnostics logs and metrics from Azure services.
 
