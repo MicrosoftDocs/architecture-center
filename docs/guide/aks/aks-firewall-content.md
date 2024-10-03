@@ -100,7 +100,7 @@ Azure Firewall supports three different SKUs to cater to a wide range of custome
 - Azure Firewall **Standard** is recommended for customers looking for a Layer 3–Layer 7 firewall and who need auto-scaling to handle peak traffic periods of up to 30 Gbps. It supports enterprise features, like threat intelligence, DNS proxy, custom DNS, and web categories.
 - Azure Firewall **Basic** is recommended for customers with throughput needs of less than 250 Mbps.
 
-The following table shows the features of the three [Azure Firewall SKUs](https://learn.microsoft.com/en-us/azure/firewall/choose-firewall-sku). For more information, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall).
+The following table shows the features of the three [Azure Firewall SKUs](/azure/firewall/choose-firewall-sku). For more information, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall).
 
 ![Screenshot that shows features of the three Azure Firewall SKUs](./media/firewall-skus.png)
 
