@@ -35,7 +35,7 @@ A VM is deployed in the virtual network that's hosting the AKS cluster. When you
 
 An Azure Bastion host provides improved-security SSH connectivity to the jump-box VM over SSL. Azure Container Registry is used to build, store, and manage container images and artifacts (like Helm charts).
 
-Although AKS is a fully managed solution, it does not provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
+AKS does not provide a built-in solution for securing ingress and egress traffic between the cluster and external networks.
 
 For this reason, the architecture presented in this article includes an [Azure Firewall](/azure/firewall/overview) that controls inbound and outbound traffic using [DNAT rules, network rules, and application rules](/azure/firewall/rule-processing). It also protects workloads with [threat intelligence-based filtering](/azure/firewall/threat-intel). The Azure Firewall and Bastion are deployed to a hub virtual network that is peered with the virtual network hosting the private AKS cluster. A route table and user-defined routes route outbound traffic from the private AKS cluster to the Azure Firewall.
 
