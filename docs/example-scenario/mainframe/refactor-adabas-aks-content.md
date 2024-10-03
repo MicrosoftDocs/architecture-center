@@ -54,13 +54,13 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 ### Components  
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. Alternately, or as a backup, Azure VPN gateway can be established.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. Alternately, or as a backup, Azure VPN gateway can be established. Customers will need to connect to the Azure environment through a secure high-speed private connection, for which Azure ExpressRoute is recommended.
 
-- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance. In this scenario, Adabas & Natural containers are deployed in Azure Kubernetes Service. 
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture. In this scenario, all operating system volumes are stored in Azure managed disks. 
 
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy to migrate and run complex, file-based applications without changing code.
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy to migrate and run complex, file-based applications without changing code. In this scenario, all persistent data, like database files, protection logs, application data, and backup, use Azure NetApp Files
 
 ## Scenario details
 
@@ -92,6 +92,10 @@ In the data layer, Adabas runs in the AKS cluster, which scales in and out autom
 
 Place Natural batch pods in the same availability zone (data center) as Adabas pods. [Proximity placement groups](/azure/aks/reduce-latency-ppg) should be used to place Adabas and Natural batch pods in the same node pool within the same availability zone.
 
+### Security  
+
+This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. The refactored containers should be deployed to a private AKS cluster with inbound access through private API server and internal IP addresses. All outbound traffic should be routed through an egress firewall layer.
+
 ### Operational Excellence
 
 Refactoring supports faster cloud adoption. It also promotes adoption of DevOps and Agile working principles. You have full flexibility of development and production deployment options.
@@ -100,9 +104,7 @@ Refactoring supports faster cloud adoption. It also promotes adoption of DevOps 
 
 Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of nodes based on the requested compute resources in the node pool. It monitors the Metrics API server every 10 seconds for any required changes in node count. If the cluster autoscaler determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly.  
 
-### Security  
 
-This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. The refactored containers should be deployed to a private AKS cluster with inbound access through private API server and internal IP addresses. All outbound traffic should be routed through an egress firewall layer.
 
 ## Contributors
 
