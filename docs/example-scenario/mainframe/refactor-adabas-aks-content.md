@@ -90,7 +90,7 @@ The architecture diagram in this article shows a container-based implementation 
 
 In the data layer, Adabas runs in the AKS cluster, which scales in and out automatically based on resource use. You can run multiple components of Adabas in the same pod or, for greater scale, AKS can distribute them across multiple nodes in the cluster. Adabas uses Azure NetApp Files, a high-performance, metered file storage service, for all persistent data, like database files, protection logs, app data, and backup.
 
-It is recommended to place Natural batch pods in the same availability zone (data center) as Adabas pods. [Proximity placement groups](/azure/aks/reduce-latency-ppg) can be used to place Adabas and Natural batch pods in the same node pool within the same availability zone. 
+Place Natural batch pods in the same availability zone (data center) as Adabas pods. [Proximity placement groups](/azure/aks/reduce-latency-ppg) should be used to place Adabas and Natural batch pods in the same node pool within the same availability zone.
 
 ### Operational Excellence
 
