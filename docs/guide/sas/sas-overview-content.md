@@ -282,7 +282,7 @@ You can use `nconnect` to improve performance. This mount option spreads IO requ
 When using an NFS Azure file share in Azure Files, consider the following points:
 - Adjust the provisioned capacity to meet performance requirements. The IOPS and throughput of NFS shares scale with the provisioned capacity. For more information, see [NFS performance](/azure/storage/files/files-nfs-protocol#performance).
 - Use nConnect in your mounts with a setting of `nconnect=4` for optimal-performance parallel channel use.
-- Optimize `read-ahead` settings to be 15 times the `rsize` and `wsize`. For most workloads, we recommend an `rsize` and `wsize` of 1 MB and a `read-ahead` setting of 15 MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
+- Optimize read-ahead settings to be 15 times the `rsize` and `wsize`. For most workloads, we recommend an `rsize` and `wsize` of 1 MB and a `read-ahead` setting of 15 MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
 
 ##### Azure NetApp Files (NFS)
 
@@ -295,13 +295,13 @@ Consider the following points when using this service:
 - To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
 
-##### NFS `read-ahead` tuning
+##### NFS read-ahead tuning
 
-To improve the performance of your SAS workload, it's important to tune the `read-ahead` kernel setting, which affects how NFS shares are mounted. When read-ahead is enabled, the Linux kernel can request blocks in advance of any actual I/O by the application. The effect is improved sequential read throughput. Most SAS workloads read many large files for further processing, and as such SAS benefits tremendously from large read-ahead buffers.
+To improve the performance of your SAS workload, it's important to tune the `read-ahead` kernel setting, which affects how NFS shares are mounted. When read-ahead is enabled, the Linux kernel can request blocks before any actual I/O by the application. The result is improved sequential read throughput. Most SAS workloads read many large files for further processing, so SAS benefits tremendously from large read-ahead buffers.
 
-With Linux kernels 5.4 or newer the default read-ahead changed from 15MB to 128KB, which reduces read performance for SAS. In order to maximize your performance, increase the read-ahead setting on your SAS Linux VMs. SAS and Microsoft recommend tuning to a factor 15 of the rsize/wsize. Ideally the rsize/wsize is 1MB, resulting in a 15MB read-ahead configuration.
+With Linux kernels 5.4 or later, the default read-ahead changed from 15 MB to 128 KB. The new default reduces read performance for SAS. To maximize your performance, increase the read-ahead setting on your SAS Linux VMs. SAS and Microsoft recommend that you set read-ahead to be 15 times the `rsize` and `wsize`. Ideally, the `rsize` and `wsize` is 1 MB, and the `read-ahead` is 15 MB.
 
-Setting the read-ahead on a virtual machine is straightforward, and [requires adding a udev rule](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
+Setting the read-ahead on a virtual machine is straightforward. It [requires adding a udev rule](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
 
 For Kubernetes, this process is more complex because it needs to be done on the host and not on the pod. SAS provides scripts for Viya on AKS that automatically set the read-ahead value on the post. For more information, see [Using NFS Premium shares in Azure Files for SAS Viya on Kubernetes](https://communities.sas.com/t5/SAS-Communities-Library/Using-NFS-Premium-shares-in-Azure-Files-for-SAS-Viya-on/ta-p/901701).
 
