@@ -145,7 +145,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for component-to-component data flows.
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files security and protection](/host-integration-server/core/data-providers-for-host-files-security-and-protection).
 
-### Cost optimization
+### Cost Optimization
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
 
@@ -153,7 +153,7 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 - The Azure Synapse Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
-### Performance efficiency
+### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Performance Efficiency pillar overview](/azure/well-architected/scalability/overview).
 
