@@ -47,10 +47,10 @@ A [Key Vault](https://azure.microsoft.com/services/key-vault) is used as a secre
 
 The topology includes private endpoints and private DNS zones for these services:
 
-- [Azure Blob Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints).
-- [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-private-link).
-- [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/private-link-service?tabs=portal).
-- [The API server of the Kubernetes cluster](https://learn.microsoft.com/en-us/azure/aks/private-clusters?tabs=default-basic-networking%2Cazure-portal)
+- [Azure Blob Storage account](/azure/storage/common/storage-private-endpoints).
+- [Azure Container Registry](/azure/container-registry/container-registry-private-link).
+- [Azure Key Vault](/azure/key-vault/general/private-link-service).
+- [The API server of the Kubernetes cluster](/azure/aks/private-clusters)
 
 There's a virtual network link between the hub-and-spoke virtual networks that host the AKS cluster and the private DNS zones described earlier.
 
