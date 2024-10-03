@@ -141,7 +141,7 @@ This solution is ideal for the finance industry. It can also apply to the automo
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 Keep these points in mind when you use this solution.
 
@@ -289,7 +289,6 @@ Principal author:
 [Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
 [Azure Form Recognizer service page]: https://azure.microsoft.com/products/applied-ai-services
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
-[Azure Functions networking options]: /azure/azure-functions/functions-networking-options#virtual-network-integration
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
 [Azure Functions service page]: https://azure.microsoft.com/products/functions
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service

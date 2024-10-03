@@ -6,9 +6,9 @@ ms.author: prvalava
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-azureCategories: 
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+azureCategories:
   - analytics
   - ai-machine-learning
   - databases
@@ -35,7 +35,7 @@ Most advanced analytics architectures include some or all of the following compo
 
 - **Data storage**. Advanced analytics solutions require data to train machine learning models. Data scientists typically need to explore the data to identify its predictive features and the statistical relationships between them and the values they predict (known as a label). The predicted label can be a quantitative value, like the financial value of something in the future or the duration of a flight delay in minutes. Or it might represent a categorical class, like "true" or "false," "flight delay" or "no flight delay," or categories like "low risk," "medium risk," or "high risk."
 
-- **Batch processing**. To train a machine learning model, you typically need to process a large volume of training data. Training the model can take some time (on the order of minutes to hours). This training can be performed using scripts written in languages such as Python or R, and can be scaled out to reduce training time using distributed processing platforms like Apache Spark hosted in HDInsight or a Docker container.
+- **Batch processing**. To train a machine learning model, you typically need to process a large volume of training data. Training the model can take some time (on the order of minutes to hours). This training can be performed using scripts written in languages such as Python or Microsoft R, and can be scaled out to reduce training time using distributed processing platforms like Apache Spark hosted in HDInsight or a Docker container.
 
 - **Real-time message ingestion**. In production, many advanced analytics feed real-time data streams to a predictive model that has been published as a web service. The incoming data stream is typically captured in some form of queue and a stream processing engine pulls the data from this queue and applies the prediction to the input data in near real time.
 
@@ -45,13 +45,13 @@ Most advanced analytics architectures include some or all of the following compo
 
 - **Analysis and reporting**. As the name suggests, advanced analytics solutions usually produce some sort of report or analytical feed that includes predicted data values. Often, predicted label values are used to populate real-time dashboards.
 
-- **Orchestration**. Although the initial data exploration and modeling is performed interactively by data scientists, many advanced analytics solutions periodically re-train models with new data &mdash; continually refining the accuracy of the models. This retraining can be automated using an orchestrated workflow.
+- **Orchestration**. Although the initial data exploration and modeling is performed interactively by data scientists, many advanced analytics solutions periodically retrain models with new data &mdash; continually refining the accuracy of the models. This retraining can be automated using an orchestrated workflow.
 
 ## Machine learning
 
 Machine learning is a mathematical modeling technique used to train a predictive model. The general principle is to apply a statistical algorithm to a large dataset of historical data to uncover relationships between the fields it contains.
 
-Machine learning modeling is usually performed by data scientists, who need to thoroughly explore and prepare the data before training a model. This exploration and preparation typically involves a great deal of interactive data analysis and visualization &mdash; usually using languages such as Python and R in interactive tools and environments that are specifically designed for this task.
+Machine learning modeling is usually performed by data scientists, who need to thoroughly explore and prepare the data before training a model. This exploration and preparation typically involves a great deal of interactive data analysis and visualization &mdash; usually using languages such as Python and Microsoft R in interactive tools and environments that are specifically designed for this task.
 
 In some cases, you may be able to use [pretrained models](/machine-learning-server/install/microsoftml-install-pretrained-models) that come with training data obtained and developed by Microsoft. The advantage of pretrained models is that you can score and classify new content right away, even if you don't have the necessary training data, the resources to manage large datasets or to train complex models.
 
@@ -79,11 +79,11 @@ Relevant Azure services:
 
 ## Artificial intelligence
 
-Artificial intelligence (AI) refers to scenarios where a machine mimics the cognitive functions associated with human minds, such as learning and problem solving. Because AI leverages machine learning algorithms, it is viewed as an umbrella term. Most AI solutions rely on a combination of predictive services, often implemented as web services, and natural language interfaces, such as chatbots that interact via text or speech, that are presented by AI apps running on mobile devices or other clients. In some cases, the machine learning model is embedded with the AI app.
+Artificial intelligence (AI) refers to scenarios where a machine mimics the cognitive functions associated with human minds, such as learning and problem solving. Because AI uses machine learning algorithms, it is viewed as an umbrella term. Most AI solutions rely on a combination of predictive services, often implemented as web services, and natural language interfaces, such as chatbots that interact via text or speech, that are presented by AI apps running on mobile devices or other clients. In some cases, the machine learning model is embedded with the AI app.
 
 ## Model deployment
 
-The predictive services that support AI applications may leverage custom machine learning models, or off-the-shelf cognitive services that provide access to pretrained models. The process of deploying custom models into production is known as operationalization, where the same AI models that are trained and tested within the processing environment are serialized and made available to external applications and services for batch or self-service predictions. To use the predictive capability of the model, it is deserialized and loaded using the same machine learning library that contains the algorithm that was used to train the model in the first place. This library provides predictive functions (often called score or predict) that take the model and features as input and return the prediction. This logic is then wrapped in a function that an application can call directly or can be exposed as a web service.
+The predictive services that support AI applications may use custom machine learning models, or off-the-shelf cognitive services that provide access to pretrained models. The process of deploying custom models into production is known as operationalization, where the same AI models that are trained and tested within the processing environment are serialized and made available to external applications and services for batch or self-service predictions. To use the predictive capability of the model, it is deserialized and loaded using the same machine learning library that contains the algorithm that was used to train the model in the first place. This library provides predictive functions (often called score or predict) that take the model and features as input and return the prediction. This logic is then wrapped in a function that an application can call directly or can be exposed as a web service.
 
 Relevant Azure services:
 
@@ -93,6 +93,6 @@ Relevant Azure services:
 
 ## See also
 
-- [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
+- [Choose an Azure AI services technology](../technology-choices/ai-services.md)
 
 - [Choosing a machine learning technology](../../ai-ml/guide/data-science-and-machine-learning.md)

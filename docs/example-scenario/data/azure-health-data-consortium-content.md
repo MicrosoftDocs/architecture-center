@@ -99,8 +99,6 @@ With Data Share, [many alternatives exist for data storage][Supported data store
   - Data Lake Storage
   - Azure Blob Storage
 
-  For information on combining different types of data, see [Modern data warehouse architecture][Modern data warehouse architecture].
-
 - For in-place sharing of streaming telemetry and log data, use Azure Data Explorer. For more information on analyzing data from various sources, see [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics].
 
 - Some datasets are large or non-relational. Some don't contain data in standardized formats. For these types of datasets, Blob Storage or Azure Data Lake Storage work better than Azure Synapse Analytics and SQL Database for exchanging data with Data Share. For more information on storing medical data efficiently, see [Medical data storage solutions][Medical data storage solutions].
@@ -129,7 +127,7 @@ Many types of healthcare professionals can benefit from this solution:
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 The technologies in this solution meet most companies' requirements for security, scalability, and availability.
 
@@ -237,18 +235,15 @@ Product documentation:
 ## Related resources
 
 - [Clinical insights with Microsoft Cloud for Healthcare][Clinical insights with Microsoft Cloud for Healthcare]
-- [Confidential computing on a healthcare platform][Confidential computing on a healthcare platform]
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Azure API for FHIR]: https://azure.microsoft.com/services/azure-api-for-fhir/
-[Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Disk Encryption for virtual machines and virtual machine scale sets]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [Azure IoT Connector]: /azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Clinical insights with Microsoft Cloud for Healthcare]: ../mch-health/medical-data-insights.yml
-[Confidential computing on a healthcare platform]: ../confidential/healthcare-inference.yml
 [Fast Healthcare Interoperability Resources (FHIR)]: https://www.hl7.org/fhir/index.html
 [Genomics]: https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics
 [High availability of Azure Data Explorer]: /azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer
@@ -260,7 +255,6 @@ Product documentation:
 [Medical data storage solutions]: ../../solution-ideas/articles/medical-data-storage.yml
 [Microsoft DICOM]: https://github.com/microsoft/dicom-server
 [Microsoft Genomics]: https://azure.microsoft.com/services/genomics
-[Modern data warehouse architecture]: ../../solution-ideas/articles/enterprise-data-warehouse.yml
 [An overview of Azure SQL Database and SQL Managed Instance security capabilities]: /azure/azure-sql/database/security-overview
 [Security in Azure Data Explorer]: /azure/data-explorer/security
 [Securing your Data Warehouse with Azure Synapse Analytics]: https://azure.microsoft.com/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics

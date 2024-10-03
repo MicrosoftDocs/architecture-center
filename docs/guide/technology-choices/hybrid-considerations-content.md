@@ -27,7 +27,7 @@ Consider whether to refresh, repurpose, or replace existing hardware. Brownfield
 
 ### Hosting and deployment
 
-Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine hosting location.
+Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine the hosting location.
 
 A large-scale application deployment is different from smaller-scale implementations. A traditional IT deployment to VMs and databases is different from deployments to containers or distributed devices.
 
@@ -51,7 +51,7 @@ The following sections present a hybrid solution decision tree based on deployme
 
 The following decision tree starts with choosing an existing or custom, multicloud, or Azure-specified hybrid solution. The tree proceeds through decision points to select an appropriate Azure hybrid service.
 
-[![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.svg) ](./images/hybrid-decision-tree.svg#lightbox)
+:::image type="content" source="./images/hybrid-decision-tree.svg" lightbox="./images/hybrid-decision-tree.svg" alt-text="Diagram that shows a decision tree for selecting Azure hybrid services." border="false":::
 
 Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
@@ -79,7 +79,7 @@ For *Azure-specified* deployments:
 
 The following decision matrix presents supported workloads, hardware capabilities, and deployment models for several Azure hybrid services. All Azure services include the Azure portal and other Azure operations and management tools.
 
-[![Diagram that shows Azure hybrid services capabilities and characteristics.](./images/hybrid-choices.svg) ](./images/hybrid-choices.svg#lightbox)
+:::image type="content" source="./images/hybrid-choices.svg" lightbox="./images/hybrid-choices.svg" alt-text="Diagram that shows Azure hybrid services capabilities and characteristics." border="false":::
 
 Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
@@ -98,7 +98,7 @@ Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybr
   - [Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
   - [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)
   - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview)
-  - [Azure Arc-enabled vSphere](/azure/azure-arc/vmware-vsphere/overview)
+  - [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview)
   - [Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview)
   - [Azure Arc-enabled VMs on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines)
 
@@ -108,14 +108,13 @@ Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybr
 
 This article is maintained by Microsoft. It was originally written by the following contributors:
 
-- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Sr Service Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Sr Software Engineer
+- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Senior Service Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 
 To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 
 ## Next steps
 
-- [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)
 - [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 - [Introduction to hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid)
 - [Introduction to Azure hybrid cloud services (Learn module)](/training/modules/intro-to-azure-hybrid-services)

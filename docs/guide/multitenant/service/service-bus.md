@@ -6,18 +6,16 @@ author: landonpierce
 ms.author: landonpierce
 ms.date: 06/05/2024 
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-service-bus
 categories:
- - integration
-ms.category:
-  - fcp
+  - integration
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Multitenancy and Azure Service Bus
@@ -123,14 +121,14 @@ See [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-par
 
 Principal author:
 
-* [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+* [Will Velida](https://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-* [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+* [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 * [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
-* [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-* [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+* [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+* [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

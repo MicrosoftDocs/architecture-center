@@ -1,21 +1,12 @@
 ---
 title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
-author: cjnova
-ms.author: petuton
-ms.date: 11/30/2022
+author: ZacharyRiffle
+ms.author: zriffle
+ms.date: 07/11/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom:
-  - fcp
-keywords:
-  - Google Cloud experts
-  - Azure comparison
-  - Google Cloud comparison
-  - difference between Azure and Google Cloud
-  - Azure and GCP
-  - Azure and Google Cloud
 products:
   - azure
 categories:

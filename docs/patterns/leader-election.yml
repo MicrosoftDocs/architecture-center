@@ -5,8 +5,8 @@ metadata:
   ms.author: robbag
   author: RobBagby
   ms.date: 05/30/2024
-  ms.topic: conceptual
-  ms.service: architecture-center
+  ms.topic: design-pattern
+  ms.service: azure-architecture-center
   ms.subservice: design-pattern
 azureCategories:
   - analytics

@@ -6,8 +6,8 @@ author: johndowns
 ms.author: jodowns
 ms.date: 07/10/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
@@ -48,7 +48,7 @@ Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/nois
 
 ## Microsoft Azure Well-Architected Framework
 
-While the entirety of the [Azure Well-Architected Framework](/azure/architecture/framework/index) is important for all solutions, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
+While the entirety of the [Azure Well-Architected Framework](/azure/well-architected/) is important for all solutions, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
 
 ## Multitenant architectural guidance
 
@@ -128,7 +128,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 * [Three Tenancy Models For Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
 * [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes isn't a multitenant system out of the box, and requires custom configuration. This article explains Kubernetes multitenancy types.
 * [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that organizations are increasingly interested in as their Kubernetes usage spreads out. However, because Kubernetes isn't explicitly a multitenant system, it can be challenging to design a multitenant Kubernetes implementation. This article describes these challenges and how to overcome them, and some useful tools for Kubernetes multitenancy.
-* [Capsule: Kubernetes multi-tenancy made simple](https://github.com/projectcapsule/capsule): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a microservices-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
+* [Capsule: Kubernetes multi-tenancy made simple](https://capsule.clastix.io/): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a microservices-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
 * [Crossplane: The cloud native control plane framework](https://www.crossplane.io/): Crossplane enables you to build control planes for your own solution, by using a Kubernetes-based approach.
 
 ## Contributors

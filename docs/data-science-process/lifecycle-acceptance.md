@@ -4,21 +4,22 @@ description: Learn about the goals, tasks, and deliverables associated with the 
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/15/2024
+ms.date: 07/12/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - arb-aiml
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
+
 # Customer acceptance stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
@@ -64,7 +65,7 @@ The main artifact that your team creates in this final stage is the *exit report
 
 ## Peer-reviewed literature
 
-Researchers publish studies about the TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the customer acceptance lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. The [citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the customer acceptance lifecycle stage.
 
 ## Contributors
 
@@ -84,5 +85,3 @@ These articles describe the other stages of the TDSP lifecycle:
 - [Data acquisition and understanding](lifecycle-data.md)
 - [Modeling](lifecycle-modeling.md)
 - [Deployment](lifecycle-deployment.md)
-
-

@@ -6,8 +6,8 @@ author: PageWriter-MSFT
 ms.author: prwilk
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 keywords:
   - Azure
 products:
@@ -54,6 +54,5 @@ The following articles provide detailed analysis of architectures developed and 
 | ------- | ------- | ------- |
 | [Computer forensics Chain of Custody in Azure](../example-scenario/forensics/index.yml) | Ensure a valid Chain of Custody (CoC) in acquiring, storing, and accessing of digital evidence to support criminal investigations or civil proceedings. | Management/Governance |
 | [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../hybrid/hybrid-security-monitoring.yml) | Monitor the security configuration and telemetry of on-premises and Azure operating system workloads. | Hybrid/Multicloud |
-| [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml) | Combine AI and Internet of Things (IoT) by using Azure Custom Vision to classify images taken by a simulated drone. | AI/ML |
 | [Web app private connectivity to Azure SQL database](../example-scenario/private-web-app/private-web-app.yml) | Set up private connectivity from an Azure Web App to Azure Platform-as-a-Service (PaaS) services. | Security |
 | [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml) | Use Azure Virtual Desktop to build virtualized desktop infrastructure (VDI) solutions at enterprise scale, covering 1,000 virtual desktops and above. | Hybrid/Multicloud |

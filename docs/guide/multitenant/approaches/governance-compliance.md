@@ -4,20 +4,18 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for governance and compliance in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 3/13/2022
+ms.date: 07/22/2024
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
-ms.subservice: azure-guide
-ms.category:
-  - fcp
+  - management-and-governance
+  - security
+ms.subservice: architecture-guide
 ms.custom:
   - guide
-  - fcp
+  - arb-saas
 ---
 
 # Architectural approaches for governance and compliance in multitenant solutions
@@ -86,7 +84,7 @@ It's important that you understand whether you need to meet any compliance stand
 > 
 > This article doesn't provide specific guidance about how to become compliant with any particular standards. Instead, it provides some general guidance around how to consider compliance and governance in a multitenant solution.
 
-If different tenants need you to follow different compliance standards, plan to comply with the most stringent standard across your entire environment. It's easier to follow one strict standard than to follow different standards for different tenants.
+If different tenants need you to follow different compliance standards, plan to comply with the most stringent standard across your entire environment. It's easier to follow one strict standard consistently than to follow different standards for different tenants.
 
 ## Approaches and patterns to consider
 
@@ -104,9 +102,9 @@ Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access t
 
 Resource Graph can be helpful to manage large Azure estates. For example, suppose you deploy tenant-specific Azure resources across multiple Azure subscriptions. By [applying tags to your resources](#resource-tags), you can use the Resource Graph API to find resources that are used by specific tenants or deployment stamps.
 
-### Azure Purview
+### Microsoft Purview
 
-Consider using [Azure Purview](https://azure.microsoft.com/services/purview) to track and classify the data that you store. When tenants request access to their data, you can easily determine the data sources that you should include.
+Consider using [Microsoft Purview](https://azure.microsoft.com/services/purview) to track and classify the data that you store. When tenants request access to their data, you can easily determine the data sources that you should include.
 
 ### Verify compliance with standards
 
@@ -130,7 +128,7 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 
 - **Not understanding your tenants' compliance requirements.** It's important not to make assumptions about the compliance requirements that your tenants might impose. If you plan to grow your solution into new markets, be mindful of the regulatory environment that your tenants are likely to operate within.
 - **Ignoring good practices.** If you don't have any immediate need to adhere to compliance standards, you should still follow good practices when you deploy your Azure resources. For example, isolate your resources, apply policies to verify resource configuration, and apply role assignments to groups instead of users. By following good practices, you make it simpler to follow compliance standards when you eventually need to do so.
-- **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements, or you might not need to follow any. As you grow, you'll likely need to provide evidence that you comply with various standards. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture, even before you have an explicit requirement to do so.
+- **Assuming there are no compliance requirements.** When you first launch a multitenant solution, you might not be aware of compliance requirements, or you might not need to follow any. As you grow, you'll likely need to provide evidence that you comply with various standards. Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/regulatory-compliance-dashboard) to monitor your compliance posture against a general baseline, such as the [CIS Microsoft Foundations Benchmark](/azure/governance/policy/samples/cis-azure-2-0-0), even before you have an explicit requirement to do so.
 - **Not planning for management.** As you deploy your Azure resources, consider how you plan to manage them. If you need to make bulk updates to resources, ensure you have an understanding of automation tools, such as the Azure CLI, Azure PowerShell, Azure Resource Graph, and the Azure Resource Manager APIs.
 - **Not using management groups.** Plan your subscription and management group hierarchy, including access control and Azure Policy resources at each scope. It can be difficult and disruptive to introduce or change these elements when your resources are used in a production environment.
 - **Failing to plan your access control strategy.** Azure RBAC provides a high degree of control and flexibility in how you manage access to your resources. Ensure you use Microsoft Entra groups to avoid assigning permissions to individual users. Assign roles at scopes that provide an appropriate balance between security and flexibility. Use built-in role definitions wherever possible, and assign roles that provide the minimum permissions required.
@@ -142,7 +140,7 @@ Similarly, a new tenant might introduce strict compliance requirements that you 
 
 Principal author:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
 
 Other contributors:
 

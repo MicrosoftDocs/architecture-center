@@ -68,7 +68,7 @@ Use this solution to automate data integration tasks that you perform in respons
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -151,7 +151,6 @@ Principal authors:
 
   - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Apps that connects to an on-premises SQL Server instance.
   - [Enterprise integration using queues and events][Enterprise integration using queues and events]: Logic apps that respond to API calls by integrating backend systems.
-  - [Serverless web application][Serverless web application]: A serverless web app that uses Azure Functions to read database data.
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Access to logic app operations]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#access-to-logic-app-operations
@@ -192,7 +191,6 @@ Principal authors:
 [Restrict access by IP address range]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#restrict-access-by-ip-address-range
 [Restrict inbound IP addresses]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
 [Secure data in run history by using obfuscation]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#secure-data-in-run-history-by-using-obfuscation
-[Serverless web application]: /azure/architecture/serverless-quest/reference-architectures
 [SQL Server 2019 pricing]: https://www.microsoft.com/sql-server/sql-server-2019-pricing
 [SQL Server]: /sql/?view=sql-server-ver15
 [Stored Procedures (Database Engine)]: /sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver15

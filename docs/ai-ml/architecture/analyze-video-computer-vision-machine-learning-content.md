@@ -60,7 +60,7 @@ This scenario is relevant for any business that analyzes videos. Here are some s
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
@@ -142,9 +142,3 @@ Other contributors:
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [What is Power BI Embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
 - [Business Process Accelerator](https://github.com/Azure/business-process-automation)
-
-## Related resources
-
-- [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
-- [Image classification on Azure](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
-- [MLOps framework to upscale machine learning lifecycle](../../ai-ml/guide/mlops-technical-paper.yml)

@@ -7,20 +7,15 @@ metadata:
   ms.author: pnp
   ms.date: 11/28/2022
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - integration
   ms.custom:
-    - acom-architecture
-    - energy demand
-    - power forecast
-    - energy forecast
-    - ai-ml
-    - "https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand"
     - ai-machine-learning
     - aml-project-improvement
+    - arb-aiml
 name: Forecast energy and power demand with machine learning
 azureCategories:
   - ai-machine-learning

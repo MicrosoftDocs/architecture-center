@@ -121,29 +121,29 @@ The *sleeve* is a container for the SDK Client object instance and a storage con
 The general sleeve structure for blobs looks like:
 
 ```csharp
-    BlobBaseClient Client { get; }
-    BlobServiceClient Service { get; }
-    StorageClientProviderContext Context { get; }
+BlobBaseClient Client { get; }
+BlobServiceClient Service { get; }
+StorageClientProviderContext Context { get; }
 ```
 
-The `Service` property on the sleeve is a convenience. Some of the final encoder-related operations that use the [SDK BlobServiceClient class][SDK_ServiceClient] require Storage Account keys. This requirement led to adding a Service client instance to the two existing sleeve types, rather than producing a separate provider.
+The `Service` property on the sleeve is a convenience. Some of the final encoder-related operations that use the [SDK BlobServiceClient class][SDK_ServiceClient] require Storage Account credentials. This requirement led to adding a Service client instance to the two existing sleeve types, rather than producing a separate provider.
 
 ### Sleeve usage
 
 The client storage providers dispense sleeve instances. The storage service code looks similar to the following annotated code sequence, with types spelled out for clarity:
 
 ```csharp
-    public bool DeleteBlob(Uri sourceUri, StorageClientProviderContext context)
-    {
-        . . .
-        StorageBlobClientSleeve sleeve = _blobBaseClientProvider.GetBlobBaseClientForUri(sourceUri, context); // Line A
-        BlobProperties propsIncludingMetadata = sleeve.Client.GetProperties(); // Line B
-        sleeve.Context.TrackingETag = true;   // Send ETag from GetProperties()
-        var wasDeleted = sleeve.Client.DeleteBlob(); // Line C
-        sleeve.Context.TrackingETag = false;
-        var someResult = sleeve.Client.AnotherOperation(); // Line D
-        . . .
-    }
+public bool DeleteBlob(Uri sourceUri, StorageClientProviderContext context)
+{
+    . . .
+    StorageBlobClientSleeve sleeve = _blobBaseClientProvider.GetBlobBaseClientForUri(sourceUri, context); // Line A
+    BlobProperties propsIncludingMetadata = sleeve.Client.GetProperties(); // Line B
+    sleeve.Context.TrackingETag = true;   // Send ETag from GetProperties()
+    var wasDeleted = sleeve.Client.DeleteBlob(); // Line C
+    sleeve.Context.TrackingETag = false;
+    var someResult = sleeve.Client.AnotherOperation(); // Line D
+    . . .
+}
 ```
 
 1. Gridwich auto-populates the operation context into the sleeve context at line A. `TrackingETag` defaults to false.
@@ -158,10 +158,6 @@ The Storage Service is currently set as `Transient` in the [dependency injection
 ## Storage Service alternatives
 
 The following sections describe alternative approaches that aren't part of the current Gridwich storage solution.
-
-### Gridwich AzureStorageManagement class
-
-In conjunction with the sleeve `Service` member, which is an instance of the [Azure SDK BlobServiceClient class][SDK_ServiceClient], Gridwich also has the [AzureStorageManagement][StorMgmt] class. The Storage Service `GetConnectionStringForAccount` method and the Telerek encoding's `GetStoreByNameAsync` method use that class to get storage account keys. The class is currently based on the Fluent framework. Additions to the SDK `BlobServiceClient` class should eventually supersede this class, allowing for a more focused information retrieval than the wide variety in the [Fluent IAzure interface][IAzure].
 
 ### Hide the pipeline policy via subclassing
 
@@ -207,10 +203,8 @@ Microsoft Learn modules:
 [NotifyC]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs "BlobCreatedHandler.cs"
 [StorageServiceDI]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "StorageExtension.cs"
 [SSTest]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/tests/Services/ServiceConfigurationTests.cs "ServiceConfigurationTests.cs"
-[StorMgmt]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/AzureStorageManagement.cs "AzureStorageManagement.cs"
 [DIConfig]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "Dependency Injection configuration"
 [SDK_BlobClient]: /dotnet/api/azure.storage.blobs.specialized.blobbaseclient "Azure SDK - BlobBaseClient class"
 [SDK_ContainerClient]: /dotnet/api/azure.storage.blobs.blobcontainerclient "Azure SDK - BlobContainerClient class"
 [SDK_ServiceClient]: /dotnet/api/azure.storage.blobs.blobserviceclient "Azure SDK - BlobServiceClient class"
-[IAzure]: /dotnet/api/microsoft.azure.management.fluent.iazure "Microsoft.Azure.Management.Fluent.IAzure"
 [ETag]: /azure/storage/common/storage-concurrency#managing-concurrency-in-blob-storage "ETags and Blob Storage"
