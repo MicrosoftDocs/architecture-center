@@ -3,8 +3,8 @@ metadata:
   title: Low-latency network connections for industry
   titleSuffix: Azure Architecture Center
   description: See how manufacturers can use Azure Network Function Manager with high-performance, low-latency, on-premises 5G Standalone networks for industrial automation and productivity.
-  author: niravi-msft
-  ms.author: niravi
+  author: asergaz
+  ms.author: sergaz
   ms.date: 05/22/2024
   ms.topic: solution-idea
   ms.service: azure-architecture-center

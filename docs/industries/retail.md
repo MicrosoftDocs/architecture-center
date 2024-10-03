@@ -79,7 +79,6 @@ The following are other ideas that you can use as a starting point for your reta
 
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
-- [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 
 **Analytics**:
 
@@ -99,4 +98,3 @@ The following are other ideas that you can use as a starting point for your reta
 
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Architect a scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)

@@ -49,8 +49,6 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
 
-- [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
-
 ### Bots
 
 A *bot* is an automated software program designed to perform a particular task. Think of it as a robot without a body. Early bots were comparatively simple, handling repetitive and voluminous tasks with relatively straightforward algorithmic logic. An example would be web crawlers used by search engines to automatically explore and catalog web content.
@@ -103,7 +101,7 @@ One example of prebuilt AI might be a pretrained model that can be incorporated 
 
 - [Try Azure Cognitive Services for free](https://azure.microsoft.com/try/cognitive-services/)
 
-- [Choosing an Azure Cognitive Services technology](../data-guide/technology-choices/cognitive-services.md)
+- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
 
 - [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
@@ -227,9 +225,7 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 #### Machine learning reference architectures for Azure
 
-- [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
-
-- [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../ai-ml/guide/machine-learning-operations-v2.md)
 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
@@ -244,8 +240,6 @@ Azure provides extensive support for automated ML. Developers can build models u
 - [Azure automated ML infographic (PDF)](https://aka.ms/automlinfographic/)
 
 - [Tutorial: Create a classification model with automated ML in Azure Machine Learning](/azure/machine-learning/tutorial-first-experiment-automated-ml)
-
-- [Tutorial: Use automated machine learning to predict taxi fares](/azure/machine-learning/tutorial-auto-train-models)
 
 - [Configure automated ML experiments in Python](/azure/machine-learning/how-to-configure-auto-train)
 

@@ -30,4 +30,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-apim-api-scenario.png
 content: |
-   [!include[](apim-api-scenario-content.md)]
+   [!INCLUDE[](apim-api-scenario-content.md)]

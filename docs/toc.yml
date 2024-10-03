@@ -222,20 +222,16 @@ items:
       - name: Streaming analytics
         href: /azure/stream-analytics/streaming-technologies
         maintainContext: true
-    - name: Choose an AI/ML service
+    - name: Choose an AI service
       items:
-      - name: Cognitive Services
-        href: data-guide/technology-choices/cognitive-services.md
-      - name: API services
-        items:
-        - name: Language API services
-          href: data-guide/cognitive-services/language-api.md
-        - name: Speech API services
-          href: data-guide/cognitive-services/speech-api.md
-        - name: Vision API services
-          href: data-guide/cognitive-services/vision-api.md
-        - name: Decision APIs and Applied AI Services
-          href: data-guide/cognitive-services/decision-applied-ai.md
+      - name: AI services
+        href: data-guide/technology-choices/ai-services.md
+      - name: Targeted language processing
+        href: data-guide/ai-services/targeted-language-processing.md
+      - name: Speech recognition and generation
+        href: data-guide/ai-services/speech-recognition-generation.md
+      - name: Image and video processing
+        href: data-guide/ai-services/image-video-processing.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning
@@ -268,9 +264,6 @@ items:
       items:
       - name: Choose a mobile development framework
         href: /azure/developer/mobile-apps/choose-mobile-framework
-        maintainContext: true
-      - name: Choose a mixed reality engine
-        href: /windows/mixed-reality/develop/choosing-an-engine
         maintainContext: true
   - name: Best practices for cloud applications
     items:
@@ -451,8 +444,6 @@ items:
         href: solutions/microsoft-365-scenarios.md
       - name: All Microsoft 365 architectures
         href: /azure/architecture/browse/?products=m365
-      - name: Hybrid SharePoint farm with Microsoft 365
-        href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
       - name: Manage Microsoft 365 with DevOps
         href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
       - name: Real-time collaboration
@@ -473,8 +464,6 @@ items:
     items:
     - name: Apache technologies
       href: guide/apache-scenarios.md
-    - name: Other open-source technologies
-      href: guide/open-source-scenarios.md
     - name: Partner technologies
       href: guide/partner-scenarios.md
   - name: Azure for AWS professionals
@@ -1014,8 +1003,6 @@ items:
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
-      - name: Digital image modeling
-        href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Manage virtual machine compliance
@@ -1403,36 +1390,16 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
     - name: Serverless applications
       items:
-      - name: Get started
-        href: serverless-quest/serverless-overview.md
       - name: Guides
         items:
-        - name: Serverless Functions examples
-          href: serverless-quest/reference-architectures.md
-        - name: Plan for serverless architecture
-          items:
-          - name: Deploy serverless Functions
-            href: serverless-quest/validate-commit-serverless-adoption.md
-          - name: Serverless application assessment
-            href: serverless-quest/application-assessment.md
-          - name: Technical workshops and training
-            href: serverless-quest/technical-training.md
-          - name: Proof of concept or pilot
-            href: serverless-quest/poc-pilot.md
         - name: Develop and deploy serverless apps
           items:
-          - name: App development and deployment
-            href: serverless-quest/application-development.md
           - name: Code walkthrough
             href: web-apps/serverless/architectures/code.yml
           - name: CI/CD for a serverless frontend
             href: serverless/guide/serverless-app-cicd-best-practices.yml
         - name: Monitor a distributed system
           href: guide/devops/monitor-with-opencensus-application-insights.yml
-        - name: Serverless Functions app operations
-          href: serverless-quest/functions-app-operations.md
-        - name: Serverless Functions app security
-          href: serverless-quest/functions-app-security.md
         - name: Security baseline for Azure Functions
           href: /security/benchmark/azure/baselines/functions-security-baseline
           maintainContext: true
@@ -2224,8 +2191,6 @@ items:
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
       - name: HPC media rendering
         href: solution-ideas/articles/azure-batch-rendering.yml
-      - name: Keyword search and speech-to-text
-        href: ai-ml/idea/digital-media-speech-text.yml
       - name: SMB disaster recovery with Site Recovery
         href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
       - name: SMB disaster recovery with Double-Take DR
@@ -2267,8 +2232,6 @@ items:
       items:
       - name: 3D video rendering
         href: example-scenario/infrastructure/video-rendering.yml
-      - name: Batch scoring for media
-        href: ai-ml/architecture/batch-scoring-deep-learning.yml
       - name: Gridwich media processing system
         items:
         - name: Gridwich architecture
@@ -2295,8 +2258,6 @@ items:
       items:
       - name: HPC media rendering
         href: solution-ideas/articles/azure-batch-rendering.yml
-      - name: Keyword search in videos
-        href: ai-ml/idea/digital-media-speech-text.yml
   - name: Migration
     items:
     - name: Get started
@@ -2390,61 +2351,8 @@ items:
         href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
   - name: Mixed Reality
     items:
-    - name: Get started
-      href: guide/mixed-reality/mixed-reality-overview.md
     - name: Guides
       items:
-      - name: Mixed reality core concepts
-        href: /windows/mixed-reality/design/core-concepts-landingpage
-        maintainContext: true
-      - name: Mixed reality design guidance
-        href: /windows/mixed-reality/design/about-this-design-guidance
-        maintainContext: true
-      - name: Design and prototype for mixed reality
-        href: /windows/mixed-reality/design/design
-        maintainContext: true
-      - name: Design for holographic display
-        href: /windows/mixed-reality/design/designing-content-for-holographic-display
-        maintainContext: true
-      - name: Choose a mixed reality engine
-        href: /windows/mixed-reality/develop/choosing-an-engine
-        maintainContext: true
-      - name: Unity development
-        href: /windows/mixed-reality/develop/unity/unity-development-overview
-        maintainContext: true
-      - name: Install the tools
-        href: /windows/mixed-reality/develop/install-the-tools
-        maintainContext: true
-      - name: Mixed reality interactions
-        href: /windows/mixed-reality/design/interaction-fundamentals
-        maintainContext: true
-      - name: Mixed reality UX elements
-        href: /windows/mixed-reality/design/app-patterns-landingpage
-        maintainContext: true
-      - name: Comfort
-        href: /windows/mixed-reality/design/comfort
-        maintainContext: true
-      - name: Spatial sound best practices
-        href: /windows/mixed-reality/design/spatial-sound-design
-        maintainContext: true
-      - name: Types of mixed reality apps
-        href: /windows/mixed-reality/discover/types-of-mixed-reality-apps
-        maintainContext: true
-      - name: App quality criteria overview
-        href: /windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview
-        maintainContext: true
-      - name: Azure mixed reality cloud services
-        href: /windows/mixed-reality/develop/mixed-reality-cloud-services
-        maintainContext: true
-      - name: Shared experiences in mixed reality
-        href: /windows/mixed-reality/design/shared-experiences-in-mixed-reality
-        maintainContext: true
-      - name: Free-roaming multiuser VR experiences
-        href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
-        maintainContext: true
-      - name: Prototyping and manufacturing for enterprises
-        href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
-        maintainContext: true
       - name: Education and entertainment scenarios
         items:
         - name: Immersive education
@@ -2493,8 +2401,6 @@ items:
       href: guide/mobile/mobile-start-here.md
     - name: Guides
       items:
-      - name: Azure Communication Services architecture
-        href: guide/mobile/azure-communication-services-architecture.yml
       - name: Choose a mobile development framework
         href: /azure/developer/mobile-apps/choose-mobile-framework
         maintainContext: true
@@ -2745,8 +2651,6 @@ items:
         href: example-scenario/devops/automate-sentinel-integration.yml
       - name: Microsoft Entra ID in security operations
         href: example-scenario/aadsec/azure-ad-security.yml
-      - name: Confidential computing for healthcare
-        href: example-scenario/confidential/healthcare-inference.yml
       - name: Cyber threat intelligence
         href: example-scenario/data/sentinel-threat-intelligence.yml
       - name: Homomorphic encryption with SEAL
@@ -3420,8 +3324,6 @@ items:
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
       - name: Clinical insights with Cloud for Healthcare
         href: example-scenario/mch-health/medical-data-insights.yml
-      - name: Confidential computing for healthcare
-        href: example-scenario/confidential/healthcare-inference.yml
       - name: Consumer health portal on Azure
         href: example-scenario/digital-health/health-portal.yml
       - name: Donor-patient cross matching
@@ -3754,8 +3656,6 @@ items:
       items:
       - name: AI and ML scenarios
         items:
-        - name: MLOps to upscale ML lifecycle
-          href: ai-ml/guide/mlops-technical-paper.yml
         - name: Predictive maintenance in manufacturing
           href: industries/manufacturing/predictive-maintenance-overview.yml
         - name: Predictive maintenance solution
@@ -3764,9 +3664,6 @@ items:
         items:
         - name: Enable machine learning inference
           href: guide/iot/machine-learning-inference-iot-edge.yml
-      - name: Mixed reality - Prototyping
-        href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
-        maintainContext: true
       - name: Manufacturing Windows engineering
         href: /windows-hardware/manufacture/desktop/manufacturing-windows-engineering-guide
         maintainContext: true
@@ -4205,8 +4102,6 @@ items:
           items:
           - name: 3D video rendering
             href: example-scenario/infrastructure/video-rendering.yml
-          - name: Digital image-based modeling
-            href: example-scenario/infrastructure/image-modeling.yml
       - name: Compliance solutions
         items:
         - name: GDPR (EU)
@@ -4271,9 +4166,6 @@ items:
             maintainContext: true
         - name: Mixed reality scenarios
           items:
-          - name: Free-roam VR multiusers
-            href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
-            maintainContext: true
           - name: Immersive education
             href: /windows/mixed-reality/enthusiast-guide/immersive-education
             maintainContext: true
@@ -4300,8 +4192,6 @@ items:
           href: example-scenario/infrastructure/video-rendering.yml
         - name: Analyze news feeds
           href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
-        - name: Digital image-based modeling on Azure
-          href: example-scenario/infrastructure/image-modeling.yml
         - name: Gridwich cloud media system
           href: reference-architectures/media-services/gridwich-architecture.yml
         - name: HPC media rendering

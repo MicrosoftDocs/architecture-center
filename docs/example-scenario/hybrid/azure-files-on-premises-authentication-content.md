@@ -1,4 +1,4 @@
-This architecture demonstrates a way to provide file shares in the cloud to on-premises users and applications that also access files on Windows Server.
+This architecture demonstrates a way to provide file shares in the cloud to on-premises users and applications that also access files on Windows Server through a private endpoint.
 
 ## Architecture
 
@@ -34,15 +34,15 @@ This architecture demonstrates a way to provide file shares in the cloud to on-p
 
 ## Scenario details
 
-Consider the following common situation. An on-premises Windows Server provides files to users and applications. Windows Server Active Directory Domain Services (AD DS) secures the files, and there's an on-premises DNS server. Everything is on the same private network.
+Consider the following common scenario: an on-premises Windows Server is used to provide file shares for users and applications. Active Directory Domain Services (AD DS) is used to secure the files, and an on-premises DNS server manages network resources. Everything operates within the same private network.
 
-Now suppose that the need arises to have file shares in the cloud.
+Now, imagine the need arises to extend file shares to the cloud.
 
-The architecture that's described here shows how to use Azure to satisfy this need, and how to do it at low cost, and by continuing to use the on-premises network, AD DS, and DNS.
+The architecture described here demonstrates how Azure can meet this need cost-effectively while maintaining the use of your on-premises network, AD DS, and DNS.
 
-In this architecture, Azure Files provides the file share. Site-to-site VPN or Azure ExpressRoute provides secure connections between the on-premises network and Azure virtual network. Users and applications use the connections to access the files. Microsoft Entra ID and Azure DNS cooperate with on-premises AD DS and DNS to secure the access.
+In this setup, Azure Files is used to host the file shares, while a site-to-site VPN or Azure ExpressRoute provides secure connections between the on-premises network and Azure virtual network. Users and applications access the files via these secure connections. Microsoft Entra ID and Azure DNS work together with on-premises AD DS and DNS to ensure secure access.
 
-In short, if you're in the described situation, you can provide cloud files to your on-premises users at low cost, and continue to provide secure file access with your on-premises AD DS and DNS.
+In summary, if you're facing this scenario, you can offer cloud-based file shares to your on-premises users at a low cost while maintaining secure access using your existing AD DS and DNS infrastructure.
 
 ### Potential use cases
 
@@ -104,7 +104,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Azure Security Engineer
 
 ## Next steps
 

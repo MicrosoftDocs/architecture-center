@@ -30,4 +30,4 @@ products:
   - azure-blob-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-scoped-architecture.png
 content: |
-   [!include[](enterprise-bi-synapse-content.md)]
+   [!INCLUDE[](enterprise-bi-synapse-content.md)]

@@ -167,7 +167,7 @@ conceptualContent:
         url: ./data-guide/technology-choices/natural-language-processing.yml
       - text: Azure AI services options
         itemType: concept
-        url: ./data-guide/technology-choices/cognitive-services.md
+        url: ./data-guide/technology-choices/ai-services.md
       - text: Team Data Science Process
         itemType: concept
         url: ./data-science-process/overview.yml
@@ -263,9 +263,6 @@ conceptualContent:
         - text: HPC video rendering
           itemType: get-started
           url:  example-scenario/infrastructure/video-rendering.yml
-        - text: Image modeling
-          itemType: get-started
-          url:  example-scenario/infrastructure/image-modeling.yml
       footerLink:
         text: Introduction to HPC on Azure
         url: topics/high-performance-computing.md
