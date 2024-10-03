@@ -70,7 +70,7 @@ Many organizations are looking for ways to modernize these systems. They're look
 
 Software AG provides a popular 4GL mainframe platform that's based on the Natural programming language and the Adabas database.
 
-There are two patterns that allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-overview#migration-patterns). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based-approach), later in this article.
+Two of the cloud rationalization patterns allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based approach), later in this article.
 
 ### Potential use cases
 
@@ -103,8 +103,6 @@ Refactoring supports faster cloud adoption. It also promotes adoption of DevOps 
 ### Performance efficiency  
 
 Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of nodes based on the requested compute resources in the node pool. It monitors the Metrics API server every 10 seconds for any required changes in node count. If the cluster autoscaler determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly.  
-
-
 
 ## Contributors
 
