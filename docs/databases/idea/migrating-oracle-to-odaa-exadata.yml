@@ -6,9 +6,9 @@ metadata:
   author: jfaurskov
   ms.author: janfaurs
   ms.date: 08/23/2024
-  ms.topic: solution-idea
+  ms.topic: conceptual
   ms.service: azure-architecture-center
-  ms.subservice: solution-idea
+  ms.subservice: architecture-guide
   ms.category:
     - databases
     - migration
