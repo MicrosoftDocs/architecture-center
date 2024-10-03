@@ -144,7 +144,7 @@ This dataflow describes the process to register and provision vehicles and devic
     The diagram shows the vehicle provisioning process. The device receives an X.590 certificate during the manufacturing process. The factory system registers the vehicle and device in the vehicle messaging services, which also connects them to Event Grid. The device retrieves the connection strings from the device management component. The device connects to Event Grid by using the certificate.
 :::image-end:::
 
-1. The factory system commissions the vehicle device to the desired construction state. It can include firmware and software initial installation and configuration. As part of this process, the factory system writes the device X.509 certificate, issued by a Public Key Infrastructure Certificate Authority (CA), into storage designed specifically for that purpose, such as a Trusted Platform Module.
+1. The factory system commissions the vehicle device to the desired construction state. It can include firmware and software initial installation and configuration. As part of this process, the factory system writes the device X.509 certificate, issued by a public key infrastructure certificate authority (CA), into storage designed specifically for that purpose, such as a Trusted Platform Module.
 
 1. The factory system registers the vehicle and device by using the Vehicle and Device Provisioning API.
 
