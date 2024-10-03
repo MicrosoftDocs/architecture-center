@@ -68,7 +68,8 @@ Key Vault helps your authorized applications and services to securely access sec
 To optimize WordPress performance, you should tune various settings and use plug-ins. The following plug-ins can be useful for debugging WordPress installations:
 
 - [Query Monitor](https://wordpress.org/plugins/query-monitor) provides a breakdown of the time that's spent on each SQL query and other actions. Examples include PHP errors, hooks and actions, block editor blocks, enqueued scripts and stylesheets, and HTTP API calls.
-- **[Laps](https://composer.rarst.net/case-study/laps/)** is a plugin that shows performance information about WordPress page load. It provides a visual summary that is quick and easy to inspect and automatically tracks many events, such as PHP, core, plugins, and themes load, main posts loop, sidebars, database queries, network requests, providing a breakdown of how time is spent on WordPress page loads.
+
+- [Laps](https://composer.rarst.net/case-study/laps/) is a plugin that shows performance information about WordPress page load. It provides a visual summary that is quick and easy to inspect and automatically tracks many events, such as PHP, core, plugins, and themes load, main posts loop, sidebars, database queries, network requests, providing a breakdown of how time is spent on WordPress page loads.
 
 ## Hosting challenges of WordPress
 
