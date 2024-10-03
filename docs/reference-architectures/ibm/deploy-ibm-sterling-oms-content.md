@@ -17,7 +17,7 @@ The architecture meets infrastructure requirements in the following ways:
 - A container-hosting platform is used to deploy highly available workloads across availability zones. We recommend Azure Red Hat OpenShift.
 - A fully managed database service functions as the back-end database for the OMS system. Sterling OMS currently supports IBM Db2, Oracle Database, and PostgreSQL. We recommend Azure Database for PostgreSQL with the flexible server option.
 - A scalable and highly available setup provides an environment for running a message broker like IBM MQ that's compliant with the Java Message Service (JMS) API. The diagram doesn't include this setup. Depending on your requirements, it might be within your cluster or external to your cluster.
-- Private endpoints isolate and secure network traffic to all connected services.
+- Private endpoints isolate and help secure network traffic to all connected services.
 - Additional, optional Azure virtual machines (VMs) are used for management and development purposes.
 - Premium and standard Azure Files shares provide storage for log files and other application configuration data.
 
@@ -29,7 +29,7 @@ The architecture meets infrastructure requirements in the following ways:
 
 - [Azure Files](https://azure.microsoft.com/services/storage/files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to securely access any of the worker nodes or optional jump box machines.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides seamless, enhanced security RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
 
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
 
@@ -88,7 +88,7 @@ Before you proceed with your deployment, answer the following questions about yo
 
 ### Sterling OMS
 
-Sterling OMS version 10.0.2209.0 has been tested on Azure. We recommend that you use the latest version of Sterling OMS. At the time of writing, that version is 10.0.2209.0.
+Sterling OMS version 10.0.2209.0 has been tested on Azure. We recommend that you use the latest version of Sterling OMS. 
 
 Before deploying your Azure resources to support your Sterling OMS environment, familiarize yourself with the following requirements:
 
@@ -103,7 +103,7 @@ Sterling OMS has been tested with Azure Red Hat OpenShift version 4.10.15. Befor
 
 - Decide on a domain. When you deploy Azure Red Hat OpenShift, specify a domain name that gets appended to all services that get deployed in your cluster.
 - Determine your API and ingress visibility. Decide how you want your OpenShift cluster API (for management) and ingress (for deployed applications and services) to be internet-facing. If you use private connectivity to hide your API or ingress, you can only reach these endpoints from a machine that can reach the network where you deploy your service.
-- Calculate your master and worker VM sizes and counts. In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
+- Calculate your control and worker VM sizes and counts. In Azure Red Hat OpenShift, the control count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
 
 For more information, see [Before Your Begin for Azure Red Hat OpenShift](/azure/openshift/tutorial-create-cluster#before-you-begin).
 
