@@ -247,9 +247,9 @@ IBM offers specialized services to help you with installation. Contact your IBM 
 
 Principal authors:
 
-- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Principal Cloud Solution Architect
-- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
-- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
+- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Principal Architect
+- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Architect
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Chief Architect
 
 Other contributors:
 
