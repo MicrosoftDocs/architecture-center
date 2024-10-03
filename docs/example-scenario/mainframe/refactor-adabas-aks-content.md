@@ -118,8 +118,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Use Azure tags to associate AKS resources with specific workloads or tenants to improve cost tracking and management.
 
-For more information, see [Cost optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization) and [Optimize costs](/azure/aks/best-practices-cost) in AKS.
-
 ### Operational Excellence
 
 Refactoring supports faster cloud adoption. It also promotes adoption of DevOps and Agile working principles. You have full flexibility of development and production deployment options.
