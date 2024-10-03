@@ -19,6 +19,6 @@ products:
   - azure-sql-database
   - azure-sql-managed-instance
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/modernize-mainframe-data-with-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/modernize-mainframe-data-azure.png
 content: |
-   [!include[](modernize-mainframe-data-to-azure-content.md)]
+   [!INCLUDE[](modernize-mainframe-data-to-azure-content.md)]
