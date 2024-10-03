@@ -69,7 +69,7 @@ To optimize WordPress performance, you should tune various settings and use plug
 
 - [Query Monitor](https://wordpress.org/plugins/query-monitor) provides a breakdown of the time that's spent on each SQL query and other actions. Examples include PHP errors, hooks and actions, block editor blocks, enqueued scripts and stylesheets, and HTTP API calls.
 
-- [Laps](https://composer.rarst.net/case-study/laps/) is a plugin that shows performance information about WordPress page load. It provides a visual summary that is quick and easy to inspect and automatically tracks many events, such as PHP, core, plugins, and themes load, main posts loop, sidebars, database queries, network requests, providing a breakdown of how time is spent on WordPress page loads.
+- [Laps](https://composer.rarst.net/case-study/laps/) is a plugin that shows performance information about WordPress page loads. Providing a visual summary that's easy to inspect, it automatically tracks events such as PHP execution, core processes, plugin loads, theme loads, main post loops, sidebars, database queries, and network requests. This breakdown shows how time is spent on WordPress page loads.
 
 ## Hosting challenges of WordPress
 
