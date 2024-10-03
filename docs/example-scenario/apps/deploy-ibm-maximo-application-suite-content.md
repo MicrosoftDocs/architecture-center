@@ -14,7 +14,7 @@ From the perspective of infrastructure, this architecture provides the following
 
 - A container hosting platform to deploy highly available workloads across availability zones
 - A privatized deployment of worker and control nodes that are integrated with storage
-- Azure Premium Files and standard files for storage (OpenShift Data Foundation not required)
+- Azure Files premium and standard files for storage (OpenShift Data Foundation not required)
 - SQL Server on Azure VMs or container-based IBM Db2 Warehouse
 - Azure DNS for DNS management of OpenShift and its containers
 - Microsoft Entra ID for single sign-on (SSO) into MAS
@@ -25,17 +25,17 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Red Hat Enterprise Linux CoreOS](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html) to provide a custom VM image for OpenShift.
 
-- [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) to provide connectivity into the cluster. Azure Load Balancer is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+- [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) to provide connectivity into the cluster. Azure Load Balancer is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network) for communication between nodes, Azure services, and hybrid connectivity needs. Virtual Network is the fundamental building block for private networks in Azure.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) hosting the stateful data for the databases and systems inside the cluster. Azure Files provides fully managed file shares in the cloud that are accessible via the SMB and Network File System (NFS) protocols.
+- [Azure Files](https://azure.microsoft.com/services/storage/files) to host the stateful data for the databases and systems inside the cluster. Azure Files provides fully managed file shares in the cloud that are accessible via the SMB and Network File System (NFS) protocols.
 
 - [Azure DNS](https://azure.microsoft.com/services/dns) to manage DNS resolution for the containers inside and outside of the solution. Azure DNS supports all common DNS records and provides high availability.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet to securely access any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet for enhanced-security access to any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides seamless enhanced-security RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) (optional) SQL Server on Azure Virtual Machines (VMs) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database and Azure SQL Managed Instance aren't supported right now.
+- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) (optional) to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL Database and Azure SQL Managed Instance aren't supported right now.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
@@ -62,7 +62,7 @@ IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise a
 - **Safety**. Collect and analyze data from sensors, provide contextual data, and derive meaningful analytics.
 - **Civil**. Integrate inspection, defect tracking, and maintenance activities to help improve asset life, keep critical systems operating, and lower total costs of ownership of civil infrastructure.
 
-These applications and MAS 8.*x* are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview).
+These applications and MAS 8.*x* are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* on Azure for customers who have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview).
 
 ### Potential use cases
 
@@ -100,10 +100,10 @@ Microsoft has tested MAS versions 8.5 and later on Azure. Our recommendation is 
 
 Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
-- [SQL Server on Azure VMs](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/) version 2019 using Windows or Linux
+- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/) version 2019 using Windows or Linux
 - IBM [Db2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
-You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see learn about [interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database, Azure SQL Managed Instance and Azure Cosmos DB aren't supported.
+You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database, Azure SQL Managed Instance, and Azure Cosmos DB aren't supported.
 
 > [!NOTE]
 > In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using SQL Server for one application and IBM Db2 Warehouse for another.
@@ -206,7 +206,7 @@ Be sure to disable policies for enforcing secure transfer on the Azure Blob Stor
 
 By default, Db2 Warehouse deploys on top of OpenShift Data Foundation (previously known as OpenShift Container Storage). For reasons of cost, performance, scaling, and reliability, we recommended using Azure Premium Files with NFS instead of OpenShift Data Foundation.
 
-Don't use Azure Blob with CSI drivers, because it doesn't support hard links, which are required. Some pods can't run without hard links.
+Don't use Azure Blob Storage with CSI drivers, because it doesn't support hard links, which are required. Some pods can't run without hard links.
 
 ## Considerations
 
@@ -216,7 +216,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Maintaining access and visibility into the maintenance lifecycle of your assets can be one of your organization's greatest opportunities to operate efficiently and maintain uptime. To improve the security posture of your environment, it's important to use secure authentication and to keep your solutions up to date. Use encryption to protect all data that moves in and out of your architecture.
+Maintaining access and visibility into the maintenance lifecycle of your assets can be one of your organization's greatest opportunities to operate efficiently and maintain uptime. To improve the security posture of your environment, it's important to use secure authentication and to keep your solutions up to date. Use encryption to help protect all data that moves in and out of your architecture.
 
 Azure delivers MAS by using the models of infrastructure as a service (IaaS) and PaaS. Microsoft builds security protections into the service at the following levels:
 
