@@ -244,9 +244,9 @@ For best performance:
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
 - [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
-- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview), which provides the Lustre parallel filesystem
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview), which provides the Lustre parallel file system
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
-- [Azure Premium Files](https://azure.microsoft.com/products/storage/files/), which is a file share service that supports the NFS protocol
+- [Azure Files premium](https://azure.microsoft.com/products/storage/files/), which is a file share service that supports the NFS protocol
 
 SAS offers performance-testing scripts for the Viya and Grid architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
 
@@ -259,11 +259,11 @@ For sizing, Sycomp makes the following recommendations:
 - Provide one GPFS scale node per eight cores with a configuration of 150 MBps per core.
 - Use a minimum of five P30 drives per instance.
 
-##### Azure Managed Lustre (AMLFS)
+##### Azure Managed Lustre
 
-Azure Managed Lustre is a managed file system purpose-built for high-performance computing (HPC) and AI workloads. AMLFS can run SAS 9 and Viya workloads in parallel. To optimize the performance of your file system, follow these recommendations:
+Azure Managed Lustre is a managed file system created for high-performance computing (HPC) and AI workloads. Managed Lustre can run SAS 9 and Viya workloads in parallel. To optimize the performance of your file system, follow these recommendations:
 
-- Perform tuning on all client nodes when deploying AMLFS to increase Lustre client readahead and optimize concurrency for SAS I/O patterns. Run the following command to perform this tuning:
+- When you deploy Managed Lustre, perform tuning on all client nodes to increase Lustre client readahead and optimize concurrency for SAS I/O patterns. Run the following command to perform this tuning:
 
     ```shell
     lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.max_rpcs_in_flight=16 osc.*.max_dirty_mb=1024 llite.*.max_read_ahead_mb=2048 osc.*.checksums=0  llite.*.max_read_ahead_per_file_mb=256
@@ -271,18 +271,18 @@ Azure Managed Lustre is a managed file system purpose-built for high-performance
 
 - Enable [accelerated networking](/azure/virtual-network/accelerated-networking-overview) on all SAS VMs.
 
-- Place the SAS VMs in the same availability zone that AMLFS is deployed in, to reduce network latency.
+- To reduce network latency, place the SAS VMs in the same availability zone that Managed Lustre is deployed in.
 
 ##### Azure Files premium tier
 
-Azure Files premium tier is a managed service that supports the NFS 4.1 protocol. It provides a cost-efficient, elastic, performant, and POSIX-compliant file system. The IOPS and throughput of NFS shares scale with the provisioned capacity. SAS has extensively tested Azure Files with the premium tier and has found that performance is more than sufficient to power SAS installations. 
+Azure Files premium tier is a managed service that supports the NFS 4.1 protocol. It provides a cost-efficient, elastic, performant, and POSIX-compliant file system. The IOPS and throughput of NFS shares scale with the provisioned capacity. SAS has extensively tested the premium tier of Azure Files and found that performance is more than sufficient to power SAS installations. 
  
 You can use `nconnect` to improve performance. This mount option spreads IO requests over multiple channels. For more information, see [NFS performance](/azure/storage/files/nfs-performance#nconnect).
 
 When using an NFS Azure file share in Azure Files, consider the following points:
 - Adjust the provisioned capacity to meet performance requirements. The IOPS and throughput of NFS shares scale with the provisioned capacity. For more information, see [NFS performance](/azure/storage/files/files-nfs-protocol#performance).
-- Use nconnect in your mounts with a setting of `nconnect=4` for optimal performance parallel channel use.
-- Optimize read-ahead settings to be 15x of the rsize and wsize. For most workloads, we recommend a rsize and wsize of 1MB, and a read-ahead setting of 15MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput)
+- Use nConnect in your mounts with a setting of `nconnect=4` for optimal-performance parallel channel use.
+- Optimize `read-ahead` settings to be 15 times the `rsize` and `wsize`. For most workloads, we recommend an `rsize` and `wsize` of 1 MB and a `read-ahead` setting of 15 MB. For more information, see [Increase read-ahead size](/azure/storage/files/nfs-performance#increase-read-ahead-size-to-improve-read-throughput).
 
 ##### Azure NetApp Files (NFS)
 
@@ -295,7 +295,7 @@ Consider the following points when using this service:
 - To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
 
-##### NFS read-ahead tuning
+##### NFS `read-ahead` tuning
 
 To improve the performance of your SAS workload, it's important to tune the `read-ahead` kernel setting, which affects how NFS shares are mounted. When read-ahead is enabled, the Linux kernel can request blocks in advance of any actual I/O by the application. The effect is improved sequential read throughput. Most SAS workloads read many large files for further processing, and as such SAS benefits tremendously from large read-ahead buffers.
 
