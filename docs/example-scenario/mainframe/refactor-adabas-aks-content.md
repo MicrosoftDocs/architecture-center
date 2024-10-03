@@ -96,6 +96,30 @@ Place Natural batch pods in the same availability zone (data center) as Adabas p
 
 This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. The refactored containers should be deployed to a private AKS cluster with inbound access through private API server and internal IP addresses. All outbound traffic should be routed through an egress firewall layer.
 
+### Cost Optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist](/azure/well-architected/cost-optimization/checklist) for Cost Optimization.
+
+- Use the [cluster autoscaler](/azure/aks/cluster-autoscaler) and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions.
+
+- Set proper resource [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for pods to optimize resource allocation and improve application density. For more information, see [Best practices for resource management in AKS](/azure/aks/developer-best-practices-resource-management).
+
+- Implement the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to analyze and set CPU and memory resources that pods require. This approach optimizes resource allocation.
+
+- Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools based on workload requirements.
+
+- Create [multiple node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
+
+- Stop node pools or scale down AKS clusters when you don't use them.
+
+- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) to monitor and optimize costs.
+
+- Estimate the usage costs using [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator).
+
+- Use Azure tags to associate AKS resources with specific workloads or tenants to improve cost tracking and management.
+
+For more information, see [Cost optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization) and [Optimize costs](/azure/aks/best-practices-cost) in AKS.
+
 ### Operational Excellence
 
 Refactoring supports faster cloud adoption. It also promotes adoption of DevOps and Agile working principles. You have full flexibility of development and production deployment options.
