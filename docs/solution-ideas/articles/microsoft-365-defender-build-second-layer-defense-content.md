@@ -96,13 +96,13 @@ The diagram also shows in the layer labeled as **DEFENDER** which Microsoft Defe
 
 ### Access and manage Microsoft Defender XDR Security services
 
-Currently, you might need to use multiple portals to manage Microsoft Defender XDR services. However, Microsoft is working to centralize functionality as much as possible. The following diagram shows which portals are currently available and their relationships with each other.
+The following diagram shows which portals are currently available and their relationships with each other. In the time of the update for this articles, some of those portals may be already deprecated.
 
 :::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
-*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1) and from Defender for Endpoint (2). However, as of March 2022, you can still access `protection.office.com` for security functionalities regarding Office 365 (3). For Defender for Endpoint, if you try to access the old portal, `securitycenter.windows.com`, you're redirected to the new portal at `security.microsoft.com` (7).
+*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1), from Defender for Endpoint (2), from Defender for Office (3), Defender for Identity (5), Defender for Apps (4) and also for Microsoft Sentinel. 
 
-The primary use of `portal.cloudappsecurity.com` is to manage (4) Defender for Cloud Apps. It allows you to manage cloud apps and some apps that run on-premises, manage unauthorized apps (shadow IT), and review user signals from Identity Protection. You can also use this portal to manage many signals and features from (5) Identity protection on-premises, which allows you to consolidate many functions from (6) `portal.atp.azure.com` on (4) the portal for Defender for Cloud Apps. However, you can still access (6) `portal.atp.azure.com` if you need it.
+It is important to mention that Microsoft Sentinel has some features that still run only on the Azure Portal (portal.azure.com). 
 
 Lastly, `endpoint.microsoft.com` provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because `security.microsoft.com` and `endpoint.microsoft.com` deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
 
