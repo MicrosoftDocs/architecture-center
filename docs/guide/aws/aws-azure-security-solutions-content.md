@@ -178,5 +178,5 @@ Principal author:
 
 - [Protect workloads in AWS](/azure/defender-for-cloud/quickstart-onboard-aws?branch=main)
 
-- [Coorelate AWS logs with other security logs to detect and protect from threats](/azure/sentinel/connect-aws?tabs=s3&branch=main)
+- [Correlate AWS logs with other security logs to detect and protect from threats](/azure/sentinel/connect-aws?tabs=s3&branch=main)
 
