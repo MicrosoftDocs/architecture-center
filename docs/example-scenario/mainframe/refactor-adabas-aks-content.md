@@ -70,7 +70,7 @@ Many organizations are looking for ways to modernize these systems. They're look
 
 Software AG provides a popular 4GL mainframe platform that's based on the Natural programming language and the Adabas database.
 
-Two of the cloud rationalization patterns allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based approach), later in this article.
+Two of the cloud rationalization patterns allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based-approach), later in this article.
 
 ### Potential use cases
 
@@ -110,13 +110,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Create [multiple node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
 
-- Stop node pools or scale down AKS clusters when you don't use them.
-
 - Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) to monitor and optimize costs.
 
 - Estimate the usage costs using [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator).
 
-- Use Azure tags to associate AKS resources with specific workloads or tenants to improve cost tracking and management.
+- Use Azure tags to associate AKS resources with specific workloads to improve cost tracking and management.
 
 ### Operational Excellence
 
