@@ -129,7 +129,7 @@ In this solution, two GitHub Actions workflows automate the infrastructure that 
 
 - **chef-kafka.yml** performs static code analysis by using ***Cookstyle***, performs unit tests by using ***Chef InSpec***, and performs integration tests by using ***Test Kitchen***. These tests ensure the cookbook is properly tested before it's uploaded to Chef Server.
 
-   :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::  
+   :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::
 
 ## Deploy this scenario
 
@@ -143,7 +143,7 @@ The deployment process is divided into three parts: infrastructure, configuratio
   - Subnets
   - A resource group
   - Kafka server
-  - An Azure storage account  
+  - An Azure Storage account
   - Azure Data Lake Storage on top of the storage account
   - Network security groups
   - An Azure Databricks workspace created with virtual network injection, which keeps the traffic internal

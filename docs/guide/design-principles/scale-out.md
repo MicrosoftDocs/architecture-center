@@ -2,7 +2,8 @@
 title: Design to scale out
 titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
-author: martinekuan
+author: RobBagby
+ms.author: robbag
 categories: azure
 ms.date: 07/25/2023
 ms.topic: conceptual
@@ -18,7 +19,9 @@ ms.custom:
 
 ## Design your application so that it can scale horizontally
 
-A primary advantage of the cloud is elastic scaling &mdash; the ability to use as much capacity as you need, scaling out as load increases, and scaling in when the extra capacity is not needed. Design your application so that it can scale horizontally, adding or removing new instances as demand requires.
+A primary advantage of the cloud is elastic scaling &mdash; the ability to use as much capacity as you need, scaling out as load increases, and scaling in when the extra capacity is not needed. Design your application so that it can scale horizontally, adding or removing instances, matching supply to demand.
+
+Scalability is measured by the ratio of throughput gain to resource increase. Ideally in a well-designed system, both numbers are proportional: a twofold allocation of resources will double the throughput. Scalability is typically limited by the introduction of bottlenecks or synchronization points within the system.
 
 ## Recommendations
 
@@ -48,6 +51,8 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 - Put work items on a queue so that another instance can pick up the work, if an instance is removed in the middle of processing.
 
 **Consider scaling for redundancy.** Scaling out can improve your application's reliability. For example, consider scaling out across multiple [availability zones](/azure/reliability/availability-zones-overview), such as by using zone-redundant services. This approach can improve your application's throughput as well as provide resiliency if one zone experiences an outage.
+
+**Model and optimize your system's scalability.** You can use model your system using an approach such as [Amdahl's law](https://wikipedia.org/wiki/Amdahl's_law). Quantify scalability based on parameters such as contention and coherency.  Contention refers to delay due to waiting or queueing for shared resources. Coherence refers to delay for data to become consistent. For example, having a high contention indicates sequential processing that could be parallelized, while having a high coherency suggests excessive dependencies among processes, prompting you to minimize interactions. During workload design, you can calculate the maximum effective capacity of your system to avoid providing [more supply than demand which leads to waste](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-demand-and-supply).
 
 ## Related resources
 

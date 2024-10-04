@@ -251,4 +251,3 @@ For information about Azure solution components, see these resources:
 
 - [Enterprise business intelligence](./enterprise-bi-synapse.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
-

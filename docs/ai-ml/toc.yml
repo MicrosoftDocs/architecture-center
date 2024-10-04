@@ -52,6 +52,8 @@ items:
       items:
       - name: Chat bots
         items:
+        - name: Azure OpenAI chat basic architecture
+          href: architecture/basic-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline architecture
           href: architecture/baseline-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline in an Azure landing zone
@@ -116,10 +118,10 @@ items:
         items:
         - name: Machine learning operations (MLOps) v2
           href: guide/machine-learning-operations-v2.md
-        - name: MLOps for Python models
-          href: guide/mlops-python.yml
         - name: Network security for MLOps
           href: guide/network-security-mlops.yml
+        - name: Generative AI ops with MLOps
+          href: guide/genaiops-for-mlops.md
         - name: MLOps maturity model
           href: guide/mlops-maturity-model.yml
       - name: Proxy Azure OpenAI usage
@@ -168,6 +170,8 @@ items:
       items:
       - name: Design architectures
         items:
+        - name: Azure OpenAI chat basic architecture
+          href: architecture/basic-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline architecture
           href: architecture/baseline-openai-e2e-chat.yml
         - name: Azure OpenAI chat baseline in an Azure landing zone

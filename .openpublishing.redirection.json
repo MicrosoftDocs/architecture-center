@@ -2721,6 +2721,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/guide/mobile/azure-communication-services-architecture.md",
+      "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/microsoft-cloud/overview.md",
       "redirect_url": "/microsoft-cloud/dev/overview/introduction",
       "redirect_document_id": false
@@ -2976,6 +2981,66 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/serverless-quest/validate-commit-serverless-adoption.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/open-source-scenarios.yml",
+      "redirect_url": "/azure/architecture/browse/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/application-assessment.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/application-development.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/functions-app-operations.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/functions-app-security.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/poc-pilot.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/reference-architectures.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/serverless-overview.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/technical-training.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sharepoint-farm-microsoft-365.yml",
+      "redirect_url": "/sharepoint/introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/hosting-applications/medium-umbraco-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {                                         
       "source_path": "docs/solution-ideas/articles/medium-umbraco-web-app.yml",
       "redirect_url": "/azure/architecture/web-apps/hosting-applications/medium-umbraco-web-app",
       "redirect_document_id": true
@@ -3170,7 +3235,12 @@
       "redirect_url": "/azure/architecture/reference-architectures/media-services/gridwich-architecture",
       "redirect_document_id": false
     },
-    {    
+    {  
+      "source_path": "docs/web-apps/hosting-applications/digital-marketing-sitecore.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {      
       "source_path": "docs/solution-ideas/articles/customer-churn-prediction.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/customer-churn-prediction",
       "redirect_document_id": true
@@ -3370,7 +3440,12 @@
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-databricks",
       "redirect_document_id": true
     },
-    {     
+    {
+      "source_path": "docs/guide/mixed-reality/mixed-reality-overview.yml",
+      "redirect_url": "/windows/mixed-reality/develop/mixed-reality-cloud-services",
+      "redirect_document_id": false
+    },
+    {            
       "source_path": "docs/reference-architectures/ai/batch-scoring-python.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-python",
       "redirect_document_id": true
@@ -3462,8 +3537,13 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/mlops-python.yml",
-      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-python",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/guide/mlops-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
@@ -5021,8 +5101,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/confidential/healthcare-inference.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/azure-health-data-consortium",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "docs/solution-ideas/articles/sap-netweaver-on-sql-server.yml",
       "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/image-modeling.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
     },
     {
@@ -5418,6 +5508,31 @@
     {
       "source_path": "docs/solution-ideas/articles/tiered-data-for-analytics.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/cognitive-services.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/language-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/targeted-language-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/speech-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/speech-service-capabilities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/vision-api.md",
+      "redirect_url": "/azure/architecture/data-guide/ai-services/image-video-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
     }
   ]

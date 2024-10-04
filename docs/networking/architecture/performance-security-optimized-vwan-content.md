@@ -1,4 +1,4 @@
-A global manufacturing company provided the architecture that this article describes. The company's operational technology and information technology departments are highly integrated, demanding a single internal network. But the environments have drastically different security and performance requirements. Because of the sensitive nature of the company's operations, all traffic needs to be firewall protected, and an Intrusion Detection and Protection System (IDPS) solution needs to be in place. The information technology department has less demanding security requirements for the network, but that department wants to optimize for performance so users have low-latency access to IT applications.
+A global manufacturing company provided the architecture that this article describes. The company's operational technology and information technology departments are highly integrated, demanding a single internal network. But the environments have drastically different security and performance requirements. Because of the sensitive nature of the company's operations, all traffic needs to be firewall protected by a network virtual appliance (NVA) the customer hosts on their own virtual machines and an Intrusion Detection and Protection System (IDPS) solution needs to be in place. The information technology department has less demanding security requirements for the network, but that department wants to optimize for performance, so users have low-latency access to IT applications.
 
 Decision makers at the company turned to Azure Virtual WAN to meet global needs for a single network with varying security and performance requirements. They also got a solution that's easy to manage, deploy, and scale. As they add regions, they can continue to grow seamlessly with a network that's highly optimized for their needs.
 
@@ -9,6 +9,7 @@ Typical use cases for this architecture include:
 - A global organization that requires a centralized file solution for business-critical work.
 - High-performing file workloads that require localized cached files.
 - A flexible remote workforce for users both in and out of the office.
+- A requirement to use self-hosted NVAs.
 
 ## Architecture
 
@@ -98,6 +99,8 @@ Configure routes for the Virtual WAN hub as follows:
 - [Network virtual appliances](https://azure.microsoft.com/solutions/network-appliances). Network virtual appliances are marketplace-offered network appliances. In this case, the company deployed Palo Alto's NVA, but any NVA firewall would work here.
 
 ### Alternatives
+
+If self-hosting NVAs is not a requirement, a simpler solution exists where the NVA is hosted in an Azure VWAN secured hub and internal traffic inspection is modified for each virtual network connection. However, this solution does not allow you to discriminate between vnet-to-vnet and [vnet-to-cross-premises traffic](/azure/virtual-wan/how-to-routing-policies).
 
 To deploy only a high-security NVA environment, you can follow this model: [Route traffic through an NVA](/azure/virtual-wan/scenario-route-through-nva).
 
