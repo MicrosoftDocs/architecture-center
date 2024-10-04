@@ -108,7 +108,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Create [multiple node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
   
-- Choose the right [service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) and [capacity pool size](/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for Azure NetApp Files. Please refer to [understanding the cost model for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-cost-model) for cost management recommendations.
+- Choose the right [service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) and [capacity pool size](/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for Azure NetApp Files. For cost management recommendations, see [Understanding the Cost Model for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-cost-model).
   
 - Leverage [reserved capacity](/azure/azure-netapp-files/reservations) for Azure NetApp Files. 
   
