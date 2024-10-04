@@ -116,7 +116,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - To estimate usage costs, use [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator).
 
-- Use Azure tags to associate AKS resources with specific workloads to improve cost tracking and management.
+- To improve cost tracking and management, use [Azure tags](/azure/azure-resource-manager/management/tag-resources) for associating AKS resources with specific workloads.  
 
 ### Operational Excellence
 
