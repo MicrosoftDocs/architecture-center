@@ -8,7 +8,7 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 ### Microsoft Entra
 
-- **Centralized Identity and Access Management**
+### Centralized Identity and Access Management
 
 Microsoft Entra ID is a cloud-based, comprehensive, centralized identity and access management solution that can help secure and protect AWS accounts and environments.
 
