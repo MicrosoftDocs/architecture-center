@@ -38,7 +38,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 1. **Input.** Input typically occurs either via Azure ExpressRoute from remote clients or via other applications currently running Azure. In either case, TCP/IP connections are the primary means of connection to the system. TLS port 443 provides access to web-based applications. You can leave the web-based applications presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update this layer with modern UX frameworks per your requirements. For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
 
-1. **Access in Azure.** In Azure, access to the application compute clusters is provided via an Azure load balancer. This approach allows scale-out compute resources to process the input work. Both level 7 (application level) and level 4 (network protocol level) load balancers can be used. The type that you use depends on how the application input reaches the entry point of the compute cluster. Our recommendation is to use Azure Application Gateway with Web Application Firewall capabilities.
+1. **Access in Azure.** In Azure, access to the application compute clusters is provided via an Azure load balancer. This approach allows scale-out compute resources to process the input work. Both level 7 (application level) and level 4 (network protocol level) load balancers can be used. The type that you use depends on how the application input reaches the entry point of the compute cluster. Our recommendation is to use Azure Application Gateway with Web Application Firewall capabilities for layer 7 traffic.
 
 1. **Application compute clusters.** The architecture supports applications that run in a container that can be deployed in Azure Kubernetes Service. Adabas & Natural components can run inside Linux based containers. You can re-architect your legacy applications to modern container-based architectures and operate on top of Azure Kubernetes Service (AKS).
 
@@ -86,7 +86,7 @@ Adabas & Natural containers run in pods, each of which performs a specific task.
 
 Containerized services and their associated networking and storage components need to be orchestrated and managed. We recommend AKS, a managed Kubernetes service that automates cluster and resource management. You designate the number of nodes you need, and AKS fits your containers onto the right nodes to make the best use of resources. AKS also supports automated rollouts and rollbacks, service discovery, load balancing, and storage orchestration. And AKS supports self-healing: if a container fails, AKS starts a new one. In addition, you can safely store secrets and configuration settings outside of the containers.
 
-The architecture diagram in this article shows a container-based implementation of Adabas & Natural. When you set up AKS, you specify the Azure VM size for your nodes, which defines the storage CPUs, memory, and type, like high-performance solid-state drives (SSDs) or regular hard disk drives (HDDs). Natural should runs on three or more VM instances (nodes) to boost scalability and availability of the user interface (Natural online plus ApplinX) and the API layer (Natural services plus EntireX).
+The architecture diagram in this article shows a container-based implementation of Adabas & Natural. When you set up AKS, you specify the Azure VM size for your nodes, which defines the storage CPUs, memory, and type, like high-performance solid-state drives (SSDs) or regular hard disk drives (HDDs). Natural should run on three or more VM instances (nodes) to boost scalability and availability of the user interface (Natural online plus ApplinX) and the API layer (Natural services plus EntireX).
 
 In the data layer, Adabas runs in the AKS cluster, which scales in and out automatically based on resource use. You can run multiple components of Adabas in the same pod or, for greater scale, AKS can distribute them across multiple nodes in the cluster. Adabas uses Azure NetApp Files, a high-performance, metered file storage service, for all persistent data, like database files, protection logs, app data, and backup.
 
@@ -100,15 +100,18 @@ This architecture is primarily built on Kubernetes, which includes security comp
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist](/azure/well-architected/cost-optimization/checklist) for Cost Optimization.
 
-- Use the [cluster autoscaler](/azure/aks/cluster-autoscaler) and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions.
-
-- Set proper resource [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for pods to optimize resource allocation and improve application density. For more information, see [Best practices for resource management in AKS](/azure/aks/developer-best-practices-resource-management).
+- Use the [cluster autoscaler](/azure/aks/cluster-autoscaler) and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions. Adabas pods can utilize horizontal pod autoscaler for cost optimization.
 
 - Implement the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to analyze and set CPU and memory resources that pods require. This approach optimizes resource allocation.
 
 - Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools based on workload requirements.
 
 - Create [multiple node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
+  
+- Choose the right [service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) and [capacity pool size](/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for Azure NetApp Files. Please refer to [understanding the cost model for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-cost-model) for cost management recommendations.
+  
+- Leverage [reserved capacity](/azure/azure-netapp-files/reservations) for Azure NetApp Files. 
+  
 
 - Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) to monitor and optimize costs.
 
