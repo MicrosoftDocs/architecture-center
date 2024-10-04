@@ -16,7 +16,6 @@ azureCategories:
 products:
   - azure-iot-edge
   - azure-iot-hub
-  - azure-media-services
   - azure-stack-edge
   - azure-app-service
 name: Video capture and analytics for retail
