@@ -256,12 +256,12 @@ Other contributors:
 
 For more information about developing DataOps for an AD system, see:
 > [!div class="nextstepaction"]
-> [Data operations for autonomous vehicle operations](./autonomous-vehicle-operations-dataops)
+> [Data operations for autonomous vehicle operations](./autonomous-vehicle-operations-dataops.yml)
 
 You might also be interested in these related articles:
 
 - [Microsoft mobility documentation](/industry/mobility/)
 - [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
-- [SDV reference architecture](../../industries/automotive/software-defined-vehicle-reference-architecture)
+- [SDV reference architecture](../../industries/automotive/software-defined-vehicle-reference-architecture.yml)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)
 - [Enhancing efficiency in AVOps with Generative AI](https://download.microsoft.com/download/c/e/c/ceccb875-9cc9-49d2-b658-88d9abc4dc3f/enhancing-efficiency-in-AVOps-with-generative-AI.pdf)
