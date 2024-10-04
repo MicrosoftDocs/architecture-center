@@ -10,8 +10,9 @@ metadata:
   ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom: arb-aiml
-  ms.custom: arb-telco
+  ms.custom:
+    - arb-aiml
+    - arb-telco
 azureCategories:
   - ai-machine-learning
   - containers
