@@ -119,97 +119,113 @@ Batch provides an Azure-native option that provides scheduling and dynamic orche
 
 :::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.png" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-operations-valops-aks-architecture.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
-
 #### Architecture overview
 
-When utilizing AKS for ValOps, one can deploy and manage containerized simulation software on a cluster of Azure virtual machines. Similar to a ValOps implementation with Batch, simulation data can be stored in [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage), providing scalability and security for large data sets. [Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2) can be utilized to train machine learning models on the simulation data, enhancing the performance of ADAS/AD systems.
+When you use AKS for ValOps, you can deploy and manage containerized simulation software on a cluster of Azure virtual machines (VMs). Similar to a ValOps implementation with Batch, you can store simulation data in [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage), which provides scalability and security for large data sets. You can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2) to train machine learning models on the simulation data, which enhances the performance of ADAS and AD systems.
 
-Since Batch provides scheduling and orchestration for HPC workloads, one needs an ability to schedule workloads. One option, would be to utilize Azure Durable Functions as an external orchestrator and scheduler. [Azure Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=in-process%2Cnodejs-v3%2Cv1-model&pivots=csharp) can read from a metadata database to determine which sequences need validation and chunk them into batches for parallel processing. These batches can be sent as events to a work queue, such as Kafka, where each event represents an activity in the Azure Durable Function. Azure Durable Functions provide state management and can be easily integrated into an [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/introduction)/[Fabric](https://learn.microsoft.com/fabric/get-started/microsoft-fabric-overview) pipeline or called by an orchestrator like [Eclipse Symphony](https://projects.eclipse.org/projects/iot.symphony) . This approach aligns with the work queue job scheduling pattern, as described in the Kubernetes [documentation](https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/). To achieve horizontal scalability, multiple pods can be configured to listen to the work queue or Kafka topic. The system receives an event through an Azure Durable Function. One of the pods consumes the event and performs the reprocessing or resimulation of the chunk or batch.
+Because Batch provides scheduling and orchestration for HPC workloads, you need to be able to schedule workloads. One option for scheduling workloads is to use durable functions as an external orchestrator and scheduler. [Durable functions](/azure/azure-functions/durable/durable-functions-overview) can read from a metadata database to determine which sequences need validation and chunk them into batches for parallel processing. It sends these batches as events to a work queue, such as Kafka, where each event represents an activity in the durable function. Durable functions provide state management and easily integrate into an [Azure Data Factory](/azure/data-factory/introduction) or [Fabric](/fabric/get-started/microsoft-fabric-overview) pipeline or be called by an orchestrator like [Eclipse Symphony](https://projects.eclipse.org/projects/iot.symphony).
 
-The following diagram shows an example of an [Azure Data Factory](https://learn.microsoft.com/azure/data-factory/introduction) flow that invokes durable functions as part of a chain of tasks.
+This approach aligns with the work queue job scheduling pattern, as described in the Kubernetes [documentation](https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/). To achieve horizontal scalability, you can configure multiple pods to listen to the work queue or Kafka topic. The system receives an event through a durable function. One of the pods consumes the event and performs the reprocessing or resimulation of the chunk or batch.
 
-:::image type="content" source="./images/adf-durable-functions.png" alt-text="Example Azure Fata Factory flow that shows integration with Azure Durable Functions" border="false" lightbox="./images/adf-durable-functions.png":::
+The following diagram shows an example of a [Data Factory](/azure/data-factory/introduction) flow that invokes durable functions as part of a chain of tasks.
+
+:::image type="content" source="./images/adf-durable-functions.png" alt-text="A diagram of a Data Factory flow that shows integration with durable functions." border="false" lightbox="./images/adf-durable-functions.png":::
 
 #### Components
-- [AKS](https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies deploying, managing, and scaling containerized applications with built-in security and monitoring. AKS is used to deploy a Kubernetes cluster for Validation use cases such as Open Loop testing or Closed loop testing
-- [Azure Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=in-process%2Cnodejs-v3%2Cv1-model&pivots=csharp) is an extension of [Azure Functions](https://learn.microsoft.com/azure/well-architected/service-guides/azure-functions-security) that enables you to write stateful workflows and orchestrate complex, long-running processes in a serverless environment. Azure Durable Functions is used as an external orchestrator and scheduler to the AKS cluster
-- [Kafka](https://kafka.apache.org/) is an open-source distributed event streaming platform used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. Kafka is used to handle event sourcing that is triggered in the workflow pipeline.
-- [Azure Storage Account](https://learn.microsoft.com/azure/well-architected/service-guides/storage-accounts/reliability) provides a unique namespace to store and manage your Azure Storage data objects like blobs, files, queues, and tables, ensuring durability, high availability, and scalability. Azure Storage account is used to store simulation data and results.
 
-Alternative options for Job scheduling and orchestration on AKS are third party tools like:
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed Kubernetes service that simplifies deploying, managing, and scaling containerized applications with built-in security and monitoring. Use AKS to deploy a Kubernetes cluster for validation use cases such as open-loop or closed-loop testing.
+- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) that you can use to write stateful workflows and orchestrate complex, long-running processes in a serverless environment. You can use durable functions as an external orchestrator and scheduler for the AKS cluster.
+- [Kafka](https://kafka.apache.org/) is an open-source distributed event streaming platform that you can use for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. Use Kafka to handle event sourcing that is triggered in the workflow pipeline.
+- An [Azure storage account](/azure/well-architected/service-guides/storage-accounts/reliability) provides a unique namespace to store and manage your Azure Storage data objects like blobs, files, queues, and tables, ensuring durability, high availability, and scalability. Use a storage account to store simulation data and results.
 
-- [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/kubernetes.html) is an open source platform that allows organizations to schedule and monitor workflow (available as managed service in Azure Data Factory as preview)
-- [kubeflow](https://www.kubeflow.org/) is an open source project that makes deployments of workflows running on kubernetes simple
+The following non-Microsoft tools are alternative options for job scheduling and orchestration on AKS.
+
+- [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/kubernetes.html) is an open-source platform that allows organizations to schedule and monitor workflow and is available in preview as a managed service in Data Factory.
+- [Kubeflow](https://www.kubeflow.org/) is an open-source project that simplifies the deployment of workflows that run on Kubernetes.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Cost optimization
+
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Compliance with standards such as [ISO 26262](https://www.iso.org/obp/ui/#iso:std:iso:26262:-1:ed-1:v1:en) often requires more test hours, higher fidelity simulations, and extensive data processing to ensure the safety and reliability of automotive systems. This leads to increased compute costs as more resources are required to run these comprehensive tests. Right sizing resources is of utmost importance to optimize costs for your orginization's ValOps implementation. Right sizing can be achieved by the use of Autoscaling, [Microsoft Cost Management and Billing](https://learn.microsoft.com/azure/cost-management-billing/costs/overview-cost-management), optimize resource allocation, and scaling strategies. For more guidance on how to optimize scaling costs, see [Optimize scaling costs](https://learn.microsoft.com/azure/well-architected/cost-optimization/optimize-scaling-costs).  
+Compliance with standards such as [ISO 26262](https://www.iso.org/obp/ui/#iso:std:iso:26262:-1:ed-1:v1:en) often requires more test hours, higher fidelity simulations, and extensive data processing to ensure the safety and reliability of automotive systems. These requirements increase compute costs becuase more resources are required to run these comprehensive tests. Right-sizing resources is crucial to optimize costs for your orginization's ValOps implementation. You can use autoscaling, [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management), resource allocation optimization, and scaling strategies. For more guidance on how to optimize scaling costs, see [Optimize scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs). 
 
-Here are some further recommendations to help your organization save cost with various types of compute cost models and profiles. 
-- Select the right virtual machine (VM) for your job by using the [VM selector guide](https://azure.microsoft.com/pricing/vm-selector/?msockid=3338580647b1602718c8499943b1663a).  
+Here are more recommendations to help your organization lower costs with various types of compute cost models and profiles.
+
+- Select the right VM for your job by using the [VM selector guide](https://azure.microsoft.com/pricing/vm-selector/?msockid=3338580647b1602718c8499943b1663a).  
 - Deploy Azure resources based on your needs. Avoid deploying components that aren't adding value or meeting your requirements.  
-- Ensure that the organization is following best practices for [Batch and performance efficiency guide](https://learn.microsoft.com/azure/well-architected/service-guides/azure-batch/performance-efficiency)
-- Ensure that your organization is following [best practices for AKS scaling](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/app-platform/aks/scalability).
-- Take advantage of various options that Azure offers for hosting application code. For guidance about how to choose the right service for your deployment, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).  
-- Use storage tiers to store cold data more cost-efficiently. For more information, see [Access tiers overview](https://learn.microsoft.com/azure/storage/blobs/access-tiers-overview) and additional cost guidance for storage in the [Azure Blob Storage cost optimization guide](https://learn.microsoft.com/azure/well-architected/service-guides/azure-blob-storage#cost-optimization).
+- Ensure that the organization follows the best practices described in the [Batch and performance efficiency guide](/azure/well-architected/service-guides/azure-batch/performance-efficiency).
+- Ensure that your organization follows [best practices for AKS scaling](/azure/cloud-adoption-framework/scenarios/app-platform/aks/scalability).
+- Take advantage of Azure offerings for hosting application code. For guidance about how to choose the right service for your deployment, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).  
+- Use storage tiers to store cold data more cost efficiently. For more information, see [Access tiers overview](/azure/storage/blobs/access-tiers-overview) and other cost guidance for storage in the [Azure Blob Storage cost optimization guide](/azure/well-architected/service-guides/azure-blob-storage#cost-optimization).
 
-Choose the best VM cost option for your organization's use case:  
-- _Pay-as-you-go_ is a consumption-based pricing model where you pay for what you consume. Pay-as-you-go models are applicable to interactive, unplanned jobs.  
-- _[Reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/?msockid=3338580647b1602718c8499943b1663a)_ can be cost effective for long-term workloads, such as for batch and long-running jobs like simulation and open/closed loop testing.
-- _[Spot instances](https://learn.microsoft.com/azure/virtual-machines/spot-vms)_ can be useful for jobs that don't have a strict timeline in which they need to be completed, such as for dev/test jobs. For example, researchers might need to validate an experimental model against set of scenarios, and there's no time sensitivity for the workload.
+Choose the best VM cost option for your organization's use case:
+
+- **Pay-as-you-go** is a consumption-based pricing model where you pay for what you consume. Pay-as-you-go models are applicable to interactive, unplanned jobs.  
+- [**Reserved instances**](https://azure.microsoft.com/pricing/reserved-vm-instances/?msockid=3338580647b1602718c8499943b1663a) can be cost effective for long-term workloads, such as for batch and long-running jobs like simulation and open-loop and closed-loop testing.
+- [**Spot instances**](/azure/virtual-machines/spot-vms) can be useful for jobs that don't have a strict timeline to be completed, such as for dev/test jobs. For example, researchers might need to validate an experimental model against set of scenarios, and there's no time sensitivity for the workload.
+
 ### Operational excellence
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](https://learn.microsoft.com/azure/architecture/framework/devops/overview).
-ValOps embraces key software engineering strategies, such as:
 
-- *Automate your deployment and maintain consistency* with infrastructure as code (IaC). You can use Bicep, Azure Resource Manager templates (ARM templates), Terraform, or another approach.
-- *Mandate automated testing.* To achieve operational excellence in validating autonomous vehicle software, you must implement automated testing. Automated testing ensures consistent execution with minimal human intervention, leading to reliable and repeatable results, reducing human error, and increasing efficiency. It allows for the simulation of a wide range of driving scenarios, including edge cases and rare events, which are critical for safety and reliability. Continuous integration and continuous deployment (CI/CD) provide immediate feedback on code changes, accelerating issue resolution and maintaining high-quality standards. Automated testing can handle large volumes of test cases and complex scenarios impractical for manual testing, ensuring comprehensive coverage and robust validation of sensor data processing, decision-making algorithms, and control logic under various conditions. By mandating automated testing, your organization can streamline validation processes, reduce costs, and improve the overall reliability and safety of their autonomous vehicle operations, ensuring the software meets stringent safety standards and performs reliably in real-world conditions.
-- *Regularly monitor the performance and usage of your Azure resources* to optimize costs and enhance performance. Use tools like Azure Monitor and Microsoft Cost Management.
-- *For HPC clusters, use [Azure HPC Health Checks](https://github.com/Azure/azurehpc-health-checks?tab=readme-ov-file) on each compute node* to verify that the node is working properly.  To prevent scheduling or running jobs on *unhealthy* nodes, mark them as down or offline. Health checking helps increase the reliability and throughput of a cluster by reducing preventable job failures due to misconfiguration, hardware failure, etc. 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-### Performance Efficiency
+ValOps embraces the following key software engineering strategies.
+
+- **Automate your deployment and maintain consistency** with infrastructure as code (IaC). You can use Bicep, Azure Resource Manager templates (ARM templates), Terraform, or another approach.
+- **Mandate automated testing** to achieve operational excellence in validating autonomous vehicle software. Automated testing ensures consistent execution with minimal human intervention, which leads to reliable and repeatable results by reducing human error and increasing efficiency. Automated testing simulates a wide range of driving scenarios, including edge cases and rare events, which is critical for safety and reliability. Continuous integration and continuous delivery (CI/CD) provide immediate feedback on code changes, which accelerates problem resolution and maintains high quality standards. Automated testing can handle large volumes of test cases and complex scenarios that are impractical for manual testing. It ensures comprehensive coverage and robust validation of sensor data processing, decision-making algorithms, and control logic under various conditions. 
+
+   By mandating automated testing, your organization can streamline validation processes, reduce costs, and improve the overall reliability and safety of its autonomous vehicle operations. Your organization can ensure that its software meets stringent safety standards and performs reliably in real-world conditions.
+
+- **Regularly monitor the performance and usage of your Azure resources** to optimize costs and enhance performance. Use tools like Azure Monitor and Microsoft Cost Management.
+- **For HPC clusters, use [Azure HPC health checks](https://github.com/Azure/azurehpc-health-checks?tab=readme-ov-file) on each compute node** to verify that the node is working properly. To prevent scheduling or running jobs on unhealthy nodes, mark them as down or offline. Health checking helps increase the reliability and throughput of a cluster by reducing preventable job failures due to misconfiguration, hardware failure, and other factors. 
+
+### Performance efficiency
+
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
-- To avoid cross-region latency, ensure that the storage location used for ValOps data is in the same region as compute.  
-- When dealing with large data sets, such as images or video files, or when working with smaller objects that require high I/O performance, it is not recommended to use Azure Files. Azure Files can slow down machine learning training or other workloads that require consistently low storage latency. It is recommended to use object storage with Azure Blob Storage or Data Lake Storage for highest level of performance while maintaining cost efficiency.
-- Performance for storage is essential in an HPC application such as ValOps. Azure Blob Storage accounts with [Standard Azure Blob](https://learn.microsoft.com/azure/storage/common/storage-account-overview) can deliver multi-terabits per second performance. For the highest requirements around rapid responses and consistent low latency scenarios, such as repeated reads of very small objects, [Premium Azure Blob storage](https://learn.microsoft.com/azure/storage/blobs/storage-blob-block-blob-premium) should be used. For more information, see [Blob storage performance and scalability checklist](https://learn.microsoft.com/azure/storage/blobs/storage-performance-checklist).
-- When mounting your storage account, use BlobFuse2 instead of older protocols like network file system (NFS) which is beneficial for ValOps. BlobFuse2 is built for Azure Storage and provides validated end to end caching and streaming performance, which improves data access efficiency and reduces latency for repeat-access-scenarios. It supports advanced caching mechanisms like block cache with prefetch that significantly improve read and write speeds, making it ideal for high-performance computing tasks in Batch.
 
-  Unlike traditional virtual system mounts or NFS, which can suffer from higher latency and lower throughput, BlobFuse2 leverages Azure's infrastructure to deliver faster data transfer rates and better scalability. This results in more efficient processing of large datasets and improved overall performance for autonomous vehicle ValOps. For more information, see [Blobfuse](/azure/storage/blobs/blobfuse2-what-is).  
+- To avoid cross-region latency, ensure that the storage location that you use for ValOps data is in the same region as the compute location. 
+- When you handle large datasets, such as images or video files, or work with smaller objects that require high I/O performance, we don't recommended using Azure Files. Azure Files can slow down machine learning training or other workloads that require consistently low storage latency. We recommend using object storage with Blob Storage or Data Lake Storage for the highest level of performance while maintaining cost efficiency.
+- Performance for storage is essential in an HPC application like ValOps. Blob Storage accounts with [Standard Azure Blob](/azure/storage/common/storage-account-overview) can deliver multi-terabits per second performance. You should use [premium block blob storage accounts](/azure/storage/blobs/storage-blob-block-blob-premium) if you need rapid responses and consistent low-latency scenarios, such as repeated reads of very small objects. For more information, see [Blob storage performance and scalability checklist](/azure/storage/blobs/storage-performance-checklist).
+- When you mount your storage account, use BlobFuse2 instead of older protocols like network file system (NFS). BlobFuse2 is built for Storage and provides validated end-to-end caching and streaming performance, which improves data access efficiency and reduces latency for repeat-access scenarios. It supports advanced caching mechanisms like block cache with prefetch that significantly improve read and write speeds. These improvements make it ideal for high-performance computing tasks in Batch.
+
+  Unlike traditional virtual system mounts or NFS, which can suffer from higher latency and lower throughput, BlobFuse2 uses Azure infrastructure to deliver faster data transfer rates and better scalability. These results lead to more efficient processing of large datasets and improved overall performance for autonomous vehicle ValOps. For more information, see [What is BlobFuse?](/azure/storage/blobs/blobfuse2-what-is)  
   
-  Blobfuse2 can be mounted via scripts, enabling seamless integration into your existing workflows.  
+  You can mount Blobfuse2 via scripts, which enables seamless integration for your existing workflows. 
 
-- Refer to scalability and performance targets for [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account)
-- Based on the simulation requirements, [Batch](https://learn.microsoft.com/azure/batch/) can set up and maintain the necessary containers or virtual machines (VMs) to meet the Service Level Objective (SLO) requirements. This involves:
+- See scalability and performance targets for [Storage](/azure/storage/common/scalability-targets-standard-account).
+- Based on the simulation requirements, you can use [Batch](/azure/batch/) to set up and maintain the necessary containers or VMs to meet the service-level objective (SLO) requirements. This task involves:
     - Provisioning the required containers or VMs.
     - Ensuring these resources are continuously available.
-    - Based on the SLO: Aligning the availability and performance of these resources with the agreed-upon service levels.
+    - Aligning the availability and performance of these resources with the agreed-upon service levels.
 
-### Security 
+### Security
+
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-It's important to understand the division of responsibility between an automotive OEM and Microsoft. In a vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform as a service (PaaS) layers provide built-in security on the physical stack, including the operating system. You can add the following capabilities to the existing infrastructure security components:
 
-- Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to maintain end-to-end security when you handle sensitive and business-critical elements, such as encryption keys, certificates, connection strings, and passwords. Key Vault offer a robust solution that fortifies the entire software development and supply chain process. With Key Vault, you can use automotive applications to help securely store and manage sensitive assets and ensure that they remain protected from potential cyber security threats. You can further enhance security by regulating access and permissions to critical resources with RBAC.  
+It's important to understand the division of responsibility between an automotive manufacturer and Microsoft. In a vehicle, the manufacturer owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform as a service (PaaS) layers provide built-in security on the physical stack, including the operating system. You can add the following capabilities to the existing infrastructure security components.
 
-  If regulatory requirements require an enhanced security solution with dedicated hardware, consider using [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). For even more stringent requirements, evaluate [Azure Dedicated HSM](/azure/dedicated-hsm/overview).  
+- Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to maintain end-to-end security when you handle sensitive and business-critical elements, such as encryption keys, certificates, connection strings, and passwords. Key Vault offers a robust solution that fortifies the entire software development and supply chain process. With Key Vault, you can use automotive applications to help securely store and manage sensitive assets and ensure that they remain protected from potential cyber security threats. You can further enhance security by regulating access and permissions to critical resources with role-based access control (RBAC).  
 
-- Automated driving data requires strict data governance to help with data classification, lineage, tracking, and compliance. With [Microsoft Purview](https://azure.microsoft.com/services/purview) your orgnanization can ensure that its data is well-governed, secure, and compliant, to support the development and deployment of safe and reliable autonomous vehicles.
-- In addition to enforcing compliance on data, your organization can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to enforce compliance and governance rules across its Azure resources.
-- Implement role-based access control (RBAC) to grant permissions to users and services on a least-privilege basis.
-- Use Azure Security Center to proactively monitor and mitigate security threats
+  If regulatory requirements require an enhanced security solution with dedicated hardware, consider using [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). For even more stringent requirements, consider [Azure Cloud HSM](/azure/dedicated-hsm/overview), formerly Azure Dedicated HSM.  
+
+- AD data requires strict data governance to help with data classification, lineage, tracking, and compliance. By using [Microsoft Purview](https://azure.microsoft.com/services/purview), your orgnanization can ensure that its data is well-governed, secure, and compliant to support the development and deployment of safe and reliable autonomous vehicles.
+- In addition to enforcing data compliance, your organization can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to enforce compliance and governance rules across its Azure resources.
+- Implement RBAC to grant permissions to users and services on a least-privilege basis.
+- Use Azure Security Center to proactively monitor and mitigate security threats.
 - Ensure encryption of data at rest by using native Azure storage and database services. For more information, see [Data protection considerations](/azure/well-architected/security/design-storage).
 - Use Microsoft Defender for Cloud to proactively monitor and mitigate security threats.
 
-### Deploy this scenario
+## Deploy this scenario
+
 There are several options to deploy this scenario:
 
-- [dSPACE](https://www.dspace.com/inc/home.cfm), in collaboration with Microsoft, developed SIMPHERA. a software solution designed to simulate and validate functions for autonomous driving. To deploy SIMPHERA, refer to the instructions in this [repository](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main).
-- [ANSYS](https://www.ansys.com/) worked with Microsoft to develop a deployable solution that's aligned to this reference architecture. The solution can be deployed in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/ansys.av_platform_azure?tab=Overview).
-- [Cognata](https://azuremarketplace.microsoft.com/marketplace/apps/cognata.simcloud10?tab=Overview) SimCloud is a deployable simulated test-drive environment that enhances the validation process. SimCloud generates fast, highly accurate results, and eliminates safety concerns. In addition, SimCloud address the high costs and limited scalability of road-testing in the physical world.
+- [dSPACE](https://www.dspace.com/inc/home.cfm), in collaboration with Microsoft, developed SIMPHERA, a software solution designed to simulate and validate functions for AD. To deploy SIMPHERA, see the instructions in this [repository](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main).
+- [Ansys](https://www.ansys.com/) worked with Microsoft to develop a deployable solution that aligns with this reference architecture. You can deploy the solution in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/ansys.av_platform_azure?tab=Overview).
+- [Cognata](https://azuremarketplace.microsoft.com/marketplace/apps/cognata.simcloud10?tab=Overview) SimCloud is a deployable, simulated test-drive environment that enhances the validation process. SimCloud generates fast, highly accurate results and reduces safety concerns. In addition, SimCloud addresses the high costs and limited scalability of road testing in the physical world.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -223,7 +239,8 @@ Principal authors:
 - [Lukasz Miroslaw](https://www.linkedin.com/in/lukaszmiroslaw/?originalSubdomain=ch) | Senior Specialist GBB
 - [Benedict Berger](https://www.linkedin.com/in/benedict-berger-msft/) | Senior Product Manager
 
-Other Contributors:
+Other contributors:
+
 - [Filipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobility
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -232,14 +249,14 @@ Other Contributors:
 
 - [What is Batch?](/azure/batch/batch-technical-overview)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
-- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
 ## Related resources
 
 - [Mobility Hub](aka.ms/mobilitydocs)
 - [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
-- [Data operations for autonomous vehicle operations](./autonomous-vehicle-operations-dataops-content.md)
-- [SDV Reference Architecture](../../industries/automotive/software-defined-vehicle-reference-architecture-content.md)
+- [Data operations for autonomous vehicle operations](./autonomous-vehicle-operations-dataops.md)
+- [SDV reference architecture](../../industries/automotive/software-defined-vehicle-reference-architecture.md)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)
 - [Enhancing efficiency in AVOps with Generative AI](https://download.microsoft.com/download/c/e/c/ceccb875-9cc9-49d2-b658-88d9abc4dc3f/enhancing-efficiency-in-AVOps-with-generative-AI.pdf)
