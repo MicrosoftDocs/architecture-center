@@ -161,6 +161,6 @@ Other contributors:
 ## Related resources
 
 - [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
-- [MLOps for Python models using Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-python)
+- [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2)
 - [HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai)
 - [Health data consortium on Azure](/azure/architecture/example-scenario/data/azure-health-data-consortium)

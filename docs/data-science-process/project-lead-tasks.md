@@ -4,7 +4,6 @@ description: Learn about the tasks that a project lead performs on a Team Data S
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.topic: conceptual

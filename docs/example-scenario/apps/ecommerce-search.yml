@@ -26,4 +26,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-search.png
 content: |
-   [!include[](ecommerce-search-content.md)]
+   [!INCLUDE[](ecommerce-search-content.md)]

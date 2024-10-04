@@ -27,4 +27,4 @@ products:
   - azure-container-registry
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ctfd.png
 content: |
-   [!include[](capture-the-flag-platform-on-azure-paas-content.md)]
+   [!INCLUDE[](capture-the-flag-platform-on-azure-paas-content.md)]

@@ -1,8 +1,8 @@
 ---
 title: Conditional Access framework and policies
 description: Get a detailed description of a recommended Conditional Access framework and a starting point for policies. 
-author: clajes
-ms.author: clajes
+author: RobBagby
+ms.author: pnp
 ms.date: 05/24/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center

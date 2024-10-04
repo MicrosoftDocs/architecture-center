@@ -187,6 +187,10 @@ Example output:
 }
 ```
 
+### Passing images in queries
+
+Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you are using these models, you can choose whether you want to avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing additional context. You should also compare the difference in cost between the approaches and do a cost-benefit analysis.
+
 ### Filtering
 
 Fields in the search store that are configured as filterable can be used to filter queries. Consider filtering on keywords and entities for queries that use those fields to help narrow down the result. Filtering allows you to retrieve only the data that satisfies certain conditions from an index by eliminating irrelevant data. This improves the overall performance of the query with more relevant results. As with every decision, it's important to experiment and test. Queries might not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.

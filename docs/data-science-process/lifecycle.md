@@ -4,7 +4,6 @@ description: The Team Data Science Process (TDSP) provides a recommended lifecyc
 author: marktab
 manager: marktab
 editor: marktab
-services: architecture-center
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
 ms.topic: conceptual

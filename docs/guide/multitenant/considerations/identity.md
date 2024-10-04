@@ -170,8 +170,6 @@ Decide on the authorization model that makes the most sense for your solution. T
 
 These models are distinct, and the approach you select affects your implementation and the complexity of the authorization policies that you can implement.
 
-For more information, see [Role-based and resource-based authorization](../../../multitenant-identity/authorize.md).
-
 ### Entitlements and licensing
 
 In some solutions, you might use [per-user licensing](pricing-models.md#per-user-pricing) as part of your commercial pricing model. You would provide different tiers of user licenses with different capabilities. For example, users with one license might be permitted to use a subset of the features of the application. The capabilities that specific users are allowed to access, based on their licenses, is sometimes called an *entitlement*.
@@ -201,6 +199,7 @@ Principal authors:
 Other contributors:
 
  - [Jelle Druyts](https://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+ - [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Senior Customer Engineer
  - [Sander van den Hoven](https://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
  - [Nick Ward](https://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
 

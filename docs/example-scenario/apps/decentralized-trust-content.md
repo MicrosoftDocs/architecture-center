@@ -52,7 +52,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability
 
-[Azure Monitor][monitor] is used to continuously monitor all components of the DLT network for issues to ensure availability. 
+[Azure Monitor][monitor] is used to continuously monitor all components of the DLT network for issues to ensure availability.
 
 ### Scalability
 
@@ -62,9 +62,9 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-[Azure Key Vault][vault] is used to easily store and manage the private keys. 
+[Azure Key Vault][vault] is used to easily store and manage the private keys.
 
-For a production scenario, where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for configuring a VPN are included in the deployment section below.
+For a production scenario, where a private network is desired, members can be connected to each other via VNet-to-VNet VPN Gateway connections. The steps for configuring a VPN are included in the deployment section below.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 

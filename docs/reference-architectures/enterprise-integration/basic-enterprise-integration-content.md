@@ -201,7 +201,7 @@ You're charged for all API Management instances when they're running. If you hav
 
 #### Logic Apps
 
-Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Logic Apps uses a serverless model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 

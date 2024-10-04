@@ -3,7 +3,8 @@ metadata:
   title: Deployment patterns for Microsoft Fabric
   titleSuffix: Azure Architecture Center
   description: Learn about common deployment scenarios for Microsoft Fabric.
-  ms.author: v-myerspeter
+  ms.author: petermyers
+  author: mspete
   ms.date: 03/19/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
