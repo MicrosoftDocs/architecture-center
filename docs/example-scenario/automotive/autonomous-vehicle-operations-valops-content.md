@@ -22,7 +22,7 @@ By following this guidance, you can use Azure to facilitate extensive, scalable 
 ### Components
 
 - [Batch](/azure/well-architected/service-guides/azure-batch/reliability) runs efficient, large-scale parallel and HPC batch jobs in Azure. This solution uses Batch to run large-scale applications for tasks like resimulation jobs or closed-loop testing.
-- [Eclipse Symphony](https://projects.eclipse.org/projects/iot.symphony) is a service orchestration engine that simplifies the management and integratiion of multiple intelligent edge services into a seamless, end-to-end experience. Eclipse Symphony enables an end-to-end orchestration and creates a consistent workflow across different systems and toolchains. The software-defined vehicle (SDV) toolchain uses Eclipse Symphony as the main orchestrator workflow.
+- [Eclipse Symphony](https://projects.eclipse.org/projects/iot.symphony) is a service orchestration engine that simplifies the management and integration of multiple intelligent edge services into a seamless, end-to-end experience. Eclipse Symphony enables an end-to-end orchestration and creates a consistent workflow across different systems and toolchains. The software-defined vehicle (SDV) toolchain uses Eclipse Symphony as the main orchestrator workflow.
 - [Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments) is a service for development teams to quickly create and manage consistent and secure infrastructure by using project-based templates. By using Deployment Environments, organizations can implement ValOps to quickly and easily create a template-based infrastructure. The SDV toolchain uses Deployment Environments to create testing infrastructure consistently and securely.
 - [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. In this solution, Data Lake Storage stores data based on stages, for example, raw or extracted.
 - [Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that incorporates real-time analytics and business intelligence. In this solution, validation engineers use Fabric to quickly generate reports, such as analysis and business reports on ValOps for multiple projects, variants, and products.
@@ -35,7 +35,7 @@ By following this guidance, you can use Azure to facilitate extensive, scalable 
 
 ## Scenario details
 
-The ValOps framework encompasses various scenarios that rigorously test and validate the performance of ADAS and AD software. These scenarios include both synthetic and real-world conditions, ranging from simple maneuvers like lane keeping and adaptive cruise control to complex urban driving situations that involve pedestrians, cyclists, and unpredictable traffic patterns. By replaying recorded sensor data, you can assess how the software responds to specific events and conditions. 
+The ValOps framework encompasses various scenarios that rigorously test and validate the performance of ADAS and AD software. These scenarios include synthetic and real-world conditions that range from simple maneuvers like lane keeping and adaptive cruise control to complex urban driving situations that involve pedestrians, cyclists, and unpredictable traffic patterns. By replaying recorded sensor data, you can assess how the software responds to specific events and conditions. 
 
 Additionally, dynamic testing environments, facilitated by simulators or specialized on-premises hardware, allow for real-time interaction and feedback by simulating the behavior of a vehicle in response to its surroundings. This comprehensive approach helps you ensure that the software is robust, reliable, and capable of handling the diverse challenges that you might encounter in real-world driving.
 
@@ -62,7 +62,7 @@ The following list describes some examples of closed-loop testing.
 - **Simulation** in ADAS and AD uses computer models to replicate vehicle behavior in a virtual environment. This replication allows engineers to evaluate performance and safety without real-world risks and costs. It tests various aspects such as obstacle detection, weather conditions, and complex traffic scenarios. You can run simulations at scale by using synthetic and test fleet data, which generates sequences for training and open-loop validation.
 - **Hardware-in-the-loop (HIL) testing** integrates real hardware components into the testing loop. You test software on actual hardware devices, such as sensors, control units, and actuators, that are part of the AD system. HIL testing provides a more realistic assessment of the system's performance by considering the interactions between the software and the physical hardware. It's essential for validating the system's behavior under real-world conditions and ensuring that the hardware and software components work seamlessly together. 
 
-   HIL testing is crucial for identifying hardware-related problems and verifying the overall system's reliability and safety. HIL testing necessitates the use of custom hardware devices, which must be housed in an on-premises environment. Azure provides a variety of approaches to interact with hardware devices and other appliances in an on-premises environment. So, part of the ValOps architecture includes a hybrid approach that uses [Azure Arc](/azure/azure-arc/overview). Azure Arc provides a way for operators to manage non-Azure and on-premises resources, such as HIL rigs from Resource Manager. Organizations can work with non-Microsoft cloud providers or their own on-premises datacenter to host HIL rigs and manage cloud and HIL systems through their ValOps deployment.
+   HIL testing is crucial for identifying hardware-related problems and verifying the overall system's reliability and safety. HIL testing necessitates the use of custom hardware devices, which must be housed in an on-premises environment. Azure provides various approaches to interact with hardware devices and other appliances in an on-premises environment. So, part of the ValOps architecture includes a hybrid approach that uses [Azure Arc](/azure/azure-arc/overview). Azure Arc provides a way for operators to manage non-Azure and on-premises resources, such as HIL rigs from Resource Manager. Organizations can work with non-Microsoft cloud providers or their own on-premises datacenter to host HIL rigs and manage cloud and HIL systems through their ValOps deployment.
 - **Driver-in-the-loop (DIL) testing** includes a human driver who interacts with the simulation to evaluate the system's performance and the driver's response to the system's actions.
 - **Vehicle-in-the-loop (VIL) testing** includes the entire vehicle in a controlled environment where the vehicle and its surroundings are simulated to assess the system's performance in real-world scenarios.
 - **Scenario-based testing** is similar to open-loop testing but is in a closed-loop setting. You test the system in various predefined scenarios to evaluate its real-time decision-making and control capabilities.
@@ -97,11 +97,11 @@ To achieve scenario management, you should:
 
 The outputs of open-loop and closed-loop simulations generate measurements and KPIs. Use these outputs to validate the performance of the ADAS and AD software stack and identify areas for improvement. [Fabric](/fabric/get-started/microsoft-fabric-overview) and Power BI provide support for visualizing these measurements and KPIs. [Fabric copilot](/fabric/get-started/copilot-fabric-overview) can help validation engineers transform and analyze data, generate insights, and create visualizations. The following diagram illustrates an architecture that collects and stores measurement and KPI results in Fabric.  
 
-:::image type="content" source="./images/example-resim-results-ingestion.png" alt-text="An architecture diagram that shows resimulation results that Fabric ingests." border="false" lightbox="./images/example-resim-results-ingestion.png":::
+:::image type="content" source="./images/example-resimulation-results-ingestion.png" alt-text="An architecture diagram that shows resimulation results that Fabric ingests." border="false" lightbox="./images/example-resimulation-results-ingestion.png":::
 
 Use a [DirectQuery connector in Azure Data Explorer](/power-query/connectors/azure-data-explorer) to directly visualize and analyze results, such as distance-to-objects metrics, in a Power BI report or dashboard. Here's an example of how a report might display the results from a resimulation or recompute run:
 
-:::image type="content" source="./images/example-resim-results-visualized.png" alt-text="A screenshot that shows a display of the results from a resimulation or recompute run." border="false" lightbox="./images/example-resim-results-visualized.png":::
+:::image type="content" source="./images/example-resimulation-results-visualized.png" alt-text="A screenshot that shows a display of the results from a resimulation or recompute run." border="false" lightbox="./images/example-resimulation-results-visualized.png":::
 
 ### Potential use cases
 
@@ -129,7 +129,7 @@ This approach aligns with the work queue job scheduling pattern, as described in
 
 The following diagram shows an example of a [Data Factory](/azure/data-factory/introduction) flow that invokes durable functions as part of a chain of tasks.
 
-:::image type="content" source="./images/adf-durable-functions.png" alt-text="A diagram of a Data Factory flow that shows integration with durable functions." border="false" lightbox="./images/adf-durable-functions.png":::
+:::image type="content" source="./images/durable-functions.png" alt-text="A diagram of a Data Factory flow that shows integration with durable functions." border="false" lightbox="./images/durable-functions.png":::
 
 #### Components
 
@@ -151,7 +151,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-Compliance with standards such as [ISO 26262](https://www.iso.org/obp/ui/#iso:std:iso:26262:-1:ed-1:v1:en) often requires more test hours, higher fidelity simulations, and extensive data processing to ensure the safety and reliability of automotive systems. These requirements increase compute costs becuase more resources are required to run these comprehensive tests. Right-sizing resources is crucial to optimize costs for your orginization's ValOps implementation. You can use autoscaling, [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management), resource allocation optimization, and scaling strategies. For more guidance on how to optimize scaling costs, see [Optimize scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs). 
+Compliance with standards such as [ISO 26262](https://www.iso.org/obp/ui/#iso:std:iso:26262:-1:ed-1:v1:en) often requires more test hours, higher fidelity simulations, and extensive data processing to ensure the safety and reliability of automotive systems. These requirements increase compute costs because more resources are required to run these comprehensive tests. Right-sizing resources is crucial to optimize costs for your organization's ValOps implementation. You can use autoscaling, [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management), resource allocation optimization, and scaling strategies. For more information on how to optimize scaling costs, see [Optimize scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs). 
 
 Here are more recommendations to help your organization lower costs with various types of compute cost models and profiles.
 
@@ -188,12 +188,12 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - To avoid cross-region latency, ensure that the storage location that you use for ValOps data is in the same region as the compute location. 
 - When you handle large datasets, such as images or video files, or work with smaller objects that require high I/O performance, we don't recommended using Azure Files. Azure Files can slow down machine learning training or other workloads that require consistently low storage latency. We recommend using object storage with Blob Storage or Data Lake Storage for the highest level of performance while maintaining cost efficiency.
-- Performance for storage is essential in an HPC application like ValOps. Blob Storage accounts with [Standard Azure Blob](/azure/storage/common/storage-account-overview) can deliver multi-terabits per second performance. You should use [premium block blob storage accounts](/azure/storage/blobs/storage-blob-block-blob-premium) if you need rapid responses and consistent low-latency scenarios, such as repeated reads of very small objects. For more information, see [Blob storage performance and scalability checklist](/azure/storage/blobs/storage-performance-checklist).
+- Performance for storage is essential in an HPC application like ValOps. Blob Storage accounts with [Standard Azure Blob](/azure/storage/common/storage-account-overview) can deliver multi-terabits per second performance. You should use [premium block blob storage accounts](/azure/storage/blobs/storage-blob-block-blob-premium) if you need rapid responses and consistent low-latency scenarios, such as repeated reads of small objects. For more information, see [Blob storage performance and scalability checklist](/azure/storage/blobs/storage-performance-checklist).
 - When you mount your storage account, use BlobFuse2 instead of older protocols like network file system (NFS). BlobFuse2 is built for Storage and provides validated end-to-end caching and streaming performance, which improves data access efficiency and reduces latency for repeat-access scenarios. It supports advanced caching mechanisms like block cache with prefetch that significantly improve read and write speeds. These improvements make it ideal for high-performance computing tasks in Batch.
 
   Unlike traditional virtual system mounts or NFS, which can suffer from higher latency and lower throughput, BlobFuse2 uses Azure infrastructure to deliver faster data transfer rates and better scalability. These results lead to more efficient processing of large datasets and improved overall performance for autonomous vehicle ValOps. For more information, see [What is BlobFuse?](/azure/storage/blobs/blobfuse2-what-is)  
   
-  You can mount Blobfuse2 via scripts, which enables seamless integration for your existing workflows. 
+  You can mount Blobfuse2 via scripts, which enable seamless integration for your existing workflows. 
 
 - See scalability and performance targets for [Storage](/azure/storage/common/scalability-targets-standard-account).
 - Based on the simulation requirements, you can use [Batch](/azure/batch/) to set up and maintain the necessary containers or VMs to meet the service-level objective (SLO) requirements. This task involves:
@@ -211,7 +211,7 @@ It's important to understand the division of responsibility between an automotiv
 
   If regulatory requirements require an enhanced security solution with dedicated hardware, consider using [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). For even more stringent requirements, consider [Azure Cloud HSM](/azure/dedicated-hsm/overview), formerly Azure Dedicated HSM.  
 
-- AD data requires strict data governance to help with data classification, lineage, tracking, and compliance. By using [Microsoft Purview](https://azure.microsoft.com/services/purview), your orgnanization can ensure that its data is well-governed, secure, and compliant to support the development and deployment of safe and reliable autonomous vehicles.
+- AD data requires strict data governance to help with data classification, lineage, tracking, and compliance. By using [Microsoft Purview](https://azure.microsoft.com/services/purview), your organization can ensure that its data is well-governed, secure, and compliant to support the development and deployment of safe and reliable autonomous vehicles.
 - In addition to enforcing data compliance, your organization can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to enforce compliance and governance rules across its Azure resources.
 - Implement RBAC to grant permissions to users and services on a least-privilege basis.
 - Use Azure Security Center to proactively monitor and mitigate security threats.
@@ -222,7 +222,7 @@ It's important to understand the division of responsibility between an automotiv
 
 There are several options to deploy this scenario:
 
-- [dSPACE](https://www.dspace.com/inc/home.cfm), in collaboration with Microsoft, developed SIMPHERA, a software solution designed to simulate and validate functions for AD. To deploy SIMPHERA, see the instructions in this [repository](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main).
+- [dSPACE](https://www.dspace.com/en/pub/start.cfm), in collaboration with Microsoft, developed SIMPHERA, a software solution designed to simulate and validate functions for AD. To deploy SIMPHERA, see the instructions in this [repository](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main).
 - [Ansys](https://www.ansys.com/) worked with Microsoft to develop a deployable solution that aligns with this reference architecture. You can deploy the solution in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/ansys.av_platform_azure?tab=Overview).
 - [Cognata](https://azuremarketplace.microsoft.com/marketplace/apps/cognata.simcloud10?tab=Overview) SimCloud is a deployable, simulated test-drive environment that enhances the validation process. SimCloud generates fast, highly accurate results and reduces safety concerns. In addition, SimCloud addresses the high costs and limited scalability of road testing in the physical world.
 
@@ -254,9 +254,14 @@ Other contributors:
 
 ## Related resources
 
-- [Mobility Hub](aka.ms/mobilitydocs)
+For more information about developing DataOps for an AD system, see:
+> [!div class="nextstepaction"]
+> [Data operations for autonomous vehicle operations](./autonomous-vehicle-operations-dataops)
+
+You might also be interested in these related articles:
+
+- [Microsoft mobility documentation](/industry/mobility/)
 - [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
-- [Data operations for autonomous vehicle operations](./autonomous-vehicle-operations-dataops.md)
-- [SDV reference architecture](../../industries/automotive/software-defined-vehicle-reference-architecture.md)
+- [SDV reference architecture](../../industries/automotive/software-defined-vehicle-reference-architecture)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)
 - [Enhancing efficiency in AVOps with Generative AI](https://download.microsoft.com/download/c/e/c/ceccb875-9cc9-49d2-b658-88d9abc4dc3f/enhancing-efficiency-in-AVOps-with-generative-AI.pdf)

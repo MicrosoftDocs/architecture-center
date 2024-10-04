@@ -3852,7 +3852,9 @@ items:
       - name: Software-defined vehicle DevOps toolchain
         href: industries/automotive/software-defined-vehicle-reference-architecture.yml
       - name: DataOps for autonomous vehicle operations
-        href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml        
+        href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml
+      - name: ValOps for autonomous vehicle operations
+        href: example-scenario/automotive/autonomous-vehicle-operations-valops.yml     
       - name: Automotive engineering test fleet data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
       - name: Automotive messaging, data, and analytics
