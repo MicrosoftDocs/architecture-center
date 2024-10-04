@@ -8,7 +8,7 @@ ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
-ms.custom: fcp 
+ms.custom: arb-telco
 keywords:
   - Azure
 products:
