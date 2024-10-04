@@ -114,7 +114,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
   
 - Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) to monitor and optimize costs.
 
-- Estimate the usage costs using [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator).
+- To estimate usage costs, use [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator).
 
 - Use Azure tags to associate AKS resources with specific workloads to improve cost tracking and management.
 
