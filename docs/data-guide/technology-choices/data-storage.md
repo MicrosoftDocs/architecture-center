@@ -4,7 +4,7 @@ description: Compare big data storage technology options in Azure, including key
 author: nabilshams
 ms.author: nasiddi
 categories: azure
-ms.date: 07/25/2022
+ms.date: 10/04/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -13,7 +13,7 @@ products:
   - azure-data-lake-storage
   - azure-cosmos-db
   - azure-data-explorer
-  - fabric
+  - microsoft-fabric
 ms.custom:
   - guide
   - internal-intro
@@ -31,7 +31,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 **Unified logical data lake:**
 
-- [Microsoft Fabric OneLake](/fabric/onelake)
+- [OneLake in Microsoft Fabric](/fabric/onelake)
 
 **File storage:**
 
@@ -47,11 +47,11 @@ There are several options for ingesting data into Azure, depending on your needs
 
 - [Azure Data Explorer](/azure/data-explorer/)
 
-## Fabric OneLake
+## OneLake in Fabric
 
-[Fabric OneLake](/fabric/onelake/onelake-overview) is a unified and logical data lake that's tailored for the entire organization. It serves as the central hub for all analytics data and is included with every Microsoft Fabric tenant. Fabric OneLake is built on the foundation of Data Lake Storage Gen2.
+[OneLake in Fabric](/fabric/onelake/onelake-overview) is a unified and logical data lake that's tailored for the entire organization. It serves as the central hub for all analytics data and is included with every Microsoft Fabric tenant. OneLake in Fabric is built on the foundation of Data Lake Storage Gen2.
 
-Fabric OneLake:
+OneLake in Fabric:
 
 - Supports structured and unstructured file types.
 - Stores all tabular data in Delta Parquet format.
@@ -59,7 +59,7 @@ Fabric OneLake:
 - Supports the creation of workspaces within a tenant so that an organization can distribute ownership and access policies.
 - Supports the creation of various data items, such as lakehouses and warehouses, from which you can access data.
 
-Fabric OneLake serves as the common storage location for ingestion, transformation, real-time insights, and business intelligence visualizations. It centralizes various Fabric services and stores data items that all workloads use in Fabric. To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/get-started/decision-guide-data-store).
+OneLake in Fabric serves as the common storage location for ingestion, transformation, real-time insights, and business intelligence visualizations. It centralizes various Fabric services and stores data items that all workloads use in Fabric. To choose the right datastore for your Fabric workloads, see [Fabric decision guide: choose a datastore](/fabric/get-started/decision-guide-data-store).
 
 ## Azure Storage blobs
 
@@ -116,7 +116,7 @@ Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-clu
 
 To narrow the choices, start by answering these questions:
 
-- Do you need a unified data lake with multicloud support, robust governance, and seamless integration with analytical tools? If yes, then choose Microsoft Fabric OneLake for simplified data management and enhanced collaboration.
+- Do you need a unified data lake with multicloud support, robust governance, and seamless integration with analytical tools? If yes, then choose OneLake in Fabric for simplified data management and enhanced collaboration.
 
 - Do you need managed, high-speed, cloud-based storage for any type of text or binary data? If yes, then choose one of the file storage or analytics options.
 
@@ -130,9 +130,9 @@ To narrow the choices, start by answering these questions:
 
 The following tables summarize the key differences in capabilities.
 
-### Microsoft Fabric OneLake capabilities
+### OneLake in Fabric capabilities
 
-|Capability|Fabric OneLake|
+|Capability|OneLake in Fabric|
 | --- | --- |
 | Unified data lake|Provides a single, unified data lake for the entire organization, which eliminates data silos.|
 | Multicloud support|Supports integration and compatibility with various cloud platforms.|
