@@ -16,29 +16,27 @@ Microsoft Entra ID provides strong SSO authentication to almost any app or platf
 
 AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without additional cost.  Microsoft Entra ID offers several capabilities for direct integration with AWS:
 
--  SSO across legacy, traditional, and modern authentication solutions.
+- Entra ID integration with AWS IAM Identity Center provides SSO, enhanced security, improved user experience and centralized access control.SSO across legacy, traditional, and modern authentication solutions.
 
-- Azure MFA including integration with several third-party solutions from [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
+- Multi factor authentication via Azure MFA including integration with several third-party solutions from [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
 
 -  Powerful Conditional Access features for strong authentication and strict governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to       authentictae and authorize user access to the AWS Management Console and AWS resources. 
 
-- Large-scale threat detection and automated response. Microsoft Entra ID processes over 30 billion authentication requests per day, along with trillions of signals about         threats worldwide. Advanced Identity Protection increases Microsoft Entra sign-in security by monitoring user or session risk. 
+- Protection from identity based attacks with real time detection and remediation of risky sign-ins and unusual user behavior with Entra ID protection.
 
 - Privileged Identity Management (PIM) to enable Just-In-Time (JIT) provisioning specific resources. You can expand PIM to any delegated permission by controlling access     to custom groups, such as the ones you created for access to AWS roles.
 
-For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security).
-
- 
+For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security). 
 
 ### Entra Permissions Management
 
 Microsoft Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) product that provides comprehensive visibility and control over permissions on identities, actions, and resources across multicloud infrastructure in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). You can use Microsoft Entra Permissions Management to:
 
-- Get a multi-dimensional view of your risk by assessing identities, permissions, and resources. 
+- Discover the number of unused or excessive permissions across all AWS accounts to identify the risk with a multi-dimensional view of identities, permissions, and resources. 
 
-- Auotmate the enforcement of the least privilege policy in your entire multicloud infrastructure.
+- Remediate and right size the permissions with enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) policy across all AWS accounts.
 
-- Use anomaly and outlier detection to prevent data breaches that are caused by misuse and malicious exploitation of permissions.
+- Monitor and alert anomalous activities to prevent data breaches that are caused by misuse and malicious exploitation of permissions
 
 For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws). 
 
@@ -60,7 +58,7 @@ Connecting AWS to Defender for Cloud Apps helps you secure your assets and detec
 
 - [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware) - Defender for Cloud Apps anomaly detection policies are triggered when there are unusual activities performed by the users in AWS. Defender for Cloud Apps continually monitors your users' activities and uses UEBA and ML to learn and understand the *normal* behavior of your users and trigger alerts on any deviations.
 
-- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices) -  User and data governance policies to alert, require step up authentication, remove collaborators, or make data reposotires private to mitigate data exfiltration.
+- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices) -  Automate governance controls with actions such as notifying users on alerts, requiring re-authentication, or suspending users, making an S3 bucket private, or removing collaborators from an S3 bucket.
 
 - [Audit trail](/defender-cloud-apps/protect-aws?branch=main)[ ](/defender-cloud-apps/best-practices?branch=main)- connect AWS auditing to Defender for Cloud apps activities of Visibility into user activities, admin activities, sign-in activities.
 
@@ -78,7 +76,7 @@ Microsoft Defender for Cloud is a Cloud-Native Application Protection Platform (
 
 - A Cloud Workload Protection Platform (CWPP) with specific protection for servers, containers, storage, databases, and other workloads.
 
-Microsoft Defender for Cloud’s native AWS support provides several benefits to your organization.:
+Microsoft Defender for Cloud’s native AWS support provides several benefits to your organization:
 
 - Foundational CSPM for AWS resources
 
@@ -124,42 +122,22 @@ For more information on how to install and configure the AWS connector in Micros
 
 ### __Recommendations__
 
-Keep the following points in mind when you develop a security solution.
-
-#### __Security recommendations__
-
-The following principles and guidelines are important for any cloud security solution:
-
-- Ensure that the organization can monitor, detect, and automatically protect user and programmatic access into cloud environments.
-
-- Continually review current accounts to ensure identity and permission governance and control.
-
-- Follow least privilege and [zero trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that users can access only the specific resources that they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights that they need for the role that they perform. Review regularly.
-
-- Continuously monitor platform configuration changes, especially if they provide opportunities for privilege escalation or attack persistence.
-
-- Prevent unauthorized data exfiltration by actively inspecting and controlling content.
-
-- Take advantage of solutions that you might already own, like Microsoft Entra ID P2, that can increase security without additional expense.
+Leverage the Microsoft security solutions and basic AWS security recommendations to protect AWS accounts.
 
 #### __Basic AWS account security__
 
-To ensure basic security hygiene for AWS accounts and resources:
-
-- Review the AWS security guidance at [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices).
+To ensure basic security hygiene for AWS accounts and resources review the AWS security guidance at [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices).
 
 - Reduce the risk of uploading and downloading malware and other malicious content by actively inspecting all data transfers through the AWS Management Console. Content that you upload or download directly to resources within the AWS platform, such as web servers or databases, might need additional protection.
 
-- Consider protecting access to other resources, including:
+- Secure access keys by rotating the keys periodically and avoid embedding them in code. Use IAM roles instead of long-term access keys wherever possible.
 
-  - Resources created within the AWS account.
-  
-  - Specific workload platforms, like Windows Server, Linux Server, or containers.
-  
-  - Devices that administrators and developers use to access the AWS Management Console.
+- Use security groups and network ACLs to control inbound and outbound traffic to your resources. Implement Virtual Private Clouds (VPCs) to isolate resources.
 
-     
-  
+- Encrypt sensitive data at rest and in transit using AWS Key Management Services (KMS). 
+
+- Protect devices that administrators and developers use to access the AWS Management Console.  
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributor.*
