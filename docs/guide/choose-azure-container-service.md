@@ -82,7 +82,7 @@ AKS also provides access to the Kubernetes API server, which enables you to cust
 
 #### AKS Automatic
 
-[AKS Automatic](https://learn.microsoft.com/en-us/azure/aks/intro-aks-automatic) simplifies the adoption of Kubernetes by automating complex cluster management tasks, reducing the need for deep Kubernetes expertise. It offers a more streamlined, PaaS-like experience while retaining the flexibility and extensibility of Kubernetes. Azure handles cluster setup, node provisioning, scaling, security patching, and applies best-practice configurations by default. This reduces operational overhead and accelerates time-to-market. 
+[AKS Automatic](https://learn.microsoft.com/en-us/azure/aks/intro-aks-automatic) simplifies the adoption of Kubernetes by automating complex cluster management tasks, reducing the need for deep Kubernetes expertise. It offers a more streamlined, PaaS-like experience while retaining the flexibility and extensibility of Kubernetes. Azure handles cluster setup, node provisioning, scaling, security patching, and applies best-practice configurations by default. This reduces operational effort and accelerates time-to-market. 
 
 Compared to standard AKS, AKS Automatic minimizes the learning curve associated with Kubernetes, making it more accessible for teams new to container orchestration. While it still provides access to the Kubernetes API for advanced configurations, many operational complexities are abstracted away.
 
@@ -103,7 +103,7 @@ You can use Azure resources, like AKS clusters, to host multiple workloads. Doin
 
 - **AKS** is commonly used to host multiple workloads or disparate workload components. You can isolate these workloads and components by using Kubernetes native functionality, like namespaces, access controls, and network controls, to meet security requirements.
 
-   You can also use AKS in single-workload scenarios if you need the additional functionality that the Kubernetes API provides and your workload team has enough experience to operate a Kubernetes cluster. Teams with less Kubernetes experience can still successfully operate their own clusters by taking advantage of Azure managed [add-ons](/azure/aks/integrations#available-add-ons) and features, like [cluster auto-upgrade](/azure/aks/auto-upgrade-cluster), to reduce operational overhead.
+   You can also use AKS in single-workload scenarios if you need the additional functionality that the Kubernetes API provides and your workload team has enough experience to operate a Kubernetes cluster. Teams with less Kubernetes experience can still successfully operate their own clusters by taking advantage of Azure managed [add-ons](/azure/aks/integrations#available-add-ons) and features, like [cluster auto-upgrade](/azure/aks/auto-upgrade-cluster), to reduce operational effort.
 
 - **Container Apps** should be used to host a single workload with a shared security boundary. Container Apps has a single top-level logical boundary called a *Container Apps environment*, which also serves as an enhanced-security boundary. There are no mechanisms for additional granular access control. For example, intra-environment communication is unrestricted, and all applications share a single Log Analytics workspace.
 
@@ -123,11 +123,11 @@ AKS provides the most configurability, but this configurability requires more op
 
 ### Rule of thumb
 
-Generally, services that offer more simplicity tend to suit customers who prefer to focus on feature development rather than infrastructure management. Services that offer more control tend to suit customers who need more configurability and have the skills, resources, and business justification necessary to manage their own infrastructure. AKS Automatic provides a balanced approach, reducing operational overhead while offering more control than fully managed PaaS services like Azure Container Apps and App Service. Standard AKS offer the most control and are suited for customers with advanced Kubernetes expertise and the need for extensive configurability.
+Generally, services that offer more simplicity tend to suit customers who prefer to focus on feature development rather than infrastructure management. Services that offer more control tend to suit customers who need more configurability and have the skills, resources, and business justification necessary to manage their own infrastructure. AKS Automatic provides a balanced approach, reducing operational effort while offering more control than fully managed PaaS services like Azure Container Apps and App Service. Standard AKS offer the most control and are suited for customers with advanced Kubernetes expertise and the need for extensive configurability.
 
 ## Shared considerations across all workloads
 
-Although a workload team might prefer a particular service model, that model might not meet the requirements of the organization as a whole. For example, developers might prefer less operational overhead, but security teams might consider this type of overhead necessary to meet compliance requirements. Teams need to collaborate to make the appropriate tradeoffs.
+Although a workload team might prefer a particular service model, that model might not meet the requirements of the organization as a whole. For example, developers might prefer less operational effort, but security teams might consider this type of overhead necessary to meet compliance requirements. Teams need to collaborate to make the appropriate tradeoffs.
 
 Be aware that shared considerations are broad. Only a subset might be relevant to you, depending not just on the workload type but also on your role within the organization.
 
