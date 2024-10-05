@@ -78,6 +78,9 @@ The considerations in this article are divided into four categories:
 > [!note]
 > Some sections distinguish AKS Standard from AKS Automatic. If a section does not distinguish between the two, feature parity can be assumed.
 
+> > [!note]
+> AKS Automatic is a more opinionated solution than AKS Standard. Some out of the box features cannot be disabled. This guide does not call out these features. For up to date information on these constraints, and Standard vs Automatic feature comparison see: [AKS Automatic and Standard feature comparison](https://learn.microsoft.com/en-us/azure/aks/intro-aks-automatic#aks-automatic-and-standard-feature-comparison)
+
 ## Architectural considerations
 
 This section describes architectural decisions that are difficult to reverse or correct without requiring significant downtime or re-deployment. It's especially necessary to keep this consideration in mind for fundamental components like networking and security.
