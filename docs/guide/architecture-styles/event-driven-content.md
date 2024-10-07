@@ -30,6 +30,8 @@ There are two primary topologies within many event-driven architectures:
 
 - **Mediator topology**. This topology addresses some of the shortcomings of broker topology. There is an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. Unlike broker topology, components broadcast occurrences as commands and only to designated channels, usually message queues. These commands aren't expected to be ignored by their consumers. This topology offers more control, better distributed error handling, and potentially better data consistency. This topology does introduce increased coupling between components, and the event mediator could become a bottleneck or a reliability concern.
 
+Event-driven architecture mainly uses asynchronous communication. The main issue with asynchronous communication is error handling. One way to address this issue is to use a separate error-handler processor. So, when the event consumer experiences an error, it immediately and asynchronously sends the erroneous event to the error-handler processor and moves on. Error-handler processor tries to fix the error and sends the event back to the original ingestion channel. But if the error-handler processor fails, then it can send the erroneous event to an administrator for further inspection. Note that if you use an error-handler processor, erroneous events will be processed out of sequence when they are resubmitted.
+
 ## When to use this architecture
 
 - Multiple subsystems must process the same events.
@@ -50,6 +52,7 @@ There are two primary topologies within many event-driven architectures:
 - Guaranteed delivery. In some systems, especially in IoT scenarios, it's crucial to guarantee that events are delivered.
 - Processing events in order or exactly once. Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
 - Coordinating messages across services. Business processes often involve multiple services publishing and subscribing to messages to achieve a consistent outcome across a whole workload. [Workflow patterns](https://docs.particular.net/architecture/workflows) such as the [Choreography pattern](/azure/architecture/patterns/choreography) and [Saga Orchestration](/azure/architecture/reference-architectures/saga/saga#orchestration) can be used to reliably manage message flows across various services.
+- Error handling
 
 ### Additional considerations
 
