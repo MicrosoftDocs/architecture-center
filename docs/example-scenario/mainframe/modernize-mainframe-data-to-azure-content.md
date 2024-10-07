@@ -20,7 +20,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    - [Managed Data Provider for Host Files](/host-integration-server/core/managed-data-provider-for-host-files-programmer-s-guide2) converts objects by:
        - Parsing COBOL and RPG record layouts, or *copybooks*.
        - Mapping the copybooks to C# objects that .NET applications use.
-       - The custom tool helps move database objects from Db2 to Azure Database for PostgreSQL.  
+   - Use a custom tool to convert database objects from Db2 to Azure Database for PostgreSQL. Note that you might have to request access to this tool.  
    - Third-party tools perform automated object conversion on nonrelational databases, file systems, and other data stores.
 
 1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC-encoded format in file formats like:
