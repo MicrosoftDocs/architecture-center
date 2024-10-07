@@ -11,6 +11,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+    - arb-media
 name: Gridwich CI/CD pipeline
 summary: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
 products:
