@@ -4,7 +4,7 @@ By following this guidance, you can use Azure to facilitate extensive, scalable 
 
 ## Architecture
 
-:::image type="content" source="./images/autonomous-vehicle-operations-valops-architecture.png" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-operations-valops-architecture.png":::
+:::image type="content" source="./images/autonomous-vehicle-operations-valops-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-operations-valops-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
 
@@ -97,7 +97,7 @@ To achieve scenario management, you should:
 
 The outputs of open-loop and closed-loop simulations generate measurements and KPIs. Use these outputs to validate the performance of the ADAS and AD software stack and identify areas for improvement. [Fabric](/fabric/get-started/microsoft-fabric-overview) and Power BI provide support for visualizing these measurements and KPIs. [Fabric copilot](/fabric/get-started/copilot-fabric-overview) can help validation engineers transform and analyze data, generate insights, and create visualizations. The following diagram illustrates an architecture that collects and stores measurement and KPI results in Fabric.  
 
-:::image type="content" source="./images/example-resimulation-results-ingestion.png" alt-text="An architecture diagram that shows resimulation results that Fabric ingests." border="false" lightbox="./images/example-resimulation-results-ingestion.png":::
+:::image type="content" source="./images/example-resimulation-results-ingestion.svg" alt-text="An architecture diagram that shows resimulation results that Fabric ingests." border="false" lightbox="./images/example-resimulation-results-ingestion.svg":::
 
 Use a [DirectQuery connector in Azure Data Explorer](/power-query/connectors/azure-data-explorer) to directly visualize and analyze results, such as distance-to-objects metrics, in a Power BI report or dashboard. Here's an example of how a report might display the results from a resimulation or recompute run:
 
@@ -117,7 +117,7 @@ Batch provides an Azure-native option that provides scheduling and dynamic orche
 
 #### AKS-based architecture
 
-:::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.png" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-operations-valops-aks-architecture.png":::
+:::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-operations-valops-aks-architecture.svg":::
 
 #### Architecture overview
 
