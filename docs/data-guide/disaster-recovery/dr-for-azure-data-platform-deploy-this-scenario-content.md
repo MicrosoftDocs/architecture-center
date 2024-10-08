@@ -49,7 +49,7 @@ Once this process has been completed, technical and business subject matter expe
 
 ## Redeploy on disaster
 
-For a "Redeploy on Disaster" strategy, the following high-level process flow can be described.
+For a "Redeploy on disaster" strategy, the following high-level process flow can be described.
 
 1. **Recover Contoso's enterprise shared services and source systems**
 

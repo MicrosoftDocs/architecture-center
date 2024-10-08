@@ -42,7 +42,7 @@ The workflow is read left to right, following the flow of data:
 > [!NOTE]
 > For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through [Azure Data Factory](/azure/data-factory/), and data modeling by [Azure SQL server](/azure/azure-sql/?view=azuresql). To address this concern, the [Stateful vs stateless components](#stateful-vs-stateless-components) section below will provide guidance.
 
-For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a ["Redeploy on Disaster"](./dr-for-azure-data-platform-recommendations-content.md#disaster-strategy-options) disaster recovery (DR) strategy based upon an operating cost-minimization approach.
+For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a ["Redeploy on disaster"](./dr-for-azure-data-platform-deploy-this-scenario-content.md#redeploy-on-disaster) disaster recovery (DR) strategy based upon an operating cost-minimization approach.
 
 The following sections will provide a baseline understanding of the DR process and levers available to customers to uplift this posture.
 
