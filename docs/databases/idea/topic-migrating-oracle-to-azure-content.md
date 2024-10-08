@@ -9,7 +9,7 @@ This article describes considerations and recommendations when migrating Oracle 
 
 ## Scenario
 
-Consider the following initial scenario: 
+Consider the following initial scenario:
 
 - You have one or more Oracle databases running in your on-premises data center, which you are looking to migrate to Azure.
 - The databases are running on Oracle Database 19c, Enterprise Edition.
@@ -17,7 +17,7 @@ Consider the following initial scenario:
 - You need to migrate the databases to Azure with the minimum amount of downtime.
 - Application services dependent on the database will be migrated to Azure as well.
 - You have established network connectivity to Azure through ExpressRoute, and use a hub and spoke network topology in Azure.
-- In the hub VNet the traffic has to traverse a third-party NVA (FortiGate, CheckPoint, Cisco or other), which doubles as a routing device, ensuring that traffic to/from Azure undergoes traffic inspection, while at the same time being fully routable.
+- In the hub VNet the traffic has to traverse a third-party Network Virtual Appliance (NVA) (FortiGate, CheckPoint, Cisco or other), which doubles as a routing device, ensuring that traffic to/from Azure undergoes traffic inspection, while at the same time being fully routable.
 
 ![Diagram1](_images/oracle-database-migration-to-azure.jpg)
 
@@ -27,4 +27,5 @@ Consider the following initial scenario:
 - If you will be migrating to Oracle Database@Azure, Exadata Database Service, review [Migrating Oracle database workloads to Oracle Database@Azure, Exadata Database Service](migrating-oracle-to-odaa-exadata.yml).
 
 ## Next steps
-TBD
+
+- [Introduction to Oracle on Azure adoption scenarios](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/oracle-iaas)
