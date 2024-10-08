@@ -163,6 +163,22 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Microsoft Fabric offers [capacity reservations](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/fabric-capacity) for a given number of capacity units (CUs). Capacity reservations can help you save costs by committing to a reservation for your Fabric capacity usage for a duration of one year.
 
+To maximise the utilisation of your capacity Microsoft Fabric connsider the following:
+
+1. Right sizing F SKU - To help you determine the right capacity size, you can provision [trial capacities](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial) or [pay-as-you-go F SKUs](https://learn.microsoft.com/en-us/fabric/enterprise/buy-subscription#azure-skus) to measure the actual capacity size required before purchasing an F SKU reserved instance. It is recommended that you perform a scoped proof of concept with a representative workload, monitor the CU usage, and then extrapolate to arrive at an estimated CU usage in production. Fabric allows for seamless scaling. You can start with a conservative capacity size and scale up as you need more capacity.
+ 
+2. Monitor Usage Patterns: Regularly track and analyze your usage to identify peak and off-peak hours. This helps in understanding when your resources are most utilized and can guide you in scheduling non-critical tasks during off-peak times to avoid spikes in CU usage.
+ 
+3. Optimize Queries and Workloads: Ensure that your queries and workloads are optimized to reduce unnecessary compute usage. This includes optimizing DAX queries, Python code, and other operations to be more efficient.
+ 
+4. Use Capacity Reservations: Consider committing to a capacity reservation for a year. This can provide significant cost savings compared to pay-as-you-go models. See details [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/fabric-capacity).
+ 
+5. Leverage Bursting and Smoothing: Utilize Fabric’s bursting and smoothing features to handle CPU-intensive activities without needing a higher SKU. This helps in managing costs while maintaining performance. See details [here](https://learn.microsoft.com/en-us/fabric/enterprise/optimize-capacity).
+ 
+6. Set Up Alerts and Notifications: Configure proactive alerts for capacity admins to monitor and manage high compute usage. This can help in taking timely actions to prevent cost overruns.
+ 
+7. Implement workload management: Schedule log-running jobs at staggered times based on resource availability and system demand to optimize capacity usage. See more information [here](https://learn.microsoft.com/en-us/fabric/data-warehouse/workload-management).
+
 Other cost optimization considerations include:
 
 - [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
