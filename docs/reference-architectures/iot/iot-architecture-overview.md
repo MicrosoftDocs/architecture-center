@@ -9,7 +9,9 @@ ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 11/21/2022
 ms.author: ansyeo
-ms.custom: arb-iot
+ms.custom:
+  - arb-iot
+  - arb-telco
 categories:
   - iot
 products:

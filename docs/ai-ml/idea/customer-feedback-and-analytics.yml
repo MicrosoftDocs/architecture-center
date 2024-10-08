@@ -17,6 +17,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
     - arb-aiml
+    - arb-telco
 name: Knowledge mining for customer support and feedback analysis
 azureCategories:
   - ai-machine-learning
