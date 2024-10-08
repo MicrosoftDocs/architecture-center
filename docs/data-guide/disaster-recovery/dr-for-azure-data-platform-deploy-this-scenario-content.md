@@ -116,11 +116,11 @@ Customers are advised to review their own data platform's dependencies (both ups
 - After a period of a parallel run, the secondary region would be taken offline from the system.
 - The components in the secondary region would either be dropped or stripped back, depending on the DR strategy selected.
 
-## Warm spare process
+## Warm Spare process
 
 For a "Warm Spare" strategy, the high-level process flow is closely aligned to that of the "Redeploy on Disaster", the key difference being that components have already been procured in the secondary region. This strategy eliminates the risk of resource contention from other organizations looking to complete their own DR in that region.
 
-## Hot spare process
+## Hot Spare process
 
 The "Hot Spare" strategy means that the Platform services including PaaS and infrastructure as a service (IaaS) systems will persist despite the disaster event as the secondary systems run in tandem with the primary systems. As with the "Warm Spare" strategy, this strategy eliminates the risk of resource contention from other organizations looking to complete their own DR in that region.
 

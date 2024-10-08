@@ -122,7 +122,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Single Zone - Public
-    - DR uplift options: N/A, DNS is highly available by design
+    - DR uplift options: N/A, DNS is highly available by design.
 
 - **Network Watcher**
     - Component recovery responsibility: Microsoft
