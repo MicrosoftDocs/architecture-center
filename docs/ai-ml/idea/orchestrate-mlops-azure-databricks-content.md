@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process that uses Azure Databricks. The guidance in this article is for data scientists and engineers. Use this standardized process to move machine learning models and pipelines from development to production. It includes options for automated or manual processes.
+This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process that uses Azure Databricks. Data scientists and engineers can use this standardized process to move machine learning models and pipelines from development to production. These recommendations includes options for automated or manual processes.
 
 ## Architecture
 
