@@ -73,7 +73,7 @@ For *Azure-specified* deployments:
 
 1. For **hardware as a service**, decide whether your workload type uses **data transfer and compute** or a [hyperconverged](/windows-server/hyperconverged) infrastructure (HCI). For a **hyperconverged** solution, you can use [Azure Stack HCI](/azure-stack/hci).
 
-1. **Data transfer and compute** workloads can use [Azure Stack Edge](/azure/databox-online). **Datacenter** deployments can use [Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview). **Portable** deployments can use [Azure Stack Edge Mini R](/azure/databox-online/azure-stack-edge-mini-r-overview). **Ruggedized** deployments can use [Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-overview).
+1. **Data transfer and compute** workloads can use [Azure Stack Edge](/azure/databox-online). **Datacenter** deployments can use [Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview) and [Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-overview). **Portable** deployments can use [Azure Stack Edge Mini R](/azure/databox-online/azure-stack-edge-mini-r-overview). **Ruggedized** deployments can use [Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-overview).
 
 ## Azure hybrid services matrix
 
@@ -84,6 +84,7 @@ The following decision matrix presents supported workloads, hardware capabilitie
 Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
 - The *Azure cloud* provides cloud-based software as a service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
+- [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction) enables running VMware workloads natively on Azure by providing private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. It provides a seamless way to extend or migrate existing on-premises VMware environments to Azure without the need to re-architect applications or retool operations. AVS integrates with Azure services, enabling you to leverage Azure's scalability, security, and global reach while using familiar VMware tools and processes.
 - [Azure Stack](/azure-stack/) is a family of products and solutions that extend Azure to the edge or to on-premises datacenters. Azure Stack provides several solutions for various use cases.
 
   - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure to run apps in on-premises environments. Azure Stack Hub provides SaaS, IaaS, and PaaS hyperconverged compute, storage, and network services and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack Hub delivers Azure services to datacenters with integrated systems and can run on connected or disconnected environments.
@@ -99,7 +100,7 @@ Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybr
   - [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)
   - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview)
   - [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview)
-  - [Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview)
+  - [Azure Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview)
   - [Azure Arc-enabled VMs on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines)
 
   Azure Arc-enabled services let you create on-premises and multicloud applications with Azure PaaS and data services such as [Azure App Service, Azure Functions, Azure Logic Apps](/azure/app-service/overview-arc-integration), [Azure SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview), [PostgreSQL Hyperscale](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale), and [Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere). You can run these services anywhere and use existing infrastructure.
