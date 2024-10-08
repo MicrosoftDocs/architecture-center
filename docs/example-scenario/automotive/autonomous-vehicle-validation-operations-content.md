@@ -117,7 +117,7 @@ Batch provides an Azure-native option that provides scheduling and dynamic orche
 
 #### AKS-based architecture
 
-:::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-validation-operations-aks-architecture.svg":::
+:::image type="content" source="./images/autonomous-vehicle-validation-operations-aks-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-validation-operations-aks-architecture.svg":::
 
 #### Architecture overview
 
