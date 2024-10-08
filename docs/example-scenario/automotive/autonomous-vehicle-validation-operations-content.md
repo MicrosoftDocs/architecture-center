@@ -4,9 +4,9 @@ By following this guidance, you can use Azure to facilitate extensive, scalable 
 
 ## Architecture
 
-:::image type="content" source="./images/autonomous-vehicle-operations-valops-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-operations-valops-architecture.svg":::
+:::image type="content" source="./images/autonomous-vehicle-validation-operations-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-validation-operations-architecture.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
+*Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-validation-operations.vsdx) that contains the architecture diagrams in this article.*
 
 ### Workflow
 
@@ -117,7 +117,7 @@ Batch provides an Azure-native option that provides scheduling and dynamic orche
 
 #### AKS-based architecture
 
-:::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-operations-valops-aks-architecture.svg":::
+:::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.svg" alt-text="An architecture diagram that shows a solution for validating autonomous vehicle software with AKS." border="false" lightbox="./images/autonomous-vehicle-validation-operations-aks-architecture.svg":::
 
 #### Architecture overview
 
@@ -209,7 +209,7 @@ It's important to understand the division of responsibility between an automotiv
 
 - Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to maintain end-to-end security when you handle sensitive and business-critical elements, such as encryption keys, certificates, connection strings, and passwords. Key Vault provides a robust solution that fortifies the entire software development and supply chain process. Key Vault helps you securely store and manage sensitive assets that use automotive applications. It helps you ensure that these assets remain protected from potential cybersecurity threats. You can further enhance security by regulating access and permissions to critical resources with role-based access control (RBAC).  
 
-  If regulatory requirements require an enhanced security solution with dedicated hardware, consider using [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). For even sticter requirements, consider [Azure Cloud HSM](/azure/dedicated-hsm/overview), formerly called Azure Dedicated HSM.  
+  If regulatory requirements require an enhanced security solution with dedicated hardware, consider using [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). For even stricter requirements, consider [Azure Cloud HSM](/azure/dedicated-hsm/overview), formerly called Azure Dedicated HSM.
 
 - Use [Microsoft Purview](https://azure.microsoft.com/services/purview) to help your organization meet the AD data requirements for strict data governance. These requirements help with data classification, lineage, tracking, and compliance. By meeting these requirements, your organization can ensure that its data is well-governed, secure, and compliant. Data compliance enforcement supports the development and deployment of safe and reliable autonomous vehicles.
 - Use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to enforce compliance and governance rules across your organization's Azure resources.

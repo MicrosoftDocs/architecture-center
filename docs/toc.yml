@@ -3854,7 +3854,7 @@ items:
       - name: DataOps for autonomous vehicle operations
         href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml
       - name: ValOps for autonomous vehicle operations
-        href: example-scenario/automotive/autonomous-vehicle-operations-valops.yml     
+        href: example-scenario/automotive/autonomous-vehicle-validation-operations.yml   
       - name: Automotive engineering test fleet data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
       - name: Automotive messaging, data, and analytics
