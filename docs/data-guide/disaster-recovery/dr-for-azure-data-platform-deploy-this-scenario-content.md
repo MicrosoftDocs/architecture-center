@@ -2,26 +2,26 @@
 
 ### Pre-incident
 
-For Azure services
+**For Azure services**
 
-- Be familiar with [Azure Service Health](/azure/service-health/service-health-portal-update) in the Azure portal. This page will act as the "one-stop shop" during an incident
-- Consider the use of [Service Health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal), which can be configured to automatically produce notifications when Azure incidents occur
+- Be familiar with [Azure Service Health](/azure/service-health/service-health-portal-update) in the Azure portal. This page will act as the "one-stop shop" during an incident.
+- Consider the use of [Service Health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal), which can be configured to automatically produce notifications when Azure incidents occur.
 
-For Power BI
+**For Power BI**
 
-- Be familiar with [Service Health](https://portal.office.com/AdminPortal/Home) in the Microsoft 365 admin center. This page will act as the "one-stop shop" during an incident
-- Consider the use of [Microsoft 365 Admin mobile app](/microsoft-365/admin/admin-overview/admin-mobile-app?view=o365-worldwide) to get automatic service incident alert notifications
+- Be familiar with [Service Health](https://portal.office.com/AdminPortal/Home) in the Microsoft 365 admin center. This page will act as the "one-stop shop" during an incident.
+- Consider the use of [Microsoft 365 Admin mobile app](/microsoft-365/admin/admin-overview/admin-mobile-app?view=o365-worldwide) to get automatic service incident alert notifications.
 
 ### During the incident
 
-For Azure services
+**For Azure services**
 
-- [Azure Service Health](/azure/service-health/service-health-overview) within their Azure management portal will provide the latest updates
-    - If there are issues accessing Service Health, refer to the [Azure Status page](https://status.azure.com/en-us/status)
-    - If there are ever issues accessing the Status page, go to @AzureSupport on X (formerly Twitter)
-- If impact/issues don't match the incident (or persist after mitigation), then [contact support](https://www.aka.ms/AzurePortalSupportRequest) to raise a service support ticket
+- [Azure Service Health](/azure/service-health/service-health-overview) within their Azure management portal will provide the latest updates.
+    - If there are issues accessing Service Health, refer to the [Azure Status page](https://status.azure.com/en-us/status).
+    - If there are ever issues accessing the Status page, go to @AzureSupport on X (formerly Twitter).
+- If impact/issues don't match the incident (or persist after mitigation), then [contact support](https://www.aka.ms/AzurePortalSupportRequest) to raise a service support ticket.
 
-For Power BI
+**For Power BI**
 
 - The [Service Health](https://portal.office.com/AdminPortal/Home) page within their Microsoft 365 admin center will provide the latest updates
     - If there are issues accessing Service Health, refer to the [Microsoft 365 status page](https://status.office.com)
@@ -33,13 +33,13 @@ See the sections below for this detail.
 
 ### Post incident
 
-For Azure Services
+**For Azure Services**
 
-- Microsoft will publish a PIR to the [Azure portal - Service Health](https://www.aka.ms/ash-portal) for review
+- Microsoft will publish a PIR to the [Azure portal - Service Health](https://www.aka.ms/ash-portal) for review.
 
-For Power BI
+**For Power BI**
 
-- Microsoft will publish a PIR to the [Microsoft 365 Admin - Service Health](https://portal.office.com/AdminPortal/Home) for review
+- Microsoft will publish a PIR to the [Microsoft 365 Admin - Service Health](https://portal.office.com/AdminPortal/Home) for review.
 
 ## Wait for Microsoft process
 
@@ -96,10 +96,10 @@ Azure Services refers to the applications and services that make the Azure Cloud
 
    ![Diagram showing the dependent systems.](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
-   - Once the dependent services have been recovered, the E2E DR recovery process is complete
+   - Once the dependent services have been recovered, the E2E DR recovery process is complete.
 
    > [!NOTE]
-   > While it's theoretically possible to completely automate an E2E DR process, it's unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
+   > While it's theoretically possible to completely automate an E2E DR process, it's unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process.
 
 6. **Fallback to the primary region**
 Fallback is the process of moving the data platform service and its data back to the primary region, once it's available for BAU.
@@ -108,13 +108,13 @@ Depending on the nature of the source systems and various data processes, fallba
 
 Customers are advised to review their own data platform's dependencies (both upstream and downstream) to make the appropriate decision. The following section assumes an independent recovery of the data platform.
 
-- Once all required components/services have become available in the primary region, customers would complete a smoke-test to validate the Microsoft recovery
-- Component/Service configuration would be validated. Deltas would be addressed via redeployment from source control
-- The system date in the primary region would be established across stateful components. The delta between the established date and the date/timestamp in the secondary region should be addressed by reexecuting or replaying the data ingestion processes from that point forward
-- With approval from both business and technical stakeholders, a fallback window would be selected. Ideally, during a lull in system activity and processing
-- During the fallback, the primary region would be brought into sync with the secondary region, before the system was switched over
-- After a period of a parallel run, the secondary region would be taken offline from the system
-- The components in the secondary region would either be dropped or stripped back, depending on the DR strategy selected
+- Once all required components/services have become available in the primary region, customers would complete a smoke-test to validate the Microsoft recovery.
+- Component/Service configuration would be validated. Deltas would be addressed via redeployment from source control.
+- The system date in the primary region would be established across stateful components. The delta between the established date and the date/timestamp in the secondary region should be addressed by reexecuting or replaying the data ingestion processes from that point forward.
+- With approval from both business and technical stakeholders, a fallback window would be selected. Ideally, this should happen during a lull in system activity and processing.
+- During the fallback, the primary region would be brought into sync with the secondary region, before the system was switched over.
+- After a period of a parallel run, the secondary region would be taken offline from the system.
+- The components in the secondary region would either be dropped or stripped back, depending on the DR strategy selected.
 
 ## Warm spare process
 
@@ -135,64 +135,64 @@ Hot Spare customers would monitor the Microsoft recovery of components/services 
 
 An effective DR plan presents a step-by-step guide for service recovery that can be executed by an Azure technical resource. As such, the following lists a proposed MVP structure for a DR Plan.
 
-- Process Requirements
-    - Any customer DR process-specific detail, such as the correct authorization required to start DR, and make key decisions about the recovery as necessary (including "definition of done"), service support DR ticketing reference, and war room details
-    - Resource confirmation, including the DR lead and executor backup. All resources should be documented with primary and secondary contacts, escalation paths, and leave calendars. In critical DR situations, roster systems may need to be considered
-    - Laptop, power packs or backup power, network connectivity and mobile phone details for the DR executor, DR backup and any escalation points
-    - The process to be followed if any of the process requirements aren't met
-- Contact Listing
-    - DR leadership and support groups
-    - Business SMEs who will complete the test/review cycle for the technical recovery
-    - Affected Business Owners, including the service recovery approvers
-    - Affected Technical Owners, including the technical recovery approvers
-    - SME support across all affected areas, including key solutions hosted by the platform
-    - Impact Downstream systems – operational support
-    - Upstream Source systems – operational support
-    - Enterprise shared services contacts. For example, access/authentication support, security monitoring and gateway support
-    - Any external or third party vendors, including support contacts for cloud providers
-- Architecture design
-    - Describe the end-end to E2E scenario detail, and attach all associated support documentation
-- Dependencies
-    - List out all the components' relationships and dependencies
-- DR Prerequisites
-    - Confirmation that upstream source systems are available as required
-    - Elevated access across the stack has been granted to the DR executor resources
-    - Azure services are available as required
-    - The process to be followed if any of the prerequisites haven't been met
-- Technical Recovery - Step-by-Step instructions
-    - Run order
-    - Step description
-    - Step prerequisite
-    - Detailed process steps for each discrete action, including URLs
-    - Validation instructions, including the evidence required
-    - Expected time to complete each step, including contingency
-    - The process to be followed if the step fails
-    - The escalation points in the case of failure or SME support
-- Technical Recovery - Post requisites
-    - Confirm the current date timestamp of the system across key components
-    - Confirm the DR system URLs & IPs
-    - Prepare for the Business Stakeholder review process, including confirmation of systems access and the business SMEs completing the validation and approval
-- Business Stakeholder Review and Approval
-    - Business resource contact details
-    - The Business validation steps as per the technical recovery above
-    - The Evidence trail required from the Business approver signing off the recovery
-- Recovery Post requisites
-    - Handover to operational support to execute the data processes to bring the system up to date
-    - Handover the downstream processes and solutions – confirming the date and connection details of the DR system
-    - Confirm recovery process complete with the DR lead – confirming the evidence trail and completed runbook
-    - Notify Security administration that elevated access privileges can be removed from the DR team
+- **Process requirements**
+    - Any customer DR process-specific detail, such as the correct authorization required to start DR, and make key decisions about the recovery as necessary (including "definition of done"), service support DR ticketing reference, and war room details.
+    - Resource confirmation, including the DR lead and executor backup. All resources should be documented with primary and secondary contacts, escalation paths, and leave calendars. In critical DR situations, roster systems may need to be considered.
+    - Laptop, power packs or backup power, network connectivity and mobile phone details for the DR executor, DR backup and any escalation points.
+    - The process to be followed if any of the process requirements aren't met.
+- **Contact listing**
+    - DR leadership and support groups.
+    - Business SMEs who will complete the test/review cycle for the technical recovery.
+    - Affected Business Owners, including the service recovery approvers.
+    - Affected Technical Owners, including the technical recovery approvers.
+    - SME support across all affected areas, including key solutions hosted by the platform.
+    - Impacted downstream systems – operational support.
+    - Upstream source systems – operational support.
+    - Enterprise shared services contacts. For example, access and authentication support, security monitoring and gateway support
+    - Any external or third-party vendors, including support contacts for cloud providers.
+- **Architecture design**
+    - Describe the end-end (E2E) scenario detail, and attach all associated support documentation.
+- **Dependencies**
+    - List out all the components' relationships and dependencies.
+- **DR prerequisites**
+    - Confirmation that upstream source systems are available as required.
+    - Elevated access across the stack has been granted to the DR executor resources.
+    - Azure services are available as required.
+    - The process to be followed if any of the prerequisites haven't been met.
+- **Technical recovery - step-by-step instructions**
+    - Run order.
+    - Step description.
+    - Step prerequisite.
+    - Detailed process steps for each discrete action, including URLs.
+    - Validation instructions, including the evidence required.
+    - Expected time to complete each step, including contingencies.
+    - The process to be followed if the step fails.
+    - The escalation points in the case of failure or SME support.
+- **Technical recovery - post requisites**
+    - Confirm the current date timestamp of the system across key components.
+    - Confirm the DR system URLs & IPs.
+    - Prepare for the Business Stakeholder review process, including confirmation of systems access and the business SMEs completing the validation and approval.
+- **Business Stakeholder review and approval**
+    - Business resource contact details.
+    - The business validation steps as per the technical recovery above.
+    - The evidence trail required from the business approver signing off the recovery.
+- **Recovery post requisites**
+    - Handover to operational support to execute the data processes to bring the system up to date.
+    - Handover the downstream processes and solutions – confirming the date and connection details of the DR system.
+    - Confirm recovery process complete with the DR lead – confirming the evidence trail and completed runbook.
+    - Notify security teams that elevated access privileges can be removed from the DR team.
 
 ## Callouts
 
-- It's recommended to include system screenshots of each step process. These screenshots will help address the dependency on system SMEs to complete the tasks
-    - To mitigate the risk from quickly evolving Cloud services, the DR plan should be regularly revisited, tested, and executed by resources with current knowledge of Azure and its services
-- The technical recovery steps should reflect the priority of the component and solution to the organization. For example, core enterprise data flows are recovered before ad hoc data analysis labs
-- The Technical recovery steps should follow the order of the workflows (typically left to right), once the foundation components/service like Key Vault have been recovered. This strategy will ensure upstream dependencies are available and components can be appropriately tested
+- It's recommended to include system screenshots of each step process. These screenshots will help address the dependency on system SMEs to complete the tasks.
+    - To keep up with quickly evolving cloud services, the DR plan should be regularly revisited, tested, and executed by resources with current knowledge of Azure and its services.
+- The technical recovery steps should reflect the priority of the component and solution to the organization. For example, core enterprise data flows are recovered before ad hoc data analysis labs.
+- The technical recovery steps should follow the order of the workflows (typically left to right), once the foundation components or service like Key Vault have been recovered. This strategy will ensure upstream dependencies are available and components can be appropriately tested.
 - Once the step-by-step plan has been completed, a total time for activities with contingency should be obtained. If this total is over the agreed recovery time objective (RTO), there are several options available:
-    - Automate selected recovery processes (where possible)
+    - Automate selected recovery processes (where possible).
     - Look for opportunities to run selected recovery steps in parallel (where possible). However, noting that this strategy may require additional DR executor resources.
-    - Uplift key components to higher levels of service tiers such as PaaS, where Microsoft takes greater responsibility for service recovery activities
-    - Extend the RTO with stakeholders
+    - Uplift key components to higher levels of service tiers such as PaaS, where Microsoft takes greater responsibility for service recovery activities.
+    - Extend the RTO with stakeholders.
 
 ## DR testing
 
@@ -214,8 +214,8 @@ While the aspiration is to have a fully automated DR process, full automation ma
 
 If your runbook timings exceed your RTO, there are several options:
 
-- Extend the RTO with stakeholders
-- Lower the time required for the recovery activities, via automation, running tasks in parallel or migration to higher cloud server tiers
+- Extend the RTO with stakeholders.
+- Lower the time required for the recovery activities, via automation, running tasks in parallel or migration to higher cloud server tiers.
 
 ## Azure Chaos Studio
 
