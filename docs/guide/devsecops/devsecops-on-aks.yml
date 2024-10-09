@@ -4,11 +4,11 @@ metadata:
   description: Learn how DevSecOps helps you incorporate security best practices from the start of software development.
   author: akhan-msft
   ms.author: adnankhan 
-  ms.date: 03/02/2023
+  ms.date: 07/31/2024
   ms.reviewer: ssumner
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ms.category:
     - devops
     - hybrid

@@ -1,8 +1,9 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can build an entire IT infrastructure to run your organization by using various Azure services. Azure also offers security services to protect your infrastructure. By using Azure security services, you can improve the security posture of your IT environment. You can mitigate vulnerabilities and avoid breaches by implementing a well-architected solution that follows recommendations from Microsoft. 
+You can create a complete IT infrastructure for your organization using a wide range of Azure services. Azure also provides security services to protect this infrastructure. By utilizing Azure’s security solutions, you can enhance your IT environment's security posture, mitigate vulnerabilities, and prevent breaches by following Microsoft's best practice recommendations for a well-architected solution.
+While some security services come with associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
 
-Some security services incur fees while others have no additional charges. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and many others. This article covers such services.
+Some security services come with additional costs, while others are available at no extra charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and many more. This article focuses on these cost-free security services.
 
 This article is the third in a series of five. To review the previous two articles in this series, including the introduction and a review of how you can map threats against an IT environment, see the following articles:
 
@@ -11,7 +12,8 @@ This article is the third in a series of five. To review the previous two articl
 
 ## Potential use cases
 
-This article presents Azure security services according to each Azure service. In this way, you can think of a specific threat against resource—a virtual machine (VM), an operating system, an Azure network, an application—or an attack that might compromise users and passwords. Then use the diagram in this article to help you understand which Azure security services to use to protect resources and user identities from that type of threat.
+This article organizes Azure security services by each Azure resource, allowing you to focus on specific threats targeting resources such as virtual machines (VMs), operating systems, Azure networks, or applications, as well as attacks that could compromise users and passwords. The diagram provided will guide you in identifying the appropriate Azure security services to safeguard both resources and user identities from these types of threats.
+
 
 ## Architecture
 
@@ -23,14 +25,13 @@ This article presents Azure security services according to each Azure service. I
 
 The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org) and [National Institute of Standards and Technology](https://www.nist.gov). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
-The diagram doesn't contain all the Azure security services that are available, but it shows the security services that are most commonly used by organizations. All the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
-
+The diagram doesn't include every Azure security service available, but it highlights the services most commonly used by organizations. All the security services shown in the architectural diagram can be combined and configured to work together based on your IT environment and your organization's specific security needs.
 
 ### Workflow
 
 This section describes the components and services that appear in the diagram. Many of those are labeled with their ASB control codes, in addition to their abbreviated labels. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
 
-1.  **AZURE SECURITY BENCHMARK**
+1. **AZURE SECURITY BENCHMARK**
 
     Each security control refers to one or more specific Azure security services. The architecture reference in this article shows some of them and their control numbers according to the ASB documentation. The controls include:
 
@@ -49,7 +50,7 @@ This section describes the components and services that appear in the diagram. M
 
     For more information about security controls, see [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview).
 
-2.  **NETWORK**
+1. **NETWORK**
 
     The following table describes the network services in the diagram.
     
@@ -65,7 +66,7 @@ This section describes the components and services that appear in the diagram. M
     | **PRIVATE LINK** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link](/azure/private-link/private-link-overview)? |
     | **PRIVATE ENDPOINT** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. | [What is a private endpoint](/azure/private-link/private-endpoint-overview)? |
 
-3.  **INFRASTRUCTURE AND ENDPOINTS**
+1. **INFRASTRUCTURE AND ENDPOINTS**
 
     The following table describes infrastructure and endpoint services that are shown in the diagram.
 
@@ -78,7 +79,7 @@ This section describes the components and services that appear in the diagram. M
     | **RDP SHORT** | Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. | [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath) |
     | **REVERSE CONNECT** | A built-in security feature from Azure Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach the host VMs. | [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity) |
 
-4.  **APPLICATION AND DATA**
+1. **APPLICATION AND DATA**
 
     The following table describes application and data services that are shown in the diagram.
 
@@ -95,7 +96,7 @@ This section describes the components and services that appear in the diagram. M
     | **VULNERABILITY ASSESSMENT** | Service that helps you discover, track, and remediate potential database vulnerabilities. | [SQL vulnerability assessment helps you identify database vulnerabilities](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) |
     | **ENCRYPTION**<br/>(Azure SQL) | Transparent data encryption (TDE) helps protect Azure SQL database services by encrypting data at rest. | [Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal) |
 
-5.  **IDENTITY**
+1. **IDENTITY**
 
     The following table describes identity services that are shown in the diagram.
 
@@ -104,7 +105,7 @@ This section describes the components and services that appear in the diagram. M
     | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials. | [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)? |
     | **MFA** | Multifactor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Microsoft Entra multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) |
     | **ID PROTECTION** | Identity Protection, a security service from Microsoft Entra ID, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)? |
-    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). | [What is Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
+    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administorator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
     | **COND ACC** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
 
 ### Components
@@ -134,15 +135,14 @@ The example architecture in this article uses the following Azure components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Azure Security Engineer
 
-Other contributors: 
+Other contributors:
 
- * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
-
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 
 ## Next steps
 

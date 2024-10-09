@@ -48,7 +48,7 @@ Without a gateway, observability, change control, and development processes are 
 
 - **Monitoring and observability:** Azure OpenAI default metrics are available through Azure Monitor. However, there's latency with the availability of the data and it doesn't provide real-time monitoring.
 
-- **Safe deployment practices:** Your LLMOps process requires coordination between clients and the models that are deployed in Azure OpenAI. For advanced deployment approaches, such as blue-green or canary, logic needs to be handled on the client side.
+- **Safe deployment practices:** Your GenAIOps process requires coordination between clients and the models that are deployed in Azure OpenAI. For advanced deployment approaches, such as blue-green or canary, logic needs to be handled on the client side.
 
 ### Performance efficiency challenges
 

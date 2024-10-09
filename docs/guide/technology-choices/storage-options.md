@@ -4,10 +4,10 @@ titleSuffix: Azure Architecture Center
 description: Use this guide to decide which storage service best suits your application.
 author: claytonsiemens77
 ms.author: csiemens
-ms.date: 03/28/2023
+ms.date: 10/07/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp
 categories: storage
 products:
@@ -38,7 +38,10 @@ Answer the following questions about your workloads to help make decisions about
 
 - **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure managed disks](/azure/virtual-machines/managed-disks-overview) provide virtual disk capabilities for IaaS virtual machines.
 - **Will you need to provide downloadable images, documents, or other media as part of your workloads?** [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) hosts static files, which are then accessible for download over the internet. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
-- **Will you need a location to store virtual machine logs, application logs, and analytics data?** You can use Blob Storage to store Azure Monitor log data. See [Azure Storage Analytics](/azure/storage/common/storage-analytics).
+- **Will you need a location to store virtual machine logs, application logs, and analytics data?** Azure Monitor has [native storage for metrics, logs, and distributed traces](/azure/azure-monitor/data-platform).
+    - Metrics in Azure Monitor are stored in a time-series database that's optimized for analyzing time-stamped data.
+    - Trace data is stored with other application log data collected by Application Insights. 
+    - Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/), which provides a powerful analysis engine and [rich query language](/azure/kusto/query/).
 - **Will you need to provide a location for backup, disaster recovery, or archiving workload-related data?** Blob Storage provides backup and disaster recovery capabilities. For more information, see [Backup and disaster recovery for Azure IaaS disks](/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks).
 
   You can also use Blob Storage to back up other resources, like on-premises or IaaS virtual machine-hosted SQL Server data. See [SQL Server Backup and Restore](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
@@ -46,9 +49,8 @@ Answer the following questions about your workloads to help make decisions about
 - **Will you need to provide cloud-native file shares?** Azure has two services that provide cloud-hosted file shares:
   - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) provides high-performance NFS and SMB shares, with advanced data management features such as snapshots and cloning, that are well suited to common enterprise workloads like SAP.
   - [Azure Files](/azure/storage/files/storage-files-introduction) provides file shares accessible over SMB 3.0 and HTTPS.
-- **Will you need to support hybrid cloud storage for on-premises high-performance computing (HPC) workloads?**
-  - [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview) is a hybrid caching solution. You can expand your on-premises storage capabilities by using cloud-based storage. Avere vFXT for Azure is optimized for read-heavy HPC workloads that involve 1,000 to 40,000 CPU cores. Avere vFXT for Azure can integrate with on-premises hardware network attached storage (NAS), Blob Storage, or both.
-  - [Azure HPC Cache](/azure/hpc-cache/hpc-cache-overview) accelerates HPC tasks by caching files in Azure and can provide cloud scalability to your hybrid workflow. It’s effective even when data is stored on-premises or across WAN links, such as in a local datacenter network-attached storage (NAS) environment.
+- **Will you need to support high-performance computing (HPC) workloads?**
+  - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) provides high-performance NFS and SMB shares, with advanced data management features such as snapshots and cloning, that are well suited to HPC workloads.
 - **Will you need to perform large-scale archiving and syncing of your on-premises data?** [Azure Data Box](/azure/databox/) products are designed to help you move large amounts of data from your on-premises environment to the cloud.
   - [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtual device that's on-premises. Data Box Gateway helps you manage large-scale data migration to the cloud.
   - [Azure Stack Edge](/azure/databox-online/) accelerates processing and the secure transfer of data to Azure. If you need to analyze, transform, or filter data before you move it to the cloud, use Azure Data Box.
@@ -99,7 +101,6 @@ Azure offers multiple products and services for different storage capabilities. 
 | I need to migrate data from an on-premises NetApp instance to Azure. | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | |
 | I need to migrate data from on-premises Windows file server instances to Azure. | [Azure Files](/azure/storage/files/storage-files-introduction) | |
 | I need to move file data to the cloud but continue to primarily access the data from on-premises. | [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) | |
-| I need to support burst compute. I have NFS/SMB read-heavy, file-based workloads with data assets that are on-premises while computation runs in the cloud. | [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview) | IaaS scale-out NFS/SMB file caching. |
 | I need to move an on-premises application that uses a local disk or iSCSI. | [Azure disk storage](/azure/virtual-machines/managed-disks-overview) | |
 | I need to migrate a container-based application that has persistent volumes. | [Azure disk storage](/azure/virtual-machines/managed-disks-overview) or [Azure Files](/azure/storage/files/storage-files-introduction) | |
 | I need to move file shares that aren't on Windows Server or NetApp to the cloud. | [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | Protocol supports regional availability performance requirements snapshot and clone capabilities price sensitivity. |
@@ -121,7 +122,6 @@ After you identify the Azure tools that best match your requirements, use this d
 | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | The Azure NetApp Files service is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select service and performance levels and set up snapshots through the service. |
 | [Azure Stack Edge](/azure/databox-online/) | Azure Stack Edge is an on-premises network device that moves data into and out of Azure. Data Stack Edge has AI-enabled edge compute to pre-process data during upload. Data Box Gateway is a virtual version of the device but with the same data transfer capabilities. |
 | [Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) | Data Box Gateway is a storage solution that enables you to seamlessly send data to Azure. It's a virtual device based on a virtual machine provisioned in your virtualized environment or hypervisor. The virtual device is on-premises and you write data to it by using the NFS and SMB protocols. The device then transfers your data to Azure block blobs, page blobs, or to Azure Files. |
-| [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview) | Avere vFXT for Azure is a filesystem caching solution for data-intensive HPC tasks. Take advantage of cloud computing's scalability to make your data accessible, even for data that's stored in your own on-premises hardware. |
 
 ## Data redundancy and availability
 

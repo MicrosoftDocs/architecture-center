@@ -138,7 +138,7 @@ The automated deployment uses Bicep templates to deploy the following components
 - Load balancer and NAT VMs
 - A self-hosted integration runtime resource
 
-A PowerShell script for orchestrating the deployment is available in the repository. You can run the PowerShell script or use the *pipeline.yml* file to deploy it as a pipeline in Azure Devops.
+A PowerShell script for orchestrating the deployment is available in the repository. You can run the PowerShell script or use the *pipeline.yml* file to deploy it as a pipeline in Azure DevOps.
 
 For more information about the Bicep templates, deployment steps, and assumptions, see the [readme](https://github.com/Azure/SynapseEnterpriseCodebase/blob/main/readme.md) file.
 
@@ -159,7 +159,7 @@ Other contributor:
 
 ## Next steps
 
-- For information on creating an end-to-end data and analytics platform, see [cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/scale-architectures) guidance.
+- For information on creating an end-to-end data and analytics platform, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/scale-architectures) guidance.
 - Explore [data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/what-is-data-mesh) as an architectural pattern for implementing enterprise data platforms in large, complex organizations.
 - See the [Azure Synapse security white paper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
 

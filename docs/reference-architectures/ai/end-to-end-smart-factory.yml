@@ -6,9 +6,11 @@ metadata:
   ms.author: tinglee
   ms.date: 06/07/2024
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
-  ms.custom: arb-iot
+  ms.custom:
+    - arb-iot
+    - arb-aiml
 name: End-to-end computer vision at the edge for manufacturing
 azureCategories:
   - ai-machine-learning

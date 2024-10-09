@@ -40,10 +40,6 @@ This solution applies to companies that build custom application solutions that 
 - Real-time data collaboration among multiple users.
 - Built-in collaboration data-storage capabilities.
 
-## Deploy this scenario
-
-Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-azure) that demonstrates this scenario.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*

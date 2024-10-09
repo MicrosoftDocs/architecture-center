@@ -1,12 +1,12 @@
 ---
 title: Hadoop migration to Azure
 description: Learn about migrating Hadoop to Azure. This is an overview that has links to articles about Hadoop features such as HBase, HDFS, Kafka, Sqoop, and Storm.
-author: martinekuan
+author: namrata01Apr
 ms.author: namratam
 ms.date: 11/08/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - migration
 products:

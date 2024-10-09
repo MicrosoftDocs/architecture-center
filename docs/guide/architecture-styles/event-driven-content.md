@@ -24,6 +24,12 @@ The source of the events may be external to the system, such as physical devices
 
 In the logical diagram above, each type of consumer is shown as a single box. In practice, it's common to have multiple instances of a consumer, to avoid having the consumer become a single point of failure in system. Multiple instances might also be necessary to handle the volume and frequency of events. Also, a single consumer might process events on multiple threads. This can create challenges if events must be processed in order or require exactly-once semantics. See [Minimize Coordination][minimize-coordination].
 
+There are two primary topologies within many event-driven architectures:
+
+- **Broker topology**. Components broadcast occurrences as events to the entire system, and other components either act upon the event or just ignore the event. This topology is useful when the event processing flow is relatively simple. There is no central coordination or orchestration, so this topology can be very dynamic. This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. Subsequently, distributed transactions are risky because there is no native means to be restarted or replayed. Error handling and manual intervention strategies need to be carefully considered because this topology can be a source of data inconsistency.
+
+- **Mediator topology**. This topology addresses some of the shortcomings of broker topology. There is an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. Unlike broker topology, components broadcast occurrences as commands and only to designated channels, usually message queues. These commands aren't expected to be ignored by their consumers. This topology offers more control, better distributed error handling, and potentially better data consistency. This topology does introduce increased coupling between components, and the event mediator could become a bottleneck or a reliability concern.
+
 ## When to use this architecture
 
 - Multiple subsystems must process the same events.
@@ -41,9 +47,21 @@ In the logical diagram above, each type of consumer is shown as a single box. In
 
 ## Challenges
 
-- Guaranteed delivery. In some systems, especially in IoT scenarios, it's crucial to guarantee that events are delivered.
-- Processing events in order or exactly once. Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
-- Coordinating messages across services. Business processes often involve multiple services publishing and subscribing to messages to achieve a consistent outcome across a whole workload. [Workflow patterns](https://docs.particular.net/architecture/workflows) such as the [Choreography pattern](/azure/architecture/patterns/choreography) and [Saga Orchestration](/azure/architecture/reference-architectures/saga/saga#orchestration) can be used to reliably manage message flows across various services.
+- Guaranteed delivery.
+
+  In some systems, especially in IoT scenarios, it's crucial to guarantee that events are delivered.
+
+- Processing events in order or exactly once.
+
+  Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) logic isn't implemented.
+
+- Coordinating messages across services.
+
+  Business processes often involve multiple services publishing and subscribing to messages to achieve a consistent outcome across a whole workload. [Workflow patterns](https://docs.particular.net/architecture/workflows) such as the [Choreography pattern](/azure/architecture/patterns/choreography) and [Saga Orchestration](/azure/architecture/reference-architectures/saga/saga#orchestration) can be used to reliably manage message flows across various services.
+
+- Error handling.
+
+  Event-driven architecture uses mainly asynchronous communication. A challenge with asynchronous communication is error handling. One way to address this issue is to use a separate error-handler processor. So, when the event consumer experiences an error, it immediately and asynchronously sends the erroneous event to the error-handler processor and moves on. The error-handler processor tries to fix the error and sends the event back to the original ingestion channel. But if the error-handler processor fails, then it can send the erroneous event to an administrator for further inspection. If you use an error-handler processor, erroneous events will be processed out of sequence when they are resubmitted.
 
 ### Additional considerations
 

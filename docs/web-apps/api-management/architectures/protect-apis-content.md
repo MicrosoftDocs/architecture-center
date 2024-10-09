@@ -2,7 +2,7 @@ With more workloads adhering to the [API-first approach](https://swagger.io/reso
 
 ## Architecture
 
-This article doesn't address the application's underlying services, like App Service Environment, Azure SQL Managed Instance, and Azure Kubernetes Services. Those parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the shaded areas, API Management and Application Gateway.
+This article doesn't address the application's underlying platforms, like App Service Environment, Azure SQL Managed Instance, and Azure Kubernetes Services. Those parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the shaded areas, API Management and Application Gateway.
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](../_images/protect-apis.png)
 
@@ -12,7 +12,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - The Application Gateway receives HTTP requests that have been allowed by its subnet's Network Security Group (NSG).
 
-- The Web Application Firewall (WAF) on Application Gateway then checks the request against WAF rules, including [Geomatch filtering](/azure/web-application-firewall/ag/geomatch-custom-rules). If the request is valid, the request proceeds.
+- The Web Application Firewall (WAF) on Application Gateway then checks the request against WAF rules, including [Geomatch custom rules](/azure/web-application-firewall/ag/geomatch-custom-rules). If the request is valid, the request proceeds.
 
 - Application Gateway sets up a URL proxy mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools). For example, depending on the URL format of the API call:
 
@@ -33,11 +33,11 @@ This article doesn't address the application's underlying services, like App Ser
 
 ### Components
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) enables many types of Azure resources to privately communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) enables many types of Azure resources to privately communicate with each other, the internet, and on-premises networks. In this architecture, the Application Gateway is responsible for tunneling public Internet traffic into this private network.
 
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications. This type of routing is known as application layer (OSI layer 7) load balancing. It hosts a Web Application Firewall (WAF) to protect against common web-based attack vectors.
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic load balancer that manages traffic to web applications. This type of routing is known as application layer (OSI layer 7) load balancing. In this architecture, not only is the gateway used for routing, the gateway also hosts a Web Application Firewall (WAF) to protect against common web-based attack vectors.
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) is a hybrid, multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) is a hybrid, multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services. In this architecture, API Management is used in a fully private mode to offload cross-cutting concerns from the API code and hosts.
 
 ## Recommendations
 
@@ -47,7 +47,7 @@ To communicate with private resources in the back end, Application Gateway and A
 
 - The private, internal deployment model allows API Management to connect to an existing virtual network, making it reachable from the inside of that network context. To enable this feature, deploy either the **Developer** or **Premium** API Management tiers.
 
-- Manage certificates and passwords in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
+- Manage App Gateway certificates in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
 
 - To personalize interactions with the services, you can use [CNAME entries](/azure/dns/dns-web-sites-custom-domain).
 
@@ -81,6 +81,7 @@ For more information about API Management security, see [Azure security baseline
 ### Cost optimization
 
 The cost of this architecture depends on configuration aspects like:
+
 - Service tiers
 - Scalability, meaning the number of instances dynamically allocated by services to support a given demand
 - Whether this architecture will run continuously or just a few hours a month
@@ -93,7 +94,7 @@ Application Gateway is the entry point for this architecture, and the WAF featur
 
 To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
-## Deploy this scenario 
+## Deploy this scenario
 
 This scenario is demonstrated in the Azure Quickstart gallery publication of [Application Gateway with internal API Management and Web App](/samples/azure/azure-quickstart-templates/private-webapp-with-app-gateway-and-apim/).
 

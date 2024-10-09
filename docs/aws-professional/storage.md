@@ -5,7 +5,7 @@ author: splitfinity-zz-zz
 ms.author: yubaijna
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 categories:
   - storage

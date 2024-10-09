@@ -46,10 +46,6 @@ Learn more about the component technologies:
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 
-## Related resources
+## Related resource
 
-Explore related architectures:
-
-- [Application integration using Event Grid](./application-integration-using-event-grid.yml)
-- [Event-based cloud automation](../../reference-architectures/serverless/cloud-automation.yml)
 - [Gridwich cloud media system](../../reference-architectures/media-services/gridwich-architecture.yml)

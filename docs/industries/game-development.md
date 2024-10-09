@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp 
 keywords:
   - Azure
@@ -64,7 +64,6 @@ The following articles provide detailed analysis of architectures created and re
 | Architecture | Summary |
 | ------- | ------- |
 |[3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)|Use Azure Batch to run large-scale 3D video rendering jobs.|
-|[Digital image-based modeling](/azure/architecture/example-scenario/infrastructure/image-modeling)|Perform image-based modeling for your game's visual effects.|
 
 ## Related resources
 

@@ -153,5 +153,3 @@ Other contributor:
 - [Secure a data lakehouse with Azure Synapse Analytics](../analytics/secure-data-lakehouse-synapse.yml)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](synapse-exploratory-data-analytics.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
-- [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
-- [Big data analytics with enterprise grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)

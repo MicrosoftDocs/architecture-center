@@ -60,4 +60,3 @@ This solution is ideal for the medical and healthcare industry.
 
 - [Health data consortium on Azure](../../example-scenario/data/azure-health-data-consortium.yml)
 - [Virtual health on Microsoft Cloud for Healthcare](../../example-scenario/mch-health/virtual-health-mch.yml)
-- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)

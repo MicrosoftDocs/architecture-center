@@ -7,12 +7,13 @@ metadata:
   ms.author: xpouyat
   ms.date: 01/23/2024
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - cse
     - devx-track-terraform
+    - arb-media
 name: Gridwich cloud media system
 summary: Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.
 products:
