@@ -7,7 +7,7 @@ metadata:
   ms.author: avbalter
   ms.date: 06/11/2024
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
     - web
@@ -27,4 +27,4 @@ products:
   - azure-container-registry
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ctfd.png
 content: |
-   [!include[](capture-the-flag-platform-on-azure-paas-content.md)]
+   [!INCLUDE[](capture-the-flag-platform-on-azure-paas-content.md)]

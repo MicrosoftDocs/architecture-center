@@ -104,4 +104,3 @@ Principal author:
 
 - Review the [Azure IoT Reference Architecture](../../reference-architectures/iot.yml) that shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
-- Review the [Real-time analytics architecture](/azure/architecture/solution-ideas/articles/real-time-analytics) that includes a big data pipeline flow.

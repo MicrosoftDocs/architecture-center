@@ -368,4 +368,3 @@ Having a gateway implementation for your workload provides benefits beyond the t
 
 - [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
-- [Azure OpenAI API Management policies](https://github.com/CrewAakash/aoai-apim-policies)

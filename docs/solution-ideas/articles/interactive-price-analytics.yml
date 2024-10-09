@@ -3,11 +3,11 @@ metadata:
   title: Interactive price analytics
   titleSuffix: Azure Architecture Center
   description: Use transaction history data to develop a pricing strategy with a machine learning model accounting for confounding and data sparsity.
-  author: martinekuan
-  ms.author: pnp
+  author: josearper
+  ms.author: joaria
   ms.date: 09/02/2022
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - analytics

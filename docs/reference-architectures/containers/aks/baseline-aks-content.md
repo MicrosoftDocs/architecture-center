@@ -4,6 +4,8 @@ This architecture isn't focused on a workload. It concentrates on the AKS cluste
 
 Your business requirements influence the target architecture and it can vary between different application contexts. Consider the architecture as your starting point for preproduction and production stages.
 
+Kubernetes is a powerful ecosystem that extends beyond Azure and Microsoft technologies. When you deploy an AKS cluster, you take responsibility for numerous decisions about how your cluster should be designed and operated. Running an AKS cluster involves a mix of closed-source components from a variety of vendors, including Microsoft; and open-source components from the Kubernetes ecosystem. The landscape changes frequently, and you might need to revisit decisions regularly. By adopting Kubernetes, you're acknowledging that your workload needs its capabilities, and that the workload team is prepared to invest on an ongoing basis.
+
 You can use an implementation of this architecture on [GitHub: AKS baseline reference implementation](https://github.com/mspnp/aks-baseline). Use it as an alternative starting point and configure the reference architecture based on your needs.
 
 > [!NOTE]
@@ -134,33 +136,44 @@ For more information, see [Private Link deployment options](../../../networking/
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
 
-The address space of the virtual network should be large enough to hold all subnets. Account for all entities that receive traffic. Kubernetes allocates IP addresses for those entities from the subnet address space. Consider these points.
+This reference architecture uses multiple networking approaches, which each requires an IP address space:
 
-- Upgrades
+- Your Azure virtual network, which is used for resources like cluster nodes, private endpoints, and Application Gateway.
+- The cluster uses [Azure CNI Overlay](/azure/aks/azure-cni-overlay), which allocates IP addresses to pods from a separate address space to your Azure virtual network.
 
-    AKS updates nodes regularly to make sure the underlying VMs are up to date on security features and other system patches. During an upgrade process, AKS creates a node that temporarily hosts the pods, while the upgrade node is cordoned and drained. That temporary node is assigned an IP address from the cluster subnet. Ensure you have enough address space for these temporary node IP addresses.
+### Virtual network IP address space
 
-    For pods, you might need more addresses depending on your strategy. For rolling updates, you need addresses for the temporary pods that run the workload while the actual pods are updated. If you use the replace strategy, pods are removed, and the new ones are created. So, addresses associated with the old pods are reused.
+The address space of your Azure virtual network should be large enough to hold all of your subnets. Account for all entities that receive traffic. Kubernetes allocates IP addresses for those entities from the subnet address space. Consider these points when you plan your Azure virtual network's IP addresses.
 
-- Scalability
+- **Upgrades:** AKS updates nodes regularly to make sure the underlying VMs are up to date on security features and other system patches. During an upgrade process, AKS creates a node that temporarily hosts the pods, while the upgrade node is cordoned and drained. That temporary node is assigned an IP address from the cluster subnet. Ensure you have enough address space for these temporary node IP addresses.
 
-    Take into consideration the node count of all system and user nodes and their maximum scalability limit. Suppose you want to scale out by 400%. You need four times the number of addresses for all those scaled-out nodes.
+  In this architecture, pods are allocated IP addresses from within the Azure CNI Overlay pod address space, including during rolling updates. This approach reduces the overall number of IP addresses used from your Azure virtual network compared to other Kubernetes networking approaches.
 
-    In this architecture, resources contact each pod directly. So, each pod needs an individual address. Pod scalability affects the address calculation. That decision depends on your choice about the number of pods you want to grow.
+- **Scalability:** Take into consideration the node count of all system and user nodes and their maximum scalability limit. Suppose you want to scale out by 400%. You need four times the number of addresses for all those scaled-out nodes.
 
-- Private Link addresses
+  Because this architecture uses Azure CNI Overlay, the scalability of your pods doesn't affect your virtual network's address space.
 
-    Factor in the addresses that are required for communication with other Azure services over Private Link. This architecture has two addresses assigned for the links to Container Registry and Key Vault.
+- **Private Link addresses:** Factor in the addresses that are required for communication with other Azure services over Private Link. This architecture has two addresses assigned for the links to Container Registry and Key Vault.
 
-- Azure reserves [certain addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
+- **Reserved IP addresses:** Azure reserves [certain addresses](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) for its uses. They can't be assigned.
 
 The preceding list isn't exhaustive. If your design has other resources that affect the number of available IP addresses, accommodate those addresses.
 
 This architecture is designed for a single workload. In a production AKS cluster, always separate the system node pool from the user node pool. When you run multiple workloads on the cluster, you might want to isolate the user node pools from each other. When you do that, it results in more subnets that are smaller in size. Also, the ingress resource might be more complex, and as a result you might need multiple ingress controllers that require extra IP addresses.
 
-For the complete set of considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md).
+### Pod IP address space
 
-For information related to planning IP for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
+Azure CNI Overlay assigns IP addresses to pods by using a dedicated address space, which is separate from the address space you use in your virtual network. Use an IP address space that doesn't overlap with your virtual network or any peered virtual networks. However, if you create multiple AKS clusters, you can safely use the same pod address space on each cluster.
+
+Each node is assigned a /24 address space for its pods, so it's important to ensure that the pod address space is sufficiently large to allow for as many /24 blocks as you need for the number of nodes in your cluster. Remember to include any temporary nodes created during upgrades or scale-out operations. For example, if you use a /16 address space for your CIDR range, your cluster can grow to a maximum of about 250 nodes.
+
+Each node supports up to 250 pods, and this limit includes any pods that are temporarily created during upgrades.
+
+For more information, see [the guidance about IP address planning for Azure CNI Overlay](/azure/aks/azure-cni-overlay#ip-address-planning)
+
+### Other IP address space considerations
+
+For the complete set of networking considerations for this architecture, see [AKS baseline network topology](https://github.com/mspnp/aks-baseline/blob/main/network-team/topology.md). For information related to planning IP addressing for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
 For more information on the IP address planning considerations included in the Windows containers on AKS baseline reference architecture, see [Windows containers on AKS](./windows-containers-on-aks.yml#ip-address-planning).
 
@@ -206,6 +219,14 @@ For the user node pool, here are some considerations:
 - Assume that your workload consumes up to 80% of each node when planning capacity for your cluster. The remaining 20% is reserved for AKS services.
 
 - Set the maximum pods per node based on your capacity planning. If you're trying to establish a capacity baseline, start with a value of 30. Adjust that value based on the requirements of the workload, the node size, and your IP constraints.
+
+### Select an operating system
+
+Most AKS clusters use Linux as the operating system for their node pools. In this reference implementation, we use [Azure Linux](/azure/aks/use-azure-linux), which is a lightweight, hardened Linux distribution that has been tuned for Azure. You can choose to use another Linux distribution, such as Ubuntu, if you prefer, or if you have requirements that Azure Linux can't meet.
+
+AKS also supports node pools that run the Windows Server operating system. There are special requirements for some aspects of a cluster that runs Windows. To learn more about Windows node pool architecture, see [Running Windows containers on AKS](./windows-containers-on-aks.yml).
+
+If you have a workload that is composed of a mixture of technologies, you can use different operating systems in different node pools. However, if you don't need different operating systems for your workload, we recommend that you use a single operating system for all your workload's node pools.
 
 ## Integrate Microsoft Entra ID for the cluster
 
@@ -271,6 +292,16 @@ In this reference implementation, local cluster accounts access is explicitly di
 Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity enables the hosted workload to access resources through Microsoft Entra ID. For example, the workload stores files in Azure Storage. When it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity.
 
 In this reference implementation, [Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview) provides the managed identities for pods. This approach integrates with the Kubernetes native capabilities to federate with external identity providers. For more information about Microsoft Entra Workload ID federation, see [Workload identity federation](/entra/workload-id/workload-identity-federation).
+
+## Select a networking model
+
+AKS supports multiple networking models including kubenet, CNI, and [Azure CNI Overlay](/azure/aks/azure-cni-overlay). The CNI models are the more advanced models, and are highly performant. When communicating between pods, the performance of CNI is similar to the performance of VMs in a virtual network. CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend a CNI-based networking model.
+
+In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
+
+In this reference implementation, we use Azure CNI Overlay, which only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs. Because Azure CNI Overlay uses fewer virtual network IP addresses than many other approaches, we recommend it for IP address-constrained deployments.
+
+For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ## Deploy ingress resources
 
@@ -405,15 +436,6 @@ By default, a pod can accept traffic from any other pod in the cluster. Use Kube
 Enable network policy when you provision the cluster because you can't add it later. You have a few choices for technologies that implement `NetworkPolicy`. We recommend Azure network policy, which requires Azure Container Networking Interface (CNI). For more information, see the following note. Other options include Calico network policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
 For more information, see [Differences between Azure network policy engines](/azure/aks/use-network-policies#differences-between-network-policy-engines-cilium-azure-npm-and-calico).
-
-> [!NOTE]
-> AKS supports multiple networking models including kubenet, CNI, and Azure CNI Overlay. The CNI models are the more advanced models, and a CNI-based model is required for enabling Azure network policy. Both CNI models are highly performant. The model's performance between pods is similar to the performance of VMs in a virtual network. We recommend a CNI-based networking model.
->
-> In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. Network Address Translation (NAT) isn't needed for routing that traffic.
->
-> CNI also offers enhanced security control because it enables the use of Azure network policy. We recommend that you use Azure CNI Overlay for IP address-constrained deployments. Azure CNI Overlay only allocates IP addresses from the node pool subnet for the nodes and uses a highly optimized overlay layer for pod IPs.
->
-> For information about the models, see [Choose a Container Networking Interface network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure Container Networking Interface network models](/azure/aks/operator-best-practices-network#choose-the-appropriate-network-model).
 
 ### Management traffic
 

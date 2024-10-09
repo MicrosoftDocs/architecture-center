@@ -54,7 +54,7 @@ Azure Data Explorer provides native advanced analytics for:
 - [Time series analysis](/azure/data-explorer/time-series-analysis).
 - Pattern recognition.
 - [Anomaly detection and forecasting](/azure/data-explorer/anomaly-detection).
-- [Machine learning (ML)](/azure/data-explorer/machine-learning-clustering).
+- [Anomaly diagnosis for root analysis](/kusto/query/anomaly-diagnosis).
 
 The [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) connects to Azure Data Explorer clusters to help write, run, and share Kusto Query Language commands and queries. [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards) are a feature in the Data Explorer Web UI that natively exports Kusto queries to optimized dashboards.
 
@@ -94,4 +94,4 @@ Principal author:
 
 - [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-- [Real-time analytics on big data architecture](real-time-analytics.yml)
+

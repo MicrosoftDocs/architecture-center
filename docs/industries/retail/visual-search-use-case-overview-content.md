@@ -160,4 +160,3 @@ Implementing visual search need not be complex. You can use Bing or build your o
 ## Related resources
 
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
-- [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)

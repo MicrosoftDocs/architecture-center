@@ -135,4 +135,4 @@ See the following relevant Azure services:
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+

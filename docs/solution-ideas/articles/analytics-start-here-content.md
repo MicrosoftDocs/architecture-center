@@ -84,8 +84,6 @@ Here are a few sample implementations of analytics on Azure to consider:
 
 -   [IoT analytics with Azure Data Explorer](./iot-azure-data-explorer.yml)
 
--   [Real time analytics on big data architecture](./real-time-analytics.yml)
-
 -   [Modern analytics architecture with Azure Databricks](./azure-databricks-modern-analytics-architecture.yml)
 
 -   [Browse more analytics examples in the Azure Architecture Center](../../browse/index.yml?azure_categories=analytics)

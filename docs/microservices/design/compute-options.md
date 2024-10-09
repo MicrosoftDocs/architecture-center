@@ -5,8 +5,8 @@ author: francisnazareth
 ms.author: fnazaret
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories:
   - compute
   - developer-tools

@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 09/19/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-machine-learning
   - azure-stack-hub
@@ -120,7 +120,7 @@ AI is the capability of a computer to imitate intelligent human behavior. Throug
 
 |Article |Summary  |
 |---------|---------|
-|[Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)|     Learn about cognitive services that you can use in AI applications and data flows.    |
+|[Choose an Azure AI services technology](../../data-guide/technology-choices/ai-services.md)| Learn about AI services that you can use in intelligent applications and data flows. |
 |[Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)     |     Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.    |
 |[Compare machine learning products and technologies](../../ai-ml/guide/data-science-and-machine-learning.md)     |  Compare options for building, deploying, and managing your machine learning models. Decide which products to use for your solution.       |
 |[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models and deploy your machine learning models to an endpoint.    |
@@ -149,7 +149,7 @@ IoT solutions use a combination of technologies to connect devices, events, and 
 
 |Article |Summary  |
 |---------|---------|
-|[Choose an IoT solution](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)     |  Use Azure IoT Central or individual Azure platform as a service (PaaS) components to build, deploy, and manage IoT solutions.       |
+|[Choose an IoT solution](/azure/iot/iot-services-and-technologies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |  To evaluate your IoT solution, use Azure IoT Central, a managed IoT application platform. To build a custom IoT solution from scratch, use Azure IoT platform services such as Azure IoT Hub and the Device Provisioning Service.       |
 |[Compare IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Review a comparison between Azure IoT Hub and Event Hubs that highlights functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.    |
 
 ## Choose a mobile development framework
@@ -157,9 +157,3 @@ IoT solutions use a combination of technologies to connect devices, events, and 
 |Article |Summary  |
 |---------|---------|
 |[Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about the supported native and cross-platform languages for building client applications.    |
-
-## Choose a mixed reality engine
-
-|Article |Summary  |
-|---------|---------|
-|[Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn about the engine choices for mixed reality development for HoloLens and virtual reality.    |

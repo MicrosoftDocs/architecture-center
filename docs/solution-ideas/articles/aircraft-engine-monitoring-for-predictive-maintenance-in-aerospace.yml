@@ -3,11 +3,11 @@ metadata:
   title: Predictive aircraft engine monitoring
   titleSuffix: Azure Architecture Center
   description: Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.
-  author: martinekuan
-  ms.author: pnp
+  author: josearper
+  ms.author: joaria
   ms.date: 07/14/2022
   ms.topic: solution-idea
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.category:
     - analytics

@@ -5,8 +5,8 @@ author: MarcosMMartinez
 ms.author: mamartin
 ms.date: 01/03/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom:
   - arb-containers
 products:
@@ -543,7 +543,7 @@ AKS has different SLAs for different components and configurations:
 - **Data plane**. Node pools use the underlying VM SKU SLAs. 
 - **Availability zones**. There are different SLAs for the two planes, depending on whether the AKS cluster has availability zones enabled *and* running multiple instances across availability zones.
 
-Note that when you use multiple Azure services, [composite SLAs](/azure/well-architected/resiliency/business-metrics#composite-slas) might differ from and be lower than individual service SLAs.
+Note that when you use multiple Azure services, [composite SLOs](/azure/well-architected/reliability/metrics#define-composite-slo-targets) might differ from and be lower than individual service SLAs.
 
 ### Redundancy with availability zones
 

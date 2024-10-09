@@ -1,12 +1,12 @@
 ---
 title: Virtual desktop architecture design
 description: Get an overview of Azure virtual desktop technologies, guidance offerings, solution ideas, and reference architectures. 
-author: martinekuan
-ms.author: martinek
+author: RobBagby
+ms.author: pnp
 ms.date: 08/29/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-virtual-desktop
   - azure-lab-services

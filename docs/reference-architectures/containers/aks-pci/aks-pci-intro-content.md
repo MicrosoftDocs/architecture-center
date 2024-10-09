@@ -4,17 +4,17 @@ It's *not* our goal to replace your demonstration of your compliance with this s
 
 > [!IMPORTANT]
 >
-> The reference architecture and implementation have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI DSS. Acquire compliance attestations from third-party auditor.
+> The reference architecture and implementation have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI DSS. Acquire compliance attestations from a third-party auditor.
 
 ## Before you begin
 
-**Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party Qualified Security Assessor (QSA) for PCI DSS compliance.
+[**Microsoft Trust Center**](https://www.microsoft.com/trust-center/product-overview) provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party Qualified Security Assessor (QSA) for PCI DSS compliance.
 
 ![Diagram of the shared responsibility model.](images\protection-everyone.svg)
 
 - **Shared responsibility with Azure**
 
-  The Microsoft Compliance team ensures all documentation of Microsoft Azure regulatory compliance is publicly available to our customers. You can download the PCI DSS Attestation of Compliance for Azure under the PCI DSS section at [audit reports](https://servicetrust.microsoft.com). The responsibility matrix outlines who, between Azure and the customer, is responsible for each of the PCI requirements. For more information, see [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview).
+  The Microsoft Compliance team ensures all documentation of Microsoft Azure regulatory compliance is publicly available to our customers. You can download the PCI DSS Attestation of Compliance for Azure under the PCI DSS section from the [Service Trust portal](https://servicetrust.microsoft.com). The responsibility matrix outlines who, between Azure and the customer, is responsible for each of the PCI requirements. For more information, see [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview).
 
 - **Shared responsibility with AKS**
 
