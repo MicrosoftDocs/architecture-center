@@ -9,7 +9,7 @@ For the best user experience, Moodle requires consistent low latency access to s
     A diagram that replicates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes DR versions of the Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
 :::image-end:::
 
-In addition to the Moodle deployment, the architecture uses Azure Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) use availability zones to provide high-availability in a region and replication to a different zone in the same region. The destination data volumes can be hosted by a capacity pool using the Standard service level during normal operation.
+In addition to the Moodle deployment, the architecture uses Azure Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) uses availability zones to provide high-availability in a region and replication to a different zone in the same region. The destination data volumes can be hosted by a capacity pool using the Standard service level during normal operation.
 
 With this approach, some of the components of the setup, like compute and ancillary services, don't have to be started during normal operation. They  therefore don't incur any operational cost. The Virtual Machine Scale Sets can also be scaled down to the minimum.
 
@@ -82,7 +82,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Azure NetApp Files is built on a bare-metal fleet of redundant, solid-state hardware. The service operates without interruption, even during maintenance operations. For more information about resiliency, see [Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files][Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files].
 
-Azure NetApp Files has a guaranteed availability of 99.99%. For the Azure NetApp Files availability guarantee, see the [SLA for Azure NetApp Files][SLA for Azure NetApp Files].
+Azure NetApp Files has a guaranteed availability of 99.99%. For the Azure NetApp Files availability guarantee, see the [SLA for Azure NetApp Files](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 <!-- 
 As the [Alternative deployments with Azure NetApp Files section](#alternative-deployments-with-azure-netapp-files) explains, you can make the solution more resilient. You can provide disaster recovery by adding a secondary region and using Azure NetApp Files cross-region replication. This functionality efficiently replicates the NFS volumes to a secondary passive region. During the unlikely event of a complete region failure, the application runs in that secondary region. -->
