@@ -1,6 +1,6 @@
 # Introduction
 
-This article describes considerations and recommendations when doing a physical online migration of an Oracle Database from an on-premises Exadata to Oracle Database@Azure, Exadata Database Service (OD@A) using Oracle Zero Downtime Migration (ZDM). The article assumes that you have a basic understanding of Oracle Database@Azure and Oracle Zero Downtime Migration. The article builds on the scenario described in the article [Migrating Oracle database workloads to Azure](topic-migrating-oracle-to-azure.yml).
+This article describes considerations and recommendations when doing a physical online migration of an Oracle Database from an on-premises Exadata to [Oracle Database@Azure](/azure/oracle/oracle-db/database-overview), Exadata Database Service (OD@A) using Oracle Zero Downtime Migration (ZDM). The article assumes that you have a basic understanding of Oracle Database@Azure and Oracle Zero Downtime Migration. The article builds on the scenario described in the article [Migrating Oracle database workloads to Azure](topic-migrating-oracle-to-azure.yml).
 
 ## Scenario
 
@@ -28,7 +28,7 @@ To use ZDM for migration, you need to ensure that the source and target database
   - Next hop IP address: 10.0.0.5
   - Name: \<Route table name\>
 
-For an example of the updated network configuration, see the following diagram:
+The following diagram shows the updated network configuration.
 
 ![Diagram2](_images/oracle-database-migration-to-azure-odaa-02.jpg)
 
@@ -45,14 +45,14 @@ For an example of the updated network configuration, see the following diagram:
 
 1. Perform the steps found in [Migrating Your Database with Zero Downtime Migration](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.3/zdmug/migrating-with-zero-downtime-migration.html#GUID-C20DB7D4-E0CE-4B50-99D0-B16C18DDD34B) to perform the migration.
 
-> Note that application migration activities as mentioned below will most likely need to be done in parallel with the ZDM migration, for the least amount of downtime.
+> Note that application migration activities as mentioned below will need to be done in parallel with the ZDM migration, for the least amount of downtime.
 
 1. Application services migration
     - Migrate application services as planned and discussed.
     - Update the application services to point to the new database, including the connection string, TNS entries, and any other configuration that is needed.
     - Verify that the application services are working as expected.
 
-For an example of the updated configuration including ZDM migration node, see the following diagram:
+The following diagram shows the updated configuration including ZDM migration node.
 
 ![Diagram3](_images/oracle-database-migration-to-azure-odaa-03.jpg)
 
