@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.
 author: soferreira
 ms.author: soferreira
-ms.date: 09/09/2024
+ms.date: 10/11/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -70,25 +70,31 @@ The following diagram illustrates the shared Azure OpenAI model.
 
 :::image type="content" source="./media/openai/openai-shared.svg" alt-text="Diagram that shows the shared Azure OpenAI model." border="false" lightbox="./media/openai/openai-shared.svg":::
 
-#### Dedicated model deployment
+When you deploy a shared Azure OpenAI service, you can decide whether the model deployments within the service are also shared, or if they're dedicated to specific customers.
 
-For:
-- Quota management - control over quota per tenant. Could also assign PTUs to specific customers.
-- Content policy per tenant, e.g. tenant-specific blocklisted words
-- Use different models or model versions for different tenants, or for precise lifecycle control based on tenant
-- Fine tuning per tenant where the ISV owns the model
-- This customer gets global standard, while this customer has data residency issues and needs a regional deployment
+#### Shared model deployment among tenants
 
-Although it's a dedicated model endpoint for you, remember it's a shared model, running on shared networking infrastructure.
+Sharing a model deployment among tenants simplifies your operational burden because you have fewer deployments to manage, and model versions to track. Plan to use a shared model deployment if you can, and only create dedicated model deployments if you need the capabilities they offer.
 
-RBAC isn't applied per model deployment, so you can't restrict identities to only access potential models. Trusted subsystem.
+#### Dedicated model deployment per tenant
 
-#### Shared model deployment
+You can create a model deployment for each tenant, or for tenants who have special requirements that can't be met by using a shared model deployment. Common reasons to use dedicated model deployments for a tenant include the following:
 
-When you use a shared Azure OpenAI instance, deploying individual instances of the same model for each tenant can offer significant benefits. This approach provides enhanced parameter customization for each deployment. It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. This approach can optimize resource utilization to ensure that each tenant only pays for their required resources, which ensures a cost-effective solution. This approach also promotes scalability and adaptability because tenants can adjust their resource allocation based on their evolving needs and usage patterns.
+- **Quota and cost management:** It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. If you use [provisioned throughput units (PTUs)](/azure/ai-services/openai/concepts/provisioned-throughput), you can assign the PTUs to specific customers and use other billing models for other customers.
 
-> [!NOTE]
-> When you customize models for unique needs, you need to consider the approaches that are available. Every tenant might have distinct requirements and use cases. You might not use fine-tuning for most use cases. Explore other options, such as grounding. Take the time to evaluate these factors to help ensure that you choose the approach that best meets your needs.
+- **Content policies:** Sometimes, a specific tenant might require a unique content policy, such as a tenant-specific blocklist of disallowed words. You specify the content policy at the scope of a model deployment.
+
+- **Model types and versions:** You might need to use different models or model versions for different tenants. A tenant might also require their own model lifecycle management process.
+
+- **Tenant-specific fine tuning:** If you create distinct fine-tuned models for each tenant, you need to create a separate model deployment for each fine-tuned model.
+
+    Remember that fine-tuning isn't required for most use cases. Usually, it's better to ground your model by using [Azure OpenAI On Your Data](#azure-openai-on-your-data) or a retrieval-augmented generation (RAG) approach.
+
+- **Data residency:** This approach supports distinct data residency requirements. For example, you might provide a regional model deployment for a tenant with strict data residency needs, and use a global model deployment for other tenants without strict needs.
+
+Each model deployment has its own distinct URL, but it's important to remember the underlying models are shared with other Azure customers. They also use shared Azure infrastructure.
+
+Azure OpenAI doesn't enforce access control for each model deployment, so your application needs to control which tenant can reach which model deployment.
 
 ### Tenant-provided Azure OpenAI resource
 
