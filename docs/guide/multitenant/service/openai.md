@@ -54,7 +54,7 @@ The following diagram illustrates the model for Azure OpenAI for each tenant in 
 
 You might choose to share an instance of Azure OpenAI among multiple tenants. The Azure OpenAI resource is deployed in your (the service provider's) Azure subscription. You're responsible for managing it. This solution is the easiest to implement, but it provides the least data isolation and performance isolation.
 
-Sharing an Azure OpenAI resource doesn't offer access security at the model deployment level. Other tenants can use unauthorized models. It's strongly discouraged to share an Azure OpenAI instance when you use fine-tuned models. It can expose sensitive information and allow unauthorized access to tenant-specific resources.
+Sharing an Azure OpenAI resource doesn't provide security segmentation for each model deployment. A tenant might be able to use a model they aren't authorized to use. For this reason, avoid sharing an Azure OpenAI instance when you use fine-tuned models, because you might expose sensitive information and allow unauthorized access to tenant-specific data or resources.
 
 Sharing an instance of Azure OpenAI among multiple tenants can also lead to a [Noisy Neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem. It can cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge your customers for the consumption cost of a shared Azure OpenAI instance, implement the logic to keep track of the total number of tokens for each tenant in your application.
 
