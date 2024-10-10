@@ -121,12 +121,6 @@ The following diagram illustrates the model for Azure OpenAI for each tenant in 
 
 ## Features of Azure OpenAI Service that support multitenancy
 
-### Managed identities
-
-Use Microsoft Entra managed identities to provide access to Azure OpenAI from other resources that are authenticated by Microsoft Entra ID. When you use managed identities, you don't need to use an Azure OpenAI API key. You can also use managed identities to grant fine-grained permissions to your Azure OpenAI identity using RBAC.
-
-When you use managed identities, consider your isolation model. For more information, see [Azure OpenAI with managed identities](/azure/ai-services/openai/how-to/managed-identity).
-
 ### Assistants API
 
 The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that make it suitable for creating advanced AI assistants. It enables you to track conversational threads centrally instead of inside your own solution , and to generate and execute code within a sandboxed environment.
