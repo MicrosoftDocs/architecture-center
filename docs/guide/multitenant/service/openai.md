@@ -70,9 +70,9 @@ The following diagram illustrates the shared Azure OpenAI model.
 
 :::image type="content" source="./media/openai/openai-shared.svg" alt-text="Diagram that shows the shared Azure OpenAI model." border="false" lightbox="./media/openai/openai-shared.svg":::
 
-#### Dedicated dodel deployment
+#### Dedicated model deployment
 
-#### Shared dodel deployment
+#### Shared model deployment
 
 When you use a shared Azure OpenAI instance, deploying individual instances of the same model for each tenant can offer significant benefits. This approach provides enhanced parameter customization for each deployment. It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. This approach can optimize resource utilization to ensure that each tenant only pays for their required resources, which ensures a cost-effective solution. This approach also promotes scalability and adaptability because tenants can adjust their resource allocation based on their evolving needs and usage patterns.
 
