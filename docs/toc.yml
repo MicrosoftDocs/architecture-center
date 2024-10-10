@@ -3421,16 +3421,6 @@ items:
     items:
     - name: Overview
       href: industries/government.md
-    - name: Architectures
-      items:
-      - name: All government architectures
-        href: /azure/architecture/browse/?terms=government
-      - name: Azure Virtual Desktop for the enterprise
-        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
-      - name: Computer forensics chain of custody
-        href: example-scenario/forensics/index.yml
-      - name: Hybrid security monitoring in Azure
-        href: hybrid/hybrid-security-monitoring.yml
   - name: Manufacturing
     items:
     - name: Overview
