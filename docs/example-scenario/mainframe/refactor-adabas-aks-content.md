@@ -38,9 +38,9 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 1. **Input.** Input typically occurs either via Azure ExpressRoute from remote clients or via other applications currently running Azure. In either case, TCP/IP connections are the primary means of connection to the system. TLS port 443 provides access to web-based applications. You can leave the web-based applications presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update this layer with modern UX frameworks per your requirements. For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
 
-1. **Access in Azure.** In Azure, access to the application compute clusters is provided via an Azure load balancer. This approach allows scale-out compute resources to process the input work. You can use either level 7 (application level) or level 4 (network protocol level) load balancers. However, the type of load balancer that you use depends on how the application input reaches the entry point of the compute cluster. We recommend that you use Azure Application Gateway with web application firewall capabilities for layer 7 traffic.
+1. **Access in Azure.** In Azure, access to the application compute clusters is provided via an Azure load balancer. This approach allows scale-out compute resources to process the input work. Both level 7 (application level) and level 4 (network protocol level) load balancers are available. The type that you use depends on how the application input reaches the entry point of the compute cluster.  
 
-1. **Application compute clusters.** The architecture supports applications that run in a container that can be deployed in Azure Kubernetes Service (AKS). Adabas & Natural components can run inside Linux-based containers. You can re-architect your legacy applications to modern container-based architectures and operate on top of AKS.
+1. **Application compute clusters.** The architecture supports applications that run in a container that can be deployed in a container orchestrator like Kubernetes. Adabas & Natural components can run inside container technology operated on top of a Linux operating system. You can re-architect your legacy applications to modern container-based architectures and operate on top of Azure Kubernetes Service (AKS).
 
 1. **ApplinX terminal emulation** (Software AG). ApplinX is a server-based technology that provides web connectivity and integration into core system applications without requiring changes to the applications. **Natural Online** enables online users to connect to Natural applications via a web browser. Without ApplinX, users need to connect with terminal emulation software by using SSH. Both systems run in containers.
 
@@ -48,19 +48,19 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 1. **Adabas** (Software AG). Adabas is a high performance NoSQL database management system. **Natural batch** (Software AG) is a dedicated component for running batch jobs. Natural batch jobs, which are scheduled by a batch job scheduling system that you choose, should run on the same node as the Adabas database to avoid performance impact.
 
-1. **Storage**. Data services use a combination of high performance storage (ultra / premium SSD), file storage (NetApp), and standard storage (Blob, archive, backup) that can be either local redundant or geo-redundant, depending on the use. Node operating systems use managed disk storage. All persistent data, like database files, protection logs, application data, and backup, use Azure NetApp Files. AKS manages operating system volumes that are stored in managed disks. All business-critical data from the databases, including ASSO, DATA, WORK files, and Adabas protection logs, should be written to separate volumes in Azure NetApp Files.
+1. **Storage**. Data services use a combination of high performance storage (ultra / premium SSD), file storage (NetApp), and standard storage (Blob, archive, backup) that can be either local redundant or geo-redundant, depending on the use. Node operating systems use managed disk storage. All persistent data, like database files, protection logs, application data, and backup, use Azure NetApp Files. AKS manages operating system volumes that are stored in managed disks. All business-critical data from the databases, including ASSO, DATA, WORK files, and Adabas protection logs, should be written to separate volumes that can be provided by Azure NetApp Files.
 
-1. **CONNX**. The CONNX for Adabas module provides highly secure, real-time read/write access to Adabas data sources on OS/390, z/OS, VSE, Linux, Solaris, HP-UX, AIX, and Windows via .NET, ODBC, OLE DB, and JDBC. CONNX provides a data virtualization layer that uses connectors to Adabas and other data sources, like Azure SQL Database, Azure Database for PosgreSQL, and Azure Database for MySQL.
+1. **CONNX**. The CONNX for Adabas module provides highly secure, real-time read/write access to Adabas data sources on OS/390, z/OS, VSE, Linux, Solaris, HP-UX, AIX, and Windows via .NET, ODBC, OLE DB, and JDBC. CONNX connectors provide access to Adabas data sources and expose them to more common databases, like Azure SQL Database, Azure Database for PosgreSQL, and Azure Database for MySQL.
 
 ### Components  
 
-- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. Alternately, or as a backup, you can establish connections by using Azure VPN Gateway. However, we recommend that you use ExpressRoute so that you can connect to the Azure environment through an enhanced-security, high-speed private connection.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365.
 
-- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance. In this scenario, Adabas & Natural containers are deployed in AKS. 
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, integrated continuous integration and continuous delivery (CI/CD), and enterprise-grade security and governance.
 
-- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture. In this scenario, all operating system volumes are stored in Azure managed disks. 
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture.
 
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy to migrate and run complex, file-based applications without changing code. In this scenario, all persistent data, like database files, protection logs, application data, and backups, use Azure NetApp Files
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy to migrate and run complex, file-based applications without changing code.
 
 ## Scenario details
 
@@ -70,7 +70,7 @@ Many organizations are looking for ways to modernize these systems. They're look
 
 Software AG provides a popular 4GL mainframe platform that's based on the Natural programming language and the Adabas database.
 
-Two of the cloud rationalization patterns allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based-approach), later in this article.
+There are two patterns that allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-overview#migration-patterns). This article describes how to refactor an application by using containers that are managed in AKS. For more information, see [Container-based approach](#container-based-approach), later in this article.
 
 ### Potential use cases
 
@@ -86,49 +86,21 @@ Adabas & Natural containers run in pods, each of which performs a specific task.
 
 Containerized services and their associated networking and storage components need to be orchestrated and managed. We recommend AKS, a managed Kubernetes service that automates cluster and resource management. You designate the number of nodes you need, and AKS fits your containers onto the right nodes to make the best use of resources. AKS also supports automated rollouts and rollbacks, service discovery, load balancing, and storage orchestration. And AKS supports self-healing: if a container fails, AKS starts a new one. In addition, you can safely store secrets and configuration settings outside of the containers.
 
-The architecture diagram in this article shows a container-based implementation of Adabas & Natural. When you set up AKS, you specify the Azure VM size for your nodes, which defines the storage CPUs, memory, and type, like high-performance solid-state drives (SSDs) or regular hard disk drives (HDDs). Natural should run on three or more VM instances (nodes) to boost scalability and availability of the user interface (Natural online plus ApplinX) and the API layer (Natural services plus EntireX).
+The architecture diagram in this article shows a container-based implementation of Adabas & Natural. When you set up AKS, you specify the Azure VM size for your nodes, which defines the storage CPUs, memory, and type, like high-performance solid-state drives (SSDs) or regular hard disk drives (HDDs). In this example, Natural runs on three VM instances (nodes) to boost scalability and availability of the user interface (Natural online plus ApplinX) and the API layer (Natural services plus EntireX).
 
 In the data layer, Adabas runs in the AKS cluster, which scales in and out automatically based on resource use. You can run multiple components of Adabas in the same pod or, for greater scale, AKS can distribute them across multiple nodes in the cluster. Adabas uses Azure NetApp Files, a high-performance, metered file storage service, for all persistent data, like database files, protection logs, app data, and backup.
 
-Place Natural batch pods in the same availability zone (datacenter) as Adabas pods. You should use [proximity placement groups](/azure/aks/reduce-latency-ppg) to place Adabas and Natural batch pods in the same node pool within the same availability zone.
-
-### Security  
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
-
-This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. The refactored containers should be deployed to a private AKS cluster with inbound access through a private API server and internal IP addresses. All outbound traffic should be routed through an egress firewall layer.
-
-### Cost optimization
-
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist](/azure/well-architected/cost-optimization/checklist) for Cost Optimization.
-
-- Use the [cluster autoscaler](/azure/aks/cluster-autoscaler) and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions. Adabas pods can use horizontal pod autoscaler for cost optimization.
-
-- Use the [vertical pod autoscaler](/azure/aks/vertical-pod-autoscaler) to analyze and set CPU and memory resources that pods require. This approach optimizes resource allocation.
-
-- Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools based on workload requirements.
-
-- Create [multiple node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
-  
-- Choose the right [service levels](/azure/azure-netapp-files/azure-netapp-files-service-levels) and [capacity pool size](/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for Azure NetApp Files. For cost management recommendations, see [Cost model for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-cost-model).
-  
-- Use [reserved capacity](/azure/azure-netapp-files/reservations) for Azure NetApp Files. 
-  
-- To monitor and optimize costs, use cost management tools like [Azure Advisor](/azure/advisor/advisor-overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
-
-- To estimate usage costs, use the [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator).
-
-- To improve cost tracking and management, use [Azure tags](/azure/azure-resource-manager/management/tag-resources) to associate AKS resources with specific workloads.  
-
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+### Operations
 
 Refactoring supports faster cloud adoption. It also promotes adoption of DevOps and Agile working principles. You have full flexibility of development and production deployment options.
 
 ### Performance efficiency  
 
 Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of nodes based on the requested compute resources in the node pool. It monitors the Metrics API server every 10 seconds for any required changes in node count. If the cluster autoscaler determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly.  
+
+### Security  
+
+This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades.
 
 ## Contributors
 
