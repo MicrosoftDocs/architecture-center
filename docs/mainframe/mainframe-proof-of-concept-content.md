@@ -121,7 +121,7 @@ When you adopt an Azure pay-as-you-go model, consider the following factors.
 
 **File-processing patterns.** Identify and test various file-processing patterns during the POC. You should assess the file volume, size, and types, such as the virtual storage access method (VSAM), generation data groups (GDGs), physical sequential datasets, and key-sequenced datasets (KSDSs). Also assess file operations, like sequential and keyed reads. For example, determine how the Azure solution manages and catalogs GDG files in a cloud environment. Similarly, if you migrate databases, test for database operation patterns and capabilities.
 
-**Microsoft support.** The Microsoft Legacy Modernization team has Azure Core Engineering (ACE) resources, such as Global Black Belts, Data Ninjas, and Cloud Solution Architects. For a solution platform design, you can use the [mainframe landing zone accelerator](https://github.com/lapate/azure-mainframe-landing-zone-public). The Microsoft Mainframe Modernization team can also help to define an architecture that's specific to a solution path. Use their guidance to accelerate deployment and improve the solution in Azure.
+**Microsoft support.** The Microsoft Legacy Modernization team has Azure Core Engineering (ACE) resources, such as Global Black Belts, Data Ninjas, and Cloud Solution Architects. For a solution platform design, you can use the [mainframe landing zone accelerator](https://github.com/azure/azure-mainframe-landing-zone-public). The Microsoft Mainframe Modernization team can also help to define an architecture that's specific to a solution path. Use their guidance to accelerate deployment and improve the solution in Azure.
 
 ## Define POC exit criteria
 
