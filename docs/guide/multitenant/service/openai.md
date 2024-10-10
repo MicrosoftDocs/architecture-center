@@ -32,7 +32,7 @@ When you have a multitenant system that uses Azure OpenAI service, you need to d
 
 The following table summarizes the deployment approaches you can use when using Azure OpenAI Service in a multitenant system:
 
-| Consideration | Dedicated Azure OpenAI service | Shared Azure OpenAI service, dedicated model depoloyment | Shared Azure OpenAI service, shared model deployment | Customer provided Azure OpenAI service |
+| Consideration | Dedicated Azure OpenAI service | Shared Azure OpenAI service, dedicated model deployment per tenant | Shared Azure OpenAI service, shared model deployment | Tenant-provided Azure OpenAI service |
 |-|-|-|-|-|
 | **Data isolation** | High | Medium | Low | High |
 | **Performance isolation** | High | High | Low-medium, depending on the token per minute (TPM) usage for each tenant. | High |
@@ -79,7 +79,7 @@ When you use a shared Azure OpenAI instance, deploying individual instances of t
 > [!NOTE]
 > When you customize models for unique needs, you need to consider the approaches that are available. Every tenant might have distinct requirements and use cases. You might not use fine-tuning for most use cases. Explore other options, such as grounding. Take the time to evaluate these factors to help ensure that you choose the approach that best meets your needs.
 
-### Customer provided Azure OpenAI resource
+### Tenant-provided Azure OpenAI resource
 
 In some situations, your tenants might create the Azure OpenAI instance in their own Azure subscriptions and grant your application access to it. This approach might be appropriate in the following situations:
 
@@ -94,13 +94,13 @@ To access an Azure OpenAI instance in your tenant's subscription, the tenant mus
 1. The tenant provides the resource ID of the Azure OpenAI resource that they create.
 1. Your application code can use a service principal that's associated with the multitenant Microsoft Entra application in your own Microsoft Entra instance to access the tenant's Azure OpenAI instance.
 
-Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. This approach requires that you securely store and manage credentials for each tenant, which is a potential security liability. If your tenants configure network access controls on their Azure OpenAI instance, ensure that you can access them.
+Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. This approach requires that you securely store and manage credentials for each tenant, which is a potential security liability.
+
+If your tenants configure network access controls on their Azure OpenAI instance, ensure that you can access them.
 
 The following diagram illustrates the model for Azure OpenAI for each tenant in the tenant's subscription.
 
 :::image type="content" source="./media/openai/openai-tenants-subscription.svg" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the tenant's subscription." border="false" lightbox="./media/openai/openai-tenants-subscription.svg":::
-
-
 
 ## Managed identities
 
