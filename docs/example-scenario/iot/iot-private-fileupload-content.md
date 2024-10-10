@@ -2,7 +2,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-In typical Azure IoT deployments, the client devices need to communicate directly with the Azure Storage account to upload files. So, the Storage account must allow incoming Internet traffic. However, for customers with stricter landing zone and networking requirements, a common practice involves restricting access to the Storage account from within a private network.
+In typical Azure IoT deployments, the client devices need to communicate directly with the Azure Storage account to upload files. So, the Storage account must allow incoming Internet traffic. However, for stricter network segmentation requirements, a common practice involves restricting access to the Storage account from within a private network.
 This solution proposes a strategy that blocks direct Internet traffic to the Storage account. Instead, only traffic routed through the inbound Application Gateway is permitted. Additionally, this setup allows for traffic inspection via Azure Firewall, providing an extra layer of security.
 
 ## Architecture
