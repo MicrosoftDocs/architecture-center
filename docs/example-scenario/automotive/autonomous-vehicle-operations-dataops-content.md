@@ -319,6 +319,12 @@ Principal authors:
 
 ## Related resources
 
+For more information about how to develop ValOps for an AD system, see:
+> [!div class="nextstepaction"]
+> [Validation operations for autonomous vehicle operations](./autonomous-vehicle-validation-operations.yml)
+
+You might also be interested in these related articles:
+
 - [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
