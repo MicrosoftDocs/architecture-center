@@ -1,4 +1,4 @@
-This guide shows how Microsoft security solutions can secure and protect Amazon Web Services (AWS) account access and environments.
+This guide shows how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 
 This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
