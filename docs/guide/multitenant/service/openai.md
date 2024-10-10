@@ -81,7 +81,11 @@ When you use a shared Azure OpenAI instance, deploying individual instances of t
 
 ### Customer provided Azure OpenAI resource
 
-In some situations, your tenants might create the Azure OpenAI instance in their own Azure subscriptions and grant your application access to it. This approach is appropriate when tenants have specific quotas and permissions from Microsoft, such as access to the latest models, less strict filtering, or the use of provisioned throughput. You can also use this approach if the tenant has a fine-tuned model. Or if they require a component in their environment to process and send data via their customer-managed Azure OpenAI instance for processing.
+In some situations, your tenants might create the Azure OpenAI instance in their own Azure subscriptions and grant your application access to it. This approach might be appropriate in the following situations:
+
+- Tenants have specific quotas and permissions from Microsoft, such as access to different models, specific content filtering policies, or the use of provisioned throughput.
+- The tenant has a fine-tuned model they need to use from your solution.
+- They require a component in their environment to process and send data through their customer-managed Azure OpenAI instance for processing.
 
 To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through their Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/azure/active-directory/develop/single-and-multi-tenant-apps). The following workflow outlines the steps of this approach:
 
