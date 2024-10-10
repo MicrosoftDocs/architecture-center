@@ -18,6 +18,7 @@ metadata:
     - example-scenario
     - internal-intro
     - arb-integrations
+    - arb-web
 name: Publish internal APIs to external users
 azureCategories:
   - integration

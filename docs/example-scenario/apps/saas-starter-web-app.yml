@@ -11,6 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - arb-saas
+    - arb-web
   ms.category:
     - web
 name: Starter web app for SaaS development

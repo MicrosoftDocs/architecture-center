@@ -12,6 +12,7 @@ metadata:
   ms.subservice: architecture-guide
   ms.custom:
     - devx-track-dotnet
+    - arb-web
 azureCategories:
   - migration
   - web
