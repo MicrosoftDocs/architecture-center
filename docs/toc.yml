@@ -3147,12 +3147,8 @@ items:
       href: industries/finance.md
     - name: Architectures
       items:
-      - name: Automate document processing
-        href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
       - name: Location-based conditional access control
         href: example-scenario/financial/location-based-access.yml
-      - name: Modernize mainframe & midrange data
-        href: example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
       - name: Murex MX.3 on Azure
         items:
         - name: Host a Murex MX.3 workload on Azure using Oracle
