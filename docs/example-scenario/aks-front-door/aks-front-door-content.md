@@ -53,7 +53,7 @@ The following steps describe the message flow for a request that an external cli
 The architecture consists of the following components:
 
 - A public or private [AKS cluster](https://azure.microsoft.com/services/kubernetes-service) is composed of the following node pools:
-  - A *system node pool* in a dedicated subnet. The default node pool hosts only critical system pods and services. The worker nodes have node taint, so application pods can't be scheduled on this node pool.
+  - A *system node pool* in a dedicated subnet. The default node pool hosts only critical system pods and services. The system nodes have a node taint, so application pods can't be scheduled on this node pool.
 
   - A *user node pool* that hosts user workloads and artifacts in a dedicated subnet.
 

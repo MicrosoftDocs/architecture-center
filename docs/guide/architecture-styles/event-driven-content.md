@@ -63,6 +63,10 @@ There are two primary topologies within many event-driven architectures:
 
   Event-driven architecture uses mainly asynchronous communication. A challenge with asynchronous communication is error handling. One way to address this issue is to use a separate error-handler processor. So, when the event consumer experiences an error, it immediately and asynchronously sends the erroneous event to the error-handler processor and moves on. The error-handler processor tries to fix the error and sends the event back to the original ingestion channel. But if the error-handler processor fails, then it can send the erroneous event to an administrator for further inspection. If you use an error-handler processor, erroneous events will be processed out of sequence when they are resubmitted.
 
+- Data loss.
+
+  Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never makes it into the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component has acknowledged the receipt of the event. These features are usually known as _client acknowledge mode_ and _last participant support_.
+
 ### Additional considerations
 
 - The amount of data to include in an event can be a significant consideration that affects both performance and cost. Putting all the relevant information needed for processing in the event itself can simplify the processing code and save additional lookups. Putting the minimal amount of information in an event, like just a couple of identifiers, will reduce transport time and cost, but requires the processing code to look up any additional information it needs. For more information on this, take a look at [this blog post](https://particular.net/blog/putting-your-events-on-a-diet).
