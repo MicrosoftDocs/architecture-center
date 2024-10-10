@@ -319,7 +319,7 @@ Principal authors:
 
 ## Related resources
 
-For more information about how to develop ValOps for an AD system, see:
+For more information about how to develop ValOps for an autonomous driving system, see:
 > [!div class="nextstepaction"]
 > [Validation operations for autonomous vehicle operations](./autonomous-vehicle-validation-operations.yml)
 
