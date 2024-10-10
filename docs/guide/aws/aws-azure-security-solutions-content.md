@@ -18,7 +18,7 @@ AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud 
 
 - Integration with AWS IAM Identity Center for enhanced security, improved user experience, centralized access control, and SSO across legacy, traditional, and modern authentication solutions.
 
-- Microsoft Entra multifactor authentication, including integration with several third-party solutions from [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
+- Microsoft Entra multifactor authentication, including integration with several third-party solutions from [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association) partners.
 
 - Powerful Conditional Access features for strong authentication and strict governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to authenticate and authorize user access to the AWS Management Console and AWS resources. 
 
@@ -34,7 +34,7 @@ Permissions Management is a cloud infrastructure entitlement management soluti
 
 - Discover the number of unused or excessive permissions across all AWS accounts to identify risks via a multidimensional view of identities, permissions, and resources. 
 
-- Remediate and right-size permissions via enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) policy across all AWS accounts.
+- Remediate and right-size permissions via enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) principle across all AWS accounts.
 
 - Monitor and alert anomalous activities to help prevent data breaches caused by misuse and malicious exploitation of permissions.
 
