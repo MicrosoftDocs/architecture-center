@@ -129,17 +129,17 @@ When you use managed identities, consider your isolation model. For more informa
 
 ### Assistants API
 
-The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service. It enables you to do things like track conversational threads without managing them in your application, and to generate and execute code in a sandboxed environment. It also enables you to define core functionality of an assistant.
+The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that make it suitable for creating advanced AI assistants. It enables you to track conversational threads centrally instead of inside your own solution , and to generate and execute code within a sandboxed environment.
 
-If you define an assistant per tenant, isolate the data by the tenant ID. If you're creating a shared assistant for multiple tenants, you still need to filter things like chat data per tenant, annd maintain threads for each tenant.
+If you share an assistant among multiple tenants, it's critical that you consider how you'll isolate data like conversational threads. Ensure that you track the tenant ID so that you can filter by tenant.
 
-Any functions calls that are made needs to be multitenant aware, such as by including the tenant ID in the function args.
+The Assistants API supports function invocation, which sends your application instructions on functions to invoke and arguments to include. Ensure that any functions calls you make are multitenant-aware, such as by including the tenant ID in the call to the downstream system. Verify the tenant ID within your application, and don't rely on the language model to propagate the tenant ID for you.
 
 ### Azure OpenAI On Your Data
 
-Azure OpenAI On Your Data enables the large language model to query your data sources (knwoledge sources) directly rather than doing it in your app.
+Azure OpenAI On Your Data enables the large language model to directly query knowledge sources, like indexes and databases, as part of generating a response from the language model.
 
-Can specificy data sources as part of a request. If you do that, make sure to make it tenant-aware. If you have multiple tenants in the same index, you need to filter to only include the current tenant's ID. If you use an index per tenant, you need to select the correct index for the current tenant.
+When you make a request, you can specify the data sources that should be queried. Ensure that these requests are tenant-aware, and propagate the tenant ID through to the data source appropriately. For example, suppose you're querying Azure AI Search. If you have data for multiple tenants in a single index, specify a filter to limit the retrieved results to the current tenant's ID. Or, if you've created an index for each tenant, ensure that you specify the correct index for the current tenant.
 
 ## Contributors
 
