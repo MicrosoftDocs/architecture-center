@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process that uses Azure Databricks. Data scientists and engineers can use this standardized process to move machine learning models and pipelines from development to production. These recommendations includes options for automated or manual processes.
+This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process that uses Azure Databricks. Data scientists and engineers can use this standardized process to move machine learning models and pipelines from development to production. These recommendations include options for automated or manual processes.
 
 ## Architecture
 
@@ -16,7 +16,7 @@ The following workflow corresponds to the preceding diagram. Use source control 
 
 **Lakehouse production data:** As a data scientist, you have read-only access to production data in the development environment. The development environment can have mirrored data and redacted confidential data. You also have read and write access in a dev storage environment for development and experimentation. We recommend that you use a [lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture for data in which you store [Delta Lake](/azure/databricks/delta)-format data in [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). A lakehouse provides a robust, scalable, and flexible solution for data management. To define access controls, use [Microsoft Entra ID credential passthrough](/azure/databricks/security/credential-passthrough/adls-passthrough) or [table access controls](/azure/databricks/administration-guide/access-control/table-acl).
 
-The following environments comprise the main components of the workflow.
+The following environments comprise the main workflow.
 
 #### Development
 
@@ -61,7 +61,7 @@ Machine learning engineers manage the production environment, where machine lear
 
 ### Components
 
-- [**Data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html). A lakehouse architecture unifies the best elements of data lakes and data warehouses. Use a lakehouse to get data management and performance capabilities that are typically found in data warehouses but with the low-cost, flexible object stores that data lakes offer.
+- A [**data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the best elements of data lakes and data warehouses. Use a lakehouse to get data management and performance capabilities that are typically found in data warehouses but with the low-cost, flexible object stores that data lakes offer.
 
   - [**Delta Lake**](https://delta.io) is the recommended open-source data format for a lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
 
@@ -93,7 +93,7 @@ You can tailor this solution to your Azure infrastructure. Consider the followin
 
 This solution provides a robust MLOps process that uses Azure Databricks. You can replace all elements in the architecture, so you can integrate other Azure services and partner services as needed. This architecture and description are adapted from the e-book [The Big Book of MLOps](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops). The e-book explores this architecture in more detail.
 
-MLOps helps to reduce the risk of failures in machine learning and AI systems and to improve the efficiency of collaboration and tooling. For an introduction to MLOps and an overview of this architecture, see [Architect MLOps on the lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
+MLOps helps reduce the risk of failures in machine learning and AI systems and improves the efficiency of collaboration and tooling. For an introduction to MLOps and an overview of this architecture, see [Architect MLOps on the lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
 
 Use this architecture to:
 
