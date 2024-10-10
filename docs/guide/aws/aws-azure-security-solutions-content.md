@@ -6,77 +6,77 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/1985346_aws-azure-security-solutions-architecture.pptx) of this diagram.*
 
-### Microsoft Entra
+## Microsoft Entra
 
-### Centralized Identity and Access Management
+### Centralized identity and access management
 
-Microsoft Entra ID is a cloud-based, comprehensive, centralized identity and access management solution that can help secure and protect AWS accounts and environments.
+Microsoft Entra ID is a comprehensive, cloud-based centralized identity and access management solution that can help secure and protect AWS accounts and environments.
 
-Microsoft Entra ID provides strong SSO authentication to almost any app or platform that follows common web authentication standards, including AWS. Amazon Web Services (AWS) accounts that support critical workloads and highly sensitive information need strong identity protection and access control. AWS identity management is enhanced when combined with Microsoft Entra ID.
+Microsoft Entra ID provides strong SSO authentication to almost any app or platform that follows common web authentication standards, including AWS. AWS accounts that support critical workloads and highly sensitive information need strong identity protection and access control. AWS identity management is enhanced when you combine it with Microsoft Entra ID.
 
-AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without additional cost.  Microsoft Entra ID offers several capabilities for direct integration with AWS:
+AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily deploy Microsoft Entra ID for AWS accounts, often without incurring additional costs. Microsoft Entra ID provides several capabilities for direct integration with AWS:
 
-- Entra ID integration with AWS IAM Identity Center provides SSO, enhanced security, improved user experience and centralized access control.SSO across legacy, traditional, and modern authentication solutions.
+- Integration with AWS IAM Identity Center for enhanced security, improved user experience, centralized access control, and SSO across legacy, traditional, and modern authentication solutions.
 
-- Multi factor authentication via Azure MFA including integration with several third-party solutions from [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
+- Microsoft Entra multifactor authentication, including integration with several third-party solutions from [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/business/intelligent-security-association) partners.
 
--  Powerful Conditional Access features for strong authentication and strict governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to       authentictae and authorize user access to the AWS Management Console and AWS resources. 
+- Powerful Conditional Access features for strong authentication and strict governance. Microsoft Entra ID uses Conditional Access policies and risk-based assessments to authenticate and authorize user access to the AWS Management Console and AWS resources. 
 
-- Protection from identity based attacks with real time detection and remediation of risky sign-ins and unusual user behavior with Entra ID protection.
+- Improved protection from identity-based attacks with real-time detection and remediation of risky sign-ins and unusual user behavior.
 
-- Privileged Identity Management (PIM) to enable Just-In-Time (JIT) provisioning specific resources. You can expand PIM to any delegated permission by controlling access     to custom groups, such as the ones you created for access to AWS roles.
+- Privileged Identity Management (PIM) to enable just-in-time provisioning of specific resources. You can expand PIM to any delegated permission by controlling access to custom groups, like groups you create for access to AWS roles.
 
 For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security). 
 
-### Entra Permissions Management
+### Microsoft Entra Permissions Management
 
-Microsoft Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) product that provides comprehensive visibility and control over permissions on identities, actions, and resources across multicloud infrastructure in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). You can use Microsoft Entra Permissions Management to:
+Permissions Management is a cloud infrastructure entitlement management solution that provides comprehensive visibility into and control over permissions on identities, actions, and resources across multicloud infrastructure on Azure, AWS, and Google Cloud Platform. You can use Permissions Management to:
 
-- Discover the number of unused or excessive permissions across all AWS accounts to identify the risk with a multi-dimensional view of identities, permissions, and resources. 
+- Discover the number of unused or excessive permissions across all AWS accounts to identify risks via a multidimensional view of identities, permissions, and resources. 
 
-- Remediate and right size the permissions with enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) policy across all AWS accounts.
+- Remediate and right-size permissions via enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) policy across all AWS accounts.
 
-- Monitor and alert anomalous activities to prevent data breaches that are caused by misuse and malicious exploitation of permissions
+- Monitor and alert anomalous activities to help prevent data breaches caused by misuse and malicious exploitation of permissions.
 
 For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws). 
 
-### __Microsoft Defender for Cloud Apps__
+### Microsoft Defender for Cloud Apps
 
-When several users or roles make administrative changes, a consequence can be _configuration drift_ away from intended security architecture and standards. Security standards can also change over time. Security personnel must constantly and consistently detect new risks, evaluate mitigation options, and update security architecture to prevent potential breaches. Security management across multiple public cloud and private infrastructure environments can become burdensome.
+When several users or roles make administrative changes, _configuration drift_ away from intended security architecture and standards can occur. Security standards can also change over time. Security personnel must constantly and consistently detect new risks, evaluate mitigation options, and update security architecture to help prevent potential breaches. Security management across multiple public cloud and private infrastructure environments can become burdensome.
 
-Microsoft Defender for Cloud Apps delivers full protection for SaaS applications, helping you monitor and protect your cloud app data across the following feature areas:
+Defender for Cloud Apps provides enhanced protection for software as a service (SaaS) applications, helping you to monitor and protect your cloud app data across the following feature areas:
 
-- __Fundamental Cloud Access Security Broker (CASB) functionality__, such as Shadow IT discovery, visibility into cloud app usage, protection against app-based threats from anywhere in the cloud, and information protection and compliance assessments.
+- __Fundamental Cloud Access Security Broker functionality__, including shadow IT discovery, visibility into cloud app usage, enhanced protection against app-based threats from anywhere in the cloud, and information protection and compliance assessments.
 
-- __SaaS Security Posture Management (SSPM) features__, enabling security teams to improve the organization’s security posture
+- __SaaS Security Posture Management features__ that enable security teams to improve the organization's security posture.
 
-- __Advanced threat protection__, as part of Microsoft's extended detection and response (XDR) solution, enabling powerful correlation of signal and visibility across the full kill chain of advanced attacks
+- __Advanced threat protection__, as part of the Microsoft extended detection and response solution, which enables powerful correlation of signal and visibility across the full cyberattack chain of advanced attacks.
 
-- __App-to-app protection__, extending the core threat scenarios to OAuth-enabled apps that have permissions and privileges to critical data and resources.
+- __App-to-app protection__, which extends the core threat scenarios to OAuth-enabled apps that have permissions and privileges to critical data and resources.
 
-Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities, notifying on possible brute force attacks, malicious use of a privileged user account, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps protects AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control.  Below are the Defender for Cloud apps capabilities are especially useful when working with AWS environments.
+Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities. You get notifications of possible brute force attacks, malicious use of privileged user accounts, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps helps protect AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. The following Defender for Cloud Apps capabilities are especially useful when you work with AWS environments.
 
-- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware) - Defender for Cloud Apps anomaly detection policies are triggered when there are unusual activities performed by the users in AWS. Defender for Cloud Apps continually monitors your users' activities and uses UEBA and ML to learn and understand the *normal* behavior of your users and trigger alerts on any deviations.
+- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware). Defender for Cloud Apps anomaly detection policies are triggered when there are unusual activities performed by users in AWS. Defender for Cloud Apps continually monitors your users' activities and uses UEBA and machine learning to learn and understand the normal behavior of your users and trigger alerts on any deviations.
 
-- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices) -  Automate governance controls with actions such as notifying users on alerts, requiring re-authentication, or suspending users, making an S3 bucket private, or removing collaborators from an S3 bucket.
+- [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices). Automate governance controls via actions like notifying users about alerts, requiring re-authentication or suspending users, making an S3 bucket private, or removing collaborators from an S3 bucket.
 
-- [Audit trail](/defender-cloud-apps/protect-aws?branch=main)[ ](/defender-cloud-apps/best-practices?branch=main)- connect AWS auditing to Defender for Cloud apps activities of Visibility into user activities, admin activities, sign-in activities.
+- [Audit activities](/defender-cloud-apps/best-practices). Connect AWS auditing to Defender for Cloud apps to get visibility into user, admin, and sign-in activities.
 
-- [Protect AWS in real time](/defender-cloud-apps/proxy-intro-aad)  -  Leverage Defeneder for cloud apps conditional access app control to block and protect the download of sensitive data located in AWS by risky users.
+- [Get enhanced real-time protection for AWS](/defender-cloud-apps/proxy-intro-aad). Use Defender for Cloud Apps Conditional Access app control to block and help protect downloads of sensitive AWS data by risky users.
 
- For more information on how to connect AWS environments with Defender for Cloud Apps, see -  [Protect your Amazon Web Services environment - Microsoft Defender for Cloud Apps | Microsoft Learn](/defender-cloud-apps/protect-aws)
+For more information on how to connect AWS environments to Defender for Cloud Apps, see [Protect your Amazon Web Services environment](/defender-cloud-apps/protect-aws).
 
-### __Microsoft Defender for Cloud__
+### Microsoft Defender for Cloud
 
-Microsoft Defender for Cloud is a Cloud-Native Application Protection Platform (CNAPP) that is made up of security measures and practices that are designed to protect cloud-based applications from various cyber threats and vulnerabilities. Defender for Cloud combines the capabilities of:
+Defender for Cloud is a Cloud-Native Application Protection Platform that's made up of security measures and practices that are designed to protect cloud-based applications from various cyberthreats and vulnerabilities. Defender for Cloud provides the following capabilities:
 
-- A development security operations (DevSecOps) solution that unifies security management at the code level across multicloud and multiple-pipeline environments
+- A development security operations solution that unifies security management at the code level across multicloud and multiple-pipeline environments
 
-- A Cloud Security Posture Management (CSPM) solution that surfaces actions that you can take to prevent breaches
+- A cloud security posture management (CSPM) solution that surfaces actions that you can take to help prevent breaches
 
-- A Cloud Workload Protection Platform (CWPP) with specific protection for servers, containers, storage, databases, and other workloads.
+- A cloud workload protection platform (CWPP) that provides protection for servers, containers, storage, databases, and other workloads
 
-Microsoft Defender for Cloud’s native AWS support provides several benefits to your organization:
+Defender for Cloud native AWS support provides several benefits:
 
 - Foundational CSPM for AWS resources
 
@@ -86,55 +86,54 @@ Microsoft Defender for Cloud’s native AWS support provides several benefits to
 
 - CWPP support for AWS EC2 instances
 
-- CWPP support for SQL servers running on AWS EC2, RDS Custom for SQL Server
+- CWPP support for SQL servers running on AWS EC2 and RDS Custom for SQL Server
 
-The CSPM (both foundational capabilities and Defender CSPM) for AWS resources is <u>completely agentless.</u>  Foundational CSPM provides recommendations on how to best harden your AWS resources and remediate misconfigurations. Important Note: Defender for cloud offers foundational multicloud CSPM capabilities for free. 
+The foundational CPSM and Defender CSPM are both completely agentless. Foundational CSPM provides recommendations on how to best harden your AWS resources and remediate misconfigurations. Defender for Cloud offers foundational multicloud CSPM capabilities for free. 
 
-Defender CSPM provides you advanced posture management capabilities such as [Attack path analysis](/azure/defender-for-cloud/how-to-manage-attack-path), [Cloud security explorer](/azure/defender-for-cloud/how-to-manage-cloud-security-explorer), advanced threat hunting, [security governance capabilities](/azure/defender-for-cloud/concept-regulatory-compliance), and also tools to assess your [security compliance](/azure/defender-for-cloud/review-security-recommendations) with a wide range of benchmarks, regulatory standards, and any custom security policies required in your organization, industry, or region.
+Defender CSPM provides advanced posture management capabilities like [attack path analysis](/azure/defender-for-cloud/how-to-manage-attack-path), [cloud security explorer](/azure/defender-for-cloud/how-to-manage-cloud-security-explorer), advanced threat hunting, [security governance capabilities](/azure/defender-for-cloud/concept-regulatory-compliance). It also provides tools to assess your [security compliance](/azure/defender-for-cloud/review-security-recommendations) with a wide range of benchmarks, regulatory standards, and any custom security policies required in your organization, industry, or region.
 
-The CWPP support for AWS EC2 instances offers a wide set of capabilities, including automatic provisioning of pre-requisites on existing and new machines, vulnerability assessment, integrated license for Microsoft Defender for Endpoint (MDE), file integrity monitoring and [more](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud).
+The CWPP support for AWS EC2 instances provides capabilities like automatic provisioning of prerequisites on existing and new machines, vulnerability assessment, an integrated license for Microsoft Defender for Endpoint, file integrity monitoring, and [more](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud).
 
-The CWPP support for Amazon EKS clusters offers a wide set of capabilities including discovery of unprotected clusters, advanced threat detection for the control plane and workload level, Kubernetes data plane recommendations (through the Azure Policy extension) and [more](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=aws-eks).
+The CWPP support for Amazon EKS clusters provides capabilities like discovery of unprotected clusters, advanced threat detection for the control plane and workload level, Kubernetes data plane recommendations (via the Azure Policy extension), and [more](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=aws-eks).
 
-The CWPP support for SQL servers running on AWS EC2, AWS RDS Custom for SQL Servers offers a wide set of capabilities, including advanced threat protection, vulnerability assessment scanning, and [more](/azure/defender-for-cloud/defender-for-sql-introduction).
+The CWPP support for SQL servers running on AWS EC2 and AWS RDS Custom for SQL Server provides capabilities like advanced threat protection, vulnerability assessment scanning, and [more](/azure/defender-for-cloud/defender-for-sql-introduction).
 
-Security standards provide support for assessing resources and workloads in AWS against regulatory compliance standards such as Center for Internet Security (CIS) and Payment Card Industry (PCI) standards, and for the AWS Foundational Security Best Practices standard.
+Security standards provide support for assessing resources and workloads in AWS against regulatory compliance standards like Center for Internet Security and Payment Card Industry standards, and for the AWS Foundational Security Best Practices standard.
 
-For more information how to protect workloads in AWS, see [Connect your AWS account](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud](/azure/defender-for-cloud/update-regulatory-compliance-packages) 
+For more information about protecting workloads in AWS, see [Connect your AWS account](/azure/defender-for-cloud/quickstart-onboard-aws) and [Assign regulatory compliance standards in Microsoft Defender for Cloud](/azure/defender-for-cloud/update-regulatory-compliance-packages). 
 
-### __Microsoft Sentinel__
+### Microsoft Sentinel
 
-Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers an intelligent and comprehensive solution for SIEM and Security Orchestration, Automation, and Response (SOAR). Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
+Microsoft Sentinel is a scalable cloud-native security information and event management (SIEM) system that provides an intelligent and comprehensive solution for SIEM and security orchestration, automation, and response. Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting. It gives you a bird's-eye view across your enterprise.
 
-Use the Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
+You can use the AWS connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between AWS and Microsoft Sentinel. You create this relationship on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
 
 The connector can ingest logs from the following AWS services by pulling them from an S3 bucket:
 
-- [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) - [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
+|Service|Data source|
+|-|-|
+|[Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)|
+| [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html) | [GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html)|
+|[AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) | [Management](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) events|
+|[AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) | [CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)|
 
-- [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html) - [Findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html)
+For more information on how to install and configure the AWS connector in Microsoft Sentinel, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](/azure/sentinel/connect-aws?tabs=s3).
 
-- [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) - [Management](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) events
+### Recommendations
 
-- [AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) - [CloudWatch logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
+Use the Microsoft security solutions and basic AWS security recommendations to protect AWS accounts.
 
-For more information on how to install and configure the AWS connector in Microsoft Sentinel, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data | Microsoft Learn](/azure/sentinel/connect-aws?tabs=s3)
+#### Basic AWS account security
 
-### __Recommendations__
-
-Leverage the Microsoft security solutions and basic AWS security recommendations to protect AWS accounts.
-
-#### __Basic AWS account security__
-
-To ensure basic security hygiene for AWS accounts and resources review the AWS security guidance at [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices).
+For information about basic security hygiene for AWS accounts and resources, review the AWS security guidance at [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices).
 
 - Reduce the risk of uploading and downloading malware and other malicious content by actively inspecting all data transfers through the AWS Management Console. Content that you upload or download directly to resources within the AWS platform, such as web servers or databases, might need additional protection.
 
-- Secure access keys by rotating the keys periodically and avoid embedding them in code. Use IAM roles instead of long-term access keys wherever possible.
+- Provide security for access keys by rotating the keys periodically. Avoid embedding them in code. Use IAM roles instead of long-term access keys wherever possible.
 
-- Use security groups and network ACLs to control inbound and outbound traffic to your resources. Implement Virtual Private Clouds (VPCs) to isolate resources.
+- Use security groups and network ACLs to control inbound and outbound traffic to your resources. Implement VPC to isolate resources.
 
-- Encrypt sensitive data at rest and in transit using AWS Key Management Services (KMS). 
+- Encrypt sensitive data at rest and in transit by using AWS Key Management Services. 
 
 - Protect devices that administrators and developers use to access the AWS Management Console.  
 
@@ -150,11 +149,10 @@ Principal author:
 
 ## Next steps
 
-- [Secure AWS identities](/azure/architecture/reference-architectures/aws/aws-azure-ad-security?branch=main) 
+- [Monitor and protect AWS administrative and sign-in activities](/defender-cloud-apps/protect-aws)
+- [Protect workloads in AWS](/azure/defender-for-cloud/quickstart-onboard-aws)
+- [Correlate AWS logs with other security logs to detect and protect from threats](/azure/sentinel/connect-aws?tabs=s3)
 
-- [Monitor and protect AWS administrative and sign-in activities](/defender-cloud-apps/protect-aws?branch=main)
+## Related resources 
 
-- [Protect workloads in AWS](/azure/defender-for-cloud/quickstart-onboard-aws?branch=main)
-
-- [Correlate AWS logs with other security logs to detect and protect from threats](/azure/sentinel/connect-aws?tabs=s3&branch=main)
-
+- [Secure AWS identities](/azure/architecture/reference-architectures/aws/aws-azure-ad-security) 
