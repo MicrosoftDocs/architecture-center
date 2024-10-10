@@ -5534,6 +5534,11 @@
       "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/orchestrate-mlops-azure-databricks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks",
+      "redirect_document_id": false
     }
   ]
 }

@@ -37,7 +37,7 @@ items:
       - name: MLOps
         items:
         - name: Use Azure Databricks to orchestrate MLOps
-          href: idea/orchestrate-mlops-azure-databricks.yml
+          href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Deploy AI and ML at the edge
           href: idea/deploy-ai-ml-azure-stack-edge.yml
         - name: Many models ML with Spark
