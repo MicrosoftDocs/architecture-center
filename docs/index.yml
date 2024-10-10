@@ -88,8 +88,6 @@ productDirectory:
           text: Choose a load-balancing service
         - url: ./guide/technology-choices/messaging.yml
           text: Choose a messaging service
-        - url: ./example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
-          text: Choose an IoT solution
     # Card
     - title: Essential scenarios
       # imageSrc should be square in ratio with no whitespace
@@ -158,9 +156,6 @@ conceptualContent:
       - text: AI architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
-      - text: Batch scoring of Python models
-        itemType: architecture
-        url: ./ai-ml/architecture/batch-scoring-python.yml
       - text: Conversational bot
         itemType: architecture
         url: ./ai-ml/architecture/conversational-bot.yml
@@ -172,7 +167,7 @@ conceptualContent:
         url: ./data-guide/technology-choices/natural-language-processing.yml
       - text: Azure AI services options
         itemType: concept
-        url: ./data-guide/technology-choices/cognitive-services.md
+        url: ./data-guide/technology-choices/ai-services.md
       - text: Team Data Science Process
         itemType: concept
         url: ./data-science-process/overview.yml
@@ -201,9 +196,6 @@ conceptualContent:
         - url: ./databricks-monitoring/index.md
           itemType: deploy
           text: Databricks monitoring
-        - text: Advanced analytics architecture
-          itemType: architecture
-          url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
         - text: Real-time fraud detection
           itemType: architecture
           url: example-scenario/data/fraud-detection.yml
@@ -271,9 +263,6 @@ conceptualContent:
         - text: HPC video rendering
           itemType: get-started
           url:  example-scenario/infrastructure/video-rendering.yml
-        - text: Image modeling
-          itemType: get-started
-          url:  example-scenario/infrastructure/image-modeling.yml
       footerLink:
         text: Introduction to HPC on Azure
         url: topics/high-performance-computing.md

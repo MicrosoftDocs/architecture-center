@@ -5,7 +5,7 @@
 >
 > Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
 >
-> Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
+> Please note that the 11.0 release is not backward compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
 This solution demonstrates observability patterns and metrics to improve the processing performance of a big data system that uses Azure Databricks.
 
@@ -19,19 +19,19 @@ This solution demonstrates observability patterns and metrics to improve the pro
 
 The solution involves the following steps:
 
-1. The server sends a large GZIP file that's grouped by customer to the **Source** folder in Azure Data Lake Storage (ADLS).
+1. The server sends a large GZIP file that's grouped by customer to the **Source** folder in Azure Data Lake Storage.
 
-2. ADLS then sends a successfully extracted customer file to Azure Event Grid, which turns the customer file data into several messages.
+2. Data Lake Storage then sends a successfully extracted customer file to Azure Event Grid, which turns the customer file data into several messages.
 
 3. Azure Event Grid sends the messages to the Azure Queue Storage service, which stores them in a queue.
 
 4. Azure Queue Storage sends the queue to the Azure Databricks data analytics platform for processing.
 
-5. Azure Databricks unpacks and processes queue data into a processed file that it sends back to ADLS:
+5. Azure Databricks unpacks and processes queue data into a processed file that it sends back to Data Lake Storage:
 
     1. If the processed file is valid, it goes in the **Landing** folder.
 
-    1. Otherwise, the file goes in the **Bad** folder tree. Initially, the file goes in the **Retry** subfolder, and ADLS attempts customer file processing again (step 2). If a pair of retry attempts still leads to Azure Databricks returning processed files that aren't valid, the processed file goes in the **Failure** subfolder.
+    1. Otherwise, the file goes in the **Bad** folder tree. Initially, the file goes in the **Retry** subfolder, and Data Lake Storage attempts customer file processing again (step 2). If a pair of retry attempts still leads to Azure Databricks returning processed files that aren't valid, the processed file goes in the **Failure** subfolder.
 
 6. As Azure Databricks unpacks and processes data in the previous step, it also sends application logs and metrics to Azure Monitor for storage.
 
@@ -228,11 +228,11 @@ The following sections contain the typical metrics used in this scenario for mon
 | Name | Measurement | Units |
 |------|-------------|-------|
 | Stream throughput | Average input rate over average processed rate per minute | Rows per minute |
-| Job duration | Average ended Spark job duration per minute | Duration(s) per minute |
+| Job duration | Average ended Spark job duration per minute | Durations per minute |
 | Job count | Average number of ended Spark jobs per minute | Number of jobs per minute |
-| Stage duration | Average completed stages duration per minute | Duration(s) per minute |
+| Stage duration | Average completed stages duration per minute | Durations per minute |
 | Stage count | Average number of completed stages per minute | Number of stages per minute |
-| Task duration | Average finished tasks duration per minute | Duration(s) per minute |
+| Task duration | Average finished tasks duration per minute | Durations per minute |
 | Task count | Average number of finished tasks per minute | Number of tasks per minute |
 
 ##### Spark job running status
@@ -274,7 +274,7 @@ If you look further into those 40 seconds, you see the data below for stages:
 
 At the 19:30 mark, there are two stages: an orange stage of 10 seconds, and a green stage at 30 seconds. Monitor whether a stage spikes, because a spike indicates a delay in a stage.
 
-Investigate when a certain stage is running slowly. In the partitioning scenario, there are typically at least two stages: one stage to read a file, and the other stage to shuffle, partition, and write the file.  If you have high stage latency mostly in the writing stage, you might have a bottleneck problem during partitioning.
+Investigate when a certain stage is running slowly. In the partitioning scenario, there are typically at least two stages: one stage to read a file, and the other stage to shuffle, partition, and write the file. If you have high stage latency mostly in the writing stage, you might have a bottleneck problem during partitioning.
 
 :::image type="content" source="_images/databricks-observability-task-latency-per-stage.png" alt-text="Task latency per stage chart for performance tuning, at the 90th percentile. The chart measures latency (0.032-16 seconds) while the app is running.":::
 

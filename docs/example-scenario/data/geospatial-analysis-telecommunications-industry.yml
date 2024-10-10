@@ -7,11 +7,12 @@ metadata:
   ms.author: armoshar
   ms.date: 01/11/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp
     - arb-data
+    - arb-telco
 azureCategories:
   - ai-machine-learning
   - analytics

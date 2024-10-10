@@ -6,9 +6,9 @@ author: martinekuan
 ms.author: robbag
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.custom: fcp 
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-telco
 keywords:
   - Azure
 products:

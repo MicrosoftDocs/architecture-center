@@ -6,8 +6,8 @@ author: soferreira
 ms.author: soferreira
 ms.date: 09/09/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-openai

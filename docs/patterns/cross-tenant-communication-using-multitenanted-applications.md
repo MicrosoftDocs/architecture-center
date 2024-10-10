@@ -5,8 +5,8 @@ author: aulong-msft
 ms.author: aulong
 ms.date: 04/24/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - active-directory
   - azure-service-bus
@@ -25,7 +25,7 @@ Securing multitenant communications in Azure can be challenging due to limitatio
 
 One option that avoids this overhead is to create a multitenant application to represent your workload's identity. Through a consent process, you can make this workload identity known to an external tenant and ultimately allow it to authenticate services in the external tenant.
 
-This article presents an example implementation of this pattern that uses [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
+This article presents an example implementation of this pattern that uses [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus).
 
 This pattern can be reused for any multitenant scenario that has various services that need to communicate across Microsoft Entra tenant boundaries.
                       
@@ -175,7 +175,7 @@ If you introduce secrets into your cross-tenant architecture, then you need to m
 
 Each subdirectory contains a stubbed version of the `local.settings.json` files, which can be modified to run the Azure functions locally. To configure settings in Azure, update the **Application Settings**.
 
-The `DefaultAzureCredential` command enumerates multiple settings before it reaches the Azure CLI credential. To avoid confusion, we recommend running the `az login -t <tenant ID>` command to grant the correct credentials when you develop local functions.
+The `DefaultAzureCredential` command enumerates multiple settings before it reaches the Azure CLI credential. To avoid confusion, we recommend running the `az login -t <tenant ID>` command to select the correct credentials when you develop local functions.
 
 ## Contributors
 
@@ -189,13 +189,11 @@ Principal authors:
 
 ## Next steps
 
-- [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
+- [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus)
 - [Identity-based functions tutorial](/azure/azure-functions/functions-identity-based-connections-tutorial-2)
   
 ## Related resources
 
-- [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
 - [Application and service principal objects in Microsoft Entra](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
-- [Azure Functions Service Bus trigger SDK issue](https://github.com/Azure/azure-sdk-for-net/issues/30961)
 - [Service Bus managed identity limitation](/dotnet/api/overview/azure/Microsoft.Azure.WebJobs.Extensions.ServiceBus-readme)
 - [Client secret best practices](/azure/key-vault/secrets/secrets-best-practices)

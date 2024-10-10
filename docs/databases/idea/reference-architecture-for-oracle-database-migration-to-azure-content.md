@@ -12,7 +12,7 @@ This solution migrates an Oracle database and its applications to Azure. We use 
 1. Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.
 1. Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration.
 
-> [!Note]
+> [!NOTE]
 >
 > - This method works only when migrating to and from the same OS version and database version.
 > - *Assumption*: You're using DataGuard on-premises.
@@ -31,7 +31,7 @@ If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recover
 
 #### SQL Server Migration Assistant for Oracle
 
-[Microsoft SQL Server Migration Assistant (SSMA) for Oracle](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) is a tool for migrating Oracle databases to Microsoft SQL Server and Azure SQL Database. SSMA for Oracle converts Oracle database objects to SQL Server database objects, creates those objects in SQL Server, and then migrates data from Oracle to SQL Server or Azure SQL Database.
+[Microsoft SQL Server Migration Assistant (SSMA) for Oracle](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) is a tool for migrating Oracle databases to Microsoft SQL Server and Azure SQL Database. SSMA for Oracle converts Oracle Database objects to SQL Server database objects, creates those objects in SQL Server, and then migrates data from Oracle to SQL Server or Azure SQL Database.
 
 ## Scenario details
 
@@ -47,7 +47,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Migration
 
-You can migrate your entire Oracle database from on-premises to Azure VM with minimal downtime by using Oracle Recovery Manager (RMAN) and Oracle Data Guard. Use RMAN to restore your database to the target standby Azure VM, using either backup/restore or the duplicate database method. You can then configure the target database as a physical standby database with Oracle Data Guard, allowing all the transaction/redo data changes from the primary on-premises database to the standby database. When the primary on-premises Oracle database is in sync with the target standby database on the Azure VM instance, you can switch over to the target database, which will convert it to a read-write database. You can then point your application connections to the new primary database. This option provides a minimum downtime while migrating your database to Azure.
+You can migrate your entire Oracle Database from on-premises to Azure VM with minimal downtime by using Oracle Recovery Manager (RMAN) and Oracle Data Guard. Use RMAN to restore your database to the target standby Azure VM, using either backup/restore or the duplicate database method. You can then configure the target database as a physical standby database with Oracle Data Guard, allowing all the transaction/redo data changes from the primary on-premises database to the standby database. When the primary on-premises Oracle Database is in sync with the target standby database on the Azure VM instance, you can switch over to the target database, which will convert it to a read-write database. You can then point your application connections to the new primary database. This option provides a minimum downtime while migrating your database to Azure.
 
 The Oracle Data Pump utility is used to export and import data and metadata from or to Oracle databases. You can run Data Pump export/import on an entire database, selective schemas, tablespaces, or database objects. Data Pump is the recommended tool for migrating data to Azure, for large databases that range from 10 GB to 20 TB in size. It allows a high degree of parallelism, flexible data extraction options, and scalable operations, which enable high-speed movement of data and metadata from a source database to the target database. Oracle Data Pump also supports encryption and compression, when exporting your data to data dump files. You can use Oracle Data Pump with Oracle Data Guard or Golden Gate to handle the initial data transfer for large databases. Note that Data Pump is available only on Oracle Database 10g Release 1 (10.1) and later.
 
@@ -55,7 +55,7 @@ The Oracle Data Pump utility is used to export and import data and metadata from
 
 #### VM sizing
 
-Consider using a hyperthreaded memory-optimized virtual machine with constrained core vCPUs for your Oracle Database VM, to save on licensing costs and to maximize performance. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure FAQ.
+Consider using a hyperthreaded memory-optimized virtual machine with constrained core vCPUs for your Oracle Database VM, to save on licensing costs and to maximize performance. Oracle has guaranteed License Mobility from on-premises to Azure. See the Oracle-Azure FAQ.
 
 #### Storage
 
@@ -63,7 +63,7 @@ Use multiple premium or ultra disks (managed disks) for performance and availabi
 
 #### Testing and tuning
 
-We recommend the following tests to validate your application against your new Oracle database:
+We recommend the following tests to validate your application against your new Oracle Database:
 
 * Run performance tests to ensure that they meet your business expectations.
 * Test database failover, recovery, and restoration to make sure that you're meeting recovery point objective (RPO) and recovery time objective (RTO) requirements.
@@ -76,7 +76,7 @@ If you're using hyper-threading enabled technology in your Azure VMs, count two 
 
 #### Backup strategy
 
-One backup strategy is to use Oracle Recovery Manager (RMAN) and Azure Backup for application-consistent backups.  You can also use the Azure backup method.
+One backup strategy is to use Oracle Recovery Manager (RMAN) and Azure Backup for application-consistent backups. You can also use the Azure Backup method.
 
 Optionally use Azure Blob Fuse to mount a highly redundant Azure Blob Storage account and write your RMAN backups to it for added resiliency.
 
@@ -125,7 +125,6 @@ Learn more about the various architectural components:
 ## Related resources
 
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-- [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
 - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
 - [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking)
 - [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

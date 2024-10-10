@@ -89,9 +89,8 @@ Choose the example that suits your needs and follow the provided link to view th
 <!-- links -->
 [aggregator]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/Aggregator.html
 [enterprise-integration-patterns]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/StoreInLibrary.html
-[example-1]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-1
-[example-2]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-2
-[example-3]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-3
-[example-4]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check/code-samples/sample-4
-[sample-code]: https://github.com/mspnp/cloud-design-patterns/tree/master/claim-check
+[example-1]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-1
+[example-2]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-2
+[example-3]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-3
+[example-4]: https://github.com/mspnp/cloud-design-patterns/tree/main/claim-check/code-samples/sample-4
 [splitter]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/Sequencer.html

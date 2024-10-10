@@ -2,12 +2,12 @@
 title: Azure Cosmos DB considerations for multitenancy
 titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Cosmos DB that are useful when working with multitenant systems, and links to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
-author: johndowns
-ms.author: jodowns
+author: tarabhatiamsft
+ms.author: tarabhatia
 ms.date: 07/07/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
   - azure-cosmos-db

@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: fcp 
 products:
 - entra-id
@@ -47,7 +47,6 @@ The following articles provide detailed analysis of architectures created and re
 |[Enhanced-security hybrid messaging — client access](../example-scenario/hybrid/secure-hybrid-messaging-client.yml)|Learn how to enhance the security of your educational messaging infrastructure in a client access scenario by using Microsoft Entra multifactor authentication.| Hybrid|
 |[Enhanced-security hybrid messaging — mobile access](../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)|Learn how to enhance the security for your educational messaging infrastructure in a mobile access scenario by using Microsoft Entra multifactor authentication.| Hybrid|
 |[Enhanced-security hybrid messaging — web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml)|Learn how to enhance the security of your educational messaging infrastructure in a web access scenario by using Microsoft Entra multifactor authentication.| Hybrid|
-|[Governance of Teams guest users](../example-scenario/governance/governance-teams-guest-users.yml)|Learn how to use Microsoft Teams and Microsoft Entra entitlement management to collaborate, while maintaining control over resource use.|Identity|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy the Moodle learning platform with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.| Storage|
 |[Secure research environment for regulated data](../ai-ml/architecture/secure-compute-for-research.yml)|Learn about an architecture created for higher education research institutions. It enables researchers to access sensitive data while providing a high level of control and data protection.| Security|
  

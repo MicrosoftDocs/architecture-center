@@ -73,9 +73,9 @@ If there's a need to make breaking changes to the index without downtime (for ex
 
 AI Search is compliant with many [security and data privacy standards][search-security], so you can use it in most industries.
 
-To secure access to the service, you can use [Azure role-based access control (RBAC)](/azure/search/search-security-rbac) or connect with [API keys](/azure/search/search-security-api-keys). 
+To secure access to the service, you can use [Azure role-based access control (RBAC)](/azure/search/search-security-rbac) or connect with [API keys](/azure/search/search-security-api-keys).
 
-We recommend that you use Azure RBAC because it uses Azure roles, which integrate with Microsoft Entra ID. When you use Azure roles, you can also use passwordless authentication methods like [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+We recommend that you use Azure RBAC because it uses Azure roles, which integrate with Microsoft Entra ID. When you use Azure roles, you can also use passwordless authentication methods like [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 API keys include **admin keys**, which provide full access for all content operations, and **query keys**, which provide read-only access to the documents collection of a search index. You should set up applications that don't need to update the index to use a query key and not an admin key, especially if an end-user device, like a script running in a web browser, performs the search.
 
@@ -99,9 +99,9 @@ To explore the cost of running this scenario, all the services mentioned previou
 
 Consider these sample cost profiles based on the amount of traffic you expect to handle:
 
-- [Small][small-pricing]: This profile uses a single `Standard S1` web app to host the website, the free tier of the Azure AI Bot service, a single `Basic` search service, and a `Standard S2` SQL database.
-- [Medium][medium-pricing]: This profile scales up the web app to two instances of the `Standard S3` tier, upgrades the search service to a `Standard S1` tier, and uses a `Standard S6` SQL database.
-- [Large][large-pricing]: This profile uses four instances of a `Premium P2V2` web app, upgrades the Azure AI Bot service to the `Standard S1` tier (with 1.000.000 messages in Premium channels), and uses two units of the `Standard S3` search service and a `Premium P6` SQL database.
+- [Small][small-pricing]: This profile uses a single `Standard S1` web app to host the website, the Free tier of the Azure AI Bot Service, a single `Basic` search service, and a `Standard S2` SQL Database.
+- [Medium][medium-pricing]: This profile scales up the web app to two instances of the `Standard S3` tier, upgrades the search service to a `Standard S1` tier, and uses a `Standard S6` SQL Database.
+- [Large][large-pricing]: This profile uses four instances of a `Premium P2V2` web app, upgrades the Azure AI Bot Service to the `Standard S1` tier (with 1.000.000 messages in Premium channels), and uses two units of the `Standard S3` search service and a `Premium P6` SQL Database.
 
 ## Deploy this scenario
 

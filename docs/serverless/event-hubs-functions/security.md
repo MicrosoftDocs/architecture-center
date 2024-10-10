@@ -5,8 +5,8 @@ author: dbarkol
 ms.author: dabarkol
 ms.topic: conceptual
 ms.date: 07/03/2024
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.category:
   - compute
 categories:

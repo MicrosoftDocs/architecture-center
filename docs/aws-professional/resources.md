@@ -6,7 +6,7 @@ ms.author: yubaijna
 categories: azure
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
   - analytics

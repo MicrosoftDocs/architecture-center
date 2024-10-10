@@ -227,7 +227,7 @@ In this scenario, your Spring Cloud Gateway route predicate configuration might 
 (...)
 predicates:
 - XForwardedRemoteAddr="13.73.248.16/29","20.21.37.40/29","20.36.120.104/29","20.37.64.104/29", ...(and many more)...
-- Header="X-Azure-FDID", "e483e3cc-e7f3-4e0a-9eca-5f2a62bde229"
+- Header="X-Azure-FDID", "00112233-4455-6677-8899-aabbccddeeff"
 ```
 
 ## Contributors
@@ -237,7 +237,7 @@ predicates:
 Principal author:
 
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823/) | Principal Customer Engineer
- 
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

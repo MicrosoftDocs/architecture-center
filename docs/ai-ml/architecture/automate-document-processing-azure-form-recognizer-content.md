@@ -289,7 +289,6 @@ Principal author:
 [Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
 [Azure Form Recognizer service page]: https://azure.microsoft.com/products/applied-ai-services
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
-[Azure Functions networking options]: /azure/azure-functions/functions-networking-options#virtual-network-integration
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
 [Azure Functions service page]: https://azure.microsoft.com/products/functions
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service

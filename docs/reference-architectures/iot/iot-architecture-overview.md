@@ -4,12 +4,14 @@ titleSuffix: Azure Reference Architectures
 description: Learn basic IoT concepts, how to get started building an Azure IoT solution, and how to optimize an IoT solution for production.
 author: falloutxay
 manager: lizross
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 11/21/2022
 ms.author: ansyeo
-ms.custom: arb-iot
+ms.custom:
+  - arb-iot
+  - arb-telco
 categories:
   - iot
 products:

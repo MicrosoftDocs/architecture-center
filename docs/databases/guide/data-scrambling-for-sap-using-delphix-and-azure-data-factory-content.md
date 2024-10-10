@@ -127,4 +127,4 @@ Other contributors:
 
 - [Get set up with Delphix CC](https://maskingdocs.delphix.com/)
 - Learn about [consistent data masking across SAP and other data sources](https://www.delphix.com/video/data-compliance-and-security-across-datasets)
-- See [customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
+- See [Customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)

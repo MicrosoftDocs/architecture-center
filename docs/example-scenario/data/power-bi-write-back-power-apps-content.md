@@ -151,6 +151,5 @@ Microsoft Learn Training modules:
 
 ## Related resources
 
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)

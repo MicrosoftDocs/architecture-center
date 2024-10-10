@@ -189,7 +189,6 @@ Principal author:
 - [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
 - [Big data analytics with Azure Data Explorer][Big data analytics with Azure Data Explorer]
 
-[Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Archive data from Log Analytics workspace to Azure storage using Logic App]: /azure/azure-monitor/logs/logs-export-logic-app
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer
