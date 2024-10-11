@@ -29,7 +29,7 @@ In a perfect implementation, adding uniform redundancy could exponentially incre
 - have no work in progress that is permanently lost during the malfunction.
 - are identical in capabilities.
 - have no dependencies on each other.
-- handles the reduction of capacity without additional malfunction
+- handles the reduction of capacity without additional malfunction.
 
 If each individual component has an availability of `A`, then the overall system availability can be calculated using the formula `1 - (1 - A)^N`.
 
