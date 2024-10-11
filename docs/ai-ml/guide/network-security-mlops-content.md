@@ -472,7 +472,7 @@ Other contributors:
 
 - [Terraform on Azure documentation](/azure/developer/terraform)
 - [Azure Machine Learning Enterprise Terraform Examples](https://github.com/microsoft/azureml-terraform-examples)
-- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 - [Azure Virtual Network pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
 - [Pricing for Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services)
 
