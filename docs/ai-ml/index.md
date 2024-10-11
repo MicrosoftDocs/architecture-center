@@ -257,11 +257,25 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 
 
 
+## Data storage for AI
 
-### Data storage
-<!-- Fabric - talk about One Lake as a unified data lake, connects to other datalakes -->
-<!-- Data Lake Azure Cloud Storage -->
-<!-- Delta Lake Storage type optimized for big data/spark compute -->
+### Microsoft Fabric OneLake
+
+OneLake is a single, unified, logical data lake for your whole organization. A data Lake processes large volumes of data from various sources. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. OneLake brings customer
+
+- [OneLake, the OneDrive for data](/fabric/onelake/onelake-overview)
+
+
+### Azure Data Lake Storage
+
+Azure Data Lake Storage is a set of capabilities dedicated to and optimized for big data analytics, built on [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction).
+
+Azure Data Lake Storage converges the capabilities of [Azure Data Lake Storage Gen1](/previous-versions/azure/data-lake-store/data-lake-store-overview) with Azure Blob Storage. For example, Data Lake Storage provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+
+
+- [Introduction to Azure Data Lake Storage](/storage/blobs/data-lake-storage-introduction)
+
+- [Tutorial: Azure Data Lake Storage, Azure Databricks & Spark](/azure/storage/blobs/data-lake-storage-use-databricks-spark)
 
 
 
