@@ -133,7 +133,7 @@ The Assistants API supports function invocation, which sends your application in
 
 Azure OpenAI On Your Data enables the large language model to directly query knowledge sources, like indexes and databases, as part of generating a response from the language model.
 
-When you make a request, you can specify the data sources that should be queried. Ensure that these requests are tenant-aware, and propagate the tenant ID through to the data source appropriately. For example, suppose you're querying Azure AI Search. If you have data for multiple tenants in a single index, specify a filter to limit the retrieved results to the current tenant's ID. Or, if you've created an index for each tenant, ensure that you specify the correct index for the current tenant.
+When you make a request, you can specify the data sources that should be queried. In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID through to the data source appropriately. For example, suppose you're querying Azure AI Search. If you have data for multiple tenants in a single index, specify a filter to limit the retrieved results to the current tenant's ID. Or, if you've created an index for each tenant, ensure that you specify the correct index for the current tenant.
 
 ## Contributors
 
