@@ -25,4 +25,3 @@ summary: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Manage
 thumbnailUrl: /azure/architecture/browse/thumbs/small-medium-data-warehouse.png
 content: |
   [!include[](small-medium-data-warehouse-content.md)]
-  
