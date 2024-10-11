@@ -279,13 +279,19 @@ Azure Data Lake Storage converges the capabilities of [Azure Data Lake Storage G
 
 
 
-### Data processing
+## Data processing for AI
 
+### Microsoft Fabric Data Factory
+
+
+### Azure Databricks
 <!-- Fabric - (1)Fabric data factory - no/low code, (2) supports Spark (code) -->
 <!-- Databricks - Spark - code -->
 
-### Data connectivity
-<!-- https://learn.microsoft.com/en-us/azure/data-factory/connector-overview -->
+## Data connectors for AI
+
+Azure Data Factory and Azure Synapse Analytics pipelines support a number of data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. To see the available data store connectors, the supported capabilities and the corresponding configurations, as well as generic ODBC connection options, see [Azure Data Factory and Azure Synapse Analytics connector overview](/azure/data-factory/connector-overview).
+
 
 ## Custom AI solutions
 
