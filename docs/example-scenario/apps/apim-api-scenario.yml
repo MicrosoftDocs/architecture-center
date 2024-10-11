@@ -18,6 +18,7 @@ metadata:
     - app-modernization
     - example-scenario
     - internal-intro
+    - arb-web
 name: Migrate a web app by using Azure API Management
 azureCategories:
   - web

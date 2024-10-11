@@ -10,6 +10,7 @@ metadata:
   ms.subservice: architecture-guide
   ms.custom:
     - devx-track-js
+    - arb-web
 azureCategories:
   - identity
   - security

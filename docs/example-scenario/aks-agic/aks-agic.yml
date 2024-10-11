@@ -15,6 +15,7 @@ metadata:
     - example-scenario
     - arb-saas
     - arb-containers
+    - arb-web
 name: Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service
 azureCategories:
   - containers

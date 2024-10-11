@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - example-scenario
     - internal-intro
+    - arb-web
 name: Highly available multi-region web application
 azureCategories:
   - web

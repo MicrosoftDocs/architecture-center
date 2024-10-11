@@ -10,7 +10,9 @@ metadata:
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
-  ms.custom: arb-devops
+  ms.custom: 
+    - arb-devops
+    - arb-web
 azureCategories:
   - devops
   - developer-tools

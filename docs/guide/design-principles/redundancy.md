@@ -21,6 +21,17 @@ ms.custom:
 ## Build redundancy into your application, to avoid having single points of failure
 
 A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? When a subsystem fails, will the application fail over to something else?
+ 
+In a perfect implementation, adding uniform redundancy could exponentially increase your system's availability. For example, imagine you have `N` equivalent, equally balanced components which:
+
+- can malfunction independently and simultaneously removed from the pool
+- have identical state or no state
+- have no work in progress that is permanently lost during the malfunction
+- are identical in capabilities
+- have no dependencies on each other
+- handles the reduction of capacity without additional malfunction
+
+If each individual component has an availability of `A`, then the overall system availability can be calculated using the formula `1 - (1 - A)^N`.
 
 ## Recommendations
 
@@ -46,6 +57,12 @@ To learn more about how to design your solution to use availability zones and re
 If you use an IaaS database solution, choose one that supports replication and failover, such as [SQL Server Always On availability groups][sql-always-on].
 
 **Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
+
+**Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate following:
+
+- Can your system *reliably* detect healthy and unhealthy redundant components, and safely and expeditiously remove them from the component pool?
+- Can your system *reliably* scale out and in the redundant components?
+- Can your routine, ad hoc, and emergency workload operations handle the redundancy?
 
 ### Multi-region solutions
 
