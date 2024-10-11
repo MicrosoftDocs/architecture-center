@@ -21,6 +21,9 @@ ms.custom:
 ## Build redundancy into your application, to avoid having single points of failure
 
 A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? When a subsystem fails, will the application fail over to something else?
+ 
+If designed properly, adding redundancy can exponentially increase your system’s availability. If you have ```N``` hosts which fail independently (e.g. by not being within the same datacenter), and each host has availability of ```A```, the overall system availability can be calculated using the formula ```1 - (1 - A) ^ N```. But note that adding redundancy increases complexity which in turn reduces availability. To ensure that adding redundancy actually leads to higher availability, you should test and validate followings:
+
 
 ## Recommendations
 
@@ -62,6 +65,12 @@ If you use Traffic Manager or Azure Front Door in a multi-region solution as you
 To achieve this, disable the primary endpoint after failover. Note that if the monitoring interval of probes is short and the tolerated number of failures is small, failover as well as failback will take place in a short time. In some cases, disabling won't be completed in time. To avoid unconfirmed failback, consider also implementing a health endpoint that can verify that all subsystems are healthy. See the [Health Endpoint Monitoring pattern].
 
 **Include redundancy for your routing solution**. Consider designing a [Global routing redundancy solution](../networking/global-web-applications/overview.md) for mission-critical web applications.
+
+**Test and validate your redundant components**. Adding redundancy increases complexity which in turn reduces availability. To ensure that adding redundancy actually leads to higher availability, you should test and validate followings: 
+* Given the added complexity, does your overall system achieve a net-positive improvement in availability?
+* Can your system reliably detect healthy and unhealthy redundant components?
+* Can your system reliably scale out and scale-in the redundant components? This sounds easy but requires testing and validation.
+
 
 <!-- links -->
 
