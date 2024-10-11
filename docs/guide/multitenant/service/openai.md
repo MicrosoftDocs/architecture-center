@@ -82,13 +82,13 @@ You can create a model deployment for each tenant, or for tenants who have speci
 
 - **Quota and cost management:** It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. If you use [provisioned throughput units (PTUs)](/azure/ai-services/openai/concepts/provisioned-throughput), you can assign the PTUs to specific customers and use other billing models for other customers.
 
-- **Content policies:** Sometimes, a specific tenant might require a unique content policy, such as a tenant-specific blocklist of disallowed words. You specify the content policy at the scope of a model deployment.
+- **Content filtering policies:** Sometimes, a specific tenant might require a unique content filtering policy, such as a tenant-specific blocklist of disallowed words. You specify the content filtering policy at the scope of a model deployment.
 
 - **Model types and versions:** You might need to use different models or model versions for different tenants. A tenant might also require their own model lifecycle management process.
 
 - **Tenant-specific fine tuning:** If you create distinct fine-tuned models for each tenant, you need to create a separate model deployment for each fine-tuned model.
 
-    Remember that fine-tuning isn't required for most use cases. Usually, it's better to ground your model by using [Azure OpenAI On Your Data](#azure-openai-on-your-data) or a retrieval-augmented generation (RAG) approach.
+    Remember that fine-tuning isn't required for most use cases. Usually, it's better to ground your model by using [Azure OpenAI On Your Data](#azure-openai-on-your-data) or another retrieval-augmented generation (RAG) approach.
 
 - **Data residency:** This approach supports distinct data residency requirements. For example, you might provide a regional model deployment for a tenant with strict data residency needs, and use a global model deployment for other tenants without strict needs.
 
@@ -123,7 +123,7 @@ The following diagram illustrates the model for Azure OpenAI for each tenant in 
 
 ### Assistants API
 
-The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that make it suitable for creating advanced AI assistants. It enables you to track conversational threads centrally instead of inside your own solution , and to generate and execute code within a sandboxed environment.
+The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that make it suitable for creating AI assistants. It includes the ability to call tools and APIs, as well as search files to ground the answers that the model generates. It enables persistent conversational threads to be managed by the service, and it can generate and execute code within a sandboxed environment.
 
 If you share an assistant among multiple tenants, it's critical that you consider how you'll isolate data like conversational threads. Ensure that you track the tenant ID so that you can filter by tenant.
 
