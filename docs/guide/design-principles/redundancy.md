@@ -22,8 +22,7 @@ ms.custom:
 
 A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? When a subsystem fails, will the application fail over to something else?
  
-If designed properly, adding redundancy can exponentially increase your system’s availability. If you have ```N``` hosts which fail independently (e.g. by not being within the same datacenter), and each host has availability of ```A```, the overall system availability can be calculated using the formula ```1 - (1 - A) ^ N```. But note that adding redundancy increases complexity which in turn reduces availability. To ensure that adding redundancy actually leads to higher availability, you should test and validate followings:
-
+If designed properly, adding redundancy can exponentially increase your system’s availability. If you have ```N``` hosts which fail independently (e.g. by not being within the same datacenter), and each host has availability of ```A```, the overall system availability can be calculated using the formula ```1 - (1 - A) ^ N```. 
 
 ## Recommendations
 
