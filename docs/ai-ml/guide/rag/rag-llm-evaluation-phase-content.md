@@ -21,7 +21,7 @@ Groundedness, sometimes referred to as faithfulness, measures whether the respon
 
 - [Azure AI Content Safety Service (AACS) based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#aacs-based-groundedness) is a custom model that uses Natural Language Inference (NLI) to determine whether claims, in this case chunks, are entailed or not entailed by a source document.
 - [Large language model based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a large language model to determine the level of groundedness of the response.
-- [Ragas faithfulness library](https://docs.ragas.io/en/latest/concepts/metrics/faithfulness/)
+- [Ragas faithfulness library](https://docs.ragas.io/en/stable/concepts/metrics/faithfulness.html)
 - [MLflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 **Evaluating**
@@ -69,7 +69,7 @@ Measures the extent to which the large language model's response is pertinent an
 **Calculating**
 
 - [AI-assisted: Relevance in Azure AI Studio](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance) - You can use Azure AI Studio to perform the calculations, or use the guidance in this article to calculate relevance for yourself.
-- [Ragas answer relevancy library](https://docs.ragas.io/en/latest/concepts/metrics/answer_relevance/)
+- [Ragas answer relevancy library](https://docs.ragas.io/en/stable/concepts/metrics/answer_relevance.html)
 - [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 **Evaluating**
