@@ -15,15 +15,15 @@ This solution proposes a strategy that blocks direct Internet traffic to the Sto
 
 ### Workflow
 
-1. Storage account is configured to deny any public Internet access, so only private virtual network connections are allowed. An exception configured to allow a chosen Azure IoT Hub service to connect using resource [instance allow rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances). Also, the Storage account is configured to only support Azure RBAC for data plane access.
-1. Application Gateway is configured with custom Domain Name Services (DNS) and Transport Layer Security (TLS) termination. The Virtual Network into which the Application Gateway is deployed into must have network line of sight to the Virtual Network used by the Storage account's private link.
+1. The Blob storage account denies public internet access, and it only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect, authenticating via a managed identity. Also, the Storage account is configured to only support Azure RBAC for data plane access.
+1. The application gateway is configured with custom DNS and terminates transport layer security (TLS) traffic. It resides within a virtual network. This virtual network is granted access or peered with the Virtual Network used by the Storage account's private link.
 1. IoT client device using Azure IoT Hub SDK requests a SAS URI for File Upload to the IoT Hub.
 1. Azure IoT Hub handles this request for the device. It connects directly to the Azure Storage account with Managed Identity authentication which has been given the permission of `Storage Blob Data Contributor`.
 
    A short-lived SAS token is generated which grants the device read-write permission on the requested blob in the blob container.
 
 1. Azure IoT Hub sends the public Storage account URI and SAS token to the IoT client device, along with a correlation ID.
-1. IoT client device has logic to replace the public Storage URI with a custom domain it's supplied with, for example using a [Device Twin](/azure/iot-hub/iot-hub-devguide-device-twins). IoT Devices uses standard Azure Storage SDK to upload the file through the custom Storage domain.
+1. IoT client device has logic to replace the public Storage URI with a custom domain it's supplied with, for example using a [Device Twin](/azure/iot-hub/iot-hub-devguide-device-twins). IoT Devices uses standard Azure Blob Storage SDK to upload the file through the custom Storage DNS.
 1. Azure Application Gateway receives the HTTP POST from the client device and tunnels it through via Private Link to the Storage account.
 1. When file upload is finished, IoT client device uses Azure IoT SDK to inform Azure IoT Hub of file upload completion.
 
@@ -59,12 +59,6 @@ For a sample that deploys a similar architecture, see [Setting up Azure IoT Hub 
 An industrial automation vendor offers managed connected edge controllers and sensors. These sensors need to communicate with the Azure cloud through the public internet, but vendor's security team requires the Azure Storage account to be denied public internet access. This architecture approach solves this requirement.
 
 The same use case can apply to any industry where devices need to communicate with an Azure Storage account that isn't exposed publicly.
-
-### Alternatives
-
-Explain usage of NVA or Azure Firewall
-Optionally, when implementing a hub-spoke networking topology, routing tables ensure traffic from Application Gateway passe through Azure Firewall for traffic inspection.
-
 
 ## Contributors
 
