@@ -8,6 +8,7 @@ ms.date: 10/11/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
+ms.collection: ce-skilling-ai-copilot
 products:
   - azure
   - azure-openai
@@ -15,6 +16,7 @@ categories:
   - ai-machine-learning
 ms.custom:
   - arb-saas
+  - arb-aiml
 ---
 
 # Multitenancy and Azure OpenAI Service
