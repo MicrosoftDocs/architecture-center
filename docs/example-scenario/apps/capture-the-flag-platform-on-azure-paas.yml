@@ -15,6 +15,7 @@ metadata:
     - acom-architecture
     - web-app
     - web apps
+    - arb-web
 name: Run a Capture the Flag game service with CTFd on Azure PaaS
 azureCategories:
   - web

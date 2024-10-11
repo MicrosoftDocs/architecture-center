@@ -18,6 +18,7 @@ metadata:
     - app-dev
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-to-container-apps"
+    - arb-web
 name: Lift and shift to containers with Azure App Service
 azureCategories:
   - migration

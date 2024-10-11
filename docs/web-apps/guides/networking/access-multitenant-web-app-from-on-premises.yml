@@ -10,8 +10,8 @@ metadata:
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: 
-    - fcp
-    - references_regions 
+    - references_regions
+    - arb-web 
 azureCategories:
   - "security"
   - "web"

@@ -20,6 +20,7 @@ metadata:
     - web-apps
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/ecommerce-website-running-in-secured-ase"
+    - arb-web
 name: E-commerce website running in secured App Service Environment
 azureCategories:
   - web

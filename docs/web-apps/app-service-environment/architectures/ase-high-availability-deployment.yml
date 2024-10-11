@@ -14,6 +14,7 @@ metadata:
     - featured
   ms.custom:
     - reference-architecture
+    - arb-web
 name: High availability enterprise deployment using App Service Environment
 azureCategories:
   - management-and-governance
