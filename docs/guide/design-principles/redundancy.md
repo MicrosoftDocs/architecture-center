@@ -75,9 +75,9 @@ To achieve this, disable the primary endpoint after failover. Note that if the m
 **Include redundancy for your routing solution**. Consider designing a [Global routing redundancy solution](../networking/global-web-applications/overview.md) for mission-critical web applications.
 
 **Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate followings: 
-* Given the added complexity, does your overall system achieve a net-positive improvement in availability?
-* Can your system reliably detect healthy and unhealthy redundant components?
-* Can your system reliably scale out and scale-in the redundant components? This sounds easy but requires testing and validation.
+- Can your system *reliably* detect healthy and unhealthy redundant components, and safely and expeditiously remove them from the component pool?
+- Can your system *reliably* scale out and in the redundant components?
+- Can your routine, ad hoc, and emergency workload operations handle the redundancy?
 
 <!-- links -->
 
