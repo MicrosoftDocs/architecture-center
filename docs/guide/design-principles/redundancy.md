@@ -22,7 +22,16 @@ ms.custom:
 
 A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? When a subsystem fails, will the application fail over to something else?
  
-If designed properly, adding redundancy can exponentially increase your system’s availability. If you have ```N``` hosts which fail independently (e.g. by not being within the same datacenter), and each host has availability of ```A```, the overall system availability can be calculated using the formula ```1 - (1 - A) ^ N```. 
+In a perfect implementation, adding uniform redundancy could exponentially increase your system's availability. For example, imagine you have `N` equivalent, equally balanced components which:
+
+- can malfunction independently and simultaneously removed from the pool.
+- have identical state or no state.
+- have no work in progress that is permanently lost during the malfunction.
+- are identical in capabilities.
+- have no dependencies on each other.
+- handles the reduction of capacity without additional malfunction
+
+If each individual component has an availability of `A`, then the overall system availability can be calculated using the formula `1 - (1 - A)<sup>N</sup>`.
 
 ## Recommendations
 
