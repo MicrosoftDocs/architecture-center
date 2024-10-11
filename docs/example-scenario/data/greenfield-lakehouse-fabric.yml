@@ -5,7 +5,7 @@ metadata:
   description: This example workload illustrates a Greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
   author: nimoore
   ms.author: nimoore
-  ms.date: 01/08/2024
+  ms.date: 10/11/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
