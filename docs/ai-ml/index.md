@@ -212,7 +212,7 @@ With the Microsoft Fabric AI skill, you can make data more accessible to your co
 
 - [Difference between an AI skill and a copilot](/fabric/data-science/concept-ai-skill#difference-between-an-ai-skill-and-a-copilot)
 
-### Apache Spark-based AI platforms
+### Apache Spark-based data platforms for AI
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
 
