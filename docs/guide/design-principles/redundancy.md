@@ -70,7 +70,6 @@ To achieve this, disable the primary endpoint after failover. Note that if the m
 * Can your system reliably detect healthy and unhealthy redundant components?
 * Can your system reliably scale out and scale-in the redundant components? This sounds easy but requires testing and validation.
 
-
 <!-- links -->
 
 [cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
