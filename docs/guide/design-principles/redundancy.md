@@ -58,6 +58,11 @@ If you use an IaaS database solution, choose one that supports replication and f
 
 **Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
 
+**Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate followings: 
+- Can your system *reliably* detect healthy and unhealthy redundant components, and safely and expeditiously remove them from the component pool?
+- Can your system *reliably* scale out and in the redundant components?
+- Can your routine, ad hoc, and emergency workload operations handle the redundancy?
+
 ### Multi-region solutions
 
 The following diagram shows a multi-region application that uses Azure Traffic Manager to handle failover.
@@ -73,11 +78,6 @@ If you use Traffic Manager or Azure Front Door in a multi-region solution as you
 To achieve this, disable the primary endpoint after failover. Note that if the monitoring interval of probes is short and the tolerated number of failures is small, failover as well as failback will take place in a short time. In some cases, disabling won't be completed in time. To avoid unconfirmed failback, consider also implementing a health endpoint that can verify that all subsystems are healthy. See the [Health Endpoint Monitoring pattern].
 
 **Include redundancy for your routing solution**. Consider designing a [Global routing redundancy solution](../networking/global-web-applications/overview.md) for mission-critical web applications.
-
-**Test and validate your redundant components**. Reliability benefits in many ways from simplicity and adding redundancy can increase complexity. To ensure that adding redundancy actually leads to higher availability, you should validate followings: 
-- Can your system *reliably* detect healthy and unhealthy redundant components, and safely and expeditiously remove them from the component pool?
-- Can your system *reliably* scale out and in the redundant components?
-- Can your routine, ad hoc, and emergency workload operations handle the redundancy?
 
 <!-- links -->
 
