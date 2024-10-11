@@ -3,7 +3,7 @@ title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: RobBagby
 ms.author: robbag
-ms.date: 09/24/2024
+ms.date: 10/11/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -168,32 +168,55 @@ Quickly build ML models at scale using the AutoML capability in Azure Machine Le
 - [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It makes prompt engineering much easier and enables you to build LLM apps with production quality.
 
 
-## AI Data platform
+## Data platforms for AI
+
+### Microsoft Fabric
+
+Microsoft Fabric is an end-to-end analytics and data platform designed for enterprises that require a unified solution. It encompasses data movement, processing, ingestion, transformation, real-time event routing, and report building. It offers a comprehensive suite of services including Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
+
+Microsoft Fabric integrates separate components into a cohesive stack. Instead of relying on different databases or data warehouses, you can centralize data storage with OneLake. AI capabilities are seamlessly embedded within Fabric, eliminating the need for manual integration. With Fabric, you can easily transition your raw data into actionable insights for business users.
 
 
-### Apache Spark on Azure
+- [What is Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
+
+- [AI services in Fabric](/fabric/data-science/ai-services/ai-services-overview)
+
+- [Use Azure OpenAI in Fabric with REST API](/fabric/data-science/ai-services/how-to-use-openai-via-rest-api)
+
+- [Using Microsoft Fabric for Generative AI: A Guide to Building and Improving RAG Systems](https://blog.fabric.microsoft.com/en-US/blog/using-microsoft-fabric-for-generative-ai-a-guide-to-building-and-improving-rag-systems?WT.mc_id=DP-MVP-5004564)
+
+- [Building Custom AI Applications with Microsoft Fabric: Implementing Retrieval Augmented Generation for Enhanced Language Models](https://blog.fabric.microsoft.com/en-US/blog/building-custom-ai-applications-with-microsoft-fabric-implementing-retrieval-augmented-generation-for-enhanced-language-models/)
+
+#### Copilots in Fabric
+
+Copilot and other generative AI features in preview bring new ways to transform and analyze data, generate insights, and create visualizations and reports in Microsoft Fabric and Power BI. You can either build your own copilot, or choose one of the following prebuilt copilots:
+
+- [Overview of Copilot in Fabric](/fabric/get-started/copilot-fabric-overview)
+
+- [Copilot for Data Science and Data Engineering](/fabric/get-started/copilot-notebooks-overview)
+
+- [Copilot for Data Factory](/fabric/get-started/copilot-fabric-data-factory)
+
+- [Copilot for Data Warehouse](/fabric/data-warehouse/copilot)
+
+- [Copilot for Power BI](/power-bi/create-reports/copilot-introduction)
+
+- [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
+
+- [What is the AI skill in Fabric? (preview)](/fabric/data-science/concept-ai-skill)
+
+
+#### AI skills in Fabric
+
+With the Microsoft Fabric AI skill, you can make data more accessible to your colleagues. You can configure a generative AI system to generate queries that answer questions about your data. After you configure the AI skill, you can share it with your colleagues, who can then ask their questions in plain English. Based on their questions, the AI generates queries over your data that answer those questions.
+
+- [Difference between an AI skill and a copilot](/fabric/data-science/concept-ai-skill#difference-between-an-ai-skill-and-a-copilot)
+
+### Apache Spark-based AI platforms
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
 
-[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
-
-The Microsoft machine learning library for Apache Spark is [SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. Learn more about [SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml).
-
-- [Azure HDInsight overview](/azure/hdinsight/hdinsight-overview). Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
-
-- [Tutorial: Build an Apache Spark machine learning application in Azure HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
-
-- [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
-
-- [Configure HDInsight Apache Spark Cluster settings](/azure/hdinsight/spark/apache-spark-settings)
-
-- [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
-
-- [GitHub repo for SynapseML: Microsoft machine learning library for Apache Spark](https://github.com/microsoft/SynapseML)
-
-- [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
-- 
-### Azure Databricks Runtime for Machine Learning
+#### Azure Databricks Runtime for Machine Learning
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
 
@@ -212,23 +235,43 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 
-### Data storage
+#### Apache Spark in Azure HDInsight
 
-- Databricks
-- Fabric
-- Data Lake
-- SMPL Storage Accounts
+[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
+
+The Microsoft machine learning library for Apache Spark is [SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. Learn more about [SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml).
+
+- [Azure HDInsight overview](/azure/hdinsight/hdinsight-overview). Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
+
+- [Tutorial: Build an Apache Spark machine learning application in Azure HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
+
+- [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
+
+- [Configure HDInsight Apache Spark Cluster settings](/azure/hdinsight/spark/apache-spark-settings)
+
+- [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
+
+- [GitHub repo for SynapseML: Microsoft machine learning library for Apache Spark](https://github.com/microsoft/SynapseML)
+
+- [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
+
+
+
+
+### Data storage
+<!-- Fabric - talk about One Lake as a unified data lake, connects to other datalakes -->
+<!-- Data Lake Azure Cloud Storage -->
+<!-- Delta Lake Storage type optimized for big data/spark compute -->
+
 
 
 ### Data processing
 
-- Data Factgory
-- Fabric
-- Databricks
-- Spark
+<!-- Fabric - (1)Fabric data factory - no/low code, (2) supports Spark (code) -->
+<!-- Databricks - Spark - code -->
 
 ### Data connectivity
-
+<!-- https://learn.microsoft.com/en-us/azure/data-factory/connector-overview -->
 
 ## Custom AI solutions
 
