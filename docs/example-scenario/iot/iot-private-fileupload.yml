@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how to enable the Azure IoT Hub File Upload feature to upload files with private storage account exposed through a Firewall and custom domain.
   author: katriendg
-  ms.author: 
+  ms.author: katriend
   ms.date: 06/13/2024
   ms.topic: example-scenario
   ms.service: architecture-center
