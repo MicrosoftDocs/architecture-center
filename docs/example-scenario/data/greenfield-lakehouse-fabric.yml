@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Greenfield Lakehouse on Microsoft Fabric
+  titleSuffix: Azure Architecture Center
+  description: This example workload illustrates a Greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
+  author: nimoore
+  ms.author: nimoore
+  ms.date: 01/08/2024
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - arb-data
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  # - microsoft-fabric
+  - power-bi
+name: Greenfield Lakehouse
+summary: This example workload illustrates a Greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
+thumbnailUrl: media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png
+content: |
+  [!include[](greenfield-lakehouse-fabric.md)]
