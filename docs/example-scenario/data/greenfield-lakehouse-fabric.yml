@@ -22,4 +22,4 @@ name: Greenfield Lakehouse
 summary: This example workload illustrates a Greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric.
 thumbnailUrl: media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png
 content: |
-  [!include[](greenfield-lakehouse-fabric.md)]
+  [!include[](greenfield-lakehouse-fabric-content.md)]
