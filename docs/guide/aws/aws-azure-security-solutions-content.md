@@ -1,4 +1,4 @@
-This guide shows how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
+This guide describes how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.
 
 This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
@@ -34,7 +34,7 @@ Permissions Management is a cloud infrastructure entitlement management soluti
 
 - Discover the number of unused or excessive permissions across all AWS accounts to identify risks via a multidimensional view of identities, permissions, and resources. 
 
-- Remediate and right-size permissions via enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) principle across all AWS accounts.
+- Remediate and right-size permissions via enforcement of the [principle of least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege)  across all AWS accounts.
 
 - Monitor and alert anomalous activities to help prevent data breaches caused by misuse and malicious exploitation of permissions.
 
@@ -56,7 +56,7 @@ Defender for Cloud Apps provides enhanced protection for software as a service (
 
 Connecting AWS to Defender for Cloud Apps helps you secure your assets and detect potential threats by monitoring administrative and sign-in activities. You get notifications of possible brute force attacks, malicious use of privileged user accounts, unusual deletions of VMs, and publicly exposed storage buckets. Defender for Cloud Apps helps protect AWS environments from abuse of cloud resources, compromised accounts and insider threats, data leakage, and resource misconfiguration and insufficient access control. The following Defender for Cloud Apps capabilities are especially useful when you work with AWS environments.
 
-- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware). Defender for Cloud Apps anomaly detection policies are triggered when there are unusual activities performed by users in AWS. Defender for Cloud Apps continually monitors your users' activities and uses UEBA and machine learning to learn and understand the normal behavior of your users and trigger alerts on any deviations.
+- [Detect cloud threats, compromised accounts, malicious insiders, and ransomware](/defender-cloud-apps/best-practices#detect-cloud-threats-compromised-accounts-malicious-insiders-and-ransomware). Defender for Cloud Apps anomaly detection policies are triggered when there are unusual activities performed by users in AWS. Defender for Cloud Apps continually monitors your users' activities and uses UEBA and machine learning to learn and understand the typical behavior of your users and trigger alerts on any deviations.
 
 - [Limit exposure of shared data and enforce collaboration policies](/defender-cloud-apps/best-practices). Automate governance controls via actions like notifying users about alerts, requiring re-authentication or suspending users, making an S3 bucket private, or removing collaborators from an S3 bucket.
 
