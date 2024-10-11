@@ -274,4 +274,4 @@ Principal author:
 - [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
 - [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
 - [High-availability blue-green deployments for applications](../../../example-scenario/blue-green-spring/blue-green-spring.yml)
-- [Identity and access management for the Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/identity-and-access-management)
+- [Identity and access management for Azure Spring Apps in landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/identity-and-access-management)

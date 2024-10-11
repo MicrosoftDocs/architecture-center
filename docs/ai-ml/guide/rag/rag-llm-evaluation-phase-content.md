@@ -148,7 +148,7 @@ The framework loads, chunks, and enriches both text and images from MHTML files 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [RAG accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+> [RAG Experimentation Accelerator](https://github.com/microsoft/rag-experiment-accelerator)
 
 > [!div class="nextstepaction"]
 > [RAG with Vision Application Framework](https://github.com/Azure-Samples/rag-as-a-service-with-vision)
