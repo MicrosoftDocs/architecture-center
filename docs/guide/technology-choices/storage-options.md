@@ -17,6 +17,7 @@ products:
 - azure-blob-storage
 - azure-file-storage
 - azure-netapp-files
+- azure-container-storage
 ---
 
 # Review your storage options
@@ -72,7 +73,7 @@ Azure offers multiple products and services for different storage capabilities. 
 | I have high-availability clustered servers, such as SQL Server FCI or Windows Server failover clustering. | [Azure Files](/azure/storage/files/storage-files-planning#storage-tiers) or [Premium SSD or Ultra Disk Storage](/azure/virtual-machines/disks-types) | Clustered workloads require multiple nodes to mount the same underlying shared storage for failover or high availability. Premium file shares offer shared storage that's mountable by using SMB. Shared block storage also can be configured on Premium SSD or Ultra Disk Storage by using partner solutions. See [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8?tab=Overview). |
 | I have a relational database or data warehouse workload, such as SQL Server or Oracle. | [Premium SSD or Ultra Disk Storage](/azure/virtual-machines/disks-types) | The choice of Premium SSD or Ultra Disk Storage depends on peak latency, IOPS, and scalability requirements. Ultra Disk Storage also reduces complexity by removing the need for storage pool configuration for scalability. See [Mission critical performance](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/). |
 | I have a NoSQL cluster such as Cassandra or MongoDB. | [Premium SSD](/azure/virtual-machines/disks-types#premium-ssd) | Azure disk storage Premium SSD provides consistent low-latency coupled with high IOPS and throughput. |
-| I have containers with persistent volumes. | [Azure Files](/azure/storage/files/storage-files-introduction) or [Standard SSD, Premium SSD, or Ultra Disk Storage](/azure/virtual-machines/disks-types) | File (RWX) and block (RWO) volumes driver options are available for both Azure Kubernetes Service and custom Kubernetes deployments. Persistent volumes can map to either an Azure disk storage disk or a managed Azure Files share. Choose premium versus standard options based on workload requirements for persistent volumes. For a fully managed solution, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction). |
+| I have containers with persistent volumes that require block storage. | [Standard SSD, Premium SSD, or Ultra Disk Storage](/azure/virtual-machines/disks-types) or [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) | Block (ReadWriteOnce) volume driver options are available for both Azure Kubernetes Service and custom Kubernetes deployments. For a fully managed solution that works seamlessly with Azure Kubernetes Service, consider using [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction). |
 | I have a data lake such as a Hadoop cluster for HDFS data. | [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) or [Standard SSD or Premium SSD](/azure/virtual-machines/disks-types) | The Data Lake Storage Gen2 feature of Blob Storage provides server-side HDFS compatibility and petabyte scale for parallel analytics. It also offers high availability and reliability. Software like Cloudera can use Premium SSD or Standard SSD on controller/worker nodes, if needed. |
 | I have an SAP or SAP HANA deployment. | [Premium SSD or Ultra Disk Storage](/azure/virtual-machines/disks-types) | Ultra Disk Storage is optimized to offer submillisecond latency for tier-1 SAP workloads. Premium SSD, coupled with M-series virtual machines, offers a general-availability option. For the highest throughput at low latency, use [Azure NetApp Files](/azure/sap/workloads/hana-vm-operations-storage) for your SAP and SAP HANA deployment. |
 | I have a disaster recovery site with strict RPO/RTO that syncs from my primary servers. | [Azure page blobs](/azure/storage/blobs/storage-blob-pageblob-overview) | Page blobs are used by replication software to enable low-cost replication to Azure without the need for compute virtual machines until failover occurs. For more information, see [Backup and disaster recovery for Azure IaaS disks](/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks). **Note:** Page blobs support a maximum of 8 TiB. |
@@ -81,8 +82,8 @@ Azure offers multiple products and services for different storage capabilities. 
 
 | Scenario | Suggested Azure services | Considerations for suggested services |
 |---|---|---|
-| I use Windows file server. | [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) | With Azure File Sync, you can store rarely used data on Azure file shares while caching your most frequently used files on-premises. You can also keep files in sync across multiple servers. For larger deployments that have strict requirements for high throughput and low latency, consider using [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). |
-| I have an enterprise network attached storage such as NetApp or Dell-EMC Isilon. | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) or [Azure Files (premium)](/azure/storage/files/storage-files-planning#storage-tiers) | If you have an on-premises deployment of NetApp, consider using Azure NetApp Files to migrate your deployment to Azure. If you're using or migrating to a Windows or Linux server, consider using Azure Files. Also, if you have basic file-share needs, consider using Azure Files. For continued on-premises access, use Azure File Sync to sync SMB file shares with on-premises file shares by using a cloud-tiering mechanism. Cloud tiering uses your on-premises Windows server as a cache for frequently accessed files while keeping colder data in Azure file shares.|
+| I use Windows file server. | [Azure Files](/azure/storage/files/storage-files-introduction) with or without [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) | With Azure File Sync, you can store rarely used data on Azure file shares while caching your most frequently used files on-premises. You can also keep files in sync across multiple servers. For larger deployments that have strict requirements for high throughput and low latency, consider using [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). |
+| I have an enterprise network attached storage such as NetApp or Dell-EMC Isilon. | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) or [Azure Files (premium)](/azure/storage/files/storage-files-planning#storage-tiers) | If you have an on-premises deployment of NetApp, consider using Azure NetApp Files to migrate your deployment to Azure. If you're using or migrating to a Windows or Linux server, consider using Azure Files. For continued on-premises access, use Azure File Sync to sync SMB file shares with on-premises file shares by using a cloud-tiering mechanism. Cloud tiering uses your on-premises Windows server as a cache for frequently accessed files while keeping colder data in Azure file shares.|
 | I have an SMB or NFS file share. | [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | The choice of premium or standard Azure Files tiers depends on IOPS, throughput, and your need for latency consistency. If you have an on-premises deployment of NetApp, consider using Azure NetApp Files. If you need to migrate your access control lists and timestamps to the cloud, Azure File Sync can bring these settings to your SMB Azure file shares. |
 | I have an on-premises object storage system for petabytes of data, such as Dell-EMC ECS. | [Blob Storage](/azure/storage/blobs/storage-blobs-introduction) | Azure Blob Storage provides premium, hot, cool, and archive tiers to match your workload performance and cost needs. |
 | I have a Distributed File System Replication deployment or another way of handling branch offices. | [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) | Azure File Sync offers multisite sync for multiple servers and native Azure file shares. Move to a fixed storage footprint on-premises by using cloud tiering. |
@@ -92,6 +93,7 @@ Azure offers multiple products and services for different storage capabilities. 
 | I manage data transfer in disconnected scenarios. | [Azure Stack Edge](/azure/databox-online/) or [Data Box Gateway](/azure/databox-online/) | Using Data Stack Edge or Data Box Gateway, you can copy data in disconnected scenarios. When the gateway is offline, it saves all files you copy in the cache, then uploads them when you're connected. |
 | I manage an ongoing data pipeline to the cloud. | [Azure Stack Edge](/azure/databox-online/) or [Data Box Gateway](/azure/databox-online/) | Move data to the cloud from systems that are constantly generating data by having them copy that data to the storage gateway. |
 | I have bursts of data that arrive at the same time. | [Azure Stack Edge](/azure/databox-online/) or [Data Box Gateway](/azure/databox-online/) | Manage large quantities of data that arrive at the same time. Some examples are when an autonomous car pulls into the garage or a gene sequencing machine finishes its analysis. Copy all that data to Data Box Gateway at fast local speeds. Then, let the gateway upload it as your network allows. |
+| I have containers with persistent volumes that require file storage. | [Azure Files](/azure/storage/files/storage-files-introduction) | File (ReadWriteMany) volume driver options are available for both Azure Kubernetes Service and custom Kubernetes deployments. |
 
 ### Plan based on data workloads
 
@@ -104,14 +106,14 @@ Azure offers multiple products and services for different storage capabilities. 
 | I need to move an on-premises application that uses a local disk or iSCSI. | [Azure disk storage](/azure/virtual-machines/managed-disks-overview) | |
 | I need to migrate a container-based application that has persistent volumes. | [Azure disk storage](/azure/virtual-machines/managed-disks-overview) or [Azure Files](/azure/storage/files/storage-files-introduction) | |
 | I need to move file shares that aren't on Windows Server or NetApp to the cloud. | [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | Protocol supports regional availability performance requirements snapshot and clone capabilities price sensitivity. |
-| I need fully managed, cloud-native storage for Azure Kubernetes Service (AKS) clusters. | [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) | |
+| I need fully managed, cloud-native block storage (ReadWriteOnce) for Azure Kubernetes Service (AKS) clusters. | [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) | |
 | I need to transfer terabytes to petabytes of data from on-premises to Azure. | [Azure Stack Edge](/azure/databox-online/) | |
 | I need to process data before transferring it to Azure. | [Azure Stack Edge](/azure/databox-online/) | |
 | I need to support continuous data ingestion in an automated way by using local cache. | [Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) | |
 
 ## Learn more about Azure storage services
 
-After you identify the Azure tools that best match your requirements, use this detailed documentation to learn more about these services:
+After you identify the Azure tools that best match your requirements, use this documentation to learn more about these services:
 
 | Service | Description |
 |---|---|
@@ -121,7 +123,7 @@ After you identify the Azure tools that best match your requirements, use this d
 | [Azure Files](/azure/storage/files/storage-files-introduction) | Azure Files provides fully managed, native SMB and NFS file shares, without the need to run a virtual machine. You can mount an Azure file share as a network drive to any Azure virtual machine or on-premises computer. |
 | [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) | Use Azure File Sync to centralize your file shares in Azure Files. Azure File Sync offers the flexibility, performance, and compatibility of an on-premises file server. |
 | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | The Azure NetApp Files service is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select service and performance levels and set up snapshots through the service. |
-| [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) | Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
+| [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction) | Azure Container Storage is a fully managed, cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
 | [Azure Stack Edge](/azure/databox-online/) | Azure Stack Edge is an on-premises network device that moves data into and out of Azure. Data Stack Edge has AI-enabled edge compute to pre-process data during upload. Data Box Gateway is a virtual version of the device but with the same data transfer capabilities. |
 | [Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) | Data Box Gateway is a storage solution that enables you to seamlessly send data to Azure. It's a virtual device based on a virtual machine provisioned in your virtualized environment or hypervisor. The virtual device is on-premises and you write data to it by using the NFS and SMB protocols. The device then transfers your data to Azure block blobs, page blobs, or to Azure Files. |
 
@@ -146,7 +148,7 @@ For help with planning the right solution for Azure disks, see [Backup and disas
 
 ## Security
 
-To help protect your data in the cloud, Azure Storage offers several best practices for data security and encryption:
+To help protect your data in the cloud, Azure offers several best practices for data security and encryption:
 
 - Secure the storage account by using Azure RBAC and Microsoft Entra ID.
 - Secure data in transit between an application and Azure by using client-side encryption, HTTPS, or SMB 3.1.1.
@@ -166,7 +168,7 @@ You can use Azure to deliver scaled services to reach your customers and partner
 
 Managed disks are available in all Azure regions that have Azure Premium SSD and Standard SSD offerings. Azure Ultra Disk Storage is offered in several availability zones. Verify the regional availability when you plan mission-critical, top-tier workloads that require Ultra Disk Storage.
 
-Hot and cool Blob Storage, Data Lake Storage Gen2, and Azure Files storage are available in all Azure regions. Archival blob storage, premium file shares, and premium block Blob Storage are limited to certain regions. Refer to the regions page to check the current status.
+Hot and cool Blob Storage, Data Lake Storage Gen2, and Azure Files are available in all Azure regions. Archival blob storage, premium file shares, and premium block Blob Storage are limited to certain regions.
 
 To learn more about Azure global infrastructure, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). Consult [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) for storage options available in each Azure region.
 
@@ -176,6 +178,6 @@ Legal and contractual requirements that are related to data storage often apply 
 
 Part of your compliance efforts might include controlling where your database resources are physically located. Azure regions are organized into groups called geographies. An Azure geography ensures that data residency, sovereignty, compliance, and resiliency requirements are honored within geographical and political boundaries. If your workloads are subject to data sovereignty or other compliance requirements, deploy your storage resources to regions that are in a compliant Azure geography. For more information, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
-## Next steps
+## Next step
 
 [Review your data options](./data-options.md)
