@@ -80,5 +80,4 @@ Get the latest updates on [Azure mobile development services and features](https
 Following are a few more architectures to consider:
 
 - [Add a mobile front end to a legacy app](../../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)
-- [Azure Communication Services architecture design](../../guide/mobile/azure-communication-services-architecture.yml)
 - [Analyze and understand mobile application use](/azure/developer/mobile-apps/analytics?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

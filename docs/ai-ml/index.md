@@ -20,15 +20,15 @@ categories:
 
 # Artificial intelligence (AI) architecture design
 
-*Artificial intelligence (AI)* is a technology that allows machines to imitate intelligent human behavior. Through AI, machines can analyze data to create images and videos; they can analyze and synthesize speech, as well as verbally interact in natural ways, make predictions, and generate new data.
+*Artificial intelligence (AI)* is a technology that allows machines to imitate intelligent human behavior. With AI, machines can analyze data to create images and videos; they can analyze and synthesize speech, as well as verbally interact in natural ways, make predictions, and generate new data.
 
 
 
 ## AI concepts
 
-### Machine learning algorithms
+### Algorithms
 
-Machine learning algorithms are pieces of code that help humans explore, analyze, and find meaning in complex data sets. Each algorithm is a finite set of unambiguous step-by-step instructions that a machine can follow to achieve a certain goal. In a machine learning model, the goal is to establish or discover patterns that humans can use to make predictions or categorize information. An algorithm may describe how to determine whether a pet is a cat, dog, fish, bird, or lizard. Another far more complicated algorithm may describe how to identify a written or spoken language, analyze its words, translate them into a different language, and then check the translation for accuracy.
+*Algorithms* or *machine learning algorithms* are pieces of code that help humans explore, analyze, and find meaning in complex data sets. Each algorithm is a finite set of unambiguous step-by-step instructions that a machine can follow to achieve a certain goal. In a machine learning model, the goal is to establish or discover patterns that humans can use to make predictions or categorize information. An algorithm may describe how to determine whether a pet is a cat, dog, fish, bird, or lizard. Another far more complicated algorithm may describe how to identify a written or spoken language, analyze its words, translate them into a different language, and then check the translation for accuracy.
 
 - [What are machine learning algorithms?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms)
 
@@ -71,7 +71,7 @@ In general, small language models have fewer than 10 billion parameters, and lar
 
 The availability of language models has led to the emergence of new ways to interact with applications and systems through digital copilots. Copilots are generative AI assistants that are integrated into applications often as chat interfaces. They provide contextualized support for common tasks in those applications.
 
-[Microsoft Copilot](https://m365.cloud.microsoft/chat/) is integrated into a wide range of Microsoft applications and user experiences. It is based on an open architecture that enables third-party developers to create their own plug-ins to extend or customize the user experience with Microsoft Copilot. Additionally, third-party developers can create their own copilots using the same open architecture.
+[Microsoft Copilot](https://m365.cloud.microsoft/chat/) is integrated into a wide range of Microsoft applications and user experiences. It's based on an open architecture that enables third-party developers to create their own plug-ins to extend or customize the user experience with Microsoft Copilot. Additionally, third-party developers can create their own copilots using the same open architecture.
 
 - [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/microsoft-cloud/dev/copilot/overview).
 
@@ -82,32 +82,32 @@ The availability of language models has led to the emergence of new ways to inte
 
 ### Retrieval Augmented Generation (RAG) 
 
-Retrieval Augmented Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides grounding data. Adding an information retrieval system gives you control over grounding data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture means that you can constrain generative AI to your enterprise content sourced from vectorized documents and images, and other data formats if you have embedding models for that content.
+*Retrieval Augmented Generation (RAG)* is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides grounding data. Adding an information retrieval system gives you control over grounding data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture means that you can constrain generative AI to your enterprise content sourced from vectorized documents and images, and other data formats if you have embedding models for that content.
 
 - [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
 
 ### Automated machine learning (AutoML)
 
-AAutomated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
+*Automated machine learning*, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
 
 - [What is automated machine learning?](/azure/machine-learning/concept-automated-ml?view=azureml-api-2)
 
 ## AI services
 
-[Azure AI services](https://azure.microsoft.com/services/ai-services/) help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+With [Azure AI services](https://azure.microsoft.com/services/ai-services/) developers and organizations can create intelligent, market-ready, and responsible applications with out-of-the-box, prebuilt and customizable APIs and models. Usages include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+
+- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
 
 - [Azure AI services documentation](/azure/ai-services/what-are-ai-services)
 
 - [Try Azure AI services for free](https://azure.microsoft.com/solutions/ai)
-
-- [Choosing an Azure AI services technology](../data-guide/technology-choices/cognitive-services.md)
 
 - [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
 
 ## AI Language models
 
-- Large Language Models (LLMs), such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
+- *Large Language Models (LLMs)*, such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
 
 - [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
 
@@ -323,6 +323,119 @@ quickly as possible. The classic example is credit card fraud detection, but rea
 - [Train R models using the Azure ML CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
 
+
+
+### Azure Machine Learning
+
+This is an enterprise-grade machine learning service to build and deploy models faster. Azure Machine Learning offers web interfaces and SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
+
+- [What are the machine learning products at Microsoft?](../ai-ml/guide/data-science-and-machine-learning.md)
+
+- [Azure Machine Learning product home page](https://azure.microsoft.com/services/machine-learning/)
+
+- [Azure Machine Learning documentation overview](/azure/machine-learning/)
+
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml) General orientation with links to many learning resources, SDKs, documentation, and more
+
+#### Machine learning reference architectures for Azure
+
+- [Machine learning operations](../ai-ml/guide/machine-learning-operations-v2.md)
+
+- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
+
+- [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
+
+### Azure automated machine learning
+
+Azure provides extensive support for automated ML. Developers can build models using a no-code UI or through a code-first notebooks experience.
+
+- [Azure automated machine learning product home page](https://azure.microsoft.com/services/machine-learning/automatedml/)
+
+- [Azure automated ML infographic (PDF)](https://aka.ms/automlinfographic/)
+
+- [Tutorial: Create a classification model with automated ML in Azure Machine Learning](/azure/machine-learning/tutorial-first-experiment-automated-ml)
+
+- [Configure automated ML experiments in Python](/azure/machine-learning/how-to-configure-auto-train)
+
+- [Use the CLI extension for Azure Machine Learning](/azure/machine-learning/reference-azure-machine-learning-cli)
+
+- [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
+
+### Azure AI services
+
+This is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps. These domain-specific, pretrained AI models can be customized with your data.
+
+- [Cognitive Services product home page](https://azure.microsoft.com/services/cognitive-services/)
+
+- [Azure Cognitive Services documentation](/azure/cognitive-services/)
+
+### Azure Cognitive Search
+
+This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+
+- [Azure Cognitive Search product home page](https://azure.microsoft.com/services/search/)
+
+- [Getting started with AI enrichment](/azure/search/cognitive-search-concept-intro)
+
+- [Azure Cognitive Search documentation overview](/azure/search/)
+
+- [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
+
+- [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](/azure/search/cognitive-search-quickstart-blob)
+
+### Azure Bot Service
+
+This is a purpose-built bot development environment with out-of-the-box templates to get started quickly.
+
+- [Azure Bot Service product home page](https://azure.microsoft.com/services/bot-service/)
+
+- [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
+
+- [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
+
+- [Microsoft Bot Framework](https://dev.botframework.com/)
+
+- [Microsoft Bot Framework SDK repo](https://github.com/Microsoft/BotBuilder)
+
+### Apache Spark on Azure
+
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
+
+[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
+
+The Microsoft machine learning library for Apache Spark is [SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. Learn more about [SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml).
+
+- [Azure HDInsight overview](/azure/hdinsight/hdinsight-overview). Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
+
+- [Tutorial: Build an Apache Spark machine learning application in Azure HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
+
+- [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
+
+- [Configure HDInsight Apache Spark Cluster settings](/azure/hdinsight/spark/apache-spark-settings)
+
+- [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
+
+- [GitHub repo for SynapseML: Microsoft machine learning library for Apache Spark](https://github.com/microsoft/SynapseML)
+
+- [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
+
+### Azure Databricks Runtime for Machine Learning
+
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
+
+[Databricks Runtime for Machine Learning (Databricks Runtime ML)](/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
+
+- [Azure Databricks product home page](https://azure.microsoft.com/services/databricks/)
+
+- [Azure Databricks documentation](/azure/azure-databricks/)
+
+- [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
+
+- [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
+
+- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
+
+- [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 
 ## Customer stories
