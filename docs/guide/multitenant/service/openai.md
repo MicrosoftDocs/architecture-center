@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.
 author: soferreira
 ms.author: soferreira
-ms.date: 09/21/2023
+ms.date: 10/11/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -23,23 +23,24 @@ ms.custom:
 
 ## Isolation models
 
-When you have a multitenant system that uses Azure OpenAI, decide the level of isolation that you want. Determine your isolation model based on the following factors:
+When you have a multitenant system that uses Azure OpenAI service, you need to decide the level of isolation that your tenants require. You should determine your isolation model based on the following factors:
 
 - How many tenants do you plan to have?
-- Do you share your application tier between multiple tenants? If yes, do you deploy single-tenant application instances, or do you create separate deployments for each tenant?
-- Do your tenants have compliance requirements that require access to a separate instance?
+- Do your tenants have compliance requirements that require network or infrastructure isolation?
+- Do your tenants require models that are fine-tuned on their own data?
+- Do your tenants require different model versions or model lifecycles?
 
-The following table summarizes the main tenancy models for Azure OpenAI.
+The following table summarizes the deployment approaches you can use when using Azure OpenAI Service in a multitenant system:
 
-| Consideration | Azure OpenAI for each tenant in the provider's subscription | Azure OpenAI for each tenant in the tenant's subscription | Shared Azure OpenAI |
-|-|-|-|-|
-| **Data isolation** | High | Very high | Low |
-| **Performance isolation** | High | High | Low-medium, depending on the token per minute (TPM) usage for each tenant. |
-| **Deployment complexity** | Low-medium, depending on the number of tenants. | High. The tenant must correctly grant access to the provider. | Low |
-| **Operational complexity** | High | Low for the provider, higher for the tenant. | Low |
-| **Example scenario** | Individual application instances for each tenant. | Tenants with specific compliance requirements or custom models. | Large multitenant solution with a shared application tier. |
+| Consideration | Dedicated Azure OpenAI service | Shared Azure OpenAI service, dedicated model deployment per tenant | Shared Azure OpenAI service, shared model deployment | Tenant-provided Azure OpenAI service |
+|-|-|-|-|-|
+| **Data isolation** | High | Medium | Low | High |
+| **Performance isolation** | High | High | Low-medium, depending on the token per minute (TPM) usage for each tenant. | High |
+| **Deployment complexity** | Low-medium, depending on the number of tenants. | Medium, need to manage deployment names and quotas. | Low | Not applicable, managed by customer. |
+| **Operational complexity** | Low | Medium | High | Low for the provider, higher for the tenant. |
+| **Example scenario** | Single tenant deployments requiring network isolation from other tenants. | Tenants with specific model lifecycle or fine-tuning requirements. | Large multitenant solutions with a shared application tier. | Tenants with specific compliance or fine-tuning requirements. |
 
-### Azure OpenAI for each tenant in the provider's subscription
+### Dedicated Azure OpenAI service
 
 If you're a service provider, consider deploying an Azure OpenAI instance for each tenant in your Azure subscription. This approach provides data isolation for each tenant. It requires that you deploy and manage an increasing number of Azure OpenAI resources as you increase the number of tenants.
 
@@ -49,28 +50,11 @@ The following diagram illustrates the model for Azure OpenAI for each tenant in 
 
 :::image type="content" source="./media/openai/openai-providers-subscription.svg" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the provider's subscription." border="false" lightbox="./media/openai/openai-providers-subscription.svg":::
 
-### Azure OpenAI for each tenant in the tenant's subscription
+### Shared Azure OpenAI service
 
-In some situations, your tenants might create the Azure OpenAI instance in their own Azure subscriptions and grant your application access to it. This approach is appropriate when tenants have specific quotas and permissions from Microsoft, such as access to the latest models, less strict filtering, or the use of provisioned throughput. You can also use this approach if the tenant has a fine-tuned model. Or if they require a component in their environment to process and send data via their customer-managed Azure OpenAI instance for processing.
+You might choose to share an instance of Azure OpenAI among multiple tenants. The Azure OpenAI resource is deployed in your (the service provider's) Azure subscription. You're responsible for managing it. This solution is the easiest to implement, but it provides the least data isolation and performance isolation.
 
-To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through their Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/azure/active-directory/develop/single-and-multi-tenant-apps). The following workflow outlines the steps of this approach:
-
-1. The tenant registers the multitenant Microsoft Entra application in their own Microsoft Entra tenant.
-1. The tenant grants the multitenant Microsoft Entra application the appropriate level of access to their Azure OpenAI resource. For example, the tenant might assign the application to the *Azure AI services user* role by using role-based access control (RBAC).
-1. The tenant provides the resource ID of the Azure OpenAI resource that they create.
-1. Your application code can use a service principal that's associated with the multitenant Microsoft Entra application in your own Microsoft Entra instance to access the tenant's Azure OpenAI instance.
-
-Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. This approach requires that you securely store and manage credentials for each tenant, which is a potential security liability. If your tenants configure network access controls on their Azure OpenAI instance, ensure that you can access them.
-
-The following diagram illustrates the model for Azure OpenAI for each tenant in the tenant's subscription.
-
-:::image type="content" source="./media/openai/openai-tenants-subscription.svg" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the tenant's subscription." border="false" lightbox="./media/openai/openai-tenants-subscription.svg":::
-
-### Shared Azure OpenAI
-
-You might choose to share an instance of Azure OpenAI among multiple tenants. The Azure OpenAI resource is deployed in your, or the solution provider's, Azure subscription. You're responsible for managing it. This solution is the easiest to implement, but it provides the least data isolation and performance isolation.
-
-Sharing Azure OpenAI doesn't offer access security at the model deployment level. Other tenants can use unauthorized models. It's strongly discouraged to share an Azure OpenAI instance when you use fine-tuned models. It can expose sensitive information and allow unauthorized access to tenant-specific resources.
+Sharing an Azure OpenAI resource doesn't provide security segmentation for each model deployment. A tenant might be able to use a model they aren't authorized to use. For this reason, avoid sharing an Azure OpenAI instance when you use fine-tuned models, because you might expose sensitive information and allow unauthorized access to tenant-specific data or resources.
 
 Sharing an instance of Azure OpenAI among multiple tenants can also lead to a [Noisy Neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem. It can cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge your customers for the consumption cost of a shared Azure OpenAI instance, implement the logic to keep track of the total number of tokens for each tenant in your application.
 
@@ -86,18 +70,70 @@ The following diagram illustrates the shared Azure OpenAI model.
 
 :::image type="content" source="./media/openai/openai-shared.svg" alt-text="Diagram that shows the shared Azure OpenAI model." border="false" lightbox="./media/openai/openai-shared.svg":::
 
-#### Shared Azure OpenAI instance with the same model for each tenant
+When you deploy a shared Azure OpenAI service, you can decide whether the model deployments within the service are also shared, or if they're dedicated to specific customers.
 
-When you use a shared Azure OpenAI instance, deploying individual instances of the same model for each tenant can offer significant benefits. This approach provides enhanced parameter customization for each deployment. It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. This approach can optimize resource utilization to ensure that each tenant only pays for their required resources, which ensures a cost-effective solution. This approach also promotes scalability and adaptability because tenants can adjust their resource allocation based on their evolving needs and usage patterns.
+#### Shared model deployment among tenants
 
-> [!NOTE]
-> When you customize models for unique needs, you need to consider the approaches that are available. Every tenant might have distinct requirements and use cases. You might not use fine-tuning for most use cases. Explore other options, such as grounding. Take the time to evaluate these factors to help ensure that you choose the approach that best meets your needs.
+Sharing a model deployment among tenants simplifies your operational burden because you have fewer deployments to manage, and model versions to track. Plan to use a shared model deployment if you can, and only create dedicated model deployments if you need the capabilities they offer.
 
-## Managed identities
+#### Dedicated model deployment per tenant
 
-Use Microsoft Entra managed identities to provide access to Azure OpenAI from other resources that are authenticated by Microsoft Entra ID. When you use managed identities, you don't need to use an Azure OpenAI API key. You can also use managed identities to grant fine-grained permissions to your Azure OpenAI identity using RBAC.
+You can create a model deployment for each tenant, or for tenants who have special requirements that can't be met by using a shared model deployment. Common reasons to use dedicated model deployments for a tenant include the following:
 
-When you use managed identities, consider your isolation model. For more information, see [Azure OpenAI with managed identities](/azure/ai-services/openai/how-to/managed-identity).
+- **Quota and cost management:** It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. If you use [provisioned throughput units (PTUs)](/azure/ai-services/openai/concepts/provisioned-throughput), you can assign the PTUs to specific customers and use other billing models for other customers.
+
+- **Content filtering policies:** Sometimes, a specific tenant might require a unique content filtering policy, such as a tenant-specific blocklist of disallowed words. You specify the content filtering policy at the scope of a model deployment.
+
+- **Model types and versions:** You might need to use different models or model versions for different tenants. A tenant might also require their own model lifecycle management process.
+
+- **Tenant-specific fine tuning:** If you create distinct fine-tuned models for each tenant, you need to create a separate model deployment for each fine-tuned model.
+
+    Remember that fine-tuning isn't required for most use cases. Usually, it's better to ground your model by using [Azure OpenAI On Your Data](#azure-openai-on-your-data) or another retrieval-augmented generation (RAG) approach.
+
+- **Data residency:** This approach supports distinct data residency requirements. For example, you might provide a regional model deployment for a tenant with strict data residency needs, and use a global model deployment for other tenants without strict needs.
+
+Each model deployment has its own distinct URL, but it's important to remember the underlying models are shared with other Azure customers. They also use shared Azure infrastructure.
+
+Azure OpenAI doesn't enforce access control for each model deployment, so your application needs to control which tenant can reach which model deployment.
+
+### Tenant-provided Azure OpenAI resource
+
+In some situations, your tenants might create the Azure OpenAI instance in their own Azure subscriptions and grant your application access to it. This approach might be appropriate in the following situations:
+
+- Tenants have specific quotas and permissions from Microsoft, such as access to different models, specific content filtering policies, or the use of provisioned throughput.
+- The tenant has a fine-tuned model they need to use from your solution.
+- They require a component in their environment to process and send data through their customer-managed Azure OpenAI instance for processing.
+
+To access an Azure OpenAI instance in your tenant's subscription, the tenant must provide your application with access. Your application must authenticate through their Microsoft Entra instance. One approach is to publish a [multitenant Microsoft Entra application](/azure/active-directory/develop/single-and-multi-tenant-apps). The following workflow outlines the steps of this approach:
+
+1. The tenant registers the multitenant Microsoft Entra application in their own Microsoft Entra tenant.
+1. The tenant grants the multitenant Microsoft Entra application the appropriate level of access to their Azure OpenAI resource. For example, the tenant might assign the application to the *Azure AI services user* role by using role-based access control (RBAC).
+1. The tenant provides the resource ID of the Azure OpenAI resource that they create.
+1. Your application code can use a service principal that's associated with the multitenant Microsoft Entra application in your own Microsoft Entra instance to access the tenant's Azure OpenAI instance.
+
+Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. This approach requires that you securely store and manage credentials for each tenant, which is a potential security liability.
+
+If your tenants configure network access controls on their Azure OpenAI instance, ensure that you can access them.
+
+The following diagram illustrates the model for Azure OpenAI for each tenant in the tenant's subscription.
+
+:::image type="content" source="./media/openai/openai-tenants-subscription.svg" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the tenant's subscription." border="false" lightbox="./media/openai/openai-tenants-subscription.svg":::
+
+## Features of Azure OpenAI Service that support multitenancy
+
+### Assistants API
+
+The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that makes it suitable for creating AI assistants. It includes the ability to call tools and APIs, as well as search files to ground the answers that the model generates. It enables persistent conversational threads to be managed by the service, and it can generate and execute code within a sandboxed environment. To support these capabilities, the Assistants API needs to store some data.
+
+When you use the Assistants API in a multitenant solution, you can choose to create assistants that are dedicated to a single tenant, or you can share an assistant among multiple tenants. It's important that you consider tenant isolation in all data that's stored, especially for shared assistants. For example, you should ensure that conversational threads are stored separately for each tenant.
+
+The Assistants API supports function invocation, which sends your application instructions on functions to invoke and arguments to include. Ensure that any functions calls you make are multitenant-aware, such as by including the tenant ID in the call to the downstream system. Verify the tenant ID within your application, and don't rely on the language model to propagate the tenant ID for you.
+
+### Azure OpenAI On Your Data
+
+Azure OpenAI On Your Data enables the large language model to directly query knowledge sources, like indexes and databases, as part of generating a response from the language model.
+
+When you make a request, you can specify the data sources that should be queried. In a multitenant solution, ensure that your data sources are multitenancy-aware and that you can specify tenant filters on your requests. Propagate the tenant ID through to the data source appropriately. For example, suppose you're querying Azure AI Search. If you have data for multiple tenants in a single index, specify a filter to limit the retrieved results to the current tenant's ID. Or, if you've created an index for each tenant, ensure that you specify the correct index for the current tenant.
 
 ## Contributors
 
@@ -112,7 +148,7 @@ Other contributors:
 - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
 - [Landon Pierce](https://www.linkedin.com/in/landon-pierce) | Customer Engineer, ISV & DN CoE
 - [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
-- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Tech Strategist
+- [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford) | Partner Solution Architect
 - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, ISV & DN CoE
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
