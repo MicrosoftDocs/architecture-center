@@ -1,23 +1,23 @@
-This example workload illustrates a Greenfield solution to build a scalable data platform using Microsoft Fabric and the lakehouse design paradigm. Microsoft Fabric is a platform that integrates data storage, processing, and analytics. A Greenfield lakehouse provides a clean slate for designing an efficient, future-proof data ecosystem.
+This example workload illustrates a greenfield solution for creating a scalable data platform by using Microsoft Fabric and the lakehouse design paradigm. Fabric is a platform that integrates data storage, processing, and analytics. A greenfield lakehouse provides a clean start for designing an efficient, future-proof data ecosystem.
 
 This architecture is applicable to the following scenarios:
 
-- Organizations looking to start fresh, unencumbered by legacy systems, when developing a data platform.
-- Organizations that anticipate data volumes between 0.5 TB to 1.5 TB.
-- Organizations with a preference for a simple and streamlined pattern that balances cost, complexity, and performance considerations.
+- Organizations that want to start fresh, unencumbered by legacy systems, when developing a data platform.
+- Organizations that anticipate data volumes between 0.5 and 1.5 TB.
+- Organizations that prefer a simple and streamlined pattern that balances cost, complexity, and performance considerations.
 
 ## Architecture
 
-![Diagram illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png)
+![Diagram that illustrates a greenfield solution for building a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png)
 
-*Download a [Visio file](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.vsdx) of this architecture.*
+*Download a [Visio file]() of this architecture.*
 
 ### Dataflow
 
 This design reflects the Lambda architecture, which separates data processing into two layers:
 
-1. A high-volume batch processing layer for processed periodically for historical analysis.
-2. A low-latency high-throughput stream processing layer for real-time analytics.
+- A high-volume batch processing layer that's processed periodically for historical analysis
+- A low-latency, high-throughput stream processing layer for real-time analytics
 
 The stream processing path ingests and processes data in near real-time, making it ideal for dashboards and anomaly detection. The batch processing path handles the complete dataset, ensuring data consistency and enabling complex historical analysis. This two-pronged approach offers real-time insights while maintaining a reliable record for later exploration.
 
