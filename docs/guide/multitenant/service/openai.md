@@ -123,9 +123,9 @@ The following diagram illustrates the model for Azure OpenAI for each tenant in 
 
 ### Assistants API
 
-The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that make it suitable for creating AI assistants. It includes the ability to call tools and APIs, as well as search files to ground the answers that the model generates. It enables persistent conversational threads to be managed by the service, and it can generate and execute code within a sandboxed environment.
+The [Assistants API](/azure/ai-services/openai/concepts/assistants) adds functionality to your Azure OpenAI service that make it suitable for creating AI assistants. It includes the ability to call tools and APIs, as well as search files to ground the answers that the model generates. It enables persistent conversational threads to be managed by the service, and it can generate and execute code within a sandboxed environment. To support these capabilities, the Assistants API needs to store some data.
 
-If you share an assistant among multiple tenants, it's critical that you consider how you'll isolate data like conversational threads. Ensure that you track the tenant ID so that you can filter by tenant.
+When you use the Assistants API in a multitenant solution, you can choose to create assistants that are dedicated to a single tenant, or you can share an assistant among multiple tenants. It's important that you consider tenant isolation in all data that's stored, especially for shared assistants. For example, you should ensure that conversational threads are stored separately for each tenant.
 
 The Assistants API supports function invocation, which sends your application instructions on functions to invoke and arguments to include. Ensure that any functions calls you make are multitenant-aware, such as by including the tenant ID in the call to the downstream system. Verify the tenant ID within your application, and don't rely on the language model to propagate the tenant ID for you.
 
