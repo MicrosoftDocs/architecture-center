@@ -176,7 +176,7 @@ The solution uses these components:
   - [Power Apps][Microsoft Power Apps on Azure] is a suite of apps, services, connectors, and a data platform. You can use Power Apps to transform manual business operations into digital, automated processes.
   - [Power BI][Power BI] is a collection of software services and apps that display analytics information.
   - [Power Automate][Power Automate] streamlines repetitive tasks and paperless processes.
-  - [Power Virtual Agents][Power Virtual Agents] provides no-code chatbots to meet customer and employee needs at scale.
+  - [Microsoft Copilot Studio (formerly Power Virtual Agents)][Microsoft Copilot Studio (formerly Power Virtual Agents)] provides no-code chatbots to meet customer and employee needs at scale.
 
 #### Enterprise applications
 
@@ -380,7 +380,7 @@ Other contributor:
 [Power Automate]: https://flow.microsoft.com
 [Power BI]: https://powerbi.microsoft.com
 [Power Platform]: https://powerplatform.microsoft.com
-[Power Virtual Agents]: https://powervirtualagents.microsoft.com
+[Microsoft Copilot Studio (formerly Power Virtual Agents)]: https://powervirtualagents.microsoft.com
 [Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins/
 [Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [RealEstateCore]: https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794
