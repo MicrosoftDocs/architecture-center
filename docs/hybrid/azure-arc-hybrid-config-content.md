@@ -81,7 +81,7 @@ Use Azure RBAC to control and manage the permission for Azure Arc-enabled server
 
 Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage certificates on your Azure Arc-enabled servers. The key vault VM extension allows you to manage the certificate lifecycle on Windows and Linux machines.
 
-[Connect Azure Arc-enabled servers to Microsoft Defender for Cloud](azure/defender-for-cloud/quickstart-onboard-machines). This helps you start collecting security-related configurations and event logs so you can recommend actions and improve your overall Azure security posture.
+[Connect Azure Arc-enabled servers to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-machines). This helps you start collecting security-related configurations and event logs so you can recommend actions and improve your overall Azure security posture.
 
 [Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/azure-arc/servers/scenario-onboard-azure-sentinel). This enables you to start collecting security-related events and start correlating them with other data sources.
 
