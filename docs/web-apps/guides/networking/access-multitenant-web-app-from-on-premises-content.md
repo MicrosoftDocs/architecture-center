@@ -1,4 +1,4 @@
-This article shows how to set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet.
+This article shows how to set up improved-security private connectivity to a multitenant web app (Azure App Service dedicated compute pricing tiers which include the Basic, Standard, Premium, Premium v2, and Premium v3) or a function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ This article shows how to set up improved-security private connectivity to a mul
 
 ### Components
 
-- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
+- [Azure App Service](https://azure.microsoft.com/en-us/products/app-service) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
 - [Azure Storage account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
@@ -58,7 +58,7 @@ This article shows how to set up improved-security private connectivity to a mul
 
 ### Alternatives
 
-For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/intro) to host the web application in an isolated environment. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need VNet Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
+For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/overview) to host the web application in an isolated environment. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need VNet Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
 
 If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to an Azure SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
