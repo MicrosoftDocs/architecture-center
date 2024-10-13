@@ -7,10 +7,10 @@ The Project 15 Open Platform was developed in partnership with the GEF Small Gra
 The following sections provide insight into Project 15 Open Platform functionality and architecture.
 
 :::image type="complex" source="../media/project-15-ref-arch-2023.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/project-15-ref-arch-2023.vsdx) of this architecture.*
 Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/project-15-ref-arch-2023.vsdx) of this architecture.*
 
 ### Workflow
 
