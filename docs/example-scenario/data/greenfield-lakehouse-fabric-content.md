@@ -92,35 +92,35 @@ Notebooks are a popular way to interact with lakehouse data. Fabric provides a w
 
 ###### Power BI
 
-Every lakehouse in Fabric comes with a prebuilt default semantic model. It's automatically created when you set up a lakehouse and load data into it. These models inherit business logic from the lakehouse to make it easier to create Power BI reports and dashboards from directly within the lakehouse experience. You can also create custom semantic models, based on specific business requirements, on lakehouse tables. When you create Power BI reports on a lakehouse, you can use [Direct Lake mode](/fabric/get-started/direct-lake-overview), which doesn't require you to import data separately. This allows you to achieve in-memory performance on your reports without moving your data out of the Lakehouse.
+Every lakehouse in Fabric comes with a prebuilt default semantic model. It's automatically created when you set up a lakehouse and load data into it. These models inherit business logic from the lakehouse to make it easier to create Power BI reports and dashboards from directly within the lakehouse experience. You can also create custom semantic models, based on specific business requirements, on lakehouse tables. When you create Power BI reports on a lakehouse, you can use [Direct Lake mode](/fabric/get-started/direct-lake-overview), which doesn't require you to import data separately. This mode allows you to get in-memory performance on your reports without moving your data out of the lakehouse.
 
 ###### Custom APIs
 
-Fabric has a rich API surface across its different items. Microsoft OneLake provides open access to all of Fabric items through existing ADLS Gen2 APIs and SDKs. You can access your data in OneLake through any API, SDK, or tool compatible with ADLS Gen2 just by using a OneLake URI instead. You can upload data to a Lakehouse through Azure Storage Explorer or read a delta table through a shortcut from Azure Databricks. OneLake also supports the [Azure Blob Filesystem driver](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-abfs-driver) (ABFS) for more compatibility with ADLS Gen2 and Azure Blob Storage. For consuming streaming data in downstream apps, you can push Eventstream data to a custom API endpoint. This streaming output from Fabric can then be consumed using Eventhub or AMQP and Kafka protocols.
+Fabric provides a rich API surface across its items. OneLake provides open access to all Fabric items through Azure Data Lake Storage APIs and SDKs. You can access your data in OneLake through any API, SDK, or tool that's compatible with Azure Data Lake Storage by just using a OneLake URI instead. You can upload data to a lakehouse by using Azure Storage Explorer or read a delta table via a shortcut from Azure Databricks. OneLake also supports the [Azure Blob Filesystem driver](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-abfs-driver) (ABFS) for more compatibility with Azure Data Lake Storage and Azure Blob Storage. To consume streaming data in downstream apps, you can push eventstream data to a custom API endpoint. You can then comsume this streaming output from Fabric by using Azure Event Hubs or the AMQP or Kafka protocol.
 
 ###### Power Automate
 
-Power Automate Flow is a low-code application platform that enables you to automate repetitive tasks in an enterprise and also 'act' on your data. The Reflex item in Fabric provides Power Automate flows as one of the supported destinations. This [integration](https://learn.microsoft.com/en-us/fabric/data-activator/data-activator-trigger-power-automate-flows) unlocks many use cases and allows you to trigger downstream actions using a wide range of connectors, both Microsoft native and external systems.
+Power Automate is a low-code application platform that enables you to automate repetitive tasks and also manipulate your data. The reflex item in Fabric supports Power Automate flows as a destination. This [integration](/fabric/data-activator/data-activator-trigger-power-automate-flows) unlocks many use cases and allows you to trigger downstream actions by using a wide range of connectors, for both Microsoft and third-party systems.
 
 ### Components
 
-The following components are used to enable this solution:
+The following components are used in this solution.
 
-- [Microsoft Fabric](): An end-to-end cloud-based data analytics platform designed for enterprises that offers a unified environment for various data tasks like data ingestion, transformation, analysis, and visualization.
+- [Fabric](https://www.microsoft.com/microsoft-fabric): An end-to-end cloud-based data analytics platform that's designed for enterprises. It provides a unified environment for various data tasks, like data ingestion, transformation, analysis, and visualization.
 
-  - [OneLake](https://learn.microsoft.com/fabric/onelake/onelake-overview): The central hub for all your data within Microsoft Fabric. It's designed as an open data lake, meaning it can store data in its native format regardless of structure.
+  - [OneLake](/fabric/onelake/onelake-overview): The central hub for all your data in Fabric. It's designed as an open data lake, meaning it can store data in its native format, regardless of structure.
 
-  - [Data Factory](https://learn.microsoft.com/fabric/data-factory/data-factory-overview): A cloud-based ETL and orchestration service for automated data movement and transformation. It allows you to automate data movement and transformation at scale across various data sources.
+  - [Data Factory](/fabric/data-factory/data-factory-overview): A cloud-based ETL and orchestration service for automated data movement and transformation. It allows you to automate data movement and transformation at scale across various data sources.
 
-  - [Data Engineering](https://learn.microsoft.com/fabric/data-engineering/data-engineering-overview): Tools that enable the collection, storage, processing, and analysis of large volumes of data.
+  - [Data engineering](/fabric/data-engineering/data-engineering-overview): Tools that enable the collection, storage, processing, and analysis of large volumes of data.
 
-  - [Data Science](https://learn.microsoft.com/fabric/data-science/data-science-overview): Tools that empower you to complete end-to-end data science workflows in data enrichment and business insights.
+  - [Data Science](/fabric/data-science/data-science-overview): Tools that enable you to complete end-to-end data science workflows for data enrichment and to gain business insights.
 
-  - [Real-Time Intelligence](https://learn.microsoft.com/fabric/real-time-intelligence/overview): Provides stream ingestion and processing capabilities. This allows you to gain insights from constantly flowing data, enabling quicker decision-making based on real-time trends and anomalies.
+  - [Real-Time Intelligence](/fabric/real-time-intelligence/overview): A service that provides stream ingestion and processing capabilities. This service allows you to gain insights from constantly flowing data to enable quicker decision-making that's based on real-time trends and anomalies.
 
-  - [Power BI](https://learn.microsoft.com/power-bi/fundamentals/power-bi-overview): Business intelligence tool for creating interactive dashboards and reports to visualize data and gain insights.
+- [Power BI](https://www.microsoft.com/power-platform/products/power-bi): Business intelligence tool for creating interactive dashboards and reports to visualize data and gain insights.
 
-  - [Copilot](https://learn.microsoft.com/fabric/get-started/copilot-fabric-overview): Allows you to analyze data, generate insights, and create visualizations and reports in Microsoft Fabric and Power BI using natural language.
+- [Copilot](https://learn.microsoft.com/fabric/get-started/copilot-fabric-overview): Allows you to analyze data, generate insights, and create visualizations and reports in Microsoft Fabric and Power BI using natural language.
 
 ### Alternatives
 
