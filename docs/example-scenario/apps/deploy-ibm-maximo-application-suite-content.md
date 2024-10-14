@@ -103,7 +103,7 @@ Review the MAS applications that you need for your complete business scenario, a
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/) version 2019 using Windows or Linux
 - IBM [Db2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
-You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database, Azure SQL Managed Instance, and Azure Cosmos DB aren't supported.
+You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database, Azure SQL Managed Instance, and Azure Cosmos DB aren't supported.
 
 > [!NOTE]
 > In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using SQL Server for one application and IBM Db2 Warehouse for another.
@@ -239,7 +239,7 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 #### Authentication
 
-MAS currently supports single sign-on (SSO) with Security Assertion Markup Language (SAML) in Microsoft Entra ID. This authentication method requires an enterprise application within Microsoft Entra ID and permissions to modify the application. For more information, see [Microsoft Entra SSO integration with Maximo Application Suite](/entra/identity/saas-apps/maximo-application-suite-tutorial). 
+MAS currently supports single sign-on (SSO) with Security Assertion Markup Language (SAML) in Microsoft Entra ID. This authentication method requires an enterprise application within Microsoft Entra ID and permissions to modify the application. For more information, see [Microsoft Entra SSO integration with Maximo Application Suite](/entra/identity/saas-apps/maximo-application-suite-tutorial).
 
 Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
 
