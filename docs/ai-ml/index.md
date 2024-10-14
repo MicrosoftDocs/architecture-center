@@ -299,12 +299,20 @@ Also see:
 
 
 
-
 ### Azure Databricks
 
+With Databricks Data Intelligence Platform, you can write code to create a machine learning workflow using *feature engineering*:
 
-<!-- Fabric - (1)Fabric data factory - no/low code, (2) supports Spark (code) -->
-<!-- Databricks - Spark - code -->
+- Data pipelines ingest raw data, create feature tables, train models, and perform batch inference. When you train and log a model using feature engineering in Unity Catalog, the model is packaged with feature metadata. When you use the model for batch scoring or online inference, it automatically retrieves feature values. The caller does not need to know about them or include logic to look up or join features to score new data.
+- Model and feature serving endpoints are available with a single click and provide milliseconds of latency.
+- Data and model monitoring.
+
+You can also use [Mosaic AI Vector Search], which is optimized for storing and retrieving embeddings. Embeddings are crucial for applications that require similarity searches, such as RAG (Retrieval Augmented Generation), recommendation systems, and image recognition.
+
+
+- [Azure Databricks - Serve data for ML and AI](//azure/databricks/machine-learning/serve-data-ai)
+
+- [Mosaic AI Vector Search](/azure/databricks/generative-ai/vector-search)
 
 ## Data connectors for AI
 
