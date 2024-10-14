@@ -113,7 +113,7 @@ After the solution deploys, complete the [first walkthrough](https://github.com/
 
 The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced or overpriced. The tab suggests an optimal price for each item and the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
 
-An implementation of this pricing analytics solution idea is described in the [AI Gallery solution](https://gallery.azure.ai/Solution/Interactive-Price-Analytics) and [GitHub repro](https://github.com/Azure/cortana-intelligence-price-analytics). The AI Gallery solution uses your transactional history data to show how the demand for your products responds to the prices you offer, recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity. The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at an item-site-channel-segment level, estimates of related-product effects such "as cannibalization", forecasts given current process, and model performance metrics.
+An implementation of this pricing analytics solution idea is described in this [GitHub repo for Interactive Price Analytics](https://github.com/Azure/cortana-intelligence-price-analytics). The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at an item-site-channel-segment level, estimates of related-product effects such as cannibalization, forecasts given current process, and model performance metrics.
 
 ### Solution architecture
 
@@ -134,7 +134,6 @@ Learn more about the component technologies:
 
 Learn more about pricing solutions:
 
-- [AI Gallery Interactive Pricing Solution](https://gallery.azure.ai/Solution/Interactive-Price-Analytics)
 - [GitHub repo for Interactive Price Analytics](https://github.com/Azure/cortana-intelligence-price-analytics)
   - [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) - for a more detailed discussion of the architecture, connecting your own data and customization.
   - [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) - for end users of the solution such as pricing managers.

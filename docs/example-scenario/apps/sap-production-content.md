@@ -75,9 +75,7 @@ Consider the [decision factors](/azure/virtual-machines/workloads/sap/sap-ha-ava
 
 **Oracle-specific components.** Oracle Database VMs are deployed in an availability set or in different availability zones. Each VM contains its own installation of the database software and VM-local database storage. Set up synchronous database replication through Oracle Data Guard between the databases to ensure consistency and allow low RTO & RPO service times in case if individual failures. Besides the database VMs, additional VMs with Oracle Data Guard Observer are needed for an Oracle Data Guard Fast-Start Failover setup. The Oracle observer VMs monitor the database and replication status and facilitate database failover in an automated way, without the need for any cluster manager. Database replication management can bet performed then using Oracle Data Guard Broker for ease of use.
 
-For details on Oracle Data Guard deployment see
-- [SAP whitepaper - Setting up Oracle 12c Data Guard for SAP Customers](https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html)
-- [Oracle Data Guard documentation on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture#oracle-data-guard-with-fsfo)
+For details about Oracle Data Guard deployment, see [Oracle Data Guard documentation on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture#oracle-data-guard-with-fsfo).
 
 This architecture utilizes native Oracle tooling without any actual cluster setup or the need for a load balancer in the database tier. With Oracle Data Guard Fast-Start Failover and SAP configuration, the failover process is automated and SAP applications re-connect to the new primary database should a failover occur.
 Various 3rd party cluster solutions exist as an alternative, such as SIOS Protection Suite or Veritas InfoScale, details of which deployment can be found in respective 3rd party vendor's documentation respectively.
