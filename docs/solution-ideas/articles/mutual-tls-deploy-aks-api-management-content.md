@@ -4,22 +4,14 @@ This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and A
 
 ## Concepts
 
-Azure API management allows secure access to back-end services through multiple mechanisms. At the transport (network) layer, Azure API management can present client certificates to the backend and can additionally verify the certificate presented by the back-end server. In this mutual TLS authentication scenario, the following steps occur:
+Azure API management allows secure access to back-end services through multiple mechanisms. At the transport (network) layer, [Azure API management can present client certificates](/azure/api-management/api-management-howto-mutual-certificates) to the backend and can additionally verify the certificate presented by the back-end server. In this mutual TLS authentication scenario, the following steps occur:
 
-1. Azure API management connects to the server (in this scenario, to the ingress controller running in AKS).
+1. Azure API management connects to the backend server (in this scenario, to the ingress controller running in AKS).
 1. The back-end server (the ingress controller in AKS) presents the server certificate.
 1. Azure API management validates the server certificate.
 1. Azure API management presents the client certificate to the server (the ingress controller in AKS).
 1. The server (the ingress controller in AKS) validates the certificate presented by Azure API Management.
 1. The server (the ingress controller in AKS) grants access to the request being proxied through Azure API management.
-
-Please see [Secure backend services using client certificate authentication in Azure API Management](/azure/api-management/api-management-howto-mutual-certificates) for instructions on how to configure back-end certificates on Azure API management. 
-
-You will need to configure mTLS the [managed AKS ingress controller](/azure/aks/app-routing) as well. The server certificate that AKS presents to APIM can either be imported directly as a Kubernetes secret or can be accessed via a Key Vault secret. See the article [Set up a custom domain name and SSL certificate with the application routing add-on](/azure/aks/app-routing-dns-ssl) for details on configuring the server certificate in AKS managed ingress controller. Additionally, you need to perform client certificate validation in the ingress controller to validate the certificate presented by API Mangement. You provide the CA certificate to the AKS cluster to verify the client certificate presented by API Management. Additionally, annotations might need to be configured in the ingress controller to enforce client certificate validation using the CA certificate. For example:
-
-- `nginx.ingress.kubernetes.io/auth-tls-secret: ca-secret`
-- `nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"`
-- `nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"`
 
 ## Architecture
 
@@ -77,6 +69,18 @@ You can use this approach to manage the following scenarios:
 - Configure mTLS and end-to-end encryption for high security and traffic over HTTPS.  
 - Connect to Azure PaaS services by using an enhanced security private endpoint.
 - Implement Defender for Containers security.
+
+
+### Mutual TLS configuration
+
+Please see [Secure backend services using client certificate authentication in Azure API Management](/azure/api-management/api-management-howto-mutual-certificates) for instructions on how to configure back-end certificates on Azure API management. 
+
+You will need to configure mTLS the [managed AKS ingress controller](/azure/aks/app-routing) as well. The server certificate that AKS presents to APIM can either be imported directly as a Kubernetes secret or can be accessed via a Key Vault secret. See the article [Set up a custom domain name and SSL certificate with the application routing add-on](/azure/aks/app-routing-dns-ssl) for details on configuring the server certificate in AKS managed ingress controller. Additionally, you need to perform client certificate validation in the ingress controller to validate the certificate presented by API Mangement. You provide the CA certificate to the AKS cluster to verify the client certificate presented by API Management. Additionally, annotations might need to be configured in the ingress controller to enforce client certificate validation using the CA certificate. For example:
+
+- `nginx.ingress.kubernetes.io/auth-tls-secret: ca-secret`
+- `nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"`
+- `nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"`
+
 
 ## Contributors
 
