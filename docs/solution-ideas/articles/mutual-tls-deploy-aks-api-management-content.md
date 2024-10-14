@@ -22,16 +22,15 @@ Azure API management allows secure access to back-end services through multiple 
 ### Dataflow
 
 1. A user makes a request to the application endpoint from the internet.
-2. Azure Application Gateway receives traffic as HTTPS and presents a PFX certificate previously loaded from Azure Key Vault to the user.
+2. Azure Application Gateway receives traffic as HTTPS and presents a public certificate previously loaded from Azure Key Vault to the user.
 3. Application Gateway uses private keys to decrypt traffic (SSL offload), performs web application firewall inspections, and re-encrypts traffic by using public keys (end-to-end encryption).
 4. Application Gateway applies rules and backend settings based on the backend pool and sends traffic to the API Management backend pool over HTTPS.
 5. API Management is deployed in internal virtual network mode (Developer or Premium tier only) with a private IP address. It receives traffic as HTTPS with custom domain PFX certificates.
-6. Microsoft Entra ID provides authentication and applies API Management policies via OAuth and client certificate validation. To receive and verify client certificates (on the request from application gateway) over HTTP/2 in API Management, you need to enable **Negotiate client certificate** on the **Custom domains** blade in API Management.
+6. Microsoft Entra ID provides authentication and applies API Management policies via OAuth and optionally client certificate validation. [Please see the steps](/azure/api-management/api-management-howto-mutual-certificates-for-clients) to receive and verify client certificates in Azure API Management.
 7. API Management sends traffic via HTTPS to an ingress controller for an AKS private cluster, using the client certificate trusted by the AKS ingress controller. 
-8. The AKS ingress controller receives the HTTPS traffic and verifies the client certificate presented by Azure API management. Most enterprise-level ingress controllers support mTLS.
+8. The AKS ingress controller receives the HTTPS traffic and verifies the client certificate presented by Azure API management. Most enterprise-level ingress controllers support mTLS. The AKS ingress controller responds to Azure API management with SSL server certificate, which is validated by API management. 
 9. The ingress controller processes TLS secrets (Kubernetes Secrets) by using cert.pem and key.pem. The ingress controller decrypts traffic by using a private key (offloaded). For enhanced-security secret management that's based on requirements, CSI driver integration with AKS is available.
-11. The ingress controller re-encrypts traffic by using private keys and sends traffic over HTTPS to AKS pods. Depending on your requirements, you can configure AKS ingress as HTTPS backend or passthrough.
-12. The ingress controller responds to API management with SSL server certificate. 
+10. The ingress controller re-encrypts traffic by using private keys and sends traffic over HTTPS to AKS pods. Depending on your requirements, you can configure AKS ingress as HTTPS backend or passthrough.
 
 ### Components
 
