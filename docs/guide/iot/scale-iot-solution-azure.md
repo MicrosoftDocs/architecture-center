@@ -26,7 +26,7 @@ This article describes how to scale an Internet of Things (IoT) solution with a 
 
 :::image type="content" source="media/iot-steps-high-res.png" alt-text="A diagram that shows the main steps you follow when scaling out your Azure IoT solution." lightbox="media/iot-steps-high-res.png" border="false":::
 
-> [!NOTE] 
+> [!NOTE]
 > This document does not cover the [Azure IoT Operations](/azure/iot-operations/overview-iot-operations) platform, which scales based on the hosting Kubernetes platform configuration.
 
 ## Gather requirements
