@@ -179,6 +179,8 @@ Microsoft Fabric integrates separate components into a cohesive stack. Instead o
 
 - [What is Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
 
+- [Learning Path - Get started with Microsoft Fabric](/training/paths/get-started-fabric/) 
+
 - [AI services in Fabric](/fabric/data-science/ai-services/ai-services-overview)
 
 - [Use Azure OpenAI in Fabric with REST API](/fabric/data-science/ai-services/how-to-use-openai-via-rest-api)
@@ -189,7 +191,7 @@ Microsoft Fabric integrates separate components into a cohesive stack. Instead o
 
 #### Copilots in Fabric
 
-Copilot and other generative AI features in preview bring new ways to transform and analyze data, generate insights, and create visualizations and reports in Microsoft Fabric and Power BI. You can either build your own copilot, or choose one of the following prebuilt copilots:
+Copilot and other generative AI features let you transform and analyze data, generate insights, and create visualizations and reports in Microsoft Fabric and Power BI. You can either build your own copilot, or choose one of the following prebuilt copilots:
 
 - [Overview of Copilot in Fabric](/fabric/get-started/copilot-fabric-overview)
 
@@ -208,7 +210,7 @@ Copilot and other generative AI features in preview bring new ways to transform 
 
 #### AI skills in Fabric
 
-With the Microsoft Fabric AI skill, you can make data more accessible to your colleagues. You can configure a generative AI system to generate queries that answer questions about your data. After you configure the AI skill, you can share it with your colleagues, who can then ask their questions in plain English. Based on their questions, the AI generates queries over your data that answer those questions.
+With a Microsoft Fabric AI skill, you can configure a generative AI system to generate queries that answer questions about your data. After you configure the AI skill, you can share it with your colleagues, who can then ask their questions in plain English. Based on their questions, the AI generates queries over your data that answer those questions.
 
 - [Difference between an AI skill and a copilot](/fabric/data-science/concept-ai-skill#difference-between-an-ai-skill-and-a-copilot)
 
@@ -283,8 +285,24 @@ Azure Data Lake Storage converges the capabilities of [Azure Data Lake Storage G
 
 ### Microsoft Fabric Data Factory
 
+With Data Factory, you can ingest, prepare and transform data from multiple data sources (for example, databases, data warehouse, Lakehouse, real-time data, and more). 
+
+Data Factory supports both code and no/low code solutions:
+
+- [*Data pipelines*](/fabric/data-factory/data-factory-overview#data-pipelines) let you create powerful workflow capabilities at cloud-scale. With data pipelines, you can use the drag-and-drop interface to build complex workflows that can refresh your dataflow, move PB-size data, and define sophisticated control flow pipelines.
+
+- [*Dataflows*](/fabric/data-factory/data-factory-overview#dataflows) provide a low-code interface for ingesting data from hundreds of data sources, transforming your data using 300+ data transformations. 
+
+
+Also see:
+- [Data Factory end-to-end scenario: introduction and architecture](fabric/data-factory/tutorial-end-to-end-introduction)
+
+
+
 
 ### Azure Databricks
+
+
 <!-- Fabric - (1)Fabric data factory - no/low code, (2) supports Spark (code) -->
 <!-- Databricks - Spark - code -->
 
