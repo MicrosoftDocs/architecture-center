@@ -13,6 +13,7 @@ metadata:
     - fasttrack
     - ecommerce
     - web-app
+    - arb-web
 name: Intelligent product search engine for e-commerce
 summary: This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 azureCategories:
@@ -26,4 +27,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-search.png
 content: |
-   [!include[](ecommerce-search-content.md)]
+   [!INCLUDE[](ecommerce-search-content.md)]

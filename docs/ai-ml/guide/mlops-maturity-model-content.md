@@ -65,4 +65,4 @@ The tables that follow identify the detailed characteristics for that level of p
 
 - [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
 - [Secure MLOps solutions with Azure network security](../../ai-ml/guide/network-security-mlops.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

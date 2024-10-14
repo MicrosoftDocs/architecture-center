@@ -15,6 +15,7 @@ metadata:
     - acom-architecture
     - web-app
     - web apps
+    - arb-web
 name: Run a Capture the Flag game service with CTFd on Azure PaaS
 azureCategories:
   - web
@@ -27,4 +28,4 @@ products:
   - azure-container-registry
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ctfd.png
 content: |
-   [!include[](capture-the-flag-platform-on-azure-paas-content.md)]
+   [!INCLUDE[](capture-the-flag-platform-on-azure-paas-content.md)]

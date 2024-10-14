@@ -12,7 +12,9 @@ metadata:
   ms.subservice: architecture-guide
   ms.category:
   - featured
-  ms.custom: devx-track-extended-java
+  ms.custom: 
+    - devx-track-extended-java
+    - arb-web
 azureCategories:
   - migration
   - web
