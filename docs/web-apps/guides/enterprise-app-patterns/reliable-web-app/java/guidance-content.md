@@ -15,7 +15,7 @@ The Reliable Web App pattern is a set of principles and implementation technique
 
 ## Business context
 
-The initial step replatforming a web app is to define your business objectives. You should set immediate goals, like your service level objective and cost optimization targets, and future goals, like for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
+The first step in replatforming a web app is to define your business objectives. You should set immediate goals, such as service level objectives and cost optimization targets, as well as future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
 
 For example, Contoso Fiber, wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
 
@@ -39,7 +39,7 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
 
 - *Application platform:* Use [Azure App Service](/azure/app-service/overview) as your application platform. Contoso Fiber chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
 
-    - *Natural progression:* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Spring Apps is also an attractive alternative for this app. If the Contoso Fiber CAMS web app used Jakarta EE instead of Spring Boot, Azure Spring Apps would be a better fit. For more information, see [What is Azure Spring Apps?](/azure/spring-apps/overview) and [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
+    - *Natural progression:* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Container Apps is also an attractive alternative for this app. For more information, see [What is Azure Spring Apps?](/azure/container-apps/overview) and [Java on Azure Container Apps overview](/azure/container-apps/java-overview/).
     - *High SLA:* It has a high SLA that meets the requirements for the production environment.
     - *Reduced management overhead:* It's a fully managed hosting solution.
     - *Containerization capability:* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
@@ -54,7 +54,7 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
 
 - *Database:* Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree). Contoso Fiber chose Azure Database for PostgreSQL and the flexible-server option for the following reasons:
 
-    - *Reliability:* The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration and maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
+    - *Reliability:* The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
     - *Cross-region replication:* It has a read replica feature that allows you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
     - *Performance:* It provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
     - *Reduced management overhead:* It's a fully managed Azure service that reduces management obligations.
@@ -75,7 +75,7 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
     - *Speed and volume:* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
     - *Diverse supportability:* It's a unified cache location that all instances of the web app can use.
     - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-    - *Nonsticky sessions:* The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
+    - *Nonsticky sessions:* The cache allows the web app to externalize session state and use nonsticky sessions. Most Java web apps running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
 - *Load balancer:* Web applications using PaaS solutions should use Azure Front Door, Azure Application Gateway, or both based on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Contoso Fiber needed a layer-7 load balancer that could route traffic across multiple regions. Contoso Fiber needed a multi-region web app to meet the SLO of 99.9%. Contoso Fiber chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
@@ -89,10 +89,10 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
     - *DDoS protection:* It has built-in layer 3-4 DDoS protection.
     - *Content delivery network:* It positions Contoso Fiber to use a content delivery network. The content delivery network provides site acceleration.
 
-- *Web application firewall:* Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection of from common web exploits and vulnerabilities. Contoso Fiber used Azure Web Application Firewall for the following reasons:
+- *Web application firewall:* Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection from common web exploits and vulnerabilities. Contoso Fiber used Azure Web Application Firewall for the following reasons:
 
     - *Global protection:* It provides improved global web app protection without sacrificing performance.
-    - *Botnet protection:* The team can monitor and configure to address security concerns from botnets.
+    - *Botnet protection:* The team can monitor and configure settings to address security concerns related to botnets.
     - *Parity with on-premises:* The on-premises solution was running behind a web application firewall managed by IT.
     - *Ease of use:* Web Application Firewall integrates with Azure Front Door.
 
@@ -108,7 +108,7 @@ For example, before the move to the cloud, Contoso Fiber's CAMS web app was an o
     - *Enhanced security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
     - *Minimal effort:* The private endpoints support the web app platform and database platform the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
 
-- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) allows you to connect to virtual machines securely without exposing RDP/SSH ports. Contoso Fiber adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Contoso Fiber needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
+- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines securely without exposing RDP/SSH ports. Contoso Fiber adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Contoso Fiber needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
 
 ## Code guidance
 
@@ -144,7 +144,7 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 - *Configure application to use a cache.* To enable caching, add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. This package provides default configurations for Redis cache.
 
-- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern. To cache specific data in your code, add the `@Cacheable` annotation. This annotation tells Spring which methods to cache the results of.
+- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern. To cache specific data in your code, add the `@Cacheable` annotation. This annotation tells Spring which methods should have their results cached.
 
 - *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information. The default cache settings might not  suit your web application. You can customize these settings in the `application.properties` file or the environment variables. For instance, you can modify the `spring.cache.redis.time-to-live` value (expressed in milliseconds) to control how long data should remain in the cache before it’s evicted.
 
@@ -162,7 +162,7 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
     The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x) streamlines this process, utilizing [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot for easy setup. It offers varied authentication flows, automatic token management, and customizable authorization policies, along with integration capabilities with Spring Cloud components. This enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
-    For example, the reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the OAuth 2.0 authorization code grant to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
+    For example, the reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the [OAuth 2.0 authorization code](/azure/active-directory/develop/v2-oauth2-auth-code-flow) grant to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
     ```xml
     <dependency>
@@ -253,9 +253,9 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 For example, the reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs.
 
-    ```azurecli
-    azd env set APP_ENVIRONMENT prod
-    ```
+```azurecli
+azd env set APP_ENVIRONMENT prod
+```
 
 ### Implement autoscaling
 
@@ -288,7 +288,7 @@ For example, the reference implementation has an optional parameter that deploys
 
 - *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API.
 
-- *Monitor the platform.* Enable diagnostics for all supported services and send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics. The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the App Service.
+- *Monitor the platform.* Enable diagnostics for all supported services and send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics. The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the App Service.
 
     ```terraform
     # Configure Diagnostic Settings for App Service
@@ -312,7 +312,7 @@ For example, the reference implementation has an optional parameter that deploys
 
 ## Deploy the reference implementation
 
-The reference implementation guides developers through a simulated migration from an on-premises Java application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a Customer Account Management System (CAMS) web app application for the fictional company Contoso Fibre. Contoso Fiber set the following goals for their web application:
+The reference implementation guides developers through a simulated migration from an on-premises Java application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a Customer Account Management System (CAMS) web app application for the fictional company Contoso Fiber. Contoso Fiber set the following goals for their web application:
 
 - Implement low-cost, high-value code changes
 - Achieve a service level objective (SLO) of 99.9%
