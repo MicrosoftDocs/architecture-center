@@ -84,4 +84,4 @@ Other contributors:
 ## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
-- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
+- Cloud Adoption Framework guidance for adopting [AKS in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)

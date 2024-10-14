@@ -19,7 +19,7 @@ items:
       href: landing-zones/terraform/landing-zone-terraform.md
   - name: Application landing zone design guides
     items:
-    - name: Azure Governance Visualizer Accelerator
+    - name: Use the Azure Governance Visualizer
       href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Azure Virtual Desktop
       href: landing-zones/azure-virtual-desktop/design-guide.md
@@ -1833,7 +1833,7 @@ items:
           maintainContext: true
     - name: Architectures
       items:
-      - name: API Management landing zone accelerator
+      - name: API Management landing zone architecture
         href: example-scenario/integration/app-gateway-internal-api-management-function.yml
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml

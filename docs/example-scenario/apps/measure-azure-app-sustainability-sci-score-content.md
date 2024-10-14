@@ -108,7 +108,7 @@ Store the monthly carbon information for your resource group along with the rest
 
 ### Data storage
 
-Store the carbon and carbon proxy information gathered in the previous section. Export the information to dashboards or reports, so you can visualize the carbon score over time and make informed choices. For reasons of sustainability, and in alignment with the best practices of the Well Architected Framework, use the minimum viable system of record, for example, [Azure Table Storage](/azure/storage/tables/table-storage-quickstart-portal).
+Store the carbon and carbon proxy information gathered in the previous section. Export the information to dashboards or reports, so you can visualize the carbon score over time and make informed choices. For reasons of sustainability, and in alignment with the best practices of the Well-Architected Framework, use the minimum viable system of record, for example, [Azure Table Storage](/azure/storage/tables/table-storage-quickstart-portal).
 
 Tables that describe the gathered data use data like the following example:
 
@@ -124,7 +124,7 @@ Data from APM:
 - CPU
 - Memory
 - Response time ratio (send/receive)
-Scaling factor R
+- Scaling factor R
 
 Calculations: SCI
 
@@ -213,8 +213,8 @@ The dashboard and storage interface in this example aren't suitable for heavy us
 
 Principal authors:
 
-- [Paola Annis](https://www.linkedin.com/in/paolaeva) | Principal SVC Engineering Manager
-- [Jennifer Wagman](https://www.linkedin.com/in/jcwagman) | Service Engineer
+- [Paola Annis](https://www.linkedin.com/in/paolaeva) | Principal SVC Engineering Manager
+- [Jennifer Wagman](https://www.linkedin.com/in/jcwagman) | Service Engineer
 
 Other contributor:
 
@@ -228,7 +228,7 @@ This work is aligned with the principles and methodology of the [Green Software 
 
 The next step to building a greener application is to embed the carbon-aware SDK into your application. You can automate triggers in real-time once you meet specific carbon conditions. For more information, see [Green Software Foundation Carbon Aware SDK](https://github.com/Green-Software-Foundation/carbon-aware-sdk).
 
-For sustainability cloud workload guidance in the Well Architected Framework, see the [Sustainability workload documentation](/azure/architecture/framework/sustainability).
+For sustainability cloud workload guidance in the Well-Architected Framework, see the [Sustainability workload documentation](/azure/architecture/framework/sustainability).
 
 For more information about sustainability, see these articles:
 

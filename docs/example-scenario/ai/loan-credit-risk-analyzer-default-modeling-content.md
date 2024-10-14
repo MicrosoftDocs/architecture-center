@@ -168,7 +168,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Machine learning solutions need to be scalable and standardized for easier management and maintenance. Ensure that your solution supports ongoing inference with retraining cycles and automated redeployments of models.
 
-For more information, see [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2).
+For more information, see [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2).
 
 ### Performance efficiency
 

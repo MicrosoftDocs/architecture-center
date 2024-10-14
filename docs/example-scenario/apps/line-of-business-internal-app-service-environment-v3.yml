@@ -2,7 +2,7 @@
 metadata:
   title: Line-of-business application using Azure App Service Environment v3
   titleSuffix: Azure Architecture Center
-  description: Learn how to deploy line-of-business applications with an internal App Service Environment v3, while considering networking boundaries, DevOps, management, and more. 
+  description: Learn how to deploy line-of-business applications with an internal App Service Environment v3, while considering networking boundaries, DevOps, management, and more.
   author: petermessina
   ms.author: petermessina
   ms.reviewer: aamurugan
@@ -25,4 +25,4 @@ name: Deploy a line-of-business application using Azure App Service Environment 
 summary: Learn how to deploy line-of-business applications with an internal App Service Environment v3, while considering networking boundaries, DevOps, management, and more.
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-line-of-business-internal-app-service-environment-v3.png
 content: |
-  [!include[](line-of-business-internal-app-service-environment-v3-content.md)]
+  [!INCLUDE[](line-of-business-internal-app-service-environment-v3-content.md)]
