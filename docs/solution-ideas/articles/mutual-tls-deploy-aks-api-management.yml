@@ -10,7 +10,6 @@ metadata:
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-containers
-  
 azureCategories:
   - containers
   - security
