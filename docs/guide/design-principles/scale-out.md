@@ -2,7 +2,8 @@
 title: Design to scale out
 titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
-author: martinekuan
+author: RobBagby
+ms.author: robbag
 categories: azure
 ms.date: 07/25/2023
 ms.topic: conceptual

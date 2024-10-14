@@ -80,7 +80,6 @@ The following considerations will drive a substantial portion of the costs for t
 ## Related resources
 
 - [High-performance computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
-- [Digital image-based modeling on Azure](/azure/architecture/example-scenario/infrastructure/image-modeling)
 - [Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
 - [Manage virtual machine compliance](/azure/architecture/example-scenario/security/virtual-machine-compliance)
 - [Monitoring and diagnostics guidance](/azure/architecture/best-practices/monitoring)

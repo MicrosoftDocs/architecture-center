@@ -18,6 +18,7 @@ metadata:
     - example-scenario
     - internal-intro
     - arb-integrations
+    - arb-web
 name: Publish internal APIs to external users
 azureCategories:
   - integration
@@ -31,4 +32,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally-thumbnail-new.png
 content: |
-   [!include[](publish-internal-apis-externally-content.md)]
+   [!INCLUDE[](publish-internal-apis-externally-content.md)]

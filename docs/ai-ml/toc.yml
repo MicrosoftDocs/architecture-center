@@ -118,8 +118,6 @@ items:
         items:
         - name: Machine learning operations (MLOps) v2
           href: guide/machine-learning-operations-v2.md
-        - name: MLOps for Python models
-          href: guide/mlops-python.yml
         - name: Network security for MLOps
           href: guide/network-security-mlops.yml
         - name: Generative AI ops with MLOps

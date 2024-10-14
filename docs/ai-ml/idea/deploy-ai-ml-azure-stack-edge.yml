@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - arb-iot
     - arb-aiml
+    - arb-telco
 name: Deploy AI and machine learning computing on-premises and to the edge
 azureCategories:
   - hybrid
