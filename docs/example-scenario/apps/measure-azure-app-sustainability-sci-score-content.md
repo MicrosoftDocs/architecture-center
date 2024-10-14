@@ -123,7 +123,8 @@ Data from APM:
 
 - CPU
 - Memory
-- Response time ratio (send/receive) Scaling factor R
+- Response time ratio (send/receive)
+- Scaling factor R
 
 Calculations: SCI
 
