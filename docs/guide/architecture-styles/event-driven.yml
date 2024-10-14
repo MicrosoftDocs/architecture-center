@@ -9,10 +9,11 @@ metadata:
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
 azureCategories:
-  - iot
+  - web
 products:
-  - azure-iot
   - azure-stream-analytics
+  - azure-functions
+  - azure-service-bus
 name: Event-driven architecture style
 summary: Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/event-driven.svg
