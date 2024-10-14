@@ -69,7 +69,7 @@ Whatever your PdM needs, Azure has the tools, the scale, and the capabilities to
 
 ## Getting started
 
-A lot of equipment found on the factory floor generates data. Start collecting it as soon as possible. As failures occur, have the data scientists analyze the data to create models to detect future failures. As knowledge builds about failure detection, move to predictive mode where you fix components during planned downtime. [Predictive Maintenance using PySpark](https://github.com/Azure/PySpark-Predictive-Maintenance) provides a  walkthrough of building the machine learning pieces of the solution.
+A lot of equipment found on the factory floor generates data. Start collecting it as soon as possible. As failures occur, have the data scientists analyze the data to create models to detect future failures. As knowledge builds about failure detection, move to predictive mode where you fix components during planned downtime. [Predictive Maintenance Using PySpark](https://github.com/Azure/PySpark-Predictive-Maintenance) provides a  walkthrough of building the machine learning pieces of the solution.
 
 If you need to learn about building models, we recommend visiting [Foundations of data science for machine learning](/training/paths/machine-learning-foundations-using-data-science). The [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml) Learn module introduces you to Azure tools.
 
