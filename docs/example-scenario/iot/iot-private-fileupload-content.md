@@ -18,9 +18,9 @@ This solution proposes a strategy that blocks direct Internet traffic to the Sto
 1. The Blob storage account denies public internet access, and it only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect, authenticating via a managed identity. Also, the Storage account is configured to only support Azure RBAC for data plane access.
 1. The application gateway is configured with custom DNS and terminates transport layer security (TLS) traffic. It resides within a virtual network. This virtual network is granted access or peered with the Virtual Network used by the Storage account's private link.
 1. IoT client device using Azure IoT Hub SDK requests a SAS URI for File Upload to the IoT Hub.
-1. Azure IoT Hub handles this request for the device. It connects directly to the Azure Storage account with Managed Identity authentication which has been given the permission of `Storage Blob Data Contributor`.
+1. Azure IoT Hub handles this request for the device. It connects directly to the Azure Storage account with Managed Identity authentication which has been given the permission of `Storage Blob Data Contributor` for user delegation key requests.
 
-   A short-lived SAS token is generated which grants the device read-write permission on the requested blob in the blob container.
+   Azure IoT Hub requests a user delegation key to the Storage account. A short-lived SAS token is constructed which grants the device read-write permission on the requested blob in the blob container.
 
 1. Azure IoT Hub sends the public Storage account URI and SAS token to the IoT client device, along with a correlation ID.
 1. IoT client device has logic to replace the public Storage URI with a custom domain it's supplied with, for example using a [Device Twin](/azure/iot-hub/iot-hub-devguide-device-twins). IoT Devices uses standard Azure Blob Storage SDK to upload the file through the custom Storage DNS.
@@ -31,12 +31,13 @@ This solution proposes a strategy that blocks direct Internet traffic to the Sto
 
 ### Components
 
-- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall)
-- [Azure IoT Hub](https://azure.microsoft.com/products/iot-hub/)
-- [Azure Private Link](https://learn.microsoft.com/azure/private-link/)
-- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/security)
-- [Private DNS Zone](https://learn.microsoft.com/azure/dns/private-dns-overview)
+- [Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a PaaS managed service, hosted in the cloud, to build highly secure, scalable, highly available front ends.
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) provides protection for your Azure Virtual Network resources.
+- [Azure IoT Hub](https://azure.microsoft.com/products/iot-hub/) is a PaaS managed service, hosted in the cloud, that acts as a central message hub for bidirectional communication between an IoT application and the devices it manages.
+- [Azure Private Link](https://learn.microsoft.com/azure/private-link/) enables private access to services that are hosted on the Azure platform while keeping your data on the Microsoft network.
+- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/security) offers a durable, highly available, and massively scalable cloud storage solution. It includes object, file, disk, queue, and table storage capabilities.
+- [Private DNS Zone](https://learn.microsoft.com/azure/dns/private-dns-overview) provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is the fundamental building block for your private network in Azure. This service enables many types of Azure resources, such as Azure Virtual Machines, to securely communicate with each other, the internet, and on-premises networks.
 
 ## Scenario details
 
@@ -46,7 +47,7 @@ Customers with stricter networking requirements should make the Blob storage acc
 
 Communication between the Azure IoT Hub and the Azure Storage account still goes through the public endpoint. This exception is possible through Azure Storage Networking configuration for Resource instances, which allows disabling public Internet access while allowing Azure Services and specific instances of resources to connect through the Azure backbone. This network perimeter is paired with a Microsoft Entra ID-based identity perimeter that uses Azure RBAC to restrict data plane access.
 
-The Azure IoT Hub needs to be assigned a managed identity, and this managed identity needs to be assigned the role of Storage Blob Data Contributor to the specified Storage account.
+The Azure IoT Hub needs to be assigned a managed identity, and this managed identity needs to be assigned the role of Storage Blob Data Contributor to the specified Storage account. With this permission, Azure IoT Hub is capable of requesting a user delegation key to construct a SAS token which is given to the IoT client device for actual file upload process.
 
 Azure Application Gateway acts as the entry point for requests forwarded to the private endpoint of the Azure Storage account, which is configured as the only backend. The Application Gateway uses a Public IP address that can be mapped to an A record or CNAME at your custom DNS provider.
 
