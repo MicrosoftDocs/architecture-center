@@ -3107,41 +3107,16 @@ items:
     items:
     - name: Overview
       href: industries/energy-environment.md
-    - name: Guides
-      items:
-      - name: Microsoft Cloud for Sustainability
-        href: /industry/sustainability/overview
-        maintainContext: true
-      - name: Sustainability outcomes and benefits
-        href: /azure/cloud-adoption-framework/strategy/business-outcomes/sustainability
-        maintainContext: true
-      - name: Big compute for oil exploration
-        href: guide/architecture-styles/big-compute.yml
     - name: Architectures
       items:
-      - name: All energy and environment architectures
-        href: /azure/architecture/browse/?terms=energy
-      - name: Environmental monitoring
-        href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: Oil and gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-      - name: Run reservoir simulations
-        href: example-scenario/infrastructure/reservoir-simulation.yml
-    - name: Compliance solutions
-      items:
-      - name: NERC (US) overview
-        href: /azure/compliance/offerings/offering-nerc
-        maintainContext: true
     - name: Solution ideas
       items:
       - name: Energy supply optimization
         href: solution-ideas/articles/energy-supply-optimization.yml
       - name: Energy demand forecasting
         href: solution-ideas/articles/forecast-energy-power-demand.yml
-      - name: IoT Edge data processing - Monitor oil rigs
-        href: solution-ideas/articles/data-storage-edge.yml
-      - name: Project 15 IoT sustainability
-        href: solution-ideas/articles/project-15-iot-sustainability.yml
   - name: Telecommunications
     items:
     - name: Overview
