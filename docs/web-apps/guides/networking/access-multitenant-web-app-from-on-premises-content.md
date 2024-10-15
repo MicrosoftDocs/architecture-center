@@ -1,6 +1,6 @@
 This article shows how to set up improved-security private connectivity to an App Service web app or a function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet.
 
-Azure App Service refers to dedicated compute pricing tiers which include the Basic, Standard, Premium, Premium v2, and Premium v3 where the supporting infrastructure is shared with other customers. While App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers.
+Azure App Service refers to non-dedicated compute pricing tiers which include the Basic, Standard, Premium, Premium v2, and Premium v3 where the supporting infrastructure is shared with other customers. While App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers.
 
 ## Architecture
 
@@ -47,9 +47,9 @@ Azure App Service refers to dedicated compute pricing tiers which include the Ba
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/products/app-service) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
-- [Azure Storage account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
+- [Azure Storage account](/azure/well-architected/service-guides/storage-accounts/reliability) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks through virtual networks.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
