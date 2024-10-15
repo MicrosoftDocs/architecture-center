@@ -2,7 +2,7 @@
 ms.custom: devx-track-dotnet
 ---
 
-[!INCLUDE [intro 1](../includes/intro1.md)]
+[!INCLUDE [intro 1](../includes/intro-1.md)]
 
 ## Why the Reliable Web App pattern for .NET?
 
@@ -11,7 +11,7 @@ The Reliable Web App pattern is a set of principles and implementation technique
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation for a fictional company named Relecloud. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
 
-[!INCLUDE [intro 2](../includes/intro2.md)]
+[!INCLUDE [intro 2](../includes/intro-2.md)]
 
 ## Business context
 
@@ -229,7 +229,8 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
         }
         else
         {
-            // There's nothing in the cache. Retrieve data from the repository and cache it for one hour.
+            // There's nothing in the cache. Retrieve data 
+            // from the repository and cache it for one hour.
             concerts = await this.database.Concerts.AsNoTracking()
                 .Where(c => c.StartTime > DateTimeOffset.UtcNow && c.IsVisible)
                 .OrderBy(c => c.StartTime)
@@ -300,8 +301,9 @@ For example, the reference implementation uses the `Authentication` argument in 
             .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
             .ConfigureKeyVault(kv =>
             {
-                // Some of the values coming from Azure App Configuration are stored Key Vault. Use
-                // the managed identity of this host for the authentication.
+                // Some of the values coming from Azure App Configuration
+                // are stored in Key Vault. Use the managed identity
+                // of this host for the authentication.
                 kv.SetCredential(new DefaultAzureCredential());
             });
     });
@@ -309,7 +311,7 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 ### Right size environments
 
-[!INCLUDE [Right size environments intro](../includes/rightsize.md)]
+[!INCLUDE [Right size environments intro](../includes/right-size.md)]
 
 For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
     
@@ -355,7 +357,7 @@ For example, the reference implementation uses Bicep parameters to deploy more e
     });
     ```
 
-- *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
+- *Monitor the platform.* Enable diagnostics for all supported services and send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
 ## Deploy the reference implementation
 

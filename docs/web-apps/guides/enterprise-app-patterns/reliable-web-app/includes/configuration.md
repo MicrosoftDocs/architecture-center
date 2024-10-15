@@ -1,3 +1,10 @@
+---
+author: ssumner
+ms.author: ssumner
+ms.date: 10/15/2024
+ms.topic: include
+ms.service: azure-architecture-center
+---
 The following sections provide guidance on implementing the configurations updates. Each section aligns with one or more pillars of the Well-Architected Framework.
 
 |Configuration|Reliability (RE) |Security (SE) |Cost Optimization (CO) |Operational Excellence (OE)|Performance Efficiency (PE) | Supporting WAF principles |

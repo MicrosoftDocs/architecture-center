@@ -1,4 +1,11 @@
-Autoscaling ensures web app remains resilient, responsive, and capable of handling dynamic workloads efficiently. To implement autoscaling, follow these recommendations:
+---
+author: ssumner
+ms.author: ssumner
+ms.date: 10/15/2024
+ms.topic: include
+ms.service: azure-architecture-center
+---
+Autoscaling ensures that a web app remains resilient, responsive, and capable of handling dynamic workloads efficiently. To implement autoscaling, follow these recommendations:
 
 - *Automate scale-out.* Use [Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Configure autoscaling rules to scale out based on key performance metrics, so your application can handle varying loads.
 

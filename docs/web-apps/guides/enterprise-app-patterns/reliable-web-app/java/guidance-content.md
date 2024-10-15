@@ -2,16 +2,16 @@
 ms.custom: devx-track-dotnet
 ---
 
-[!INCLUDE [intro 1](../includes/intro1.md)]
+[!INCLUDE [intro 1](../includes/intro-1.md)]
 
 ## Why the Reliable Web App pattern for .NET?
 
 The Reliable Web App pattern is a set of principles and implementation techniques that define how you should replatform web apps when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud. The following guidance uses the reference implementation as an example throughout and follows the replatform journey of the fictional company, Contoso Fiber, to provide business context for your journey. Before implementing the Reliable Web App pattern for Java, Contoso Fiber had a monolithic, on-premises Customer Account Management System (CAMS) that used the Spring Boot framework.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
+> ![GitHub logo.](../../../../../_images/github.svg) There's a [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
 
-[!INCLUDE [intro 2](../includes/intro2.md)]
+[!INCLUDE [intro 2](../includes/intro-2.md)]
 
 ## Business context
 
@@ -175,7 +175,7 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
     </dependency>
     ```
 
-- *Create an app registration.* Microsoft Entra ID requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant. For example, the reference implementation uses Terraform to create an Microsoft Entra ID app registration along with an app specific Account Manager role.
+- *Create an app registration.* Microsoft Entra ID requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant. For example, the reference implementation uses Terraform to create a Microsoft Entra ID app registration along with an app specific Account Manager role.
 
     ```terraform
     resource "azuread_application" "app_registration" {
@@ -284,7 +284,7 @@ azd env set APP_ENVIRONMENT prod
     - [Configure Azure Monitor Application Insights for Spring Boot](/azure/azure-monitor/app/java-spring-boot#enabling-programmatically)
     - [Azure Monitor Application Insights for Java](/azure/azure-monitor/app/java-standalone-config#auto-collected-logging)
     - [Enable Azure Monitor OpenTelemetry for Java applications](/azure/azure-monitor/app/java-in-process-agent)
-    - [Using Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot).
+    - [Using Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot)
 
 - *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API.
 

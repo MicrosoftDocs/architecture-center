@@ -7,7 +7,7 @@ ms.reviewer: ssumner
 ms.date: 10/15/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 azureCategories:
     - web
     - developer-tools
@@ -20,11 +20,11 @@ categories:
 
 # Enterprise Web App patterns
 
-Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web application. It divides into distinct phases, called web app patterns. Each represents a common business goals and step towards a more advanced web application. The web app patterns provide prescriptive architecture, code, and configuration guidance that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars).
+Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web apps. It divides into distinct phases, called web app patterns. Each represents a common business goal and a step toward a more advanced web application. The web app patterns provide prescriptive architecture, code, and configuration guidance that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars).
 
 These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value. The guidance provided by the Enterprise Web App patterns is instrumental in ensuring a smooth and successful transition through the cloud journey.
 
-[![Diagram showing the stages of the Enterprise Web App patterns.](../_images/ewap-overview.svg)](../_images/ewap-overview.svg#lightbox)
+[![Diagram showing the stages of the Enterprise Web App patterns.](../_images/enterprise-web-app-overview.svg)](../_images/enterprise-web-app-overview.svg#lightbox)
 *Figure 1. Overview of the Enterprise Web App patterns.*
 
 ## Reliable Web App pattern

@@ -1,6 +1,14 @@
-To successfully move a web app to the cloud, you need to update your web app code with the Retry pattern, Circuit-Breaker pattern, and Cache-Aside design patterns.
+---
+author: ssumner
+ms.author: ssumner
+ms.date: 10/15/2024
+ms.topic: include
+ms.service: azure-architecture-center
+---
+To successfully move a web app to the cloud, you need to update your web app code with the Retry pattern, Circuit-Breaker pattern, and Cache-Aside design pattern.
 
 [![Diagram showing the role of the design patterns in the essential reliable web app architecture.](../../../_images/reliable-web-app-design-patterns.svg)](../../../_images/reliable-web-app-design-patterns.svg#lightbox)
+
 *Figure 3. Role of the design patterns.*
 
 Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
@@ -9,7 +17,7 @@ Each design pattern provides workload design benefits that align with one of mor
 
 1. *Circuit Breaker pattern*: The Circuit Breaker pattern prevents an application from retrying operations that aren't transient. Implement this pattern in all outbound calls to other Azure services.
 
-1. *Cache-Aside pattern*: The Cache-Aside pattern adds and retrieves from a cache instead of a datastore. Implement this pattern on requests to the database.
+1. *Cache-Aside pattern*: The Cache-Aside pattern adds to and retrieves from a cache more frequently than a datastore. Implement this pattern on requests to the database.
 
 |Design pattern |Reliability (RE)|Security (SE) |Cost Optimization (CO) |Operational Excellence (OE)|Performance Efficiency (PE)| Supporting WAF principles
 |---|---|---|---|---|---| --- |

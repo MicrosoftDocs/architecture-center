@@ -68,7 +68,7 @@ items:
           href: guides/security/secure-single-page-application-authorization.yml
       - name: Application development guidance for web apps
         items:
-        - name: Enterprise Web App Patterns
+        - name: Enterprise web app patterns
           items:
           - name: Overview
             href: guides/enterprise-app-patterns/overview.md
