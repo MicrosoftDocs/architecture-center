@@ -1,11 +1,5 @@
 This example workload illustrates a greenfield solution for creating a scalable data platform by using Microsoft Fabric and the lakehouse design paradigm. Fabric is a platform that integrates data storage, processing, and analytics. A greenfield lakehouse provides a clean start for designing an efficient, future-proof data ecosystem.
 
-This architecture is applicable to the following scenarios:
-
-- Organizations that want to start fresh, unencumbered by legacy systems, when developing a data platform.
-- Organizations that anticipate data volumes between 0.5 and 1.5 TB.
-- Organizations that prefer a simple and streamlined pattern that balances cost, complexity, and performance considerations.
-
 ## Architecture
 
 ![Diagram that illustrates a greenfield solution for building a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png)
@@ -117,55 +111,59 @@ The following components are used in this solution.
   - [Data Science](/fabric/data-science/data-science-overview): Tools that enable you to complete end-to-end data science workflows for data enrichment and to gain business insights.
 
   - [Real-Time Intelligence](/fabric/real-time-intelligence/overview): A service that provides stream ingestion and processing capabilities. This service allows you to gain insights from constantly flowing data to enable quicker decision-making that's based on real-time trends and anomalies.
+  
+  - [Copilot](/fabric/get-started/copilot-fabric-overview): A tool that enables you to analyze data, generate insights, and create visualizations and reports in Fabric and Power BI by using natural language.
 
-- [Power BI](https://www.microsoft.com/power-platform/products/power-bi): Business intelligence tool for creating interactive dashboards and reports to visualize data and gain insights.
-
-- [Copilot](https://learn.microsoft.com/fabric/get-started/copilot-fabric-overview): Allows you to analyze data, generate insights, and create visualizations and reports in Microsoft Fabric and Power BI using natural language.
+- [Power BI](https://www.microsoft.com/power-platform/products/power-bi): A business intelligence tool for creating interactive dashboards and reports for visualizing data and gaining insights.
 
 ### Alternatives
 
-Microsoft Fabric offers a robust set of tools, but depending on your specific needs, alternative services within the Azure ecosystem can be used for enhanced functionality.
+Fabric offers a robust set of tools, but, depending on your specific needs, you might benefit from enhanced functionality provided by alternative services in the Azure ecosystem.
 
-- [Azure Databricks](https://learn.microsoft.com/azure/databricks/introduction/) could replace or complement the Microsoft Fabric native Data Engineering capabilities. Azure Databricks offers an alternative for large-scale data processing by providing a cloud-based Apache Spark environment. Azure Databricks also extends this by providing common governance across your entire data estate, and capabilities to enable key use cases including data science, data engineering, machine learning, AI, and SQL-based analytics.
+- [Azure Databricks](/azure/databricks/introduction/) can replace or complement the native Fabric data engineering capabilities. Azure Databricks offers an alternative for large-scale data processing by providing a cloud-based Apache Spark environment. Azure Databricks also provides common governance across your entire data estate and capabilities to enable key use cases like data science, data engineering, machine learning, AI, and SQL-based analytics.
 
-- [Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) could replace or complement the Microsoft Fabric native Data Science. Azure Machine Learning goes beyond the model experimentation and management capabilities in Microsoft Fabric by adding capabilities to allow you to host models for online inference use-cases, monitor models for drift, and provide capabilities to build custom Generative-AI applications.
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can replace or complement the native Fabric Data Science tools. Machine Learning goes beyond the model experimentation and management capabilities in Fabric by adding capabilities for enabling you to host models for online inference use cases, monitor models for drift, and create custom Generative AI applications.
 
 ## Scenario details
 
-Several scenarios can benefit from this workload:
+This architecture is applicable to the following scenarios:
 
-- Organizations starting fresh without legacy system constraints.
-- Businesses needing a simple, cost-effective, and high-performance data platform that addresses reporting, analytics, and machine learning requirements.
-- Organizations looking to integrate data from multiple sources for a unified view.
+- Organizations that are starting fresh without legacy system constraints.
+- Organizations that anticipate data volumes between 0.5 and 1.5 TB.
+- Organizations that prefer a simple and streamlined pattern that balances cost, complexity, and performance considerations.
+- Organizations that need a simple, cost-effective, and high-performance data platform that addresses reporting, analytics, and machine learning requirements.
+- Organizations that want to integrate data from multiple sources for a unified view.
 
 This solution isn't recommended for:
 
-- Teams from a SQL or relational database background with limited skills on Apache Spark.
-- Organizations who are migrating from a legacy system or data warehouse to a modern platform.
+- Teams with a SQL or relational database background that have limited skills in Apache Spark.
+- Organizations that are migrating from a legacy system or data warehouse to a modern platform.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/).
-
-The following considerations apply to this scenario.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Fabric automatically replicates resources across availability zones without any need for you to set up or configure. For example, during a zone-wide outage, no action is required to recover a zone. In [supported regions](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric#supported-regions), Fabric can self-heal and rebalance automatically to take advantage of the healthy zone.
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+Fabric automatically replicates resources across availability zones without requiring any configuration. For example, during a zone-wide outage, no action is required to recover a zone. In [supported regions](https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric#supported-regions), Fabric can self-heal and rebalance automatically to take advantage of a healthy zone.
 
 ### Security
 
-Fabric also allows you to manage, control and audit your security settings, in line with your changing needs and demands. Key security considerations in Fabric include: 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- Authentication: Configure single sign-on (SSO) in Microsoft Entra ID for access across various devices and locations.
+Fabric enables you to manage, control, and audit your security settings inline with your changing needs and demands. Key security recommendations for using Fabric include: 
 
-- Role-Based Access Control (RBAC): Implement workspace-based access control to precisely manage who can access and interact with specific datasets, ensuring users only access what they are authorized to.
+- Authentication. Configure single sign-on (SSO) in Microsoft Entra ID to provide access from various devices and locations.
 
-- Network Security: Utilize Fabric’s inbound and outbound network security controls when connecting to data or services within or outside your network. Key features include: [Conditional Access](https://learn.microsoft.com/en-us/fabric/security/security-conditional-access), [Private Links](https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview), [Trusted Workspace Access](https://learn.microsoft.com/en-us/fabric/security/security-trusted-workspace-access), [Managed Private Endpoints](https://learn.microsoft.com/en-us/fabric/security/security-managed-private-endpoints-overview), and more.
+- Role-based access control (RBAC). Implement workspace-based access control to manage who can access and interact with specific datasets.
 
-- Audit Logs: Use Fabric’s detailed audit logs to track user activities and ensure accountability across the platform.
+- Network security. Use the Fabric inbound and outbound network security controls when connecting to data or services within or outside your network. Key features include, [conditional access](/fabric/security/security-conditional-access), [private links](/fabric/security/security-private-links-overview), [trusted workspace access](/fabric/security/security-trusted-workspace-access), and [managed private endpoints](/fabric/security/security-managed-private-endpoints-overview).
 
-For more information, see [Security in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/security/security-overview). 
+- Audit logs. Use the detailed audit logs provided by Fabric to track user activities and ensure accountability across the platform.
+
+For more information, see [Security in Microsoft Fabric](/fabric/security/security-overview). 
 
 ### Cost optimization
 
