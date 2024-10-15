@@ -1,6 +1,6 @@
 This article shows how to set up improved-security private connectivity to an App Service web app or a function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet.
 
-Azure App Service refers to non-dedicated compute pricing tiers which include the Basic, Standard, Premium, Premium v2, and Premium v3 where the supporting infrastructure is shared with other customers. While App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers.
+In this article, Azure App Service refers to the pricing tiers where there is shared infrastructure with other App Service customers, such as Basic, Standard, and the Premium tiers. App Service Environment deploys directly into your virtual network with dedicated supporting infrastructure and uses Isolated pricing tiers and is not the focus of this article.
 
 ## Architecture
 
@@ -60,7 +60,7 @@ Azure App Service refers to non-dedicated compute pricing tiers which include th
 
 ### Alternatives
 
-For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/overview) to host the web application in an isolated environment. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need VNet Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
+For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/overview) to host the web application in an isolated environment. App Service Environment avoids shared [hosting infrastructure](/azure/app-service/environment/ase-multi-tenant-comparison#hosting) between App Service customers. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need virtual network Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
 
 If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to an Azure SQL database. If you already have SQL Managed Instance but are using an App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
