@@ -2,9 +2,9 @@ This example workload illustrates a greenfield solution for creating a scalable 
 
 ## Architecture
 
-![Diagram that illustrates a greenfield solution for building a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.png)
+![Diagram that illustrates a greenfield solution for building a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.](media/greenfield-lakehouse-fabric/greenfield-lakehouse-fabric.svg)
 
-*Download a [Visio file]() of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/greenfield-lakehouse-fabric.vsdx) of this architecture.*
 
 ### Dataflow
 
