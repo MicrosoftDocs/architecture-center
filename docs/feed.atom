@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-10-07T15:30:23.032Z</updated>
+    <updated>2024-10-15T01:16:06.814Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[ValOps for Autonomous Vehicle Operations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-validation-operations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-validation-operations"/>
+        <updated>2024-10-08T22:58:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure services to build a validation operations (ValOps) solution for an automated driving system.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Automotive messaging, data, and analytics]]></title>
         <id>https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-messaging-data-analytics</id>
@@ -15,6 +23,14 @@
         <updated>2024-10-03T17:49:55.000Z</updated>
         <summary type="html"><![CDATA[Learn how to create a scalable and reliable solution for messaging and data analytics in the automotive industry.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Load Testing with custom plugins to simulate device behaviors]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins"/>
+        <updated>2024-10-08T17:37:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn about designing KPIs and developing a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Modernize mainframe and midrange data]]></title>
@@ -38,6 +54,174 @@
         <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics"/>
         <updated>2024-10-03T17:49:55.000Z</updated>
         <summary type="html"><![CDATA[Learn about a data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure AI targeted language processing technology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing"/>
+        <updated>2024-10-14T14:27:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about targeted language of Azure AI services. Learn which service to use for a specific use case.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Publish internal APIs to external users]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/publish-internal-apis-externally</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/publish-internal-apis-externally"/>
+        <updated>2024-10-14T13:08:59.000Z</updated>
+        <summary type="html"><![CDATA[In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic OpenAI end-to-end chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
+        <updated>2024-10-14T13:03:40.000Z</updated>
+        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure research environment for regulated data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research"/>
+        <updated>2024-10-14T13:03:40.000Z</updated>
+        <summary type="html"><![CDATA[Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generative AI ops for organizations with existing MLOps investments]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
+        <updated>2024-10-14T13:03:40.000Z</updated>
+        <summary type="html"><![CDATA[Guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate PDF forms processing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing"/>
+        <updated>2024-10-11T19:42:44.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure services such as AI Document Intelligence, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning operations v2]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/machine-learning-operations-v2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/machine-learning-operations-v2"/>
+        <updated>2024-10-11T19:42:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Line-of-business application using Azure App Service Environment v3]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/line-of-business-internal-app-service-environment-v3</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/line-of-business-internal-app-service-environment-v3"/>
+        <updated>2024-10-11T19:42:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy line-of-business applications with an internal App Service Environment v3, while considering networking boundaries, DevOps, management, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure API Management landing zone accelerator]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function"/>
+        <updated>2024-10-11T19:42:44.000Z</updated>
+        <summary type="html"><![CDATA[An opinionated accelerator to deploy a secure enterprise-ready API management solution and CI/CD pipeline.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Governance Visualizer deployment guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator"/>
+        <updated>2024-10-11T19:42:44.000Z</updated>
+        <summary type="html"><![CDATA[Azure Governance Visualizer guidance for deploying and maintaining the Azure Governance Visualizer tool.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Spring Apps integrated with landing zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/architectures/spring-apps-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/architectures/spring-apps-landing-zone"/>
+        <updated>2024-10-11T19:42:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy a reference architecture for Spring Boot apps in Azure Spring Apps with landing zones so workloads can share resources via centralized management.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure storage service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options"/>
+        <updated>2024-10-11T19:06:32.000Z</updated>
+        <summary type="html"><![CDATA[Use this guide to decide which Azure storage service best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Make all things redundant]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/design-principles/redundancy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/design-principles/redundancy"/>
+        <updated>2024-10-11T16:53:56.000Z</updated>
+        <summary type="html"><![CDATA[Use these recommendations to avoid having single points of failure, by building redundancy into your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure OpenAI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai"/>
+        <updated>2024-10-11T09:43:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DataOps for autonomous vehicle operations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops"/>
+        <updated>2024-10-10T20:34:09.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture"/>
+        <updated>2024-10-08T20:21:24.000Z</updated>
+        <summary type="html"><![CDATA[Second article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Deploy this scenario]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario"/>
+        <updated>2024-10-08T20:21:24.000Z</updated>
+        <summary type="html"><![CDATA[Fifth article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Overview]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview"/>
+        <updated>2024-10-08T20:21:24.000Z</updated>
+        <summary type="html"><![CDATA[First article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Recommendations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations"/>
+        <updated>2024-10-08T20:21:24.000Z</updated>
+        <summary type="html"><![CDATA[Fourth article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Scenario details]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details"/>
+        <updated>2024-10-08T20:21:24.000Z</updated>
+        <summary type="html"><![CDATA[Third article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Event-driven architecture style]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/architecture-styles/event-driven</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/architecture-styles/event-driven"/>
+        <updated>2024-10-07T17:02:03.000Z</updated>
+        <summary type="html"><![CDATA[Explore the benefits, challenges, and best practices for event-driven and IoT architectures on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1590,14 +1774,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/blockchain/multiparty-compute"/>
         <updated>2024-07-02T14:04:21.000Z</updated>
         <summary type="html"><![CDATA[Learn about Azure services that can help you build a multiparty computing solution, which can include cloud-based and on-premises resources.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Analyze observational patient data by using OHDSI with the OMOP CDM]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/digital-health/patient-data-ohdsi-omop-cdm</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/digital-health/patient-data-ohdsi-omop-cdm"/>
-        <updated>2024-07-01T22:09:06.000Z</updated>
-        <summary type="html"><![CDATA[Deploy and operate a solution that uses OHDSI and the OMOP CDM to analyze observational patient data.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
