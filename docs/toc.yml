@@ -1296,6 +1296,8 @@ items:
         href: reference-architectures/data/enterprise-bi-adf.yml
       - name: DataOps for modern data warehouse
         href: databases/architecture/dataops-mdw.yml
+      - name: Greenfield lakehouse on Microsoft Fabric
+        href: example-scenario/data/greenfield-lakehouse-fabric.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Helm-based deployments
