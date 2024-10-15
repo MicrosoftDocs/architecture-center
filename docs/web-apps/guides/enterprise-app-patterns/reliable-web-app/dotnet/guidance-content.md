@@ -15,7 +15,7 @@ The Reliable Web App pattern is a set of principles and implementation technique
 
 ## Business context
 
-The initial step replatforming a web app is to define your business objectives. You should set immediate goals, like your service level objective and cost optimization targets, and future goals, like for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
+The first step in replatforming a web app is to define your business objectives. You should set immediate goals, such as service level objectives and cost optimization targets, as well as future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
 
 For example, Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
 
@@ -42,8 +42,8 @@ For example, before the move to the cloud, Relecloud's ticketing web app was an 
     - *High service level agreement (SLA):* It has a high SLA that meets the production environment SLO of 99.9%.
     - *Reduced management overhead:* It's a fully managed solution that handles scaling, health checks, and load balancing.
     - *.NET support:* It supports the version of .NET that the application is written in.
-    - *Containerization capability:* The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services
-    - *Autoscaling:* The web app can automatically scale up, down, in, and out based on user traffic and settings.
+    - *Containerization capability:* The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services.
+    - *Autoscaling:* The web app can automatically scale in and out based on user traffic and configuration settings. The platform also supports scaling up or down to accommodate different hosting requirements.
     
 - *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Relecloud chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
 
@@ -89,20 +89,20 @@ For example, before the move to the cloud, Relecloud's ticketing web app was an 
     - *DDoS protection:* It has built-in layer 3-4 DDoS protection.
     - *Content delivery network:* It positions Relecloud to use a content delivery network. The content delivery network provides site acceleration.
 
-- *Web application firewall:* Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection of from common web exploits and vulnerabilities. Relecloud used Azure Web Application Firewall for the following reasons:
+- *Web application firewall:* Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection from common web exploits and vulnerabilities. Relecloud used Azure Web Application Firewall for the following reasons:
 
     - *Global protection:* It provides improved global web app protection without sacrificing performance.
-    - *Botnet protection:* The team can monitor and configure to address security concerns from botnets.
+    - *Botnet protection:* The team can monitor and configure settings to address security concerns related to botnets.
     - *Parity with on-premises:* The on-premises solution was running behind a web application firewall managed by IT.
     - *Ease of use:* Web Application Firewall integrates with Azure Front Door.
 
-*Configuration storage:* Choose whether to add app configuration storage to your web app. [Azure App Configuration](/azure/azure-app-configuration/overview) is a service for centrally managing application settings and feature flags. Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide whether this service is a good fit for your app. Relecloud wanted to replace file-based configuration with a central configuration store that integrates with the application platform and code. They added App Configuration to the architecture for the following reasons:
+- *Configuration storage:* Choose whether to add app configuration storage to your web app. [Azure App Configuration](/azure/azure-app-configuration/overview) is a service for centrally managing application settings and feature flags. Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide whether this service is a good fit for your app. Relecloud wanted to replace file-based configuration with a central configuration store that integrates with the application platform and code. They added App Configuration to the architecture for the following reasons:
 
     - *Flexibility:* It supports feature flags. Feature flags allow users to opt in and out of early preview features in a production environment without redeploying the app.
     - *Supports Git pipeline:* The source of truth for configuration data needed to be a Git repository. The pipeline needed to update the data in the central configuration store.
     - *Supports managed identities:* It supports managed identities to simplify and help secure the connection to the configuration store.
 
-- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Relecloud's on-premises web app stored secrets in code configuration files, but it's a better security practice to externalize secrets. While [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
+- *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Relecloud's on-premises web app stored secrets in code configuration files, but it's a better security practice to store secrets in a location that supports RBAC and audit controls. While [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
 
     - *Encryption:* It supports encryption at rest and in transit.
     - *Managed identity support:* The application services can use managed identities to access the secret store.
@@ -120,7 +120,7 @@ For example, before the move to the cloud, Relecloud's ticketing web app was an 
     - *Enhanced security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
     - *Minimal effort:* The private endpoints support the web app platform and database platform the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
 
-- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) allows you to connect to virtual machines securely without exposing RDP/SSH ports. Relecloud adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
+- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines securely without exposing RDP/SSH ports. Relecloud adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
 
 ## Code guidance
 
@@ -143,7 +143,7 @@ For example, before the move to the cloud, Relecloud's ticketing web app was an 
         }));
     ```
 
-- *Use retry programming libraries.* For services that don't have built-in support for the Retry pattern, use programming libraries that support the Retry pattern, such as [Polly](https://github.com/App-vNext/Polly). For example, the reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
+- *Use retry programming libraries.* For HTTP communications, integrate a standard resilience library such as [Polly](https://github.com/App-vNext/Polly) or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms that are crucial for managing communications with external web services. For example, the reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
 
     ```csharp
     private void AddConcertSearchService(IServiceCollection services)
@@ -196,7 +196,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure application to use a cache.* Production apps should use the Distributed Redis Cache because it's the most performant. For example, the reference implementation uses distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis (*see the following code*).
+- *Configure the application to use a cache.* Production apps should use the Distributed Redis Cache because it improves performance by reducing database queries and it enables nonsticky sessions so that the load balancer can evenly distribute traffic. For example, the reference implementation uses distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis (*see the following code*).
 
     ```csharp
     private void AddAzureCacheForRedis(IServiceCollection services)
@@ -313,11 +313,11 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
     
-    ```bicep
-        var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
-        var redisCacheFamilyName = isProd ? 'C' : 'C'
-        var redisCacheCapacity = isProd ? 1 : 0
-    ```
+```bicep
+    var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
+    var redisCacheFamilyName = isProd ? 'C' : 'C'
+    var redisCacheCapacity = isProd ? 1 : 0
+```
 
 ### Implement autoscaling
 

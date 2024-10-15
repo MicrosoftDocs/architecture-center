@@ -52,8 +52,8 @@ For each Azure service in your architecture, consult the relevant [Azure service
     | Service  | Use Case   |
     |-------|--------|
     | Azure Service Bus | Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications. |
-    | Azure Event Grid | Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.        |
-    | Azure Event Hubs | Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.         |
+    | Azure Event Grid | Choose Azure Event Grid when you need to handle a large number of discrete events efficiently. Azure Event Grid is scalable for event-driven applications where many small, independent events (like resource state changes) need to be routed to subscribers in a low-latency, publish-subscribe model.        |
+    | Azure Event Hubs | Choose Azure Event Hubs for massive, high-throughput data ingestion—such as telemetry, logs, or real-time analytics. Azure Event Hubs is optimized for streaming scenarios where bulk data needs to be ingested and processed continuously.         |
 
 - *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.<br><br>
 
@@ -448,7 +448,7 @@ Containerization means that all dependencies for the app to function are encapsu
 
 - *Identify domain boundaries.* Start by identifying the domain boundaries within your monolithic application. This helps determine which parts of the application you can extract into separate services.
 
-- *Create docker images.* When creating Docker images for your .NET services, use chiseled base images. These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
+- *Create docker images.* When creating Docker images for your .NET services, use [chiseled base images](https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/). These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
 
 - *Use multi-stage Dockerfiles.* Implement multi-stage Dockerfiles to separate build-time assets from the runtime container image. It helps to keep your production images small and secure.
 
