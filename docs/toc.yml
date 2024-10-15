@@ -3076,8 +3076,6 @@ items:
         href: reference-architectures/ai/end-to-end-smart-factory.yml
       - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-      - name: Low-latency network for manufacturing
-        href: solution-ideas/articles/low-latency-network.yml
       - name: Quality assurance
         href: solution-ideas/articles/quality-assurance.yml
       - name: Real-time asset tracking and management
@@ -3154,48 +3152,12 @@ items:
           href: industries/telecommunications/deploy-private-mobile-network.md
         - name: Build a private 5G network
           href: industries/telecommunications/build-private-5g-network.md
-      - name: Dynamics 365 telecommunications
-        items:
-        - name: Overview
-          href: /dynamics365/industry/accelerators/telecommunications-overview
-          maintainContext: true
-        - name: Configure for Azure Maps
-          href: /dynamics365/industry/accelerators/telecommunications-configure
-          maintainContext: true
-      - name: Private multi-access edge compute
-        items:
-        - name: Overview
-          href: /azure/private-multi-access-edge-compute-mec/overview
-          maintainContext: true
-        - name: Partner services
-          href: /azure/private-multi-access-edge-compute-mec/partner-programs
-          maintainContext: true
-        - name: Fusion Core
-          href: /azure/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview
-          maintainContext: true
-        - name: Affirmed Private Network Service
-          href: /azure/private-multi-access-edge-compute-mec/affirmed-private-network-service-overview
-          maintainContext: true
-      - name: Azure Network Function Manager
-        href: /azure/network-function-manager/overview
-        maintainContext: true
     - name: Architectures
       items:
       - name: All telecommunications architectures
         href: /azure/architecture/browse/?terms=telecommunications
       - name: Geospatial analysis for telecommunications
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
-      - name: Low-latency network connections
-        href: /azure/architecture/solution-ideas/articles/low-latency-network
-      - name: Public MEC deployment
-        href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
-      - name: Public MEC high availability
-        href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
-    - name: Compliance solutions
-      items:
-      - name: GSMA overview
-        href: /azure/compliance/offerings/offering-gsma
-        maintainContext: true
   - name: Automotive, Mobility, and Transportation
     items:
     - name: Overview
@@ -3775,8 +3737,6 @@ items:
           href: /azure/architecture/browse/?terms=agriculture
         - name: Environment monitoring
           href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-        - name: Low-latency network for farming
-          href: solution-ideas/articles/low-latency-network.yml
     - name: Sports
       items:
       - name: Overview
