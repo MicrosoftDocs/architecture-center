@@ -38,15 +38,15 @@ Depending on your requirements, you can use either or both of these capabilities
 
 There are two approaches to data preparation and transformation. If you prefer a code-first experience, you can use Spark notebooks. If you prefer a low-code or no-code experience, you can use dataflows.
 
-[Fabric notebooks](/fabric/data-engineering/how-to-use-notebook) are an important tool for developing Apache Spark jobs. They provide a web-based interactive surface that data engineers use to write code. They also provide rich visualizations and enable the use of Markdown text. Data engineers write code for data ingestion, data preparation, and data transformation. Data scientists use notebooks to create machine learning solutions, for example, to create experiments and models and to track and deploy models.
+[Fabric notebooks](/fabric/data-engineering/how-to-use-notebook) are an important tool for developing Apache Spark jobs. They provide a web-based interactive surface that data engineers use to write code. They also provide rich visualizations and enable the use of Markdown text. Data engineers write code for data ingestion, data preparation, and data transformation. Data scientists use notebooks to create machine learning solutions. For example, they use them to create experiments and models and to track and deploy models.
 
 Every workspace in Fabric comes with a Spark [starter pool](/fabric/data-engineering/configure-starter-pools), which is used for default Spark jobs. With starter pools, you can expect rapid Apache Spark session initialization, typically within 5 to 10 seconds, without any manual setup. You also get the flexibility to customize Apache Spark pools according to your data engineering requirements. You can size the nodes, autoscale, and dynamically allocate executors based on your Spark job requirements. For Spark runtime customizations, you can use [environments](/fabric/data-engineering/create-and-use-environment). In an environment, you can configure compute properties, select different runtimes, and set up library package dependencies based on your workload requirements.
 
-[Dataflows](/fabric/data-factory/create-first-dataflow-gen2) allow you to extract data from various sources, transform it by using a wide range of operations, and optionally load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. Dataflow Gen2 provides an easy, reusable way to perform ETL tasks by using visual cues in Power Query Online. The dataflow preserves all transformation steps. To perform other tasks or load data to a different destination after transformation, create a Data Pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
+[Dataflows](/fabric/data-factory/create-first-dataflow-gen2) allow you to extract data from various sources, transform it by using a wide range of operations, and optionally load it into a destination. Traditionally, data engineers spend significant time extracting, transforming, and loading data into a consumable format for downstream analytics. Dataflow Gen2 provides an easy, reusable way to perform ETL tasks by using visual cues in Power Query Online. The dataflow preserves all transformation steps. To perform other tasks or load data to a different destination after transformation, create a data pipeline and add the Dataflow Gen2 activity to your pipeline orchestration.
 
 #### Hot path: Real-time analytics
 
-Real-time data processing is vital for businesses that want to stay agile, make informed decisions quickly, and take advantage of immediate insights to improve operations and customer experiences. In Fabric, this capability is provided by the Real-Time Intelligence service. It comprises several Fabric items that are bundled together and accessible via [Real-Time hub](/fabric/real-time-hub/real-time-hub-overview). Real-Time hub provides a single place for streaming data-in-motion across your organization.
+Real-time data processing is vital for businesses that want to stay agile, make informed decisions quickly, and take advantage of immediate insights to improve operations and customer experiences. In Fabric, this capability is provided by the Real-Time Intelligence service. It comprises several Fabric features that are bundled together and accessible via [Real-Time hub](/fabric/real-time-hub/real-time-hub-overview). Real-Time hub provides a single place for streaming data-in-motion across your organization.
 
 Real-Time Intelligence in Fabric enables analysis and data visualization for event-driven scenarios, streaming data, and data logs. It connects time-based data from various sources by using a catalog of no-code connectors and provides an end-to-end solution for data ingestion, transformation, storage, analytics, visualization, tracking, AI, and real-time actions. Although the service name uses the phrase "Real-Time," your data doesn't have to be flowing at high rates and volumes. Real-Time Intelligence provides event-driven, rather than schedule-driven, solutions.
 
@@ -173,16 +173,11 @@ Fabric offers [capacity reservations](/azure/cost-management-billing/reservation
 
 To maximise the utilization of your Fabric capacity, consider the following recommendations:
 
-- Rightsize F SKUs. To determine the right capacity size, you can provision [trial capacities](/fabric/get-started/fabric-trial) or [pay-as-you-go F SKUs](/fabric/enterprise/buy-subscription#azure-skus) to measure the actual capacity size you need before you buy an F SKU reserved instance. We recommend that you perform a scoped proof of concept with a representative workload, monitor CU usage, and then extrapolate to arrive at an estimated CU usage for production. Fabric provides seamless scaling. You can start with a conservative capacity size and scale up if you need more capacity.
- 
+- Rightsize F SKUs. To determine the right capacity size, you can provision [trial capacities](/fabric/get-started/fabric-trial) or [pay-as-you-go F SKUs](/fabric/enterprise/buy-subscription#azure-skus) to measure the actual capacity size you need before you buy an F SKU reserved instance. We recommend that you perform a scoped proof of concept with a representative workload, monitor CU usage, and then extrapolate to arrive at an estimate of CU usage for production. Fabric provides seamless scaling. You can start with a conservative capacity size and scale up if you need more capacity.
 - Monitor usage patterns. Regularly track and analyze your usage to identify peak and off-peak hours. Doing so can help you understand when your resources are most utilized so you can schedule non-critical tasks during off-peak times to avoid spikes in CU usage.
- 
 - Optimize queries and workloads. Ensure that your queries and workloads are optimized to reduce unnecessary compute usage. Optimize DAX queries, Python code, and other operations.
-  
 - Use bursting and smoothing. Use the bursting and smoothing features of Fabric to handle CPU-intensive activities without requiring a higher SKU. Doing so can help you manage costs while still maintaining performance. For more information, see [Evaluate and optimize your Fabric capacity](/fabric/enterprise/optimize-capacity).
- 
 - Set up alerts and notifications. Configure proactive alerts so capacity admins can monitor and manage high compute usage. Doing so can enable them to take timely actions to prevent cost overruns.
- 
 - Implement workload management. Schedule log-running jobs at staggered times based on resource availability and system demand to optimize capacity usage. For more information, see [Workload management](/fabric/data-warehouse/workload-management).
 
 Keep these considerations in mind as well:
@@ -205,11 +200,11 @@ Fabric provides several features to optimize performance across its components. 
 
 Some key performance efficiency capabilities in Fabric include:
 
-- Use [bursting and smoothing](https://blog.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming?ft=All#BurstSmooth) to ensure that CPU-intensive activities are completed quickly without requiring a higher SKU. Schedule these activities at any time of the day.
+- [Bursting and smoothing](https://blog.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming?ft=All#BurstSmooth), to ensure that CPU-intensive activities are completed quickly without requiring a higher SKU. Schedule these activities at any time of the day.
 
-- Use [throttling](/fabric/enterprise/throttling) to delay or reject operations when capacity experiences sustained CPU demand that's above the SKU limit.
+- [Throttling](/fabric/enterprise/throttling), to delay or reject operations when capacity experiences sustained CPU demand that's above the SKU limit.
 
-- Use the [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app) to visualize capacity usage, optimize the performance of artifacts, and optimize high-compute items. The app differentiates between interactive operations (like DAX queries) and background operations (like semantic model refreshes) for targeted optimizations.
+- The [Fabric Capacity Metrics app](/fabric/enterprise/metrics-app), to visualize capacity usage, optimize the performance of artifacts, and optimize high-compute items. The app differentiates between interactive operations (like DAX queries) and background operations (like semantic model refreshes) for targeted optimizations.
 
 ## Contributors
 
@@ -226,7 +221,7 @@ Principal authors:
 
 - [What is OneLake?](/fabric/onelake/onelake-overview)
 - [What is Data Factory?](/fabric/data-factory/data-factory-overview)
-- [What is Data Engineering?](/fabric/data-engineering/data-engineering-overview)
+- [What is data engineering?](/fabric/data-engineering/data-engineering-overview)
 - [What is Data science?](/fabric/data-science/data-science-overview)
 - [What is Real-Time Intelligence?](/fabric/real-time-intelligence/overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
