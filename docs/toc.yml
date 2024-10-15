@@ -3658,15 +3658,6 @@ items:
         items:
         - name: Predictive maintenance in manufacturing
           href: industries/manufacturing/predictive-maintenance-overview.yml
-        - name: Predictive maintenance solution
-          href: industries/manufacturing/predictive-maintenance-solution.yml
-      - name: IoT scenarios
-        items:
-        - name: Enable machine learning inference
-          href: guide/iot/machine-learning-inference-iot-edge.yml
-      - name: Manufacturing Windows engineering
-        href: /windows-hardware/manufacture/desktop/manufacturing-windows-engineering-guide
-        maintainContext: true
     - name: Architectures
       items:
       - name: All manufacturing architectures
@@ -3683,35 +3674,10 @@ items:
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Automated fab scheduling and dispatching
         href: example-scenario/manufacturing/fab-scheduling-azure.yml
-      - name: Batch integration with Azure Digital Twins
-        href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: CAE simulations for manufacturing
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
-      - name: Computer vision for manufacturing
-        href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: IoT Edge railroad maintenance and safety
-        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-      - name: Low-latency network for manufacturing
-        href: solution-ideas/articles/low-latency-network.yml
       - name: Quality assurance
         href: solution-ideas/articles/quality-assurance.yml
-      - name: Real-time asset tracking and management
-        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
-        maintainContext: true
-    - name: Compliance solutions
-      items:
-      - name: GDPR (EU)
-        href: /compliance/regulatory/gdpr
-        maintainContext: true
-      - name: GxP
-        href: /compliance/regulatory/offering-gxp
-        maintainContext: true
-      - name: ISO 27018
-        href: /azure/compliance/offerings/offering-iso-27018
-        maintainContext: true
-      - name: ITAR
-        href: /azure/compliance/offerings/offering-itar
-        maintainContext: true
     - name: Solution ideas
       items:
       - name: Customer order forecasting
@@ -3800,8 +3766,6 @@ items:
         href: /azure/architecture/browse/?terms=telecommunications
       - name: Geospatial analysis for telecommunications
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
-      - name: Low-latency network connections
-        href: /azure/architecture/solution-ideas/articles/low-latency-network
       - name: Public MEC deployment
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
@@ -4390,8 +4354,6 @@ items:
           href: /azure/architecture/browse/?terms=agriculture
         - name: Environment monitoring
           href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-        - name: Low-latency network for farming
-          href: solution-ideas/articles/low-latency-network.yml
     - name: Sports
       items:
       - name: Overview
