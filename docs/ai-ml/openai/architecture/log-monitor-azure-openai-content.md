@@ -83,7 +83,7 @@ The advantages of using this solution include:
 
 ```
 ApiManagementGatewayLogs
-| where OperationId == 'chatcompletions_create'
+| where tolower(OperationId) in ('completions_create','chatcompletions_create')
 | extend modelkey = substring(parse_json(BackendResponseBody)['model'], 0, indexof(parse_json(BackendResponseBody)['model'], '-', 0, -1, 2))
 | extend model = tostring(parse_json(BackendResponseBody)['model'])
 | extend prompttokens = parse_json(parse_json(BackendResponseBody)['usage'])['prompt_tokens']
@@ -106,7 +106,7 @@ Output:
 
 ```
 ApiManagementGatewayLogs
-| where OperationId == 'chatcompletions_create'
+| where tolower(OperationId) in ('completions_create','chatcompletions_create')
 | extend model = tostring(parse_json(BackendResponseBody)['model'])
 | extend prompttokens = parse_json(parse_json(BackendResponseBody)['usage'])['prompt_tokens']
 | extend prompttext = substring(parse_json(parse_json(BackendResponseBody)['choices'])[0], 0, 100)
