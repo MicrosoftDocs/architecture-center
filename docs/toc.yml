@@ -3202,6 +3202,8 @@ items:
       href: industries/automotive.md
     - name: Guides
       items:
+      - name: Autonomous Vehicle Operations design guide
+        href: /azure/architecture/guide/machine-learning/avops-design-guide
       - name: Autonomous Vehicle Operations solution idea
         href: /azure/architecture/solution-ideas/articles/avops-architecture
     - name: Architectures
