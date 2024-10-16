@@ -11,8 +11,7 @@ metadata:
   ms.subservice: architecture-guide
   ms.category:
     - containers
-  ms.custom:
-    - arb-containers
+  ms.custom: arb-containers
 azureCategories:
   - containers
   - compute
