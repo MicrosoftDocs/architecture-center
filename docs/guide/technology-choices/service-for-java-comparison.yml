@@ -10,6 +10,7 @@ metadata:
   ms.subservice: architecture-guide
   ms.custom:
     - devx-track-extended-java
+    - arb-web
 azureCategories:
   - compute
 products:

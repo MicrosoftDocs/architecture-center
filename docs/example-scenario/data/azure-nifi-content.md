@@ -935,8 +935,7 @@ For more information, see the following resources:
 
 - [Helm-based deployments for Apache NiFi][Helm-based deployments for Apache NiFi]
 - [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
-- [Hybrid extract, transform, load (ETL) with Azure Data Factory][Hybrid ETL with Azure Data Factory]
-- [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
+- [DataOps for the modern data warehouse](/azure/architecture/databases/architecture/dataops-mdw)
 - [Data warehousing and analytics][Data warehousing and analytics]
 
 [Apache NiFi]: https://nifi.apache.org

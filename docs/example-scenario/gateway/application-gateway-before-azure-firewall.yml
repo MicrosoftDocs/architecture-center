@@ -15,6 +15,7 @@ metadata:
     - fcp
     - guide
     - internal-intro
+    - arb-web
 name: Zero-trust network for web applications with Azure Firewall and Application Gateway
 azureCategories:
   - networking

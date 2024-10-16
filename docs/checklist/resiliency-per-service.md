@@ -15,6 +15,7 @@ categories:
 ms.custom:
   - resiliency
   - checklist
+  - arb-web
 ---
 
 <!-- cSpell:ignore BACPAC DTUs nonbootable VHDs -->

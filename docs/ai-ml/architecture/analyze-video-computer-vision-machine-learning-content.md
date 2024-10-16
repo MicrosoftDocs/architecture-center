@@ -141,4 +141,4 @@ Other contributors:
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [What is Power BI Embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
-- [Business Process Accelerator](https://github.com/Azure/business-process-automation)
+- See the [Business process automation solution](https://github.com/Azure/business-process-automation) on GitHub

@@ -1,11 +1,11 @@
 For customers in segments that are tightly governed and restricted by compliance, it's important to have an isolated and dedicated environment, especially for line-of-business applications. While security is front and center, these critical applications also require the ability to scale and perform under scenarios of high memory utilization or high requests per second. This solution provides an example for how you can host line-of-business applications. You can use App Service Environment to ensure that both security and performance can be addressed simultaneously. When deploying this solution, you'll have the flexibility to use existing resources in your [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone), which represents your resources in the hub VNet. Or, you can deploy this solution as a self-contained workload.
 
 > [!NOTE]
-> This article provides a deployable architecture that aligns to our [landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator).
+> This article provides a deployable architecture that aligns to the Cloud Adoption Framework guidance for [App Service in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator).
 
 ## Architecture
 
-:::image type="complex" source="./media/architecture-line-of-business-internal-app-service-environment-v3.png" alt-text="Diagram that shows the architecture of the App Service Environment v3 landing zone accelerator.":::
+:::image type="complex" source="./media/architecture-line-of-business-internal-app-service-environment-v3.png" alt-text="Diagram that shows the architecture of the App Service Environment v3 deployment.":::
    The entirety of this image is in the scope of a subscription and a private DNS Zone. It's denoted by a subscription icon and an Azure Private DNS zone icon in the top-left corner. Below these icons, two blocks are side by side. They represent two virtual networks, with VNet peering between them. The block on the left represents the hub VNet, and the block on the right represents the spoke VNet. Within the left box, there are three smaller boxes. Each box indicates a different subnet and its associated network security group. Starting from the top left is an Azure Bastion instance within the Azure Bastion subnet, and the top right is the jumpbox VM, which resides in the jumpbox subnet. On the bottom right is the third and last box in the hub VNet, which contains the CI/CD agent server that resides in the CI/CD subnet. The box on the right, which represents the spoke VNet, contains only one smaller box, the App Service Environment subnet that has the App Service Environment v3 instance within it. A smaller box represents the App Service Environment. The App Service icon is inside that box. On the bottom center of the image, are shared resources that are also deployed as part of the process. Starting from the left to right, the shared resources include Azure Key Vault, Azure Log Analytics workspace, and Azure Application Insights.
 :::image-end:::
 
@@ -85,11 +85,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - Use Application Insights or another application performance management solution to monitor and learn how your application behaves in different environments.
-    - There are two ways to enable [Application Insights](/azure/azure-monitor/app/app-insights-overview). For different environments, collect telemetry data into different Application Insights instances.
-    - If your application has multiple components separated into different services, you might want to examine their behavior together. Collect their telemetry data into the same Application Insights instance, but label them with different cloud role names.
-    - Export the Application Insights data to an [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. We recommend you use a single workspace for the organization.
-    - Include operational dashboards in application and feature design, to ensure the solution can be supported in production.
-    - Implement health checks for your endpoints, and then use them for health probes, dependency checks, and availability tests.
+  - There are two ways to enable [Application Insights](/azure/azure-monitor/app/app-insights-overview). For different environments, collect telemetry data into different Application Insights instances.
+  - If your application has multiple components separated into different services, you might want to examine their behavior together. Collect their telemetry data into the same Application Insights instance, but label them with different cloud role names.
+  - Export the Application Insights data to an [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. We recommend you use a single workspace for the organization.
+  - Include operational dashboards in application and feature design, to ensure the solution can be supported in production.
+  - Implement health checks for your endpoints, and then use them for health probes, dependency checks, and availability tests.
 - Consider using prefixes and suffixes with well-defined conventions, to uniquely identify every deployed resource. These naming conventions avoid conflicts, when you deploy solutions next to each other and improve the overall team agility and throughput.
 - Depending on the network configuration, App Service might not be reachable from the public internet, and the use of public hosted agents won't work for deployments. Use [self-hosted agents](https://azure.github.io/AppService/2021/01/04/deploying-to-network-secured-sites.html) in that scenario.
 
@@ -108,29 +108,30 @@ To get started and better understand the specifics of this implementation, revie
 
 Principal authors:
 
- - [Pete Messina](https://www.linkedin.com/in/peter-messina-93512414/) | Senoir Cloud Solution Architect
- - [Nabeel Prior](https://www.linkedin.com/in/nabeelprior/) | Senior Cloud Solution Architect
+- [Pete Messina](https://www.linkedin.com/in/peter-messina-93512414/) | Senoir Cloud Solution Architect
+- [Nabeel Prior](https://www.linkedin.com/in/nabeelprior/) | Senior Cloud Solution Architect
 
  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* [Security in Azure App Service](/azure/app-service/overview-security)
-* [Networking for App Service](/azure/app-service/networking-features)
-* [Landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
+- [Security in Azure App Service](/azure/app-service/overview-security)
+- [Networking for App Service](/azure/app-service/networking-features)
+- Cloud Adoption Framework guidance for [App Service in Azure landing zones](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
 
 Learn more about these key services:
-* [Azure App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)
-* [Azure Private DNS Zones](/azure/dns/private-dns-privatednszone)
-* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
-* [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)
-* [Azure Virtual Machines overview](/azure/virtual-machines/windows/overview)
-* [Azure Key Vault concepts](/azure/key-vault/general/basic-concepts)
-* [Azure Bastion](/azure/bastion/bastion-overview)
+
+- [Azure App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)
+- [Azure Private DNS Zones](/azure/dns/private-dns-privatednszone)
+- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)
+- [Azure Virtual Machines overview](/azure/virtual-machines/windows/overview)
+- [Azure Key Vault concepts](/azure/key-vault/general/basic-concepts)
+- [Azure Bastion](/azure/bastion/bastion-overview)
 
 ## Related resources
 
-* [High-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
-* [Enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment)
-* [High-availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
-* [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)
+- [High-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+- [Enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment)
+- [High-availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+- [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)

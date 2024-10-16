@@ -146,7 +146,7 @@ An effective DR plan presents a step-by-step guide for service recovery that can
     - Affected Business Owners, including the service recovery approvers.
     - Affected Technical Owners, including the technical recovery approvers.
     - SME support across all affected areas, including key solutions hosted by the platform.
-    - Impacted downstream systems – operational support.
+    - Affected downstream systems – operational support.
     - Upstream source systems – operational support.
     - Enterprise shared services contacts. For example, access and authentication support, security monitoring and gateway support
     - Any external or third-party vendors, including support contacts for cloud providers.

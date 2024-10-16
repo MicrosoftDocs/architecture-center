@@ -12,7 +12,7 @@ An example implementation is available on GitHub at [Azure Governance Visualizer
 
 ## Architecture
 
-![Diagram showing the architecture of the Azure Governance Visualizer accelerator.](images/azure-governance-visualizer-accelerator-architecture.svg)
+![Diagram showing the architecture of the Azure Governance Visualizer deployed.](images/azure-governance-visualizer-accelerator-architecture.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-governance-visualizer-accelerator.vsdx) of this architecture.*
 
@@ -34,7 +34,7 @@ This flow explains how a user can use the tool:
 
 ## Components
 
-The accelerator is based on a GitHub template repository that consists of the following components:
+The automation presented in this scenario consists of the following components:
 
 - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
@@ -61,19 +61,19 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Restricting the reporting HTML to only those users authorized to view this data is important. This data is a gold mine for both insider and external threats, as it exposes your Azure landscape, including security controls.
 
-- Use Microsoft Entra authentication to restrict access to authorized individuals. Consider using Web Apps authentication to provide this service. In the accelerator, the deployment configures to Web Apps and actively verifies that authentication is enabled before deploying.
+- Use Microsoft Entra authentication to restrict access to authorized individuals. Consider using Web Apps authentication to provide this service. The deployment code in GitHub configures Web Apps and actively verifies that authentication is enabled before deploying.
 
 - Consider applying network security controls to expose the site to your team only over a [private endpoint](/azure/private-link/private-endpoint-overview). And to restrict traffic, consider using the IP restrictions of Web Apps.
 
 - Enable access logging on the Azure web app to be able to audit access. Configure the Azure web app to send those logs to a Log Analytics workspace.
 
-- Ensure secure communication is enabled on the Azure web app. In the accelerator, only HTTPS and FTPs are allowed, and the minimum version of TLS is configured as 1.2.
+- Ensure secure communication is enabled on the Azure web app. Only HTTPS and FTPs are allowed, and the minimum version of TLS is configured as 1.2.
 
 - Consider using [Microsoft Defender for Cloud's Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction).
 
 - Use the [latest versions of the runtime stack](/azure/app-service/language-support-policy?tabs=windows) of the Azure web app.
 
-- Make sure to rotate the secret of this service principal regularly and monitor its activity. To gather all the required information, the visualizer deployed by the accelerator depends on a service principal with Microsoft Entra ID permissions.
+- Make sure to rotate the secret of this service principal regularly and monitor its activity. To gather all the required information, the visualizer deployed depends on a service principal with Microsoft Entra ID permissions.
 
 For more information about security controls, see [Azure security baseline for App Service](/security/benchmark/azure/baselines/app-service-security-baseline).
 
@@ -83,25 +83,25 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The B1 (Basic) tier is used for the deployed Azure web app in App Service. App Service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight.
 
-- The accelerator only deploys one instance of App Service, but you can choose to deploy more if needed.
+- The sample in GitHub only deploys one instance of App Service, but you can choose to deploy more if needed.
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- The accelerator consists mainly of an Azure web app that hosts the HTML output of the visualizer tool. We recommend you enable the diagnostic settings of the web app to monitor traffic, access audit logs, metrics, and more.
+- The solution consists mainly of an Azure web app that hosts the HTML output of the visualizer tool. We recommend you enable the diagnostic settings of the web app to monitor traffic, access audit logs, metrics, and more.
 
 - It's important to monitor the performance of the web app. Doing so helps to identify if you need to scale up or scale out depending on the amount of visualizer usage.
 
 - It's also important to always run the [latest versions of the runtime stack](/azure/app-service/language-support-policy?tabs=windows) of the Azure web app.
 
-- The Azure Governance Visualizer updates versions regularly with new features, bug fixes, or improvements. In the accelerator, a dedicated GitHub workflow handles the update process. There's a configurable option to update the visualizer's code automatically or manually by just opening a pull request with changes you can review and merge.
+- The Azure Governance Visualizer updates versions regularly with new features, bug fixes, or improvements. In the GitHub repository, a dedicated GitHub workflow handles the update process. There's a configurable option to update the visualizer's code automatically or manually by just opening a pull request with changes you can review and merge.
 
-- The accelerate code might get updated with new settings on the App Service bicep code or with new instructions for the visualizer prerequisites. In the accelerator, a dedicated GitHub workflow handles this update process. There's a configurable option to update the visualizer's code automatically or manually by just opening a pull request with changes you can review and merge.
+- The accelerate code might get updated with new settings on the App Service bicep code or with new instructions for the visualizer prerequisites. In the GitHub repository, a dedicated GitHub workflow handles this update process. There's a configurable option to update the visualizer's code automatically or manually by just opening a pull request with changes you can review and merge.
 
 ## Deploy this scenario
 
-To deploy this scenario, see [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
+To deploy this scenario, see the [Azure Governance Visualizer accelerator GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
 ## Contributors
 
@@ -115,8 +115,8 @@ Principal authors:
 
 ## Next steps
 
-- [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
-- [Azure Governance Visualizer](https://github.com/Azure/Azure-Governance-Visualizer)
+- [Azure Governance Visualizer accelerator GitHub repository](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
+- [Azure Governance Visualizer Open Source project](https://github.com/Azure/Azure-Governance-Visualizer)
 
 ## Related resources
 
