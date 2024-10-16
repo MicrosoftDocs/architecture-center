@@ -4,6 +4,28 @@ AKS clusters can be shared across multiple tenants in different scenarios and wa
 
 In this article, we describe some of the features of AKS that are useful when building multitenant systems. For general guidance and best practices for Kubernetes multitenancy, see [Multi-tenancy](https://kubernetes.io/docs/concepts/security/multi-tenancy) in the Kubernetes documentation.
 
+## Benefits
+
+Implementing multitenancy in Kubernetes offers several advantages.
+
+- **Cost Efficiency:** Consolidating applications into a single cluster or a set of clusters reduces hardware and operational costs associated with running separate clusters, one for each tenant.
+- **Resource Optimization:** It enables better utilization of resources by allowing workloads from different tenants to share the cluster’s capacity, adjusting dynamically to demand.
+- **Simplified Management:** Administrative tasks such as upgrades, security patches, and backups can be streamlined across the cluster, enhancing efficiency.
+- **Improved Scalability:** With multitenancy, the cluster can scale more efficiently as resources can be shared among tenants, allowing for better handling of increased workloads.
+- **Enhanced Flexibility:** Multitenancy enables tenants to easily adjust their resource allocation based on their specific needs, leading to increased flexibility in managing their workloads.
+- **Effective Resource Monitoring:** By having a centralized view of resource usage across tenants, administrators can gain better insights into resource utilization and make informed decisions to optimize the cluster's performance.
+
+## Key Challenges
+
+While multitenancy brings several benefits, it also presents challenges for system administrators and developers.
+
+- **Security and Isolation:** Ensuring strict isolation between tenants’ resources and workloads to prevent unauthorized access and data breaches is paramount.
+- **Resource Contention:** Avoiding situations where one tenant’s workload monopolizes resources, affecting the performance and availability of others.
+- **Tenant Resource Quotas:** Defining and enforcing resource quotas for each tenant can be challenging, as it requires careful planning and monitoring to ensure fair distribution and prevent resource abuse.
+- **Complexity in Configuration, Management, and Deployment:** The need for detailed configurations to maintain isolation, manage resources, and ensure security adds complexity.
+- **Data Governance and Compliance:** Managing data privacy, compliance, and regulatory requirements can become complex when multiple tenants are sharing the same infrastructure, requiring robust security measures and data governance policies.
+- **Tenant Onboarding and Offboarding:** Efficiently onboarding and offboarding tenants, including provisioning and deprovisioning processes, can be time-consuming and complex, requiring well-defined procedures and automation tools.
+
 ## Multitenancy types
 
 The first step to determining how to share an AKS cluster across multiple tenants is to evaluate the patterns and tools at your disposal. In general, multitenancy in Kubernetes clusters falls into two main categories, though many variations are still possible. The Kubernetes [documentation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#use-cases) describes two common use cases for multitenancy: multiple teams and multiple customers.
