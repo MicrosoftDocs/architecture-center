@@ -494,7 +494,7 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 
 ## Deploy the reference implementation
 
-![GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
+Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
 
 [![Diagram showing architecture of the reference implementation](../../../_images/modern-web-app-architecture-dotnet.svg)](../../../_images/modern-web-app-architecture-dotnet.svg)
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*

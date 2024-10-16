@@ -1,1 +1,0 @@
-To facilitate the application of this guidance, there's a **[reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)** of the Modern Web App pattern. To implement the Modern Web App pattern, follow these recommendations:
