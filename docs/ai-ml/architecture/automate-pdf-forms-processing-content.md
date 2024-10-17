@@ -143,7 +143,7 @@ Principal author:
 - [Gail Zhou](https://linkedin.com/in/gailzhou) | Sr. Architect
 
 Other contributors:
-
+- [Said Nikjou](https://www.linkedin.com/in/snikjou/) | Sr. Cloud Solution Architect
 - [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
 - [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
 - [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
