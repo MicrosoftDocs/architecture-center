@@ -262,7 +262,7 @@ For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
 All application tiers are hosted in a single virtual network and are segmented using subnets.
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+Azure Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
 ## Next steps
 
