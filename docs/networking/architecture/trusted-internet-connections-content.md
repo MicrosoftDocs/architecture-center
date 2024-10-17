@@ -272,7 +272,7 @@ Other contributor:
 - [EINSTEIN](https://www.cisa.gov/einstein)
 - [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 - [Azure Trusted Internet Connection - Extended](https://github.com/Azure/trusted-internet-connection)
-- [Federal App Innovation - TIC 3.0](https://github.com/microsoft/Federal-App-Innovation-Community/tree/main/topics/infrastructure/solutions/tic3.0)
+- [Federal App Innovation - TIC 3.0](https://github.com/microsoft/Federal-App-Innovation-Community/tree/e276c4f95ad0209d55ef92eb6e24a1af6d6f2179/assets/topics/infrastructure/solutions/tic3.0)
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [Azure Firewall documentation](/azure/firewall)
 - [What is Azure Application Gateway?](/azure/application-gateway/overview)
