@@ -61,7 +61,7 @@ resource "azurerm_role_assignment" "acrpull_role" {
 
 ### Secrets
 
-Whenever possible, **Microsoft Entra authentication** should be used instead of keys when accessing Azure resources. Many Azure services support the option to completely disable key authentication (e.g. [Azure Cosmos DB](/azure/cosmos-db/nosql/security/how-to-disable-key-based-authentication?tabs=csharp&pivots=azure-interface-cli), [Azure Storage](/azure/storage/common/shared-key-authorization-prevent?tabs=portal) and AKS supports [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview?tabs=dotnet) to enable this form of authentication.
+Whenever possible, **Microsoft Entra authentication** should be used instead of keys when accessing Azure resources. Many Azure services support the option to completely disable key authentication (e.g. [Azure Cosmos DB](/azure/cosmos-db/nosql/security/how-to-disable-key-based-authentication?tabs=csharp&pivots=azure-interface-cli), [Azure Storage](/azure/storage/common/shared-key-authorization-prevent?tabs=portal)) and AKS supports [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview?tabs=dotnet).
 
 For scenarios where Microsoft Entra authentication cannot be used, each deployment stamp has its dedicated instance of Azure Key Vault to store keys. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
