@@ -5534,6 +5534,11 @@
       "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
+      "redirect_document_id": false
     }
   ]
 }
