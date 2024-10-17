@@ -119,7 +119,7 @@ This solution scales up or down as needed:
 
 ## Deploy this scenario
 
-For a deployment guide for Moodle on Azure NetApp Files, see [Azure NetApp Files for NFS storage with Moodle][Azure NetApp Files for NFS storage with Moodle].
+For a deployment guide for Moodle on Azure NetApp Files, see [Azure NetApp Files for NFS storage with Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630).
 
 ## Contributors
 
