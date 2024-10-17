@@ -57,6 +57,11 @@ The solution that's described in this article can process many types of forms, i
 - Payment authorization forms
 - Health screening forms
 - Survey forms
+- Customer Feedback Forms
+- Employee Records
+- Research Papers
+- Printed Forms with Handwritten Notes
+- Any Type of Custom Forms
 
 ## Considerations
 
@@ -145,6 +150,7 @@ Principal author:
 Other contributors:
 
 - [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
+- [Said Nikjou](https://www.linkedin.com/in/snikjou/) | Sr. Cloud Solution Architect
 - [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
 - [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
 - [DB Lee](https://www.linkedin.com/in/dongbum) | Sr. Technical Specialist
