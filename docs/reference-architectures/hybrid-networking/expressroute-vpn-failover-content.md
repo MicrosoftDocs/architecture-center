@@ -220,7 +220,7 @@ You can configure high availability for your Azure connection in different ways,
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering (each peering is designated a pair of /30 address spaces, as described in the previous section).
 
-    ![[1]][1]
+    ![[0]][0]
 
 - If you're using a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
@@ -231,6 +231,25 @@ You can configure high availability for your Azure connection in different ways,
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
+
+ExpressRoute operates in layer 3. Threats in the application layer can be prevented by using a network security appliance that restricts traffic to legitimate resources.
+
+To maximize security, add network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
+
+![[1]][1]
+
+For auditing or compliance purposes, it may be necessary to prohibit direct access from components running in the VNet to the Internet and implement forced tunneling. In this situation, Internet traffic should be redirected back through a proxy running on-premises where it can be audited. The proxy can be configured to block unauthorized traffic flowing out, and filter potentially malicious inbound traffic.
+
+![[2]][2]
+
+To maximize security, do not enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform configuration or maintenance.
+
+If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
+
+> [!NOTE]
+> Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
@@ -302,7 +321,7 @@ To deploy the solution, perform the following steps.
    > - An Azure virtual network
    > - An ExpressRoute virtual network gateway
    >
-   > In order for you to successfully establish private peering connectivity from on-premises to the ExpressRoute circuit, you'll need to engage your service provider with the circuit service key. The service key can be found on the overview page of the ExpressRoute circuit resource. For more information on configuring your ExpressRoute circuit, see [Create or modify peering configuration](configure-expressroute-routing). Once you have configured private peering successfully you can link the ExpressRoute virtual network gateway to the circuit. For more information, see [Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
+   > In order for you to successfully establish private peering connectivity from on-premises to the ExpressRoute circuit, you'll need to engage your service provider with the circuit service key. The service key can be found on the overview page of the ExpressRoute circuit resource. For more information on configuring your ExpressRoute circuit, see [Create or modify peering configuration][configure-expressroute-routing]. Once you have configured private peering successfully you can link the ExpressRoute virtual network gateway to the circuit. For more information, see [Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
 1. To complete the deployment of site-to-site VPN as a backup to ExpressRoute, see [Create a site-to-site VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
 
@@ -365,3 +384,7 @@ Microsoft Learn modules:
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
+[0]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
+[1]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
+[2]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
+[visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx
