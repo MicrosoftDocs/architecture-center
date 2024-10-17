@@ -181,3 +181,6 @@ Other contributor:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
+## Next steps
+## Related resources
+
