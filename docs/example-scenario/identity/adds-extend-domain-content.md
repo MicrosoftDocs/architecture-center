@@ -160,7 +160,7 @@ For more information, see [VPN Gateway pricing][azure-gateway-charges].
 
 #### Virtual Network
 
-Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic within a virtual network's boundaries is free, so communication between two VMs in the same virtual network is free.
+Virtual Network is free. Every subscription is allowed to create up to 1,000 virtual networks across all regions. All traffic within a virtual network's boundaries is free, so communication between two VMs in the same virtual network is free.
 
 ## Next steps
 
