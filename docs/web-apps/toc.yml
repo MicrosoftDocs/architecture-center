@@ -20,6 +20,8 @@ items:
           href: app-service/architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
           href: app-service/architectures/multi-region.yml
+        - name: Multi-region App Service apps for disaster recovery
+          href: guides/multi-region-app-service/multi-region-app-service.yml
       - name: Host web apps with App Service Environment
         items:
         - name: Standard deployment
