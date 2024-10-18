@@ -15,7 +15,7 @@ This solution proposes a strategy that blocks direct Internet traffic to the Sto
 
 ### Workflow
 
-1. A Hub-Spoke network topology is utilized where a hub virtual network is peered to each resource virtual network (called a spoke), and all traffic is routed through Azure Firewall for traffic inspection.
+1. A hub-spoke network topology is utilized where a hub virtual network is peered to each resource virtual network (called a spoke), and all traffic is routed through Azure Firewall for traffic inspection.
 1. The Blob storage account denies public internet access, and it only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect, authenticating via a managed identity. Also, the Storage account is configured to only support Azure RBAC for data plane access.
 1. The application gateway is configured with custom DNS and terminates transport layer security (TLS) traffic. It resides within a virtual network. This virtual network is peered with the Virtual Network used by the Storage account's private link through a forced tunnel via the Hub virtual network.
 1. IoT client device using Azure IoT Hub SDK requests a SAS URI for File Upload to the IoT Hub, through public internet.
