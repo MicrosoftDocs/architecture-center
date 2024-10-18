@@ -18,26 +18,31 @@ Depending on your desired RTO and RPO metrics, three disaster recovery architect
 |Code deployment | CI/CD pipelines preferred| CI/CD pipelines preferred| Backup and restore |
 |Creation of new App Service resources during downtime | Not required | Not required| Required |
 
-
 >[!NOTE]
->Your application most likely depends on other data services in Azure, such as Azure SQL Database and Azure Storage accounts. It's recommended that you develop disaster recovery strategies for each of these dependent Azure Services as well. For SQL Database, see [Active geo-replication for Azure SQL Database](/azure/azure-sql/database/active-geo-replication-overview). For Azure Storage, see [Azure Storage redundancy](/storage/common/storage-redundancy). 
-
-
+>Your application most likely depends on other data services in Azure, such as Azure SQL Database and Azure Storage accounts. It's recommended that you develop disaster recovery strategies for each of these dependent Azure Services as well. For SQL Database, see [Active geo-replication for Azure SQL Database](/azure/azure-sql/database/active-geo-replication-overview). For Azure Storage, see [Azure Storage redundancy](/azure//storage/common/storage-redundancy). 
 
 ### Disaster recovery in multi-region geography
 
-There are multiple ways to replicate your web apps content and configurations across Azure regions in an active-active or active-passive architecture, such as using [App service backup and restore](/app-service/manage-backup). However, backup and restore create point-in-time snapshots and eventually lead to web app versioning challenges across regions.  See the following table below for a comparison between back and restore guidance vs. diaster recovery guidance:
+There are multiple ways to replicate your web apps content and configurations across Azure regions in an active-active or active-passive architecture, such as using [App service backup and restore](/azure/app-service/manage-backup). However, backup and restore create point-in-time snapshots and eventually lead to web app versioning challenges across regions.  See the following table below for a comparison between backup and restore guidance vs. diaster recovery guidance:
 
-<!-- TODO [!INCLUDE [backup-restore-vs-disaster-recovery](/app-service/includes/backup-restore-disaster-recovery)] -->
+<!-- BEGIN cross-repo include workaround - the original is here: https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/app-service/includes/backup-restore-disaster-recovery.md -->
+| Platform | Back up and restore guidance  | Disaster recovery guidance |
+|------|-----|-----|
+|App Service web apps<br>(Free and Shared pricing tiers)|If you have web applications deployed to the Free or Shared tier and require access to back up and restore capabilities for these web apps, [scale up](/azure/app-service/manage-scale-up.md) to the Basic tier or higher.|[Bring App Service resources back online in a different Azure region during a regional disaster](/azure/app-service/manage-disaster-recovery.md).<br><br>Starting March 31, 2025, App Service applications won't be placed in disaster recovery mode during a disaster in an Azure region as explained in the [recover from region-wide failure](/azure/app-service/manage-disaster-recovery.md) article. We recommend that you implement [commonly used disaster recovery techniques](/azure/app-service/overview-disaster-recovery.md) to prevent downtime and data loss during a regional disaster.|
+|App Service web apps<br>(Basic, Standard, and Premium pricing tiers)|In Azure App Service, You can make on-demand custom backups or utilize automatic backups. You can restore a backup by overwriting an existing app or by restoring to a new app or slot.<br><br>Refer to [Back up and restore your app in Azure App Service](/azure/app-service/manage-backup.md) for more info.|Current guidance regarding how to bring App Service resources back online in a different Azure region during a regional disaster is available at [Recover from region-wide failure - Azure App Service](/azure/app-service/manage-disaster-recovery.md). <br><br>Starting March 31, 2025, Azure App Service web applications will no longer be placed in disaster recovery mode during a disaster in an Azure region as explained in the [recover from region-wide failure](/azure/app-service/manage-disaster-recovery.md) article. We encourage you to implement [commonly used disaster recovery techniques](/azure/app-service/overview-disaster-recovery.md) to prevent loss of functionality or data for your web apps if there's a regional disaster.|
+|App Service Environment (V2 and V3)|In Azure App Service Environment, You can make on-demand custom backups or use automatic backups. Automatic backups can be restored to a target app within the same App Service Environment, not in another App Service Environment. Custom backups can be restored to a target app in another App Service Environment (such as from a V2 App Service Environment to a V3 App Service Environment). Backups can be restored to a target app of the same OS platform as the source app.<br><br>Refer to [Back up and restore your app in Azure App Service](/azure/app-service/manage-backup.md) for more details.| We encourage you to implement disaster recovery guidance for web apps deployed to App Service Environment using [commonly used disaster recovery techniques](/azure/app-service/overview-disaster-recovery.md).  |
+|Azure Functions:<br/>Dedicated plan|When you run your function app in a [Dedicated (App Service) plan](/azure/azure-functions/dedicated-plan.md), required function app content is maintained using built-in storage. In a Dedicated plan, you can make on-demand custom backups or use automatic backups. You can restore a backup by overwriting an existing app or by restoring to a new app or slot.<br><br>For more information, see [Back up and restore your app in Azure App Service](/azure/app-service/manage-backup.md).<br/><br/>Azure Files isn't used by a Dedicated plan, but if you have misconfigured your app [with an Azure Files connection](/azure/azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring), backup isn't supported. | Current guidance regarding how to bring function app resources in a Dedicated plan back online in a different Azure region during a regional disaster is available at [Recover from region-wide failure - Azure App Service](/azure/app-service/manage-disaster-recovery.md).<br><br>Starting March 31, 2025, App Service applications won't be placed in disaster recovery mode during a disaster in an Azure region as explained in the [recover from region-wide failure](/azure/app-service/manage-disaster-recovery.md) article. You should instead [plan for reliability in your function apps](/azure/reliability/reliability-functions.md).<br><br>You can also refer to [commonly used disaster recovery techniques](/azure/app-service/overview-disaster-recovery.md) for function apps in a Dedicated plan. |
+|Azure Functions:<br/>Flex Consumption,<br/>Consumption, and Premium plans |Function apps that run in a [Flex Consumption plan](/azure/azure-functions/consumption-plan.md), in a [Consumption plan](/azure/azure-functions/consumption-plan.md), or in a [Premium plan](/azure/azure-functions/functions-premium-plan.md) can't use custom or automatic backup functionality in App Service. In these dynamic scale plans, function app content is maintained in Azure Storage. Use [Azure Storage redundancy](/azure/storage/common/storage-redundancy.md) options to ensure your storage account meets its availability and durability targets during an outage.<br><br>You can also [download your existing function app project as a .zip file](/azure/azure-functions/deployment-zip-push.md) from the Azure portal. | We strongly encourage you to [plan for reliability in your function apps](/azure/reliability/reliability-functions.md).|
+<!-- END cross-repo include workaround -->
 
-To avoid the limitations of backup and restore methods, configure your CI/CD pipelines to deploy code to both Azure regions. Consider using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions). For more information, see [Continuous deployment to Azure App Service](/app-service/deploy-continuous-deployment).
+To avoid the limitations of backup and restore methods, configure your CI/CD pipelines to deploy code to both Azure regions. Consider using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions). For more information, see [Continuous deployment to Azure App Service](/azure/app-service/deploy-continuous-deployment).
 
 
 #### Outage detection, notification, and management
 
 - It's recommended that you set up monitoring and alerts for your web apps to for timely notifications during a disaster. For more information, see [Application Insights availability tests](/azure/azure-monitor/app/availability-overview).
 
-- To manage your application resources in Azure, use an infrastructure-as-Code (IaC) mechanism. In a complex deployment across multiple regions, to manage the regions independently and to keep the configuration synchronized across regions in a reliable manner requires a predictable, testable, and repeatable process. Consider an IaC tool such as [Azure Resource Manager templates](/azure-resource-manager/management/overview) or [Terraform](/azure/developer/terraform/overview).
+- To manage your application resources in Azure, use an infrastructure-as-Code (IaC) mechanism. In a complex deployment across multiple regions, to manage the regions independently and to keep the configuration synchronized across regions in a reliable manner requires a predictable, testable, and repeatable process. Consider an IaC tool such as [Azure Resource Manager templates](/azure/azure-resource-manager/management/overview) or [Terraform](/azure/developer/terraform/overview).
 
 
 #### Set up disaster recovery and outage detection 
@@ -48,7 +53,7 @@ To prepare for disaster recovery in a multi-region geography, you can use either
 
 In active-active disaster recovery architecture, identical web apps are deployed in two separate regions and Azure Front door is used to route traffic to both the active regions.
 
-:::image type="content" source="../app-service/media/overview-disaster-recovery/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service.":::
+:::image type="content" source="../images/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service.":::
 
 With this example architecture: 
 
@@ -84,7 +89,7 @@ Steps to create an active-active architecture for your web app in App Service ar
 
 In this disaster recovery approach, identical web apps are deployed in two separate regions and Azure Front door is used to route traffic to one region only (the *active* region).
 
-:::image type="content" source="../app-service/media/overview-disaster-recovery/active-passive-architecture.png" alt-text="A diagram showing an active-passive architecture of Azure App Service.":::
+:::image type="content" source="../images/active-passive-architecture.png" alt-text="A diagram showing an active-passive architecture of Azure App Service.":::
 
 With this example architecture:
 
@@ -170,7 +175,7 @@ Steps to create a passive-cold region for your web app in App Service are summar
 
 If your web app's region doesn't have GZRS or GRS storage or if you are in an  [Azure region that isn't one of a regional pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair), you'll need to utilize zone-redundant storage (ZRS) or locally redundant storage (LRS) to create a similar architecture. For example, you can manually create a secondary region for the storage account as follows:
 
-:::image type="content" source="../app-service/media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="../app-service/media/overview-disaster-recovery/alternative-no-grs-no-gzrs.png":::
+:::image type="content" source="../images/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="../images/alternative-no-grs-no-gzrs.png":::
 
 Steps to create a passive-cold region without GRS and GZRS are summarized as follows: 
 
