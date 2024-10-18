@@ -44,7 +44,7 @@ This solution proposes a strategy that blocks direct Internet traffic to the Sto
 
 In regular deployments, Azure IoT client device needs to talk directly to the Storage account to upload the file. Disabling Internet traffic on the Storage account would automatically block any client IoT client devices from uploading files. This is because Azure IoT Hub's file upload functionality acts only as a user delegation for generating a SAS token with read-write permission on a blob, where the file upload itself does not pass through Azure IoT Hub. An IoT client device uses the normal Blob Storage SDK for the actual upload.
 
-Communication between the Azure IoT Hub and the Azure Storage account still goes through the public endpoint. This exception is possible through Azure Storage Networking configuration for Resource instances, which allows disabling public Internet access while allowing Azure Services and specific instances of resources to connect through the Azure backbone. This network perimeter is paired with a Microsoft Entra ID-based identity perimeter that uses Azure RBAC to restrict data plane access.
+When implementing this scenario, communication between the Azure IoT Hub and the Azure Storage account still goes through the public endpoint. This exception is possible through Azure Storage Networking configuration for Resource instances, which allows disabling public Internet access to the Storage account while allowing Azure Services and specific instances of resources to connect through the Azure backbone. This network perimeter is paired with a Microsoft Entra ID-based identity perimeter that uses Azure RBAC to restrict data plane access.
 
 The Azure IoT Hub needs to be assigned a managed identity, and this managed identity needs to be assigned the role of Storage Blob Data Contributor to the specified Storage account. With this permission, Azure IoT Hub is capable of requesting a user delegation key to construct a SAS token which is given to the IoT client device for actual file upload process.
 
@@ -60,7 +60,7 @@ The same use case can apply to any industry where devices need to communicate wi
 
 ### Alternatives
 
-Customers that don't require the Hub-Spoke network topology with traffic inspection through Azure Firewall can still benefit from this approach by implementing a simplified networking topology. In this scenario, a single virtual network with distinct subnets to accommodate Azure Application Gateway, Private Link, and Private DNS Zone would suffice. The Storage account would remain configured in the same manner, as would Azure IoT Hub.
+Customers who don't require the Hub-Spoke network topology with traffic inspection through Azure Firewall can still benefit from this approach by implementing a simplified networking topology. In this scenario, a single virtual network with distinct subnets to accommodate Azure Application Gateway, Private Link, and Private DNS Zone would suffice. The Storage account would remain configured in the same manner, as would Azure IoT Hub.
 
 The benefit of a simplified architecture includes reduced complexity and cost. When there are no specific business or enterprise requirements for Hub-Spoke topology, the simplified architecture allows for eliminating public internet endpoints from the Storage account while ensuring that IoT applications using Azure IoT Hub's file upload functionality work correctly.
 
