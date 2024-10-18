@@ -88,6 +88,7 @@ You can tailor this solution to your Azure infrastructure. Consider the followin
 
 - Exchange one or more architecture components for your existing infrastructure. For example, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory) to orchestrate Databricks jobs.
 - Integrate with your existing CI/CD tooling via Git and Azure Databricks REST APIs.
+- Use [Microsoft Fabric](/fabric/data-science/machine-learning-model) or [Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning) as alternative services for machine learning capabilities.
 
 ## Scenario details
 
