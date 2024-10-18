@@ -3210,189 +3210,22 @@ items:
       items:
       - name: Overview
         href: industries/game-development.md
-      - name: Guides
-        items:
-        - name: Azure PlayFab
-          items:
-          - name: Overview
-            href: /gaming/playfab/what-is-playfab
-            maintainContext: true
-          - name: Microsoft Entra authentication
-            href: /gaming/playfab/features/authentication/aad-authentication/index
-            maintainContext: true
-          - name: CloudScript with Azure Functions
-            href: /gaming/playfab/features/automation/cloudscript-af/index
-            maintainContext: true
-          - name: Multiplayer guidance
-            items:
-            - name: Multiplayer with PlayFab
-              href: /gaming/playfab/features/multiplayer/mpintro
-              maintainContext: true
-            - name: Host multiplayer games
-              href: /gaming/playfab/features/multiplayer/servers/using-playfab-servers-to-host-games
-              maintainContext: true
-            - name: Create virtual machines
-              href: /gaming/playfab/features/multiplayer/servers/deploying-playfab-multiplayer-server-builds
-              maintainContext: true
-            - name: Build definition
-              href: /gaming/playfab/features/multiplayer/servers/build-definition
-              maintainContext: true
-            - name: Linux container images
-              href: /gaming/playfab/features/multiplayer/servers/deploying-linux-based-builds
-              maintainContext: true
-            - name: Measure player latency
-              href: /gaming/playfab/features/multiplayer/servers/using-qos-beacons-to-measure-player-latency-to-azure
-              maintainContext: true
-            - name: Connect clients to servers
-              href: /gaming/playfab/features/multiplayer/servers/connecting-clients-to-game-servers
-              maintainContext: true
-            - name: Increase core limits and regions
-              href: /gaming/playfab/features/multiplayer/servers/identifying-and-increasing-core-limits
-              maintainContext: true
-          - name: PlayFab Insights
-            href: /gaming/playfab/features/insights/overview
-            maintainContext: true
-          - name: PlayFab samples
-            href: /gaming/playfab/resources/playfab-samples
-            maintainContext: true
-        - name: Azure Game Development VMs
-          items:
-          - name: Overview
-            href: /gaming/azure/game-dev-virtual-machine/overview
-            maintainContext: true
-          - name: Tools included
-            href: /gaming/azure/game-dev-virtual-machine/tools-included-azure-game-dev-kit
-            maintainContext: true
-          - name: GPU SKUs and optimizing costs
-            href: /gaming/azure/game-dev-virtual-machine/choosing-gpu-sku
-            maintainContext: true
-          - name: Striped disks for more IOPS
-            href: /gaming/azure/game-dev-virtual-machine/striped-disks-iops
-            maintainContext: true
-          - name: Integrate with Microsoft Entra ID
-            href: /gaming/azure/game-dev-virtual-machine/integrate-vm-with-aad
-            maintainContext: true
-          - name: Azure Files with Unreal Engine
-            href: /gaming/azure/game-dev-virtual-machine/use-azure-files-for-global-ddc
-            maintainContext: true
-          - name: Azure DevOps build pipelines
-            href: /gaming/azure/reference-architectures/azurecloudbuilds-0-intro
-            maintainContext: true
-        - name: Set up a STUN and TURN Server
-          href: /gaming/azure/reference-architectures/stun-turn-server-in-azure
-          maintainContext: true
       - name: Architectures
         items:
         - name: All game development architectures
           href: /azure/architecture/browse/?terms=game
-        - name: AI in games
-          items:
-          - name: Image classification
-            href: ai-ml/idea/intelligent-apps-image-processing.yml
-          - name: Speech to text for gaming
-            href: /gaming/azure/reference-architectures/cognitive-speech-to-text
-            maintainContext: true
         - name: Databases for gaming
           items:
           - name: Gaming using Azure Cosmos DB
             href: solution-ideas/articles/gaming-using-cosmos-db.yml
-        - name: Game streaming
-          items:
-          - name: Unreal Pixel Streaming
-            href: /gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure
-            maintainContext: true
-          - name: Deploy Unreal Pixel Streaming
-            href: /gaming/azure/reference-architectures/unreal-pixel-streaming-deploying
-            maintainContext: true
-          - name: Unreal Pixel Streaming at scale
-            href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
-            maintainContext: true
         - name: Rendering
           items:
           - name: 3D video rendering
             href: example-scenario/infrastructure/video-rendering.yml
-      - name: Compliance solutions
-        items:
-        - name: GDPR (EU)
-          items:
-          - name: GDPR overview
-            href: /compliance/regulatory/gdpr
-            maintainContext: true
-          - name: Delete and export player data
-            href: /gaming/playfab/features/data/playerdata/playfab-gdpr-deleting-and-exporting-player-data
-            maintainContext: true
-          - name: Accountability with Azure logs
-            href: /compliance/regulatory/gdpr-arc
-            maintainContext: true
-          - name: Azure breach response
-            href: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
-            maintainContext: true
-          - name: Azure DSRs
-            href: /compliance/regulatory/gdpr-dsr-azure
-            maintainContext: true
-          - name: Azure DevOps DSRs
-            href: /compliance/regulatory/gdpr-dsr-vsts
-            maintainContext: true
-          - name: Data controllers with Azure
-            href: /compliance/regulatory/gdpr-dpia-azure
-            maintainContext: true
-          - name: Information protection
-            href: /microsoft-365/solutions/information-protection-deploy
-            maintainContext: true
-        - name: FERPA, COPPA, and CIPA
-          href: /compliance/regulatory/offering-FERPA
-          maintainContext: true
     - name: Media and Entertainment
       items:
       - name: Overview
         href: industries/media.md
-      - name: Guides
-        items:
-        - name: Media Services guidance
-          items:
-          - name: Media Services architectures
-            href: /azure/media-services/latest/architecture-concept
-            maintainContext: true
-          - name: Terminology and concepts
-            href: /azure/media-services/latest/concepts-overview
-            maintainContext: true
-          - name: Media players for Media Services
-            href: /azure/media-services/latest/player-media-players-concept
-            maintainContext: true
-        - name: Dynamics 365 media accelerator
-          items:
-          - name: Overview
-            href: /dynamics365/industry/accelerators/media
-            maintainContext: true
-          - name: Content Production solution
-            href: /dynamics365/industry/accelerators/content-production
-            maintainContext: true
-          - name: Configure the accelerator
-            href: /dynamics365/industry/accelerators/configure-media
-            maintainContext: true
-          - name: Fan and guest engagement
-            href: /dynamics365/industry/accelerators/fan-engagement
-            maintainContext: true
-        - name: Mixed reality scenarios
-          items:
-          - name: Immersive education
-            href: /windows/mixed-reality/enthusiast-guide/immersive-education
-            maintainContext: true
-          - name: Theme parks and family entertainment
-            href: /windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment
-            maintainContext: true
-          - name: Training and simulation
-            href: /windows/mixed-reality/enthusiast-guide/training-simulation
-            maintainContext: true
-          - name: Virtual museums and exhibits
-            href: /windows/mixed-reality/enthusiast-guide/virtual-museums
-            maintainContext: true
-          - name: Virtual reality arcades
-            href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
-            maintainContext: true
-        - name: Delivering a media experience
-          href: /windows-hardware/test/weg/delivering-a-great-media-experience
-          maintainContext: true
       - name: Architectures
         items:
         - name: All media and entertainment architectures
@@ -3417,30 +3250,6 @@ items:
             href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
         - name: Real-time monitoring and observable systems for media
           href: example-scenario/monitoring/monitoring-observable-systems-media.yml
-      - name: Datasets
-        items:
-        - name: Microsoft News recommendation
-          href: /azure/open-datasets/dataset-microsoft-news
-          maintainContext: true
-        - name: TartanAir AirSim
-          href: /azure/open-datasets/dataset-tartanair-simulation
-          maintainContext: true
-      - name: Compliance solutions
-        items:
-        - name: CDSA
-          href: /azure/compliance/offerings/offering-cdsa
-          maintainContext: true
-        - name: Media Services compliance
-          items:
-          - name: Regulatory compliance
-            href: /azure/media-services/latest/compliance-concept
-            maintainContext: true
-          - name: Privacy and security compliance
-            href: /azure/media-services/latest/media-services-compliance
-            maintainContext: true
-        - name: MPA
-          href: /azure/compliance/offerings/offering-mpa
-          maintainContext: true
     - name: Travel and Hospitality
       items:
       - name: Overview
@@ -3449,17 +3258,8 @@ items:
         items:
         - name: AI scenarios
           items:
-          - name: Create a search index for hotels
-            href: /azure/search/search-get-started-portal
-            maintainContext: true
           - name: Data science for airport travel
             href: data-science-process/spark-overview.md
-        - name: No-code voice assistant for hospitality
-          href: /azure/azure-percept/tutorial-no-code-speech
-          maintainContext: true
-        - name: Observer pattern - baggage claims
-          href: /dotnet/standard/events/observer-design-pattern
-          maintainContext: true
       - name: Architectures
         items:
         - name: All travel and hospitality architectures
@@ -3472,37 +3272,10 @@ items:
           href: example-scenario/apps/apim-api-scenario.yml
         - name: Predictive aircraft engine monitoring
           href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-      - name: Datasets
-        items:
-        - name: Public Holidays
-          href: /azure/open-datasets/dataset-public-holidays
-          maintainContext: true
-        - name: Russian open speech to text
-          href: /azure/open-datasets/dataset-open-speech-text
-          maintainContext: true
-        - name: TartanAir AirSim
-          href: /azure/open-datasets/dataset-tartanair-simulation
-          maintainContext: true
     - name: Facilities and Real Estate
       items:
       - name: Overview
         href: industries/facilities-real-estate.md
-      - name: Guides
-        items:
-        - name: Azure Maps indoor maps
-          items:
-          - name: Creator for indoor maps
-            href: /azure/azure-maps/creator-indoor-maps
-            maintainContext: true
-          - name: Make indoor maps
-            href: /azure/azure-maps/tutorial-creator-indoor-maps
-            maintainContext: true
-          - name: Use the Indoor Maps module
-            href: /azure/azure-maps/how-to-use-indoor-module
-            maintainContext: true
-        - name: Facility ontology for Azure Maps
-          href: /azure/azure-maps/creator-facility-ontology?pivots=facility-ontology-v1
-          maintainContext: true
       - name: Architectures
         items:
         - name: All facilities and real estate architectures
@@ -3521,23 +3294,6 @@ items:
         href: industries/aerospace.md
       - name: Guides
         items:
-        - name: Azure Orbital guidance
-          items:
-          - name: Overview
-            href: /azure/orbital/overview
-            maintainContext: true
-          - name: Ground station contact
-            href: /azure/orbital/concepts-contact
-            maintainContext: true
-          - name: Contact profile
-            href: /azure/orbital/concepts-contact-profile
-            maintainContext: true
-          - name: Spacecraft object
-            href: /azure/orbital/spacecraft-object
-            maintainContext: true
-        - name: Modular Datacenter
-          href: /azure-stack/mdc/mdc-overview
-          maintainContext: true
         - name: Drone delivery
           items:
           - name: Domain-driven design for drones
@@ -3574,17 +3330,8 @@ items:
           href: /azure/architecture/browse/?terms=aerospace
         - name: Advanced (AKS) microservices - drones
           href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
-        - name: End-to-end geospatial solution
-          href: /azure/orbital/geospatial-reference-architecture
-          maintainContext: true
         - name: Ingest FAA content to analyze flights
           href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml
-        - name: Organize spaceborne geospatial data
-          href: /azure/orbital/organize-stac-data
-          maintainContext: true
-        - name: SAR reference architecture
-          href: /azure/orbital/sar-reference-architecture
-          maintainContext: true
         - name: Serverless web app for drone delivery
           href: web-apps/serverless/architectures/web-app.yml
         - name: Spaceborne data analysis
@@ -3601,18 +3348,12 @@ items:
       items:
       - name: Overview
         href: industries/sports.md
-      - name: Guides
-        items:
-        - name: Fan Engagement solution
-          href: /dynamics365/industry/accelerators/fan-engagement
-          maintainContext: true
       - name: Architectures
         items:
         - name: All sports architectures
           href: /azure/architecture/browse/?terms=sports
         - name: Create smart stadiums
           href: example-scenario/iot/smart-places.yml
-        - name: Stream sporting events
 - name: Microsoft Azure Well-Architected Framework
   href: /azure/well-architected/
 - name: Cloud Adoption Framework for Azure
