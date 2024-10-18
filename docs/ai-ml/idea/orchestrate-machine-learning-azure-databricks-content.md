@@ -28,7 +28,7 @@ In the development environment, you can develop machine learning pipelines.
 
 1. **Commit code:** To promote the machine learning workflow toward production, you can commit the code for featurization, training, and other pipelines to source control. In the code base, place machine learning code and operational code in different folders so that team members can develop code at the same time. Machine learning code is code that's related to the model and data. Operational code is code that's related to Databricks jobs and infrastructure.
 
-This core cycle of activities that you do when you write and test code are referred to as the *innerloop process*. To perform the innerloop process for the development phase, use Visual Studio Code in combination with the dev container CLI and the Databricks CLI. You can can write the code and do unit testing locally. You can also submit, monitor, and analyze the model pipelines from the local development environment.
+This core cycle of activities that you do when you write and test code are referred to as the *innerloop process*. To perform the innerloop process for the development phase, use Visual Studio Code in combination with the dev container CLI and the Databricks CLI. You can write the code and do unit testing locally. You can also submit, monitor, and analyze the model pipelines from the local development environment.
 
 #### Staging
 
@@ -127,9 +127,10 @@ For examples, see [Databricks customers](https://databricks.com/customers).
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect
+- [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Principal Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
