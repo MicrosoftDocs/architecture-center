@@ -24,6 +24,9 @@ The Machine Learning workspace is configured with [managed virtual network isola
 
 Many components of this architecture are the same as the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights only the changes to the basic architecture.
 
+> [!NOTE]
+> The [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml) was updated to use Azure AI Studio. While this architecture and implementation are still functional, they are both scheduled to be updated to use Azure AI Studio in the next month. If you are building a new application, we suggest you use Azure AI Studio for prompt flow development instead of Azure Machine Learning.
+
 - [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both the basic and this baseline architecture. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture takes advantage of enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture does not implement.
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 - [Web Application Firewall (WAF)](https://azure.microsoft.com/products/web-application-firewall/) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. Web Application Firewall provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.

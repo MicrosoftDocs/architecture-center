@@ -22,7 +22,7 @@ This article provides a basic architecture intended for learning about running c
 1. The client application code deployed to App Service handles the request and presents the user a chat UI. The chat UI code connects to APIs also hosted in that same App Service instance. The API code connects to an Azure Machine Learning managed online endpoint to handle user interactions.
 1. The managed online endpoint routes the request to Azure Machine Learning managed compute where the prompt flow orchestration logic is deployed.
 1. The prompt flow orchestration code begins executing. Among other things, the logic extracts the user's query from the request.
-1. The orchestration logic connects to Azure AI Search to fetch grounding data for the query. The grounding data is added to the prompt that will be sent to Azure OpenAI in the next step.
+1. The orchestration logic connects to Azure AI Search to fetch grounding data for the query. The grounding data is added to the prompt that is sent to Azure OpenAI in the next step.
 1. The orchestration logic connects to Azure OpenAI and sends the prompt that includes the relevant grounding data.
 1. The information about original request to App Service and the call to the managed online endpoint are logged in Application Insights, using the same Log Analytics workspace that Azure OpenAI telemetry flows to.
 
@@ -49,7 +49,7 @@ Many of the components of this architecture are the same as the resources in the
 
 - [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. AI Studio is used in this architecture to build, test, and deploy the prompt flow orchestration logic for the chat application.
 
-  - [AI Studio Hub](/azure/ai-studio/concepts/ai-resources) is the top-level resource for AI Studio. It is the central resource where you can govern security, connectivity, and compute resources for use in your AI Studio projects. You define connections to resources such as Azure OpenAI in the AI Studio Hub. The AI Studio Projects inherit these connections.
+  - [AI Studio Hub](/azure/ai-studio/concepts/ai-resources) is the top-level resource for AI Studio. It's the central resource where you can govern security, connectivity, and compute resources for use in your AI Studio projects. You define connections to resources such as Azure OpenAI in the AI Studio Hub. The AI Studio Projects inherit these connections.
   
   - [AI Studio Projects](/azure/ai-studio/how-to/create-projects) are the environments used to collaborate while developing, deploying, and evaluating AI models and solutions.
 
@@ -112,13 +112,13 @@ The following guidance extends the [identity and access management guidance in t
 
 If you choose to use user-assigned managed identities, you should create separate identities for each of the above resources.
 
-Azure AI Studio projects are intended to be isolated from one another. In order to allow multiple projects to write to the same Azure storage account, but keep the projects isolated, conditions are applied to their role assignments for blob storage. These conditions grant access to only certain containers within the storage sccount. If you use user-assigned managed identities, you'll need to follow a similar approach in order to maintain least privilege.
+Azure AI Studio projects are intended to be isolated from one another. In order to allow multiple projects to write to the same Azure storage account, but keep the projects isolated, conditions are applied to their role assignments for blob storage. These conditions grant access to only certain containers within the storage account. If you use user-assigned managed identities, you'll need to follow a similar approach in order to maintain least privilege.
 
-Currently, the chat UI is using keys to connect to the deployed managed online endoint. The keys are stored in Azure Key Vault. When moving to production, you should use Managed Identity to authenticate the chat UI to the managed online endpoint.
+Currently, the chat UI is using keys to connect to the deployed managed online endpoint. The keys are stored in Azure Key Vault. When moving to production, you should use Managed Identity to authenticate the chat UI to the managed online endpoint.
 
 ### Role-based access roles
 
-The system automatically creates role assignments for the system-assigned managed identities. Because the system does not know what features of the hub and projects you may use, it create role assignments support all of the potential features. For example, the system creates the role assignment `Storage File Data Privileged Contributor' to the storage account for Azure AI Studio. If you are not using prompt flow, you would not require this assignment.
+The system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know what features of the hub and projects you may use, it create role assignments support all of the potential features. For example, the system creates the role assignment `Storage File Data Privileged Contributor' to the storage account for Azure AI Studio. If you aren't using prompt flow, you wouldn't require this assignment.
 
 A summary of the permissions automatically granted for the system-assigned identities is as follows:
 
@@ -136,11 +136,11 @@ A summary of the permissions automatically granted for the system-assigned ident
 | Managed online endpoint | read | AI Studio Hub (configurations) |
 | Managed online endpoint | write | AI Studio project (metrics) |
 
-The created role assignments might be fine for your security requirements, or you might want to constrain them. If you want to follow the principle of least privilege and constrain your role assignments to only what is required, you will need to create user-assigned managed identities and create your constrained role assignments.
+The created role assignments might be fine for your security requirements, or you might want to constrain them. If you want to follow the principle of least privilege and constrain your role assignments to only what is required, you need to create user-assigned managed identities and create your constrained role assignments.
 
 #### Network security
 
-In order to make it easy for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as Azure AI Search, Azure Key Vault, Azure OpenAI, the deployed managed online endpont, and Azure App Service are all reachable from the internet. The Azure key vault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
+In order to make it easy for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as Azure AI Search, Azure Key Vault, Azure OpenAI, the deployed managed online endpoint, and Azure App Service are all reachable from the internet. The Azure key vault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
 
 To learn how to include network as an additional perimeter in your architecture, see the [networking section of the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking).
 
@@ -152,11 +152,11 @@ This *basic* architecture is designed to allow you to evaluate and learn how to 
 
 - This architecture assumes that there are limited calls to Azure OpenAI. For this reason, we suggest you use pay-as-you-go pricing and not provisioned throughput. As you move toward a production solution, follow the [Azure OpenAI cost optimization guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai).
 
-- The app service plan is configured for the Basic pricing tier on a single instance, which doesn't offer protection from an Availability Zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends you use Premium plans with three or more worker instances for high-availability which will affect your cost.
+- The app service plan is configured for the Basic pricing tier on a single instance, which doesn't offer protection from an Availability Zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends you use Premium plans with three or more worker instances for high-availability which affects your cost.
 
 - Scaling isn't configured for the managed online endpoint managed compute. For production deployments, you should configure auto scaling. Further, the [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) recommends deploying to Azure App Service in a zonal redundant configuration. Both of these architectural changes affect your cost when moving to production.
 
-- Azure AI Search is configured for the Basic pricing tier with no added replicas. This topology could not withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#ai-search---reliability) recommends you deploy with the Standard pricing tier or higher and deploy three or more replicas, which impact your cost as you move toward production.
+- Azure AI Search is configured for the Basic pricing tier with no added replicas. This topology couldn't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#ai-search---reliability) recommends you deploy with the Standard pricing tier or higher and deploy three or more replicas, which impact your cost as you move toward production.
 
 - There are no cost governance or containment controls in place in this architecture. Make sure you guard against ungoverned processes or usage that could incur high costs for pay-as-you-go services like Azure OpenAI.
 
@@ -166,7 +166,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 #### System-assigned managed identities
 
-This architecture uses system-assigned managed identities for Azure AI Studio (Hub), Azure AI Studio projects, and for the managed online endpoint. These identities are automatically created and assigned to the resources. The system automatically creates the role assignments required for the system to run. There is no need for you to manage these assignments.
+This architecture uses system-assigned managed identities for Azure AI Studio (Hub), Azure AI Studio projects, and for the managed online endpoint. These identities are automatically created and assigned to the resources. The system automatically creates the role assignments required for the system to run. There's no need for you to manage these assignments.
 
 #### Built-in prompt flow runtimes
 
@@ -174,11 +174,11 @@ To minimize operational burdens, this architecture uses the **Automatic Runtime*
 
 #### Monitoring
 
-Diagnostics are configured for all services. All services but App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. During the proof of concept phase, it's important to get an understanding of what logs and metrics are available to be captured. When you move to production, you should eliminate log sources that are not adding value and are adding noise and cost to your workload's log sink.
+Diagnostics are configured for all services. All services but App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. During the proof of concept phase, it's important to get an understanding of what logs and metrics are available to be captured. When you move to production, you should eliminate log sources that aren't adding value and are adding noise and cost to your workload's log sink.
 
-We further recommend you [collect data from deployed managed online endpoints](/azure/machine-learning/concept-data-collection) to provide observability to your deployed flows. When you choose to collect this data, the inference data will be logged to Azure Blob Storage. Both the HTTP request and response payloads will be logged. You also have the option to log custom data.
+We further recommend you [collect data from deployed managed online endpoints](/azure/machine-learning/concept-data-collection) to provide observability to your deployed flows. When you choose to collect this data, the inference data is logged to Azure Blob Storage. Both the HTTP request and response payloads is logged. You can also choose to log custom data.
 
-Ensure you enable the [integration with Application Insights diagnostics](/azure/machine-learning/how-to-monitor-online-endpoints#using-application-insights) for the managed online endpoint. The built in netrics and logs will be sent to Application Insights and you will be able to use the features of Application Insights to analyze the performance of your inferencing endpoints.
+Ensure you enable the [integration with Application Insights diagnostics](/azure/machine-learning/how-to-monitor-online-endpoints#using-application-insights) for the managed online endpoint. The built-in metrics and logs are sent to Application Insights and you are able to use the features of Application Insights to analyze the performance of your inferencing endpoints.
 
 #### Language model operations
 
@@ -190,13 +190,13 @@ Prompt flow offers both a browser-based authoring experience in Azure AI studio 
 
 Because this architecture is meant for learning, it's fine to use the browser-based authoring experience. As you start moving toward production, follow the [guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#development) around development and source control best practices.
 
-We recommend you use the serverless compute option when developing and testing your prompt flows in Azure AI Studio. This will keep you from having to deploy and manage a compute instance for development and testing. If you need a customized environment, you can deploy a compute instance.
+We recommend you use the serverless compute option when developing and testing your prompt flows in Azure AI Studio. This keeps you from having to deploy and manage a compute instance for development and testing. If you need a customized environment, you can deploy a compute instance.
 
 ##### Evaluation
 
-Evaluation of how your Azure OpenAI model deployment can be conducted through a user experience in Azure AI Studio. Microsoft suggests becoming familiar with the how to [evaluate of generative AI applications](/azure/ai-studio/concepts/evaluation-approach-gen-ai) to ensure your model selection is meeting user and workload design requirements.
+Evaluation of how your Azure OpenAI model deployment can be conducted through a user experience in Azure AI Studio. Microsoft suggests becoming familiar with how to [evaluate of generative AI applications](/azure/ai-studio/concepts/evaluation-approach-gen-ai) to ensure your model selection is meeting user and workload design requirements.
 
-One important evaluation tool to familiarize yourself with in your workload development phases is the [Responsible AI dashboards in Azure Machine Learning](/azure/machine-learning/how-to-responsible-ai-dashboard?view=azureml-api-2). This tool will help you evaluate the fairness, model interpretability, and other key assessments of your deployments and is useful in establishing an early baseline to prevent future regressions.
+One important evaluation tool to familiarize yourself with in your workload development phases is the [Responsible AI dashboards in Azure Machine Learning](/azure/machine-learning/how-to-responsible-ai-dashboard?view=azureml-api-2). This tool helps you evaluate the fairness, model interpretability, and other key assessments of your deployments and is useful in establishing an early baseline to prevent future regressions.
 
 ##### Deployment
 
