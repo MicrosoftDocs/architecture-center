@@ -37,7 +37,8 @@ The recommendations described in [Basic enterprise integration][basic-enterprise
 
 ### Service Bus
 
-Service Bus has two delivery modes, *pull* or *proxied push*:
+Service Bus has two delivery models, *pull* or *proxied push*:
+
 - In the pull model, the receiver continuously polls for new messages. Polling can be inefficient, if you need to manage different queues and polling times, On the other hand it can simplify your architecture, removing extra components and data hops.
 - In the proxied push model, Service Bus sends an event through Event Grid when there are new messages. The receiver subscribes to the event. When the event is triggered, the receiver pulls the next batch of messages from Service Bus. This model allow systems to receive messages close to real time, without using resources to poll continuosly for new messages. On the other hand, it adds extra components to the architecture, which will need to be deployed, managed and secured.
 
