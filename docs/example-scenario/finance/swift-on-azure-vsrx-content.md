@@ -108,7 +108,6 @@ The proposed architecture shows the use of native Azure services, but you can us
 
 In response to the cyberthreat landscape, SWIFT introduced the CSP, a set of mandatory security controls. Microsoft offers a blueprint to help you assess controls in the CSP framework. [Azure Blueprints](/azure/governance/blueprints/overview) is a free service that simplifies and supports control implementation. It also enables continuous monitoring and audit. By using Azure Blueprints, you can define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements. You can use Azure Blueprints to set up governed Azure environments at scale that can help you keep your production implementations secure and compliant. Consider using the latest implementation of SWIFT CSP controls, but first consult with the Microsoft team that you're working with.
 
-For more information, see [Overview of the SWIFT CSP-CSCF v2020 blueprint sample](/azure/governance/blueprints/samples/swift-2020).
 
 #### Logic Apps
 
