@@ -101,9 +101,41 @@ If you deploy to compute clusters behind the Machine Learning-managed online end
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). The architecture implements a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
+This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). While the basic architecture uses system-assigned managed identities and system-assigned role assignments, this architecture uses user-assigned identities with manually created role assignments.
+
+The architecture implements a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
 
 Along with networking considerations, this section describes security considerations for key rotation and Azure OpenAI model fine tuning.
+
+#### Identity and access management
+
+When using user-assigned managed identities, consider the following guidance:
+
+- Create separate managed identities for the following Machine Learning resources, where applicable:
+  - Workspaces for flow authoring and management
+  - Compute instances for testing flows
+  - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
+- Implement identity-access controls for the chat UI by using Microsoft Entra ID
+
+### Machine Learning role-based access roles
+
+There are five [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) that you can use to manage access to your Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there's an Azure Machine Learning Workspace Connection Secrets Reader and an AzureML Registry User that can grant access to workspace resources such as the workspace secrets and registry.
+
+Because the architecture uses user-assigned managed identities, you are responsible for creating the appropriate role assignments. This architecture follows the principle of least privilege by only assigning roles to the preceding identities where they're required. Consider the following role assignments.
+
+| Managed identity | Scope | Role assignments |
+| --- | --- | --- |
+| Workspace managed identity | Resource group | Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage Blob Data Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage File Data Privileged Contributor |
+| Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
+| Workspace managed identity | Workspace Container Registry | AcrPush |
+| Online endpoint managed identity | Azure OpenAI | Cognitive Services OpenAI User |
+| Online endpoint managed identity | Workspace Container Registry | AcrPull |
+| Online endpoint managed identity | Workspace Storage Account | Storage Blob Data Reader |
+| Online endpoint managed identity | Machine Learning workspace | AzureML Workspace Connection Secrets Reader |
+| Compute instance managed identity | Workspace Container Registry | AcrPull |
+| Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader |
 
 #### Networking
 
