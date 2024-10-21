@@ -4,7 +4,7 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [intro 1](../includes/intro-1.md)]
 
-## Why the Reliable Web App pattern for .NET?
+## Why the Reliable Web App pattern for Java?
 
 The Reliable Web App pattern is a set of principles and implementation techniques that define how you should replatform web apps when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud. The following guidance uses the reference implementation as an example throughout and follows the replatform journey of the fictional company, Contoso Fiber, to provide business context for your journey. Before implementing the Reliable Web App pattern for Java, Contoso Fiber had a monolithic, on-premises Customer Account Management System (CAMS) that used the Spring Boot framework.
 
