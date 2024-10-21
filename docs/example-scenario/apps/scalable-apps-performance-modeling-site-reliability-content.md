@@ -34,7 +34,7 @@ Client applications such as web apps, mobile apps, and even service applications
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is the Azure implementation of open-source Kubernetes clusters. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. In this architecture, all microservices are deployed in AKS.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities. The Application Gateway Ingress Controller (AGIC) is a Kubernetes application that makes it possible for Azure Kubernetes Service (AKS) customers to use the Azure native Application Gateway L7 load-balancer to expose cloud software to the Internet. Autoscaling and zone redundancy are supported in the v2 SKU.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) and [Azure SQL](https://azure.microsoft.com/products/azure-sql) can store both structured and non-structured content. Azure Cosmos DB containers and databases can be created with autoscale throughput.
-- [Microsoft Dynamics 365](https://dynamics.microsoft.com) is a software as a service (SaaS) offering from Microsoft which provides several business applications for Customer Service, Sales, Marketing, and finance. In this architecture, Dynamics 365 is primarily used for managing product catalogs and for Customer Service management. Scale units provide resiliency to Dynamics 365 applications.
+- [Microsoft Dynamics 365](https://dynamics.microsoft.com) is a software as a service (SaaS) offering from Microsoft which provides several business applications for customer service, sales, marketing, and finance. In this architecture, Dynamics 365 is primarily used for managing product catalogs and for customer service management. Scale units provide resiliency to Dynamics 365 applications.
 - [Microsoft 365](https://www.microsoft.com/microsoft-365) (formerly Office 365) is used as an enterprise content management system that's built on Microsoft 365 SharePoint in Microsoft 365. It's used to create, manage, and publish content such as media assets and documents.
 
 ### Alternatives
@@ -46,7 +46,7 @@ Because this solution uses a highly scalable microservices-based architecture, c
 
 ## Appropriate reliability
 
-The degree of reliability that's required for a solution depends on the business context. A Retail outlet store that's open for 14 hours, and that has system usage peaking within that span, has different requirements than an online business that accepts orders at all hours. SRE practices can be tailored to achieve the appropriate level of reliability.
+The degree of reliability that's required for a solution depends on the business context. A retail outlet store that's open for 14 hours, and that has system usage peaking within that span, has different requirements than an online business that accepts orders at all hours. SRE practices can be tailored to achieve the appropriate level of reliability.
 
 Reliability is defined and measured using *service level objectives* (service-level objectives (SLOs)) that define the target level of reliability for a service. Achieving the target level assures that consumers are satisfied. The SLO goals can evolve or change depending on the demands of the business. However, the service owners should constantly measure reliability against the SLOs to detect issues and take corrective actions. SLOs are usually defined as a percentage achievement over a period.
 
@@ -102,7 +102,7 @@ The load produces the following scale requirements, under normal peak load, for 
 - Orders and payment microservice: about 100 RPS
 - Content microservice: about 50 RPS
 
-These scale requirements don't take into consideration seasonal and random peaks, and peaks during special events such as Marketing promotions. During peaks, the scale requirement for some user activities is up to 10 times the normal peak load. Keep these constraints and expectations in mind when you make the design choices for the microservices.
+These scale requirements don't take into consideration seasonal and random peaks, and peaks during special events such as marketing promotions. During peaks, the scale requirement for some user activities is up to 10 times the normal peak load. Keep these constraints and expectations in mind when you make the design choices for the microservices.
 
 ### Define SLI metrics to calculate SLOs
 
