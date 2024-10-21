@@ -274,3 +274,5 @@ Other contributors:
 - [Migrate to Azure Virtual WAN](/azure/virtual-wan/migrate-from-hub-spoke-topology)
 - [Virtual WAN architecture optimized for department-specific requirements](/azure/architecture/networking/architecture/performance-security-optimized-vwan)
 - [Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+
+- Updated 10/21/2024
