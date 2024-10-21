@@ -30,6 +30,8 @@ items:
         items:
         - name: Video ingestion and object detection on the edge
           href: idea/video-ingestion-object-detection-edge-cloud.yml
+        - name: Computer vision for manufacturing
+          href: ../reference-architectures/ai/end-to-end-smart-factory.yml
       - name: Document enrichment
         items:
         - name: Use AI enrichment with Azure AI Search
