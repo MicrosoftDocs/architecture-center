@@ -357,8 +357,11 @@ Azure doesn't offer a turn-key solution or reference architecture for building s
 
 | Implementation       | Example |
 | :------------------- | :------ |
-| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for PTU and consumption spillover.<br/><br/>There are also some community supported API Management policies in the [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) repository. |
+| Azure API Management | [Smart load balancing for Azure OpenAI using Azure API Management](https://github.com/Azure-Samples/openai-apim-lb) - This GitHub repo contains sample policy code and instructions to deploy into your subscription.<br><br>[Scaling Azure OpenAI using Azure API Management](https://github.com/Azure/aoai-apim/) - This GitHub repo contains sample policy code and instructions for PTU and consumption spillover.<br/><br/>The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains a number of example API Management policies along with a load-testing setup for testing the behaviour of the policies. |
 | Custom code          | [Smart load balancing for Azure OpenAI using Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)<br/><br/>This GitHub repo contains sample C# code and instructions to build the container and deploy into your subscription. |
+
+To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Azure OpenAI (for example [OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator/))
+
 
 ## Next steps
 
@@ -368,3 +371,8 @@ Having a gateway implementation for your workload provides benefits beyond the t
 
 - [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
+- [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
+- [OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator/)
+
+
+
