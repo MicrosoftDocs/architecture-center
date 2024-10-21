@@ -91,7 +91,7 @@ Azure Databricks is a premium Spark offering with an associated cost. In additio
 
 For this scenario, the Standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the Premium tier could increase costs further.
 
-The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. 
+The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages.
 
 ## Deploy this scenario
 
