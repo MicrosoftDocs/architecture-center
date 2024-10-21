@@ -87,7 +87,7 @@ Pooled desktop solutions, also called *non-persistent desktops*, assign users to
 There are several options for updating Azure Virtual Desktop instances. Deploying an updated image every month guarantees compliance and state.
 
 - [Microsoft Endpoint Configuration Manager (MECM)](/mem/configmgr) updates server and desktop operating systems.
-- [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems such as Windows 10 multi-session.
+- [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems such as Windows 10 Enterprise multi-session.
 - [Azure Update Management](/azure/automation/update-management/overview) updates server operating systems.
 - [Azure Log Analytics](/azure/azure-monitor/platform/log-analytics-agent) checks compliance.
 - Deploy a new (custom) image to session hosts every month for the latest Windows and applications updates. You can use an image from Azure Marketplace or a [custom Azure-managed image](/azure/virtual-machines/windows/capture-image-resource).
@@ -106,7 +106,7 @@ The relationships between host pools, workspaces, and other key logical componen
 - *(4)* It's possible to have an empty workspace, but it can't service users.
 - *(5)* It's possible to have an empty host pool, but it can't service users.
 - *(6)* It's possible for a host pool not to have any application groups assigned to it but it can't service users.
-- *(7)* Microsoft Entra ID is required for Azure Virtual Desktop. This is because Microsoft Entra user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Microsoft Entra ID is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of a Microsoft Entra domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will also be launched and run (not just assigned) by using Microsoft Entra accounts. 
+- *(7)* Microsoft Entra ID is required for Azure Virtual Desktop. This is because Microsoft Entra user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Microsoft Entra ID is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of a Microsoft Entra domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will also be launched and run (not just assigned) by using Microsoft Entra accounts.
     - *(7)* Alternatively, Azure Virtual Desktop session hosts can be members of an AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Microsoft Entra ID through Microsoft Entra Connect.
     - *(7)* Finally, Azure Virtual Desktop session hosts can, instead, be members of a Microsoft Entra Domain Services domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using Microsoft Entra Domain Services accounts. Microsoft Entra ID is automatically synchronized with Microsoft Entra Domain Services, one way, from Microsoft Entra ID to Microsoft Entra Domain Services only.
 
@@ -116,11 +116,11 @@ The relationships between host pools, workspaces, and other key logical componen
 | Published application | A Windows application that runs on Azure Virtual Desktop session hosts and is delivered to users over the network | Member of one and only one application group |
 | Application group | A logical grouping of published applications or a published desktop |  - Contains a published desktop *(1)* or one or more published applications<br> - Assigned to one and only one host pool *(2)*<br> - Member of one and only one workspace *(2)*<br> - One or more Microsoft Entra user accounts or groups are assigned to it *(3)* |
 | Microsoft Entra user account/group | Identifies the users who are permitted to launch published desktops or applications | - Member of one and only one Microsoft Entra ID <br> - Assigned to one or more application groups *(3)* |
-| Microsoft Entra ID *(7)* | Identity provider | - Contains one or more user accounts or groups, which must be used to assign users to application groups, and can also be used to log in to the session hosts<br> - Can hold the memberships of the session hosts <br> - Can be synchronized with AD DS or Microsoft Entra Domain Services |
-| AD DS *(7)* | Identity and directory services provider | - Contains one or more user accounts or groups, which can be used to log in to the session hosts <br> - Can hold the memberships of the session hosts<br> - Can be synchronized with Microsoft Entra ID |
-| Microsoft Entra Domain Services *(7)* | Platform as a service (PaaS)-based identity and directory services provider | - Contains one or more user accounts or groups, which can be used to log in to the session hosts<br> - Can hold the memberships of the session hosts<br> - Synchronized with Microsoft Entra ID |
+| Microsoft Entra ID *(7)* | Identity provider | - Contains one or more user accounts or groups, which must be used to assign users to application groups, and can also be used to sign in to the session hosts<br> - Can hold the memberships of the session hosts <br> - Can be synchronized with AD DS or Microsoft Entra Domain Services |
+| AD DS *(7)* | Identity and directory services provider | - Contains one or more user accounts or groups, which can be used to sign in to the session hosts <br> - Can hold the memberships of the session hosts<br> - Can be synchronized with Microsoft Entra ID |
+| Microsoft Entra Domain Services *(7)* | Platform as a service (PaaS)-based identity and directory services provider | - Contains one or more user accounts or groups, which can be used to sign in to the session hosts<br> - Can hold the memberships of the session hosts<br> - Synchronized with Microsoft Entra ID |
 | Workspace | A logical grouping of application groups | Contains one or more application groups *(4)* |
-| Host pool | A group of identical session hosts that serve a common purpose | - Contains one or more session hosts *(5)*<br> - One or more application groups are assigned to it *(6)* |  
+| Host pool | A group of identical session hosts that serve a common purpose | - Contains one or more session hosts *(5)*<br> - One or more application groups are assigned to it *(6)* |
 | Session host | A virtual machine that hosts published desktops or applications | Member of one and only one host pool |
 
 ## Considerations
@@ -147,9 +147,9 @@ Azure Virtual Desktop, much like Azure, has certain service limitations that you
 | Role assignment | Any Azure Virtual Desktop object | 200 |
 | Session host | HostPool | 10,000 |
 
-\*If you require more than 500 application groups, submit a support ticket via the Azure portal.
+*If you require more than 500 application groups, submit a support ticket via the Azure portal.
 
-- We recommend that you deploy no more than 5,000 VMs per Azure subscription per region. This recommendation applies to both personal and pooled host pools, based on Windows Enterprise single and multi-session. Most customers use Windows Enterprise multi-session, which allows multiple users to log in to each VM. You can increase the resources of individual session-host VMs to accommodate more user sessions.
+- We recommend that you deploy no more than 5,000 VMs per Azure subscription per region. This recommendation applies to both personal and pooled host pools, based on Windows Enterprise single and multi-session. Most customers use Windows Enterprise multi-session, which allows multiple users to sign in to each VM. You can increase the resources of individual session-host VMs to accommodate more user sessions.
 - For automated session-host scaling tools, the limits are around 2,500 VMs per Azure subscription per region, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering (using one subscription per spoke). You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
@@ -171,7 +171,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 You can architect your Azure Virtual Desktop solution to realize cost savings. Here are five different options to help manage costs for enterprises:
 
-- **Windows 10 multi-session**: By delivering a multi-session desktop experience for users with identical compute requirements, you can let more users log in to a single VM at once, an approach that can result in considerable cost savings.
+- **Windows 10 multi-session**: By delivering a multi-session desktop experience for users with identical compute requirements, you can let more users sign in to a single VM at once, an approach that can result in considerable cost savings.
 - **Azure Hybrid Benefit**: If you have Software Assurance, you can use [Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to save on the cost of your Azure infrastructure.
 - **Azure Reserved VM Instances**: You can prepay for your VM usage and save money. Combine [Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) with Azure Hybrid Benefit for up to 80 percent savings over list prices.
 - **Session-host load-balancing**: When you're setting up session hosts, *breadth-first* mode, which spreads users randomly across the session hosts, is the standard default mode. Alternatively, you can use *depth-first* mode to fill up a session-host server with the maximum number of users before it moves on to the next session host. You can adjust this setting for maximum cost benefits.
@@ -180,24 +180,23 @@ You can architect your Azure Virtual Desktop solution to realize cost savings. H
 
 Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only the Azure Resource Manager Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- * [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
+ - [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
 
  Other contributor:
 
-  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Cloud Solution Architect, Azure Core Infrastructure
+  - [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Cloud Solution Architect, Azure Core Infrastructure
 
 ## Next steps
 
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
 - Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI (virtual desktop infrastructure) environment.
-- See [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
+- For more information, see [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
 - [What is Microsoft Entra Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
 
