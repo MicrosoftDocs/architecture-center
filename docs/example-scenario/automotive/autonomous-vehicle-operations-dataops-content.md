@@ -16,11 +16,11 @@ This article presents a solution and guidance for developing offline data operat
    - Performs a data quality check such as a checksum. This step removes low-quality data so that only high-quality data passes through to the next stage. Azure App Service is used to run the quality check code. Data that's deemed incomplete is archived for future processing.
    - For lineage tracking, calls a metadata API by using App Service. This step updates metadata that's stored in Azure Cosmos DB to create a new data stream. For each measurement, there's a raw data stream.
    - Copies the data to a storage account called *Raw* in Data Lake Storage.
-   - Calls the metadata API to mark the data stream as complete so that other components and services can consume the data stream.  
+   - Calls the metadata API to mark the data stream as complete so that other components and services can consume the data stream.
    - Archives the measurements and removes them from the Landing storage account.
 
 1. Data Factory and Azure Batch process the data in the raw zone to extract information that downstream systems can consume:
-   - Batch reads the data from topics in the raw file and outputs the data into selected topics in respective folders.  
+   - Batch reads the data from topics in the raw file and outputs the data into selected topics in respective folders.
    - Because the files in the raw zone can each be more than 2 GB in size, parallel processing extraction functions are run on each file. These functions extract image processing, lidar, radar, and GPS data. They also perform metadata processing. Data Factory and Batch provide a way to perform parallelism in a scalable manner.
    - The data is downsampled to reduce the amount of data that needs to be labeled and annotated.
 
@@ -40,7 +40,7 @@ This article presents a solution and guidance for developing offline data operat
 
 - [Data Box](https://azure.microsoft.com/products/databox) provides a way to send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. In this solution, Data Box is used to transfer collected vehicle data to Azure via a regional carrier.
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) devices provide Azure functionality in edge locations. Examples of Azure capabilities include compute, storage, networking, and hardware-accelerated machine learning.
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends an on-premises network into the Microsoft cloud over a private connection.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends an on-premises network into the Microsoft Cloud over a private connection.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. In this case, Data Lake Storage stores data based on stages, for example, raw or extracted.
 - [Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless solution for creating and scheduling extract, transform, load (ETL) and extract, load, transform (ELT) workflows. Here, Data Factory performs ETL via [batch compute](/azure/batch) and creates data-driven workflows for orchestrating data movement and transforming data.
 - [Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Batch to run large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
@@ -49,10 +49,10 @@ This article presents a solution and guidance for developing offline data operat
 - [Azure Databricks](https://azure.microsoft.com/products/databricks) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) reduces time to insight across data warehouses and big data systems.
 - [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
-- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a serverless-based web app service. In this case, App Service hosts the metadata API.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a serverless-based web App Service. In this case, App Service hosts the metadata API.
 - [Microsoft Purview](https://azure.microsoft.com/products/purview) provides data governance across organizations.
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers for processing topics.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance management. In this scenario, Application Insights helps you build observability around measurement extraction: you can use Application Insights to log custom events, custom metrics, and other information while the solution processes each measurement for extraction. You can also build queries on log analytics to get detailed information about each measurement.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance management. In this scenario, Application Insights helps you build observability around measurement extraction: you can use Application Insights to log custom events, custom metrics, and other information while the solution processes each measurement for extraction. You can also build queries on Log Analytics to get detailed information about each measurement.
 
 ## Scenario details
 
@@ -127,7 +127,7 @@ In this solution, the labeled datasets are used in [MLOps](../../solution-ideas/
 
 ### Data pipeline
 
-In this DataOps solution, the movement of data between different stages in the data pipeline is automated. Through this approach, the process provides efficiency, scalability, consistency, reproducibility, adaptability, and error handling benefits. It enhances the overall development process, accelerates progress, and supports the safe and effective deployment of autonomous driving technologies.  
+In this DataOps solution, the movement of data between different stages in the data pipeline is automated. Through this approach, the process provides efficiency, scalability, consistency, reproducibility, adaptability, and error handling benefits. It enhances the overall development process, accelerates progress, and supports the safe and effective deployment of autonomous driving technologies.
 
 The following sections describe how you can implement data movement between stages and how you should structure your storage accounts.
 
@@ -272,7 +272,7 @@ It's important to understand the division of responsibility between an automotiv
 - Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
 - Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 - Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
-- Encryption of data at rest that uses native Azure storage and database services. For more information, see [Data protection considerations](/azure/well-architected/security/design-storage).
+- Encryption of data at rest that uses native Azure Storage and database services. For more information, see [Data protection considerations](/azure/well-architected/security/design-storage).
 - The safeguarding of cryptographic keys and secrets. Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) for this purpose.
 
 ### Cost optimization
@@ -281,7 +281,7 @@ Cost optimization looks at ways to reduce unnecessary expenses and improve opera
 
 A key concern for OEMs and tier 1 suppliers that operate DataOps for automated vehicles is the cost of operating. This solution uses the following practices to help optimize costs:
 
-- Taking advantage of various options that Azure offers for hosting application code. This solution uses App Service and Batch. For guidance about how to choose the right service for your deployment, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).  
+- Taking advantage of various options that Azure offers for hosting application code. This solution uses App Service and Batch. For guidance about how to choose the right service for your deployment, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 - Using [Azure Storage in-place data sharing](/azure/purview/concept-data-share).
 - Optimizing costs by using [lifecycle management](/azure/storage/blobs/lifecycle-management-overview).
 - Saving costs on App Service by using [reserved instances](/azure/cost-management-billing/reservations/prepay-app-service).
@@ -318,6 +318,12 @@ Principal authors:
 - [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/ise/large-scale-data-operations-platform-for-autonomous-vehicles/)
 
 ## Related resources
+
+For more information about how to develop ValOps for an autonomous driving system, see:
+> [!div class="nextstepaction"]
+> [Validation operations for autonomous vehicle operations](./autonomous-vehicle-validation-operations.yml)
+
+You might also be interested in these related articles:
 
 - [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)

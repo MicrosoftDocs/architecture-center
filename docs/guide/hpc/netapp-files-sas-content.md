@@ -433,7 +433,7 @@ SAS Grid on Azure provides flexibility and a fast deployment. Here are some bene
 
 It's best to deploy the workloads by using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
 
-To get a start with designing your SAS Grid on Azure solution, review [SAS on Azure Architecture](../../guide/sas/sas-overview.yml) and [Automating SAS Deployment on Azure by using GitHub Actions](https://github.com/grtn316/viya4-iac-azure). 
+To get a start with designing your SAS Grid on Azure solution, review [SAS on Azure Architecture](../../guide/sas/sas-overview.yml). 
 
 ## Contributors 
 

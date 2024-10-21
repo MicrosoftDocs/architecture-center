@@ -36,7 +36,7 @@ The following services provide video and image processing capabilities for Azure
     - **Don't use** Azure OpenAI if you need to perform specific types of image processing like forms extraction, face recognition, or domain-specialized image characteristic detection. For these scenarios, use or build AI solutions designed specifically trained for those purposes instead.
 
 - [Azure AI Vision](#azure-ai-vision)
-    - **Use** Vision service when you need basic OCR, image analysis, or basic video analysis to detect motion and other events.
+    - **Use** Vision service when you need basic optical character recognition (OCR), image analysis, or basic video analysis to detect motion and other events.
     - **Don't use** the Vision service for analysis that large, multi-modal, foundation models already support.
     - **Don't use** the Vision service to moderate content. Use the Content Safety service instead.
 
@@ -67,10 +67,9 @@ The following table provides a list of capabilities available in Azure AI Vision
 
 | Capability |Description|
 |---|---|
-| [Optical Character Recognition (OCR)](/azure/ai-services/computer-vision/overview-ocr)|The Optical Character Recognition (OCR) service extracts text from images. You can use the Read API to extract printed and handwritten text from photos and documents. It uses deep-learning-based models and works with text on various surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](/azure/ai-services/computer-vision/language-support).|
+| [Optical Character Recognition (OCR)](/azure/ai-services/computer-vision/overview-ocr)|The Optical Character Recognition (OCR) service extracts text from images. You can use the Read API to extract printed and handwritten text from photos and documents. It uses deep-learning-based models and works with text on various surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [Several languages](/azure/ai-services/computer-vision/language-support).|
 |[Image Analysis](/azure/ai-services/computer-vision/overview-image-analysis)| The Image Analysis service extracts many visual features from images, such as objects, faces, and auto-generated text descriptions. With [Image Analysis 4.0](/azure/ai-services/computer-vision/how-to/model-customization) that's based on Florence foundational model, you can also create custom image identifier models. |
 |[Video Analysis](/azure/ai-services/computer-vision/intro-to-spatial-analysis-public-preview)| Video Analysis includes video-related features like Spatial Analysis and Video Retrieval. Spatial Analysis analyzes the presence and movement of people on a video feed and produces events that other systems can respond to. |
-
 
 ### Azure AI Custom Vision
 
@@ -86,7 +85,6 @@ The following table provides a list of capabilities available in Azure AI Custom
 |----------|-----------------|
 | [Image classification](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier) | Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels.|
 | [Object detection](/azure/ai-services/custom-vision-service/get-started-build-detector) |  Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels |
-
 
 #### Use cases
 
@@ -105,7 +103,7 @@ The following table provides a list of possible use cases for Azure AI Custom Vi
 
 The following table provides a list of capabilities available in Azure AI Face service.
 
-| Capability | Description | 
+| Capability | Description |
 |----------|-------------|
 | [Face detection and analysis](/azure/ai-services/computer-vision/concept-face-detection)| Identify the regions of an image that contain a human face, typically by returning bounding-box coordinates that form a rectangle around the face.|
 | [Find similar faces](/azure/ai-services/computer-vision/overview-identity#find-similar-faces)|The Find Similar operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.|
@@ -119,7 +117,7 @@ The following table provides a list of possible use cases for Azure AI Face serv
 
 | Use case |  Description |
 |----------|---------------|
-|Verify user identity.| Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. |
+|Verify user identity.| Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver's license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. |
 |Face redaction | Redact or blur detected faces of people recorded in a video to protect their privacy.|
 |Touchless access control.| Compared to methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from physical media sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.|
 

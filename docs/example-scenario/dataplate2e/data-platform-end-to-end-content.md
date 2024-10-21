@@ -301,7 +301,7 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 ## Deploy this scenario
 
-This deployment accelerator gives you the option to implement the entire reference architecture or choose what workloads you need for your analytics use case. You also have the option to select whether services are accessible via public endpoints or if they are to be accessed only via private endpoints.
+This deployment gives you the option to implement the entire reference architecture or choose what workloads you need for your analytics use case. You also have the option to select whether services are accessible via public endpoints or if they are to be accessed only via private endpoints.
 
 ### [Azure portal](#tab/portal)
 
@@ -329,7 +329,7 @@ az deployment group create --resource-group azsynapse-e2e \
 
 ---
 
-For detailed information and additional deployment options, see the [deployment accelerator GitHub repo](https://github.com/Azure/azure-synapse-analytics-end2end) with documentation and code used to define this solution.
+For detailed information and additional deployment options, see the [deployment guide](https://github.com/Azure/azure-synapse-analytics-end2end) in the GitHub repo with documentation and code used to define this solution.
 
 ## Contributors
 
@@ -337,7 +337,7 @@ For detailed information and additional deployment options, see the [deployment 
 
 Principal author:
 
-* [Fabio Braga](https://au.linkedin.com/in/fabiohemylio) | Principal MTC Technical Architect
+- [Fabio Braga](https://au.linkedin.com/in/fabiohemylio) | Principal MTC Technical Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -76,8 +76,6 @@ Azure provides a package of products and services designed to capture, organize,
 
 ### See also
 
-- [Azure AI Gallery](https://gallery.azure.ai/)
-
 - [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
 
 - [Big data architecture style](../guide/architecture-styles/big-data.yml)

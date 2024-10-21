@@ -128,7 +128,7 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 
 Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely require grounding data from multiple sources.
 
-It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
+It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
@@ -154,7 +154,7 @@ Example output:
 }
 ```
 
-A large language model can also be used to extract subqueries from a complex query. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that converts a complex query into multiple subqueries.
+A large language model can also be used to extract subqueries from a complex query. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that converts a complex query into multiple subqueries.
 
 ```text
 Your task is to take a question as input and generate maximum 3 sub-questions that cover all aspects of the original question. The output should be in strict JSON format, with the sub-questions contained in an array.
@@ -206,7 +206,7 @@ You can use a large language model or cross-encoder to perform reranking. Some p
 
 #### Large language model reranking
 
-The following is a sample large language model prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that reranks results.
+The following is a sample large language model prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that reranks results.
 
 ```text
 A list of documents is shown below. Each document has a number next to it along with a summary of the document. A question is also provided.
@@ -238,7 +238,7 @@ schema:
 
 #### Cross-encoder reranking
 
-The following example from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py) uses the [CrossEncoder provided by Hugging Face](https://huggingface.co/sentence-transformers) to load the Roberta model. It then iterates over each chunk and uses the model to calculate similarity, giving them a value. We sort results and return the top N.
+The following example from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py) uses the [CrossEncoder provided by Hugging Face](https://huggingface.co/sentence-transformers) to load the Roberta model. It then iterates over each chunk and uses the model to calculate similarity, giving them a value. We sort results and return the top N.
 
 ```python
 from sentence_transformers import CrossEncoder
