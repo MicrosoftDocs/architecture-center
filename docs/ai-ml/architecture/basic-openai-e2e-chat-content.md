@@ -118,7 +118,7 @@ Currently, the chat UI is using keys to connect to the deployed managed online e
 
 ### Role-based access roles
 
-The system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know what features of the hub and projects you may use, it create role assignments support all of the potential features. For example, the system creates the role assignment `Storage File Data Privileged Contributor' to the storage account for Azure AI Studio. If you aren't using prompt flow, you wouldn't require this assignment.
+The system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know what features of the hub and projects you may use, it create role assignments support all of the potential features. For example, the system creates the role assignment `Storage File Data Privileged Contributor' to the storage account for Azure AI Studio. If you aren't using prompt flow, your workload might not require this assignment.
 
 A summary of the permissions automatically granted for the system-assigned identities is as follows:
 
