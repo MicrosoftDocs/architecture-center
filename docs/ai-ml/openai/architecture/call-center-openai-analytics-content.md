@@ -123,5 +123,5 @@ Principal authors:
 
 ## Related resource
 
-- [Create custom language and acoustic models](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/openai-speech)
+- [Create custom language and acoustic models](/azure/ai-services/speech-service/how-to-custom-speech-train-model)
 
