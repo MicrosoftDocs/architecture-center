@@ -167,7 +167,7 @@ For Cloud Cache usage scenarios, we recommend using the Premium tier for managed
 In this guide, you use at least two separate storage accounts for each Virtual Desktop host pool. One is for the FSLogix Profile container, and one is for the Office container data. You also need one more storage account for [MSIX](/azure/virtual-desktop/what-is-app-attach) packages. The following considerations apply:
 
 - You can use [Azure Files](/azure/storage/files/storage-files-introduction) share and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as storage alternatives. To compare the options, see the [FSLogix container storage options](/fslogix/concepts-container-storage-options).
-- Azure Files share can provide zone resiliency by using the zone-replicated storage (zone-redundant storage (ZRS)) resiliency option, if it's available in the region.
+- Azure Files share can provide zone resiliency by using the zone-redundant storage (ZRS) resiliency option, if it's available in the region.
 - You can't use the geo-redundant storage feature in the following situations:
   - You require a [region that doesn't have a pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair). The region pairs for geo-redundant storage are fixed and can't be changed.
   - You're using the Premium tier.
@@ -389,8 +389,8 @@ FSLogix permits this configuration and the usage of separate storage accounts. O
 
 Principal authors:
 
- - [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur) | Cloud Solution Architect
- - [Igor Pagliai](https://www.linkedin.com/in/igorpag) | FastTrack for Azure (FTA) Principal Engineer
+- [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur/) | Cloud Solution Architect
+- [Igor Pagliai](https://www.linkedin.com/in/igorpag/) | FastTrack for Azure (FTA) Principal Engineer
 
 Other contributors:
 

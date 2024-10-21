@@ -48,7 +48,7 @@ You implement this architecture by using the following technologies:
 
 Principal author:
 
- - [Tom Maher](https://www.linkedin.com/in/tommaherlink) | Senior Security and Identity Engineer
+- [Tom Maher](https://www.linkedin.com/in/tommaherlink/) | Senior Security and Identity Engineer
 
 ## Next steps
 

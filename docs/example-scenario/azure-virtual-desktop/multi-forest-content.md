@@ -107,7 +107,7 @@ For more details, see the [Staging server section of Microsoft Entra Connect top
 
 Principal author:
 
- - [Tom Maher](https://www.linkedin.com/in/tommaherlink) | Senior Security and Identity Engineer
+- [Tom Maher](https://www.linkedin.com/in/tommaherlink/) | Senior Security and Identity Engineer
 
 ## Next steps
 
