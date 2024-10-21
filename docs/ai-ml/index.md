@@ -205,18 +205,40 @@ Copilot and other generative AI features let you transform and analyze data, gen
 
 - [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
 
-- [What is the AI skill in Fabric? (preview)](/fabric/data-science/concept-ai-skill)
+
 
 
 #### AI skills in Fabric
 
 With a Microsoft Fabric AI skill, you can configure a generative AI system to generate queries that answer questions about your data. After you configure the AI skill, you can share it with your colleagues, who can then ask their questions in plain English. Based on their questions, the AI generates queries over your data that answer those questions.
 
+- [What is the AI skill in Fabric? (preview)](/fabric/data-science/concept-ai-skill)
+- [How to create an AI Skill](/fabric/data-science/how-to-create-ai-skill)
+- [AI skill example](/fabric/data-science/ai-skill-scenario)
 - [Difference between an AI skill and a copilot](/fabric/data-science/concept-ai-skill#difference-between-an-ai-skill-and-a-copilot)
 
 ### Apache Spark-based data platforms for AI
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
+
+
+#### Apache Spark in Azure Fabric
+
+Microsoft Fabric Runtime is an Azure-integrated platform based on Apache Spark that enables the execution and management of data engineering and data science experiences. It combines key components from both internal and open-source sources, providing customers with a comprehensive solution. 
+
+Major components of Fabric Runtime:
+
+- **Apache Spark** - a powerful open-source distributed computing library that enables large-scale data processing and analytics tasks. Apache Spark provides a versatile and high-performance platform for data engineering and data science experiences.
+
+- **Delta Lake** - an open-source storage layer that brings ACID transactions and other data reliability features to Apache Spark. Integrated within Fabric Runtime, Delta Lake enhances data processing capabilities and ensures data consistency across multiple concurrent operations.
+
+- **Default-level packages for Java/Scala, Python, and R** - packages that support diverse programming languages and environments. These packages are automatically installed and configured, allowing developers to apply their preferred programming languages for data processing tasks.
+
+The Microsoft Fabric Runtime is built upon a robust open-source operating system, ensuring compatibility with various hardware configurations and system requirements.
+
+
+- [Apache Spark Runtimes in Fabric](/fabric/data-engineering/runtime)
+
 
 #### Azure Databricks Runtime for Machine Learning
 
@@ -263,7 +285,7 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 
 ### Microsoft Fabric OneLake
 
-OneLake is a single, unified, logical data lake for your whole organization. A data Lake processes large volumes of data from various sources. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. OneLake brings customer
+OneLake is a single, unified, logical data lake for your whole organization. A data Lake processes large volumes of data from various sources. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. OneLake offers one data lake for the entire organization, as well as a copy of data for use with multiple analytical engines.
 
 - [OneLake, the OneDrive for data](/fabric/onelake/onelake-overview)
 
@@ -319,15 +341,102 @@ You can also use [Mosaic AI Vector Search], which is optimized for storing and r
 Azure Data Factory and Azure Synapse Analytics pipelines support a number of data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. To see the available data store connectors, the supported capabilities and the corresponding configurations, as well as generic ODBC connection options, see [Azure Data Factory and Azure Synapse Analytics connector overview](/azure/data-factory/connector-overview).
 
 
-## Custom AI solutions
+## Custom AI
 
 <!-- Custom AI should include Generative AI, Azure OpenAI, fine-tuning, as well as Custom traditional ML (which is what the current custom AI refers to)
 
 -->
 
-Although prebuilt AI is useful (and increasingly flexible), the best way to get what you need from AI is probably to build a system yourself. This is obviously a very deep and complex subject, but let's look at some basic concepts beyond what we've just covered.
+### Azure Machine Learning
 
-### Code languages
+Azure Machine Learning is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).
+
+Azure Machine Learning offer the following capabilities:
+
+
+- **Algorithm selection** Some algorithms make particular assumptions about the structure of the data or the desired results. If you can find one that fits your needs, it can give you more useful results, more accurate predictions, or faster training times.
+
+    [How to select algorithms for Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms)
+
+- **Hyperparameter tuning or optimization** is the process of finding the configuration of hyperparameters that results in the best performance. The process is typically computationally expensive and manual. *Hyperparameters* are adjustable parameters that let you control the model training process. For example, with neural networks, you decide the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
+
+    Azure Machine Learning lets you automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
+    
+    - [Hyperparameter tuning a model with Azure Machine Learning (v1)](/azure/machine-learning/how-to-tune-hyperparameters?view=azureml-api-1)
+    - [Upgrade hyperparameter tuning to SDK v2](/azure/machine-learning/migrate-to-v2-execution-hyperdrive)
+    - [Learning Path: Perform hyperparameter tuning with Azure Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
+
+
+- **Model training.** With Azure Machine Learning, you can iteratively use an algorithm to create or "teach" models. Once trained, these models can then be used to analyze data from which which predictions can be made. During the training phase, a quality set of known data is tagged so that individual fields are identifiable. The tagged data is fed to an algorithm configured to make a particular prediction. When finished, the algorithm outputs a model that describes the patterns it found as a set of parameters. During validation, fresh data is tagged and used to test the model. The algorithm is adjusted as needed and possibly put through more training. Finally, the testing phase uses real-world data without any tags or preselected targets. Assuming the model's results are accurate, it is considered ready for use and can be deployed.
+    
+    - [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
+    - [Tutorial: Train a model in Azure Machine Learning](/azure/machine-learning/tutorial-train-model?view=azureml-api-2)
+    - [Deep learning and distributed training with Azure Machine Learning](/azure/machine-learning/concept-distributed-training)
+
+- **Automated machine learning (AutoML)** is the process of automating the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time it takes to get production-ready ML models. Automated ML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
+
+    - [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
+
+### Scoring
+
+*Scoring* is also called *prediction* and is the process of generating values based on a trained machine learning model, given some new input data. The values, or scores, that are created can represent predictions of future values, but they might also represent a likely category or outcome. The scoring process can generate many different types of values:
+
+- A list of recommended items and a similarity score
+
+- Numeric values, for time series models and regression models
+
+- A probability value, indicating the likelihood that a new input belongs to some existing category
+
+- The name of a category or cluster to which a new item is most similar
+
+- A predicted class or outcome, for classification models
+
+***Batch scoring*** is when data is collected during some fixed period of time and
+then processed in a batch. This might include generating business reports or analyzing customer loyalty.
+
+***Real-time scoring*** is exactly that-scoring that is ongoing and performed as
+quickly as possible. The classic example is credit card fraud detection, but real-time scoring can also be used in speech recognition, medical diagnoses, market analyses, and many other applications.
+
+
+
+
+### Custom AI tools
+
+Although prebuilt AI models are useful (and increasingly flexible), the best way to get what you need from AI is to build a model that's tailored to your specific needs. There are two primary tools for creating custom AI models: Generative AI and traditional machine learning:
+
+[Azure Machine Learning Studio](https://ml.azure.com/home) Azure Machine Learning is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).:
+
+  - Build and train Azure Machine Learning model with any type of compute including Spark and GPUs for cloud-scale large AI workloads.
+  - Run automated Azure Machine Learning (AutoML) and drag-and-drop UI for low-code Azure Machine Learning.
+  - Implement end-to-end Azure Machine LearningOps and repeatable Azure Machine Learning pipelines.
+  - Use responsible AI dashboard for bias detection and error analysis.
+  - Orchestrate and manage prompt engineering and LLM flows.
+  - Deploy models with REST API endpoints, real-time, and batch inference.
+  - Use Hubs (Preview) to share compute, quota, security, and connectivity to company resources with a group of workspaces, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the Studio for each project. Use hubs to manage your team's work in both ML Studio and AI Studio.
+  
+
+[Azure AI Studio](/azure/ai-studio/what-is-ai-studio) is designed to help you efficiently build and deploy custom generative AI applications with the power of Azure's broad AI offerings:
+    
+  - Build together as one team. Your AI Studio hub provides enterprise-grade security, and a collaborative environment with shared resources and connections to pretrained models, data and compute.
+  - Organize your work. Your AI Studio project helps you save state, allowing you to iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
+  - Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, AutoGen, and more.
+  - Discover and benchmark from over 1,600 models.
+  - Provision Models-as-a-Service (MaaS) through serverless APIs and hosted fine-tuning.
+  - Incorporate multiple models, data sources, and modalities.
+  - Build Retrieval Augmented Generation (RAG) using your protected enterprise data without the need for fine-tuning.
+  - Orchestrate and manage prompts engineering and Large Language Model (LLM) flows.
+  - Design and safeguard apps and APIs with configurable filters and controls.
+  - Evaluate model responses with built-in and custom evaluation flows.
+  - Deploy AI innovations to Azure’s managed infrastructure with continuous monitoring and governance across environments.
+  - Continuously monitor deployed apps for safety, quality, and token consumption in production.|
+
+
+For a detailed comparison between Azure Machine Learning and Azure AI Studio, see [Azure Machine Learning vs. Azure AI Studio](/ai/ai-studio-experiences-overview).
+
+### Create custom AI models
+
+
+### Custom AI code languages
 
 The core concept of AI is the use of algorithms to analyze data and generate models to describe (or *score*) it in ways that are useful. Algorithms are written by developers and data scientists (and sometimes by other algorithms) using programming code. Two of the most popular programming languages for AI development are currently Python and R.
 
@@ -349,6 +458,7 @@ The core concept of AI is the use of algorithms to analyze data and generate mod
 
 - [Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow](/azure/azure-functions/functions-machine-learning-tensorflow?tabs=bash)
 
+
 [R is a language and environment](https://www.r-project.org/) for statistical computing and graphics. It can be used for everything from mapping broad social and marketing trends online to developing financial and climate models.
 
 Microsoft has fully embraced the R programming language and provides many different options for R developers to run their code in Azure.
@@ -357,49 +467,12 @@ Microsoft has fully embraced the R programming language and provides many differ
 
 - [Tutorial: Create a logistic regression model in R with Azure Machine Learning](/azure/machine-learning/tutorial-1st-r-experiment)
 
-### Training
 
-Training is core to machine learning. It is the iterative process of "teaching" an algorithm to create models, which are used to analyze data and then make accurate predictions from it. In practice, this process has three general phases: training, validation, and testing.
 
-During the training phase, a quality set of known data is tagged so that individual fields are identifiable. The tagged data is fed to an algorithm configured to make a particular prediction. When finished, the algorithm outputs a model that describes the patterns it found as a set of parameters. During validation, fresh data is tagged and used to test the model. The algorithm is adjusted as needed and possibly put through more training. Finally, the testing phase uses real-world data without any tags or preselected targets. Assuming the model's results are accurate, it is considered ready for use and can be deployed.
 
-- [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
 
-#### Hyperparameter tuning
 
-*Hyperparameters* are data variables that govern the training process itself. They are configuration variables that control how the algorithm operates. Hyperparameters are thus typically set before model training begins and are not modified within the training process in the way that parameters are. Hyperparameter tuning involves running trials within the training task, assessing how well they are getting the job done, and then adjusting as needed. This process generates multiple models, each trained using different families of hyperparameters.
 
-- [Tune hyperparameters for your model with Azure Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
-
-#### Model selection
-
-The process of training and hyperparameter tuning produces numerous candidate models. These can have many different variances, including the effort needed to prepare the data, the flexibility of the model, the amount of processing time, and of course the degree of accuracy of its results. Choosing the best trained model for your needs and constraints is called *model selection*, but this is as much about preplanning before training as it is about choosing the one that works best.
-
-#### Automated machine learning (AutoML)
-
-*Automated machine learning*, also known as AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time it takes to get production-ready ML models. Automated ML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
-
-- [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
-
-### Scoring
-
-*Scoring* is also called *prediction* and is the process of generating values based on a trained machine learning model, given some new input data. The values, or scores, that are created can represent predictions of future values, but they might also represent a likely category or outcome. The scoring process can generate many different types of values:
-
-- A list of recommended items and a similarity score
-
-- Numeric values, for time series models and regression models
-
-- A probability value, indicating the likelihood that a new input belongs to some existing category
-
-- The name of a category or cluster to which a new item is most similar
-
-- A predicted class or outcome, for classification models
-
-***Batch scoring*** is when data is collected during some fixed period of time and
-then processed in a batch. This might include generating business reports or analyzing customer loyalty.
-
-***Real-time scoring*** is exactly that-scoring that is ongoing and performed as
-quickly as possible. The classic example is credit card fraud detection, but real-time scoring can also be used in speech recognition, medical diagnoses, market analyses, and many other applications.
 
 ### General info on custom AI on Azure
 
@@ -450,13 +523,6 @@ Azure provides extensive support for automated ML. Developers can build models u
 
 - [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 
-### Azure AI services
-
-This is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps. These domain-specific, pretrained AI models can be customized with your data.
-
-- [Cognitive Services product home page](https://azure.microsoft.com/services/cognitive-services/)
-
-- [Azure Cognitive Services documentation](/azure/cognitive-services/)
 
 ### Azure Cognitive Search
 
