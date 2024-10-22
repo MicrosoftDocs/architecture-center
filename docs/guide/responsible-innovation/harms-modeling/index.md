@@ -31,8 +31,8 @@ It is as important as ever to be aware of how digital technology could impact hu
 
 An important set of UN principles that our company firmly supports, which was ratified by over 250 nations, is the Universal Declaration of Human Rights (UDHR). The UDHR is a milestone document. Drafted by a diverse global group of legal and cultural experts, the Declaration was proclaimed by the United Nations General Assembly in 1948 as a common standard of achievements for all peoples and all nations. It sets out, for the first time, fundamental human rights to be universally protected. It has been translated into over 500 languages. Additionally, Microsoft is one of 4,700 corporate signatories to the UN Global Compact, an international business initiative designed to promote responsible corporate citizenship.
 
-[![Stakeholder process table](../images/stakeholder-process-table.png)](../images/stakeholder-process-table.png#lightbox)
-*Download in [Microsoft Word](../images/stakeholder-process-table.docx)*
+[![Table that shows the stakeholder process.](../images/stakeholder-process-table.png)](../images/stakeholder-process-table.png#lightbox)
+*Download the [Microsoft Word file](https://arch-center.azureedge.net/stakeholder-process-table.docx)*
 
 ## Human understanding
 
@@ -76,8 +76,8 @@ This category is made up of the population frequently considered a minority, vul
 
 Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you are building could result in negative outcomes for people and society.
 
-[![Harms modeling overview](../images/harms-model-example.png)](../images/harms-model-example.png#lightbox)
-*Download in [Microsoft Word](../images/harms-modeling.docx)*
+[![Diagram that shows a harms modeling overview.](../images/harms-model-example.png)](../images/harms-model-example.png#lightbox)
+*Download the [Microsoft Word file](https://arch-center.azureedge.net/harms-modeling.docx)*
 
 The diagram above is an example of a harms evaluation. This model is a qualitative approach that's used to understand the potential magnitude of harm.
 
