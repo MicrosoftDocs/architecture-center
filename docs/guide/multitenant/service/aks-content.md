@@ -13,7 +13,7 @@ Implementing multitenancy in Kubernetes offers several advantages.
 - **Simplified management:** Administrative tasks such as upgrades, security patches, and backups can be streamlined across the cluster, enhancing efficiency.
 - **Improved scalability:** With multitenancy, the cluster can scale more efficiently as resources can be shared among tenants, allowing for better handling of increased workloads.
 - **Enhanced flexibility:** Multitenancy enables tenants to easily adjust their resource allocation based on their specific needs, leading to increased flexibility in managing their workloads.
-- **Effective Resource Monitoring:** By having a centralized view of resource usage across tenants, administrators can gain better insights into resource utilization and make informed decisions to optimize the cluster's performance.
+- **Effective resource monitoring:** By having a centralized view of resource usage across tenants, administrators can gain better insights into resource utilization and make informed decisions to optimize the cluster's performance.
 
 ## Key Challenges
 
