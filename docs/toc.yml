@@ -2194,6 +2194,8 @@ items:
         href: solution-ideas/articles/iot-azure-data-explorer.yml
       - name: IoT Edge data storage and processing
         href: solution-ideas/articles/data-storage-edge.yml
+      - name: IoT private file upload to Azure Storage
+        href: example-scenario/iot/iot-private-fileupload.yml
       - name: Light and power for emerging markets
         href: solution-ideas/articles/iot-power-management.yml
       - name: Process real-time vehicle data using IoT
