@@ -3,7 +3,7 @@ title: Migrate your workload from Service Fabric to AKS
 description: Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS. 
 author: allyford
 ms.author: allyford
-ms.date: 06/07/2024
+ms.date: 10/22/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -72,7 +72,7 @@ To move your workload from Service Fabric to AKS, you need to understand the dif
   
 - Package the application as containers. Visual Studio provides you options to generate Dockerfile and package the application as containers. It is recommended to push the container images to [Azure Container Registry](/azure/container-registry/).
 
-- Re-write service fabric configuration XML files as Kubernetes YAML files. You may deploy the application to AKS using YAML files or as a package using helm charts. Please see the section[Application and service manifest](#application-and-service-manifest) for details.
+- Re-write service fabric configuration XML files as Kubernetes YAML files. You may deploy the application to AKS using YAML files or as a package using helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
 
 - Deploy the application to AKS cluster, and monitor the application's behavior, availability, performance. 
 
@@ -194,6 +194,7 @@ Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager 
 - [Moumita Dey Verma](https://www.linkedin.com/in/moumita-dey-verma-8b61692a/) | Senior Cloud Solutions Architect
+- [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Senior Technology Specialist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
