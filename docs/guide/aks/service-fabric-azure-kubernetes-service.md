@@ -64,6 +64,18 @@ To move your workload from Service Fabric to AKS, you need to understand the dif
 > [!Note]
 > If you use Windows containers on Service Fabric, we recommend that you also use them on AKS. Doing so will make your migration easier.
 
+## Migration steps
+
+- Establish deployment architecture, and create the AKS cluster. AKS offers you various options to configure the cluster access, node and pod scalability, network access and configuration etc. Please see Example architecture section for a typical deployment architecture. The [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) provides you cluster deployment and monitoring guidelines as well. [AKS construction](https://azure.github.io/AKS-Construction/) provides you quick start templates to deploy your AKS cluster based on business and technical requirements.
+
+- Re-architect the service fabric application. If you are using programming models such as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) or [Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-introduction), or if you are using other service fabric specific constructs, you may need to re-architect your application. [DAPR](/azure/aks/dapr-overview) is a great way to implement state management when migrating from Reliable Services. Kubernetes offers [patterns and examples](https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-patterns) to migrate from Reliable Actors.
+  
+- Package the application as containers. Visual Studio provides you options to generate Dockerfile and package the application as containers. It is recommended to push the container images to [Azure Container Registry](/azure/container-registry/).
+
+- Re-write service fabric configuration XML files as Kubernetes YAML files. You may deploy the application to AKS using YAML files or as a package using helm charts. Please see the section [Application and service manifest](Application and service manifest) for details.
+
+- Deploy the application to AKS cluster, and monitor the application's behavior, availability, performance. 
+
 ## Example architecture
 
 AKS and Azure provide flexibility to configure your environment to fit your business needs. AKS is well integrated with other Azure services. Following is an example architecture, the [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml).
