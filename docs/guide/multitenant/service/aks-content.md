@@ -19,7 +19,7 @@ Implementing multitenancy in Kubernetes offers several advantages.
 
 While multitenancy brings several benefits, it also presents challenges for system administrators and developers.
 
-- **Security and Isolation:** Ensuring strict isolation between tenants’ resources and workloads to prevent unauthorized access and data breaches is paramount.
+- **Security and isolation:** Ensuring strict isolation between tenants' resources and workloads to prevent unauthorized access and data breaches is paramount.
 - **Resource Contention:** Avoiding situations where one tenant’s workload monopolizes resources, affecting the performance and availability of others.
 - **Tenant resource quotas:** Defining and enforcing resource quotas for each tenant can be challenging, as it requires careful planning and monitoring to ensure fair distribution and prevent resource abuse.
 - **Complexity in configuration, management, and deployment:** The need for detailed configurations to maintain isolation, manage resources, and ensured security adds complexity.
