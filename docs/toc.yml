@@ -3137,39 +3137,6 @@ items:
         href: example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml
       - name: Training and guidance with mixed reality
         href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
-  - name: Nonprofit
-    items:
-    - name: Azure subscription for nonprofits
-      href: /azure/industry/training-services/microsoft-community-training/infrastructure-management/install-your-platform-instance/setup-platform-instance-on-azure-subscription-for-nonprofits
-      maintainContext: true
-    - name: Microsoft Cloud for Nonprofit
-      items:
-      - name: Overview
-        href: /industry/nonprofit/overview
-        maintainContext: true
-      - name: Set up Microsoft Cloud for Nonprofit
-        href: /industry/nonprofit/configure-cloud-for-nonprofit
-        maintainContext: true
-      - name: Donors and supporters
-        href: /industry/nonprofit/donors-supporters
-        maintainContext: true
-      - name: Renew an Azure nonprofit grant
-        href: /industry/nonprofit/renew
-        maintainContext: true
-    - name: Fundraising and Engagement
-      items:
-      - name: Overview
-        href: /dynamics365/industry/nonprofit/fundraising-engagement-get-started-overview
-        maintainContext: true
-      - name: Configure
-        href: /dynamics365/industry/nonprofit/fundraising-engagement-configure
-        maintainContext: true
-      - name: Deploy
-        href: /dynamics365/industry/nonprofit/fundraising-engagement-deploy
-        maintainContext: true
-    - name: Dynamics 365 nonprofit accelerator for Azure
-      href: /dynamics365/industry/accelerators/nfp
-      maintainContext: true
   - name: Additional verticals
     items:
     - name: Game Development
