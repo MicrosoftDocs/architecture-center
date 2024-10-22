@@ -24,7 +24,7 @@ Many organizations have moved to containerized apps as part of a push towards ad
 
 There is no one-size-fits-all solution for apps, but organizations often find that [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) meets the requirements for many of their containerized applications. AKS is a managed Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for application workloads. Many organizations are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
 
-This article describes how to migrate containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) to AKS. The article assumes that you are familiar with Service Fabric but are interested in learning how its features and functionality compare to those of AKS. The article also provides best practices for you to consider during migration.
+This article describes how to migrate containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) to AKS. The article assumes that you're familiar with Service Fabric but are interested in learning how its features and functionality compare to those of AKS. The article also provides best practices for you to consider during migration.
 
 ## Comparing AKS to Service Fabric
 
@@ -39,7 +39,7 @@ Both Service Fabric and AKS offer integrations with other Azure services, includ
 
 ## Key differences
 
-When you deploy a traditional Service Fabric [cluster](/azure/service-fabric/service-fabric-azure-clusters-overview), as opposed  to a managed cluster, you need to explicitly define a cluster resource together with a number of supporting resources in your Azure Resource Manager templates (ARM templates) or Bicep modules. These resources include a virtual machine scale set for each cluster node type, network security groups, and load balancers. It  is your responsibility to make sure that these resources are correctly configured. In contrast, the encapsulation model for Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster) consists of a single managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure.  
+When you deploy a traditional Service Fabric [cluster](/azure/service-fabric/service-fabric-azure-clusters-overview), as opposed to a managed cluster, you need to explicitly define a cluster resource together with a number of supporting resources in your Azure Resource Manager templates (ARM templates) or Bicep modules. These resources include a virtual machine scale set for each cluster node type, network security groups, and load balancers. It's your responsibility to make sure that these resources are correctly configured. In contrast, the encapsulation model for Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster) consists of a single managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure.  
 
 [AKS](/azure/aks/intro-kubernetes) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. Because AKS is a hosted Kubernetes service, Azure handles critical tasks like infrastructure health monitoring and maintenance. Azure manages the Kubernetes master nodes, so you manage and maintain only the agent nodes.
 
@@ -93,7 +93,7 @@ As a starting point, we recommend that you familiarize yourself with some key Ku
 
 > [!Note]
 > When you migrate a workload from Service Fabric to AKS, you can replace [Service Fabric Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) with the Dapr [actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) building block. You can replace [Service Fabric Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) with the Dapr [state management](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) building block.
-> 
+>
 > The [Distributed Application Runtime (Dapr)](https://dapr.io/) provides APIs that simplify microservice connectivity. For more information, see [Introduction to the Distributed Application Runtime](https://docs.dapr.io/concepts/overview/). Dapr is [natively supported](/azure/aks/dapr-overview)in Azure Kubenetes Service as an AKS extension.
 
 ## Application and service manifest
@@ -145,7 +145,7 @@ Each of these ingress controllers has strengths and weaknesses. To decide which 
 
 ## Persistent storage
 
-Both Service Fabric and AKS have mechanisms to provide persistent storage to containerized applications. In Service Fabric, the Azure Files volume driver, a Docker volume plug-in, provides Azure Files volumes for Linux and Windows containers. It is packaged as a Service Fabric application that you can deploy to a Service Fabric cluster to provide volumes for other Service Fabric containerized applications within the cluster. For more information, see [Azure Files volume driver for Service Fabric](/azure/service-fabric/service-fabric-containers-volume-logging-drivers).
+Both Service Fabric and AKS have mechanisms to provide persistent storage to containerized applications. In Service Fabric, the Azure Files volume driver, a Docker volume plug-in, provides Azure Files volumes for Linux and Windows containers. It's packaged as a Service Fabric application that you can deploy to a Service Fabric cluster to provide volumes for other Service Fabric containerized applications within the cluster. For more information, see [Azure Files volume driver for Service Fabric](/azure/service-fabric/service-fabric-containers-volume-logging-drivers).
 
 Applications running in AKS might need to store and retrieve data from a persistent file storage system. AKS integrates with Azure storage services like [Azure managed disks](/azure/virtual-machines/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction),  [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction), and [Azure NetApp Storage (ANF)](/azure/aks/azure-netapp-files). It also integrates with third-party storage systems like [Rook](https://rook.io/) and [GlusterFS](https://www.gluster.org/) via Container Storage Interface (CSI) drivers. 
 
