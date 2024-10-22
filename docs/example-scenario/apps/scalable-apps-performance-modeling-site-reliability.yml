@@ -23,4 +23,4 @@ name: Scalable cloud applications and site reliability engineering (SRE)
 summary: Build scalable cloud applications by using performance modeling and other principles and practices of site reliability engineering (SRE).
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-apps-performance-modeling-site-reliability.png
 content: |
-  [!include[](scalable-apps-performance-modeling-site-reliability-content.md)]
+  [!INCLUDE[](scalable-apps-performance-modeling-site-reliability-content.md)]
