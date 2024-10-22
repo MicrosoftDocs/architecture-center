@@ -105,30 +105,17 @@ This architecture uses services that have built-in scaling capabilities that you
 
 ## Deploy this scenario
 
-You can deploy a rudimentary version of this architecture, a *solution accelerator*, and use it as a starting point for deploying your own solution. The reference implementation for the accelerator includes code, deployment scripts, and a deployment guide.
+You can deploy a rudimentary version of this architecture and use it as a starting point for deploying your own solution. The repository includes code, deployment scripts, and a deployment guide.
 
-The accelerator receives the PDF forms, extracts the data fields, and saves the data in Azure Cosmos DB. Power BI visualizes the data. The design uses a modular, metadata-driven methodology. No form fields are hard-coded. It can process any PDF forms.
+The sample receives the PDF forms, extracts the data fields, and saves the data in Azure Cosmos DB. Power BI visualizes the data. The design uses a modular, metadata-driven methodology. No form fields are hard-coded. It can process any PDF forms.
 
-You can use the accelerator as is, without code modification, to process and visualize any single-page PDF forms such as safety forms, invoices, incident records, and many others. To use it, you only need to collect sample PDF forms, train a new model to learn the layout of the forms, and plug the model into the solution. You also need to redesign the Power BI report for your datasets so that it provides the insights that you want.
+You can use the repository as is, without code modification, to process and visualize any single-page PDF forms such as safety forms, invoices, incident records, and many others. To use it, you only need to collect sample PDF forms, train a new model to learn the layout of the forms, and plug the model into the solution. You also need to redesign the Power BI report for your datasets so that it provides the insights that you want.
 
-The implementation uses [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) to create custom models. The accelerator uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process a variety of forms.
+The implementation uses [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) to create custom models. The sample uses the field names that are saved in the machine learning model as a reference to process other forms. Only five sample forms are needed to create a custom-built machine learning model. You can merge as many as 100 custom-built models to create a composite machine learning model that can process a variety of forms.
 
 ### Deployment repository
 
-The GitHub repository for the solution accelerator is at [Azure PDF Form Processing Automation Solution Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) which contains the deployment guide for this solution.
-
-### Deployment prerequisites
-
-To deploy, you need an Azure subscription. For information about free subscriptions, see [Build in the cloud with an Azure free account](https://azure.microsoft.com/free).
-
-To learn about the services that are used in the accelerator, see the overview and reference articles that are listed in:
-
-- [AI Document Intelligence documentation](/azure/applied-ai-services/form-recognizer/?view=form-recog-3.0.0)
-- [Azure Logic Apps documentation](/azure/logic-apps)
-- [Azure Functions documentation](/azure/azure-functions)
-- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Cosmos DB documentation](/azure/cosmos-db)
-- [Power BI documentation](/power-bi)
+The code for this sample is in [Azure PDF Form Processing Automation Solution](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) GitHub repository. Follow the deployment guide in the repository.
 
 ### Deployment considerations
 
@@ -156,7 +143,7 @@ Principal author:
 - [Gail Zhou](https://linkedin.com/in/gailzhou) | Sr. Architect
 
 Other contributors:
-
+- [Said Nikjou](https://www.linkedin.com/in/snikjou/) | Sr. Cloud Solution Architect
 - [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
 - [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
 - [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
@@ -170,9 +157,9 @@ Other contributors:
 ## Next steps
 
 - [Video: Azure PDF Form Processing Automation](https://www.youtube.com/watch?v=2zvoO1jc8CE).
-- [Azure PDF Form Processing Automation Solution Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator)
-- [Azure invoice Process Automation Solution Accelerator](https://github.com/microsoft/Azure-Invoice-Process-Automation-Solution-Accelerator)
-- [Business Process Automation Accelerator](https://github.com/Azure/business-process-automation)
+- [Azure PDF Form Processing Automation Solution](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) GitHub repository
+- [Azure Invoice Process Automation Solution](https://github.com/microsoft/Azure-Invoice-Process-Automation-Solution-Accelerator) GitHub repository
+- [Business Process Automation](https://github.com/Azure/business-process-automation) GitHub repository
 - [Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow)
 
 ## Related resources

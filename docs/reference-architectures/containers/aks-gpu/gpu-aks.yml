@@ -9,6 +9,9 @@ metadata:
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
+  ms.category:
+    - containers
+  ms.custom: arb-containers
 azureCategories:
   - containers
   - compute

@@ -253,7 +253,8 @@ After deciding on a pricing tier for each component, use the [Azure Pricing calc
 
 Principal author:
 
-- [Jyotsna Ravi](https://in.linkedin.com/in/jyotsna-ravi-50182624) | Senior Customer Engineer
+- [Jyotsna Ravi](https://in.linkedin.com/in/jyotsna-ravi-50182624) | Principal Customer Engineer
+- Dixit Arora | Senior Customer Engineer
 
 ## Next steps
 

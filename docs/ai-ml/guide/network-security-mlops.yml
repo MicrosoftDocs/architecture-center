@@ -10,7 +10,9 @@ metadata:
   ms.collection: ce-skilling-ai-copilot  
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
-  ms.custom: arb-aiml
+  ms.custom:
+    - arb-aiml
+    - arb-telco
 azureCategories:
   - ai-machine-learning
   - security

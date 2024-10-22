@@ -132,7 +132,6 @@ N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-inte
 
 Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems. There are many solutions that manage both the speed and capacity needs of HPC applications on Azure:
 
-- [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt) for faster, more accessible data storage for high-performance computing at the edge
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
@@ -228,7 +227,6 @@ Once network connectivity is securely established, you can start using cloud com
 
 There are many workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
-- [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
 - [TIBCO DataSynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)

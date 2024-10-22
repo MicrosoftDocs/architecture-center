@@ -13,6 +13,7 @@ metadata:
     - fcp
     - cse
     - devx-track-terraform
+    - arb-media
 name: Gridwich cloud media system
 summary: Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.
 products:

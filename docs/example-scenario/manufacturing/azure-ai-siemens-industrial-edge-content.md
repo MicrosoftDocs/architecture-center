@@ -223,6 +223,7 @@ Principal authors:
 
 Contributor:
 - [Johannes Kupser](https://www.linkedin.com/in/johannes-kupser) | Chief Product Owner for Industrial AI
+- [Djaci Araujo](https://www.linkedin.com/in/djaci/) | Software Architect at Siemens AG
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

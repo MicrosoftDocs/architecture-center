@@ -11,8 +11,8 @@ metadata:
   ms.category:
     - identity
   ms.custom:
-    - fcp
     - example-scenario
+    - arb-web
 name: Multitenant SaaS on Azure
 azureCategories:
   - identity
