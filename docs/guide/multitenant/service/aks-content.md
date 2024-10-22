@@ -22,7 +22,7 @@ While multitenancy brings several benefits, it also presents challenges for syst
 - **Security and Isolation:** Ensuring strict isolation between tenants’ resources and workloads to prevent unauthorized access and data breaches is paramount.
 - **Resource Contention:** Avoiding situations where one tenant’s workload monopolizes resources, affecting the performance and availability of others.
 - **Tenant resource quotas:** Defining and enforcing resource quotas for each tenant can be challenging, as it requires careful planning and monitoring to ensure fair distribution and prevent resource abuse.
-- **Complexity in Configuration, Management, and Deployment:** The need for detailed configurations to maintain isolation, manage resources, and ensure security adds complexity.
+- **Complexity in configuration, management, and deployment:** The need for detailed configurations to maintain isolation, manage resources, and ensured security adds complexity.
 - **Data Governance and Compliance:** Managing data privacy, compliance, and regulatory requirements can become complex when multiple tenants are sharing the same infrastructure, requiring robust security measures and data governance policies.
 - **Tenant Onboarding and Offboarding:** Efficiently onboarding and offboarding tenants, including provisioning and deprovisioning processes, can be time-consuming and complex, requiring well-defined procedures and automation tools.
 
