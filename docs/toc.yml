@@ -3061,10 +3061,6 @@ items:
         href: example-scenario/manufacturing/fab-scheduling-azure.yml
       - name: CAE simulations for manufacturing
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
-      - name: IoT Edge railroad maintenance and safety
-        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-      - name: Low-latency network for manufacturing
-        href: solution-ideas/articles/low-latency-network.yml
       - name: Quality assurance
         href: solution-ideas/articles/quality-assurance.yml
     - name: Solution ideas
