@@ -1,10 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process that uses Azure Databricks. Data scientists and engineers can use this standardized process to move machine learning models and pipelines from development to production. These recommendations include options for automated or manual processes.
+This article provides a [machine learning operations (MLOps)](../guide/machine-learning-operations-v2.md) architecture and process that uses Azure Databricks. Data scientists and engineers can use this standardized process to move machine learning models and pipelines from development to production. This architecture uses the *prompt code that generates models* approach rather than the *promote models* approach. The *prompt code that generates models* approach focuses on writing and managing the code that generates machine learning models. The recommendations in this article include options for automated or manual processes.
 
 ## Architecture
 
-:::image type="content" source="_images/orchestrate-machine-learning-azure-databricks.svg" alt-text="Diagram that shows a solution for using Azure Databricks for MLOps." lightbox="_images/orchestrate-machine-learning-azure-databricks.svg" border="false":::
+:::image type="complex" source="_images/orchestrate-machine-learning-azure-databricks.svg" alt-text="Diagram that shows a solution for using Azure Databricks for MLOps." lightbox="_images/orchestrate-machine-learning-azure-databricks.svg" border="false":::
+This diagram shows the 12 steps of this workflow. A lakehouse production data section includes the data table, feature table, and lakehouse table model metrics. A source control section includes a development, staging, and release environment. Source control includes Azure DevOps and GitHub. In the main development environment, step 1 exploratory data analysis reads data from the data table. Step 2 model training reads data from the data table and the feature table. Step 3 commits code to the development environment in source control. Step 4 merges a request to the staging environment. The source control staging environment triggers step 5 unit and CI tests in the main staging environment, which read data from the feature table and the data table. The code changes merge to the source control staging environment. Step 6 builds a release branch in the release environment. An arrow that points from the release environment to the main production environment says Deploy machine learning Databricks jobs. In the main production environment, step 7 feature table refresh reads data from the data table and sends data to the feature table. Step 8 model training reads data from drift detection and model retraining. Step 8 also pushes the model to Unity Catalog. Step 9 model evaluation and promotion loads the model from Unity Catalog for evaluation. Then it sends the model to staging and then production in Unity Catalog. Step 10 model deployment loads the model for inferencing and reads data from the feature table. Step 11 monitoring reads data from the feature table and reads the lakehouse table model metrics. Step 11 also writes data to the lakehouse table and to Azure Monitor. 
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/orchestrate-mlops-azure-databricks.vsdx) of this architecture.*
 
@@ -20,15 +22,15 @@ The following environments comprise the main workflow.
 
 #### Development
 
-In the development environment, you can develop machine learning pipelines.
+In the development environment, you develop machine learning pipelines.
 
-1. **Perform exploratory data analysis (EDA):** You can explore data in an interactive, iterative process. You might not deploy this work to staging or production. Use tools like [Databricks SQL](/azure/databricks/sql/get-started), the [dbutils.data.summarize](/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize) command, and [Databricks AutoML](/azure/databricks/applications/machine-learning/automl).
+1. **Perform exploratory data analysis (EDA):** Explore data in an interactive, iterative process. You might not deploy this work to staging or production. Use tools like [Databricks SQL](/azure/databricks/sql/get-started), the [dbutils.data.summarize](/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize) command, and [Databricks AutoML](/azure/databricks/applications/machine-learning/automl).
 
-1. **Develop [model training](/azure/databricks/applications/machine-learning/train-model) and other machine learning pipelines:** You can develop machine learning pipelines modular code, and orchestrate code via Databricks Notebooks or an MLFlow Project. In this architecture, the model training pipeline reads data from the feature store and other lakehouse tables. The pipeline trains and tunes log model parameters and metrics to the [MLflow tracking server](/azure/databricks/applications/mlflow/tracking). The [feature store API](/azure/databricks/applications/machine-learning/feature-store/python-api) logs the final model. These logs include the model, its inputs, and the training code.
+1. **Develop [model training](/azure/databricks/applications/machine-learning/train-model) and other machine learning pipelines:** Develop machine learning pipelines modular code, and orchestrate code via Databricks Notebooks or an MLFlow Project. In this architecture, the model training pipeline reads data from the feature store and other lakehouse tables. The pipeline trains and tunes log model parameters and metrics to the [MLflow tracking server](/azure/databricks/applications/mlflow/tracking). The [feature store API](/azure/databricks/applications/machine-learning/feature-store/python-api) logs the final model. These logs include the model, its inputs, and the training code.
 
-1. **Commit code:** To promote the machine learning workflow toward production, you can commit the code for featurization, training, and other pipelines to source control. In the code base, place machine learning code and operational code in different folders so that team members can develop code at the same time. Machine learning code is code that's related to the model and data. Operational code is code that's related to Databricks jobs and infrastructure.
+1. **Commit code:** To promote the machine learning workflow toward production, commit the code for featurization, training, and other pipelines to source control. In the code base, place machine learning code and operational code in different folders so that team members can develop code at the same time. Machine learning code is code that's related to the model and data. Operational code is code that's related to Databricks jobs and infrastructure.
 
-This core cycle of activities that you do when you write and test code are referred to as the *innerloop process*. To perform the innerloop process for the development phase, use Visual Studio Code in combination with the dev container CLI and the Databricks CLI. You can write the code and do unit testing locally. You can also submit, monitor, and analyze the model pipelines from the local development environment.
+This core cycle of activities that you do when you write and test code are referred to as the *innerloop process*. To perform the innerloop process for the development phase, use Visual Studio Code in combination with the dev container CLI and the Databricks CLI. You can write the code and do unit testing locally. You should also submit, monitor, and analyze the model pipelines from the local development environment.
 
 #### Staging
 
@@ -61,7 +63,7 @@ Machine learning engineers manage the production environment, where machine lear
 
 ### Components
 
-- A [**data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the best elements of data lakes and data warehouses. Use a lakehouse to get data management and performance capabilities that are typically found in data warehouses but with the low-cost, flexible object stores that data lakes offer.
+- A [**data lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture unifies the elements of data lakes and data warehouses. Use a lakehouse to get data management and performance capabilities that are typically found in data warehouses but with the low-cost, flexible object stores that data lakes offer.
 
   - [**Delta Lake**](https://delta.io) is the recommended open-source data format for a lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
 
@@ -86,7 +88,7 @@ You can tailor this solution to your Azure infrastructure. Consider the followin
 
 - Use multiple development workspaces that share a common production workspace.
 
-- Exchange one or more architecture components for your existing infrastructure. For example, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory) to orchestrate Databricks jobs.
+- Exchange one or more architecture components for your existing infrastructure. For example, you can use [Azure Data Factory](/azure/data-factory/introduction) to orchestrate Databricks jobs.
 - Integrate with your existing CI/CD tooling via Git and Azure Databricks REST APIs.
 - Use [Microsoft Fabric](/fabric/data-science/machine-learning-model) or [Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning) as alternative services for machine learning capabilities.
 
@@ -137,21 +139,7 @@ Principal authors:
 ## Next steps
 
 - [AI and machine learning on Databricks](/azure/databricks/machine-learning)
-- [Databricks Academy](https://databricks.com/learn/training/home)
-- [Databricks Academy GitHub project](https://github.com/databricks-academy)
 - [Databricks machine learning product page and resources](https://databricks.com/product/machine-learning)
-- [Deploy MLflow models to online endpoints in Azure Machine Learning](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints)
-- [Developer tools and guidance](/azure/databricks/dev-tools)
-- [Introduction to MLOps: The need for datacentric machine learning platforms](https://databricks.com/blog/2021/06/23/need-for-data-centric-ml-platforms.html)
-- [Libraries](/azure/databricks/libraries)
-- [MLOps glossary](https://databricks.com/glossary/mlops)
-- [Notebooks](/azure/databricks/notebooks)
-- [Share models across workspaces](/azure/databricks/machine-learning/manage-model-lifecycle/multiple-workspaces)
-- [eBook: Machine learning engineering for the real world](https://databricks.com/p/ebook/machine-learning-engineering-in-action)
-- [eBook: Automate your machine learning pipeline](https://databricks.com/p/ebook/automate-your-machine-learning-pipeline)
-- [Tutorial: Get started with AI and machine learning](/azure/databricks/machine-learning/ml-tutorials)
-- [Video: MLOps on Azure Databricks with MLflow](https://www.youtube.com/watch?v=l36u1_9Gopk)
-- [Webinar: Automate the machine learning lifecycle with Databricks Machine Learning](https://databricks.com/p/webinar/automating-the-ml-lifecycle-with-databricks-machine-learning)
 
 ## Related resources
 
