@@ -3,7 +3,7 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 In typical Azure IoT deployments, the IoT client devices need to communicate directly with the Azure Storage account to upload files. Because IoT client devices are typically distributed at disparate locations and not not part of a private network, they connect over public Internet. As these devices cannot be integrated into a private network, the Storage account requires allowing incoming Internet traffic. However, for stricter network segmentation requirements, a common practice involves restricting access to the Storage account from within a private network.
-This solution proposes a strategy that blocks direct Internet traffic to the Storage account. Instead, only traffic routed through the inbound Application Gateway is permitted to the Storage account. For customers implementing a [Hub-Spoke network topology](/azure/architecture/networking/architecture/hub-spoke), traffic is typically forced to go through Azure Firewall for traffic inspection, providing an extra layer of security.
+This solution proposes a strategy that blocks direct Internet traffic to the Storage account. Instead, only traffic routed through the inbound Application Gateway is permitted to the Storage account. For customers implementing a [Hub-spoke network topology](/azure/architecture/networking/architecture/hub-spoke), traffic is typically forced to go through Azure Firewall for traffic inspection, providing an extra layer of security.
 
 ## Architecture
 
@@ -15,7 +15,7 @@ This solution proposes a strategy that blocks direct Internet traffic to the Sto
 
 ### Workflow
 
-1. A Hub-Spoke network topology is utilized where a hub virtual network is peered to each resource virtual network (called a spoke), and all traffic is routed through Azure Firewall for traffic inspection.
+1. A hub-spoke network topology is utilized where a hub virtual network is peered to each resource virtual network (called a spoke), and all traffic is routed through Azure Firewall for traffic inspection.
 1. The Blob storage account denies public Internet access, and it only allows connections from other virtual networks. A [resource instance rule](/azure/storage/common/storage-network-security#grant-access-from-azure-resource-instances) allows a chosen Azure IoT Hub service to connect, authenticating via a managed identity. Also, the Storage account is configured to only support Azure RBAC for data plane access.
 1. The application gateway is configured with custom DNS and terminates transport layer security (TLS) traffic. It resides within a virtual network. This virtual network is peered with the Virtual Network used by the Storage account's private link through a forced tunnel via the Hub virtual network.
 1. IoT client device using Azure IoT Hub SDK requests a SAS URI for File Upload to the IoT Hub, through public Internet.
@@ -60,9 +60,9 @@ The same use case can apply to any industry where devices need to communicate wi
 
 ### Alternatives
 
-Customers who don't require the Hub-Spoke network topology with traffic inspection through Azure Firewall can still benefit from this approach by implementing a simplified networking topology. In this scenario, a single virtual network with distinct subnets to accommodate Azure Application Gateway, Private Link, and Private DNS Zone would suffice. The Storage account would remain configured in the same manner, as would Azure IoT Hub.
+Customers who don't require the hub-spoke network topology with traffic inspection through Azure Firewall can still benefit from this approach by implementing a simplified networking topology. In this scenario, a single virtual network with distinct subnets to accommodate Azure Application Gateway, Private Link, and Private DNS Zone would suffice. The Storage account would remain configured in the same manner, as would Azure IoT Hub.
 
-The benefit of a simplified architecture includes reduced complexity and cost. When there are no specific business or enterprise requirements for Hub-Spoke topology, the simplified architecture allows for eliminating public Internet endpoints from the Storage account while ensuring that IoT applications using Azure IoT Hub's file upload functionality work correctly.
+The benefit of a simplified architecture includes reduced complexity and cost. When there are no specific business or enterprise requirements for hub-spoke topology, the simplified architecture allows for eliminating public Internet endpoints from the Storage account while ensuring that IoT applications using Azure IoT Hub's file upload functionality work correctly.
 
 For a sample that deploys a similar architecture, see [Setting up Azure IoT Hub file upload to Azure Storage through Private Endpoint](https://github.com/Azure-Samples/azure-edge-extensions-iothub-fileupload-privatelink). This sample deploys a simulated IoT client device and shows usage of device twins for exchanging the custom domain name for the Storage account.
 
