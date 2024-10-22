@@ -33,7 +33,7 @@ The following workflow corresponds to the preceding diagram.
   
   The high-availability subnets and VMs help ensure that the system remains operational even if individual components fail.
 
-  The Alliance Remote Gateway subscription contains resources that you manage. After you implement a service, the Alliance Access or Alliance Entry on-premises systems connect to the Alliance Remote Gateway server that's deployed at the SWIFT operating centres. 
+  The Alliance Remote Gateway subscription contains resources that you manage. After you implement a service, the Alliance Access or Alliance Entry on-premises systems connect to the Alliance Remote Gateway server that's deployed at the SWIFT operating centers. 
   
   You retain full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, and manual or automated printing.
   
