@@ -2,12 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-10-15T01:16:06.814Z</updated>
+    <updated>2024-10-22T15:48:00.630Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Modern Web App pattern for .NET]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance"/>
+        <updated>2024-10-18T00:04:33.000Z</updated>
+        <summary type="html"><![CDATA[Implement the Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enterprise Web App Patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/overview"/>
+        <updated>2024-10-18T00:04:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Enterprise Web App Patterns.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable Web App pattern for .NET]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance"/>
+        <updated>2024-10-18T00:04:33.000Z</updated>
+        <summary type="html"><![CDATA[Implement the Reliable Web App pattern for .NET. Migrate (replatform) web apps to the cloud with prescriptive architecture, code, and configuration guidance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable Web App pattern for Java]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance"/>
+        <updated>2024-10-18T00:04:33.000Z</updated>
+        <summary type="html"><![CDATA[Implement the reliable web app pattern for Java. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Greenfield lakehouse on Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric"/>
+        <updated>2024-10-18T18:41:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a greenfield solution for creating a robust, scalable data platform by using the lakehouse design paradigm on Microsoft Fabric.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ValOps for Autonomous Vehicle Operations]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-validation-operations</id>
@@ -57,6 +97,118 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Automate PDF forms processing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing"/>
+        <updated>2024-10-22T14:32:39.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure services such as AI Document Intelligence, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline OpenAI end-to-end chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
+        <updated>2024-10-21T22:20:14.000Z</updated>
+        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic OpenAI end-to-end chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
+        <updated>2024-10-21T22:20:14.000Z</updated>
+        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DataOps for autonomous vehicle operations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops"/>
+        <updated>2024-10-21T15:27:09.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Desktop for the enterprise]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop"/>
+        <updated>2024-10-21T15:27:09.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Virtual Desktop and learn how to build virtual desktop infrastructure solutions at enterprise scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multiregion BCDR for Azure Virtual Desktop]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr"/>
+        <updated>2024-10-21T15:27:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multiple forests with AD DS and Microsoft Entra ID]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest"/>
+        <updated>2024-10-21T15:27:09.000Z</updated>
+        <summary type="html"><![CDATA[This article describes an example workload of creating multiple Active Directory forests by using Azure Virtual Desktop.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Banking system cloud transformation on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/banking/banking-system-cloud-transformation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/banking/banking-system-cloud-transformation"/>
+        <updated>2024-10-21T15:27:09.000Z</updated>
+        <summary type="html"><![CDATA[Use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP deployment in Azure using an Oracle database]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/sap-production</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/sap-production"/>
+        <updated>2024-10-21T15:22:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for running SAP on Oracle in Azure, with high availability.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scalable cloud applications and SRE]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability"/>
+        <updated>2024-10-21T15:22:58.000Z</updated>
+        <summary type="html"><![CDATA[Build scalable cloud applications by using performance modeling and other principles and practices of site reliability engineering (SRE).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Refactor mainframe computer systems that run Adabas & Natural]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-adabas-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-adabas-aks"/>
+        <updated>2024-10-16T22:46:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Security for AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aws/aws-azure-security-solutions</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aws/aws-azure-security-solutions"/>
+        <updated>2024-10-16T17:55:05.000Z</updated>
+        <summary type="html"><![CDATA[See how Microsoft security solutions can help secure and protect Amazon Web Services (AWS) account access and environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Improved-security access to App Service web apps from an on-premises network]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises"/>
+        <updated>2024-10-15T15:45:38.000Z</updated>
+        <summary type="html"><![CDATA[Set up improved-security private connectivity to an App Service web app or function app from an on-premises network or from within an Azure virtual network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AKS and API Management with mTLS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mutual-tls-deploy-aks-api-management</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mutual-tls-deploy-aks-api-management"/>
+        <updated>2024-10-15T08:17:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS in an architecture that provides end-to-end encryption.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Choose an Azure AI targeted language processing technology]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-guide/ai-services/targeted-language-processing"/>
@@ -73,14 +225,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Basic OpenAI end-to-end chat reference architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
-        <updated>2024-10-14T13:03:40.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Secure research environment for regulated data]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research"/>
@@ -94,14 +238,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
         <updated>2024-10-14T13:03:40.000Z</updated>
         <summary type="html"><![CDATA[Guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Automate PDF forms processing]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing"/>
-        <updated>2024-10-11T19:42:44.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure services such as AI Document Intelligence, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -166,14 +302,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai"/>
         <updated>2024-10-11T09:43:00.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DataOps for autonomous vehicle operations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops"/>
-        <updated>2024-10-10T20:34:09.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -349,7 +477,7 @@
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
         <updated>2024-09-23T21:48:28.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1774,6 +1902,14 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/blockchain/multiparty-compute"/>
         <updated>2024-07-02T14:04:21.000Z</updated>
         <summary type="html"><![CDATA[Learn about Azure services that can help you build a multiparty computing solution, which can include cloud-based and on-premises resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analyze observational patient data by using OHDSI with the OMOP CDM]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/digital-health/patient-data-ohdsi-omop-cdm</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/digital-health/patient-data-ohdsi-omop-cdm"/>
+        <updated>2024-07-01T22:09:06.000Z</updated>
+        <summary type="html"><![CDATA[Deploy and operate a solution that uses OHDSI and the OMOP CDM to analyze observational patient data.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
