@@ -4,7 +4,7 @@ metadata:
   description: Deploy and run SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure. Migrate or establish new SWIFT connectivity in Azure.
   author: ravisharma24
   ms.author: ravisha
-  ms.date: 02/22/2024
+  ms.date: 10/22/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
