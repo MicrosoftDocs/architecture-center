@@ -158,7 +158,7 @@ The following tables summarize the key differences in capabilities.
 
 Principal author:
 
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada/) | CEO and Architect
 
 ## Next steps
 
