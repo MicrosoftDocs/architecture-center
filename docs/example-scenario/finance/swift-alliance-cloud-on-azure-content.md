@@ -99,7 +99,7 @@ You can use [Azure Policy](/azure/governance/policy/overview) to set policies th
 
 SWIFT has a policy framework that helps you enforce a subset of SWIFT CSP–CSCF requirements by using Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. If you use separate subscriptions, you can apply the SWIFT CSP–CSCF Azure policies only to subscriptions that contain a SWIFT secure zone.
 
-We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. Using separate subscriptions ensures that SWIFT CSP–CSCF applies only to SWIFT components and not to customer-specific components.
+We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. Using a separate subscription ensures that SWIFT CSP–CSCF applies only to SWIFT components and not to customer-specific components.
 
 Consider using the latest implementation of SWIFT CSP controls, but first consult with the Microsoft team that you're working with.
 

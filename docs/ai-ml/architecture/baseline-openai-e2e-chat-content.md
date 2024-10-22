@@ -24,6 +24,9 @@ The Machine Learning workspace is configured with [managed virtual network isola
 
 Many components of this architecture are the same as the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights only the changes to the basic architecture.
 
+> [!NOTE]
+> The [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml) was updated to use Azure AI Studio. While this architecture and implementation are still functional, they are both scheduled to be updated to use Azure AI Studio in the next month. If you are building a new application, we suggest you use Azure AI Studio for prompt flow development instead of Azure Machine Learning workspaces.
+
 - [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both the basic and this baseline architecture. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture takes advantage of enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture does not implement.
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 - [Web Application Firewall (WAF)](https://azure.microsoft.com/products/web-application-firewall/) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. Web Application Firewall provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
@@ -101,9 +104,41 @@ If you deploy to compute clusters behind the Machine Learning-managed online end
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). The architecture implements a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
+This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). While the basic architecture uses system-assigned managed identities and system-assigned role assignments, this architecture uses user-assigned identities with manually created role assignments.
+
+The architecture implements a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
 
 Along with networking considerations, this section describes security considerations for key rotation and Azure OpenAI model fine tuning.
+
+#### Identity and access management
+
+When using user-assigned managed identities, consider the following guidance:
+
+- Create separate managed identities for the following Machine Learning resources, where applicable:
+  - Workspaces for flow authoring and management
+  - Compute instances for testing flows
+  - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
+- Implement identity-access controls for the chat UI by using Microsoft Entra ID
+
+### Machine Learning role-based access roles
+
+There are five [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) that you can use to manage access to your Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there's an Azure Machine Learning Workspace Connection Secrets Reader and an AzureML Registry User that can grant access to workspace resources such as the workspace secrets and registry.
+
+Because the architecture uses user-assigned managed identities, you are responsible for creating the appropriate role assignments. This architecture follows the principle of least privilege by only assigning roles to the preceding identities where they're required. Consider the following role assignments.
+
+| Managed identity | Scope | Role assignments |
+| --- | --- | --- |
+| Workspace managed identity | Resource group | Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage Blob Data Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage File Data Privileged Contributor |
+| Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
+| Workspace managed identity | Workspace Container Registry | AcrPush |
+| Online endpoint managed identity | Azure OpenAI | Cognitive Services OpenAI User |
+| Online endpoint managed identity | Workspace Container Registry | AcrPull |
+| Online endpoint managed identity | Workspace Storage Account | Storage Blob Data Reader |
+| Online endpoint managed identity | Machine Learning workspace | AzureML Workspace Connection Secrets Reader |
+| Compute instance managed identity | Workspace Container Registry | AcrPull |
+| Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader |
 
 #### Networking
 
@@ -307,7 +342,7 @@ Consider the following guidance when implementing automated evaluations:
 ##### Deployment Flow
 
 :::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" border="false" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
-  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a pull request (PR) pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a CI pipeline and b. CD pipeline.
+  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a pull request (PR) pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. A list of monitoring tasks, and a CI pipeline and b. CD pipeline.
 :::image-end:::
 
 1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using prompt flow for Microsoft Visual Studio Code, periodically committing changes and pushing those changes to the feature branch.

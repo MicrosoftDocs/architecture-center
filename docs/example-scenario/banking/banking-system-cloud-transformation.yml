@@ -27,4 +27,4 @@ products:
   - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/banking-system-solution-arch.png
 content: |
-   [!include[](banking-system-cloud-transformation-content.md)]
+   [!INCLUDE[](banking-system-cloud-transformation-content.md)]

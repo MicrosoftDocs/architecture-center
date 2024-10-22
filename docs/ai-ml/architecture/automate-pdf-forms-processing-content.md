@@ -48,15 +48,15 @@ For deployment information, see [Deploy this scenario](#deploy-this-scenario) in
 
 The solution that's described in this article can process many types of forms, including:
 
-- Invoices
-- Payment records
-- Safety records
-- Incident records
-- Compliance records
+- Invoices and payment records
 - Purchase orders
-- Payment authorization forms
+- Safety, incident, and compliance records
 - Health screening forms
-- Survey forms
+- Customer feedback forms
+- Employee records
+- Academic and research papers
+- Documents with handwritten notes
+- Custom documents from your domain
 
 ## Considerations
 
@@ -143,7 +143,7 @@ Principal author:
 - [Gail Zhou](https://linkedin.com/in/gailzhou) | Sr. Architect
 
 Other contributors:
-
+- [Said Nikjou](https://www.linkedin.com/in/snikjou/) | Sr. Cloud Solution Architect
 - [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
 - [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
 - [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
