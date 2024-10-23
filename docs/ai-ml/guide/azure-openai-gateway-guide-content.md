@@ -148,11 +148,13 @@ When considering how an API gateway benefits your architecture, use the [Design 
 
 Azure doesn't offer a turn-key solution designed specifically to proxy Azure OpenAI's HTTP API or other custom language model inferencing APIs. But there are still several options for your workload team to implement, such as a gateway in Azure.
 
+To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Azure OpenAI (for example [OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator/))
+
 ### Use Azure API Management
 
 [Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas by using a single control plane.
 
-Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies), such as [Limit Azure OpenAI API token usage](/azure/api-management/azure-openai-token-limit-policy) or [Emit metrics for consumption of Azure OpenAI tokens](/azure/api-management/azure-openai-emit-token-metric-policy), and your own custom policies. Some example custom policies and scenarios can be found at the [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) community GitHub repository.
+Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies), such as [Limit Azure OpenAI API token usage](/azure/api-management/azure-openai-token-limit-policy) or [Emit metrics for consumption of Azure OpenAI tokens](/azure/api-management/azure-openai-emit-token-metric-policy), and your own custom policies. The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) contains a number of example API Management policies along with a load-testing setup for testing the behaviour of the policies.
 
 Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution that involves Azure API Management.
 
@@ -190,3 +192,4 @@ Learn ways to [Implement logging and monitoring for Azure OpenAI models](../open
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
 - [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) GitHub repository covering generative AI scenarios
 - [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
+- [OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator/)
