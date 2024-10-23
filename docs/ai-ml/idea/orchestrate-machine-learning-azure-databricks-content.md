@@ -1,6 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides a [machine learning operations (MLOps)](../guide/machine-learning-operations-v2.md) architecture and process that uses Azure Databricks. Data scientists and engineers can use this standardized process to move machine learning models and pipelines from development to production. This architecture uses the *prompt code that generates models* approach rather than the *promote models* approach. The *prompt code that generates models* approach focuses on writing and managing the code that generates machine learning models. The recommendations in this article include options for automated or manual processes.
+This article provides a [machine learning operations (MLOps)](../guide/machine-learning-operations-v2.md) architecture and process that uses Azure Databricks. Data scientists and engineers can use this standardized process to move machine learning models and pipelines from development to production.
+
+This solution can take advantage of full automation, continuous monitoring, and robust collaboration and therefore targets a level 4 of MLOps maturity. This architecture uses the *prompt code that generates models* approach rather than the *promote models* approach. The *prompt code that generates models* approach focuses on writing and managing the code that generates machine learning models. The recommendations in this article include options for automated or manual processes.
 
 ## Architecture
 
