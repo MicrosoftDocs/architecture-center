@@ -1,6 +1,7 @@
 The solution described in the following sections will help organizations and partners create a sustainability model for applications hosted on Azure, based on the available proxies that, with time, allow scoring an application’s carbon impact and efficiency. This score is known as the Software Carbon Intensity (SCI) Score and provides a baseline for measuring changes in an application’s carbon output.
 
-The carbon emissions information will be partially gathered from the Azure Portal Azure carbon optimization  blade, and partially calculated, where possible, via proxy. 
+The carbon emissions information will be partially gathered from the Azure Portal Azure carbon optimization  blade, and partially calculated, where possible, via proxy.
+
 Using a separate architecture to gather Azure carbon optimization  data is essential for two key reasons.  
 - First, Azure carbon optimization data is stored and displayed only for the relative past twelve months (rolling window), so if long-term tracking of carbon footprint is required, a dedicated system ensures retention of detailed historical information.  
 - Second, an application may span multiple infrastructures, with Azure being only one component. A separate architecture allows for centralized monitoring of carbon impact across all environments, providing a holistic view and ensuring more comprehensive sustainability insights. 
@@ -49,10 +50,10 @@ These are the metrics used in our example:
 
 - The carbon emission of the infrastructure retrieved from [Carbon Emissions](https://www.microsoft.com/sustainability/emissions-impact-dashboard) API, which is the source for both the Impact Dashboard and the Azure carbon optimization blade. This is available at resource group level, making it easier to track your application’s emissions. 
 - Performance and scale metrics of the application collected from [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview):  
-- The scaling factor (or API calls, or server requests, etc..) that are concurrently connected the application 
-- CPU usage 
-- Memory usage 
-- Response time (send/receive) 
+   - The scaling factor (or API calls, or server requests, etc..) that are concurrently connected the application 
+   - CPU usage 
+   - Memory usage 
+   - Response time (send/receive) 
 
 Here you can find a tutorial on how to set-up your Application Insights to get the required metrics: [Application Insights SDK for ASP.NET Core applications](/azure/azure-monitor/app/tutorial-asp-net-core)
  
@@ -63,7 +64,8 @@ Additional variables can be added to the equation, such as:
 - Any other peculiar metric of the app that can tell us how its performance is changing across time 
 
 
-Building this equation into a score that can also reflect the number of users, represents the closest approximation to a carbon score, and this will be your benchmark for any further change and improvement towards the greenness of the app. 
+Building this equation into a score that can also reflect the number of users, represents the closest approximation to a carbon score, and this will be your benchmark for any further change and improvement towards the greenness of the app.
+
 Another consideration that we associate to application performance is cost. In most cases, we can show direct correlation of performance efficiency to cost and carbon savings. This allows us to make the assumptions that: 
 
 - When performance is higher, but costs are the same = we have optimized the app and have lowered carbon emissions 
@@ -99,8 +101,6 @@ The Carbon Emissions API, at the time of writing, will provide monthly carbon in
 Carbon (res-group) = (Carbon(subscription) * Cost(res-group)) / Cost(subscription)
 ```
 
-Store the monthly carbon information for your resource group along with the rest of the data, as explained in the following section.
-
 ### Data storage
 
 The carbon and carbon proxy information that you gathered in the previous section should be stored somewhere that you can connect to dashboards or reports, so you can visualize your carbon score over time and make informed choices. For sustainable reasons, and in alignment with the best practices of the Well Architected Framework (see [Data and storage design considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-application-platform%22 /l %22evaluate-moving-to-paas-and-serverless-workloads)) we recommend using the minimum viable system of record. In this case we opt for a Data Lake Storage.  
@@ -108,7 +108,7 @@ The carbon and carbon proxy information that you gathered in the previous sectio
 ### Data correlations
 
 When we start gathering data on the carbon, performance, and cost of the application, we’ll have valuable information that will allow you to build a correlation algorithm that is specific to your application, and that will provide guidance when planning for cost, performance, and carbon optimization. 
-. 
+
 See additional information on the choice of ML algorithm here: https://learn.microsoft.com/en-us/azure/machine-learning/how-to-select-algorithms 
 
 ### Data display
@@ -133,10 +133,10 @@ There are several actions that the app may take:
 
 -	You can apply a graceful degradation of services and features of the app, as described in the WAF documentation https://learn.microsoft.com/en-us/azure/well-architected/reliability/self-preservation#application-design-guidance-and-patterns-1 
 -	You can build an “eco-mode” version of your application. This should be a simpler, smaller, cheaper, greener version of the full application that offers minimal features for functional use, that you can revert to in case of carbon emission spikes. You may also simply train your end-users to opt for the eco version by choice, providing a “green button” where people declare they are ok with a leaner interface, less graphics, and limited features in exchange for reducing carbon emissions.  
-   -	If you opt to involve the users, this provides an opportunity to drive a cultural change along with the technical one: 
-   -	You can specify what the impact of this choice is: “by using the green version you are saving x amount of carbon”, or “bringing our carbon score to Y” 
-   -	You can understand the user behavior and modify the eco version to reflect their choices (maybe they use 10% of the features, and they are an ideal user of the green version) 
-   -	Slowly the full version gets optimized for emission as well and ideally, these versions are able to eventually converge. 
+-	If you opt to involve the users, this provides an opportunity to drive a cultural change along with the technical one: 
+      -	You can specify what the impact of this choice is: “by using the green version you are saving x amount of carbon”, or “bringing our carbon score to Y” 
+      -	You can understand the user behavior and modify the eco version to reflect their choices (maybe they use 10% of the features, and they are an ideal user of the green version) 
+      -	Slowly the full version gets optimized for emission as well and ideally, these versions are able to eventually converge. 
 
 ## Alternatives 
 
