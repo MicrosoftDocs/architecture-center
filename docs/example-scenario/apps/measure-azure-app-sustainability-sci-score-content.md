@@ -1,20 +1,20 @@
-The solution described in the following sections will help organizations and partners create a sustainability model for applications hosted on Azure, based on the available proxies that, with time, allow scoring an application’s carbon impact and efficiency. This score is known as the Software Carbon Intensity (SCI) Score and provides a baseline for measuring changes in an application’s carbon output.
+The solution described in this article can help organizations and partners create a sustainability model for applications that are hosted on Azure. The model is based on proxies that, over time, allow you to score an application's carbon impact and efficiency. The score is known as the Software Carbon Intensity (SCI) score. It provides a baseline for measuring changes in an application's carbon output.
 
-The carbon emissions information will be partially gathered from the Azure Portal Azure carbon optimization  blade, and partially calculated, where possible, via proxy.
+The carbon emissions information is partially gathered from the Azure portal **Carbon optimization** blade, and partially calculated, when possible, via proxy.
 
-Using a separate architecture to gather Azure carbon optimization  data is essential for two key reasons.  
-- First, Azure carbon optimization data is stored and displayed only for the relative past twelve months (rolling window), so if long-term tracking of carbon footprint is required, a dedicated system ensures retention of detailed historical information.  
-- Second, an application may span multiple infrastructures, with Azure being only one component. A separate architecture allows for centralized monitoring of carbon impact across all environments, providing a holistic view and ensuring more comprehensive sustainability insights. 
+It's essential to use a separate architecture to gather Azure carbon optimization data for two key reasons:  
 
-image 
+- Azure carbon optimization data is stored and displayed only for the past twelve months (in a rolling window). When long-term tracking of a carbon footprint is required, a dedicated system ensures the retention of detailed historical information.
+- An application might span multiple infrastructures, with Azure as only one component. A separate architecture enables centralized monitoring of carbon impact across all environments to provide a holistic view and ensure more comprehensive sustainability insights.
 
+:::image type="content" source="media/carbon-optimization-blade.png" alt-text="Screenshot of the Carbon optimization blade." border="false":::
 
 > [!NOTE]
-> Greenhouse gases are not only made up of carbon dioxide, and they do not all have the same impact on the environment. For example, 1 ton of methane has the same heating effect as 80 tons of carbon dioxide, so the convention used is to normalize everything to the CO2-equivalent measure: when we talk about carbon, we always mean CO2-equivalent. 
+> Greenhouse gases aren't made up of only carbon dioxide, and they don't all have the same impact on the environment. For example, one ton of methane has the same heating effect as 80 tons of carbon dioxide. In this article, everything is normalized to the CO2-equivalent measure. All references to carbon refer to the CO2-equivalent. 
 
 ## Architecture
 
-:::image type="content" source="media/measure-app-sci-score-inline.png" alt-text="Diagram of creating a sustainability model based on available proxies that scores the carbon impact of an application." lightbox="media/measure-app-sci-score-expanded.png" border="false":::
+:::image type="content" source="media/measure-app-sci-score-inline.png" alt-text="Diagram of a sustainability model that scores the carbon impact of an application." lightbox="media/measure-app-sci-score-expanded.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/measure-app-sci-score.vsdx) of this architecture.*
 
