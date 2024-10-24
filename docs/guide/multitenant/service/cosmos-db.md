@@ -22,7 +22,7 @@ ms.custom:
 
 On this page, we describe some of the features of Azure Cosmos DB that are useful when you're working with multitenant systems. We also link to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
 
-## Multi-tenancy needs
+## Multitenancy requirements
 
 As a SaaS developer, there are two key needs you may need to design for:
 1.	Ensuring **strong tenant isolation** for your end customers and meeting stringent security requirements for those who need them.
