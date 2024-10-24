@@ -77,7 +77,6 @@ By isolating our tenants by database account, each tenant will have its own thro
 
 When using a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#control-plane-operations). 
 
-Before finalizing an isolation method, we recommend understanding your business requirements. Let's walk through a hypothetical scenario to illustrate how to approach selecting an isolation method.
 
 ## Hybrid approach scenario
 
