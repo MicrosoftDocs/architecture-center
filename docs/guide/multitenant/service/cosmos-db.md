@@ -61,9 +61,9 @@ By isolating our tenants by partition key, throughput will be shared across tena
 By isolating our tenants by database account, each tenant will have its own throughput provisioned at the database level or container level. 
 
 **Benefits:**
-- **High Isolation:** No contention or interference due to dedicated Azure Cosmos DB accounts and containers with provisioned RU/s per unique tenant.
-- **Custom SLAs:** Due to each tenant having its own account, you can provide specific tailored resources, customer-facing SLAs, and guarantees because each tenant can be tuned independently for throughput.
-- **Enhanced Security:** Physical data isolation ensures robust security since customers can enable customer managed keys at an account level per tenant. Each tenant's data is isolated by account, rather than being in the same container.
+- **High isolation:** This approach avoids contention or interference due to dedicated Azure Cosmos DB accounts and containers with provisioned RU/s per unique tenant.
+- **Custom SLAs:** Due to each tenant having its own account, you can provide specific tailored resources, customer-facing SLAs, and guarantees because each tenant's database account can be tuned independently for throughput.
+- **Enhanced security:** Physical data isolation ensures robust security since customers can enable customer managed keys at an account level per tenant. Each tenant's data is isolated by account, rather than being in the same container.
 - **Flexibility:** Tenants can enable account-level features like geo-replication, point-in-time restore (PITR), and customer-managed keys (CMK) as needed.
 
 **Tradeoffs:**
