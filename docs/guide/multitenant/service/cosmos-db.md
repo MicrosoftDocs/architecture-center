@@ -72,9 +72,10 @@ By isolating our tenants by database account, each tenant will have its own thro
 - **Query Limitations:** Because all tenants are within different accounts, multiple calls within the logic of the application to each tenant are needed when querying for multiple tenants. 
 
 **Relevant Azure Cosmos DB features:**
-- This model provides increased data access security isolation via [Azure RBAC](/azure/cosmos-db/role-based-access-control). In addition, this model provides database encryption security isolation at the tenant level via [customer managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys). 
-- You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. 
-- When using a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#control-plane-operations). 
+- **Security features:** This model provides increased data access security isolation by using [Azure RBAC](/azure/cosmos-db/role-based-access-control). In addition, this model provides database encryption security isolation at the tenant level through [customer managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys). 
+- **Custom configuration:** You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. 
+
+When using a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#control-plane-operations). 
 
 Before finalizing an isolation method, we recommend understanding your business requirements. Let's walk through a hypothetical scenario to illustrate how to approach selecting an isolation method.
 
