@@ -95,7 +95,7 @@ The time window is, of course, another important aspect of this calculation: car
 
 The carbon emissions API currently provides monthly carbon information based on the services within a subscription, at the resource group level. By using the provided REST API, you can export emissions data to a data lake that holds all sustainability data for the application.
 
-[Export Azure carbon optimization  emissions data (Preview)](/azure/carbon-optimization/export-data&tabs=RESTAPI)
+[Export Azure carbon optimization  emissions data (Preview)](/azure/carbon-optimization/export-data?tabs=RESTAPI)
 
 ```text
 Carbon (res-group) = (Carbon(subscription) * Cost(res-group)) / Cost(subscription)
