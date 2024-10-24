@@ -1,4 +1,4 @@
-This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service. Use these real-time and post-call analytics to improve call center efficiency and customer satisfaction.
+This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service. Get insights on the products and service offerings, improving call- center efficiency and customer satisfaction.
 
 ## Architecture
 
@@ -9,15 +9,28 @@ This article describes how to extract insights from customer conversations at a 
 
 1. A phone call between an agent and a customer is recorded and stored in Azure Blob Storage. Audio files are uploaded to an Azure Storage account via a supported method, such as the UI-based tool, [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer), or a [Storage SDK or API](/azure/storage/blobs/reference).
 
-1. [Azure AI Speech](/azure/ai-services/speech-service/overview) is used to transcribe audio files in [Batch mode](/azure/ai-services/speech-service/batch-transcription) asynchronously with speaker diarization enabled. The transcription results are persisted in Blob Storage.
+1. [Azure function](azure/azure-functions/functions-overview) can be configured with two types of triggers to start the intelligent transcription process
 
-1. [Azure AI Language](/azure/ai-services/language-service/overview) is used to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
+   - [Timer trigger](/azure/azure-functions/functions-bindings-timer): To process a batch of audio files accumulated over a specified time period, a time-based trigger needs to be configured. 
 
-   For batch mode transcription and personal data detection and redaction, use the [AI services Ingestion Client tool](/azure/ai-services/speech-service/ingestion-client). The Ingestion Client tool uses a no-code approach for call center transcription.
+   - [Blob trigger](zure/azure-functions/functions-bindings-storage-blob-trigger): To initiate intelligent transcription as soon as an audio file is uploaded to the blob container, a blob trigger needs to be set up. 
 
-1. [Azure OpenAI](/azure/ai-services/openai/overview) is used to process the transcript and extract entities, [summarize the conversation](/azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio#try-text-summarization), and analyze sentiments. The processed output is stored in Blob Storage and then analyzed and visualized by using other services. You can also store the output in a datastore for keeping track of metadata and for reporting. Use Azure OpenAI to process the stored transcription information.
+1. The azure function will trigger a [App Service](/azure/app-service/overview) which will execute the following steps in sequence:
 
-1. [Power BI](/power-bi/fundamentals/power-bi-overview) or a custom web application that's hosted by [App Service](/azure/app-service/overview) is used to visualize the output. Both options provide near real-time insights. You can store this output in a customer relationship management (CRM), so agents have contextual information about why the customer called and can quickly solve potential problems. This process is fully automated, which saves the agents time and effort.
+   - Call [Azure AI Speech to text service](/azure/ai-services/speech-service/overview)  (Azure speech to text service batch API) to transcribe the file(s).  In [Batch transcription](/azure/ai-services/speech-service/batch-transcription), you may pass a list of urls of audio files (time-based trigger) or a single url (for Blob trigger) as the [payload](/azure/ai-services/speech-service/batch-transcription-create?pivots=rest-api#create-a-transcription-job). 
+You must also define a “locale”, the expected language of conversation. If the conversations are multi-lingual in nature, the expected languages can also be passed as a list in the payload using the [languageIdentification](/azure/ai-services/speech-service/language-identification?tabs=once&pivots=programming-language-python#implement-speech-to-text-batch-transcription) property. The languages and supported locales can be found here. You can also use a [custom model](azure/ai-services/speech-service/batch-transcription-create?pivots=rest-api#use-a-custom-model) along with the batch transcription API using the “model” property. Details on different configuration options while using batch transcription API can be found [here](azure/ai-services/speech-service/batch-transcription-create?pivots=rest-api#request-configuration-options).
+
+   - Optionally, save this raw file in the [Azure blob container](azure/storage/blobs/storage-blobs-introduction) for future reference if it needs to be accessible later by specifying a [destination container url](azure/ai-services/speech-service/batch-transcription-create?pivots=rest-api#specify-a-destination-container-url) while calling the batch transcription API.  
+While retrieving the transcription results, first check the status of the transcription using [GET](azure/ai-services/speech-service/batch-transcription-get?pivots=rest-api#get-transcription-status) operation.  If the “status” is “Succeeded” you can get the transcribed files urls  corresponding to the audio files using a [GET](azure/ai-services/speech-service/batch-transcription-get?pivots=rest-api#get-transcription-status) request.
+
+   - Pass the raw data to the [Azure AI Language service](/azure/ai-services/language-service/overview) to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations)in the transcript. 
+
+   - Send the PII redacted data to the [Azure OpenAI](/azure/ai-services/openai/overview) to perform various post call analytics like understand the intent of the call, extract entities, [summarize the conversation](/azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio#try-text-summarization), analyse the sentiments and thereby evaluating the effectiveness of the call etc. 
+
+
+   - The processed output is further stored in the Azure Storage account for visualization or consumption by downstream applications for further processing.
+
+1. [Power BI](/power-bi/fundamentals/power-bi-overview) can be used to visualize the post call analytics on different criteria as required by the business use case. You can also store this output in a customer relationship management (CRM), so agents have contextual information about why the customer called and can quickly solve potential problems. This process is fully automated, which saves the agents time and effort. 
 
 ### Components
 
@@ -38,15 +51,15 @@ This article describes how to extract insights from customer conversations at a 
 Depending on your scenario, you can add the following workflows.
 
 - Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Azure AI Language.
-- Depending on the size and scale of your workload, you can use [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python?source=recommendations&pivots=python-mode-configuration) as a code-first integration tool to perform text-processing steps, like text summarization on extracted data.
+- Azure also offers Speech Analytics (currently in Preview) which provides the entire orchestration for post call analytics in batch.
 
 ## Scenario details
 
-This solution uses Azure AI Speech to convert audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform sentiment analysis. Scale the services and the pipeline to accommodate any volume of recorded data.
+This solution uses Azure AI Speech to Text (Batch transcription) to convert audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, listing product /service offering based on the number of queries/customer complaints etc. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
-This solution provides value to organizations in industries like telecommunications and financial services. It applies to any organization that records conversations. Customer-facing or internal call centers or support desks benefit from using this solution.
+This solution provides value to organizations offering products and/or services to customers which has customer support agents /solutions in place across all industry verticals. The post call analytics can help in improving the products & service offerings, the efficiency of the customer support systems in place etc.  It applies to any organization that records conversations. Customer-facing or internal call centers or support desks benefit from using this solution.
 
 ## Considerations
 
@@ -59,7 +72,6 @@ Reliability ensures your application can meet the commitments you make to your c
 - Find the availability service-level agreement (SLA) for each component in [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 - To design high-availability applications with Storage accounts, see the [configuration options](/azure/storage/common/geo-redundant-design).
 - To ensure resiliency of the compute services and datastores in this scenario, use failure mode for services like Azure Functions and Storage. For more information, see the [resiliency checklist for Azure services](/azure/architecture/checklist/resiliency-per-service).
-- [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 
 ### Security
 
@@ -124,4 +136,3 @@ Principal authors:
 ## Related resource
 
 - [Create custom language and acoustic models](/azure/ai-services/speech-service/how-to-custom-speech-train-model)
-
