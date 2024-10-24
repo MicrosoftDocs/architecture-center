@@ -16,14 +16,14 @@ The solution described in this article can help you create a sustainability mode
 
 ### Components
 
-- The **Carbon optimization** blade on the Azure portal provides carbon emission measurements of Azure workloads at resource-group level. 
+- The **Carbon optimization** blade in the Azure portal provides carbon emission measurements of Azure workloads at resource-group level. 
 - The Cloud for Sustainability API provides the underlying data for carbon optimization. You can use it to retrieve information on your subscription's emissions. 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides application performance monitoring. It can help you gain powerful insights into how people use your app. You can use this knowledge to make data-driven decisions about improving your application's efficiency.  
-- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores the emission information Azure carbon optimization, from custom calculations, or from other proxies for emissions. 
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) stores the emission information from Azure carbon optimization, from custom calculations, or from other proxies for emissions. 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a centralized repository that ingests and stores large volumes of data in its original form. The data can then be processed and used as a basis for a variety of analytics needs. 
 - [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) enables you to create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly create a workflow that integrates and manages your proxy sources, data storage, and efficiency calculation systems. 
-- [Azure Functions](https://azure.microsoft.com/products/functions) enables you to run small pieces of code. It automatically scales resources based on demand, and you pay only for the actual execution time. You can use it to make sustainability calculations and store them in Blob Storage or a data lake. 
-- [Azure Automation](https://azure.microsoft.com/products/automation) provides process automation via runbooks. You can use the runbooks to implement complex logic, by using PowerShell code, that can influence your application to improve efficiency. This service can also add business value by reducing errors and reducing operational costs. 
+- [Azure Functions](https://azure.microsoft.com/products/functions) enables you to run small units of code. It automatically scales resources based on demand, and you pay only for the actual execution time. You can use it to make sustainability calculations and store them in Blob Storage or a data lake. 
+- [Azure Automation](https://azure.microsoft.com/products/automation) provides process automation via runbooks. You can use the runbooks to implement complex logic, by using PowerShell code, that can influence your application to improve efficiency. This service can also add business value by reducing errors and operational costs. 
 - [Power BI](https://www.microsoft.com/power-platform/products/power-bi) allows you to turn your data into analytics and reports that provide real-time insights.
 
 ## Scenario details
@@ -50,7 +50,7 @@ These metrics are used in this example:
 
 - The carbon emission of the infrastructure, which retrieved from the [carbon emissions](https://www.microsoft.com/sustainability/emissions-impact-dashboard) API. This API is the source for both the Emissions Impact Dashboard and the **Carbon optimization** blade in the Azure portal. The data is available at resource group level, which makes it easier to track your application's emissions. 
 - Performance and scale metrics of the application, collected from [Application Insights](/azure/azure-monitor/app/app-insights-overview):  
-   - The scaling factor (or API calls, or server requests, and so on) that are concurrently connected the application 
+   - The scaling factor (API calls, server requests, and some other metric) for the application 
    - CPU usage 
    - Memory usage 
    - Response time (send and receive) 
@@ -63,7 +63,7 @@ You can add other variables to the equation, such as:
 - The time when users connect, as electricity production and demand varies with time.
 - Any other metric of the app that can tell you how its performance changes over time.
 
-By building this equation into a score that can also reflect the number of users, you create the closest approximation to a carbon score. This score is your benchmark for any further change and improvement towards the sustainability of the app.
+By building this equation into a score that can also reflect the number of users, you create the closest approximation to a carbon score. This score is your benchmark for any further change and improvement toward the sustainability of the app.
 
 Cost is another consideration that's associated to application performance. In most cases, a direct correlation of performance efficiency to cost and carbon savings can be established. This correlation leads to the following assumptions: 
 
@@ -87,7 +87,7 @@ In this equation:
 -	`C` is the carbon emissions for the application. This value is affected by how the application is deployed on Azure. For example, if all the application resources are in a single resource group, `C` is the carbon emissions for that resource group.  
 
     > [!NOTE]
-    > For now, other sources of emissions for the application are ignored, because they depend on the architecture and edge/user behavior. If you use proxies for data, you can consider these sources in the next step. 
+    > For now, other sources of emissions for the application are ignored because they depend on the architecture and edge/user behavior. If you use proxies for data, you can consider these sources in the next step. 
 
 -	`R` is the scaling factor for the application. This can be the number of average concurrent users for the time window, API requests, web requests, or some other metric. This value is important because it leads to a score that accounts for the overall impact of the usage of the application, not just its deployment footprint.
 
@@ -123,7 +123,7 @@ When you can identify the failure points that can affect your application, you c
 You can take one of the following actions: 
 
 -	Apply a graceful degradation of the app's services and features, as described in the [Well-Arcchitected Framework documentation](/azure/well-architected/reliability/self-preservation#application-design-guidance-and-patterns-1). 
--	Create an eco-mode version of your application. This is a simpler, smaller, cheaper, more sustainable version of the application that offers minimal features for functional use. You can revert to this version during carbon emission spikes. You can also simply train your end users to use an eco version by choice. You can provide a "green button" that enables people to use a leaner interface, fewer graphics, and limited features in exchange for reduced carbon emissions.  
+-	Create an eco-mode version of your application. This is a simpler, smaller, cheaper, more sustainable version of the application that offers minimal features. You can revert to this version during carbon emission spikes. You can also simply train your end users to use an eco version by choice. You can provide a "green button" that enables people to use a leaner interface, fewer graphics, and limited features in exchange for reduced carbon emissions.  
 -	If you choose to involve your users, you create an opportunity to drive a cultural change along with the technical one: 
       -	You can specify the impact of the choice: "By using the eco version, you save *x amount* of carbon" or "bringing our carbon score to *y amount*."
       -	You can gain an understanding of user behavior and modify the eco version to reflect their choices. (Maybe they use 10% of the features and are an ideal user of the eco version.) 
