@@ -97,7 +97,7 @@ The carbon emissions API currently provides monthly carbon information based on 
 
 ### Data storage
 
-You should store the carbon and carbon proxy information that you gather in a solution that you can connect to dashboards or reports. Doing so enables you to visualize your carbon score over time and make informed choices. To improve sustainability and align with the Well Architected Framework best practices (see [Data and storage design considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads)), we recommend that you use the minimum viable system of record. In this case we opt for a Data Lake Storage.  
+You should store the carbon and carbon proxy information that you gather in a solution that you can connect to dashboards or reports. Doing so enables you to visualize your carbon score over time and make informed choices. To improve sustainability and align with the Well Architected Framework best practices (see [Data and storage design considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/well-architected/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads)), we recommend that you use the minimum viable system of record. In this case we opt for a Data Lake Storage.  
 
 ### Data correlations
 
