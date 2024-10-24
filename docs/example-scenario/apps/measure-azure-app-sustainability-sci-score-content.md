@@ -50,7 +50,7 @@ These metrics are used in this example:
 
 - The carbon emission of the infrastructure, which retrieved from the [carbon emissions](https://www.microsoft.com/sustainability/emissions-impact-dashboard) API. This API is the source for both the Emissions Impact Dashboard and the **Carbon optimization** blade in the Azure portal. The data is available at resource group level, which makes it easier to track your application's emissions. 
 - Performance and scale metrics of the application, collected from [Application Insights](/azure/azure-monitor/app/app-insights-overview):  
-   - The scaling factor (API calls, server requests, and some other metric) for the application 
+   - The scaling factor (API calls, server requests, or some other metric) for the application 
    - CPU usage 
    - Memory usage 
    - Response time (send and receive) 
