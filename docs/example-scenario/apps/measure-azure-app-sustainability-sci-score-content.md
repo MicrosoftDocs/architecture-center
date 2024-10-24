@@ -26,6 +26,15 @@ The solution described in this article can help you create a sustainability mode
 - [Azure Automation](https://azure.microsoft.com/products/automation) provides process automation via runbooks. You can use the runbooks to implement complex logic, by using PowerShell code, that can influence your application to improve efficiency. This service can also add business value by reducing errors and operational costs. 
 - [Power BI](https://www.microsoft.com/power-platform/products/power-bi) allows you to turn your data into analytics and reports that provide real-time insights.
 
+### Alternatives
+
+The Azure services described in this article can be replaced with similar services. To increase density and utilization of existing resources, perform the calculations with the minimum impact to your infrastructure by using Azure services or tools that are already deployed in your environment: 
+- You can substitute Power BI dashboards with [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana/) services.  
+- You can substitute Application Insights with any other application performance management tool, like Elasticsearch APM or OpenAPM. 
+- Data in the form of tables or unstructured data can be retained in any system of records, like [MySQL](https://azure.microsoft.com/products/mysql/) or [MariaDB](/azure/mariadb/overview), or [Azure Cosmos DB](/azure/cosmos-db/) and [MongoDB](/azure/cosmos-db/mongodb/). 
+- If you have a running [Azure Functions](/azure/azure-functions/functions-overview) or Logic Apps space, you can run the calculation on a regular basis from your existing deployments. 
+- If the application resources are distributed across multiple resource groups, you can use tags to correlate cost data and calculate the amount of carbon emitted by the application.  
+
 ## Scenario details
 
 This architecture is designed to gather carbon optimization data from Azure and other sources to provide a comprehensive view of an application's environmental impact. Data is collected from Azure carbon optimization. For non-Azure environments, a proxy is used to retrieve relevant carbon metrics. After the data is consolidated, SCI calculations are performed to assess the overall carbon footprint. The results are then stored in an Azure storage account or data lake for long-term retention, which enables BI analysis and historical reporting. This approach ensures centralized tracking of carbon impact across diverse infrastructure and supports strategic sustainability efforts. 
@@ -128,15 +137,6 @@ You can take one of the following actions:
       -	You can specify the impact of the choice: "By using the eco version, you save *x amount* of carbon" or "bringing our carbon score to *y amount*."
       -	You can gain an understanding of user behavior and modify the eco version to reflect their choices. (Maybe they use 10% of the features and are an ideal user of the eco version.) 
       -	As the full version is optimized for emission, you can ideally eventually merge the two versions.
-
-## Alternatives
-
-The Azure services described in this article can be replaced with similar services. To increase density and utilization of existing resources, perform the calculations with the minimum impact to your infrastructure by using Azure services or tools that are already deployed in your environment: 
-- You can substitute Power BI dashboards with [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana/) services.  
-- You can substitute Application Insights with any other application performance management tool, like Elasticsearch APM or OpenAPM. 
-- Data in the form of tables or unstructured data can be retained in any system of records, like [MySQL](https://azure.microsoft.com/products/mysql/) or [MariaDB](/azure/mariadb/overview), or [Azure Cosmos DB](/azure/cosmos-db/) and [MongoDB](/azure/cosmos-db/mongodb/). 
-- If you have a running [Azure Functions](/azure/azure-functions/functions-overview) or Logic Apps space, you can run the calculation on a regular basis from your existing deployments. 
-- If the application resources are distributed across multiple resource groups, you can use tags to correlate cost data and calculate the amount of carbon emitted by the application.  
 
 ## Considerations
 
