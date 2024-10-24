@@ -79,7 +79,7 @@ This correlation between the SCI score, cost, and performance of an application 
 In the scenario described here, it's not possible to form a discrete calculation for the proxies that are used. Instead, the data gathered from the Emissions Impact Dashboard is processed as a starting point. Here's the SCI baseline calculation:
 
 ```text
-SCI =C∗RSCI =C∗R
+SCI = C∗R
 ```
 
 In this equation: 
@@ -93,17 +93,11 @@ In this equation:
 
 The time window is, of course, another important aspect of this calculation: carbon emissions for any energy-consuming device or system vary over time, because the energy grid might have renewable or alternative energy sources (for example, solar power) at sime times but not at others. It's therefore important to start with the shortest possible timeframe to increase precision. For example, you might start with a daily or hourly calculation.
 
-The carbon emissions API currently provides monthly carbon information based on the services within a subscription, at the resource group level. By using the provided REST API, you can export emissions data to a data lake that holds all sustainability data for the application.
-
-[Export Azure carbon optimization  emissions data (Preview)](/azure/carbon-optimization/export-data?tabs=RESTAPI)
-
-```text
-Carbon (res-group) = (Carbon(subscription) * Cost(res-group)) / Cost(subscription)
-```
+The carbon emissions API currently provides monthly carbon information based on the services within a subscription, at the resource group level. By using the provided REST API, you can [export emissions data](/azure/carbon-optimization/export-data?tabs=RESTAPI) to a data lake that holds all sustainability data for the application.
 
 ### Data storage
 
-The carbon and carbon proxy information that you gathered in the previous section should be stored somewhere that you can connect to dashboards or reports, so you can visualize your carbon score over time and make informed choices. For sustainable reasons, and in alignment with the best practices of the Well Architected Framework (see [Data and storage design considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-application-platform%22 /l %22evaluate-moving-to-paas-and-serverless-workloads)) we recommend using the minimum viable system of record. In this case we opt for a Data Lake Storage.  
+You should store the carbon and carbon proxy information that you gather in a solution that you can connect to dashboards or reports. Doing so enables you to visualize your carbon score over time and make informed choices. To improve sustainability and align with the Well Architected Framework best practices (see [Data and storage design considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads)), we recommend that you use the minimum viable system of record. In this case we opt for a Data Lake Storage.  
 
 ### Data correlations
 
