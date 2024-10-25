@@ -99,7 +99,7 @@ If you choose Azure Kubernetes Service as the compute platform to deploy microse
 
 If Azure Spring Apps is the compute platform of choice to deploy microservices, please follow the guidance [securing spring app communications end to end](/azure/spring-apps/enterprise/secure-communications-end-to-end) to understand the best practices around application security in Azure Spring Apps.
 
-If Azure Container Apps is the compute platform of choice to deploy microservices, please refer the [security baseline for Azure Container Apps](/en-us/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices. 
+If Azure Container Apps is the compute platform of choice to deploy microservices, please refer to [security baseline for Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices. 
 
 ### Cost management 
 
