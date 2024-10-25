@@ -177,7 +177,7 @@ For guidance about designing scalable solutions, see [Performance efficiency che
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before you go into production, ensure that the implemented solution supports ongoing inference with retraining cycles and the automated redeployment of models. For more information, see the following resources:
 
 - [Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
-- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
 As part of Machine Learning, responsible AI is based on the six pillars of AI use and development:
 
@@ -222,4 +222,4 @@ Other contributors:
 - [Solutions for the education industry](../../industries/education.md)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

@@ -5,9 +5,9 @@ metadata:
   description: Deploy Azure infrastructure for SWIFT Alliance Cloud.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 03/23/2023
+  ms.date: 10/22/2024
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp
 azureCategories:

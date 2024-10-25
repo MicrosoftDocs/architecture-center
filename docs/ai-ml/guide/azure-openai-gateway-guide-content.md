@@ -119,6 +119,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 All implemented API gateways have runtime costs that need to be budgeted and accounted for. Those costs usually increase with added features to address the reliability, security, and performance of the gateway itself along with operational costs introduced with added APIOps management. These added costs need be measured against the new value delivered from the system with the gateway. You want to reach a point where the new capabilities introduced by using a gateway outweigh the cost to implement and maintain the gateway. Depending on your workload's relationship to its users, you might be able to chargeback usage.
 
+To help manage costs when developing and testing a gateway, consider using a simulated endpoint for Azure OpenAI. For example, use the solution in the [Azure OpenAI API simulator](https://github.com/microsoft/aoai-api-simulator/) GitHub repository.
+
 ### Operational Excellence
 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist) to evaluate your design. You need to address operational excellence considerations such as the following:
@@ -152,7 +154,7 @@ Azure doesn't offer a turn-key solution designed specifically to proxy Azure Ope
 
 [Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas by using a single control plane.
 
-Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies), such as [Limit Azure OpenAI API token usage](/azure/api-management/azure-openai-token-limit-policy) or [Emit metrics for consumption of Azure OpenAI tokens](/azure/api-management/azure-openai-emit-token-metric-policy), and your own custom policies. Some example custom policies and scenarios can be found at the [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) community GitHub repository.
+Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies), such as [Limit Azure OpenAI API token usage](/azure/api-management/azure-openai-token-limit-policy) or [Emit metrics for consumption of Azure OpenAI tokens](/azure/api-management/azure-openai-emit-token-metric-policy), and your own custom policies. The [GenAI gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) GitHub repository contains a number of custom API Management policies along with a load-testing setup for testing the behavior of the policies.
 
 Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution that involves Azure API Management.
 
@@ -188,5 +190,6 @@ Learn ways to [Implement logging and monitoring for Azure OpenAI models](../open
 
 - [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
-- [API Management landing zone accelerator](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) covering generative AI scenarios
+- [API Management landing zone](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) GitHub repository covering generative AI scenarios
 - [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
+- [OpenAI API Simulator](https://github.com/microsoft/aoai-api-simulator/)

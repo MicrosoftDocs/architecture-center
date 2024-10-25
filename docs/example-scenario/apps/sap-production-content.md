@@ -23,7 +23,7 @@ This architecture subdivides the virtual network address space into subnets. Pla
 
 **Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region.
 
-**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet, but you can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. Azure ExpressRoute or VPN gateways can be deployed across zones to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment.  It's worth mentioning here that the IP addresses used need to be of Standard SKU for a zone deployment of the gateways.
+**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet, but you can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. Azure ExpressRoute or VPN gateways can be deployed across zones to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment. It's worth mentioning here that the IP addresses used need to be of Standard SKU for a zone deployment of the gateways.
 
 **Network security groups.** To restrict incoming, outgoing, and intra-subnet traffic in the virtual network, create [network security groups (NSGs)](/azure/virtual-network/tutorial-filter-network-traffic-cli) which are in turn assigned to specific subnets. DB and application subnets are secured with workload specific NSGs.
 
@@ -75,16 +75,14 @@ Consider the [decision factors](/azure/virtual-machines/workloads/sap/sap-ha-ava
 
 **Oracle-specific components.** Oracle Database VMs are deployed in an availability set or in different availability zones. Each VM contains its own installation of the database software and VM-local database storage. Set up synchronous database replication through Oracle Data Guard between the databases to ensure consistency and allow low RTO & RPO service times in case if individual failures. Besides the database VMs, additional VMs with Oracle Data Guard Observer are needed for an Oracle Data Guard Fast-Start Failover setup. The Oracle observer VMs monitor the database and replication status and facilitate database failover in an automated way, without the need for any cluster manager. Database replication management can bet performed then using Oracle Data Guard Broker for ease of use.
 
-For details on Oracle Data Guard deployment see
-- [SAP whitepaper - Setting up Oracle 12c Data Guard for SAP Customers](https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html)
-- [Oracle Data Guard documentation on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture#oracle-data-guard-with-fsfo)
+For details about Oracle Data Guard deployment, see [Oracle Data Guard documentation on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture#oracle-data-guard-with-fsfo).
 
-This architecture utilizes native Oracle tooling without any actual cluster setup or the need for a load balancer in the database tier. With Oracle Data Guard Fast-Start Failover and SAP configuration, the failover process is automated and SAP applications re-connect to the new primary database should a failover occur.
-Various 3rd party cluster solutions exist as an alternative, such as SIOS Protection Suite or Veritas InfoScale, details of which deployment can be found in respective 3rd party vendor's documentation respectively.
+This architecture utilizes native Oracle tooling without any actual cluster setup or the need for a load balancer in the database tier. With Oracle Data Guard Fast-Start Failover and SAP configuration, the failover process is automated and SAP applications reconnect to the new primary database should a failover occur.
+Various third party cluster solutions exist as an alternative, such as SIOS Protection Suite or Veritas InfoScale, details of which deployment can be found in respective third party vendor's documentation respectively.
 
-**Oracle RAC.** Oracle Real Application Cluster (RAC) is currently [not certified or supported by Oracle in Azure](https://launchpad.support.sap.com/#/notes/2039619). However Oracle Data Guard technologies and architecture for high availability can provide highly resilient SAP environments with protection against rack, data center, or regional interruptions of service.
+**Oracle RAC.** Oracle Real Application Cluster (RAC) is currently [not certified or supported by Oracle in Azure](https://launchpad.support.sap.com/#/notes/2039619). However Oracle Data Guard technologies and architecture for high availability can provide highly resilient SAP environments with protection against rack, datacenter, or regional interruptions of service.
 
-**NFS tier.** For all highly available SAP deployments, a resilient NFS tier is required to be used, providing NFS volumes for SAP transport directory, sapmnt volume for SAP binaries as well as further volumes for (A)SCS and ERS instances. 
+**NFS tier.** For all highly available SAP deployments, a resilient NFS tier is required to be used, providing NFS volumes for SAP transport directory, sapmnt volume for SAP binaries as well as further volumes for (A)SCS and ERS instances.
 Options to provide an NFS tier are
 - [Azure Files NFS](/azure/storage/files/files-nfs-protocol) with zone-redundant storage (ZRS) - [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-nfs-azure-files) guides
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) deployment of NFS volumes - [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) guides
@@ -93,10 +91,10 @@ Options to provide an NFS tier are
 **SAP central services cluster.** This reference architecture runs Central Services on discrete VMs. Central Services is a potential single point of failure (SPOF) when it's deployed to a single VM. To implement a highly available solution, cluster management software is needed which automates failover of (A)SCS and ERS instances to the respective VM.
 As this is tied strongly with the chosen NFS solution
 
-Chosen cluster solution requires a mechanism to decide in case of software or infrastructure unavailability which VM should serve the respective service(s). With SAP on Azure, two options are available for Linux based implementation of STONITH - how to deal with unresponsive VM or application
+Chosen cluster solution requires a mechanism to decide in case of software or infrastructure unavailability which VM should serve the respective services. With SAP on Azure, two options are available for Linux based implementation of STONITH - how to deal with unresponsive VM or application
 
 - *SUSE-Linux-only* **SBD (STONITH Block Device)** - using one or three additional VMs which serve as iSCSI exports of a small block device, which is accessed regularly by the actual cluster member VMs, two (A)SCS/ERS VMs in this cluster pool. The VMs use these SBD mounts to cast votes and thus achieve quorum for cluster decisions. The architecture contained on this page does NOT contain the 1 or 3 additional SBD VMs. RedHat does not support any SBD implementations in Azure and thus this option is only available to SUSE SLES operating system.
-- **Azure Fence Agent.** Without utilizing additional VMs, Azure management API is used for regular checks for VM availability. 
+- **Azure Fence Agent.** Without utilizing additional VMs, Azure management API is used for regular checks for VM availability.
 
 Guides linked within the NFS tier section contain the necessary steps and design for respective cluster choice. Third party Azure certified cluster managers can be also utilized to provide high availability of the SAP central services.
 
@@ -119,7 +117,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 The following diagram shows the architecture of a production SAP system on Oracle in Azure. The architecture provides DR and uses availability zones.
 
-[ ![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-disaster-recovery.png) ](./media/sap-oracle-disaster-recovery.png#lightbox)
+[ ![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-disaster-recovery.png)](./media/sap-oracle-disaster-recovery.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture and related architectures.*
 
@@ -128,8 +126,8 @@ Every architectural layer in the SAP application stack uses a different approach
 ### Backup
 
 Backup for Oracle in Azure can be achieved through several means:
-- **Azure Backup.** [Azure provided and maintained scripts](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Databases, to facilitate Oracle actions pre- and post backup execution. 
-- **Azure Storage.** Using file-based database backups, for example scheduled with SAP's BR tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob, or Azure Files storage services. See [documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
+- **Azure Backup.** [Azure provided and maintained scripts](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Databases, to facilitate Oracle actions pre- and post backup execution.
+- **Azure Storage.** Using file-based database backups, for example scheduled with SAP's BR tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob, or Azure Files storage services. See [Documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
 - **3rd party backup solutions.** See architecture of your backup storage provider, supporting Oracle in Azure.
 
 For non-database VMs, [Azure Backup for VM](/azure/backup/backup-azure-vms-introduction) is recommended to protect SAP application VMs and surround infrastructure like SAP Web Dispatcher.

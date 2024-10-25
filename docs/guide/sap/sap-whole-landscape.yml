@@ -7,8 +7,9 @@ metadata:
   ms.reviewer: ssumner
   ms.date: 07/10/2023
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
+  ms.custom: arb-sap
 azureCategories:
   - databases
   - compute
@@ -21,4 +22,4 @@ name: SAP landscape architecture
 summary: Best practices and recommendations for architecting an entire SAP landscape on Azure. 
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-whole-landscape.png
 content: |
-  [!include[](sap-whole-landscape-content.md)]
+  [!INCLUDE[](sap-whole-landscape-content.md)]

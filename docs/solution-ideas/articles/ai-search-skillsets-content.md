@@ -125,4 +125,3 @@ Try the learning path:
 ## Related resources
 
 - [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
-- [Keyword search and speech to text](../../ai-ml/idea/digital-media-speech-text.yml)

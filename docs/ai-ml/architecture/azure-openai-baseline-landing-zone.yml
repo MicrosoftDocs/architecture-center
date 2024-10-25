@@ -8,9 +8,11 @@ metadata:
   ms.date: 05/10/2024
   ms.topic: reference-architecture
   ms.collection: ce-skilling-ai-copilot
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
-  ms.custom: arb-aiml
+  ms.custom:
+    - arb-aiml
+    - arb-telco
 azureCategories:
   - ai-machine-learning
   - web

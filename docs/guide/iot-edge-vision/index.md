@@ -6,8 +6,8 @@ author: asergaz
 ms.author: sergaz
 ms.date: 02/16/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 categories: iot
 products:
   - azure-iot-edge

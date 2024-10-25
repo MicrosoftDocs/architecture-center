@@ -6,7 +6,7 @@ author: RobBagby
 ms.author: pnp
 ms.date: 08/31/2023
 ms.topic: conceptual
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories: compute
 categories: compute

@@ -46,7 +46,7 @@ You can use the following components.
 
 #### Microsoft Power Platform services
 
-- [Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power Apps, Power Automate, Power BI, and Power Virtual Agents.
+- [Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power Apps, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents).
 - [Power Apps](https://powerapps.microsoft.com): A suite of apps, services, connectors, and data platform. It provides a rapid application development environment to build custom apps for your business needs.
 - [Power Automate](https://flow.microsoft.com): A service that helps you create automated workflows between your favorite apps and services. Use it to synchronize files, get notifications, collect data, and so on.
 - [Power BI](https://powerbi.microsoft.com): A collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
@@ -180,4 +180,3 @@ This article is maintained by Microsoft. It was originally written by:
 - [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the ML products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-- [Machine learning operations (MLOps) framework to upscale ML lifecycle with Machine Learning](../mlops/mlops-technical-paper.yml)

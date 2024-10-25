@@ -7,14 +7,15 @@ metadata:
   ms.author: jomore
   ms.date: 06/07/2024
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ms.category:
     - networking
   ms.custom:
     - fcp
     - guide
     - internal-intro
+    - arb-web
 name: Zero-trust network for web applications with Azure Firewall and Application Gateway
 azureCategories:
   - networking

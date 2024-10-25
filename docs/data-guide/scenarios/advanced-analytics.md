@@ -6,8 +6,8 @@ ms.author: prvalava
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
   - analytics
   - ai-machine-learning
@@ -93,6 +93,6 @@ Relevant Azure services:
 
 ## See also
 
-- [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
+- [Choose an Azure AI services technology](../technology-choices/ai-services.md)
 
 - [Choosing a machine learning technology](../../ai-ml/guide/data-science-and-machine-learning.md)

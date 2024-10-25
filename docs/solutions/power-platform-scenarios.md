@@ -5,8 +5,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 07/28/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - power-platform
   - power-apps
@@ -32,7 +32,7 @@ ms.custom: fcp
 - [Power BI](https://powerbi.microsoft.com). Enable your employees to generate data-driven insights.
 - [Power Apps](https://powerapps.microsoft.com). Enable anyone to build custom apps.
 - [Power Automate](https://powerautomate.microsoft.com). Give everyone the ability to automate organizational processes.
-- [Power Virtual Agents](https://powervirtualagents.microsoft.com). Build chatbots to engage with your customers and employees—no coding required.
+- [Microsoft Copilot Studio (formerly Power Virtual Agents)](https://powervirtualagents.microsoft.com). Build chatbots to engage with your customers and employees—no coding required.
 
 This article provides summaries of solutions and architectures that use Power Platform together with Azure services. 
 

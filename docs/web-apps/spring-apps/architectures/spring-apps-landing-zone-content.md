@@ -4,7 +4,7 @@ In this scenario, your organization expects the workload to use federated resour
 
 > [!IMPORTANT]
 >
-> This reference architecture is part of the [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) guidance. The best practices are intended for a **workload owner** who wants to meet the preceding expectations.
+> This reference architecture is part of the [**Azure Spring Apps landing zone**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) scenario guidance in the Cloud Adoption Framework. The best practices are intended for a **workload owner** who wants to meet the preceding expectations.
 >
 > The workload is deployed in an *Azure application landing zone* subscription provisioned by the organization. As the workload owner, you own the resources in this subscription.
 >
@@ -12,7 +12,7 @@ In this scenario, your organization expects the workload to use federated resour
 >
 > We highly recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
-The design choices made in this architecture are covered in the key technical design areas for this accelerator. For more information, see [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator). 
+The design choices made in this architecture are covered in the key technical design areas. For more information, see [**Azure Spring Apps landing zone**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) in the Cloud Adoption Framework.
 
 > [!TIP]
 > ![GitHub logo](../../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) on GitHub that illustrates some of the design choices. Consider the implementation as your first step toward production.
@@ -100,12 +100,12 @@ Azure Spring Apps provides [autoscaling](/azure/spring-apps/how-to-setup-autosca
 
 Azure Spring Apps also supports scaling your applications [manually](/azure/spring-apps/how-to-scale-manual) by adjusting CPU, Memory/GB per instance, and App instance counts. This type of scaling is suitable for one-time scaling activity that you might want to perform for certain apps. Adjust the values to meet your application's scaling needs, and ensure your settings are within the maximum limits for each attribute.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Manually scaling applications by adjusting settings is different from the [manual scale](/azure/spring-apps/how-to-setup-autoscale#set-up-autoscale-settings-for-your-application-in-the-azure-portal) option for the auto scale setting in the Azure portal.
 
 ## Networking considerations
 
-In this design, the workload is dependent on resources owned by the platform team for accessing on-premises resources, controlling egress traffic, and so on. For more information, see [Azure Spring Apps landing zone accelerator: Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/network-topology-and-connectivity).
+In this design, the workload is dependent on resources owned by the platform team for accessing on-premises resources, controlling egress traffic, and so on. For more information, see [Azure Spring Apps landing zone: Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/network-topology-and-connectivity).
 
 #### Network topology
 
@@ -170,7 +170,7 @@ Outbound traffic from the virtual network must be restricted to prevent data exf
 
 ## Identity and access management
 
-The workload's identity implementation must align with the organizational best practices to ensure the application doesn't violate organizational security or governance boundaries. For more information, see [Azure Spring Apps landing zone accelerator: Identity and access management](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/identity-and-access-management).
+The workload's identity implementation must align with the organizational best practices to ensure the application doesn't violate organizational security or governance boundaries. For more information, see [Azure Spring Apps landing zone: Identity and access management](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/identity-and-access-management).
 
 Microsoft Entra ID is recommended for authenticating users and services that interact with the Azure Spring Apps instance.
 
@@ -180,7 +180,7 @@ For authorization, use Azure Role Based Access Control (RBAC) by applying the pr
 
 ## Monitoring considerations
 
-The Azure landing zone platform provides shared observability resources as part of the management subscriptions. However, provisioning your own monitoring resources is recommended to simplify the overall management of the workload. For more information, see [Azure Spring Apps landing zone accelerator: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
+The Azure landing zone platform provides shared observability resources as part of the management subscriptions. However, provisioning your own monitoring resources is recommended to simplify the overall management of the workload. For more information, see [Azure Spring Apps landing zone: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
 
 This architecture creates the following resources:
 
@@ -209,7 +209,7 @@ To help with this type of collaboration, familiarize yourself with the procedure
 > - Enable logs for `AzureFirewallApplicationRule`, `AzureFirewallNetworkRule`, and `AzureFirewallDnsProxy`. The application team needs to monitor traffic flows from the application and requests to the DNS server.
 > - Give the application team sufficient permissions to do their operations.
 >
-> For more information, see [Azure Spring Apps landing zone accelerator: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
+> For more information, see [Azure Spring Apps landing zone: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
 
 #### Health probes
 
@@ -217,7 +217,7 @@ Azure Application Gateway uses [health probes](/azure/application-gateway/applic
 
 ## Security considerations
 
-The centralized teams provide networking and identity controls as part of the platform. However, the workload should have security affordances to reduce the attack surface. For more information, see [Azure Spring Apps landing zone accelerator: Security](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/security).
+The centralized teams provide networking and identity controls as part of the platform. However, the workload should have security affordances to reduce the attack surface. For more information, see [Azure Spring Apps landing zone: Security](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/security).
 
 #### Data at rest
 
@@ -256,7 +256,7 @@ You can also use Application Insights and Azure Monitor to lower operational cos
 
 ## Scenario deployment
 
-A deployment for this reference architecture is available at [Azure Spring Apps Landing Zone Accelerator](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) on GitHub. The deployment uses Terraform templates.
+A deployment for this reference architecture is available in the [Azure Spring Apps landing zone](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) GitHub repository. The deployment uses Terraform templates.
 
 The artifacts in this repository provide a foundation that you can customize for your environment. The implementation creates a hub network with shared resources such as Azure Firewall for illustrative purposes. This grouping can be mapped to separate landing zone subscriptions to keep workload and platform functions separate.  
 
@@ -276,7 +276,7 @@ The reference implementation supports Azure Spring Apps Enterprise SKU as a depl
 
 ## Next steps
 
-- Review the design areas of the [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator).
+- Review the design areas of the [Azure Spring Apps landing zone guidance](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator).
 
 ## Related resources
 

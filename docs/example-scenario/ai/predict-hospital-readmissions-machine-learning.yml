@@ -10,7 +10,7 @@ metadata:
     - arb-healthcare
     - arb-aiml 
   ms.topic: example-scenario
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
 azureCategories:
 - ai-machine-learning

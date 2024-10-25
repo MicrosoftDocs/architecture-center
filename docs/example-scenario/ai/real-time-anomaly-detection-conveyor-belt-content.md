@@ -161,7 +161,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
 - [MLOps v2](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
-- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
 ### Performance efficiency
 
@@ -208,4 +208,4 @@ Other contributors:
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
 - [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

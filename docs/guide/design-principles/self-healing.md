@@ -6,8 +6,8 @@ author: ckittel
 ms.author: chkittel
 ms.date: 07/25/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure
 categories:
@@ -32,7 +32,7 @@ Also, don't just consider big events like regional outages, which are generally 
 
 ## Recommendations
 
-**Use decoupled components that communicate asynchronously**. Components should ideally use events to communicate with each other. This helps to minimize the chance of cascading failures.
+**Use decoupled components that communicate asynchronously**. Ideally, components are decoupled in terms of time and space. Decoupled in time means that components don't need to be present at the same time for communication to be possible. Decoupled in space means that the sender and receiver don't have to run in the same process, but they can wherever it's more efficient. Decoupled components ideally use events to communicate with each other. This helps minimize the chance of cascading failures.
 
 **Retry failed operations**. Transient failures might occur due to momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Build retry logic into your application to handle transient failures. For many Azure services, the client SDK implements automatic retries. For more information, see [Transient fault handling][transient-fault-handling] and the [Retry pattern][retry].
 

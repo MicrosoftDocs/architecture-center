@@ -6,8 +6,8 @@ ms.author: robbag
 author: RobBagby
 ms.reviewer: chkittel
 ms.date: 07/12/2024
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories: developer-tools
 categories: developer-tools
 products: azure

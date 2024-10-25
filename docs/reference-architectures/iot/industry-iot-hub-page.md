@@ -4,7 +4,7 @@ titleSuffix: Azure Reference Architectures
 description: See example Azure IoT solutions and scenarios for environmental, facilities, manufacturing, retail, and transportation industries.
 author: falloutxay
 manager: lizross
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 07/09/2024

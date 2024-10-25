@@ -7,8 +7,8 @@ ms.reviewer: tozimmergren
 categories: azure
 ms.date: 10/04/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories:
   - analytics
   - compute
@@ -128,7 +128,7 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-| Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
+| Capability | The Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse Analytics |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |

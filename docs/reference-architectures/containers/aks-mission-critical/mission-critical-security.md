@@ -3,10 +3,10 @@ title: Security considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without dependencies to other company resources - Security.
 author: msimecek
 ms.author: msimecek
-ms.date: 09/01/2022
+ms.date: 10/17/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: arb-containers
 products:
   - azure-kubernetes-service
@@ -61,7 +61,9 @@ resource "azurerm_role_assignment" "acrpull_role" {
 
 ### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Microsoft Entra Workload ID* feature is available, some parts of the workload use **keys** to access Azure resources, such as Azure Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Whenever possible, **Microsoft Entra authentication** should be used instead of keys when accessing Azure resources. Many Azure services support the option to completely disable key authentication (e.g. [Azure Cosmos DB](/azure/cosmos-db/nosql/security/how-to-disable-key-based-authentication?tabs=csharp&pivots=azure-interface-cli), [Azure Storage](/azure/storage/common/shared-key-authorization-prevent?tabs=portal)) and AKS supports [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview?tabs=dotnet).
+
+For scenarios where Microsoft Entra authentication cannot be used, each deployment stamp has its dedicated instance of Azure Key Vault to store keys. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
 > [!NOTE]
 > This workload doesn't use custom certificates, but the same principles would apply.

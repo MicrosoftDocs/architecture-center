@@ -5,8 +5,8 @@ author: PageWriter-MSFT
 ms.author: prwilk
 ms.date: 06/06/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 azureCategories: web
 categories: web
 products:
@@ -47,9 +47,8 @@ Suppose, your organization wants you to **deploy the solution a part of an enter
 
 Refer to this architecture that deploys the baseline in an enterprise deployment that's design as per the design principles of Azure Landing Zones. Some sample requirements that should be communicated with central teams are annotated with "Platform team" notes.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Reference architecture: Azure Spring Apps integrated with landing zones](./architectures/spring-apps-landing-zone.yml)
-
 
 ## Sample implementations
 
@@ -57,8 +56,7 @@ The preceding reference architectures are all illustrated by implementations tha
 
 - [Azure Spring Apps multizone deployment](https://github.com/Azure-Samples/azure-spring-apps-multi-zone)
 - [Azure Spring Apps multiregion deployment](https://github.com/Azure-Samples/azure-spring-apps-multi-region)
-- [Azure Spring Apps landing zone accelerator](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator)
-
+- [Azure Spring Apps landing zone GitHub repository](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator)
 
 ## Related links
 

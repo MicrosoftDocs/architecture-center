@@ -1,8 +1,8 @@
 ---
-author: doodlemania2
-ms.author: adboegli
+author: RobBagby
+ms.author: pnp
 ms.topic: include
-ms.service: architecture-center
+ms.service: azure-architecture-center
 ---
 
 ### Object storage

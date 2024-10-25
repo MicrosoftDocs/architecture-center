@@ -1,8 +1,9 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can build an entire IT infrastructure to run your organization by using various Azure services. Azure also offers security services to protect your infrastructure. By using Azure security services, you can improve the security posture of your IT environment. You can mitigate vulnerabilities and avoid breaches by implementing a well-architected solution that follows recommendations from Microsoft. 
+You can create a complete IT infrastructure for your organization using a wide range of Azure services. Azure also provides security services to protect this infrastructure. By utilizing Azure’s security solutions, you can enhance your IT environment's security posture, mitigate vulnerabilities, and prevent breaches by following Microsoft's best practice recommendations for a well-architected solution.
+While some security services come with associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
 
-Some security services incur fees while others have no additional charges. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and many others. This article covers such services.
+Some security services come with additional costs, while others are available at no extra charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and many more. This article focuses on these cost-free security services.
 
 This article is the third in a series of five. To review the previous two articles in this series, including the introduction and a review of how you can map threats against an IT environment, see the following articles:
 
@@ -11,7 +12,8 @@ This article is the third in a series of five. To review the previous two articl
 
 ## Potential use cases
 
-This article presents Azure security services according to each Azure service. In this way, you can think of a specific threat against resource—a virtual machine (VM), an operating system, an Azure network, an application—or an attack that might compromise users and passwords. Then use the diagram in this article to help you understand which Azure security services to use to protect resources and user identities from that type of threat.
+This article organizes Azure security services by each Azure resource, allowing you to focus on specific threats targeting resources such as virtual machines (VMs), operating systems, Azure networks, or applications, as well as attacks that could compromise users and passwords. The diagram provided will guide you in identifying the appropriate Azure security services to safeguard both resources and user identities from these types of threats.
+
 
 ## Architecture
 
@@ -23,8 +25,7 @@ This article presents Azure security services according to each Azure service. I
 
 The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org) and [National Institute of Standards and Technology](https://www.nist.gov). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
-The diagram doesn't contain all the Azure security services that are available, but it shows the security services that are most commonly used by organizations. All the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
-
+The diagram doesn't include every Azure security service available, but it highlights the services most commonly used by organizations. All the security services shown in the architectural diagram can be combined and configured to work together based on your IT environment and your organization's specific security needs.
 
 ### Workflow
 
@@ -136,7 +137,7 @@ The example architecture in this article uses the following Azure components:
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Azure Security Engineer
 
 Other contributors:
 

@@ -6,15 +6,13 @@ metadata:
   ms.author: robiro
   ms.date: 07/20/2023
   ms.topic: reference-architecture
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.category:
     - databases
     - compute
   ms.custom:
-    - fcp
-    - reference-architecture
-    - e2e-sap
+    - arb-sap
     - linux-related-content
 name: Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure
 azureCategories:
@@ -26,4 +24,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-hana-scale-up-thumbnail.png
 content: |
-   [!include[](run-sap-hana-for-linux-virtual-machines-content.md)]
+   [!INCLUDE[](run-sap-hana-for-linux-virtual-machines-content.md)]

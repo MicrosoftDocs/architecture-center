@@ -152,7 +152,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
 
 - [MLOps v2](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
-- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
 Responsible AI as a part of Azure Machine Learning is based on the six pillars of AI development and use: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For an overview and implementation details, see [What is responsible AI?](/azure/machine-learning/concept-responsible-ml).
 
@@ -195,6 +195,5 @@ Other contributor:
 ## Related resources
 
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
-- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

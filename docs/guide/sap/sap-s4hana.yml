@@ -6,17 +6,13 @@ metadata:
   ms.author: bentrin
   ms.date: 07/20/2023
   ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
+  ms.service: azure-architecture-center
+  ms.subservice: architecture-guide
   ms.category:
     - databases
     - management-and-governance
   ms.custom:
-    - SAP
-    - Linux
-    - fcp
-    - reference-architecture
-    - e2e-sap
+    - arb-sap
     - linux-related-content
 name: SAP S/4HANA in Linux on Azure
 azureCategories:
@@ -31,4 +27,4 @@ products:
   - azure-netapp-files
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-s4hana-thumb.png
 content: |
-   [!include[](sap-s4hana-content.md)]
+   [!INCLUDE[](sap-s4hana-content.md)]

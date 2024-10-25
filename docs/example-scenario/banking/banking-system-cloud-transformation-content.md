@@ -12,11 +12,11 @@ The actual Contoso microservices containers were manually pushed through Docker 
 
 * Azure Red Hat OpenShift (ARO) in the Kubernetes/OpenShift Horizontal Pod Autoscaler (HPA) for:
 
-  * Channel Holder.
+  - Channel Holder.
 
-  * Scalability and Performance for Transaction Simulation deliverables.
+  - Scalability and Performance for Transaction Simulation deliverables.
 
-* Azure Kubernetes Services (AKS) for the node autoscaler for Channel Holder.
+* Azure Kubernetes Service (AKS) for the node autoscaler for Channel Holder.
 
  The CSE team created the other microservices as stubs to specifically isolate the actual Contoso microservices from other external mainframe services that the solution pushed through Azure Pipelines.
 
@@ -68,7 +68,7 @@ This component runs a service called Channel Holder on Azure Red Hat OpenShift. 
 
 * Provide OpenShift cluster monitoring through a Grafana dashboard.
 
-* Execute horizontal pod autoscaling tests for the Channel Holder service.
+* Execute Horizontal Pod Autoscaling tests for the Channel Holder service.
 
 * Provide observability on the Channel Holder by activating metrics capture (for example, usage) with Prometheus and Grafana.
 
@@ -108,43 +108,43 @@ The list below summarizes the technologies that the CSE team used to create this
 
 * Azure
 
-  * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+  - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
-  * [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service)
+  - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
-  * [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift)
+  - [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift)
 
-  * [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 
-  * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) - [(Kafka)](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+  - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) - [(Kafka)](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
-  * [Azure Monitor](https://azure.microsoft.com/services/monitor)
+  - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 
-  * [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
+  - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 
-  * [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances)
+  - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances)
 
-  * [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
+  - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 
 * Third-party
 
-  * Contoso Bank back-end services
+  - Contoso Bank back-end services
 
-  * [Docker](https://www.docker.com)
+  - [Docker](https://www.docker.com)
 
-  * [Grafana](https://grafana.com)
+  - [Grafana](https://grafana.com)
 
-  * [Prometheus](https://prometheus.io)
+  - [Prometheus](https://prometheus.io)
 
 * Open-source
 
-  * [Jenkins](https://www.jenkins.io)
+  - [Jenkins](https://www.jenkins.io)
 
-  * [KEDA](https://keda.sh)
+  - [KEDA](https://keda.sh)
 
-  * [Apache JMeter](https://jmeter.apache.org)
+  - [Apache JMeter](https://jmeter.apache.org)
 
-  * [Redis](https://redis.io)
+  - [Redis](https://redis.io)
 
 ## Scenario details
 
@@ -176,23 +176,23 @@ Contoso Bank considered the following general points as successful criteria on a
 
 * Provide the Contoso technical team with the ability to apply digital transformation and cloud adoption. The CSE team:
 
-  * Provided the necessary tools and processes in Azure.
+  - Provided the necessary tools and processes in Azure.
 
-  * Demonstrated how the Contoso technical team could continue using their existing tools.
+  - Demonstrated how the Contoso technical team could continue using their existing tools.
 
 * Each component would come with a document covering:
 
-  * Scalability and performance tests results.
+  - Scalability and performance tests results.
 
-  * Parameters and metrics considered on each test.
+  - Parameters and metrics considered on each test.
 
-  * Any code or infrastructure change if needed during each test.
+  - Any code or infrastructure change if needed during each test.
 
-  * Lessons learned on performance tweaks, performance tuning, and parameters considered for each test.
+  - Lessons learned on performance tweaks, performance tuning, and parameters considered for each test.
 
-  * Lessons learned and guidance on Kafka partitioning strategies.
+  - Lessons learned and guidance on Kafka partitioning strategies.
 
-  * General architecture recommendations/guidance based on the learnings over the deliverables.
+  - General architecture recommendations/guidance based on the learnings over the deliverables.
 
 #### Deliverables criteria
 
@@ -212,11 +212,11 @@ There were a number of design constraints that the CSE team had to consider:
 
 * Because of internal requirements, Contoso Bank requested the use of the following technologies:
 
-  * OpenShift 3.11 as the container orchestration platform.
+  - OpenShift 3.11 as the container orchestration platform.
 
-  * Java and Spring Boot for microservice development.
+  - Java and Spring Boot for microservice development.
 
-  * Kafka as the event streaming platform with Confluent Schema Registry feature.
+  - Kafka as the event streaming platform with Confluent Schema Registry feature.
 
 * The solution had to be cloud agnostic.
 
@@ -256,7 +256,7 @@ The CSE team created release branches that generated stable versions for deploym
 
 #### Disaster recovery
 
-The solution uses Terraform scripts and Azure Pipelines for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and recreates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
+The solution uses Terraform scripts and Azure Pipelines for all the services. If a disaster occurs, Contoso Bank can re-create the entire environment by using Terraform scripts or by running the release pipeline again. Terraform understands that the environment has changed and re-creates it. The solution dynamically provisions and destroys the infrastructure on Azure as needed. Storage accounts are zone-redundant storage (ZRS). A backup strategy was out of scope for this engagement.
 
 #### Security and privacy
 
@@ -274,29 +274,29 @@ At the end of the project, the CSE team shared the following insights:
 
 * Solution and engagement outcome
 
-  * The team observed a high level of compatibility between AKS and ARO for services deployment.
+  - The team observed a high level of compatibility between AKS and ARO for services deployment.
 
-  * [Application Insights Codeless](/azure/azure-monitor/app/codeless-overview) makes it easier to create observability, collaborating to the cloud adoption on lift-and-shift migrations.
+  - [Application Insights Codeless](/azure/azure-monitor/app/codeless-overview) makes it easier to create observability, collaborating to the cloud adoption on lift-and-shift migrations.
 
-  * Load testing is an important part of large scale intended solutions and requires previous analysis and planning to consider the microservice specificities.
+  - Load testing is an important part of large scale intended solutions and requires previous analysis and planning to consider the microservice specificities.
 
-  * The load testing potential to find microservices side effects is frequently underestimated by customers.
+  - The load testing potential to find microservices side effects is frequently underestimated by customers.
 
-  * Creating a test environment might require an infrastructure disposal strategy to avoid unnecessary infrastructure cost.
+  - Creating a test environment might require an infrastructure disposal strategy to avoid unnecessary infrastructure cost.
 
 * Key learnings
 
-  * There's a smooth application migration from ARO to AKS.
+  - There's a smooth application migration from ARO to AKS.
 
-  * The node autoscaling feature wasn't available on Red Hat OpenShift version 3.11, which was the version used during the engagement. As such, the CSE team carried out node autoscaling testing scenarios through AKS.
+  - The node autoscaling feature wasn't available on Red Hat OpenShift version 3.11, which was the version used during the engagement. As such, the CSE team carried out node autoscaling testing scenarios through AKS.
 
-  * A product's end-of-life might require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
+  - A product's end-of-life might require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * At the creation of this article, the CSE team created a load testing solution integrating ACI and JMeter in an Azure DevOps Pipeline. [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) has since been made available as a fully managed load-testing service without the need of deploying additional compute resources.
+  - At the creation of this article, the CSE team created a load testing solution integrating Container Instances and JMeter in an Azure DevOps Pipeline. [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) has since been made available as a fully managed load-testing service without the need of deploying additional compute resources.
 
-  * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
+  - The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
-  * The Kafka protocol with Schema Registry was not supported by Event Hubs Scaler in KEDA.
+  - The Kafka protocol with Schema Registry was not supported by Event Hubs Scaler in KEDA.
 
 ## Next steps
 

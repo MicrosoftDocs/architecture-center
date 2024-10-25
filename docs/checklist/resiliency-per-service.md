@@ -6,8 +6,8 @@ author: RobBagby
 ms.author: robbag
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-app-service
 categories:
@@ -15,6 +15,7 @@ categories:
 ms.custom:
   - resiliency
   - checklist
+  - arb-web
 ---
 
 <!-- cSpell:ignore BACPAC DTUs nonbootable VHDs -->

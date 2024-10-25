@@ -22,7 +22,7 @@ This scenario describes an open-source CTF solution based on CTFd in which custo
 
 1. Azure Key Vault maintains the keys for both the database and cache. Only the web application has access to the secrets.
 
-1. A virtual network connects Azure resources to each other and provides logical isolation. In this architecture, the web application communicates through the network with the database, cache, and key vault.
+1. A virtual network connects Azure resources to each other and provides logical isolation. In this architecture, the web application communicates through the network with the database, cache, and Key Vault.
 
 1. The web application sends logs to Azure Log Analytics, which aggregates the logs from all instances so that services can easily query them.
 
@@ -64,7 +64,7 @@ You can teach and practice other engineering practices as CTF events, but you mi
 
 Open-source CTF frameworks can turn any challenge into a CTF event with configurable challenge pages, leader boards, and other features that you expect from CTF, such as zero code. For instance, [Open Web Application Security Project (OWASP) Juice Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms that you can provision and run for your teams to complete security training.
 
-One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). CTFd is built with open-source components and is easy to use and customize. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or deploy and maintain your own environment. Managing an environment has cost and maintenance implications. But it typically costs less, you own the data, and you can integrate the environment with your organization’s network. Use a PaaS that your cloud vendor provides to get free, open-source software and easy maintenance and IT handling compared to virtualized infrastructure components.
+One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). CTFd is built with open-source components and is easy to use and customize. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or deploy and maintain your own environment. Managing an environment has cost and maintenance implications. But it typically costs less, you own the data, and you can integrate the environment with your organization's network. Use a PaaS that your cloud vendor provides to get free, open-source software and easy maintenance and IT handling compared to virtualized infrastructure components.
 
 Apply the guidance in this article, and use Azure PaaS to set up a self-hosted CTFd environment. Then you can easily maintain and scale your CTF environment to accommodate your participants.
 
@@ -92,7 +92,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Key Vault stores credentials, such as database or cache connection strings, as secrets. App Service uses managed identities to access Key Vault to avoid storing secrets in application settings or code.
 
-- This architecture provides network security throughout the design. All traffic from the publicly available web application to the internal services is routed through the virtual network. And all back-end services, such as the database, cache, and key vault, don't allow public network access.
+- This architecture provides network security throughout the design. All traffic from the publicly available web application to the internal services is routed through the virtual network. And all back-end services, such as the database, cache, and Key Vault, don't allow public network access.
 
 ### Cost optimization
 
@@ -157,4 +157,3 @@ Principal author:
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
 - [Web applications architecture design](../../web-apps/index.md)
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)

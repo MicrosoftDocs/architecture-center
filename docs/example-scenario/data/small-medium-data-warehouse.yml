@@ -4,9 +4,10 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data.
   ms.author: gapolyak
+  author: galinagpolyakova
   ms.date: 08/28/2024
   ms.topic: conceptual
-  ms.service: architecture-center
+  ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.custom:
   - arb-data
@@ -17,9 +18,7 @@ azureCategories:
 products:
   - azure-data-lake
   - azure-sql-database
-  - azure-synapse-analytics
-  - dynamics-365
-  - power-platform
+  - fabric
 name: Use modern data warehouses for small and medium-sized businesses
 summary: Learn how to use Microsoft Fabric, Azure SQL Database, Azure SQL Managed Instance, and Data Lake Storage to modernize SMB legacy and on-premises data.
 thumbnailUrl: /azure/architecture/browse/thumbs/small-medium-data-warehouse.png

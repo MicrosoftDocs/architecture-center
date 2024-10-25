@@ -68,7 +68,6 @@ For information about security for sensitive IaaS workloads, see [Security consi
 
 ### Information protection
 
-- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [Homomorphic encryption with SEAL](../../solution-ideas/articles/homomorphic-encryption-seal.yml)
 
 ### Discover and respond

@@ -6,8 +6,8 @@ ms.author: robbag
 ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 ms.custom: arb-aiml
 products:
   - azure-machine-learning
@@ -29,7 +29,7 @@ This article describes three Azure architectures for machine learning operations
 
 These architectures are the product of the MLOps v2 project. They incorporate best practices that solution architects identified in the process of developing various machine learning solutions. The result is deployable, repeatable, and maintainable patterns. All three architectures use the Azure Machine Learning service.
 
-For an implementation with sample deployment templates for MLOps v2, see [Azure MLOps v2 solution accelerator](https://github.com/Azure/mlops-v2).
+For an implementation with sample deployment templates for MLOps v2, see [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2).
 
 ## Potential use cases
 
@@ -100,7 +100,7 @@ MLOps v2 covers the following architectures that are described in this article:
 
 1. Administration and setup
 
-   This component is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles that are associated with the project. For example, the infrastructure team might:
+   This component is the first step in the MLOps v2 solution deployment. It consists of all tasks related to the creation and management of resources and roles that are associated with the project. For example, the infrastructure team might:
 
    1. Create project source code repositories.
    1. Use Bicep or Terraform to create Machine Learning workspaces.
@@ -113,7 +113,7 @@ MLOps v2 covers the following architectures that are described in this article:
 
 1. Model development (inner loop phase)
 
-   The inner loop phase consists of an iterative data science workflow that acts within a dedicated and secure Machine Learning workspace. The preceding diagram shows a typical workflow. The process starts with data ingestion, moves through exploratory data analysis, experimentation, model development and evaluation, and then registers a model for production use. This modular component as implemented in the MLOps v2 accelerator is agnostic and adaptable to the process that your data science team uses to develop models.
+   The inner loop phase consists of an iterative data science workflow that acts within a dedicated and secure Machine Learning workspace. The preceding diagram shows a typical workflow. The process starts with data ingestion, moves through exploratory data analysis, experimentation, model development and evaluation, and then registers a model for production use. This modular component is agnostic and adaptable to the process that your data science team uses to develop models.
 
    Personas associated with this phase include data scientists and machine learning engineers.
 
@@ -165,7 +165,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 1. Administration and setup
 
-   This component is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For CV scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning but includes an extra step. The infrastructure team uses the labeling feature of Machine Learning or another tool to create image labeling and annotation projects.
+   This component is the first step in the MLOps v2 deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For CV scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning but includes an extra step. The infrastructure team uses the labeling feature of Machine Learning or another tool to create image labeling and annotation projects.
 
 1. Model development (inner loop phase)
 
@@ -215,7 +215,7 @@ The Machine Learning natural language processing architecture is based on the cl
 
 1. Administration and setup
 
-   This component is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For natural language processing scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
+   This component is the first step in the MLOps v2 deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For natural language processing scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
 
 1. Model development (inner loop phase)
 
@@ -641,7 +641,7 @@ Other contributors:
 - [Azure Arc overview](/azure/azure-arc/overview)
 - [What is Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Data in Machine Learning](/azure/machine-learning/concept-data)
-- [Azure MLOps v2 solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 - [End-to-end machine learning operations (MLOps) with Machine Learning](/training/paths/build-first-machine-operations-workflow)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure DevOps documentation](/azure/devops)
@@ -653,8 +653,7 @@ Other contributors:
 
 ## Related resources
 
-- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-- [Machine learning operations framework to upscale machine learning lifecycle with Machine Learning](mlops-technical-paper.yml)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)

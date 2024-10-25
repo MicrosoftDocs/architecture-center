@@ -6,8 +6,8 @@ author: martinekuan
 ms.author: robbag
 ms.date: 07/26/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 keywords:
   - Azure
 products:
@@ -51,7 +51,6 @@ The following articles provide architectural guidelines for Azure solutions in t
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
 | [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview) | Learn about basic internet of things (IoT) concepts and how to get started with Azure IoT | IoT |
-| [Upscale machine learning lifecycle with MLOps framework](../ai-ml/guide/mlops-technical-paper.yml) | Learn how a Fortune 500 food company improved its demand forecasting and optimized the product stocks in different stores across several regions in US with the help of customized machine learning models. | AI/ML |
 | [On-demand, scalable, high-power compute](/previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | In this article, we walk through some well-known areas in engineering and manufacturing that need large computing power and explore how the Microsoft Azure platform can help. | Compute |
 | [Predictive maintenance in manufacturing](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | After introducing some background to predictive maintenance, we discuss how to implement the various pieces of a PdM solution using a combination of on-premises data, Azure machine learning, and usage of the machine learning models. | AI/ML |
 | [Predictive maintenance solution](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | This article presents options for building a predictive maintenance solution. It presents different perspectives and reference existing materials to get you started. | AI/ML |
@@ -75,7 +74,6 @@ The following are other ideas that you can use as a starting point for your manu
 
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
 - [Facilities management powered by mixed reality and IoT](/azure/architecture/solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot)
-- [Image classification with convolutional neural networks](../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
 - [Knowledge mining for customer support and feedback analysis](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

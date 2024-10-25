@@ -34,7 +34,7 @@ This article guides you through a model-view-presenter (MVP) architecture by usi
 
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Container Instances is great fit for real-time inference, and it's recommended for development and test purposes only. If you don't need to manage a cluster, use it for low-scale CPU-based workloads that require less than 48 GB of RAM.
 
-- [Microsoft Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power App, Power Automate, Power BI, and Power Virtual Agents.
+- [Microsoft Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power App, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents).
 
 - [Power Apps](https://powerapps.microsoft.com): A platform with a suite of apps, services, and connectors. It provides an environment for rapid application development to build custom apps for your business needs.
 
@@ -157,4 +157,3 @@ Other contributors:
 - [Artificial intelligence (AI) architecture design](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../mlops/mlops-technical-paper.yml)

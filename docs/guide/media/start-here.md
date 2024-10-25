@@ -5,8 +5,9 @@ author: martinekuan
 ms.author: pnp
 ms.date: 08/29/2022
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
+ms.custom: arb-media
 products:
   - azure-media-player
   - azure-media-services
@@ -23,7 +24,7 @@ Azure and Azure services can help you deliver high-quality video content to any 
 
 Select the following links to learn more about media services that are available on Azure:
 
-- [Azure Media Services](https://azure.microsoft.com/services/media-services). Use high-definition video encoding and streaming services to reach your audiences on the devices they use. And enhance content discoverability and performance by using AI. 
+- [Azure Media Services](https://azure.microsoft.com/services/media-services). Use high-definition video encoding and streaming services to reach your audiences on the devices they use. And enhance content discoverability and performance by using AI.
 - [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player). Use a single player for automatic playback on the most popular devices.
 - [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn). Deliver content on a fast, reliable network that has global reach.
 - [Azure Content Protection](https://azure.microsoft.com/services/media-services/content-protection). Use AES, PlayReady, Widevine, and FairPlay to deliver content with enhanced security.
@@ -65,7 +66,6 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 ### Live streaming
 
 - [Live streaming with Azure Media Services v3](/azure/media-services/latest/stream-live-streaming-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Instant broadcasting with serverless code](/azure/architecture/serverless-quest/serverless-overview)
 
 ### Video on demand
 

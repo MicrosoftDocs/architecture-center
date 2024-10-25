@@ -33,7 +33,7 @@ The following workflow corresponds to the preceding diagram.
   
   The high-availability subnets and VMs help ensure that the system remains operational even if individual components fail.
 
-  The Alliance Remote Gateway subscription contains resources that you manage. After you implement a service, the Alliance Access or Alliance Entry on-premises systems connect to the Alliance Remote Gateway server that's deployed at the SWIFT operating centres. 
+  The Alliance Remote Gateway subscription contains resources that you manage. After you implement a service, the Alliance Access or Alliance Entry on-premises systems connect to the Alliance Remote Gateway server that's deployed at the SWIFT operating centers. 
   
   You retain full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, and manual or automated printing.
   
@@ -143,7 +143,9 @@ You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to
 
 SWIFT has a policy framework that can help you enforce a subset of SWIFT CSP-CSCF requirements and use Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. By using separate subscriptions, you can apply the SWIFT CSP-CSCF and Azure policies only to subscriptions that contain a SWIFT secure zone.
 
-We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. By using separate subscriptions, you can ensure that SWIFT CSP-CSCF policies apply only to SWIFT components and not to your own components. Consider using the latest implementation of SWIFT CSP controls, but first consult the Microsoft team that you're working with.
+We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. By using a separate subscription, you can ensure that SWIFT CSP-CSCF policies apply only to SWIFT components and not to your own components. 
+
+Consider using the latest implementation of SWIFT CSP controls, but first consult the Microsoft team that you're working with.
 
 #### Connectivity methods
 
