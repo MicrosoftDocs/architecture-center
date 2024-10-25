@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Cosmos DB that are useful when working with multitenant systems, and links to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
 author: tarabhatiamsft
 ms.author: tarabhatia
-ms.date: 07/07/2023
+ms.date: 10/24/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -85,18 +85,6 @@ By isolating our tenants by database account, each tenant will have its own thro
 - **Custom configuration:** You can configure the location of the database account according to the tenant's requirements. You can also tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. 
 
 When using a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#control-plane-operations). 
-
-
-## Hybrid approach scenario
-
-You can consider a combination of the above approaches to suit different tenants' requirements and [your pricing model](../considerations/pricing-models.md). 
-
-For example, let's say we are a financial application that keeps track of payments from around the world and store the documents with information like TenantId, PayerId, TransactionId, etc. Our business requirements focus on building an experience for two groups of users, each with distinct needs:
-1. **Enterprise tenants:** These are our large customers who use our software to monitor their own transactions. They require strong tenant isolation for performance and security reasons, ensuring that financial data is not inadvertently shared across tenants.
-1. **Free trial tenants:** These customers are evaluating whether our software meets their workload needs with a subset of data. Since this is a free experience, we aim to keep the cost of running it low for these tenants.
-
-In this scenario, it makes sense to isolate our enterprise tenants by database account to ensure guaranteed performance and security for each tenant, while isolating our free trial tenants by partition key to maintain low costs per tenant.
-
 
 ## Complete list of isolation models
 | Workload need | Partition key per tenant (recommended) | Container per tenant (shared throughput) | Container per tenant (dedicated throughput) | Database per tenant | Database account per tenant (recommended) |
@@ -186,11 +174,11 @@ Principal authors:
 
 - [Paul Burpo](https://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
 - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
+- [Tara Bhatia](https://www.linkedin.com/in/tarabhatia01/) | Program Manager, Azure Cosmos DB
 
 Other contributors:
 
 - [Mark Brown](https://www.linkedin.com/in/markjbrown1) | Principal PM Manager, Azure Cosmos DB
-- [Tara Bhatia](https://www.linkedin.com/in/tarabhatia01/) | Program Manager, Azure Cosmos DB
 - [Deborah Chen](https://www.linkedin.com/in/deborah-chen-62212437) | Principal Program Manager
 - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130) | Senior Program Manager, Azure Cosmos DB
 - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
