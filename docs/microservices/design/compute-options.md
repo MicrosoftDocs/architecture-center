@@ -93,7 +93,7 @@ If you choose Azure Spring Apps as the microservice computing platform, reliabil
 ### Security
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see Overview of the security pillar.
 
-If you choose Azure functions as the compute platform to deploy microservices, the principles of [securing in Azure functions](azure/azure-functions/security-concepts) apply to microservices as well. 
+If you choose Azure functions as the compute platform to deploy microservices, the principles of [Securing Azure Functions](/azure/azure-functions/security-concepts) apply to microservices as well. 
 
 If you choose Azure Kubernetes Service as the compute platform to deploy microservices, [AKS security baseline architecture](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline) provides guidance of securing the compute platform. Please refer to [Advanced AKS microservice architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced) for best practices on microservice security on Azure Kubernetes Service. 
 
