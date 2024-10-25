@@ -30,13 +30,13 @@ While these aren't the only options, they are both proven approaches to building
 
 ![Microservice compute options in Azure](../design/images/microsvc-compute-options.svg)
 
-## Microservices leveraging serverless platform. 
+## Microservices leveraging serverless platform 
 
 You can leverage serverless platform for deploying Microservices on either Azure Container Apps, or on Azure Functions. Both Azure Container Apps and Azure Functions provide the option for serverless compute, where the billing is based on the volume of requests (and not on the compute consumption). Both Azure Container Apps and Azure Functions provide you the option to host the workloads on dedicated capacity as well. 
 
-## Code based microservices vs Continerized microservices. 
+## Code based microservices vs Continerized microservices 
 
-If you do not wish to containerize the microservices and would like to deploy the microservice as code, you may want to choose either Azure Functions or Azure Spring Apps. Please note that the programming / scripting languages supported by Azure Functions are .NET, Java, Node.js, Python and PowerShell Core. For microservices developed in other languages, you may want to implement a custom handler in Azure function or consider containerizing the application. 
+If you do not wish to containerize the microservices and would like to deploy the microservice as code, you may want to choose either Azure Functions or Azure Spring Apps. Please see the [list of programming / scripting languages supported by Azure Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices developed in other languages, you may want to implement a custom handler in Azure function or consider containerizing the application. 
 
 ## Microservices leveraging GPU
 
@@ -47,7 +47,7 @@ If the microservice requires GPU capacity (for example, to execute machine learn
 Azure Spring Apps is an ideal choice for deploying Spring-based microservices. Spring Apps supports deploying both code-based and container-based spring microservices. You can also deploy Spring-based microservices in Azure Functions or deploy Spring containers in other orchestrator-based compute platforms such as Azure Kubernetes Services or Azure Container Apps. Compared to other computing choices, Azure Spring Apps provides certain advantages to deploying Spring microservices, such as configuration management, service discovery, and blue-green deployments. 
 
 
-## Microservices leveraging service orchestrators. 
+## Microservices leveraging service orchestrators 
 
 An orchestrator handles tasks related to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Popular orchestrators include Kubernetes, Service Fabric, DC/OS, and Docker Swarm.
 
