@@ -80,7 +80,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your workload can meet the commitments that you make to your customers. For more information, see Overview of the [reliability pillar](/architecture/framework/resiliency/overview). 
 
-One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. 
+One of the key pillars of reliability is resiliency. The goal of resiliency is to return the workload to a fully functioning state after a failure occurs. 
 
 If you choose Azure functions as the microservice computing platform, consider deploying the function plan or app service plan in zone-redundant configuration. Please see [reliability in Azure functions](/reliability/reliability-functions?tabs=azure-portal) for details. 
 
