@@ -52,8 +52,8 @@ By isolating our tenants by partition key, throughput will be shared across tena
 - **Simplified management:** Fewer Azure Cosmos DB accounts to manage.
 
 **Tradeoffs:**
-- **Resource Contention:** Sharing throughput (RU/s) across tenants in the same container can lead to contention during peak usage, resulting in the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) which can cause performance challenges if your tenants have high or overlapping workloads. This isolation model is appropriate for workloads that do need guaranteed RU/s on a single tenant and can share.
-- **Limited Isolation:** Logical but not physical isolation, which may not meet strict isolation requirements from a performance and security perspective.
+- **Resource contention:** Sharing throughput (RU/s) across tenants in the same container can lead to contention during peak usage, resulting in the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) which can cause performance challenges if your tenants have high or overlapping workloads. This isolation model is appropriate for workloads that do need guaranteed RU/s on a single tenant and can share.
+- **Limited isolation:** This approach provides logical isolation, not physical isolation. It might not meet strict isolation requirements, whether from a performance and security perspective.
 - **Less Flexibility:** Customizing account-level features like geo-replication, point-in-time restore (PITR), and customer-managed keys (CMK) per tenant are not available if isolating by partition key (or by database/container). 
 
 **Relevant Azure Cosmos DB features:**
