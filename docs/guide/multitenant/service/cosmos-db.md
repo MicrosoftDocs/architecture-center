@@ -48,8 +48,8 @@ You can also combine multiple models together to suit different customer needs. 
 By isolating our tenants by partition key, throughput will be shared across tenants and grouped them within the same container. 
 
 **Benefits:**
-- **Cost Efficiency:** All tenants placed within one container which is partitioned by TenantID. Because there is only one billable resource where RU/s are provisioned and shared amongst multiple tenants, this is usually more cost-effective and easier to manage than having separate accounts per tenant.
-- **Simplified Management:** Fewer Azure Cosmos DB accounts to manage.
+- **Cost efficiency:** All tenants are placed within one container, which is partitioned by tenant ID. Because there is only one billable resource where RU/s are provisioned and shared amongst multiple tenants, this approach is usually more cost-effective and easier to manage than having separate accounts per tenant.
+- **Simplified management:** Fewer Azure Cosmos DB accounts to manage.
 
 **Tradeoffs:**
 - **Resource Contention:** Sharing throughput (RU/s) across tenants in the same container can lead to contention during peak usage, resulting in the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) which can cause performance challenges if your tenants have high or overlapping workloads. This isolation model is appropriate for workloads that do need guaranteed RU/s on a single tenant and can share.
