@@ -67,9 +67,9 @@ By isolating our tenants by database account, each tenant will have its own thro
 - **Flexibility:** Tenants can enable account-level features like geo-replication, point-in-time restore (PITR), and customer-managed keys (CMK) as needed.
 
 **Tradeoffs:**
-- **Increased Management:** Higher complexity in managing multiple Azure Cosmos DB accounts.
-- **Higher Costs:** More accounts mean provisioning throughput (RU/s) on each resource (databases and/or containers) within the account, for each tenant. Everytime a resource provisions RU/s, Azure Cosmos DB costs increase.
-- **Query Limitations:** Because all tenants are within different accounts, multiple calls within the logic of the application to each tenant are needed when querying for multiple tenants. 
+- **Increased management:** This approach brings greater complexity because you manage multiple Azure Cosmos DB accounts.
+- **Higher costs:** More accounts mean provisioning throughput (RU/s) on each resource (databases and/or containers) within the account, for each tenant. Every time a resource provisions RU/s, your Azure Cosmos DB costs increase.
+- **Query limitations:** Because all tenants are within different accounts, multiple calls within the logic of the application to each tenant are needed when querying for multiple tenants. 
 
 **Relevant Azure Cosmos DB features:**
 - **Security features:** This model provides increased data access security isolation by using [Azure RBAC](/azure/cosmos-db/role-based-access-control). In addition, this model provides database encryption security isolation at the tenant level through [customer managed keys](/azure/cosmos-db/how-to-setup-customer-managed-keys). 
