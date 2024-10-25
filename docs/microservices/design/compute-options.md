@@ -67,7 +67,7 @@ On the Azure platform, consider the following options:
 
 ### Microservices leveraging Kubernetes APIs
 
-Access to Kubernetes APIs is often a deciding factor - Azure Kubernetes Service provides direct access to Kubernetes APIs, while Azure Container Apps does not. Azure Container Apps hides the complexities of Kubernetes and simplifies the container deployment experience. However, if the microservice deployment is designed to directly interact with Kubernetes APIs, Azure Kubernetes Service may be the right choice. 
+Access to Kubernetes APIs is often a deciding factor. AKS provides direct access to Kubernetes APIs, while Azure Container Apps does not. Azure Container Apps hides the complexities of Kubernetes and simplifies the container deployment experience. If the microservice deployment is designed to directly interact with Kubernetes APIs, AKS may be the right choice. 
 
 ### Other decision factors
 
