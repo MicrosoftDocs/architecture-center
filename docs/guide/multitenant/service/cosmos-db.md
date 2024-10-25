@@ -32,9 +32,14 @@ These two needs can often conflict, requiring tradeoffs and prioritizing one ove
 
 ## Isolation models
 
-When working with a multitenant system that uses Azure Cosmos DB, you need to make a decision about the level of isolation you want to use. We recommend the following strategies on Azure Cosmos DB (isolation by partition key or database account). To choose between the two (or any other isolation model), it is important to understand your business model. For example, strong performance isolation may not be a priority for some business-to-consumer (B2C) models where businesses sell directly to an individual customer using the product or service. Meanwhile, business-to-business (B2B) models (which refers to selling to a business) may prioritize strong security and performance isolation, requiring tenants to have their own database account provisioned. Azure Cosmos DB supports several isolation models (see table below) and recommends the following isolation methods:
-1.	Partition key per tenant (most commonly used for **B2C**)
-2.	Database account per tenant (most commonly used for **B2B**)
+You need to decide the level of isolation between your tenants. Azure Cosmos DB supports a range of isolation models, but for most solutions we recommend you use one of the following strategies:
+
+- Partition key per tenant, which is often used for fully multitenant solutions like those used in business-to-consumer software as a service (B2C SaaS).
+- Database account per tenant, which is often. used in business-to-business (B2B) SaaS.
+
+To select the most appropriate isolation model, consider your business model and the tenants' requirements. For example, strong performance isolation may not be a priority for some B2C models where businesses sell directly to an individual customer using the product or service. However, B2B models may prioritize strong security and performance isolation, and might require tenants to have their own database account provisioned.
+
+You can also combine multiple models together to suit different customer needs. For example, suppose you're building a B2B SaaS solution that you sell to enterprise customers as well as providing a free trial for potential new customers. You might deploy a separate database account for paid enterprise tenants, who need strong security and isolation guarantees, while sharing a database account and using partition keys for isolating trial customers.
 
 ## Recommended isolation models
 
