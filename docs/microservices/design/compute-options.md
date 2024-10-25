@@ -44,7 +44,7 @@ If the microservice requires GPU capacity (for example, to execute machine learn
 
 ## Compute platform for Java Spring based microservices 
 
-Azure Spring Apps is an ideal choice for deploying Spring based microservices. Spring Apps supports deploying both code based and container based spring microservices. You can also deploy spring based microservices in Azure functions, or deploy spring containers in other orchestrator based compute platforms such as Azure Kubernetes Services or Azure Container Apps as well. Compared to other computing choices, Azure Spring Apps provides certain advantages to deploying Spring microservices, such as configuration management, service discovery, blue-green deployments etc. 
+Azure Spring Apps is an ideal choice for deploying Spring-based microservices. Spring Apps supports deploying both code-based and container-based spring microservices. You can also deploy Spring-based microservices in Azure Functions or deploy Spring containers in other orchestrator-based compute platforms such as Azure Kubernetes Services or Azure Container Apps. Compared to other computing choices, Azure Spring Apps provides certain advantages to deploying Spring microservices, such as configuration management, service discovery, and blue-green deployments. 
 
 
 ## Microservices leveraging service orchestrators. 
