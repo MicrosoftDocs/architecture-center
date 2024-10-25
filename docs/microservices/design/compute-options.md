@@ -78,7 +78,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see Overview of the [reliability pillar](/architecture/framework/resiliency/overview). 
+Reliability ensures that your workload can meet the commitments that you make to your customers. For more information, see Overview of the [reliability pillar](/architecture/framework/resiliency/overview). 
 
 One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. 
 
