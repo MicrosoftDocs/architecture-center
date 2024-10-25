@@ -110,7 +110,7 @@ Azure Functions, Azure Container Apps, Azure Kubernetes Service and Azure Spring
 ### Operational excellence
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see Overview of the operational excellence pillar.
 
-All of the microservice compute choices described in this article can be deployed in an automated manner using Terraform, Bicep, and other scripting languages. Azure application insights, Azure monitor and other monitoring solutions can be leveraged to monitor these compute platforms and the microservices. 
+All of the microservice compute choices described in this article can be deployed in an automated manner using Terraform, Bicep, and other scripting languages. [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), [Azure Monitor](/azure/azure-monitor/overview) and other monitoring solutions can be leveraged to monitor these compute platforms and the microservices. 
 
 
 **Flexibility and control**. An orchestrator gives you a great deal of control over configuring and managing your services and the cluster. The tradeoff is additional complexity. With a serverless architecture, you give up some degree of control because these details are abstracted.
