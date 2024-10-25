@@ -39,7 +39,8 @@ The recommendations described in [Basic enterprise integration][basic-enterprise
 
 Service Bus has two delivery models, *pull* or *proxied push*:
 
-- In the pull model, the receiver continuously polls for new messages. Polling can be inefficient, if you need to manage different queues and polling times, On the other hand it can simplify your architecture, removing extra components and data hops.
+- **Pull** model: The receiver continuously polls for new messages. If you need to manage different queues and polling times, polling might be inefficient. On the other hand, this model can simplify your architecture by removing extra components and data hops.
+
 - **Proxied push** model: Service Bus sends an event through Event Grid when new messages are available. The receiver subscribes to the event. When the event triggers, the receiver pulls the next batch of messages from Service Bus. This model allows systems to receive messages almost in real time but without using resources to continuously poll for new messages. However, the architecture uses additional components that must be deployed, managed, and secured.
 
 When you create a Standard logic app workflow that consumes Service Bus messages, we recommend that you use the Service Bus built-in connector triggers, which abstract most of the pull model configuration for you without adding extra cost. This capability provides the right balance between cost, surface area management, and security because the connector continuously loops within the Azure Logic Apps runtime engine. For more information, see [Azure Service Bus built-in connector triggers - Azure Logic Apps](/azure/connectors/connectors-create-api-servicebus#service-bus-built-in-connector-triggers).
