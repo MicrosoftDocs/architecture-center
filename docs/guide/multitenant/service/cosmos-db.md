@@ -24,7 +24,7 @@ On this page, we describe some of the features of Azure Cosmos DB that are usefu
 
 ## Multitenancy requirements
 
-As a SaaS developer, there are two key needs you may need to design for:
+When you plan a multitenant solution, there are two key needs you may need to design for:
 - Ensuring strong isolation between tenants, and meeting stringent security requirements for those who need them.
 - Maintaining a low cost per tenant. As the provider, you want to ensure that the cost of running the application remains sustainable as it scales.
 
