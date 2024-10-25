@@ -46,6 +46,9 @@ If the microservice requires GPU capacity (for example, to execute machine learn
 
 Azure Spring Apps is an ideal choice for deploying Spring-based microservices. Spring Apps supports deploying both code-based and container-based spring microservices. You can also deploy Spring-based microservices in Azure Functions or deploy Spring containers in other orchestrator-based compute platforms such as Azure Kubernetes Services or Azure Container Apps. Compared to other computing choices, Azure Spring Apps provides certain advantages to deploying Spring microservices, such as configuration management, service discovery, and blue-green deployments. 
 
+> [!Note]
+> Please note that Azure Spring Apps is on [retirement path](/azure/spring-apps/basic-standard/retirement-announcement), and is not recommended for new deployments. 
+
 
 ## Microservices leveraging service orchestrators 
 
@@ -74,7 +77,7 @@ Access to Kubernetes APIs is often a deciding factor. AKS provides direct access
 There may be other decision factors impacting the choice of microservice compute platform selection. They include the use and choice of service mesh, platform scalability, skill set within the organization etc. 
 
 ## Considerations
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see Microsoft Azure Well-Architected Framework.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/what-is-well-architected-framework).
 
 ### Reliability
 
@@ -91,7 +94,7 @@ If you choose Azure Container Apps as the microservice computing platform, relia
 If you choose Azure Spring Apps as the microservice computing platform, reliability can be enhanced by leveraging availability zones and by leveraging multi-region deployments. Please see [reliability in azure spring apps](/azure/reliability/reliability-spring-apps) for details. 
 
 ### Security
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see Overview of the security pillar.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview](/azure/well-architected/security/) of the security pillar.
 
 If you choose Azure functions as the compute platform to deploy microservices, the principles of [Securing Azure Functions](/azure/azure-functions/security-concepts) apply to microservices as well. 
 
