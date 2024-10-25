@@ -28,7 +28,7 @@ When you plan a multitenant solution, there are two key needs you may need to de
 - Ensuring strong isolation between tenants, and meeting stringent security requirements for those who need them.
 - Maintaining a low cost per tenant. As the provider, you want to ensure that the cost of running the application remains sustainable as it scales.
 
-These two needs can often conflict, requiring trade-offs when prioritizing one over the other. While Azure Cosmos DB is actively working on improvements in this area, there are some guidelines you can follow today to better understand the trade-offs involved in addressing both needs. This document will help you navigate these considerations so you can make informed decisions when designing your multi-tenant application.
+These two needs can often conflict, requiring tradeoffs and prioritizing one over the other. There are some guidelines you can follow to better understand the trade-offs involved in addressing both of the needs described above. This document helps you navigate these considerations so you can make informed decisions when designing your multitenant solution.
 
 ## Isolation models
 
