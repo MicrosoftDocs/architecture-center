@@ -84,7 +84,7 @@ One of the key pillars of reliability is resiliency. The goal of resiliency is t
 
 If you choose Azure functions as the microservice computing platform, consider deploying the function plan or app service plan in zone-redundant configuration. Please see [reliability in Azure functions](/reliability/reliability-functions?tabs=azure-portal) for details. 
 
-If you choose Azure Kubernetes Service as the microservice computing platorm, microservice reliability can be enhanced by deploying [AKS cluster using availability zones](/aks/availability-zones), using [Standard or Premium tier](/aks/free-standard-pricing-tiers) for Azure Kubernetes Cluster, increasing the minimum number of pods and nodes, etc. Please see [deployment and cluster reliability best practices for AKS](aks/best-practices-app-cluster-reliability) for details. 
+If you choose Azure Kubernetes Service as the microservice computing platorm, microservice reliability can be enhanced by deploying [AKS cluster using availability zones](/aks/availability-zones), using [Standard or Premium tier](/aks/free-standard-pricing-tiers) for Azure Kubernetes Cluster, increasing the minimum number of pods and nodes. Please see [deployment and cluster reliability best practices for AKS](aks/best-practices-app-cluster-reliability) for details. 
 
 If you choose Azure Container Apps as the microservice computing platform, reliability can be enhanced by leveraging availability zones. Please see [reliability in container apps](/reliability/reliability-azure-container-apps) for details. 
 
