@@ -4,7 +4,7 @@ An event-driven architecture consists of **event producers** that generate a str
 
 Events are delivered in near real time, so consumers can respond immediately to events as they occur. Producers are decoupled from consumers &mdash; a producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and every consumer sees all of the events. This differs from a [Competing Consumers][competing-consumers] pattern, where consumers pull messages from a queue and a message is processed just once (assuming no errors). In some systems, such as IoT, events must be ingested at very high volumes.
 
-An event driven architecture can use a [publish/subscribe](/azure/architecture/patterns/publisher-subscriber) (also called *pub/sub*) model or an event stream model.
+An event-driven architecture can use a [publish/subscribe](/azure/architecture/patterns/publisher-subscriber) (also called *pub/sub*) model or an event stream model.
 
 - **Pub/sub**: The messaging infrastructure keeps track of subscriptions. When an event is published, it sends the event to each subscriber. After an event is received, it can't be replayed, and new subscribers don't see the event.
 
@@ -66,6 +66,10 @@ There are two primary topologies within many event-driven architectures:
 - Data loss.
 
   Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never makes it into the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component has acknowledged the receipt of the event. These features are usually known as _client acknowledge mode_ and _last participant support_.
+
+- Simplicity and testability
+
+ Event-driven architectures can have unpredictable and dynamic event flows, leading to many possible scenarios. This complexity can create significant challenges when it comes to testing.
 
 ### Additional considerations
 
