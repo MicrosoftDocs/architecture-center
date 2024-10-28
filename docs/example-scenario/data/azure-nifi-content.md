@@ -125,9 +125,9 @@ Consider enabling Accelerated Networking on the VMs to increase network performa
 | Standard_D32s_v3 | 32 | 128 | 51,200/768 | 8/16,000 |
 | Standard_M16m | 16 | 437.5 | 10,000/250 | 8/4,000|
 
-* Disable data disk write caching for all data disks that you use on NiFi nodes.
+\* Disable data disk write caching for all data disks that you use on NiFi nodes.
 
-** We recommend this SKU for most general-purpose data flows. Azure VM SKUs with similar vCPU and memory configurations should also be adequate.
+\*\* We recommend this SKU for most general-purpose data flows. Azure VM SKUs with similar vCPU and memory configurations should also be adequate.
 
 #### VM operating system (OS)
 

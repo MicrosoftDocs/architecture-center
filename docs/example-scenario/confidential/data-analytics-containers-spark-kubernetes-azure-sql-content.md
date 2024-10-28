@@ -12,7 +12,7 @@ Diagram that shows how sensitive data flows securely from ingestion phase to ana
 
 The preceding diagram outlines the architecture: a scalable pattern for processing larger datasets in a distributed fashion. It also showcases confidential analytics on relational database engines and storing confidential data. In particular, the containerized Spark app can process datasets from two data sources, as illustrated:
 
-1. [Azure Data Lake Storage - Parquet/Delta Lake files](/azure/storage/blobs/data-lake-storage-introduction): As shown in the [sample demonstration](#deploy-this-scenario), a four-pod Spark deployment—one Driver, three Executors on the [Secure Container Environment (SCONE) runtime](https://sconedocs.github.io/sconeapps_spark)—is capable of processing 1.5 billion rows of Parquet/Delta Lake files that are stored on Azure Data Lake Storage within two minutes, or approximately 131 seconds.
+1. [Azure Data Lake Storage - Parquet/Delta Lake files](/azure/storage/blobs/data-lake-storage-introduction): As shown in the [sample demonstration](#deploy-this-scenario), a four-pod Spark deployment—one Driver, three Executors on the [Secure Container Environment (SCONE) runtime](https://sconedocs.github.io/sconeapps_spark)—is capable of processing 1.5 billion rows of Parquet/Delta Lake files that are stored on Azure Data Lake Storage within about two minutes.
 
 2. [Azure SQL DB - Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15): This example uses Spark to access Always Encrypted data as plaintext by using the [Azure SQL JDBC driver](/sql/connect/jdbc/using-always-encrypted-with-the-jdbc-driver?view=sql-server-ver15) inside the Spark container enclave to run analytics and machine learning pipelines.
 
@@ -133,7 +133,7 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 Deploying this scenario involves the following high-level steps:
 
-- Get access to the PySpark base image that's used in this scenario from SCONE's Container Registry: see `registry.scontain.com:5050` on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
+- Get access to the PySpark base image that's used in this scenario from SCONE's container registry: see `registry.scontain.com:5050` on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
 

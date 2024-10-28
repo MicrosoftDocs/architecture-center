@@ -37,7 +37,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
    - Azure Data Lake Storage
    - Azure Data Explorer
 
-1. As a Data Share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
+1. As a data share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
 
 1. As data consumers, members receive the shared data. The data enters member data stores for research and analysis.
 
@@ -141,7 +141,7 @@ Because of the sensitivity of medical information, several components play a rol
 
   - Encrypting data at rest, where the underlying data store supports at-rest encryption.
   - Encrypting data in transit by using Transport Layer Security (TLS) 1.2.
-  - Encrypting metadata about a Data Share at rest and in transit.
+  - Encrypting metadata about a data share at rest and in transit.
   - Not storing contents of shared customer data.
 
 - [Azure Synapse Analytics offers a comprehensive security model][Securing your Data Warehouse with Azure Synapse Analytics]. You can use its fine-grained controls to secure your data at every level, from single cells to entire databases.
