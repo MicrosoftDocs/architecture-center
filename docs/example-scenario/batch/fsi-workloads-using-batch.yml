@@ -18,10 +18,10 @@ products:
   - azure-batch
   - azure-container-registry
   - azure-key-vault
-  - azure-storage 
+  - azure-storage
   - azure-virtual-network
 name: Use Azure Batch to run Financial Service Industry (FSI)  workloads
 summary: Learn how to run FSI workloads on Azure using Azure Batch.
 thumbnailUrl: /azure/architecture/browse/thumbs/secured-azure-batch.png
 content: |
-  [!include[](fsi-workloads-using-batch-content.md)]
+  [!INCLUDE[](fsi-workloads-using-batch-content.md)]

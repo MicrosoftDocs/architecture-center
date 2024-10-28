@@ -26,4 +26,4 @@ products:
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/orchestration-based-saga-serverless-arch.png
 content: |
-   [!include[](patterns-and-implementations-content.md)]
+   [!INCLUDE[](patterns-and-implementations-content.md)]
