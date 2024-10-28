@@ -10,7 +10,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
 ## Architecture
 
 :::image type="complex" source="./media/azure-health-data-consortium-architecture.svg" alt-text="Architecture diagram showing how members of a consortium share data." lightbox="./media/azure-health-data-consortium-architecture.svg" border="false":::
-   Dotted boxes represent data sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contain smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for data share members. The consortium data store box contains a smaller box filled with data storage icons. The consortium box also contains a box with icons for Azure data loading components. Besides those two boxes, the consortium box also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One final arrow loops back from the consortium data share box to the member box. Below those boxes, a dotted box contains icons for shared services.
+   Dotted boxes represent data sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contain smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for Data Share members. The consortium data store box contains a smaller box filled with data storage icons. The consortium box also contains a box with icons for Azure data loading components. Besides those two boxes, the consortium box also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One final arrow loops back from the consortium Data Share box to the member box. Below those boxes, a dotted box contains icons for shared services.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-consortium-architecture.vsdx) of this architecture.*
@@ -37,7 +37,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
    - Azure Data Lake Storage
    - Azure Data Explorer
 
-1. As a data share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
+1. As a Data Share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
 
 1. As data consumers, members receive the shared data. The data enters member data stores for research and analysis.
 
@@ -141,7 +141,7 @@ Because of the sensitivity of medical information, several components play a rol
 
   - Encrypting data at rest, where the underlying data store supports at-rest encryption.
   - Encrypting data in transit by using Transport Layer Security (TLS) 1.2.
-  - Encrypting metadata about a data share at rest and in transit.
+  - Encrypting metadata about a Data Share at rest and in transit.
   - Not storing contents of shared customer data.
 
 - [Azure Synapse Analytics offers a comprehensive security model][Securing your Data Warehouse with Azure Synapse Analytics]. You can use its fine-grained controls to secure your data at every level, from single cells to entire databases.
@@ -163,7 +163,7 @@ Because of the sensitivity of medical information, several components play a rol
   - Uses Microsoft Entra ID–managed identities for Azure resources.
   - Uses RBAC to segregate duties and limit access.
   - Blocks traffic that originates from network segments outside Azure Data Explorer.
-  - Safeguards data and helps you meet commitments by using [Azure Disk Encryption][Azure Disk Encryption for virtual machines and virtual machine scale sets]. This service provides volume encryption for virtual machine data disks and the OS. Azure Disk Encryption also integrates with Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
+  - Safeguards data and helps you meet commitments by using [Azure disk encryption][Azure Disk Encryption for virtual machines and virtual machine scale sets]. This service provides volume encryption for virtual machine data disks and the OS. Azure disk encryption also integrates with Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
 
 ### Availability
 
@@ -187,7 +187,7 @@ Pricing for this solution depends on several factors:
 - Your business continuity level
 - Your disaster recovery level
 
-For more information, see [pricing details][Azure pricing calculator].
+For more information, see [Pricing details][Azure pricing calculator].
 
 ## Contributors
 
