@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate an Oracle Database to Oracle Database@Azure, Exadata Database Service
+  title: Migrate an Oracle Database to OD@A Exadata Database Service
   titleSuffix: Azure Architecture Center
-  description: Learn how to use Oracle ZDM and Azure networking to migrate an Oracle database to Oracle Database@Azure, Exadata Database Service.
+  description: Learn how to use Oracle ZDM and Azure networking to migrate an Oracle database to Oracle Database@Azure Exadata Database Service.
   author: jfaurskov
   ms.author: janfaurs
   ms.date: 10/29/2024
@@ -13,14 +13,14 @@ metadata:
     - databases
     - migration
   ms.custom: arb-data
-name: Migrate an Oracle Database to Oracle Database@Azure, Exadata Database Service
+name: Migrate an Oracle Database to OD@A Exadata Database Service
 azureCategories:
   - databases
   - migration
-summary: Learn how to use Oracle ZDM and Azure networking to migrate an Oracle database to Oracle Database@Azure, Exadata Database Service.
+summary: Learn how to use Oracle ZDM and Azure networking to migrate an Oracle database to Oracle Database@Azure Exadata Database Service.
 products:
   - azure-expressroute
   - azure-vpn-gateway
-thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/oracle-migration-odaa.png
 content: |
    [!include[](migrate-oracle-odaa-exadata-content.md)]

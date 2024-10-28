@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate Oracle Database to an Azure Virtual Machine
+  title: Migrate an Oracle Database to an Azure Virtual Machine
   titleSuffix: Azure Architecture Center
   description: Learn how to migrate an Oracle Database instance to an Azure virtual machine by using Oracle Data Guard and Azure networking. 
   author: jfaurskov
@@ -13,15 +13,15 @@ metadata:
     - databases
     - migration
   ms.custom: arb-data
-name: Migrate Oracle Database to an Azure virtual machine
+name: Migrate an Oracle database to an Azure virtual machine
 azureCategories:
   - databases
   - migration
-summary: Learn how to migrate an Oracle Database instance to an Azure virtual machine by using Oracle Data Guard and Azure networking. 
+summary: Learn how to migrate an Oracle database to an Azure virtual machine by using Oracle Data Guard and Azure networking. 
 products:
   - azure-virtual-machines  
   - azure-expressroute
   - azure-vpn-gateway
-thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/oracle-migration-iaas.png
 content: |
    [!include[](migrate-oracle-azure-iaas-content.md)]
