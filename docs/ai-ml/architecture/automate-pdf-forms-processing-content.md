@@ -48,15 +48,15 @@ For deployment information, see [Deploy this scenario](#deploy-this-scenario) in
 
 The solution that's described in this article can process many types of forms, including:
 
-- Invoices
-- Payment records
-- Safety records
-- Incident records
-- Compliance records
+- Invoices and payment records
 - Purchase orders
-- Payment authorization forms
+- Safety, incident, and compliance records
 - Health screening forms
-- Survey forms
+- Customer feedback forms
+- Employee records
+- Academic and research papers
+- Documents with handwritten notes
+- Custom documents from your domain
 
 ## Considerations
 
