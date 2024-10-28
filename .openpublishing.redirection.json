@@ -5559,6 +5559,11 @@
       "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml",
+      "redirect_url": "/azure/architecture/databases/idea/topic-migrate-oracle-azure",
+      "redirect_document_id": false
     }
   ]
 }

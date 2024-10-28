@@ -13,7 +13,7 @@ metadata:
     - databases
     - migration
   ms.custom: arb-data
-name: Migrate an Oracle Database to OD@A Exadata Database Service
+name: Migrate an Oracle database to OD@A Exadata Database Service
 azureCategories:
   - databases
   - migration

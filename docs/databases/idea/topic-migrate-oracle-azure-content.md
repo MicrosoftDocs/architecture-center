@@ -18,7 +18,7 @@ Consider the following initial scenario details:
 
 The following diagram shows an example of this scenario.
 
-:::image type="content" source="_images/topic-migrate-oracle-azure/oracle-database-azure-migration.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to Azure." border="false":::
+:::image type="content" source="_images/topic-migrate-oracle-azure/oracle-database-azure-migration.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to Azure." border="false" lightbox="_images/topic-migrate-oracle-azure/oracle-database-azure-migration.svg":::
 
 ## Implementation checklist
 
@@ -29,4 +29,4 @@ For more information, see:
 
 ## Next step
 
-- [Introduction to Oracle on Azure adoption scenarios](/azure/cloud-adoption-framework/scenarios/oracle-iaas)
+[Introduction to Oracle on Azure adoption scenarios](/azure/cloud-adoption-framework/scenarios/oracle-iaas)

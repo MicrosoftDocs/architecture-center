@@ -16,7 +16,7 @@ Consider the following scenario details:
 
 The following diagram shows an example of this scenario.
 
-:::image type="content" source="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg" alt-text="Diagram that shows an architecture to migrate a database to an Azure virtual machine." border="false":::
+:::image type="content" source="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg" alt-text="Diagram that shows an architecture to migrate a database to an Azure virtual machine." border="false" lightbox="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg":::
 
 ## Establish network connectivity
 
@@ -36,7 +36,7 @@ Use the following configuration to create an Azure route table, and associate it
 
 The following diagram shows an example of the updated network configuration.
 
-:::image type="content" source="_images/migrate-oracle-azure-iaas/oracle-migration-iaas-destination.svg" alt-text="{alt-text}" border="false":::
+:::image type="content" source="_images/migrate-oracle-azure-iaas/oracle-migration-iaas-destination.svg" alt-text="Diagram that shows an architecture to migrate a database to an Azure virtual machine and includes the destination." border="false" lightbox="_images/migrate-oracle-azure-iaas/oracle-migration-iaas-destination.svg":::
 
 Do the following steps to verify connectivity.
 
@@ -45,7 +45,7 @@ Do the following steps to verify connectivity.
 
 ## Do migration activities
 
-1. Use RMAN to back up the database from the on-premises database server and restore it onto the target system. For more information, see [Restore a database on a new host)](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-recovery-advanced.html#GUID-6B71E7DF-A2B6-44F5-A8D5-B184BB41A768).
+1. Use RMAN to back up the database from the on-premises database server and restore it onto the target system. For more information, see [Restore a database on a new host](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-recovery-advanced.html#GUID-6B71E7DF-A2B6-44F5-A8D5-B184BB41A768).
 
    Depending on the database backup file size and network bandwidth, you can copy the backup files directly to the Azure VM on a staging area set of disks that you specifically create for that purpose. If you can't use that method because of network bandwidth constraints, you can use [Azure Data Box](/azure/databox/data-box-overview) to copy the backup files to Azure. After the files are in Azure blob storage, you should copy them to the Azure VM staging area set of disks for the restore operation.
 
@@ -85,10 +85,8 @@ Review the following articles to ensure that your implementation follows recomme
 - [Security guidelines for Oracle workloads on an Azure VM](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-security-overview-iaas)
 - [Manage and monitor Oracle workloads on an Azure VM](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-manage-monitor-iaas)
 - [Business continuity and disaster recovery for Oracle on an Azure VM](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-iaas)
-- [Introduction to Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 - [Oracle Data Guard broker concepts](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
 - [Oracle active Data Guard far sync zero data loss](https://www.oracle.com/docs/tech/database/disaster-recovery.pdf)
-- [Oracle RMAN](https://www.oracle.com/database/technologies/high-availability/rman.html)
 - [Implement Oracle Data Guard on an Azure Linux VM](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
 - [Implement Oracle Golden Gate on an Azure Linux VM](/azure/virtual-machines/workloads/oracle/configure-oracle-golden-gate)
 

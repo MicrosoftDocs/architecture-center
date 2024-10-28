@@ -15,7 +15,7 @@ Consider the following scenario details:
 
 The following diagram shows an example of this scenario.
 
-:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to OD@A." border="false":::
+:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to OD@A." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg":::
 
 ## Establish network connectivity
 
@@ -35,7 +35,7 @@ Use the following configuration to create an Azure route table, and associate it
 
 The following diagram shows the updated network configuration.
 
-:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-destination.svg" alt-text="Diagram that shows an architecture to migrate a database to OD@A and includes the destination." border="false":::
+:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-destination.svg" alt-text="Diagram that shows an architecture to migrate a database to OD@A and includes the destination." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-destination.svg":::
 
 Do the following steps to verify connectivity:
 
@@ -47,7 +47,7 @@ Do the following steps to verify connectivity:
 1. Prepare for the migration. For more information, see [Prepare for a physical database migration](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.3/zdmug/preparing-for-database-migration.html#GUID-25B07C59-8143-41CB-B431-3D9225CCFDD6).
 
    > [!NOTE]
-> This guidance assumes that you have sufficient bandwidth between the source and target databases to support an online migration. It assumes that you don't need to do an offline migration, or a restore of backup on OD@A, first.
+   > This guidance assumes that you have sufficient bandwidth between the source and target databases to support an online migration. It assumes that you don't need to do an offline migration, or a restore of backup on OD@A, first.
 
 1. Perform the migration. For more information, see [Migrate your database with ZDM](https://docs.oracle.com/en/database/oracle/zero-downtime-migration/21.3/zdmug/migrating-with-zero-downtime-migration.html#GUID-C20DB7D4-E0CE-4B50-99D0-B16C18DDD34B).
 
@@ -58,7 +58,7 @@ Do the following steps to verify connectivity:
 
 The following diagram shows the updated configuration, including the ZDM migration node.
 
-:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-zero-downtime.svg" alt-text="{alt-text}" border="false":::
+:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-zero-downtime.svg" alt-text="Diagram that shows an architecture to migrate a database to OD@A and includes the ZDM migration node." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa-zero-downtime.svg":::
 
 ## Do post-migration activities
 
