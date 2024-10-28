@@ -90,7 +90,7 @@ The availability of language models has led to the emergence of new ways to inte
 
 *Automated machine learning*, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
 
-- [What is automated machine learning?](/azure/machine-learning/concept-automated-ml?view=azureml-api-2)
+- [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
 
 ## AI services
 
@@ -297,7 +297,7 @@ Azure Data Lake Storage is a set of capabilities dedicated to and optimized for 
 Azure Data Lake Storage converges the capabilities of [Azure Data Lake Storage Gen1](/previous-versions/azure/data-lake-store/data-lake-store-overview) with Azure Blob Storage. For example, Data Lake Storage provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
 
-- [Introduction to Azure Data Lake Storage](/storage/blobs/data-lake-storage-introduction)
+- [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 
 - [Tutorial: Azure Data Lake Storage, Azure Databricks & Spark](/azure/storage/blobs/data-lake-storage-use-databricks-spark)
 
@@ -332,7 +332,7 @@ With Databricks Data Intelligence Platform, you can write code to create a machi
 You can also use [Mosaic AI Vector Search], which is optimized for storing and retrieving embeddings. Embeddings are crucial for applications that require similarity searches, such as RAG (Retrieval Augmented Generation), recommendation systems, and image recognition.
 
 
-- [Azure Databricks - Serve data for ML and AI](//azure/databricks/machine-learning/serve-data-ai)
+- [Azure Databricks - Serve data for ML and AI](/azure/databricks/machine-learning/serve-data-ai)
 
 - [Mosaic AI Vector Search](/azure/databricks/generative-ai/vector-search)
 
