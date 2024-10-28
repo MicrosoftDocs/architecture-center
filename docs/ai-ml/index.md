@@ -343,9 +343,6 @@ Azure Data Factory and Azure Synapse Analytics pipelines support a number of dat
 
 ## Custom AI
 
-<!-- Custom AI should include Generative AI, Azure OpenAI, fine-tuning, as well as Custom traditional ML (which is what the current custom AI refers to)
-
--->
 
 ### Azure Machine Learning
 
@@ -377,64 +374,76 @@ Azure Machine Learning offer the following capabilities:
 
     - [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
 
-### Scoring
+- **Scoring** is also called *prediction* and is the process of generating values based on a trained machine learning model, given some new input data. The values, or scores, that are created can represent predictions of future values,  but they might also represent a likely category or outcome. 
 
-*Scoring* is also called *prediction* and is the process of generating values based on a trained machine learning model, given some new input data. The values, or scores, that are created can represent predictions of future values, but they might also represent a likely category or outcome. The scoring process can generate many different types of values:
-
-- A list of recommended items and a similarity score
-
-- Numeric values, for time series models and regression models
-
-- A probability value, indicating the likelihood that a new input belongs to some existing category
-
-- The name of a category or cluster to which a new item is most similar
-
-- A predicted class or outcome, for classification models
-
-***Batch scoring*** is when data is collected during some fixed period of time and
-then processed in a batch. This might include generating business reports or analyzing customer loyalty.
-
-***Real-time scoring*** is exactly that-scoring that is ongoing and performed as
-quickly as possible. The classic example is credit card fraud detection, but real-time scoring can also be used in speech recognition, medical diagnoses, market analyses, and many other applications.
+  - [Score Model](/azure/machine-learning/component-reference/score-model)
+  - [Deploy models for scoring in batch endpoints0](/azure/machine-learning/how-to-use-batch-model-deployments)
+  - [Batch scoring of Spark models on Azure Databricks](/azure/architecture/ai-ml/architecture/batch-scoring-databricks)
 
 
 
+### Azure OpenAI
+
+
+Azure OpenAI Service lets you tailor our models to your personal datasets by using a process known as fine-tuning. This customization step lets you get more out of the service by providing:
+
+- Higher quality results than what you can get just from [prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering)
+- The ability to train on more examples than can fit into a model's max request context limit.
+- Token savings due to shorter prompts
+- Lower-latency requests, particularly when using smaller models.
+
+
+For more information, see:
+
+- [Customize a model with fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
+- [Azure OpenAI GPT-4o-mini fine-tuning tutorial](/azure/ai-services/openai/tutorials/fine-tune)
+- [Baseline OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
 
 ### Custom AI tools
 
 Although prebuilt AI models are useful (and increasingly flexible), the best way to get what you need from AI is to build a model that's tailored to your specific needs. There are two primary tools for creating custom AI models: Generative AI and traditional machine learning:
 
+#### Azure Machine Learning Studio
+
 [Azure Machine Learning Studio](https://ml.azure.com/home) Azure Machine Learning is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).:
 
-  - Build and train Azure Machine Learning model with any type of compute including Spark and GPUs for cloud-scale large AI workloads.
-  - Run automated Azure Machine Learning (AutoML) and drag-and-drop UI for low-code Azure Machine Learning.
-  - Implement end-to-end Azure Machine LearningOps and repeatable Azure Machine Learning pipelines.
-  - Use responsible AI dashboard for bias detection and error analysis.
-  - Orchestrate and manage prompt engineering and LLM flows.
-  - Deploy models with REST API endpoints, real-time, and batch inference.
-  - Use Hubs (Preview) to share compute, quota, security, and connectivity to company resources with a group of workspaces, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the Studio for each project. Use hubs to manage your team's work in both ML Studio and AI Studio.
+- Build and train Azure Machine Learning model with any type of compute including Spark and GPUs for cloud-scale large AI workloads.
+- Run automated Azure Machine Learning (AutoML) and drag-and-drop UI for low-code Azure Machine Learning.
+- Implement end-to-end Azure Machine LearningOps and repeatable Azure Machine Learning pipelines.
+- Use responsible AI dashboard for bias detection and error analysis.
+- Orchestrate and manage prompt engineering and LLM flows.
+- Deploy models with REST API endpoints, real-time, and batch inference.
+- Use Hubs (Preview) to share compute, quota, security, and connectivity to company resources with a group of workspaces, while centralizing governance for IT. Set up a hub once, then create secure workspaces directly from the Studio for each project. Use hubs to manage your team's work in both ML Studio and AI Studio.
   
+#### Azure AI Studio
 
 [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) is designed to help you efficiently build and deploy custom generative AI applications with the power of Azure's broad AI offerings:
-    
-  - Build together as one team. Your AI Studio hub provides enterprise-grade security, and a collaborative environment with shared resources and connections to pretrained models, data and compute.
-  - Organize your work. Your AI Studio project helps you save state, allowing you to iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
-  - Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, AutoGen, and more.
-  - Discover and benchmark from over 1,600 models.
-  - Provision Models-as-a-Service (MaaS) through serverless APIs and hosted fine-tuning.
-  - Incorporate multiple models, data sources, and modalities.
-  - Build Retrieval Augmented Generation (RAG) using your protected enterprise data without the need for fine-tuning.
-  - Orchestrate and manage prompts engineering and Large Language Model (LLM) flows.
-  - Design and safeguard apps and APIs with configurable filters and controls.
-  - Evaluate model responses with built-in and custom evaluation flows.
-  - Deploy AI innovations to Azure’s managed infrastructure with continuous monitoring and governance across environments.
-  - Continuously monitor deployed apps for safety, quality, and token consumption in production.|
+  
+- Build together as one team. Your AI Studio hub provides enterprise-grade security, and a collaborative environment with shared resources and connections to pretrained models, data and compute.
+- Organize your work. Your AI Studio project helps you save state, allowing you to iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
+- Use your preferred development platform and frameworks, including GitHub, Visual Studio Code, LangChain, Semantic Kernel, AutoGen, and more.
+- Discover and benchmark from over 1,600 models.
+- Provision Models-as-a-Service (MaaS) through serverless APIs and hosted fine-tuning.
+- Incorporate multiple models, data sources, and modalities.
+- Build Retrieval Augmented Generation (RAG) using your protected enterprise data without the need for fine-tuning.
+- Orchestrate and manage prompts engineering and Large Language Model (LLM) flows.
+- Design and safeguard apps and APIs with configurable filters and controls.
+- Evaluate model responses with built-in and custom evaluation flows.
+- Deploy AI innovations to Azure’s managed infrastructure with continuous monitoring and governance across environments.
+- Continuously monitor deployed apps for safety, quality, and token consumption in production.|
 
 
 For a detailed comparison between Azure Machine Learning and Azure AI Studio, see [Azure Machine Learning vs. Azure AI Studio](/ai/ai-studio-experiences-overview).
 
-### Create custom AI models
+#### Prompt flow in Azure AI Studio
 
+[Prompt flow in Azure AI Studio](/azure/ai-studio/how-to/prompt-flow) is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+
+- Prompt flow is a feature that can be used to generate, customize, or run a flow.
+- A flow is an executable instruction set that can implement the AI logic. Flows can be created or run via multiple tools, like a prebuilt canvas, LangChain, etcetera. Iterations of a flow can be saved as assets; once deployed a flow becomes an API. Not all flows are prompt flows; rather, prompt flow is one way to create a flow.
+- A prompt is a package of input sent to a model, consisting of the user input, system message, and any examples. User input is text submitted in the chat window. System message is a set of instructions to the model scoping its behaviors and functionality.
+- A sample flow is a simple, prebuilt orchestration flow that shows how flows work, and can be customized.
+- A sample prompt is a defined prompt for a specific scenario that can be copied from a library and used as-is or modified in prompt design.
 
 ### Custom AI code languages
 
@@ -469,11 +478,6 @@ Microsoft has fully embraced the R programming language and provides many differ
 
 
 
-
-
-
-
-
 ### General info on custom AI on Azure
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
@@ -484,113 +488,6 @@ Microsoft has fully embraced the R programming language and provides many differ
 
 - [Train R models using the Azure ML CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
-
-
-
-### Azure Machine Learning
-
-This is an enterprise-grade machine learning service to build and deploy models faster. Azure Machine Learning offers web interfaces and SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
-
-- [What are the machine learning products at Microsoft?](../ai-ml/guide/data-science-and-machine-learning.md)
-
-- [Azure Machine Learning product home page](https://azure.microsoft.com/services/machine-learning/)
-
-- [Azure Machine Learning documentation overview](/azure/machine-learning/)
-
-- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml) General orientation with links to many learning resources, SDKs, documentation, and more
-
-#### Machine learning reference architectures for Azure
-
-- [Machine learning operations](../ai-ml/guide/machine-learning-operations-v2.md)
-
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
-
-- [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
-
-### Azure automated machine learning
-
-Azure provides extensive support for automated ML. Developers can build models using a no-code UI or through a code-first notebooks experience.
-
-- [Azure automated machine learning product home page](https://azure.microsoft.com/services/machine-learning/automatedml/)
-
-- [Azure automated ML infographic (PDF)](https://aka.ms/automlinfographic/)
-
-- [Tutorial: Create a classification model with automated ML in Azure Machine Learning](/azure/machine-learning/tutorial-first-experiment-automated-ml)
-
-- [Configure automated ML experiments in Python](/azure/machine-learning/how-to-configure-auto-train)
-
-- [Use the CLI extension for Azure Machine Learning](/azure/machine-learning/reference-azure-machine-learning-cli)
-
-- [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
-
-
-### Azure Cognitive Search
-
-This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
-
-- [Azure Cognitive Search product home page](https://azure.microsoft.com/services/search/)
-
-- [Getting started with AI enrichment](/azure/search/cognitive-search-concept-intro)
-
-- [Azure Cognitive Search documentation overview](/azure/search/)
-
-- [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
-
-- [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](/azure/search/cognitive-search-quickstart-blob)
-
-### Azure Bot Service
-
-This is a purpose-built bot development environment with out-of-the-box templates to get started quickly.
-
-- [Azure Bot Service product home page](https://azure.microsoft.com/services/bot-service/)
-
-- [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
-
-- [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
-
-- [Microsoft Bot Framework](https://dev.botframework.com/)
-
-- [Microsoft Bot Framework SDK repo](https://github.com/Microsoft/BotBuilder)
-
-### Apache Spark on Azure
-
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
-
-[Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
-
-The Microsoft machine learning library for Apache Spark is [SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. Learn more about [SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml).
-
-- [Azure HDInsight overview](/azure/hdinsight/hdinsight-overview). Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
-
-- [Tutorial: Build an Apache Spark machine learning application in Azure HDInsight](/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning)
-
-- [Apache Spark best practices on HDInsight](/azure/hdinsight/spark/spark-best-practices)
-
-- [Configure HDInsight Apache Spark Cluster settings](/azure/hdinsight/spark/apache-spark-settings)
-
-- [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
-
-- [GitHub repo for SynapseML: Microsoft machine learning library for Apache Spark](https://github.com/microsoft/SynapseML)
-
-- [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
-
-### Azure Databricks Runtime for Machine Learning
-
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark–based analytics platform with one-click setup, streamlined workflows, and an interactive workspace for collaboration between data scientists, engineers, and business analysts.
-
-[Databricks Runtime for Machine Learning (Databricks Runtime ML)](/azure/databricks/runtime/mlruntime) lets you start a Databricks cluster with all of the libraries required for distributed training. It provides a ready-to-go environment for machine learning and data science. Plus, it contains multiple popular libraries, including TensorFlow, PyTorch, Keras, and XGBoost. It also supports distributed training using Horovod.
-
-- [Azure Databricks product home page](https://azure.microsoft.com/services/databricks/)
-
-- [Azure Databricks documentation](/azure/azure-databricks/)
-
-- [Machine learning capabilities in Azure Databricks](/azure/databricks/applications/machine-learning/)
-
-- [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
-
-- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
-
-- [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 
 
 ## Customer stories
