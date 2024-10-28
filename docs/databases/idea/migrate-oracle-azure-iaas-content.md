@@ -18,6 +18,8 @@ The following diagram shows an example of this scenario.
 
 :::image type="content" source="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg" alt-text="Diagram that shows an architecture to migrate a database to an Azure virtual machine." border="false" lightbox="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-iaas.vsdx) of this architecture.*
+
 ## Establish network connectivity
 
 To use Oracle Data Guard for migration, you need to ensure that the source and target databases can communicate with each other.

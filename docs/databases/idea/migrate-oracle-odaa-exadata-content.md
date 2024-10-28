@@ -17,6 +17,8 @@ The following diagram shows an example of this scenario.
 
 :::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to OD@A." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-odaa.vsdx) of this architecture.*
+
 ## Establish network connectivity
 
 To use ZDM for migration, you need to ensure that the source and target databases can communicate with each other.
