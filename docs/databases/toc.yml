@@ -10,8 +10,8 @@ items:
           href: idea/intelligent-apps-using-azure-database-for-mysql.yml
         - name: Intelligent apps using PostgreSQL
           href: idea/intelligent-apps-using-azure-database-for-postgresql.yml
-        - name: Oracle migration to Azure
-          href: idea/topic-migrating-oracle-to-azure.yml          
+        - name: Migrate an Oracle database to Azure
+          href: idea/topic-migrate-oracle-azure.yml          
       - name: NoSQL
         items:
         - name: Serverless apps using Azure Cosmos DB

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Migrate Oracle Database to Azure
+  titleSuffix: Azure Architecture Center
+  description: Learn how to migrate an Oracle database and its applications to Azure. You can migrate to either Azure virtual machines or Oracle Database@Azure, Exadata Database Service.
+  author: jfaurskov
+  ms.author: janfaurs
+  ms.date: 10/29/2024
+  ms.topic: conceptual
+  ms.service: azure-architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+    - migration
+  ms.custom: arb-data
+name: Migrate an Oracle database to Azure
+azureCategories:
+  - databases
+  - migration
+summary: Learn how to migrate an Oracle database and its applications to Azure. You can migrate to either Azure virtual machines or Oracle Database@Azure, Exadata Database Service.
+products:
+  - azure-virtual-machines
+  - azure-expressroute
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
+content: |
+   [!include[](topic-migrate-oracle-azure-content.md)]
