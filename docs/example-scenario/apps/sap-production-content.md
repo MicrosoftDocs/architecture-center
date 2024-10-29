@@ -2,7 +2,7 @@
 
 This reference architecture shows a set of proven practices for running a high-availability SAP NetWeaver with Oracle Database on Azure. The architecture principles are OS-agnostic, however, unless otherwise specified, the architecture is assumed to be based on Linux.
 
-The first diagram shows a reference architecture for SAP on Oracle in Azure. We recommend to deploy across two availability zones.
+The first diagram shows a reference architecture for SAP on Oracle in Azure. We recommend that you deploy across two availability zones.
 
 [![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-architecture.png)](./media/sap-oracle-architecture.png#lightbox)
 
@@ -44,7 +44,7 @@ Similarly for all Oracle purposes virtual machines are used, both for the Oracle
 - **Constrained vCPU VMs.** In order to potentially save cost on Oracle licensing, consider utilizing [vCPU constrained VMs](/azure/virtual-machines/constrained-vcpu)
 - **Certified VM families for SAP.** For details about SAP support for Azure virtual machine types and throughput metrics (SAPS), see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access SAP notes, you need an SAP Service Marketplace account.)
 
-**Proximity Placement Groups (PPG).** With virtual machines deployed in availability zones, latency within the zone is most cases ideal for SAP applications. In rare situations when latency between database and application virtual machines needs to be lowered, you can use [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios). For such situations PPGs will ensure collocation, meaning that virtual machines are in the same datacenter to minimize application latency. Due to potential restrictions with PPGs, adding the database AvSet to the SAP system's PPG should be done sparsely and only when required. For more details on the usage scenarios for PPGs see the linked documentation.
+**Proximity Placement Groups (PPG).** When virtual machines are deployed in availability zones, latency within the zone is usually ideal for SAP applications. In rare situations when latency between the database and application virtual machines needs to be lowered, you can use [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios). For such situations, PPGs ensure collocation, meaning that virtual machines are in the same datacenter to minimize application latency. Due to potential restrictions with PPGs, adding the database AvSet to the SAP system's PPG should be done sparsely and only when required. For more details on the usage scenarios for PPGs see the linked documentation.
 
 **Generation 2 (Gen2) virtual machines.** Azure offers the choice when deploying VMs if they should be generation 1 or 2. [Generation 2 VMs](/azure/virtual-machines/generation-2) support key features which are not available for generation 1 VMs. Particularly for very large Oracle databases this is of importance since some VM families such as [Mv2](/azure/virtual-machines/mv2-series) or [Mdsv2](/azure/virtual-machines/msv2-mdsv2-series) are **only** supported as Gen2 VMs. Similarly, SAP on Azure certification for some newer VMs might require them to be only Gen2 for full support, even if Azure allows both on them. See details in [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -126,7 +126,7 @@ Every architectural layer in the SAP application stack uses a different approach
 ### Backup
 
 Backup for Oracle in Azure can be achieved through several means:
-- **Azure Backup.** [Azure provided and maintained scripts](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Databases and [Azure Backup for Oracle](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup) address backup requirements.
+- **Azure Backup.** [Scripts provided and maintained by Azure](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Database and [Azure Backup for Oracle](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup) address backup requirements.
 - **Azure Storage.** Using file-based database backups, for example scheduled with SAP's BR tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob, or Azure Files storage services. See [Documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
 - **3rd party backup solutions.** See architecture of your backup storage provider, supporting Oracle in Azure.
 
