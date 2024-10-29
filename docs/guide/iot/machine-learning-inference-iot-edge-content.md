@@ -10,6 +10,7 @@ The solution described in this article can help you in these ways:
 - Minimize the network cost of deploying and updating AI models on the edge. The solution can save money for you or your customers, especially in a narrow-bandwidth network environment.
 - Create and manage an AI model repository in an IoT edge device's local storage.
 - Achieve almost zero downtime when the edge device switches AI models.
+
 *[TensorFlow and LiteRT](https://www.tensorflow.org) are a trademark of Google Inc. No endorsement is implied by the use of this mark.*
 
 ## Architecture
