@@ -78,7 +78,7 @@ In general, the migration steps from Azure Service Fabric to Azure Kubernetes Se
 
 1. Rewrite Service Fabric configuration XML files as Kubernetes YAML files. You will deploy the application to AKS using YAML files or as a package using Helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
 
-1. Deploy the application to AKS cluster
+1. Deploy the application to AKS cluster.
 
 1. Shift traffic to the AKS cluster based on your [deployment strategies](/architecture/guide/aks/blue-green-deployment-for-aks), and monitor the application's behavior, availability, performance. 
 
