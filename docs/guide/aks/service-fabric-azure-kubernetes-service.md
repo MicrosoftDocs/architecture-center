@@ -76,7 +76,7 @@ In general, the migration steps from Azure Service Fabric to Azure Kubernetes Se
   
 - Package the application as containers. Visual Studio provides you options to generate the Dockerfile and package the application as containers. Push the container images you create to [Azure Container Registry](/azure/container-registry/).
 
-- Re-write service fabric configuration XML files as Kubernetes YAML files. You may deploy the application to AKS using YAML files or as a package using helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
+- Rewrite Service Fabric configuration XML files as Kubernetes YAML files. You will deploy the application to AKS using YAML files or as a package using Helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
 
 - Deploy the application to AKS cluster, and monitor the application's behavior, availability, performance. 
 
