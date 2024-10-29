@@ -1,5 +1,14 @@
 This article describes how to use Oracle Data Guard to migrate an on-premises Oracle database to an Azure virtual machine (VM). This article assumes that you have a basic understanding of Oracle Database technologies, Azure compute, and Azure networking. This scenario builds on the scenario in [Migrate Oracle database workloads to Azure](topic-migrate-oracle-azure.yml).
 
+## Architecture
+
+
+The following diagram shows an example of this scenario.
+
+:::image type="content" source="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg" alt-text="Diagram that shows an architecture to migrate a database to an Azure virtual machine." border="false" lightbox="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-iaas.vsdx) of this architecture.*
+
 ## Scenario
 
 Consider the following scenario details:
@@ -13,12 +22,6 @@ Consider the following scenario details:
 - In the hub virtual network, the traffic has to traverse a non-Microsoft network virtual appliance (NVA), such as FortiGate, Check Point, or Cisco. The NVA functions as a routing device, which helps ensure that connectivity between the VM and the on-premises Oracle Database implementation is fully routable. You configure the NVA to inspect all traffic that goes to and from on-premises. The IP address of the hub NVA is 10.0.0.5.
 - You configure hybrid connectivity in the hub virtual network via an Azure ExpressRoute connection to your on-premises network.
 - You need to migrate the on-premises database to the the Azure VM with the minimum amount of downtime possible. You decide to use Oracle Data Guard and Oracle Recovery Manager (RMAN) for the migration.
-
-The following diagram shows an example of this scenario.
-
-:::image type="content" source="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg" alt-text="Diagram that shows an architecture to migrate a database to an Azure virtual machine." border="false" lightbox="_images/migrate-oracle-azure-iaas/oracle-migration-iaas.svg":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-iaas.vsdx) of this architecture.*
 
 ## Establish network connectivity
 
@@ -49,7 +52,7 @@ Do the following steps to verify connectivity.
 
 1. Use RMAN to back up the database from the on-premises database server and restore it onto the target system. For more information, see [Restore a database on a new host](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-recovery-advanced.html#GUID-6B71E7DF-A2B6-44F5-A8D5-B184BB41A768).
 
-   Depending on the database backup file size and network bandwidth, you can copy the backup files directly to the Azure VM on a staging area set of disks that you specifically create for that purpose. If you can't use that method because of network bandwidth constraints, you can use [Azure Data Box](/azure/databox/data-box-overview) to copy the backup files to Azure. After the files are in Azure blob storage, you should copy them to the Azure VM staging area set of disks for the restore operation.
+   Depending on the database backup file size and network bandwidth, you might be able to copy the backup files directly to the Azure VM on a staging area set of disks that you specifically create for that purpose. If you can't use that method because of network bandwidth constraints, you can use [Azure Data Box](/azure/databox/data-box-overview) to copy the backup files to Azure. After the files are in Azure blob storage, you should copy them to the Azure VM staging area set of disks for the restore operation.
 
 1. Configure Oracle Data Guard between the on-premises database server (primary replica) and the Azure VM database server (secondary replica). For more information, see [Create a physical standby database](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170).
 1. After the Oracle Data Guard replication finishes and the databases sync, perform a switchover to the Azure VM. For more information, see [Role transitions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/managing-oracle-data-guard-role-transitions.html#GUID-66282DCD-5E7B-43C2-ADA1-03342E2750A0). Coordinate this step with the application team to ensure that they update application services to point to the new database.

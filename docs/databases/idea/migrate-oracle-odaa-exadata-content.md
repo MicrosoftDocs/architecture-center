@@ -1,5 +1,13 @@
 This article describes how to use Oracle Zero Downtime Migration (ZDM) to migrate an Oracle database from an on-premises Exadata system to [Oracle Database@Azure](/azure/oracle/oracle-db/database-overview) (OD@A) Exadata Database Service. This article assumes that you have a basic understanding of OD@A and Oracle ZDM. This scenario builds on the scenario in [Migrate Oracle database workloads to Azure](topic-migrate-oracle-azure.yml).
 
+## Architecture
+
+The following diagram shows an example of this scenario.
+
+:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to OD@A." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-odaa.vsdx) of this architecture.*
+
 ## Scenario
 
 Consider the following scenario details:
@@ -12,12 +20,6 @@ Consider the following scenario details:
 - In your on-premises network, you have an existing Exadata implementation, and you want to migrate one of the databases to OD@A. The database is 2 TB and runs on Exadata X8M-2. The database version is Oracle Database 19c, Enterprise Edition. Your on-premises IP address range is 192.168.0.0/16.
 - You enabled Real Application Clusters (RAC) on the database. For disaster recovery, you replicate the database via Oracle Data Guard to another datacenter that's geographically distant from the primary database location.
 - You need to migrate the database to OD@A with the minimum amount of downtime. You decide to use the Oracle ZDM tool to orchestrate the migration.
-
-The following diagram shows an example of this scenario.
-
-:::image type="content" source="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg" alt-text="Diagram that shows an architecture to migrate an on-premises database to OD@A." border="false" lightbox="_images/migrate-oracle-odaa-exadata/oracle-migration-odaa.svg":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-odaa.vsdx) of this architecture.*
 
 ## Establish network connectivity
 
