@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/ai-ml/architecture/customer-lifecycle-churn.yml",
+      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/custom-mobile-workforce-app.yml",
       "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
       "redirect_document_id": false
