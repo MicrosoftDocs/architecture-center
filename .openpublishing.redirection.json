@@ -3217,7 +3217,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-feedback-and-analytics.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/customer-feedback-and-analytics",
+      "redirect_url": "/azure/architecture/ai-ml",
       "redirect_document_id": true
     },
     {
@@ -3282,7 +3282,7 @@
     },
     {      
       "source_path": "docs/solution-ideas/articles/customer-churn-prediction.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/customer-churn-prediction",
+      "redirect_url": "/azure/architecture/ai-ml",
       "redirect_document_id": true
     },
     {
