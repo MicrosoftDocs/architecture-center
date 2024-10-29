@@ -6,12 +6,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/architecture/ai-ml/idea/customer-feedback-and-analytics.yml",
+      "source_path": "docs/ai-ml/idea/customer-feedback-and-analytics.yml",
       "redirect_url": "/azure/architecture/ai-ml",
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/architecture/ai-ml/idea/customer-churn-prediction.yml",
+      "source_path": "docs/ai-ml/idea/customer-churn-prediction.yml",
       "redirect_url": "/azure/architecture/ai-ml",
       "redirect_document_id": false
     },
