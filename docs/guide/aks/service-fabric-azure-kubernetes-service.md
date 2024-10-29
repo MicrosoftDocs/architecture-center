@@ -80,7 +80,7 @@ In general, the migration steps from Azure Service Fabric to Azure Kubernetes Se
 
 1. Deploy the application to AKS cluster
 
-1. Shift traffic to the AKS cluster based on your deployment strategies, and monitor the application's behavior, availability, performance. 
+1. Shift traffic to the AKS cluster based on your [deployment strategies](/architecture/guide/aks/blue-green-deployment-for-aks), and monitor the application's behavior, availability, performance. 
 
 ## Example architecture
 
