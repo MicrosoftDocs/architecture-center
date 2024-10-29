@@ -70,15 +70,17 @@ In general, the migration steps from Azure Service Fabric to Azure Kubernetes Se
 
 :::image type="content" source="media/migrate-from-svc-fabric-to-aks.png" alt-text="Diagram that shows the migration steps from Azure Service Fabric to Azure Kubernetes Service." lightbox="media/migrate-from-svc-fabric-to-aks.png" border="false":::
 
-- Establish deployment architecture and create the AKS cluster. AKS offers you various options to configure the cluster access, node and pod scalability, network access and configuration etc. Please see [Example architecture](#example-architecture) section for a typical deployment architecture. The [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) provides you cluster deployment and monitoring guidelines as well. [AKS construction](https://azure.github.io/AKS-Construction/) provides you quick start templates to deploy your AKS cluster based on business and technical requirements.
+1. Establish deployment architecture and create the AKS cluster. AKS offers you various options to configure the cluster access, node and pod scalability, network access and configuration etc. Please see [Example architecture](#example-architecture) section for a typical deployment architecture. The [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) provides you cluster deployment and monitoring guidelines as well. [AKS construction](https://azure.github.io/AKS-Construction/) provides you quick start templates to deploy your AKS cluster based on business and technical requirements.
 
-- Re-architect the Service Fabric application. If you are using programming models such as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) or [Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-introduction), or if you are using other Service Fabric specific constructs, you may need to re-architect your application. [Dapr](/azure/aks/dapr-overview) is the recommended way to implement state management when migrating from Reliable Services. Kubernetes offers [patterns and examples](https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-patterns) to migrate from Reliable Actors.
+1. Re-architect the Service Fabric application. If you are using programming models such as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) or [Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-introduction), or if you are using other Service Fabric specific constructs, you may need to re-architect your application. [Dapr](/azure/aks/dapr-overview) is the recommended way to implement state management when migrating from Reliable Services. Kubernetes offers [patterns and examples](https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-patterns) to migrate from Reliable Actors.
   
-- Package the application as containers. Visual Studio provides you options to generate the Dockerfile and package the application as containers. Push the container images you create to [Azure Container Registry](/azure/container-registry/).
+1. Package the application as containers. Visual Studio provides you options to generate the Dockerfile and package the application as containers. Push the container images you create to [Azure Container Registry](/azure/container-registry/).
 
-- Rewrite Service Fabric configuration XML files as Kubernetes YAML files. You will deploy the application to AKS using YAML files or as a package using Helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
+1. Rewrite Service Fabric configuration XML files as Kubernetes YAML files. You will deploy the application to AKS using YAML files or as a package using Helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
 
-- Deploy the application to AKS cluster, and monitor the application's behavior, availability, performance. 
+1. Deploy the application to AKS cluster
+
+1. Shift traffic to the AKS cluster based on your deployment strategies, and monitor the application's behavior, availability, performance. 
 
 ## Example architecture
 
