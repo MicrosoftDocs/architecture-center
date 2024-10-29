@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 10/14/2024
+ms.date: 10/29/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -27,21 +27,41 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Modern Web App pattern for .NET](./web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml)
+- [Enterprise Web App Patterns](./web-apps/guides/enterprise-app-patterns/overview.md)
+- [Reliable Web App pattern for .NET](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml)
+- [Reliable Web App pattern for Java](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml)
+- [Greenfield lakehouse on Microsoft Fabric](./example-scenario/data/greenfield-lakehouse-fabric.yml)
 - [ValOps for Autonomous Vehicle Operations](./example-scenario/automotive/autonomous-vehicle-validation-operations.yml)
 - [Automotive messaging, data, and analytics](./industries/automotive/automotive-messaging-data-analytics.yml)
 
 ### Updated articles
 
+- [Measure Azure App Sustainability by Using the SCI Score](./example-scenario/apps/measure-azure-app-sustainability-sci-score.yml)  ([#9e0c672bca](https://github.com/MicrosoftDocs/architecture-center/commit/9e0c672bca))
+- [Harms modeling](./guide/responsible-innovation/harms-modeling/index.md)  ([#6892594536](https://github.com/MicrosoftDocs/architecture-center/commit/6892594536))
 - [Azure Load Testing with custom plugins to simulate device behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md)  ([#c4838a7343](https://github.com/MicrosoftDocs/architecture-center/commit/c4838a7343))
 - [Modernize mainframe and midrange data](./example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)  ([#00013d46aa](https://github.com/MicrosoftDocs/architecture-center/commit/00013d46aa))
 - [Replicate and sync mainframe data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml)  ([#274b161917](https://github.com/MicrosoftDocs/architecture-center/commit/274b161917))
 - [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml)  ([#53f32c7bb7](https://github.com/MicrosoftDocs/architecture-center/commit/53f32c7bb7))
+- [Azure Cosmos DB considerations for multitenancy](./guide/multitenant/service/cosmos-db.md)  ([#85cb4928e6](https://github.com/MicrosoftDocs/architecture-center/commit/85cb4928e6))
+- [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#a7e1be4c2d](https://github.com/MicrosoftDocs/architecture-center/commit/a7e1be4c2d))
+- [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#332a0da85a](https://github.com/MicrosoftDocs/architecture-center/commit/332a0da85a))
+- [Basic OpenAI end-to-end chat reference architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#332a0da85a](https://github.com/MicrosoftDocs/architecture-center/commit/332a0da85a))
+- [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
+- [Azure Virtual Desktop for the enterprise](./example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
+- [Multiple forests with AD DS and Microsoft Entra ID](./example-scenario/azure-virtual-desktop/multi-forest.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
+- [Banking system cloud transformation on Azure](./example-scenario/banking/banking-system-cloud-transformation.yml)  ([#42f5581a6f](https://github.com/MicrosoftDocs/architecture-center/commit/42f5581a6f))
+- [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#c5b743dfeb](https://github.com/MicrosoftDocs/architecture-center/commit/c5b743dfeb))
+- [Scalable cloud applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)  ([#c5b743dfeb](https://github.com/MicrosoftDocs/architecture-center/commit/c5b743dfeb))
+- [Refactor mainframe computer systems that run Adabas &amp; Natural](./example-scenario/mainframe/refactor-adabas-aks.yml)  ([#1b4c51b94b](https://github.com/MicrosoftDocs/architecture-center/commit/1b4c51b94b))
+- [Microsoft Security for AWS](./guide/aws/aws-azure-security-solutions.yml)  ([#df83a8c1a1](https://github.com/MicrosoftDocs/architecture-center/commit/df83a8c1a1))
+- [Improved-security access to App Service web apps from an on-premises network](./web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)  ([#0b2d8b6dd7](https://github.com/MicrosoftDocs/architecture-center/commit/0b2d8b6dd7))
+- [Deploy AKS and API Management with mTLS](./solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml)  ([#bb8af9929f](https://github.com/MicrosoftDocs/architecture-center/commit/bb8af9929f))
 - [Choose an Azure AI targeted language processing technology](./data-guide/ai-services/targeted-language-processing.md)  ([#a2f08f4a31](https://github.com/MicrosoftDocs/architecture-center/commit/a2f08f4a31))
 - [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#1d1befb451](https://github.com/MicrosoftDocs/architecture-center/commit/1d1befb451))
-- [Basic OpenAI end-to-end chat reference architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#fe7bc7c87f](https://github.com/MicrosoftDocs/architecture-center/commit/fe7bc7c87f))
 - [Secure research environment for regulated data](./ai-ml/architecture/secure-compute-for-research.yml)  ([#fe7bc7c87f](https://github.com/MicrosoftDocs/architecture-center/commit/fe7bc7c87f))
 - [Generative AI ops for organizations with existing MLOps investments](./ai-ml/guide/genaiops-for-mlops.md)  ([#fe7bc7c87f](https://github.com/MicrosoftDocs/architecture-center/commit/fe7bc7c87f))
-- [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#cd4fb57978](https://github.com/MicrosoftDocs/architecture-center/commit/cd4fb57978))
 - [Machine learning operations v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#cd4fb57978](https://github.com/MicrosoftDocs/architecture-center/commit/cd4fb57978))
 - [Line-of-business application using Azure App Service Environment v3](./example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)  ([#cd4fb57978](https://github.com/MicrosoftDocs/architecture-center/commit/cd4fb57978))
 - [Azure API Management landing zone accelerator](./example-scenario/integration/app-gateway-internal-api-management-function.yml)  ([#cd4fb57978](https://github.com/MicrosoftDocs/architecture-center/commit/cd4fb57978))
@@ -50,7 +70,6 @@ The following new and updated articles have recently been published in the Azure
 - [Choose an Azure storage service](./guide/technology-choices/storage-options.md)  ([#0e89e62eca](https://github.com/MicrosoftDocs/architecture-center/commit/0e89e62eca))
 - [Make all things redundant](./guide/design-principles/redundancy.md)  ([#84dd4575cf](https://github.com/MicrosoftDocs/architecture-center/commit/84dd4575cf))
 - [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)  ([#ef15ea8c94](https://github.com/MicrosoftDocs/architecture-center/commit/ef15ea8c94))
-- [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)  ([#67c862c6f7](https://github.com/MicrosoftDocs/architecture-center/commit/67c862c6f7))
 - [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)  ([#3e64aa921a](https://github.com/MicrosoftDocs/architecture-center/commit/3e64aa921a))
 - [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#3e64aa921a](https://github.com/MicrosoftDocs/architecture-center/commit/3e64aa921a))
 - [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#3e64aa921a](https://github.com/MicrosoftDocs/architecture-center/commit/3e64aa921a))
@@ -275,4 +294,5 @@ The following new and updated articles have recently been published in the Azure
 - [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md)  ([#6113dcf9a0](https://github.com/MicrosoftDocs/architecture-center/commit/6113dcf9a0))
 - [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI](./example-scenario/hybrid/aks-baseline.yml)  ([#269a89f7a8](https://github.com/MicrosoftDocs/architecture-center/commit/269a89f7a8))
 - [Multiparty computing architecture design](./guide/blockchain/multiparty-compute.yml)  ([#35d48de602](https://github.com/MicrosoftDocs/architecture-center/commit/35d48de602))
+- [Analyze observational patient data by using OHDSI with the OMOP CDM](./example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml)  ([#a22c7975e2](https://github.com/MicrosoftDocs/architecture-center/commit/a22c7975e2))
 
