@@ -67,9 +67,9 @@ There are two primary topologies within many event-driven architectures:
 
   Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never makes it into the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component has acknowledged the receipt of the event. These features are usually known as _client acknowledge mode_ and _last participant support_.
 
-- Simplicity and testability
+- Simplicity and testability.
 
- Event-driven architectures can have unpredictable and dynamic event flows, leading to many possible scenarios. This complexity can create significant challenges when it comes to testing.
+  Event-driven architectures can have unpredictable and dynamic event flows, leading to many possible scenarios. This complexity can create significant challenges when it comes to testing.
 
 ### Additional considerations
 
