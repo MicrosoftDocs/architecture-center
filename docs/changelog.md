@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 10/22/2024
+ms.date: 10/29/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.author: robbag
@@ -37,10 +37,13 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Measure Azure App Sustainability by Using the SCI Score](./example-scenario/apps/measure-azure-app-sustainability-sci-score.yml)  ([#9e0c672bca](https://github.com/MicrosoftDocs/architecture-center/commit/9e0c672bca))
+- [Harms modeling](./guide/responsible-innovation/harms-modeling/index.md)  ([#6892594536](https://github.com/MicrosoftDocs/architecture-center/commit/6892594536))
 - [Azure Load Testing with custom plugins to simulate device behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md)  ([#c4838a7343](https://github.com/MicrosoftDocs/architecture-center/commit/c4838a7343))
 - [Modernize mainframe and midrange data](./example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)  ([#00013d46aa](https://github.com/MicrosoftDocs/architecture-center/commit/00013d46aa))
 - [Replicate and sync mainframe data to Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml)  ([#274b161917](https://github.com/MicrosoftDocs/architecture-center/commit/274b161917))
 - [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml)  ([#53f32c7bb7](https://github.com/MicrosoftDocs/architecture-center/commit/53f32c7bb7))
+- [Azure Cosmos DB considerations for multitenancy](./guide/multitenant/service/cosmos-db.md)  ([#85cb4928e6](https://github.com/MicrosoftDocs/architecture-center/commit/85cb4928e6))
 - [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#a7e1be4c2d](https://github.com/MicrosoftDocs/architecture-center/commit/a7e1be4c2d))
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#332a0da85a](https://github.com/MicrosoftDocs/architecture-center/commit/332a0da85a))
 - [Basic OpenAI end-to-end chat reference architecture](./ai-ml/architecture/basic-openai-e2e-chat.yml)  ([#332a0da85a](https://github.com/MicrosoftDocs/architecture-center/commit/332a0da85a))

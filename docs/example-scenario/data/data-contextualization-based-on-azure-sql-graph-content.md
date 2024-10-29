@@ -59,7 +59,7 @@ The data in the silver layer is stored in [Delta Lake](https://docs.databricks.c
 
 This solution implements incremental data processing, so only data that has been modified or added since the previous run is processed. Incremental data load is typical in batch processing because it helps keep data processing fast and economical.
 
-For more information, see [incremental data load](#incremental-data-load-1).
+For more information, see [Incremental data load](#incremental-data-load-1).
 
 ### Data contextualization
 
@@ -93,8 +93,8 @@ Contoso has many applications that help factory managers monitor processes and o
 
 Gary signs in to the quality system and looks up the asset ID AE0520 in the `AE_OP_EFF` table. That table contains all the key attributes for operational efficiency data.
 
-There are many columns in the `AE_OP_EFF` table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `Alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `Alarm` table corresponds to the asset AE0520, because they use different naming conventions.  
- 
+There are many columns in the `AE_OP_EFF` table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `Alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `Alarm` table corresponds to the asset AE0520, because they use different naming conventions.
+
 The relationship is actually much more complicated. Gary needs to search for more than one attribute of the asset and sign in to many tables in different systems to get all the data for a complete report. He uses queries and scripts to perform his work, but the queries are complicated and hard to maintain. Even worse, the systems are growing, and more data needs to be added to the report for different decision makers.
 
 One of the main problems for Gary is that the IDs of a given asset in various systems are different. The systems were developed and are maintained separately, and they even use different protocols. Gary needs to manually query the various tables to get data for a single asset. The queries are complex and difficult to understand. As a result, Gary spends a lot of time training new operations engineers and explaining the relationships in the data.
@@ -105,7 +105,7 @@ Gary needs a mechanism to link the various names that belong to a single asset a
 
 SQL Database provides graph database capabilities for modeling many-to-many relationships. The graph relationships are integrated into Transact-SQL.
 
-A graph database is a collection of nodes (or *vertices*) and edges (or *relationships*). A node represents an entity, like a person or an organization. An edge represents a relationship between the two nodes that it connects, for example, *likes* or *friends*. 
+A graph database is a collection of nodes (or *vertices*) and edges (or *relationships*). A node represents an entity, like a person or an organization. An edge represents a relationship between the two nodes that it connects, for example, *likes* or *friends*.
 
 ![Diagram that shows the components of a graph database.](media/graph-database.png)
 
@@ -132,16 +132,16 @@ The following table shows the nodes and edges:
 |Quality_System|Quality_System -> is_associated_with -> Asset|
 |Asset||
 
-To create these nodes and edges in SQL Database, you can use the following SQL commands: 
+To create these nodes and edges in SQL Database, you can use the following SQL commands:
 
 ```SQL
-…
+...
 CREATE TABLE Alarm (ID INTEGER PRIMARY KEY, Alarm_Type VARCHAR(100)) AS NODE; 
 CREATE TABLE Asset (ID INTEGER PRIMARY KEY, Asset_ID VARCHAR(100)) AS NODE;
 CREATE TABLE Quality_System (ID INTEGER PRIMARY KEY, Quality_ID VARCHAR(100)) AS NODE;
 CREATE TABLE belongs_to AS EDGE;
 CREATE TABLE is_associated_with AS EDGE;
-…
+...
 ```
 
 These commands create the following graph tables:
@@ -154,7 +154,7 @@ These commands create the following graph tables:
 
 To query the graph database, you can use the [MATCH](/sql/t-sql/queries/match-sql-graph?view=sql-server-ver16) clause to match patterns and traverse the graph:
 
-``` SQL
+```SQL
 SELECT [dbo].[Alarm].Alarm_Type, [dbo].[Asset].Asset_ID
 FROM [dbo].[Alarm], [dbo].[Asset], [dbo].[Quality_System], [dbo].[belongs_to], [dbo].[is_associated_with]
 WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
@@ -240,14 +240,14 @@ For SQL Database:
 * Use a managed identity and RBAC to limit access to specific operations and resources within a database.
 * If you access SQL Database by using a sign-in, use a strong password. Save passwords in Azure Key Vault.
 * Enable TLS to help secure in-transit data between SQL Database and Azure Databricks.
-* See [Azure security baseline for Azure SQL](/security/benchmark/azure/baselines/azure-sql-security-baseline) for more information.
+* For more information, see [Azure security baseline for Azure SQL](/security/benchmark/azure/baselines/azure-sql-security-baseline).
 
 For Azure Databricks:
 
 * Use RBAC.
 * Enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity. Enable logging to track user activity and security events.
 * To provide a layer of protection for data in transit, enable TLS for the JDBC connection to SQL Database.
-* See [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline) for more information.
+* For more information, see [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline).
 
 In your production environment, put these resources into an [Azure virtual network](/azure/virtual-network/virtual-networks-overview) that isolates them from the public internet to reduce the attack surface and help protect against data exfiltration.
 
@@ -281,7 +281,6 @@ Principal authors:
 - [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673) | Software Engineer
 - [Gary Wang](https://www.linkedin.com/in/gang-gary-wang) | Principal Software Engineer
 
-
 Other contributor:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
@@ -291,7 +290,7 @@ Other contributor:
 ## Next steps
 
 * [What is Azure Cosmos DB for Apache Gremlin?](/azure/cosmos-db/gremlin/introduction)
-* [The leading graph data platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
+* The [leading graph data platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
 * [Graph processing with SQL Server and SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 * [Use Delta Lake change data feed on Azure Databricks](/azure/databricks/delta/delta-change-data-feed)
 * [How to simplify change data capture (CDC) with Delta Lake's change data feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)

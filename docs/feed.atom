@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-10-22T15:48:00.630Z</updated>
+    <updated>2024-10-29T13:31:02.175Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -65,6 +65,22 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Measure Azure App Sustainability by Using the SCI Score]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/measure-azure-app-sustainability-sci-score</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/measure-azure-app-sustainability-sci-score"/>
+        <updated>2024-10-28T16:11:54.000Z</updated>
+        <summary type="html"><![CDATA[Create a sustainability model based on available proxies that scores the carbon impact of an application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Harms modeling]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling"/>
+        <updated>2024-10-23T03:39:10.000Z</updated>
+        <summary type="html"><![CDATA[This article describes how to figure out harms and negative impact of a technology and ways to mitigate them.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Azure Load Testing with custom plugins to simulate device behaviors]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins"/>
@@ -94,6 +110,14 @@
         <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics"/>
         <updated>2024-10-03T17:49:55.000Z</updated>
         <summary type="html"><![CDATA[Learn about a data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Cosmos DB considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/cosmos-db</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/cosmos-db"/>
+        <updated>2024-10-25T03:28:25.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Cosmos DB that are useful when working with multitenant systems, and links to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
