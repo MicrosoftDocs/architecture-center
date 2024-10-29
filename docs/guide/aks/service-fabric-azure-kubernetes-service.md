@@ -74,7 +74,7 @@ In general, the migration steps from Azure Service Fabric to Azure Kubernetes Se
 
 - Re-architect the Service Fabric application. If you are using programming models such as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) or [Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-introduction), or if you are using other Service Fabric specific constructs, you may need to re-architect your application. [Dapr](/azure/aks/dapr-overview) is the recommended way to implement state management when migrating from Reliable Services. Kubernetes offers [patterns and examples](https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-patterns) to migrate from Reliable Actors.
   
-- Package the application as containers. Visual Studio provides you options to generate Dockerfile and package the application as containers. It is recommended to push the container images to [Azure Container Registry](/azure/container-registry/).
+- Package the application as containers. Visual Studio provides you options to generate the Dockerfile and package the application as containers. Push the container images you create to [Azure Container Registry](/azure/container-registry/).
 
 - Re-write service fabric configuration XML files as Kubernetes YAML files. You may deploy the application to AKS using YAML files or as a package using helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
 
