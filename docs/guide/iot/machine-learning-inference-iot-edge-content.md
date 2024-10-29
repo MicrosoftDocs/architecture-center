@@ -38,7 +38,7 @@ In this solution, an IoT Edge module is used to download an AI model and then en
 
 ### LiteRT
 
-- A \*.tflite file is a pre-trained AI model. You can download one from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model that you can use in cross-platform applications like iOS and Android. LiteRT supports models from TensorFlow, PyTorch, JAX, and Keras. For more information about metadata and associated fields (for example, `labels.txt`) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
+- A `.tflite` file is a pre-trained AI model. You can download one from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model that you can use in cross-platform applications like iOS and Android. LiteRT supports models from TensorFlow, PyTorch, JAX, and Keras. For more information about metadata and associated fields (for example, `labels.txt`) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
 - An object detection model is trained to detect the presence and location of multiple classes of objects. For example, a model might be trained with images that contain various pieces of fruit, along with a label that specifies the class of fruit that they represent (for example, apple) and data that specifies where each object appears in the image.
 
   When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box for each object, and a score that indicates the confidence of the detection.
@@ -276,8 +276,8 @@ Principal author:
 - [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673) | Senior Software Engineer
 
 Other contributor:
+
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/)  | Cloud Solution Architect
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
