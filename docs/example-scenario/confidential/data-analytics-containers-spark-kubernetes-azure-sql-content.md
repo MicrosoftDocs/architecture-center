@@ -1,4 +1,4 @@
-This solution uses confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers with data from Azure Data Lake and Azure SQL Database. Confidential computing is provided by Intel Software Guard Extensions and AMD EPYC<sup>TM</sup> processors with Secure Encrypted Virtualization-Secure Nested Paging. For more information on provisioning an AKS cluster with AMD SEV-SNP confidential VMs, see [Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs](/azure/confidential-computing/confidential-node-pool-aks). For more information about deploying an AKS cluster with confidential computing Intel SGX agent nodes, see [Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
+This solution uses confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers with data from Azure Data Lake and Azure SQL Database. Confidential computing is provided by Intel Software Guard Extensions and AMD EPYC<sup>TM</sup> processors with Secure Encrypted Virtualization-Secure Nested Paging. For more information on provisioning an Azure Kubernetes Service (AKS) cluster with AMD SEV-SNP confidential VMs, see [Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs](/azure/confidential-computing/confidential-node-pool-aks). For more information about deploying an AKS cluster with confidential computing Intel SGX agent nodes, see [Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -12,7 +12,7 @@ Diagram that shows how sensitive data flows securely from ingestion phase to ana
 
 The preceding diagram outlines the architecture: a scalable pattern for processing larger datasets in a distributed fashion. It also showcases confidential analytics on relational database engines and storing confidential data. In particular, the containerized Spark app can process datasets from two data sources, as illustrated:
 
-1. [Azure Data Lake Storage - Parquet/Delta Lake files](/azure/storage/blobs/data-lake-storage-introduction): As shown in the [sample demonstration](#deploy-this-scenario), a four-pod Spark deployment—one Driver, three Executors on the [Secure Container Environment (SCONE) runtime](https://sconedocs.github.io/sconeapps_spark)—is capable of processing 1.5 billion rows of Parquet/Delta Lake files that are stored on Azure Data Lake storage within two minutes, or approximately 131 seconds.
+1. [Azure Data Lake Storage - Parquet/Delta Lake files](/azure/storage/blobs/data-lake-storage-introduction): As shown in the [sample demonstration](#deploy-this-scenario), a four-pod Spark deployment—one Driver, three Executors on the [Secure Container Environment (SCONE) runtime](https://sconedocs.github.io/sconeapps_spark)—is capable of processing 1.5 billion rows of Parquet/Delta Lake files that are stored on Azure Data Lake Storage within about two minutes.
 
 2. [Azure SQL DB - Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15): This example uses Spark to access Always Encrypted data as plaintext by using the [Azure SQL JDBC driver](/sql/connect/jdbc/using-always-encrypted-with-the-jdbc-driver?view=sql-server-ver15) inside the Spark container enclave to run analytics and machine learning pipelines.
 
@@ -66,7 +66,7 @@ Confidential computing technology encrypts data in memory and only processes it 
 
 > [!NOTE]
 > Confidential data analytics in this context is meant to imply *run analytics on sensitive data with peace of mind against data exfiltration*. This includes a potential container access breach at the root level, both internally (for example, by a rogue admin) or externally (by system compromise).
-> 
+>
 > Confidential data analytics helps to meet the highest needs of security and confidentiality by removing from computation the untrusted parties, such as the cloud operator and service or guest admins. This method helps to meet data compliance needs through hardware-backed guarantees.
 
 ### Potential use cases
@@ -113,7 +113,7 @@ Kubernetes admins, or any privileged user with the highest level of access (for 
 
 #### Attestation
 
-*Attestation* is a mechanism that provides to a client, or *party*, cryptographic evidence that the environment where an app is running is trustworthy, including both its hardware and software, before exchanging data. *Remote attestation* ensures that your workload hasn't been tampered with when deployed to an untrusted host, such as a VM instance or a Kubernetes node that runs in the cloud. In this process, attestation evidence provided by Intel SGX hardware is analyzed by an attestation provider. 
+*Attestation* is a mechanism that provides to a client, or *party*, cryptographic evidence that the environment where an app is running is trustworthy, including both its hardware and software, before exchanging data. *Remote attestation* ensures that your workload hasn't been tampered with when deployed to an untrusted host, such as a VM instance or a Kubernetes node that runs in the cloud. In this process, attestation evidence provided by Intel SGX hardware is analyzed by an attestation provider.
 
 To perform remote attestation on a SCONE application (such as Spark Driver and Executor pods), two services are required:
 
@@ -136,7 +136,7 @@ Deploying this scenario involves the following high-level steps:
 - Get access to the PySpark base image that's used in this scenario from SCONE's container registry: see `registry.scontain.com:5050` on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
-  
+
 - Deploy [Always Encrypted with secure enclaves in Azure SQL Database - Demos](https://github.com/microsoft/sql-server-samples/blob/master/samples/features/security/always-encrypted-with-secure-enclaves/azure-sql-database-sgx/README.md). These demos use a confidential dataset, ContosoHR, which is included. This scenario decrypts confidential data into plaintext inside the Spark containers enclave.
 
 - Deploy an Intel SGX-enabled AKS cluster node pool. For instructions, see [Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
