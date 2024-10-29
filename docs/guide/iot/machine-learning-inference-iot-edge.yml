@@ -4,11 +4,13 @@ metadata:
   description: Enable machine learning inference on an IoT Edge device. Scenarios include image classification, object detection, and body, face, and gesture analysis.
   author: FreddyAyala
   ms.author: freddyayala 
-  ms.date: 10/25/2024
+  ms.date: 10/29/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
-  ms.custom: arb-iot
+  ms.custom:
+    - arb-iot
+    - arb-aiml
 azureCategories:
   - iot
   - ai-machine-learning
@@ -19,5 +21,4 @@ name: Enable machine learning inference on an Azure IoT Edge device
 summary: Enable machine learning inference on an IoT Edge device.
 thumbnailUrl: /azure/architecture/browse/thumbs/inference-iot-edge-thumb.png
 content: |
-  [!include[](machine-learning-inference-iot-edge-content.md)]
-
+  [!INCLUDE[](machine-learning-inference-iot-edge-content.md)]
