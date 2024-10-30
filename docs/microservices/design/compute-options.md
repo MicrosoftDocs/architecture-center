@@ -99,7 +99,7 @@ With an orchestrator, you pay for the VMs that are running in the cluster. With 
 Azure Functions, Azure Container Apps and Azure Kubernetes Service provides you auto-scaling options. Please note that Azure Container Apps and Azure Functions provide you serverless platforms where the cost can be zero based on consumption, while Azure Kubernetes Service provides only dedicated compute option. 
 
 ### Operational excellence
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see Overview of the operational excellence pillar.
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/well-architected/operational-excellence/).
 
 All of the microservice compute choices described in this article can be deployed in an automated manner using Terraform, Bicep, and other scripting languages. [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), [Azure Monitor](/azure/azure-monitor/overview) and other monitoring solutions can be leveraged to monitor these compute platforms and the microservices. 
 
