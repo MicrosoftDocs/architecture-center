@@ -5576,6 +5576,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/idea/orchestrate-mlops-azure-databricks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks",
+      "redirect_document_id": false
+    },
+    {
     "source_path": "docs/example-scenario/mainframe/devops-mainframe-ibm-z.yml",
     "redirect_url": "/azure/architecture/mainframe/mainframe-midrange-architecture",
     "redirect_document_id": false
