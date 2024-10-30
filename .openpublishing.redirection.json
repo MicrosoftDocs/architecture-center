@@ -5574,6 +5574,16 @@
       "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
       "redirect_document_id": false
+    },
+    {
+    "source_path": "docs/example-scenario/mainframe/devops-mainframe-ibm-z.yml",
+    "redirect_url": "/azure/architecture/mainframe/mainframe-midrange-architecture",
+    "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml",
+      "redirect_url": "/azure/confidential-computing/choose-confidential-containers-offerings",
+      "redirect_document_id": false
     }
   ]
 }
