@@ -92,11 +92,17 @@ If you choose Azure Kubernetes Service as the compute platform to deploy microse
 
 If Azure Container Apps is the compute platform of choice to deploy microservices, please refer to [security baseline for Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices. 
 
-### Cost management 
+### Cost optimization 
 
 With an orchestrator, you pay for the VMs that are running in the cluster. With a serverless application, you pay only for the actual compute resources consumed. In both cases, you need to factor in the cost of any additional services, such as storage, databases, and messaging services.
 
 Azure Functions, Azure Container Apps and Azure Kubernetes Service provides you auto-scaling options. Please note that Azure Container Apps and Azure Functions provide you serverless platforms where the cost can be zero based on consumption, while Azure Kubernetes Service provides only dedicated compute option. 
+
+If you choose Azure Kubernetes Service as the compute platform to deploy microservices, please refer to [optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost) for AKS cost optimization best practices. 
+
+If you choose Azure Container Apps as the microservices compute platform, please refer to [Billing in Azure Container Apps](/azure/container-apps/billing) to understand the various billing models, and decide on the deployment model for your microservices based on your workload requirements.
+
+If you choose Azure functions as the microservices compute platform, please refer to [Estimating consumption-based costs](/azure/azure-functions/functions-consumption-costs) to understand the various billing models, and decide on the functions plan based on your workload requirements. [Azure functions scale and hosting](/azure/azure-functions/functions-scale#billing) provides more insights into billing model for various function plans.
 
 ### Operational excellence
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/well-architected/operational-excellence/).
