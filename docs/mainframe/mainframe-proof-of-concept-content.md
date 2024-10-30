@@ -146,8 +146,8 @@ Define success criteria to identify key performance indicators (KPIs). These cri
 Principal authors:
 
 - [Shelby Howard](https://www.linkedin.com/in/shelbyhoward) | Senior Specialist, Global Black Belt Mainframe and Midrange Modernization Solutions
-- [Venkataraman Ramakrishnan](https://www.linkedin.com/in/venkataramanr) | Senior Technical Program Manager, Azure Core Engineering
-Mainframe and Midrange Modernization Solutions
+- [Venkataraman Ramakrishnan](https://www.linkedin.com/in/venkataramanr) | Senior Technical Program Manager, Azure Core Engineering Mainframe and Midrange Modernization Solutions
+- [Lalit Patel](https://www.linkedin.com/in/lalit-r-patel-5108a/) | Principal Cloud Solution Architect, Americas CSAs
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
