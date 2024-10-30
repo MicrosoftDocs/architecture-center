@@ -1,4 +1,4 @@
-[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to the Azure cloud platform. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications.
+[Azure Kubernetes Service (AKS)][aks] simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to the Azure cloud platform. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications.
 
 AKS clusters can be shared across multiple tenants in different scenarios and ways. In some cases, diverse applications can run in the same cluster. In other cases, multiple instances of the same application can run in the same shared cluster, one for each tenant. All these types of sharing are frequently described using the umbrella term *multitenancy*. Kubernetes doesn't have a first-class concept of end-users or tenants. Still, it provides several features to help you manage different tenancy requirements.
 
@@ -8,23 +8,24 @@ In this article, we describe some of the features of AKS that are useful when bu
 
 Implementing multitenancy in Kubernetes offers several advantages.
 
-- **Cost efficiency:** Consolidating applications into a single cluster or a set of clusters reduces hardware and operational costs associated with running separate clusters, one for each tenant.
-- **Resource optimization:** It enables better utilization of resources by allowing workloads from different tenants to share the cluster’s capacity, adjusting dynamically to demand.
-- **Simplified management:** Administrative tasks such as upgrades, security patches, and backups can be streamlined across the cluster, enhancing efficiency.
-- **Improved scalability:** With multitenancy, the cluster can scale more efficiently as resources can be shared among tenants, allowing for better handling of increased workloads.
-- **Enhanced flexibility:** Multitenancy enables tenants to easily adjust their resource allocation based on their specific needs, leading to increased flexibility in managing their workloads.
-- **Effective resource monitoring:** By having a centralized view of resource usage across tenants, administrators can gain better insights into resource utilization and make informed decisions to optimize the cluster's performance.
+- **Cost efficiency:** Consolidating applications into a single cluster or a set of clusters reduces hardware and operational costs associated with running separate clusters, one for each tenant. This comprehensive resource utilization can result in cost savings.
+- **Resource optimization:** Multitenancy allows for better utilization of resources by enabling workloads from different tenants to share the cluster's capacity. This dynamic sharing helps optimize resource allocation and reduce underutilization or waste.
+- **Simplified management:** Administrative tasks such as upgrades, security patches, and backups can be streamlined across the cluster, enhancing efficiency. By managing a single cluster instead of multiple isolated clusters, the operational overhead is reduced, leading to simplified management.
+- **Improved scalability:** With multitenancy, the cluster can scale more efficiently as resources can be shared among tenants. This flexibility allows for better handling of increased workloads and provides improved scalability for each tenant.
+- **Enhanced flexibility:** Multitenancy enables tenants to easily adjust their resource allocation based on their specific needs. This flexibility allows tenants to scale up or down resources according to demand, resulting in increased efficiency and cost savings.
+- **Effective resource monitoring:** By having a centralized view of resource usage across tenants, administrators can gain better insights into resource utilization. This visibility helps in monitoring and identifying areas for optimization, enabling informed decisions to improve the cluster's performance.
+
+These benefits make multitenancy an attractive approach for hosting multiple tenants in the same Kubernetes cluster, providing cost efficiency, resource optimization, simplified management, improved scalability, enhanced flexibility, and effective resource monitoring.
 
 ## Key Challenges
 
 While multitenancy brings several benefits, it also presents challenges for system administrators and developers.
 
-- **Security and isolation:** Ensuring strict isolation between tenants' resources and workloads to prevent unauthorized access and data breaches is paramount.
-- **Resource contention:** Avoiding situations where one tenant's workload monopolizes resources, affecting the performance and availability of others.
-- **Tenant resource quotas:** Defining and enforcing resource quotas for each tenant can be challenging, as it requires careful planning and monitoring to ensure fair distribution and prevent resource abuse.
-- **Complexity in configuration, management, and deployment:** The need for detailed configurations to maintain isolation, manage resources, and ensured security adds complexity.
-- **Data governance and compliance:** Managing data privacy, compliance, and regulatory requirements can become complex when multiple tenants are sharing the same infrastructure, requiring robust security measures and data governance policies.
-- **Tenant onboarding and offboarding:** Efficiently onboarding and offboarding tenants, including provisioning and deprovisioning processes, can be time-consuming and complex, requiring well-defined procedures and automation tools.
+- **Security and isolation:** Ensuring strict isolation between tenants' resources and workloads to prevent unauthorized access and data breaches is paramount. For example, all pods will share the same Linux kernel, which poses a risk for unsecure applications to potentially act as an attack vector for workloads sharing the same kernel. There are several ways to isolate different tenants from a physical or kernel mode perspective. For more information, see [Isolation Models](#isolation-models) and [Pod Sandboxing](#pod-sandboxing).
+- **Resource contention:** Avoiding situations where one tenant's workload monopolizes resources, affecting the performance and availability of others. This problem is known as [Noisy Neighbor antipattern][noisy-neighbor]. For more information, see [Control plane isolation](#control-plane-isolation) and [Node Isolation](#node-isolation).
+- **Complexity in configuration, management, and deployment:** Hosting multiple tenants in the same Kubernetes cluster introduces complexity in terms of configuration, management, and deployment. From a DevOps perspective, there is a need for detailed configurations to maintain isolation between tenants. This includes setting up appropriate namespace boundaries, assigning [resource quotas][resource-quotas], and applying [network policies][network-policies]. Managing these configurations for multiple tenants can be challenging, especially as the number of tenants increases. For more information, see [Control plane isolation](#control-plane-isolation). Furthermore, ensuring the proper allocation and management of resources becomes crucial. Each tenant may have different resource requirements, and effectively allocating and managing resources across the cluster becomes a complex task. It requires continuous monitoring and adjustment to prevent resource contention and ensure fair distribution. Moreover, maintaining security and ensuring proper access controls for each tenant adds to the complexity. Creating different identities, one for each tenant, and implementing role-based access control (RBAC) and fine-grained permissions become essential to prevent unauthorized access and data breaches. Additionally, managing and enforcing security policies across multiple tenants can be a daunting task. Monitoring the performance and health of the cluster becomes more challenging with multiple tenants. There is a need to monitor resource usage, network traffic, and the overall health of each tenant's workloads. Centralized monitoring and observability solutions are required to gain visibility into the cluster and detect any potential issues promptly.
+- **Data governance and compliance:** Managing data privacy, compliance, and regulatory requirements can become complex when multiple tenants are sharing the same infrastructure, requiring robust security measures and data governance policies. When hosting multiple tenants in the same Kubernetes cluster, there is an increased risk of data breaches, unauthorized access, and non-compliance with data protection regulations. Each tenant may have different data governance requirements and compliance policies, making it challenging to ensure the security and privacy of the data. To address this issue, [Microsoft Defender for Containers][defender-for-containers] can provide robust security measures and help organizations achieve data governance and compliance. For more information, see [Governance](#governance).
+- **Tenant onboarding and offboarding:** Efficiently onboarding and offboarding tenants involves various tasks such as provisioning resources, setting up namespaces, configuring access controls, and deploying applications. However, without well-defined procedures and automation tools, this process can be time-consuming and complex. Mistakes during manual onboarding and offboarding can lead to security vulnerabilities or resource wastage. Therefore, having streamlined procedures and automation tools becomes crucial to ensure smooth tenant management. To mitigate this risk, organizations can leverage Kubernetes-native solutions, such as [Helm][helm] charts and [Operators][operator], which provide automated workflows for application deployment and management. Additionally, solutions like Kubernetes Operators Framework or GitOps workflows, such as [Flux][flux] and [Argo CD][argo-cd], can be employed to automate tenant onboarding and offboarding, minimizing the chances of errors and improving efficiency. On the other hand, when offboarding a tenant from a managed Kubernetes cluster like Azure Kubernetes Service (AKS), it's important to follow best practices to ensure security and avoid orphan resources that can increase the total cost of ownership. Before starting the offboarding process, identify and document all resources associated with the tenant. This includes namespaces, deployments, services, PVCs (Persistent Volume Claims), Role-Based Access Control (RBAC) bindings, and any other tenant-specific resources. Disable or remove tenant-specific identities such as user accounts, service accounts, managed identities, or groups associated with the tenant. This helps prevent unauthorized access to the cluster or resources after offboarding. Then, remove RBAC permissions and bindings that grant the tenant access to cluster-wide or namespace-specific resources. This ensures that the tenant no longer has privileged access to resources and minimizes the risk of security breaches. Finally, you can proceed to delete the tenant's namespace(s) to remove all tenant-specific resources.
 
 ## Multitenancy types
 
@@ -36,13 +37,13 @@ A common form of multitenancy is to share a cluster between multiple teams withi
 
 In addition, these workloads need to communicate with services, such as a relational database, a NoSQL repository, or a messaging system, which is hosted in the same cluster or is running as PaaS services on Azure.
 
-In this scenario, members of the teams often have direct access to Kubernetes resources via tools, such as [kubectl](https://kubernetes.io/docs/reference/kubectl). Or, members have indirect access through GitOps controllers, such as [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io/en/stable), or through other types of release automation tools.
+In this scenario, members of the teams often have direct access to Kubernetes resources via tools, such as [kubectl][kubectl]. Or, members have indirect access through GitOps controllers, such as [Flux][flux] and [Argo CD][argo-cd], or through other types of release automation tools.
 
 For more information on this scenario, see [Multiple teams](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-teams) in the Kubernetes documentation.
 
 ### Multiple customers
 
-Another common form of multitenancy frequently involves a software-as-a-service (SaaS) vendor. Or, a service provider runs multiple instances of a workload for their customers, which are considered separate tenants. In this scenario, the customers don't have direct access to the AKS cluster, but they only have access to their application. Moreover, they don't even know that their application runs on Kubernetes. Cost optimization is frequently a critical concern. Service providers use Kubernetes policies, such as [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies), to ensure that the workloads are strongly isolated from each other. 
+Another common form of multitenancy frequently involves a software-as-a-service (SaaS) vendor. Or, a service provider runs multiple instances of a workload for their customers, which are considered separate tenants. In this scenario, the customers don't have direct access to the AKS cluster, but they only have access to their application. Moreover, they don't even know that their application runs on Kubernetes. Cost optimization is frequently a critical concern. Service providers use Kubernetes policies, such as [resource quotas][resource-quotas] and [network policies][network-policies], to ensure that the workloads are strongly isolated from each other.
 
 For more information on this scenario, see [Multiple customers](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-customers) in the Kubernetes documentation.
 
@@ -52,14 +53,14 @@ According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/
 
 Cluster multitenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multitenant Kubernetes cluster must isolate tenants from each other. This isolation minimizes the damage that a compromised or malicious tenant can do to the cluster and to other tenants.
 
-When several users or teams share the same cluster with a fixed number of nodes, there's a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) is a tool for administrators to address this concern.
+When several users or teams share the same cluster with a fixed number of nodes, there's a concern that one team could use more than its fair share of resources. [Resource Quotas][resource-quotas] is a tool for administrators to address this concern.
 
 Based on the security level provided by isolation, we can distinguish between soft and hard multitenancy. 
 
 - Soft multitenancy is suitable within a single enterprise where tenants are different teams or departments that trust each other. In this scenario, isolation aims to guarantee workloads integrity, orchestrate cluster resources across different internal user groups, and defend against possible security attacks.
 - Hard multi tenancy is used to describe scenarios where heterogeneous tenants don't trust each other, often from security and resource-sharing perspectives.
 
-When you plan to build a multitenant [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster, you should consider the layers of resource isolation and multitenancy that are provided by [Kubernetes](https://kubernetes.io/docs/concepts/security/multi-tenancy):
+When you plan to build a multitenant [Azure Kubernetes Service (AKS)][aks] cluster, you should consider the layers of resource isolation and multitenancy that are provided by [Kubernetes](https://kubernetes.io/docs/concepts/security/multi-tenancy):
 
 - Cluster
 - Namespace
@@ -69,11 +70,11 @@ When you plan to build a multitenant [Azure Kubernetes Service (AKS)](/azure/aks
 
 In addition, you should consider the security implications of sharing different resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent specific workloads from being collocated. For example, you might not allow untrusted code from outside your organization to run on the same node as containers that process sensitive information.
 
-Although Kubernetes can't guarantee perfectly secure isolation between tenants, it does offer features that may be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their namespaces. You can then use [Kubernetes role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to enforce tenant isolation. For example, the following picture shows the typical SaaS provider model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
+Although Kubernetes can't guarantee perfectly secure isolation between tenants, it does offer features that may be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their namespaces. You can then use [Kubernetes role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac) and [Network Policies][network-policies] to enforce tenant isolation. For example, the following picture shows the typical SaaS provider model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
 
 ![Diagram that shows a SaaS provider model that hosts multiple instances of the same application on the same cluster.](./media/aks/namespaces.png)
 
-There are several ways to design and build multitenant solutions with [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Each of these methods comes with its own set of tradeoffs, in terms of infrastructure deployment, network topology, and security. These methods impact the isolation level, implementation effort, operational complexity, and cost. You can apply tenant isolation in the control and data planes, based on your requirements.
+There are several ways to design and build multitenant solutions with [Azure Kubernetes Service (AKS)][aks]. Each of these methods comes with its own set of tradeoffs, in terms of infrastructure deployment, network topology, and security. These methods impact the isolation level, implementation effort, operational complexity, and cost. You can apply tenant isolation in the control and data planes, based on your requirements.
 
 ## Control plane isolation
 
@@ -83,8 +84,8 @@ According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/
 
 - Namespaces allow distinct tenant workloads to exist in their own virtual workspace, without the risk of affecting each other's work. Separate teams within an organization can use namespaces to isolate their projects from each other, because they can use the same resource names in different namespaces without the risk of name overlapping.
 - [RBAC roles and role bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac) are namespace-scoped resources that teams can use to limit tenant users and processes to access resources and services only in their namespaces. Different teams can define roles to group lists of permissions or abilities under a single name. They then assign these roles to user accounts and service accounts, to ensure that only the authorized identities have access to the resources in a given namespace.
-- [Resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) for CPU and memory are namespaced objects. Teams can use them to ensure that workloads sharing the same cluster are strongly isolated from a system resource consumption. This method can ensure that every tenant application that runs in a separate namespace, has the resources it needs to run and avoid [noisy neighbor issues](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), which could affect other tenant applications that share the same cluster.
-- [Network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) are namespaced objects that teams can adopt to enforce which network traffic is allowed for a given tenant application. You can use network policies to segregate distinct workloads that share the same cluster from a networking perspective.
+- [Resource quotas][resource-quotas] for CPU and memory are namespaced objects. Teams can use them to ensure that workloads sharing the same cluster are strongly isolated from a system resource consumption. This method can ensure that every tenant application that runs in a separate namespace, has the resources it needs to run and avoid [noisy neighbor issues][noisy-neighbor], which could affect other tenant applications that share the same cluster.
+- [Network policies][network-policies] are namespaced objects that teams can adopt to enforce which network traffic is allowed for a given tenant application. You can use network policies to segregate distinct workloads that share the same cluster from a networking perspective.
 - Team applications that run in distinct namespaces can use different [service accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account), to access resources within the same cluster, external applications, or managed services.
 - Use namespaces to improve performance at the control plane level. If workloads in a shared cluster are organized into multiple namespaces, the Kubernetes API has fewer items to search when running operations. This organization can reduce the latency of calls against the API server and increase the throughput of the control plane.
 
@@ -100,7 +101,7 @@ Data plane isolation guarantees that pods and workloads of distinct tenants are 
 
 ### Network isolation
 
-When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including other applications that share the same cluster. To improve security, you can define network rules to control the flow of traffic. Network policy is a Kubernetes specification that defines access policies for communication between Pods. You can use [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) to segregate communications between tenant applications that share the same cluster.
+When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including other applications that share the same cluster. To improve security, you can define network rules to control the flow of traffic. Network policy is a Kubernetes specification that defines access policies for communication between Pods. You can use [network policies][network-policies] to segregate communications between tenant applications that share the same cluster.
 
 Azure Kubernetes Service (AKS) provides two ways to implement network policies:
 
@@ -115,7 +116,7 @@ For more information, see [Network isolation](https://kubernetes.io/docs/concept
 
 Azure provides a rich set of managed, platform-as-a-service (PaaS) data repositories, such as [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction), and other storage services that you can use as [persistent volumes](/azure/aks/concepts-storage#volumes) for your workloads. Tenant applications running on a shared AKS cluster can [share a database or file store](/azure/architecture/guide/multitenant/approaches/storage-data#shared-multitenant-databases-and-file-stores), or they can use [a dedicated data repository and storage resource](/azure/architecture/guide/multitenant/approaches/storage-data#multitenant-app-with-dedicated-databases-for-each-tenant). For more information on different strategies and approaches to manage data in a multitenant scenario, see [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data).
 
-Workloads running on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) can also use persistent volumes to store data. On Azure, you can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes and assign them to pods directly, or you can have AKS automatically create them using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS provides built-in storage classes to create persistent volumes that are backed by [Azure Disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels). For more information, see [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage). For security and resiliency reasons, you should avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath).
+Workloads running on [Azure Kubernetes Service (AKS)][aks] can also use persistent volumes to store data. On Azure, you can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources that are backed by Azure Storage. You can manually create data volumes and assign them to pods directly, or you can have AKS automatically create them using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS provides built-in storage classes to create persistent volumes that are backed by [Azure Disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels). For more information, see [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage). For security and resiliency reasons, you should avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath).
 
 When AKS [built-in storage classes](/azure/aks/azure-disk-csi#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes) aren't a good fit for one or more tenants, you can build custom [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes) to address different tenants requirements. These requirements include volume size, storage SKU, a service-level agreement (SLA), backup policies, and the pricing tier.
 
@@ -125,7 +126,7 @@ For more information, see [Storage isolation](https://kubernetes.io/docs/concept
 
 ### Node isolation
 
-You can configure tenant workloads to run on separate agent nodes to avoid the [Noisy Neighbor problem](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and reduce the risk of information disclosure. In AKS, you can create a separate cluster, or just a dedicated node pool, for tenants that have strict requirements for isolation, security, regulatory compliance, and performance. 
+You can configure tenant workloads to run on separate agent nodes to avoid the [Noisy Neighbor problem][noisy-neighbor] and reduce the risk of information disclosure. In AKS, you can create a separate cluster, or just a dedicated node pool, for tenants that have strict requirements for isolation, security, regulatory compliance, and performance. 
 
 You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to constrain tenants' pods to run only on a particular set of nodes or node pools.
 
@@ -156,7 +157,7 @@ Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set
 **Benefits:**
 
 - A key benefit of this approach is that the API Server of each tenant AKS cluster is separate. This approach guarantees full isolation across tenants from a security, networking, and resource consumption level. An attacker that manages to get control of a container will only have access to the containers and volumes mounted that belong to a single tenant. A full-isolation tenancy model is critical to some customers with a high regulatory compliance overhead.
-- Tenants are unlikely to affect each other's system performance, which allows you to avoid the [Noisy Neighbor problem](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). This consideration includes the traffic against the API Server. The API server is a shared, critical component in any Kubernetes cluster. Custom controllers, which generate unregulated, high-volume traffic against the API server, can cause cluster instability. This instability leads to request failures, timeouts, and API retry storms. The [Uptime SLA](/azure/aks/uptime-sla) (service-level agreement) feature allows you to scale out the control plane of an AKS cluster to meet traffic demand. Still, provisioning a dedicated cluster may be a better solution for those customers with strong requirements in terms of workload isolation.
+- Tenants are unlikely to affect each other's system performance, which allows you to avoid the [Noisy Neighbor problem][noisy-neighbor]. This consideration includes the traffic against the API Server. The API server is a shared, critical component in any Kubernetes cluster. Custom controllers, which generate unregulated, high-volume traffic against the API server, can cause cluster instability. This instability leads to request failures, timeouts, and API retry storms. The [Uptime SLA](/azure/aks/uptime-sla) (service-level agreement) feature allows you to scale out the control plane of an AKS cluster to meet traffic demand. Still, provisioning a dedicated cluster may be a better solution for those customers with strong requirements in terms of workload isolation.
 - Updates and changes can be rolled out progressively across tenants, which reduce the likelihood of a system-wide outage. Azure costs can be easily charged back to tenants, as every resource is used by a single tenant.
 
 **Risks:**
@@ -191,7 +192,7 @@ Alternatively, you can consider horizontally partitioning your multitenant Kuber
 
 **Benefits:**
 
-- Horizontally partitioned deployments can help you mitigate the [Noisy Neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). Consider this approach, if you've identified that most of the traffic load on your Kubernetes application is due to specific components, which you can deploy separately, for each tenant. For example, your databases might absorb most of your system's load, because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases (and shared components, like the application tier) remain unaffected.
+- Horizontally partitioned deployments can help you mitigate the [Noisy Neighbor issue][noisy-neighbor]. Consider this approach, if you've identified that most of the traffic load on your Kubernetes application is due to specific components, which you can deploy separately, for each tenant. For example, your databases might absorb most of your system's load, because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases (and shared components, like the application tier) remain unaffected.
 
 **Risks:**
 
@@ -257,7 +258,7 @@ To reduce the risk of downtimes that may affect tenant applications during clust
 
 ### Cluster access
 
-When you share an AKS cluster between multiple teams within an organization, you need to implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. In particular, you need to make sure that users have access only to their Kubernetes namespaces and resources when using tools, such as [kubectl](https://kubernetes.io/docs/reference/kubectl), [Helm](https://helm.sh), [Flux](https://fluxcd.io), [Argo CD](https://argo-cd.readthedocs.io/en/stable), or other types of tools.
+When you share an AKS cluster between multiple teams within an organization, you need to implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. In particular, you need to make sure that users have access only to their Kubernetes namespaces and resources when using tools, such as [kubectl][kubectl], [Helm][helm], [Flux][flux], [Argo CD][argo-cd], or other types of tools.
 
 For more information about authentication and authorization with AKS, see the following articles:
 
@@ -290,11 +291,36 @@ For more information, see:
 
 You can achieve several benefits by using Azure Dedicated Host with AKS, including the following:  
 
-- Hardware isolation ensures that no other VMs are placed on the dedicated hosts, which provides an additional layer of isolation for tenant workloads. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other non-isolated hosts. 
+- Hardware isolation ensures that no other VMs are placed on the dedicated hosts, which provides an additional layer of isolation for tenant workloads. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other non-isolated hosts.
 
 - Azure Dedicated Host provides control over maintenance events that are initiated by the Azure platform. You can choose a maintenance window to reduce the impact on services and help ensure the availability and privacy of tenant workloads.
 
 Azure Dedicated Host can help SaaS providers ensure tenant applications meet regulatory, industry, and governance compliance requirements for securing sensitive information. For more information, see [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts).
+
+### Karpenter
+
+[Karpenter][karpenter] is an open-source node lifecycle management project built for Kubernetes. Adding Karpenter to a Kubernetes cluster can dramatically improve the efficiency and cost of running workloads on that cluster. The [AKS Karpenter Provider](https://github.com/Azure/karpenter-provider-azure) enables node autoprovisioning using [Karpenter](https://karpenter.sh/) on your AKS cluster. Karpenter improves the efficiency and cost of running workloads on Kubernetes clusters by:
+
+- **Watching** for pods that the Kubernetes scheduler has marked as unschedulable
+- **Evaluating** scheduling constraints (resource requests, node selectors, affinities, tolerations, and topology-spread constraints) requested by the pods
+- **Provisioning** nodes that meet the requirements of the pods
+- **Removing** the nodes when they are no longer needed
+- **Consolidating** existing nodes onto cheaper nodes with higher utilization per node
+
+Karpenter provider for Azure Kubernetes Service (AKS) can be used in two modes:
+
+- **Node Auto Provisioning (NAP) mode** (preview): Karpenter is run by AKS as a managed addon similar to managed Cluster Autoscaler. This is the recommended mode for most users. For more information, see  [Node Auto Provisioning](/azure/aks/node-autoprovision).
+- **Self-hosted mode**: Karpenter is run as a standalone deployment in the cluster. This mode is useful for advanced users who want to customize or experiment with Karpenter's deployment. For more information, see [AKS Karpenter Provider](https://github.com/Azure/karpenter-provider-azure).
+
+Karpenter can improve multitenancy in a managed cluster like Azure Kubernetes Service (AKS) shared by multiple tenant applications in several ways:
+
+1. **Efficient Node Provisioning**: Karpenter evaluates scheduling constraints requested by pods and provisions nodes that meet those requirements. This ensures that nodes are only provisioned when necessary, optimizing resource utilization and reducing costs.
+2. **Customizable NodePools**: By applying NodePools to Karpenter, you can configure constraints on node provisioning. This allows you to set specific values for node expiry, node consolidation, Kubernetes tolerations, labels, and cloud-specific settings. You can define requirements such as instance types, zones, computer architecture, and capacity type, ensuring that the nodes meet the specific needs of each tenant application.
+3. **Scheduling Constraints**: When deploying tenant workloads, you can specify scheduling constraints in the pod specifications. This includes resource requests and limits, node selectors, node affinity, pod affinity/anti-affinity, tolerations, and topology spread constraints. These constraints help Karpenter determine the appropriate nodes for each workload, ensuring efficient utilization of resources and isolation between tenant applications. 
+4. **Resource Limits**: Karpenter allows you to set limits on the total CPU and memory that can be used by the cluster. This prevents further node provisioning when resource limits have been reached, preventing resource contention and ensuring fair resource distribution among tenant applications.
+5. **Persistent Volume Topology**: Karpenter supports specifying persistent volume topology requirements. This allows you to indicate that a pod has a storage requirement that requires a node running in a specific zone, ensuring that the storage can be made available to the pod.
+
+Overall, Karpenter provides fine-grained control over node provisioning and workload placement in a managed cluster, improving multitenancy by optimizing resource allocation, ensuring isolation between tenant applications, and reducing operational costs.
 
 ### Confidential Virtual Machines
 
@@ -405,7 +431,26 @@ Cost governance is the continuous process of implementing policies to control co
 
 You can use open-source tools, such as [KubeCost](https://www.kubecost.com), to monitor and govern an AKS cluster cost. Cost allocation can be scoped to a deployment, service, label, pod, and namespace, which will give you flexibility in how you chargeback or showback users of the cluster. For more information, see [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost).
 
-For more information on the measurement, allocation, and optimization of costs for a multitenant application, see [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation). For general guidance on cost optimization, see the Azure Well-Architected Framework article, [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview)
+For more information on the measurement, allocation, and optimization of costs for a multitenant application, see [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation). For general guidance on cost optimization, see the Azure Well-Architected Framework article, [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+## Governance
+
+When multiple tenants share the same infrastructure, managing data privacy, compliance, and regulatory requirements can become complicated. This necessitates the implementation of strong security measures and data governance policies. Hosting multiple tenants in a Kubernetes cluster, such as [Azure Kubernetes Service (AKS)][aks], presents a higher risk of data breaches, unauthorized access, and non-compliance with data protection regulations. Each tenant may have unique data governance requirements and compliance policies, making it difficult to ensure the security and privacy of the data. To tackle this challenge, organizations can utilize [Microsoft Defender for Containers][defender-for-containers], which offers comprehensive security measures and assists in achieving data governance and compliance. [Microsoft Defender for Containers][defender-for-containers] is a cloud-native container security solution that provides threat detection and protection capabilities for Kubernetes environments:
+
+1. **Implement Access Controls**: It allows organizations to define granular access controls and permissions based on the specific needs of each tenant. This ensures that only authorized users have access to resources and data within the Kubernetes cluster.
+2. **Enforce Data Privacy**: [Microsoft Defender for Containers][defender-for-containers] offers features like container resource access policies and encryption-at-rest to ensure data privacy. It helps organizations establish proper controls to protect sensitive data from unauthorized access or exposure.
+3. **Monitor and Detect Threats**: The solution continuously monitors the Kubernetes environment, analyzing container behavior and network traffic to identify any potential threats or suspicious activities. It provides real-time alerts and notifications, allowing organizations to respond quickly to any security incidents.
+4. **Ensure Compliance**: [Microsoft Defender for Containers][defender-for-containers] helps organizations meet various compliance requirements, such as GDPR, HIPAA, or PCI-DSS. It provides auditing capabilities, log management, and report generation to demonstrate compliance to regulators and auditors.
+
+By utilizing [Microsoft Defender for Containers][defender-for-containers], organizations and SaaS providers can enhance their data governance and compliance posture when hosting multiple tenants in a Kubernetes cluster. It ensures that appropriate security measures are in place to protect sensitive data, detect and respond to threats, and meet regulatory requirements.
+
+## Others
+
+The following features can be used to improve multitenancy in an AKS cluster shared by multiple tenants:
+
+1. **Associate capacity reservation groups to node pools**: This feature allows you to assign capacity reservation groups to node pools, providing better resource allocation and isolation for different tenants. For more information, see [Associate capacity reservation groups to node pools](/azure/aks/manage-node-pools#associate-capacity-reservation-groups-to-node-pools).
+2. **Vertical pod autoscaling (VPA) add-on**: VPA is now generally available, which enables automatic vertical scaling of pods based on their resource usage. This can help optimize resource utilization and improve performance for different tenant workloads. For more information, see [Vertical pod autoscaling in Azure Kubernetes Service (AKS)](/azure/aks/vertical-pod-autoscaler).
+3. **Stop cluster upgrades automatically on API breaking changes**: This feature, now generally available, stops cluster upgrades automatically when there are API breaking changes detected. This can prevent potential issues and disruptions when upgrading a shared AKS cluster. For more information, see [Stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes](/azure/aks/stop-cluster-upgrade-api-breaking-changes).
 
 ## Contributors
 
@@ -413,15 +458,27 @@ For more information on the measurement, allocation, and optimization of costs f
 
 Principal author:
 
- * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
  
 Other contributors:
 
  * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
- * [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
- * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+ * [Chad Kittel](https://www.linkedin.com/in/chadkittel)  | Principal Software Engineer
+ * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer
 
 ## Next steps
 
 Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
+
+<!-- LINKS -->
+[aks]: /azure/aks/what-is-aks
+[kubectl]: https://kubernetes.io/docs/reference/kubectl
+[helm]: https://helm.sh
+[operator]: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
+[flux]: https://fluxcd.io
+[argo-cd]: https://argo-cd.readthedocs.io/en/stable
+[noisy-neighbor]: /azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor
+[resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas
+[network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies
+[defender-for-containers]: /azure/defender-for-cloud/defender-for-containers-introduction
+[karpenter]: https://karpenter.sh/
