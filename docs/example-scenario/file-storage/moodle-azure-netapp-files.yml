@@ -5,7 +5,7 @@ metadata:
   description: Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.
   author: arntdg
   ms.author: b-arntdegier
-  ms.date: 08/26/2024
+  ms.date: 10/30/2024
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
