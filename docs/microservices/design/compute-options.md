@@ -34,7 +34,7 @@ While these aren't the only options, they are both proven approaches to building
 
 You can leverage serverless platforms for deploying microservices on either Azure Container Apps, or on Azure Functions. Both Azure Container Apps and Azure Functions offer serverless compute options, with billing based on the volume of requests rather than compute consumption. Both platforms also have the option to host the workloads on dedicated capacity. 
 
-## Code based microservices vs Continerized microservices 
+## Code based microservices vs containerized microservices 
 
 If you do not wish to containerize your microservices and would like to deploy them as code, you may want to use Azure Functions. Please see the [list of programming / scripting languages supported by Azure Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices developed in other languages, you may want to implement a custom handler in Azure Functions or consider containerizing the application. 
 
