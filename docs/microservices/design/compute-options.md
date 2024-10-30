@@ -36,7 +36,7 @@ You can leverage serverless platform for deploying Microservices on either Azure
 
 ## Code based microservices vs Continerized microservices 
 
-If you do not wish to containerize the microservices and would like to deploy the microservice as code, you may want to use Azure Functions. Please see the [list of programming / scripting languages supported by Azure Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices developed in other languages, you may want to implement a custom handler in Azure function or consider containerizing the application. 
+If you do not wish to containerize your microservices and would like to deploy them as code, you may want to use Azure Functions. Please see the [list of programming / scripting languages supported by Azure Functions](/azure/azure-functions/supported-languages#language-support-details). For microservices developed in other languages, you may want to implement a custom handler in Azure Functions or consider containerizing the application. 
 
 ## Microservices leveraging GPU
 
