@@ -77,7 +77,7 @@ Reliability ensures that your workload can meet the commitments that you make to
 
 One of the key pillars of reliability is resiliency. The goal of resiliency is to return the workload to a fully functioning state after a failure occurs. 
 
-If you choose Azure functions as the microservice computing platform, consider deploying the [functions premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or app service plan in zone-redundant configuration. Please see [Reliability in Azure Functions](/reliability/reliability-functions?tabs=azure-portal) for details. 
+If you choose Azure functions as the microservice computing platform, consider deploying the [functions premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or app service plan in zone-redundant configuration. Please see [Reliability in Azure Functions](/azure/reliability/reliability-functions?tabs=azure-portal) for details. 
 
 If you choose Azure Kubernetes Service as the microservice computing platorm, microservice reliability can be enhanced by deploying [AKS cluster using availability zones](/azure/aks/availability-zones), using [Standard or Premium tier](/azure/aks/free-standard-pricing-tiers) for Azure Kubernetes Cluster, and increasing the minimum number of pods and nodes. Please see [deployment and cluster reliability best practices for AKS](/azure/aks/best-practices-app-cluster-reliability) for details. 
 
