@@ -23,6 +23,7 @@ metadata:
     - process order payment
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/scalable-ecommerce-web-app"
+    - arb-web
 name: Architect scalable e-commerce web app
 azureCategories:
   - web

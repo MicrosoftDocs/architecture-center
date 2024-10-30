@@ -11,6 +11,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+    - arb-media
 name: Gridwich project naming and namespaces
 summary: Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities and technologies.
 products:

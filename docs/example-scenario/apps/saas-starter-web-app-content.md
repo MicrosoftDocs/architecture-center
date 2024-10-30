@@ -30,8 +30,8 @@ The following table describes terms that appear in this article.
 | Tenant       | A purchased instance of the SaaS application from SaaS Vendor. | Fourth Coffee Shop. |
 | SaaS customer admin | People who purchase or administer an application tenant. | Joe, owner of Fourth Coffee Shop. |
 | SaaS customer user | People who use an application tenant without administering it and usually belong to the same company or group as the SaaS customer admin. | Jill, event manager at Fourth Coffee Shop, and Susan, customer of Fourth Coffee Shop. |
-| End user         | A SaaS customer admin, SaaS customer user, or any other user types that are introduced. This is a generic term to describe users who sign into the application. | Joe, Jill, and Susan are all end users (from the ISV perspective). |
-| Front-end application | Any front-end application. | The Onboarding & admin app and SaaS app are both front-end applications. |
+| End user         | A SaaS customer admin, SaaS customer user, or any other user types that are introduced. This is a generic term to describe users who sign in to the application. | Joe, Jill, and Susan are all end users (from the ISV perspective). |
+| Front-end application | Any front-end application. | The Onboarding and admin app and SaaS app are both front-end applications. |
 
 ### Workflow
 
@@ -187,7 +187,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The components in this solution have some cost associated with their operation, but the cost is modest for most web applications and SaaS solutions. Also, you can control the cost by managing the following resource settings:
 
-- You can scale the App Service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
+- You can scale the app service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
 
 - Azure AD B2C provides two SKUs: Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features that each SKU provides to determine which is required for your use case. For more information, see [Microsoft Entra External ID pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
@@ -197,7 +197,7 @@ The components in this solution have some cost associated with their operation, 
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
-This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
+This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses the Azure platform (platform as a service (PaaS)) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
 ## Deploy this scenario
 

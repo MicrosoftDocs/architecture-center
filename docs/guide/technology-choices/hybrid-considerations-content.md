@@ -27,7 +27,7 @@ Consider whether to refresh, repurpose, or replace existing hardware. Brownfield
 
 ### Hosting and deployment
 
-Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine hosting location.
+Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine the hosting location.
 
 A large-scale application deployment is different from smaller-scale implementations. A traditional IT deployment to VMs and databases is different from deployments to containers or distributed devices.
 
@@ -51,7 +51,7 @@ The following sections present a hybrid solution decision tree based on deployme
 
 The following decision tree starts with choosing an existing or custom, multicloud, or Azure-specified hybrid solution. The tree proceeds through decision points to select an appropriate Azure hybrid service.
 
-[![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.svg) ](./images/hybrid-decision-tree.svg#lightbox)
+:::image type="content" source="./images/hybrid-decision-tree.svg" lightbox="./images/hybrid-decision-tree.svg" alt-text="Diagram that shows a decision tree for selecting Azure hybrid services." border="false":::
 
 Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
@@ -73,17 +73,20 @@ For *Azure-specified* deployments:
 
 1. For **hardware as a service**, decide whether your workload type uses **data transfer and compute** or a [hyperconverged](/windows-server/hyperconverged) infrastructure (HCI). For a **hyperconverged** solution, you can use [Azure Stack HCI](/azure-stack/hci).
 
-1. **Data transfer and compute** workloads can use [Azure Stack Edge](/azure/databox-online). **Datacenter** deployments can use [Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview). **Portable** deployments can use [Azure Stack Edge Mini R](/azure/databox-online/azure-stack-edge-mini-r-overview). **Ruggedized** deployments can use [Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-overview).
+1. **Data transfer and compute** workloads can use [Azure Stack Edge](/azure/databox-online). **Datacenter** deployments can use [Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview) and [Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-overview). **Portable** deployments can use [Azure Stack Edge Mini R](/azure/databox-online/azure-stack-edge-mini-r-overview). **Ruggedized** deployments can use [Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-overview).
 
 ## Azure hybrid services matrix
 
 The following decision matrix presents supported workloads, hardware capabilities, and deployment models for several Azure hybrid services. All Azure services include the Azure portal and other Azure operations and management tools.
 
-[![Diagram that shows Azure hybrid services capabilities and characteristics.](./images/hybrid-choices.svg) ](./images/hybrid-choices.svg#lightbox)
+:::image type="content" source="./images/hybrid-choices.svg" lightbox="./images/hybrid-choices.svg" alt-text="Diagram that shows Azure hybrid services capabilities and characteristics." border="false":::
 
 Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
 - The *Azure cloud* provides cloud-based software as a service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
+
+- [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction) enables running VMware workloads natively on Azure by providing private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. This solution provides a way to extend or migrate existing on-premises VMware environments to Azure without the need to rearchitect applications or retool operations. AVS integrates with Azure services, enabling you to use Azure's scalability, security, and global reach while using familiar VMware tools and processes.
+
 - [Azure Stack](/azure-stack/) is a family of products and solutions that extend Azure to the edge or to on-premises datacenters. Azure Stack provides several solutions for various use cases.
 
   - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure to run apps in on-premises environments. Azure Stack Hub provides SaaS, IaaS, and PaaS hyperconverged compute, storage, and network services and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack Hub delivers Azure services to datacenters with integrated systems and can run on connected or disconnected environments.
@@ -98,8 +101,8 @@ Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybr
   - [Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
   - [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)
   - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview)
-  - [Azure Arc-enabled vSphere](/azure/azure-arc/vmware-vsphere/overview)
-  - [Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview)
+  - [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview)
+  - [Azure Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview)
   - [Azure Arc-enabled VMs on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines)
 
   Azure Arc-enabled services let you create on-premises and multicloud applications with Azure PaaS and data services such as [Azure App Service, Azure Functions, Azure Logic Apps](/azure/app-service/overview-arc-integration), [Azure SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview), [PostgreSQL Hyperscale](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale), and [Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere). You can run these services anywhere and use existing infrastructure.
@@ -108,8 +111,8 @@ Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybr
 
 This article is maintained by Microsoft. It was originally written by the following contributors:
 
-- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Sr Service Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Sr Software Engineer
+- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Senior Service Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 
 To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 

@@ -18,6 +18,7 @@ metadata:
     - web-apps
     - application-development
     - example-scenario
+    - arb-web
 name: Multi-tier web application built for HA/DR
 azureCategories:
   - web

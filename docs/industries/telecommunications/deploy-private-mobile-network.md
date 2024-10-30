@@ -7,6 +7,7 @@ ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
+ms.custom: arb-telco
 products:
   - azure-stack-edge
   - azure-arc

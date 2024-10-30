@@ -51,12 +51,6 @@ The objective of this guide is to demonstrate predictive data pipelines for reta
 
 The end-to-end solution is implemented in the cloud, using Microsoft Azure. The solution is composed of several Azure components, including data ingest, data storage, data movement, advanced analytics, and visualization. The advanced analytics are implemented in Azure Machine Learning, where you can use Python or R language to build data science models. Or you can reuse existing in-house or third-party libraries. With data ingest, the solution can make predictions based on data transferred to Azure from an on-premises environment.
 
-### Solution dashboard
-
-The snapshot below shows an example Power BI dashboard that gives insights into the predicted churn rates across a customer base.
-
-![Power BI dashboard that gives insights into the predicted churn rates across a customer base.](https://az712634.vo.msecnd.net/tutorials/Retail-Customer-Churn-Prediction/customer-churn-dashboard-2.png)
-
 ## Next steps
 
 - [About Azure Event Hubs](/azure/event-hubs/event-hubs-about)

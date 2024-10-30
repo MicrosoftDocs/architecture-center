@@ -9,13 +9,11 @@ metadata:
   ms.service: azure-architecture-center
   ms.subservice: reference-architecture
   ms.custom:
-    - arb-iot
     - arb-aiml
 name: End-to-end computer vision at the edge for manufacturing
 azureCategories:
   - ai-machine-learning
   - devops
-  - iot
 summary: Use Azure Video Analyzer, MLOps, and human-in-the-loop notifications to train and deploy an ML computer vision solution for manufacturing.
 products:
   - azure-data-factory

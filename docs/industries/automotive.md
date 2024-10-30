@@ -27,7 +27,7 @@ The automotive, mobility, and transportation industries strive to satisfy the ev
 
 Microsoft works closely with partners to redefine mobility. Organizations can use Azure services to develop innovative digital and physical products and services, support the development of software-defined vehicles, develop autonomous driving, and improve business operations with connectivity, data, and AI. For more information, see [How does Microsoft support mobility?](/industry/mobility/overview)
 
-Azure services address the varied needs of the automotive, mobility and transportation value chain:
+Azure services address the varied needs of the automotive, mobility, and transportation value chain:
 
 * [High-performance computing (HPC) on Azure](https://azure.microsoft.com/solutions/high-performance-computing) addresses the demanding automotive computing needs. HPC uses specialized virtual machines to support areas such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software.
 
@@ -46,7 +46,7 @@ The articles in the following table provide detailed architecture analyses that 
 | ------- | ------- | ------- |
 | [Software-defined vehicle DevOps toolchain](automotive/software-defined-vehicle-reference-architecture.yml) | Describes how to use GitHub and Azure services to develop an end-to-end automotive software stack. This architecture includes software-in-the-loop testing, orchestration of hardware-in-the-loop testing, and vehicle fleet validation. | DevOps |
 | [Data analytics for automotive test fleets](automotive/automotive-telemetry-analytics.yml) | Describes how to collect high-resolution telemetry and test drive recordings. It also describes how to perform root cause analysis and vehicle behavior validation with Microsoft Fabric. | IoT, analytics |
-| [Automotive messaging, data, and analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) | Describes how to use Azure services to implement advanced connected vehicle applications and digital services. | IoT, analytics |
+| [Automotive messaging, data, and analytics](automotive/automotive-messaging-data-analytics.yml) | Describes how to use Azure services to implement advanced connected vehicle applications and digital services. | IoT, analytics |
 | [Automotive connected fleets](automotive/automotive-connected-fleets.yml) | Describes how to create composable, data-centric solutions for mobility providers and commercial vehicle operators.  | IoT, analytics, business applications |
 
 ## Solution ideas

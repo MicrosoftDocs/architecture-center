@@ -30,7 +30,7 @@ This workflow describes how the system processes the incoming data:
 
 - [Azure Stack Edge](/azure/databox-online/) is an Azure managed device that brings the compute, storage, and intelligence of Azure to the edge. This architecture uses it to host Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency.
 
-- [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge). Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, we're using a version of AKS that runs on Azure Stack Edge device to manage containers responsible for system's logic.
+- [Azure Kubernetes Service (AKS) on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge). Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. In this architecture, we're using a version of AKS that runs on Azure Stack Edge device to manage containers responsible for system's logic.
 
 - [Azure Arc](/azure/azure-arc/overview) is a bridge that extends Azure services to the edge. By utilizing Azure Arc in this architecture, we're able to control edge services through the cloud portal.
 
