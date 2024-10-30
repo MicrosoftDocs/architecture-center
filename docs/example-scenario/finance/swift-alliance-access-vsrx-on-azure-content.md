@@ -11,7 +11,7 @@ This article provides an overview of deploying SWIFT Alliance Access on Azure. A
 
 *Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **AA (All-GoldSilverBronze)** tab.*
 
-The Alliance Access subscription contains resources that you manage. To create the core infrastructure of Alliance Access resources shown in the diagram, you can use an Azure Resource Manager template (ARM template). Alliance Access deployments on Azure should follow the guidance in SWIFT's Customer Security Programme (CSP) - Customer Security Control Framework (CSCF). We recommend that you use SWIFT CSP-CSCF Azure policies in this subscription.
+The Alliance Access subscription contains resources that you manage. To create the core infrastructure of Alliance Access resources shown in the diagram, you can use an Azure Resource Manager template (ARM template). Alliance Access deployments on Azure should follow the guidance in SWIFT's Customer Security Programme (CSP) - Customer Security Control Framework (CSCF). We recommend that you use Azure policies to implement SWIFT CSP CSCF controls.
 
 The Alliance Connect Virtual subscription contains the components that are required to enable connectivity with SWIFTNet. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly into two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution. 
 

@@ -143,7 +143,7 @@ Follow [MLOps guidelines](/azure/machine-learning/concept-model-management-and-d
 Here are some resources to consider:
 
 - [MLOps v2](../../data-guide/technology-choices/machine-learning-operations-v2.md)
-- [Azure MLOps v2 solution accelerator](https://github.com/Azure/mlops-v2)
+- [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
 ### Performance efficiency
 

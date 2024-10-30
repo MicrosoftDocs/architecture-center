@@ -88,7 +88,7 @@ The series of articles in this guide addresses those considerations and more.
 - **Understand large language model evaluation metrics** - Provides overview of several metrics you can use to evaluate the large language models response including groundedness, completeness, utilization, and relevancy
 - **Understand similarity and evaluation metrics** - Provides a small list of similarity and evaluation metrics you can use when evaluating your RAG solution
 - **Understand importance of documentation, reporting, and aggregation** - Discusses the importance of documenting the hyperparameters along with evaluation results, aggregating results from multiple queries, and visualizing the results
-- **The RAG Experiment Accelerator** - Provides a link to the [Rag Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator), which is a tool that is designed to help teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results
+- **The RAG Experiment Accelerator** - Addresses how the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator) can be used to help teams find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results
 
 ## Structured approach
 

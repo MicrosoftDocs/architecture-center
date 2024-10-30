@@ -16,6 +16,7 @@ metadata:
     - serverless
     - reference-architecture
     - internal-intro
+    - arb-web
 name: Serverless web application
 azureCategories:
   - web

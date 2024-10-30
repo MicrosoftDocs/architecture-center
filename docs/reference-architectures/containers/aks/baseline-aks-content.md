@@ -591,8 +591,6 @@ When you enable availability zones, it isn't enough coverage in the unlikely eve
 
 > [!NOTE]
 > The [AKS baseline for multiregion clusters reference architecture](../aks-multi-region/aks-multi-cluster.yml) extends the architecture in this article to include multiple regions in an active/active and highly available configuration.
->
-> Use the [implementation of the multiregion architecture](https://github.com/mspnp/aks-baseline-multi-region) as a starting point, and configure it to your needs.
 
 ### Disaster recovery
 

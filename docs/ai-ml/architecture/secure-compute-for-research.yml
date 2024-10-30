@@ -12,6 +12,7 @@ metadata:
   ms.custom:
     - fcp
     - arb-aiml
+    - arb-telco
 name: Secure research environment for regulated data
 azureCategories:
   - ai-machine-learning

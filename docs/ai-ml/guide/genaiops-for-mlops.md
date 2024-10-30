@@ -112,7 +112,7 @@ There are multiple dimensions to experiment on for prompt engineering solutions,
 - What and how you should enrich chunks
 - Your embedding model
 - Configuration of your search index
-- What searches to perform (vector, full text, hybrid, etc.)
+- What searches to perform (vector, full text, hybrid, and so on)
 
 As discussed in [DataOps](#dataops), keys to experimentation are reproducibility and data versioning. A good experimentation framework allows you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when [evaluating the experiment](#evaluation-and-experimentation).
 
@@ -128,7 +128,7 @@ The evaluation of fine-tuned or trained generative AI models should utilize your
 
 #### RAG and prompt engineering
 
-You have to extend your existing MLOps investments to evaluate generative AI solutions. You can take advantage of tools like prompt flow that offers a robust framework for evaluation. Prompt flows enable teams to define custom evaluation logic, specifying criteria and metrics to assess the performance of various [prompt variants]( /azure/machine-learning/prompt-flow/concept-variants) and language models (LLMs). This structured approach allows for side-by-side comparison of different configurations, such as hyperparameter adjustments or architectural variations, to identify the optimal setup for specific tasks.
+You have to extend your existing MLOps investments to evaluate generative AI solutions. You can take advantage of tools like prompt flow that offers a robust framework for evaluation. Prompt flows enable teams to define custom evaluation logic, specifying criteria and metrics to assess the performance of various [prompt variants](/azure/machine-learning/prompt-flow/concept-variants) and language models (LLMs). This structured approach allows for side-by-side comparison of different configurations, such as hyperparameter adjustments or architectural variations, to identify the optimal setup for specific tasks.
 
  Jobs in prompt flow automatically capture input and output data throughout the experimentation process, creating a comprehensive trial record. You can gain insights and identify promising configurations that can inform future iterations by analyzing this data. You can accelerate the development of your generative AI solutions by conducting efficient and systematic experimentation using prompt flows.
 
@@ -156,7 +156,7 @@ Deploying generative AI models and fine-tuning foundational models should use yo
 
 #### RAG and prompt engineering
 
-For RAG and prompt engineering, there are additional concerns that you need to deploy, including the orchestration logic, changes to data stores such as indexes or schemas, and changes to data pipeline logic. Orchestration logic is normally encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to differing compute resources, including those resources you may currently deploy custom models to. See [Baseline Azure OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat) for examples of deploying prompt flow to either Azure Machine Learning managed online endpoints or Azure App Services. To deploy to Azure App Service, the baseline Azure OpenAI chat architecture packages the flow and its dependencies as a container, a practice that increases portability and consistency across different environments.
+For RAG and prompt engineering, there are additional concerns that you need to deploy, including the orchestration logic, changes to data stores such as indexes or schemas, and changes to data pipeline logic. Orchestration logic is normally encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to differing compute resources, including those resources you may currently deploy custom models to. See [Baseline Azure OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat) for examples of deploying prompt flow to either Azure Machine Learning managed online endpoints or Azure App Service. To deploy to Azure App Service, the baseline Azure OpenAI chat architecture packages the flow and its dependencies as a container, a practice that increases portability and consistency across different environments.
 
 Deployments of changes to database resources such as changes to data models or indexes are new responsibilities that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the LLM](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide).
 
@@ -170,7 +170,7 @@ Deployments of generative AI specific concerns, such as the orchestrator, should
 - End-to-end tests
 - Roll out strategies such canary or blue/green deployments
 
-Because the deployment responsibilities for generative AI applications extend beyond just model deployment, you may need additional job roles to manage the deployment and monitoring of things like the user interface, the orchestrator, and the data stores. These roles are often aligned to DevOps engineer skillsets.
+Because the deployment responsibilities for generative AI applications extend beyond just model deployment, you may need additional job roles to manage the deployment and monitoring of things like the user interface, the orchestrator, and the data stores. These roles are often aligned to DevOps engineer skill sets.
 
 ### Inferencing and monitoring
 
@@ -206,11 +206,11 @@ Many MLOps practitioners have standardized on a toolkit to organize the various 
 
 ## MLOps and GenAIOps maturity models
 
-As part of your current MLOps investments, you might have leveraged the [MLOps maturity model](/azure/architecture/ai-ml/guide/mlops-maturity-model) to evaluate the maturity of you machine learning operations and environment. As you extend your MLOps investments for generative AI workloads, you should use the GenAIOps [maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might be tempted to try to combine the two maturity models, but it is our recommendation to measure each independently. MLOps and GenAIOps will evolve independently from each other. As an example, you may be at level four in the MLOps maturity model, but just starting with generative AI and may only be at level one.
+As part of your current MLOps investments, you might have used the [MLOps maturity model](/azure/architecture/ai-ml/guide/mlops-maturity-model) to evaluate the maturity of you machine learning operations and environment. As you extend your MLOps investments for generative AI workloads, you should use the GenAIOps [maturity model](/azure/machine-learning/prompt-flow/concept-llmops-maturity) to evaluate those operations. You might be tempted to try to combine the two maturity models, but it is our recommendation to measure each independently. MLOps and GenAIOps will evolve independently from each other. As an example, you may be at level four in the MLOps maturity model, but just starting with generative AI and may only be at level one.
 
 ## Summary
 
-As you start extending your MLOps investments to include generative AI, it is important to understand that you don't need to start over. You can leverage your existing MLOps investments for some of the generative AI technical patterns. Fine-tuning generative models is a great example. There are areas of generative AI solutions, such as prompt engineering and RAG, that are net new processes and you will have to extend your existing operations investments and gain new skills.
+As you start extending your MLOps investments to include generative AI, it is important to understand that you don't need to start over. You can use your existing MLOps investments for some of the generative AI technical patterns. Fine-tuning generative models is a great example. There are areas of generative AI solutions, such as prompt engineering and RAG, that are net new processes and you will have to extend your existing operations investments and gain new skills.
 
 ## Contributors
 
