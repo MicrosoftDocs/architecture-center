@@ -79,16 +79,16 @@ One of the key pillars of reliability is resiliency. The goal of resiliency is t
 
 If you choose Azure functions as the microservice computing platform, consider deploying the [functions premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or app service plan in zone-redundant configuration. See [Reliability in Azure Functions](/azure/reliability/reliability-functions?tabs=azure-portal) for details. 
 
-If you choose Azure Kubernetes Service as the microservice computing platorm, microservice reliability can be enhanced by deploying [AKS cluster using availability zones](/azure/aks/availability-zones), using [Standard or Premium tier](/azure/aks/free-standard-pricing-tiers) for Azure Kubernetes Cluster, and increasing the minimum number of pods and nodes. Please see [deployment and cluster reliability best practices for AKS](/azure/aks/best-practices-app-cluster-reliability) for details. 
+If you choose Azure Kubernetes Service as the microservice computing platform, microservice reliability can be enhanced by deploying [AKS cluster using availability zones](/azure/aks/availability-zones), using [Standard or Premium tier](/azure/aks/free-standard-pricing-tiers) for Azure Kubernetes Cluster, and increasing the minimum number of pods and nodes. See [deployment and cluster reliability best practices for AKS](/azure/aks/best-practices-app-cluster-reliability) for details. 
 
-If you choose Azure Container Apps as the microservice computing platform, reliability can be enhanced by leveraging availability zones. Please see [reliability in container apps](/azure/reliability/reliability-azure-container-apps) for details. 
+If you choose Azure Container Apps as the microservice computing platform, reliability can be enhanced by leveraging availability zones. See [reliability in container apps](/azure/reliability/reliability-azure-container-apps) for details. 
 
 ### Security
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview](/azure/well-architected/security/) of the security pillar.
 
 If you choose Azure functions as the compute platform to deploy microservices, the principles of [Securing Azure Functions](/azure/azure-functions/security-concepts) apply to microservices as well. 
 
-If you choose Azure Kubernetes Service as the compute platform to deploy microservices, [AKS security baseline architecture](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline) provides guidance of securing the compute platform. Please refer to [Advanced AKS microservice architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced) for best practices on microservice security on Azure Kubernetes Service. 
+If you choose Azure Kubernetes Service as the compute platform to deploy microservices, [AKS security baseline architecture](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline) provides guidance of securing the compute platform. Refer to [Advanced AKS microservice architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced) for best practices on microservice security on Azure Kubernetes Service. 
 
 If Azure Container Apps is the compute platform of choice to deploy microservices, please refer to [security baseline for Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices. 
 
