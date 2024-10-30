@@ -75,7 +75,7 @@ A [NAT gateway](/azure/virtual-network/nat-gateway/nat-overview) is a service th
 
 Depending on your requirements, you might be able to use the NAT gateway as an alternative to the central firewall, for outbound connections. By doing so, you can reduce load on the central firewall while communicating with NSG-allowed public endpoints. You also get outbound IP control, because you can configure destination firewall rules on a set IP list of the NAT gateway. Examples include reaching Azure public endpoints that are used by public services, OS patch repositories, or third-party interfaces.
 
-For a high-availability configuration, keep in mind that NAT gateway is deployed in a [single zone only](/azure/virtual-network/nat-gateway/faq#how-does-virtual-network-nat-gateway-work-with-availability-zones) and isn't currently cross-zone redundant. With a single NAT gateway it's not ideal for SAP deployments that use zone-redundant (cross-zone) deployment for virtual machines.
+For a high-availability configuration, keep in mind that NAT gateway is deployed in a [single zone only](/azure/nat-gateway/faq#how-does-a-nat-gateway-work-with-availability-zones) and isn't currently cross-zone redundant. With a single NAT gateway, it's not ideal for SAP deployments that use zone-redundant (cross-zone) deployment for virtual machines.
 
 ### Use of network components across an SAP landscape
 
