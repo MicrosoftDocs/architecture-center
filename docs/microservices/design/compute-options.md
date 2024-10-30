@@ -90,7 +90,7 @@ If you choose Azure functions as the compute platform to deploy microservices, t
 
 If you choose Azure Kubernetes Service as the compute platform to deploy microservices, [AKS security baseline architecture](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline) provides guidance of securing the compute platform. Refer to [Advanced AKS microservice architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced) for best practices on microservice security on Azure Kubernetes Service. 
 
-If Azure Container Apps is the compute platform of choice to deploy microservices, please refer to [security baseline for Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices. 
+If Azure Container Apps is the compute platform of choice to deploy microservices, refer to [security baseline for Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices. 
 
 ### Cost optimization 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/well-architected/cost-optimization/).
