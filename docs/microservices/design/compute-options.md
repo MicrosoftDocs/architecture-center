@@ -97,7 +97,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 With an orchestrator, you pay for the VMs that are running in the cluster. With a serverless application, you pay only for the actual compute resources consumed. In both cases, you need to factor in the cost of any additional services, such as storage, databases, and messaging services.
 
-Azure Functions, Azure Container Apps and Azure Kubernetes Service provides you auto-scaling options. Please note that Azure Container Apps and Azure Functions provide you serverless platforms where the cost can be zero based on consumption, while Azure Kubernetes Service provides only dedicated compute option. 
+Azure Functions, Azure Container Apps, and Azure Kubernetes Service provides you with autoscaling options. Note that Azure Container Apps and Azure Functions provide you with serverless platforms where the cost can be zero based on consumption, while Azure Kubernetes Service provides only dedicated compute option. 
 
 If you choose Azure Kubernetes Service as the compute platform to deploy microservices, please refer to [optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost) for AKS cost optimization best practices. 
 
