@@ -19,7 +19,7 @@ ms.custom:
 
 # Choose an Azure compute option for microservices
 
-The term *compute* refers to the hosting model for the computing resources that your application runs on. This article aims to provide prescriptive guidance to choose a compute platform for microservices. The choice of microservice compute platform may vary based on more nuanced requirements.
+The term *compute* refers to the hosting model for the computing resources that your application runs on. This article provides prescriptive guidance to choose a compute platform for microservices. The choice of microservice compute platform may vary based on more nuanced requirements.
 
 For a microservices architecture, two approaches are especially popular:
 
