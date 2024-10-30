@@ -99,16 +99,16 @@ With an orchestrator, you pay for the VMs that are running in the cluster. With 
 
 Azure Functions, Azure Container Apps, and Azure Kubernetes Service provides you with autoscaling options. Note that Azure Container Apps and Azure Functions provide you with serverless platforms where the cost can be zero based on consumption, while Azure Kubernetes Service provides only dedicated compute option. 
 
-If you choose Azure Kubernetes Service as the compute platform to deploy microservices, please refer to [optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost) for AKS cost optimization best practices. 
+If you choose Azure Kubernetes Service as the compute platform to deploy microservices, refer to [optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost) for AKS cost optimization best practices. 
 
-If you choose Azure Container Apps as the microservices compute platform, please refer to [Billing in Azure Container Apps](/azure/container-apps/billing) to understand the various billing models, and decide on the deployment model for your microservices based on your workload requirements.
+If you choose Azure Container Apps as the microservices compute platform, refer to [Billing in Azure Container Apps](/azure/container-apps/billing) to understand the various billing models, and decide on the deployment model for your microservices based on your workload requirements.
 
-If you choose Azure functions as the microservices compute platform, please refer to [Estimating consumption-based costs](/azure/azure-functions/functions-consumption-costs) to understand the various billing models, and decide on the functions plan based on your workload requirements. [Azure functions scale and hosting](/azure/azure-functions/functions-scale#billing) provides more insights into billing model for various function plans.
+If you choose Azure functions as the microservices compute platform, refer to [Estimating consumption-based costs](/azure/azure-functions/functions-consumption-costs) to understand the various billing models, and decide on the functions plan based on your workload requirements. [Azure functions scale and hosting](/azure/azure-functions/functions-scale#billing) provides more insights into billing model for various function plans.
 
 ### Operational excellence
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/well-architected/operational-excellence/).
 
-All of the microservice compute choices described in this article can be deployed in an automated manner using Terraform, Bicep, and other scripting languages. [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), [Azure Monitor](/azure/azure-monitor/overview) and other monitoring solutions can be leveraged to monitor these compute platforms and the microservices. 
+All of the microservice compute choices described in this article can be deployed in an automated manner using Terraform, Bicep, and other scripting languages. [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), [Azure Monitor](/azure/azure-monitor/overview), and other monitoring solutions can be leveraged to monitor these compute platforms and the microservices. 
 
 **Flexibility and control**. An orchestrator gives you a great deal of control over configuring and managing your services and the cluster. The tradeoff is additional complexity. With a serverless architecture, you give up some degree of control because these details are abstracted.
 
