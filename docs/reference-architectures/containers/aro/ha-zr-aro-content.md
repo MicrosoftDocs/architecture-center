@@ -32,7 +32,6 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 ### Alternatives
 
-* You can use Microsoft Entra ID or Azure AD B2C as an identity provider in this scenario. Microsoft Entra ID is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
 * Azure-managed DNS is recommended, but you can use your own DNS provider.
 * You can use [Azure Application Gateway](https://azure.microsoft.com/products/application-gateway/) instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload and if you don't need content caching. Use [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to protect internet-facing Application Gateway services.
 * Deploy a premium [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) instance with zone-redundancy as an alternative for hosting front-end APIs, back-end APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support](/azure/reliability/migrate-api-mgt).
