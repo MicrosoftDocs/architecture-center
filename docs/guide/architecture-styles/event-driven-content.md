@@ -30,12 +30,6 @@ There are two primary topologies within many event-driven architectures:
 
 - **Mediator topology**. This topology addresses some of the shortcomings of broker topology. There is an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. Unlike broker topology, components broadcast occurrences as commands and only to designated channels, usually message queues. These commands aren't expected to be ignored by their consumers. This topology offers more control, better distributed error handling, and potentially better data consistency. This topology does introduce increased coupling between components, and the event mediator could become a bottleneck or a reliability concern.
 
-Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be implemented in two main ways:
-
-- **Create two distinct queues**; a request queue and a reply queue. The event producer sends an asynchronous request to the request queue, pauses other operations, and waits for a response from the reply queue. Event consumers then process the request and send the reply back through the reply queue. This technique is a common implementation. The approach utilizes a session ID for tracking.
-  
-- **Create a dedicated ephemeral queue for each request.** This approach also pauses other operations by the event producer. Once the request is complete, the queue is deleted. While this technique is simpler, it lacks scalability, as the message broker must create and delete a queue for each request. 
-
 ## When to use this architecture
 
 - Multiple subsystems must process the same events.
@@ -73,6 +67,14 @@ Sometimes, the event producer requires an immediate response from the event cons
 
   Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never makes it into the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component has acknowledged the receipt of the event. These features are usually known as _client acknowledge mode_ and _last participant support_.
 
+- Implementing request-response pattern.
+
+  Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be achieved through request-response messaging, and it can be implemented in two main ways:
+
+  - **Create two distinct queues**; a request queue and a reply queue. The event producer sends an asynchronous request to the request queue, pauses other operations, and waits for a response from the reply queue. Event consumers then process the request and send the reply back through the reply queue. This technique is a common implementation. The approach utilizes a session ID for tracking.
+  
+  - **Create a dedicated ephemeral queue for each request.** An ephemeral queue is a specialized queue that is exclusively recognized by the event producer for a particular request. The event producer can either create this ephemeral queue manually or it may be generated automatically by the message broker. The event producer sends a message to the queue, specifying the name of the ephemeral queue in the reply-to header, [ReplyTo](https://learn.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebusmessage.replyto) property or another mutually agreed-upon custom attribute, and pauses other operations. Any messages directed to this queue are solely for the event producer that initiated them. Once the event consumer receives the message, processes the request, and sends a response to the reply queue indicated in the reply-to header, the event producer retrieves this response and subsequently deletes the ephemeral queue. While this technique is simpler, it lacks scalability because a dedicated queue must be created and deleted for each request.
+  
 ### Additional considerations
 
 - The amount of data to include in an event can be a significant consideration that affects both performance and cost. Putting all the relevant information needed for processing in the event itself can simplify the processing code and save additional lookups. Putting the minimal amount of information in an event, like just a couple of identifiers, will reduce transport time and cost, but requires the processing code to look up any additional information it needs. For more information on this, take a look at [this blog post](https://particular.net/blog/putting-your-events-on-a-diet).
