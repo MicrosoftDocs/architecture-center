@@ -21,7 +21,7 @@ Consider the following scenario details:
 - You place the VM in the database subnet that's in the Oracle virtual network, which peers to the hub virtual network. The IP address range of the database subnet is 10.42.1.0/24.
 - In the hub virtual network, the traffic has to traverse a non-Microsoft network virtual appliance (NVA), such as FortiGate, Check Point, or Cisco. The NVA functions as a routing device, which helps ensure that connectivity between the VM and the on-premises Oracle Database implementation is fully routable. You configure the NVA to inspect all traffic that goes to and from on-premises. The IP address of the hub NVA is 10.0.0.5.
 - You configure hybrid connectivity in the hub virtual network via an Azure ExpressRoute connection to your on-premises network.
-- You need to migrate the on-premises database to the the Azure VM with the minimum amount of downtime possible. You decide to use Oracle Data Guard and Oracle Recovery Manager (RMAN) for the migration.
+- You need to migrate the on-premises database to the Azure VM with the minimum amount of downtime possible. You decide to use Oracle Data Guard and Oracle Recovery Manager (RMAN) for the migration.
 
 ## Establish network connectivity
 
