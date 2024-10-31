@@ -3,7 +3,7 @@ title: Migrate your workload from Service Fabric to AKS
 description: Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS. 
 author: allyford
 ms.author: allyford
-ms.date: 06/07/2024
+ms.date: 10/22/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -22,7 +22,7 @@ categories:
 
 Many organizations have moved to containerized apps as part of a push towards adopting modern app development, maintenance best practices, and cloud-native architectures. As technologies continue to evolve, organizations are evaluating the many containerized app platforms that are available in the public cloud.
 
-There's no one-size-fits-all solution for apps, but organizations often find that [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) meets the requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for application workloads. Many organizations are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
+There's no one-size-fits-all solution for apps, but organizations often find that [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) meets the requirements for many of their containerized applications. AKS is a managed Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for application workloads. Many organizations are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
 
 This article describes how to migrate containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) to AKS. The article assumes that you're familiar with Service Fabric but are interested in learning how its features and functionality compare to those of AKS. The article also provides best practices for you to consider during migration.
 
@@ -39,7 +39,7 @@ Both Service Fabric and AKS offer integrations with other Azure services, includ
 
 ## Key differences
 
-When you deploy a traditional Service Fabric [cluster](/azure/service-fabric/service-fabric-azure-clusters-overview), as opposed  to a managed cluster, you need to explicitly define a cluster resource together with a number of supporting resources in your Azure Resource Manager templates (ARM templates) or Bicep modules. These resources include a virtual machine scale set for each cluster node type, network security groups, and load balancers. It's your responsibility to make sure that these resources are correctly configured. The encapsulation model for Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster) consists of a single managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure.  
+When you deploy a traditional Service Fabric [cluster](/azure/service-fabric/service-fabric-azure-clusters-overview), as opposed to a managed cluster, you need to explicitly define a cluster resource together with a number of supporting resources in your Azure Resource Manager templates (ARM templates) or Bicep modules. These resources include a virtual machine scale set for each cluster node type, network security groups, and load balancers. It's your responsibility to make sure that these resources are correctly configured. In contrast, the encapsulation model for Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster) consists of a single managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure.  
 
 [AKS](/azure/aks/intro-kubernetes) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. Because AKS is a hosted Kubernetes service, Azure handles critical tasks like infrastructure health monitoring and maintenance. Azure manages the Kubernetes master nodes, so you manage and maintain only the agent nodes.
 
@@ -59,10 +59,28 @@ To move your workload from Service Fabric to AKS, you need to understand the dif
 |WCF-based communication stack for Reliable Services|Yes|No|
 |Persistent storage|Azure Files volume driver|Support for various storage systems, like managed disks, Azure Files, and Azure Blob Storage via CSI Storage classes, persistent volume, and persistent volume claims |
 |Networking modes|Azure Virtual Network integration|Support for multiple network plug-ins (Azure CNI, kubenet, BYOCNI), network policies (Azure, Calico), and ingress controllers (Application Gateway Ingress Controller, NGINX, and more)|
-|Ingress controllers |A [reverse proxy](/azure/service-fabric/service-fabric-reverseproxy) that's built in to Service Fabric. It helps microservices that run in a Service Fabric cluster discover and communicate with other services that have HTTP endpoints. You can also use [Traefik](https://doc.traefik.io/traefik/v1.7/configuration/backends/servicefabric/) on Service Fabric.  |BYO ingress controllers (open source and commercial) that use platform-managed public or internal load balancers, like [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/deploy/#azure) and [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview) |
+|Ingress controllers |A [reverse proxy](/azure/service-fabric/service-fabric-reverseproxy) that's built in to Service Fabric. It helps microservices that run in a Service Fabric cluster discover and communicate with other services that have HTTP endpoints. You can also use [Traefik](https://doc.traefik.io/traefik/v1.7/configuration/backends/servicefabric/) on Service Fabric.  |[Managed NGINX ingress controller](/azure/aks/app-routing), BYO ingress controllers (open source and commercial) that use platform-managed public or internal load balancers, like [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/deploy/#azure) and [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview) |
 
 > [!Note]
 > If you use Windows containers on Service Fabric, we recommend that you also use them on AKS. Doing so will make your migration easier.
+
+## Migration steps
+
+In general, the migration steps from Azure Service Fabric to Azure Kubernetes Service is as follows. 
+
+:::image type="content" source="media/migrate-from-service-fabric-to-aks.png" alt-text="Diagram that shows the migration steps from Azure Service Fabric to Azure Kubernetes Service." lightbox="media/migrate-from-service-fabric-to-aks.png" border="false":::
+
+1. Establish deployment architecture and create the AKS cluster. AKS offers you various options to configure the cluster access, node and pod scalability, network access and configuration etc. Please see [Example architecture](#example-architecture) section for a typical deployment architecture. The [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) provides you cluster deployment and monitoring guidelines as well. [AKS construction](https://azure.github.io/AKS-Construction/) provides you quick start templates to deploy your AKS cluster based on business and technical requirements.
+
+1. Re-architect the Service Fabric application. If you are using programming models such as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) or [Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-introduction), or if you are using other Service Fabric specific constructs, you may need to re-architect your application. [Dapr](/azure/aks/dapr-overview) is the recommended way to implement state management when migrating from Reliable Services. Kubernetes offers [patterns and examples](https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-patterns) to migrate from Reliable Actors.
+  
+1. Package the application as containers. Visual Studio provides you options to generate the Dockerfile and package the application as containers. Push the container images you create to [Azure Container Registry](/azure/container-registry/).
+
+1. Rewrite Service Fabric configuration XML files as Kubernetes YAML files. You will deploy the application to AKS using YAML files or as a package using Helm charts. Please see the section [Application and service manifest](#application-and-service-manifest) for details.
+
+1. Deploy the application to AKS cluster.
+
+1. Shift traffic to the AKS cluster based on your [deployment strategies](/azure/architecture/guide/aks/blue-green-deployment-for-aks), and monitor the application's behavior, availability, performance. 
 
 ## Example architecture
 
@@ -76,9 +94,9 @@ As a starting point, we recommend that you familiarize yourself with some key Ku
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 
 > [!Note]
-> When you migrate a workload from Service Fabric to AKS, you can replace [Service Fabric Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) with the Dapr [actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) building block. You can replace [Service Fabric Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) with the Dapr [state management](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) building block. 
+> When you migrate a workload from Service Fabric to AKS, you can replace [Service Fabric Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) with the Dapr [actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) building block. You can replace [Service Fabric Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) with the Dapr [state management](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) building block.
 >
-> The [Distributed Application Runtime (Dapr)](https://dapr.io/) provides APIs that simplify microservice connectivity. For more information, see [Introduction to the Distributed Application Runtime](https://docs.dapr.io/concepts/overview/).
+> The [Distributed Application Runtime (Dapr)](https://dapr.io/) provides APIs that simplify microservice connectivity. For more information, see [Introduction to the Distributed Application Runtime](https://docs.dapr.io/concepts/overview/). Dapr is recommended to be [installed](/azure/aks/dapr-overview) as an AKS extension.
 
 ## Application and service manifest
 
@@ -102,7 +120,7 @@ For more information about Helm and Kustomize, see these resources:
 ## Networking
 
 AKS provides two options for the underlying network: 
-- You can create a new Azure virtual network and place the AKS cluster in it. 
+- Bring your own virtual network: Bringing your own Azure virtual network will provision the AKS cluster nodes into a subnet from a virtual network provided by you.
 - You can let the AKS resource provider create a new Azure virtual network for you in the node resource group that contains all the Azure resources that a cluster uses.
 
 If you choose the second option, Azure manages the virtual network. 
@@ -123,15 +141,15 @@ If you want to use Azure Network Policy Manager, you must use the [Azure CNI p
 
 In Kubernetes, an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) acts as a service proxy and intermediary between a service and the outside world, allowing external traffic to access the service. The service proxy typically provides various functionalities like TLS termination, path-based request routing, load balancing, and security features like authentication and authorization. Ingress controllers also provide another layer of abstraction and control for routing external traffic to Kubernetes services based on HTTP/HTTPS rules, which provides more fine-grained control over traffic flow and traffic management.
 
-In AKS, there are multiple options for deploying, running, and operating an ingress controller. One option is the [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which enables you to use Azure Application Gateway as the ingress controller for TLS termination, for path-based routing, and as a [web access firewall](/azure/web-application-firewall/ag/ag-overview). Another option is the [NGINX ingress controller](/azure/aks/ingress-basic?tabs=azure-cli), which is a widely used open-source ingress controller that you can install by using Helm. Finally, [Traefik ingress controller](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) is another popular ingress controller for Kubernetes. 
+In AKS, there are multiple options for deploying, running, and operating an ingress controller. One option is the [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which enables you to use Azure Application Gateway as the ingress controller for TLS termination, for path-based routing, and as a [web access firewall](/azure/web-application-firewall/ag/ag-overview). Another option is the [managed NGINX ingress controller](/azure/aks/app-routing), which provides the Azure managed option for widely used NGINX ingress controller. Finally, [Traefik ingress controller](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) is another popular ingress controller for Kubernetes. 
 
-Each of these ingress controllers has strengths and weaknesses. To decide which one to use, take into account the requirements of the application and the environment. Be sure that you're using the latest release of Helm and have access to the appropriate Helm repository when you install an ingress controller.
+Each of these ingress controllers has strengths and weaknesses. To decide which one to use, take into account the requirements of the application and the environment. Be sure that you're using the latest release of Helm and have access to the appropriate Helm repository when you install an unmanaged ingress controller.
 
 ## Persistent storage
 
 Both Service Fabric and AKS have mechanisms to provide persistent storage to containerized applications. In Service Fabric, the Azure Files volume driver, a Docker volume plug-in, provides Azure Files volumes for Linux and Windows containers. It's packaged as a Service Fabric application that you can deploy to a Service Fabric cluster to provide volumes for other Service Fabric containerized applications within the cluster. For more information, see [Azure Files volume driver for Service Fabric](/azure/service-fabric/service-fabric-containers-volume-logging-drivers).
 
-Applications running in AKS might need to store and retrieve data from a persistent file storage system. AKS integrates with Azure storage services like [Azure managed disks](/azure/virtual-machines/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction), and [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). It also integrates with third-party storage systems like [Rook](https://rook.io/) and [GlusterFS](https://www.gluster.org/) via Container Storage Interface (CSI) drivers. 
+Applications running in AKS might need to store and retrieve data from a persistent file storage system. AKS integrates with Azure storage services like [Azure managed disks](/azure/virtual-machines/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction), and [Azure NetApp Storage (ANF)](/azure/aks/azure-netapp-files). It also integrates with third-party storage systems like [Rook](https://rook.io/) and [GlusterFS](https://www.gluster.org/) via Container Storage Interface (CSI) drivers. 
 
 [CSI](https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/) is a standard for exposing block and file storage systems to containerized workloads on Kubernetes. Third-party storage providers that use CSI can write, deploy, and update plug-ins to expose new storage systems in Kubernetes, or to improve existing ones, without needing to change the core Kubernetes code and wait for its release cycles.
 
@@ -182,6 +200,7 @@ Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager 
 - [Moumita Dey Verma](https://www.linkedin.com/in/moumita-dey-verma-8b61692a/) | Senior Cloud Solutions Architect
+- [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Senior Technology Specialist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
