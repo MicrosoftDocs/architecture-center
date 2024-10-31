@@ -5576,7 +5576,6 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
       "source_path": "docs/databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml",
       "redirect_url": "/azure/architecture/databases/idea/topic-migrate-oracle-azure",
       "redirect_document_id": false
@@ -5594,10 +5593,11 @@
     {
       "source_path": "docs/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml",
       "redirect_url": "/azure/confidential-computing/choose-confidential-containers-offerings",
-=======
+      "redirect_document_id": false
+    }
+    {
       "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
->>>>>>> 9b2c382aaf2a432e8b11b23a95a315523e72a297
       "redirect_document_id": false
     }
   ]
