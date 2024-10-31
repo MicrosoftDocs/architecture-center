@@ -36,7 +36,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 * Azure-managed DNS is recommended, but you can use your own DNS provider.
 * You can use [Azure Application Gateway](https://azure.microsoft.com/products/application-gateway/) instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload and if you don't need content caching. Use [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to protect internet-facing Application Gateway services.
 * Deploy a premium [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) instance with zone-redundancy as an alternative for hosting front-end APIs, back-end APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support](/azure/reliability/migrate-api-mgt).
-* You can use OpenShift Container Platform or Origin Community Distribution of Kubernetes (OKD) on [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) instead of Azure Red Hat OpenShift. OpenShift Container Platform or OKD are infrastructure-as-a-service (IaaS) alternatives to a fully platform-managed service, like Azure Red Hat OpenShift. For more information, see [Azure Red Hat OpenShift](/azure/openshift/intro-openshift).
+* You can use OpenShift Container Platform (OCP) or Origin Community Distribution of Kubernetes (OKD) on [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) instead of Azure Red Hat OpenShift. OCP or OKD are infrastructure-as-a-service (IaaS) alternatives to a fully platform-managed service, like Azure Red Hat OpenShift. You may make use of [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets/) for zone redundancy, then. For more information, see [Azure Red Hat OpenShift](/azure/openshift/intro-openshift).  
 
 ## Scenario details
 
@@ -73,7 +73,7 @@ The following recommendations apply to most scenarios.
 ### Azure Front Door
 
 * Use [Azure-managed certificates](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#azure-managed-certificates) on all front-end applications to prevent certificate misconfiguration and expiration issues.
-* Enable [caching](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) on routes to improve availability. The Azure Front Door cache distributes your content to the Azure point-of-presence (POP) edge nodes. Caching reduces the load on origin servers and improves performance.
+* Enable [caching](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) on routes to improve availability. The Azure Front Door cache distributes your dynamic contents as well as static contents to the Azure point-of-presence (POP) edge nodes. Caching reduces the load on origin servers and improves performance.  
 * Deploy Azure Front Door Premium and configure a [web application firewall (WAF) policy](/azure/web-application-firewall/afds/afds-overview) with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use prevention mode to mitigate web attacks that might cause an origin-service failure.
 
 ### Azure Red Hat OpenShift
@@ -181,7 +181,7 @@ All Azure services that are platform as a service (PaaS) are integrated with [Az
 * To provide notifications when direct action is needed, use an alerting system, like Container insights metric alerts or the Azure Red Hat OpenShift alerting UI.
 * Consider various methods for monitoring and logging Azure Red Hat OpenShift to gain insights into the health of your resources and to foresee potential issues.
 * Review the Azure Red Hat OpenShift responsibility matrix to understand how Microsoft, Red Hat, and customers share responsibilities for clusters.
-* Automate service deployments with [Bicep](/azure/azure-resource-manager/bicep/overview), a template language for deploying infrastructure as code (IaC).
+** Automate service deployments with [Bicep](/azure/azure-resource-manager/bicep/overview), a template language for deploying infrastructure as code (IaC). Because Azure services in this architecture have private endpoints, you cannot use Microsoft-hosted agents of Azure Pipelines or GitHub-hosted runners. Please consider using [self-hosted agents of Azure Pipelines](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=yaml%2Cbrowser#install) or [GitHub-hosted runners](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners), instead.  
 * [Continuously validate](/azure/well-architected/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing) the workload to test the performance and resilience of the entire solution by using services, such as [Azure Load Testing](https://azure.microsoft.com/products/load-testing/) and [Azure Chaos Studio](https://azure.microsoft.com/products/chaos-studio/).
 
 ### Performance efficiency
