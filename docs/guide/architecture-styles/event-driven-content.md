@@ -32,7 +32,7 @@ There are two primary topologies within many event-driven architectures:
 
 Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be implemented in two main ways:
 
-- **Create two distinct queues.** a request queue and a reply queue. The event producer sends an asynchronous request to the request queue, pauses other operations, and waits for a response from the reply queue. Event consumers then process the request and send the reply back through the reply queue. This technique is more common and utilizes a correlation ID for tracking.
+- **Create two distinct queues**; a request queue and a reply queue. The event producer sends an asynchronous request to the request queue, pauses other operations, and waits for a response from the reply queue. Event consumers then process the request and send the reply back through the reply queue. This technique is a common implementation. The approach utilizes a session ID for tracking.
   
 - **Create a dedicated ephemeral queue for each request.** This approach also pauses other operations by the event producer. Once the request is complete, the queue is deleted. While this technique is simpler, it lacks scalability, as the message broker must create and delete a queue for each request. 
 
