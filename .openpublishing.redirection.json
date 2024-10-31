@@ -5577,7 +5577,7 @@
     },
     {
       "source_path": "docs/databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml",
-      "redirect_url": "/azure/architecture/databases/idea/topic-migrate-oracle-azure",\
+      "redirect_url": "/azure/architecture/databases/idea/topic-migrate-oracle-azure",
       "redirect_document_id": false
     },
     {
