@@ -6,7 +6,7 @@ Project 15 Open Platform was developed in partnership with the GEF Small Grants 
 
 The following sections describe the functionality and architecture of Project 15 Open Platform.
 
-:::image type="complex" source="../media/project-15-reference-architecture.svg" alt-text="A diagram that shows how Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data." lightbox="../media/project-15-reference-architecture.svg":::
+:::image type="complex" source="../media/project-15-reference-architecture.svg" alt-text="A diagram that shows how Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data." border="false" lightbox="../media/project-15-reference-architecture.svg":::
 The diagram shows the Azure components that make up Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
 :::image-end:::
 
@@ -95,7 +95,7 @@ The core goals of Project 15 Open Platform are to:
 * **Decrease the time to deployment.** Project 15 Open Platform gets teams to 80% completion of their projects. This boost dramatically reduces the time that teams need to start making crucial insights.
 * **Reduce development costs.** Project 15 Open Platform reduces overall development costs and makes building connected device-based solutions on Azure less complex. The open platform also gives teams opportunities to partner with the open-source developer community and universities.
 
-:::image type="complex" source="../media/project-15-open-platform-overview-new.svg" alt-text="A diagram that provides an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires." lightbox="../media/project-15-open-platform-overview-new.svg":::
+:::image type="complex" source="../media/project-15-open-platform-overview.svg" alt-text="A diagram that provides an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires." border="false" lightbox="../media/project-15-open-platform-overview.svg":::
 The diagram shows the components and describes the functionality of Project 15 Open Platform. Bars show areas of functionality, such as user management and security. Boxes represent actions, like connecting devices and ingesting data, that the platform handles. Arrows that indicate the flow of data in the system are between the boxes. The components are color coded. Light green elements are fully included in the platform. Dark green elements are included but need customization. Blue elements aren't included by default and require full customization. The diagram also shows images of animals and plants that are connected to sensors and trackers. Arrows indicate that this data flows into the system and that the system can manage these devices.
 :::image-end:::
 
