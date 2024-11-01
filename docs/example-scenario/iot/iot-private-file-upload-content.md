@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to restrict access to an Azure Storage account from within a private network.
+This article describes how to use a private network to upload files to an Azure Storage account.
 
 For typical Azure IoT deployments, the IoT client devices need to communicate directly with the Storage account to upload files. IoT client devices are typically distributed at disparate locations, and they aren't part of a private network, so they connect over the public internet. You can't integrate these devices into a private network, so the Storage account requires that you allow incoming internet traffic.
 
-But if you have stricter network segmentation requirements, you can restrict access to the Storage account from within a private network. This solution blocks direct internet traffic to the Storage account so that the Storage account only accepts traffic that goes through the inbound Azure Application Gateway. If you implement a [hub-spoke network topology](../../networking/architecture/hub-spoke.yml), Azure Firewall typically must inspect traffic, which provides an extra layer of security.
+But if you have stricter network segmentation requirements, you can restrict access to the Storage account from within a private network. This solution blocks direct internet traffic to the Storage account so that the Storage account only accepts traffic that goes through the inbound Azure Application Gateway instance. If you implement a [hub-spoke network topology](../../networking/architecture/hub-spoke.yml), Azure Firewall typically must inspect traffic, which provides an extra layer of security.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ The following workflow corresponds to the preceding diagram.
 
 ## Scenario details
 
-In regular deployments, an Azure IoT client device needs to communicate directly to a Storage account to upload a file. Disabling internet traffic on the Storage account blocks any client IoT client devices from uploading files. The IoT Hub file upload functionality acts only as a user delegation for generating a SAS token that has read-write permissions on a blob. The file upload itself doesn't pass through IoT Hub. An IoT client device uses the normal Blob Storage SDK for the actual upload.
+For regular deployments, an Azure IoT client device needs to communicate directly to a Storage account to upload a file. Disabling internet traffic on the Storage account blocks any client IoT client devices from uploading files. The IoT Hub file upload functionality acts only as a user delegation for generating a SAS token that has read-write permissions on a blob. The file upload itself doesn't pass through IoT Hub. An IoT client device uses the normal Blob Storage SDK for the actual upload.
 
 In this scenario, communication between IoT Hub and the Storage account still goes through the public endpoint. This exception is possible through Storage networking configurations for resource instances. You can disable public internet access to the Storage account and allow Azure services and specific instances of resources to connect through the Azure backbone. This network perimeter is paired with a Microsoft Entra ID-based identity perimeter that uses Azure RBAC to restrict data plane access.
 
