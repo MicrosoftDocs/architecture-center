@@ -162,7 +162,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
 
-ExpressRoute offers two [pricing plans][expressroute-pricing]: a metered plan and an unlimited data plan. Charges vary according to circuit bandwidth. Available bandwidth will probably vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
+ExpressRoute offers two [pricing plans][expressroute-pricing]: the Metered Plan and the Unlimited Data plan. Charges vary according to circuit bandwidth. Available bandwidth will probably vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
 A single ExpressRoute circuit can support a certain number of peerings and virtual network links. See [ExpressRoute limits](/azure/azure-subscription-service-limits) for more information.
 
@@ -266,23 +266,23 @@ For ExpressRoute cost considerations, see these articles:
 
 - [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#considerations).
 
-#### Azure ExpressRoute
+#### ExpressRoute
 
 In this architecture, an ExpressRoute circuit is used to join the on-premises network with Azure through the edge routers.
 
-There are two main plans. In the **Metered Data** plan, all inbound data transfer is free. All outbound data transfer is charged based on a predetermined rate.
+ExpressRoute offers two pricing plans. With the Metered Data plan, all inbound data transfer is free. All outbound data transfer is charged based on a predetermined rate.
 
-You can also opt for the **Unlimited Data** plan in which all inbound and outbound data transfer is free. Users are charged a fixed monthly port fee based on high availability dual ports.
+With the Unlimited Data plan, all inbound and outbound data transfer is free. You're charged a fixed monthly port fee based on high availability dual ports.
 
-Calculate your utilization and choose a billing plan accordingly. The **Unlimited Data** plan is recommended if you exceed about 68% of utilization.
+Calculate your utilization and choose a billing plan accordingly. We recommend the Unlimited Data plan if you exceed about 68% of utilization.
 
 For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 
 #### Azure Virtual Network
 
-All application tiers are hosted in a single virtual network and are segmented using subnets.
+All application tiers are hosted in a single virtual network and are segmented into subnets.
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
+Azure Virtual Network is free. For every subscription, you can create as many as 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free, so communication between two VMs in a single virtual network is free.
 
 ### Operational excellence
 
@@ -298,7 +298,7 @@ For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network 
 
 To deploy the solution, perform the following steps.
 
-1. Select the following link.
+1. Select the following link:
 
    [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fexpressroute-private-peering-vnet%2fazuredeploy.json)
 
@@ -318,7 +318,7 @@ To deploy the solution, perform the following steps.
    > - An Azure virtual network
    > - An ExpressRoute virtual network gateway
    >
-   > In order for you to successfully establish private peering connectivity from on-premises to the ExpressRoute circuit, you'll need to engage your service provider with the circuit service key. The service key can be found on the overview page of the ExpressRoute circuit resource. For more information on configuring your ExpressRoute circuit, see [Create or modify peering configuration][configure-expressroute-routing]. Once you have configured private peering successfully you can link the ExpressRoute virtual network gateway to the circuit. For more information, see [Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
+   > To establish private peering connectivity from on-premises to the ExpressRoute circuit, you need to provide the circuit service key to your service provider. You can find the service key on the overview page of the ExpressRoute circuit resource. For more information on configuring your ExpressRoute circuit, see [Create or modify peering configuration][configure-expressroute-routing]. After you configure private peering, you can link the ExpressRoute virtual network gateway to the circuit. For more information, see [Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
 1. To complete the deployment of site-to-site VPN as a backup to ExpressRoute, see [Create a site-to-site VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
 
