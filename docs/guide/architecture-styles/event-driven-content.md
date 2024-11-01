@@ -67,7 +67,7 @@ There are two primary topologies within many event-driven architectures:
 
   Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never makes it into the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component has acknowledged the receipt of the event. These features are usually known as _client acknowledge mode_ and _last participant support_.
 
-- Implementing request-response pattern.
+- Implementing a traditional request-response pattern.
 
   Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be achieved through request-response messaging, and it can be implemented in two main ways:
 
