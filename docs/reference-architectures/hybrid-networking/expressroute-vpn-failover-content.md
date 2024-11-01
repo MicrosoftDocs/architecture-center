@@ -79,7 +79,7 @@ You can use the following steps to create an ExpressRoute circuit:
 1. Run the following PowerShell command:
 
     ```powershell
-    New-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group> -Location <location> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
+    New-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group> -Location <location> -SkuTier <SKU-tier> -SkuFamily <SKU-family> -ServiceProviderName <service-provider-name> -PeeringLocation <peering-location> -BandwidthInMbps <bandwidth-in-Mbps>
     ```
 
 2. Send the `ServiceKey` for the new circuit to the service provider.
@@ -87,29 +87,28 @@ You can use the following steps to create an ExpressRoute circuit:
 3. Wait for the provider to provision the circuit. To verify the provisioning state of a circuit, run the following PowerShell command:
 
     ```powershell
-    Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+    Get-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group>
     ```
 
     The `Provisioning state` field in the `Service Provider` section of the output changes from `NotProvisioned` to `Provisioned` when the circuit is ready.
 
     > [!NOTE]
-    > If you're using a layer 3 connection, the provider should configure and manage routing for you. You provide the information necessary to enable the provider to implement the appropriate routes.
+    > If you use a layer 3 connection, the provider should configure and manage routing for you. You provide the information necessary to enable the provider to implement the appropriate routes.
     >
-    >
 
-4. If you're using a layer 2 connection:
+4. If you use a layer 2 connection:
 
-    1. Reserve two /30 subnets composed of valid public IP addresses for each type of peering you want to implement. These /30 subnets are used to provide IP addresses for the routers used for the circuit. If you're implementing private and Microsoft peering, you need 4 /30 subnets with valid public IP addresses.
+    1. Reserve two /30 subnets composed of valid public IP addresses for each type of peering that you want to implement. These /30 subnets are used to provide IP addresses for the routers that are used for the circuit. If you're implementing private and Microsoft peering, you need four /30 subnets with valid public IP addresses.
 
-    2. Configure routing for the ExpressRoute circuit. Run the following PowerShell commands for each type of peering you want to configure (private and Microsoft). For more information, see [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing].
+    2. Configure routing for the ExpressRoute circuit. Run the following PowerShell commands for each type of peering that you want to configure (private and Microsoft). For more information, see [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing].
 
         ```powershell
-        Set-AzExpressRouteCircuitPeeringConfig -Name <<peering-name>> -ExpressRouteCircuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
+        Set-AzExpressRouteCircuitPeeringConfig -Name <peering-name> -ExpressRouteCircuit <circuit-name> -PeeringType <peering-type> -PeerASN <peer-ASN> -PrimaryPeerAddressPrefix <primary-peer-address-prefix> -SecondaryPeerAddressPrefix <secondary-peer-address-prefix> -VlanId <vlan-ID>
 
-        Set-AzExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
+        Set-AzExpressRouteCircuit -ExpressRouteCircuit <circuit-name>
         ```
 
-    3. Reserve another pool of valid public IP addresses to use for network address translation (NAT) for Microsoft peering. It's recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure border gateway protocol (BGP) advertisements for those ranges.
+    3. Reserve another pool of valid public IP addresses to use for network address translation (NAT) for Microsoft peering. We recommend that you have a different pool for each peering. Specify the pool to your connectivity provider so they can configure Border Gateway Protocol (BGP) advertisements for those ranges.
 
 ### VPN and ExpressRoute gateways
 
@@ -119,7 +118,7 @@ Follow the instructions in [Configure a hybrid network architecture with Azure E
 
 Follow the instructions in [Configure a hybrid network architecture with Azure and On-premises VPN][configure-vpn] to establish your VPN virtual network gateway connection.
 
-After you established the virtual network gateway connections, test the environment as follows:
+After you establish the virtual network gateway connections, test the environment by following these steps:
 
 1. Make sure you can connect from your on-premises network to your Azure virtual network.
 1. Contact your provider to stop ExpressRoute connectivity for testing.
@@ -128,13 +127,13 @@ After you established the virtual network gateway connections, test the environm
 
 ### Troubleshooting
 
-If a previously functioning ExpressRoute circuit now fails to connect, in the absence of any configuration changes on-premises or within your private VNet, you might need to contact the connectivity provider and work with them to correct the issue. Use the following PowerShell commands to verify that the ExpressRoute circuit is provisioned correctly:
+If a previously functioning ExpressRoute circuit fails to connect, if there are no configuration changes on-premises or within your private virtual network, you might need to contact the connectivity provider and work with them to correct the issue. Use the following PowerShell commands to verify that the ExpressRoute circuit is provisioned correctly:
 
 ```powershell
-Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+Get-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group>
 ```
 
-The output of this command shows several properties for your circuit, including `ProvisioningState`, `CircuitProvisioningState`, and `ServiceProviderProvisioningState` as shown in the following.
+The output of this command shows several properties for your circuit, including `ProvisioningState`, `CircuitProvisioningState`, and `ServiceProviderProvisioningState`, as shown here:
 
 ```powershell
 ProvisioningState                : Succeeded
@@ -147,13 +146,13 @@ CircuitProvisioningState         : Enabled
 ServiceProviderProvisioningState : NotProvisioned
 ```
 
-If the `ProvisioningState` isn't set to `Succeeded` after you tried to create a new circuit, remove the circuit by using the following command and try to create it again.
+If `ProvisioningState` isn't set to `Succeeded` after you try to create a new circuit, remove the circuit by using the following command and try to create it again.
 
 ```powershell
-Remove-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+Remove-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group>
 ```
 
-If your provider already provisioned the circuit, and the `ProvisioningState` is set to `Failed`, or the `CircuitProvisioningState` isn't `Enabled`, contact your provider for further assistance.
+If your provider already provisioned the circuit, and `ProvisioningState` is set to `Failed` or `CircuitProvisioningState` isn't `Enabled`, contact your provider for assistance.
 
 ## Considerations
 
@@ -161,36 +160,36 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Scalability
 
-ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth the greater the cost.
+ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
 
-ExpressRoute offers two [pricing plans][expressroute-pricing] to customers, a metered plan and an unlimited data plan. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
+ExpressRoute offers two [pricing plans][expressroute-pricing]: a metered plan and an unlimited data plan. Charges vary according to circuit bandwidth. Available bandwidth will probably vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
-A single ExpressRoute circuit can support a certain number of peerings and VNet links. See [ExpressRoute limits](/azure/azure-subscription-service-limits) for more information.
+A single ExpressRoute circuit can support a certain number of peerings and virtual network links. See [ExpressRoute limits](/azure/azure-subscription-service-limits) for more information.
 
-For an extra charge, the ExpressRoute Premium add-on provides some more capability:
+The ExpressRoute Premium add-on provides:
 
 - Increased route limits for private peering.
-- Increased number of VNet links per ExpressRoute circuit.
+- An increased number of virtual network links per ExpressRoute circuit.
 - Global connectivity for services.
 
 See [ExpressRoute pricing][expressroute-pricing] for details.
 
-Although some providers allow you to change your bandwidth, make sure you pick an initial bandwidth that surpasses your needs and provides room for growth. If you need to increase bandwidth in the future, you're left with two options:
+Although some providers allow you to change your bandwidth, be sure to choose an initial bandwidth that surpasses your needs and provides room for growth. If you need to increase bandwidth in the future, you're left with two options:
 
-- Increase the bandwidth. You should avoid this option as much as possible, and not all providers allow you to increase bandwidth dynamically. But if a bandwidth increase is needed, check with your provider to verify they support changing ExpressRoute bandwidth properties using PowerShell commands. If they do, run the following commands.
+- Increase the bandwidth. Avoid this option as much as possible. Not all providers allow you to increase bandwidth dynamically. But if you need a bandwidth increase, check with your provider to ensure that they support changing ExpressRoute bandwidth properties by using PowerShell commands. If they do, run the following commands:
 
     ```powershell
-    $ckt = Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
-    $ckt.ServiceProviderProperties.BandwidthInMbps = <<bandwidth-in-mbps>>
+    $ckt = Get-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group>
+    $ckt.ServiceProviderProperties.BandwidthInMbps = <bandwidth-in-Mbps>
     Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
     ```
 
-    You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth results in disruption in connectivity, because you must delete the circuit and recreate it with the new configuration.
+    You can increase the bandwidth without loss of connectivity. Downgrading the bandwidth disrupts connectivity because you need to delete the circuit and re-create it with the new configuration.
 
-- Change your pricing plan and/or upgrade to Premium. To do so, run the following commands. The `Sku.Tier` property can be `Standard` or `Premium`; the `Sku.Name` property can be `MeteredData` or `UnlimitedData`.
+- Change your pricing plan and/or upgrade to Premium. To do so, run the following commands. The `Sku.Tier` property can be `Standard` or `Premium`. The `Sku.Name` property can be `MeteredData` or `UnlimitedData`.
 
     ```powershell
-    $ckt = Get-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+    $ckt = Get-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group>
 
     $ckt.Sku.Tier = "Premium"
     $ckt.Sku.Family = "MeteredData"
@@ -200,31 +199,31 @@ Although some providers allow you to change your bandwidth, make sure you pick a
     ```
 
     > [!IMPORTANT]
-    > Make sure the `Sku.Name` property matches the `Sku.Tier` and `Sku.Family`. If you change the family and tier, but not the name, your connection will be disabled.
+    > Be sure the `Sku.Name` property matches the `Sku.Tier` and `Sku.Family`. If you change the family and tier but not the name, your connection will be disabled.
     >
     >
 
-    You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
+    You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to metered. If you downgrade the SKU, your bandwidth consumption must remain within the default limit of the Standard SKU.
 
 ### Availability
 
-ExpressRoute doesn't support router redundancy protocols such as hot standby routing protocol (HSRP) and virtual router redundancy protocol (VRRP) to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly available connections to your network, Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
+ExpressRoute doesn't support router redundancy protocols like Hot Standby Routing Protocol (HSRP) and Virtual Router Redundancy Protocol (VRRP) for high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly available connections to your network, Azure provisions two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
-By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked as unavailable, and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If so, you can change your BGP time-out settings on the on-premises router to a smaller value. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service).
+By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked unavailable and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If you need to, you can change your BGP time-out settings on the on-premises router to a shorter value. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit. You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you have a managed layer 3 connection service).
 
-You can configure high availability for your Azure connection in different ways, depending on the type of provider you use, and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. The following summarizes your availability options:
+You can configure high availability for your Azure connection in different ways, depending on the type of provider you use and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. Here's a summary of your availability options:
 
-- If you're using a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router, and the secondary circuit to the other. This gives you a highly available connection at both ends of the connection. This is necessary if you require the ExpressRoute service level agreement (SLA). See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
+- If you use a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router and the secondary circuit to the other. This configuration provides a highly available connection at both ends. This configuration is necessary if you require the ExpressRoute service-level agreement (SLA). See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
 
-    The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering (each peering is designated a pair of /30 address spaces, as described in the previous section).
+    The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering. (Each peering is designated a pair of /30 address spaces, as described in the previous section.)
 
     ![[0]][0]
 
-- If you're using a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
+- If you use a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
-- Connect the VNet to multiple ExpressRoute circuits, supplied by different service providers. This strategy provides more high-availability and disaster recovery capabilities.
+- Connect the virtual network to multiple ExpressRoute circuits that are supplied by different service providers. This strategy provides more high-availability and disaster recovery capabilities.
 
-- Configure a site-to-site VPN as a failover path for ExpressRoute. For more about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the Internet is the only failover path.
+- Configure a site-to-site VPN as a failover path for ExpressRoute. For more information about this option, see [Connect an on-premises network to Azure using ExpressRoute with VPN failover][highly-available-network-architecture]. This option only applies to private peering. For Azure and Microsoft 365 services, the internet is the only failover path.
 
 ### Security
 
@@ -232,32 +231,32 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
 
-ExpressRoute operates in layer 3. Threats in the application layer can be prevented by using a network security appliance that restricts traffic to legitimate resources.
+ExpressRoute operates in layer 3. You can provide protection from threats in the application layer by using a network security appliance that restricts traffic to legitimate resources.
 
-To maximize security, add network security appliances between the on-premises network and the provider edge routers. This helps to restrict the inflow of unauthorized traffic from the VNet:
+To maximize security, add network security appliances between the on-premises network and the provider edge routers. This helps to restrict the inflow of unauthorized traffic from the virtual network:
 
 ![[1]][1]
 
-For auditing or compliance purposes, it might be necessary to prohibit direct access from components running in the VNet to the Internet and implement forced tunneling. In this situation, Internet traffic should be redirected back through a proxy running on-premises where it can be audited. The proxy can be configured to block unauthorized traffic flowing out, and filter potentially malicious inbound traffic.
+For auditing or compliance, you might need to prohibit direct access from components running in the virtual network to the internet and implement forced tunneling. In this situation, internet traffic should be redirected back through a proxy that's running on-premises, where it can be audited. You can configure the proxy to block unauthorized traffic flowing out and filter potentially malicious inbound traffic.
 
 ![[2]][2]
 
-To maximize security, don't enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform configuration or maintenance.
+To maximize security, don't enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
 
 If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
 
 > [!NOTE]
-> Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
+> Azure VMs deployed through the Azure portal can include a public IP address that provides sign-in access. However, it's a best practice to prohibit this access.
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
 #### Network monitoring
 
-Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics shows you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager has the ability to monitor information about Microsoft ExpressRoute circuits.
+Use Azure Network Watcher to monitor and troubleshoot network components. Tools like traffic analytics identify the systems in your virtual networks that generate the most traffic so you can visually identify bottlenecks before they become problems. Connection monitor can monitor ExpressRoute circuits.
 
 You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
 
-For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
+For more information, see [Monitoring For DevOps][devops-monitoring].
 
 ### Cost optimization
 
