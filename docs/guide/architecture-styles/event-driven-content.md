@@ -69,7 +69,7 @@ There are two primary topologies within many event-driven architectures:
 
 - Implementing a traditional request-response pattern.
 
-  Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be achieved through request-response messaging, and it can be implemented in two main ways:
+  Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be achieved through [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern can be implemented in through utilizing multiple queues - a request queue, and a response queue.
 
   - **Create two distinct queues**; a request queue and a reply queue. The event producer sends an asynchronous request to the request queue, pauses other operations, and waits for a response from the reply queue. Event consumers then process the request and send the reply back through the reply queue. This technique is a common implementation. The approach utilizes a session ID for tracking.
   
