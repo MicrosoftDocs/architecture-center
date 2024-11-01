@@ -12,17 +12,17 @@ The architecture consists of the following components.
 
 - **On-premises network**. A private local-area network running within an organization.
 
-- **Azure virtual network (VNets)**. Each virtual network resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each virtual network.
+- **Azure virtual networks**. Each virtual network resides in a single Azure region and can host multiple application tiers. You can segment application tiers by using subnets in each virtual network.
 
-    - **Gateway subnet**. The virtual network gateways are held in the same subnet.
+    - **Gateway subnet**. The virtual network gateways are located in the same subnet.
 
 - **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance can be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 - **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
-    - **Local edge routers**. Routers that connect the on-premises network to the circuit managed by the provider. Depending on how your connection is provisioned, you might need to provide the public IP addresses used by the routers.
+    - **Local edge routers**. Routers that connect the on-premises network to the circuit that's managed by the provider. Depending on how your connection is provisioned, you might need to provide the public IP addresses that the routers use.
 
-    - **Microsoft edge routers**. Two routers in an active-active highly available configuration. These routers enable a connectivity provider to connect their circuits directly to their datacenter. Depending on how your connection is provisioned, you might need to provide the public IP addresses used by the routers.
+    - **Microsoft edge routers**. Two routers in an active-active, highly available configuration. These routers enable a connectivity provider to connect their circuits directly to their datacenter. Depending on how your connection is provisioned, you might need to provide the public IP addresses that the routers use.
 
 - **ExpressRoute virtual network gateway**. The ExpressRoute virtual network gateway enables the Azure virtual network to connect to the ExpressRoute circuit that's used for connectivity with your on-premises network.
 
@@ -30,19 +30,19 @@ The architecture consists of the following components.
 
 - **VPN connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
-- **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the Internet, but accessing them using an ExpressRoute circuit provides low latency and more predictable performance, because traffic doesn't go through the Internet.
+- **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the internet, but accessing them by using an ExpressRoute circuit provides low latency and more predictable performance, because traffic doesn't go through the internet.
 
-- **Microsoft 365 services**. The publicly available Microsoft 365 applications and services provided by Microsoft. Connections are performed using [Microsoft peering](/azure/expressroute/expressroute-circuit-peerings), with addresses that are owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online through Microsoft peering.
+- **Microsoft 365 services**. The publicly available Microsoft 365 applications and services that are provided by Microsoft. Connections use [Microsoft peering](/azure/expressroute/expressroute-circuit-peerings) and addresses that are owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online by using Microsoft peering.
 
-- **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
+- **Connectivity providers** (not shown). Companies that provide a connection by using either layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
 ### Components
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). You can use ExpressRoute to extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, like Azure and Microsoft 365.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines, to communicate with each other, the internet, and on-premises networks with enhanced security.
 
-- [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway). Azure VPN Gateway is a virtual network gateway that enables you to connect your on-premises network to an Azure virtual network by using a site-to-site virtual private network (VPN) connection.
+- [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway). VPN Gateway is a virtual network gateway that enables you to connect your on-premises network to an Azure virtual network by using a site-to-site virtual private network (VPN) connection.
 
 ## Scenario details
 
@@ -56,7 +56,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Connectivity providers
 
-Select a suitable ExpressRoute connectivity provider for your location. To get a list of connectivity providers available at your location, use the following Azure PowerShell command:
+Select a suitable ExpressRoute connectivity provider for your location. To get a list of connectivity providers that are available at your location, use the following PowerShell command:
 
 ```powershell
 Get-AzExpressRouteServiceProvider
@@ -64,22 +64,22 @@ Get-AzExpressRouteServiceProvider
 
 ExpressRoute connectivity providers connect your datacenter to Microsoft in the following ways:
 
-- **Co-located at a cloud exchange**. If you're co-located in a facility with a cloud exchange, you can order virtual cross-connections to Azure through the co-location provider's Ethernet exchange. Co-location providers can offer either layer 2 cross-connections, or managed layer 3 cross-connections between your infrastructure in the co-location facility and Azure.
+- **Co-located at a cloud exchange**. If you're co-located in a facility that has a cloud exchange, you can order virtual cross-connections to Azure through the co-location provider's Ethernet exchange. Co-location providers can offer either layer 2 cross-connections or managed layer 3 cross-connections between your infrastructure in the co-location facility and Azure.
 
-- **Point-to-point Ethernet connections**. You can connect your on-premises datacenters/offices to Azure through point-to-point Ethernet links. Point-to-point Ethernet providers can offer layer 2 connections, or managed layer 3 connections between your site and Azure.
+- **Point-to-point Ethernet connections**. You can connect your on-premises datacenters/offices to Azure by using point-to-point Ethernet links. Point-to-point Ethernet providers can provide layer 2 connections or managed layer 3 connections between your site and Azure.
 
-- **Any-to-any (IPVPN) networks**. You can integrate your wide area network (WAN) with Azure. Internet protocol virtual private network (IPVPN) providers (typically a multiprotocol label switching VPN) offer any-to-any connectivity between your branch offices and datacenters. Azure can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed layer 3 connectivity.
+- **Any-to-any (IPVPN) networks**. You can integrate your wide area network (WAN) with Azure. Internet protocol virtual private network (IPVPN) providers  offer any-to-any connectivity between your branch offices and datacenters. (An IPVPN is typically a multiprotocol label-switching VPN.) Azure can be interconnected to your WAN to make it appear like any other branch office. WAN providers typically offer managed layer 3 connectivity.
 
 For more information about connectivity providers, see the [ExpressRoute introduction][expressroute-introduction].
 
 ### ExpressRoute circuit
 
-Create an ExpressRoute circuit as follows:
+You can use the following steps to create an ExpressRoute circuit:
 
 1. Run the following PowerShell command:
 
     ```powershell
-    New-AzExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
+    New-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group> -Location <location> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
     ```
 
 2. Send the `ServiceKey` for the new circuit to the service provider.
