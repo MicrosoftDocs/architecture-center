@@ -164,7 +164,7 @@ ExpressRoute circuits provide a high bandwidth path between networks. Generally,
 
 ExpressRoute offers two [pricing plans][expressroute-pricing]: the Metered Plan and the Unlimited Data plan. Charges vary according to circuit bandwidth. Available bandwidth will probably vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
-A single ExpressRoute circuit can support a certain number of peerings and virtual network links. See [ExpressRoute limits](/azure/azure-subscription-service-limits) for more information.
+A single ExpressRoute circuit can support a certain number of peerings and virtual network links. See [ExpressRoute limits](/azure/azure-subscription-service-limits#expressroute-limits) for more information.
 
 The ExpressRoute Premium add-on provides:
 
