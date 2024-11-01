@@ -510,17 +510,6 @@ items:
         - name: Manage AWS costs in Azure
           href: /azure/cost-management-billing/costs/aws-integration-manage
           maintainContext: true
-      - name: Hybrid solutions for AWS
-        items:
-        - name: AWS Ubuntu with Terraform and Azure
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-ubuntu
-          maintainContext: true
-        - name: AWS Linux with Terraform and Azure Arc
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-al2
-          maintainContext: true
-        - name: AWS EC2 with Ansible and Azure Arc
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-scale-ansible
-          maintainContext: true
       - name: Identity management for AWS
         items:
         - name: Microsoft Entra identity management for AWS
