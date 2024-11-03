@@ -63,7 +63,7 @@ Product documentation:
 - [What is Azure API Management?](/azure/api-management/api-management-key-concepts)
 - [App Service overview](/azure/app-service/overview)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-- [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
+- [Introduction to Azure container registry](/azure/container-registry/container-registry-intro)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
@@ -77,7 +77,6 @@ Microsoft training modules:
 - [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres)
 - [Develop for Azure Cache for Redis](/training/modules/develop-for-azure-cache-for-redis)
 - [Explore API Management](/training/modules/explore-api-management)
-- [Manage infrastructure as code using Azure and DSC](/training/paths/az-400-manage-infrastructure-as-code-using-azure)
 - [Introduction to Azure HDInsight](/training/modules/intro-to-azure-hdinsight)
 
 ## Related resources
