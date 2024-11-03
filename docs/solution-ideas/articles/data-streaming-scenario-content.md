@@ -2,7 +2,7 @@
 
 This article presents a solution for using Azure Kubernetes Service (AKS) to quickly process and analyze a large volume of streaming data from devices.
 
-*Apache®, [Apache Kafka](https://kafka.apache.org/), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache Kafka](https://kafka.apache.org/), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. Splunk is a registered trademark of Cisco. *
 
 ## Architecture
 
@@ -13,11 +13,11 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 ### Dataflow
 
 1. Sensors generate data and stream it to Azure API Management.
-1. An AKS cluster runs microservices that are deployed as containers behind a service mesh. The containers are built by using a DevOps process and are stored in Azure Container Registry.
-1. An ingest service stores data in Azure Cosmos DB.
-1. Asynchronously, an analysis service receives the data and streams it to Apache Kafka and Azure HDInsight.
+1. An AKS cluster runs microservices that are deployed as containers behind a service mesh. The containers are built by using a DevOps process. The container images are stored in Azure Container Registry.
+1. An ingest service in AKS stores data in Azure Cosmos DB.
+1. Asynchronously, an analysis service in AKS receives the data and streams it to Apache Kafka on Azure HDInsight.
 1. Data scientists use machine learning models and the Splunk platform to analyze the data.
-1. A processing service processes the data and stores the result in Azure Database for PostgreSQL. The service also caches the data in Azure Cache for Redis.
+1. A processing service in AKS processes the data and stores the result in Azure Database for PostgreSQL. The service also caches the data in Azure Cache for Redis.
 1. A web app that runs in Azure App Service creates visualizations of the results.
 
 ### Components
@@ -44,7 +44,7 @@ To store the ingested data, the solution uses Azure Cosmos DB. This database ela
 
 The solution also uses Kafka. This low-latency streaming platform handles real-time data feeds at extremely high speeds.
 
-Another key solution component is HDInsight, which is a managed, open-source cloud analytics service. HDInsight simplifies running big data frameworks in large volume and velocity while using Apache Spark in Azure. Splunk helps in the data analysis process. This platform creates visualizations from real-time data and provides business intelligence.
+Another key solution component is HDInsight, which is a fully managed cloud service that enables you to efficiently process massive amounts of data using the most popular open source frameworks. HDInsight simplifies running big data frameworks in large volume and velocity while using Apache Spark in Azure. Splunk helps in the data analysis process. Splunk creates visualizations from real-time data and provides business intelligence.
 
 ### Potential use cases
 
