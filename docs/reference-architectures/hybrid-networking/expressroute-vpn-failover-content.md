@@ -227,7 +227,7 @@ You can configure high availability for your Azure connection in different ways,
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
 
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
 
@@ -258,9 +258,9 @@ You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor 
 
 For more information, see [Monitoring For DevOps][devops-monitoring].
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost Optimization pillar](/azure/architecture/framework/cost/overview).
 
 For ExpressRoute cost considerations, see these articles:
 
@@ -284,9 +284,9 @@ All application tiers are hosted in a single virtual network and are segmented i
 
 Azure Virtual Network is free. For every subscription, you can create as many as 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free, so communication between two VMs in a single virtual network is free.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational Excellence pillar](/azure/architecture/framework/devops/overview).
 
 For ExpressRoute DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
