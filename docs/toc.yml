@@ -1930,14 +1930,16 @@ items:
         href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: COVID-19 solutions
-        items:
       - name: Environment monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: IoT analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
       - name: IoT Edge data storage and processing
         href: solution-ideas/articles/data-storage-edge.yml
+      - name: IoT private file upload to Azure Storage
+        href: example-scenario/iot/iot-private-file-upload.yml
+      - name: Light and power for emerging markets
+        href: solution-ideas/articles/iot-power-management.yml
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
