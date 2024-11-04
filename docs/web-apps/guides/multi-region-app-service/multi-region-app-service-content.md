@@ -177,8 +177,11 @@ For more information on designing your applications to take advantage of geo-red
 
 # [Regions without a pair](#tab/non-paired-regions)
 
-You'll need to build your own cross-region replication approach by using AzCopy.
-<!-- TODO more here? Also, object replication? -->
+You need to replicate your app backups to a storage account in a different region. [Azure storage object replication](/azure/storage/blobs/object-replication-overview) enables you to configure automatic replication of blobs between two storage accounts, even if they're in different regions. Azure Storage manages the replication process for you automatically.
+
+Object replication doesn't guarantee how quickly data is replicated. However, you can [check the replication status of a blob](/azure/storage/blobs/object-replication-configure#check-the-replication-status-of-a-blob).
+
+Alternatively, you can use a tool like [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to explicitly copy the backup files between storage accounts in different regions. AzCopy is a tool, not a service, so you need to configure it to run by using Azure Automation or another compute platform:
 
 :::image type="content" source="../_images/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="../_images/alternative-no-grs-no-gzrs.png":::
 
@@ -222,15 +225,10 @@ The steps to create a passive-cold region for your web app in App Service are su
 
 1. [Configure custom backup](/azure/app-service/manage-backup) for your web app. You may decide to set a schedule for your web app backups, such as hourly.
 
-1. Verify that the web app backup files can be retrieved the secondary region of your storage account.
-
 1. Create a second Azure storage account in a different region. Choose Standard performance tier and select redundancy as locally redundant storage (LRS).
 
-1. By using a tool like [AzCopy](/azure/storage/common/storage-use-azcopy-v10#use-in-a-script), replicate your custom backup (Zip, XML and log files) from primary region to the secondary storage. For example: 
+1. Configure object replication on the container in the primary storage account so that it replicates to a container in the secondary storage account.
 
-    ```
-    azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'
-    ```
-    You can use [Azure Automation with a PowerShell Workflow runbook](/azure/automation/learn/automation-tutorial-runbook-textual) to run your replication script [on a schedule](/azure/automation/shared-resources/schedules). Make sure that the replication schedule follows a similar schedule to the web app backups.
+1. Verify that the web app backup files can be retrieved in the secondary region of your storage account.
 
 ---
