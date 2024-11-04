@@ -16,7 +16,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 1. An AKS cluster runs microservices that are deployed as containers behind a service mesh. The containers are built by using a DevOps process. The container images are stored in Azure Container Registry.
 1. An ingest service in AKS stores data in Azure Cosmos DB.
 1. Asynchronously, an analysis service in AKS receives the data and streams it to Apache Kafka on Azure HDInsight.
-1. Data scientists use [machine learning models on Azure HDInsights](/en-us/azure/hdinsight/spark/apache-spark-run-machine-learning-automl) and the Splunk platform to analyze the data.
+1. Data scientists use [machine learning models on Azure HDInsights](/azure/hdinsight/spark/apache-spark-run-machine-learning-automl) and the Splunk platform to analyze the data.
 1. A processing service in AKS processes the data and stores the results in Azure Database for PostgreSQL. The service also caches the data in Azure Cache for Redis.
 1. A web app that runs in Azure App Service creates visualizations of the results.
 
@@ -44,7 +44,7 @@ To store the ingested data, the solution uses Azure Cosmos DB. This database ela
 
 The solution also uses Apache Kafka. This low-latency streaming platform handles real-time data feeds at extremely high speeds.
 
-Another key solution component is Azure HDInsight, which is a fully managed cloud service that enables you to efficiently process massive amounts of data using the most popular open source frameworks. Azure HDInsight simplifies running big data frameworks in large volume and velocity while using Apache Spark in Azure. Splunk helps in the data analysis process. Splunk creates visualizations from real-time data and provides business intelligence.
+Another key solution component is Azure HDInsight, which is a managed cloud service that enables you to efficiently process massive amounts of data using the most popular open source frameworks. Azure HDInsight simplifies running big data frameworks in large volume and velocity while using Apache Spark in Azure. Splunk helps in the data analysis process. Splunk creates visualizations from real-time data and provides business intelligence.
 
 ### Potential use cases
 
