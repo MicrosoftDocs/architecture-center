@@ -11,7 +11,7 @@ Business continuity plans are influenced by two key metrics:
 
 For more information on recovery objectives like RTO and RPO, see [Recovery objectives](/azure/reliability/disaster-recovery-overview#recovery-objectives) and [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
-The Azure platform enables you to design multi-region application solutions in different ways. Some approaches support low RTO and RPO requirmeents. The architectures described in this article support different RTO and RPO requirements, and have other tradeoffs for cost, and complexity:
+The Azure platform enables you to design multi-region application solutions in different ways. Some approaches support low RTO and RPO requirements. The architectures described in this article support different RTO and RPO requirements, and have other tradeoffs for cost, and complexity:
  
 | Metric | [Active-active](#active-active-architecture) | [Active-passive](#active-passive-architecture) | [Passive/cold](#passive-cold-architecture)|
 |-|-|-|-|
@@ -40,7 +40,7 @@ Multi-region solutions can be complex to deploy and configure. It's important th
 
 To manage the deployment and configuration of Azure resources like App Service, use an infrastructure-as-Code (IaC) mechanism. In a complex deployment across multiple regions, to manage the regions independently and to keep the configuration synchronized across regions in a reliable manner requires a predictable, testable, and repeatable process. Consider an IaC tool such as [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager templates](/azure/azure-resource-manager/management/overview) or [Terraform](/azure/developer/terraform/overview).
 
-You should also configure your CI/CD pipelines to deploy your code, including when you use mulitple regions. Consider using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions). For more information, see [Continuous deployment to Azure App Service](/azure/app-service/deploy-continuous-deployment).
+You should also configure your CI/CD pipelines to deploy your code, including when you use multiple regions. Consider using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions). For more information, see [Continuous deployment to Azure App Service](/azure/app-service/deploy-continuous-deployment).
 
 ## Active-active architecture
 
@@ -201,7 +201,7 @@ To prepare the secondary region to receive traffic, deploy all required App Serv
 
 ### How-to steps
 
-The steos you use to configure a passive-cold deployment depends on whether your region has a pair. For more information, see [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions) and [Regions with availability zones and no region pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair).
+The steps you use to configure a passive-cold deployment depends on whether your region has a pair. For more information, see [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions) and [Regions with availability zones and no region pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair).
 
 # [Regions with a pair](#tab/paired-regions)
 
