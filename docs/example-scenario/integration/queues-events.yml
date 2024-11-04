@@ -1,12 +1,13 @@
 ### YamlMime:Architecture
 metadata:
   title: Enterprise integration with message broker and events
+  titleSuffix: Azure Architecture Center
   description: This example architecture integrates enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability.
   author: wsilveiranz
   ms.author: wsilveira
   ms.reviewer: estfan, azla
-  ms.date: 11/18/2022
-  ms.topic: example-scenario
+  ms.date: 11/05/2024
+  ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
