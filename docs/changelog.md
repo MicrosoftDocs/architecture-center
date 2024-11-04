@@ -198,7 +198,6 @@ The following new and updated articles have recently been published in the Azure
 - [Retry pattern](./patterns/retry.yml)  ([#ea612ee4ab](https://github.com/MicrosoftDocs/architecture-center/commit/ea612ee4ab))
 - [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
 - [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./databases/guide/data-obfuscation-with-delphix-in-azure-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
-- [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./databases/guide/teradata-vantage-data-factory.yml)  ([#8459cd1652](https://github.com/MicrosoftDocs/architecture-center/commit/8459cd1652))
 - [Individual contributor tasks in the Team Data Science Process](./data-science-process/project-ic-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
 - [Project lead tasks in the Team Data Science Process](./data-science-process/project-lead-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
 - [Team lead tasks in the Team Data Science Process](./data-science-process/team-lead-tasks.md)  ([#292f76bcf6](https://github.com/MicrosoftDocs/architecture-center/commit/292f76bcf6))
