@@ -1,7 +1,7 @@
 This reference architecture demonstrates a common enterprise workload that uses App Service Environment version 3. It also describes best practices for strengthening the security of the workload.
 
 > [!NOTE]
-> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Version 3 is now available. Versions 1 and 2 will be [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
+> [App Service Environment](/azure/app-service/environment/overview) version 3 is the main component of this architecture. Versions 1 and 2 was [retired on August 31, 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
 
 ![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
