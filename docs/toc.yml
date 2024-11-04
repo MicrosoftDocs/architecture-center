@@ -436,8 +436,6 @@ items:
         href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
       - name: Power Automate deployment at scale
         href: example-scenario/power-automate/power-automate.yml
-      - name: Real-time ML with Power Platform
-        href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
     - name: Azure and Microsoft 365 scenarios
       items:
       - name: Overview

@@ -101,10 +101,9 @@ The typical AKS solution journey shown ranges from learning about AKS to growing
 
 ### Example solutions
 
-If you're seeking additional references that use AKS as their foundation, here are a few to consider.
+If you're seeking additional references that use AKS as their foundation, here are two to consider.
 
 * [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-* [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 * [Blue-green deployment of AKS clusters](../../guide/aks/blue-green-deployment-for-aks.yml)
 
 ### Azure Arc-enabled Kubernetes
