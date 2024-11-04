@@ -1,14 +1,16 @@
-This workload reference architecture document aims to provide customer guidance on selecting and setting up an Azure Virtual Desktop workload for Azure Local, thereby streamlining the Edge solution procurement process. By leveraging trusted Reference Architectures (RAs) from Microsoft, customers can minimize the time and effort required to deploy and manage their infrastructure.
+This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-stack-hci-baseline.yml). To effectively deploy **Azure Virtual Desktop for Azure Local**, it's important to understand the baseline architecture. This process includes familiarizing yourself with the design choices for the physical machines that deliver the compute, storage, and networking capabilities.
 
-Central to this, this guide factors in workload specific design considerations, requirements, and scale limitations, offering customers a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) in designing their solution.
+This workload reference architecture aims to provide guidance on selecting and setting up an Azure Virtual Desktop (AVD) workload for Azure Local. By leveraging this reference architecture, you can minimize the time and effort required to deploy and manage your AVD for Azure Local solution.
 
-For additional information, this document is also best used in conjunction with [Azure Local baseline reference architecture](azure-stack-hci-baseline.yml) and [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
+This guide factors in workload specific design considerations, requirements, and scale limitations, offering you a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) when designing an AVD for Azure Local solution.
+
+For additional information review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
 
 ## Article layout
 
 | Architecture | Design decisions | Well-Architected Framework approach|
 |---|---|---|
-|&#9642; [Architecture](#architecture) <br>&#9642; [Product Overview](#Product-overview) <br>&#9642;  [Platform resources](#platform-resources) <br>&#9642; [Platform-supporting resources](#platform-supporting-resources) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>|&#9642; [Workload Types](#workload-types)<br> &#9642; [User profiles and storage](#user-profiles-and-storage) <br> &#9642; [Session Types](#session-types) <br> &#9642; [Sample Workload Use Case](#sample-workload-use-case) <br> &#9642; [Update management](#update-management)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost optimization](#cost-optimization) <br> &#9642; [Operational excellence](#operational-excellence) <br> &#9642; [Performance efficiency](#performance-efficiency)|
+|&#9642; [Architecture](#architecture) <br>&#9642; [Workflow](#workflow) <br>&#9642;  [Components](#components) <br>&#9642; [Product Overview](#product-overview) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>&#9642; [ARM Templates and Terraform](#arm-templates-and-terraform)|&#9642; [Workload design considerations](#workload-design-considerations)<br> &#9642; [User profiles and storage](#user-profiles-and-storage) <br> &#9642; [Session types](#session-types)  <br> &#9642; [Supported deployment configurations](#supported-deployment-configurations) <br> &#9642; [Example workload use case](#example-workload-use-case) |&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost optimization](#cost-optimization) <br> &#9642; [Operational excellence](#operational-excellence) <br> &#9642; [Performance efficiency](#performance-efficiency)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [Azure Virtual Desktop on Azure Local template](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) demonstrates how to use an Azure Resource Management template (ARM template) and parameter file to deploy Azure Virtual Desktop session hosts deployed on Azure Local with simple configurations.
@@ -19,46 +21,48 @@ For additional information, this document is also best used in conjunction with 
     Diagram that shows a reference architecture for deploying Azure Virtual Desktop on Azure Local.
 :::image-end:::
 
-The diagram above provides a high-level overview of the Azure Virtual Desktop for Azure Local solution. Summarily, here are the key elements in the visual above:
+The architecture diagram above provides a high-level overview of the Azure Virtual Desktop for Azure Local solution.
 
-1. **User Device Initiates Connection**
+### Workflow
+
+The steps outlined in the workflow section below provide an overview of the end to end service, starting with the communication from the client device to the AVD service. Correlate the workflow steps with the numbers in the architecture diagram.
+
+1. **User device initiates connection**
    - User devices (either on-premises or remote) run the Azure Virtual Desktop client and initiate a connection to the Azure Virtual Desktop service in Azure.
 
-2. **User Authentication via Microsoft Entra ID**
-   - The Azure Virtual Desktop service in Azure interacts with [Microsoft Entra ID (formerly Azure Active Directory)](https://www.microsoft.com/en-sg/security/business/identity-access/microsoft-entra-id) to authenticate the user and perform a token exchange during login. 
+2. **User authentication via Microsoft Entra ID**
+   - The Azure Virtual Desktop service in Azure interacts with [Microsoft Entra ID (formerly Azure Active Directory)](https://www.microsoft.com/en-sg/security/business/identity-access/microsoft-entra-id) to authenticate the user and perform a token exchange during login.
 
-   - **Hybrid Identity Synchronization**: A hybrid identity sync occurs between the on-prem AD DS (Active Directory Domain Services) server and the cloud-based Microsoft Entra ID, ensuring that user identities are synchronized and available for both local authentication (for session hosts on Azure Local) and cloud access. Note that this step operates continuously in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
+   - **Hybrid identity synchronization**: A hybrid identity sync occurs between the on-prem AD DS (Active Directory Domain Services) server and the cloud-based Microsoft Entra ID, ensuring that user identities are synchronized and available for both local authentication (for session hosts on Azure Local) and cloud access. Note that this step operates continuously in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
 
-   - **Session Host Connects to On-Prem AD DS**: The selected Azure Virtual Desktop session host connects to the on-premises AD DS server for user credential validation and applies any necessary group policies to configure the user's environment appropriately.
+   - **Session host connects to on premises AD DS**: The selected Azure Virtual Desktop session host connects to the on-premises AD DS server for user credential validation and applies any necessary group policies to configure the user's environment appropriately.
 
-3. **Azure Virtual Desktop Agent Communication**
+3. **Azure Virtual Desktop agent communication**
    - The Azure Virtual Desktop agent installed on the session host VM communicates with the Azure Virtual Desktop service in Azure to manage session brokering, handle user sessions, and provide metering and diagnostics data.
 
-4. **Azure Arc Agent's Infrastructure Management**
+4. **Azure Arc agent infrastructure management**
    - The Azure Arc agent running on the session host VM provides additional governance, monitoring, and lifecycle management services for the underlying infrastructure on the Azure Local cluster.
 
-5. **User Profile Storage with FSLogix**
+5. **User profile storage with FSLogix**
    - Microsoft recommends using [FSLogix containers](https://learn.microsoft.com/en-us/fslogix/tutorial-configure-profile-containers) with Azure Virtual Desktop to manage and roam user profiles and personalization. These profiles are preferably stored on a dedicated NAS/SMB file share off the Azure Local cluster or within the Storage Spaces Direct (S2D) pool on the Azure Local cluster, allowing for efficient profile management and quick load times during user sessions.
 
+## Components
 
-## Product Overview
-# Azure Virtual Desktop
+The architecture resources remain mostly unchanged from the baseline reference architecture. For more information, see the [platform resources and platform supporting resources](/azure/architecture/hybrid/azure-stack-hci-baseline#components) used for Azure Local deployments.
 
-Azure Virtual Desktop is a comprehensive cloud-based Virtual Desktop Infrastructure (VDI) solution tailored for the demands of remote and hybrid work. It delivers a secure and seamless remote desktop experience, accessible from anywhere, while providing employees with the best virtualized experience. It is the only solution fully optimized for Windows 11 and Windows 10 multi-session capabilities. With built-in security features, Azure Virtual Desktop helps protect your organization's applications and data, ensuring compliance with industry standards. It streamlines the deployment and management of virtual desktops, giving administrators flexibility and control over configuration. Additionally, Azure Virtual Desktop reduces costs through consumption-based pricing and optimizes existing virtualization investments, ensuring you only pay for what you use.
+## Product overview
 
-# Azure Local
+The following three sections provide an overview of Azure Virtual Desktop for Azure Local, Arc VMs and the benefits of the solution. If you require additional information please refer to the [Azure Virtual Desktop for Azure Local Microsoft learn documentation](/azure/virtual-desktop/azure-stack-hci-overview).
 
-Azure Local is Microsoft’s hybrid distributed infrastructure solution that can be used to deploy and manage Windows and Linux virtual machines (VMs) or containerized workloads and their storage. This hybrid infrastructure seamlessly integrates on-premises systems to Azure for cloud-based services, monitoring, and management. Azure Local provides the flexibility and cost-efficiency of cloud infrastructure while meeting specialized workload requirements that cannot reside in the public cloud due to regulatory or performance needs. Through Azure Arc integration, it offers centralized management, cloud-driven deployment, and monitoring of clusters, making it an ideal solution for hybrid environments.
-
-# Azure Virtual Desktop for Azure Local
+### Azure Virtual Desktop for Azure Local
 
 Azure Virtual Desktop for Azure Local is a robust desktop and application virtualization solution that combines the flexibility of Azure Virtual Desktop with the performance and reliability of Azure Local. This setup allows customers to deliver secure, scalable virtual desktops and applications, leveraging their existing on-premises infrastructure. Azure Virtual Desktop for Azure Local has been selected as a high-priority workload as it allows us to compete in the desktop virtualization market against established solutions like VMware Horizon and Citrix DaaS. Notably, Citrix will also support Azure Virtual Desktop for Azure Local, further expanding the options available for customers seeking integrated solutions. This collaboration highlights the flexibility of the platform, and strengthens our ability to offer competitive solutions to customers looking for both Citrix and Azure Virtual Desktop as part of their infrastructure.
 
-# Virtual Machines in Azure Virtual Desktop
+### Virtual Machines in Azure Virtual Desktop
 
 In Azure Virtual Desktop, customers leverage Windows virtual machines to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. It is important to clarify that our references to VMs throughout this page refer to Arc VMs, which represent the key use case for customers, especially when deploying on 23H2 Azure Local or newer. Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services, making them ideal for modern, scalable environments. While customers can still create regular VMs, these lack the advanced management features and integration benefits provided by Arc, resulting in a more limited and isolated deployment experience.
 
-# Benefits
+## Benefits
 
 By using Azure Virtual Desktop for Azure Local, you can:
 
@@ -70,7 +74,7 @@ By using Azure Virtual Desktop for Azure Local, you can:
 - **Achieve the best performance** by using [RDP Shortpath](https://learn.microsoft.com/en-us/azure/virtual-desktop/rdp-shortpath?tabs=managed-networks) for low-latency user access.
 - **Deploy the latest fully patched images quickly and easily** using [Azure Marketplace images](https://learn.microsoft.com/en-us/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 
-# Deploy this Scenario
+## Deploy this scenario
 
 ## Prerequisites
 
@@ -94,7 +98,7 @@ To use session hosts on Azure Local with Azure Virtual Desktop, you also need to
 
 Finally, users can connect using the same [Remote Desktop clients](https://learn.microsoft.com/en-us/azure/virtual-desktop/users/remote-desktop-clients-overview) as Azure Virtual Desktop.
 
-## Deployment Methods
+## Deployment methods
 
 Deploying Azure Virtual Desktop for Azure Local can be done using the following means:
 
@@ -106,24 +110,27 @@ A detailed guide is available in the links above, whereby users are guided stepw
 
 ### ARM Templates and Terraform
 
-Additionally, the Azure Virtual Desktop workload deployment can be streamlined significantly by leveraging [ARM (Azure Resource Manager)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json), which facilitates automation, consistency, and repeatability in deploying Azure resources.
+The Azure Virtual Desktop workload deployment can be streamlined significantly using [ARM (Azure Resource Manager)](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates, which provide automation, consistency, and repeatability when deploying Azure resources.
 
-[ARM templates](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) help define the infrastructure and configuration for your Azure deployment, enabling consistent deployment of Azure Virtual Desktop for Azure Local by automating the creation and configuration of resources. The following [Quick-Deploy ARM template for Azure Virtual Desktop for Azure Local](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) serves as a foundation for automation. While we do not anticipate further updates to this template unless necessary to address critical issues or integrate significant advancements, this serves as a versatile starting point for building and managing your Azure Virtual Desktop deployments.
+An example ARM template and parameter file to deploy an Azure Local instance is [here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip).
 
-Note that this ARM template has already been validated on Azure CLI; while PowerShell may be possible, this has not been fully validated. Similarly, the Terraform templates can be found here:
+This [ARM template for Azure Virtual Desktop for Azure Local](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) serves as a foundation for automation. While we do not anticipate further updates to this template unless necessary to address critical issues or integrate significant enhancements, this template serves as a versatile starting point for building and managing your Azure Virtual Desktop deployments.
 
-- **lnet**: [Azure/avm-res-azurestackhci-logicalnetwork/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-logicalnetwork/azurerm)
-- **VM**: [Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm)
+Terraform can be used to deploy Azure Local instances, logical networks and Arc VMs, however there is not a provider to deploy Azure Virtual Desktop at this time. Links to the Terraform providers for Azure Local are below:
 
-Users can also find the ARM template and parameter file for the Azure Local 23H2 cluster [here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip).
+- **Azure Local instance**: [Azure/avm-res-azurestackhci-cluster/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-cluster/azurerm)
+
+- **Logical network**: [Azure/avm-res-azurestackhci-logicalnetwork/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-logicalnetwork/azurerm)
+
+- **Virtual machine**: [Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm)
 
 For a consolidated list of recent feature updates, see [What's new in Azure Virtual Desktop? - Azure | Microsoft Learn](https://learn.microsoft.com/azure/virtual-desktop/whats-new).
 
-# Workload Design Considerations
+## Workload design considerations
 
 In building out an Azure Virtual Desktop for Azure Local solution, there are several key design elements to consider - workload types, user profile management, and session types.
 
-## Azure Virtual Desktop Workload Types
+### Azure Virtual Desktop workload types
 
 Session host virtual machines in an Azure Virtual Desktop for Azure Local environment can accommodate a wide range of workload types, each with specific resource requirements. To assist in estimating the optimal sizing for your virtual machines, the following table presents examples of various [workload categories](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs).
 
@@ -134,9 +141,9 @@ Session host virtual machines in an Azure Virtual Desktop for Azure Local enviro
 | Heavy         | Software engineers, content creators | Database entry applications, command-line interfaces, Microsoft Word, static web pages, Microsoft Outlook, Microsoft PowerPoint, dynamic web pages, software development |
 | Power         | Graphic designers, 3D model makers, machine learning researchers | Database entry applications, command-line interfaces, Microsoft Word, static web pages, Microsoft Outlook, Microsoft PowerPoint, dynamic web pages, photo and video editing, computer-aided design (CAD), computer-aided manufacturing (CAM) |
 
-Please note that the workload types (light/medium/heavy/power) are indicative. We recommend you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Additionally, the information provided herein is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates may change over time due to changes in these factors.
+Please note that the workload types (light/medium/heavy/power) are indicative. We recommend you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Additionally, the information provided herein is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates can change over time due to changes in these factors.
 
-## User Profiles and Storage
+## User profiles and storage
 
 In Azure Virtual Desktop, managing user profiles and storage efficiently is pivotal for ensuring a seamless user experience. A user profile contains data elements about the individual, including configuration information like desktop settings, persistent network connections, and application settings.
 
@@ -215,9 +222,9 @@ The following section outlines the key factors that organizations should conside
 
 While single-session Azure Virtual Desktop for Azure Local offers dedicated resources, performance isolation, and extensive user customization, these benefits come with significantly higher resource demands. **Organizations that prioritize efficient scaling and cost savings should consider Windows 10/11 multi-session as the optimal choice.** By sharing resources across users, reducing infrastructure costs, and delivering a familiar user experience, multi-session deployments provide a compelling solution for businesses seeking to maximize their virtual desktop environments while maintaining high performance. Thus, we recommend that customers pursue the Windows 10/11 multi-session setup for their Azure Virtual Desktop for Azure Local use case.
 
-## Sample Workload Use Case for Azure Virtual Desktop
+### Example workload use case
 
-In this section, we provide a sample workload use-case for Azure Virtual Desktop for Azure Local based on the published [Azure Virtual Desktop user density guide](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs) that customers may reference when building out a solution.
+The section below  provides an example workload use case for Azure Virtual Desktop for Azure Local based on the published [Azure Virtual Desktop user density guide](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs), this can be used as a reference when deploying solutions.
 
 - **Use Case**
   - **Session Type**: Multi-session
@@ -231,12 +238,56 @@ The multi-session use case is chosen over the single session use case given that
 
 For the recommended use case above, here are the minimum hardware cluster level requirements:
 
-**Multi-Session, Medium Workload, 2,000 Users**
+#### Multi-Session, Medium Workload, 2,000 Users
+
 | Physical Cores | Total vCPUs | Total Memory (TB) | Total OS Storage (TB) | Profile Container Storage (TB) |
 |----------------|-------------|-------------------|-----------------------|-------------------------------|
 | 140            | 280         | 0.7               | 2.0                   | 60.0                          |
 
-
 Note that this is purely a sample guidance for reference and has not been validated. Additionally, the Node and Cluster Storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local cluster for resiliency (e.g., if the cluster goes down, customers have another dormant host pool on a different cluster for high availability, and the user profiles remain secure).
 
 Additionally, these numbers assume 50% concurrency and a 2:1 oversubscription rate (vCPUs to physical cores).
+
+## Related resources
+
+- [Hybrid architecture design](hybrid-start-here.md)
+- [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
+- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
+- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
+
+## Next steps
+
+Product documentation:
+
+- [Azure Local version 23H2 release information](/azure-stack/hci/release-information-23h2)
+- [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
+- [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
+- [What is Azure Local monitoring?](/azure-stack/hci/concepts/monitoring-overview)
+- [Protect VM workloads with Site Recovery on Azure Local](/azure-stack/hci/manage/azure-site-recovery)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure Update Manager overview](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager)
+- [What is Azure Backup?](/azure/backup/backup-overview)
+
+Product documentation for specific Azure services:
+
+- [Azure Local](https://azure.microsoft.com/products/azure-stack/hci/)
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
+- [Monitor](https://azure.microsoft.com/products/monitor)
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
+- [Backup](https://azure.microsoft.com/products/backup)
+
+Microsoft Learn modules:
+
+- [Configure Monitor](/training/modules/configure-azure-monitor)
+- [Design your site recovery solution in Azure](/training/modules/design-your-site-recovery-solution-in-azure)
+- [Introduction to Azure Arc-enabled servers](/training/modules/intro-to-arc-for-servers)
+- [Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
+- [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
+- [Scale model deployment with Azure Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/scale-model-deployment-with-azure-machine-learning-anywhere/ba-p/2888753)
+- [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
