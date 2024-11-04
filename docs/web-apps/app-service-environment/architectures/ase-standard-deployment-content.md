@@ -13,7 +13,7 @@ This reference architecture demonstrates a common enterprise workload that uses 
 
 ### Workflow
 
-App Service Environment version 3 provides different features than earlier versions, and advantages over those versions. For more information, see [Feature differences](/azure/app-service/environment/overview#feature-differences). You can deploy App Service Environment in two ways:
+You can deploy App Service Environment in two ways:
 
 - As an external App Service Environment with a public IP address
 - As an internal App Service Environment with an internal IP address that belongs to the internal load balancer (ILB)
@@ -79,15 +79,6 @@ Default certificates are created for each app service for the default domain nam
 
 #### Application Gateway
 
-The reference implementation configures Application Gateway programmatically in [appgw.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.bicep). The file [commands_std.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/commands_std.azcli) uses this configuration when deploying the gateway:
-
-```azurecli
-az deployment group create --resource-group $RGNAME --template-file templates/appgw.bicep --parameters vnetName=$VNET_NAME appgwSubnetAddressPrefix=$APPGW_PREFIX appgwApplications=@appgwApps.parameters.json
-APPGW_PUBLIC_IP=$(az deployment group show -g $RGNAME -n appgw --query properties.outputs.appGwPublicIpAddress.value -o tsv)
-```
-
-##### Encryption
-
 As described in [Overview of TLS termination and end to end TLS with Application Gateway](/azure/application-gateway/ssl-overview), Application Gateway can use Transport Layer Security (TLS)/Secure Sockets Layer (SSL) to encrypt and protect all traffic from web browsers. Encryption can be configured in the following ways:
 
 - **Encryption terminated at the gateway**.  The backend pools in this case are configured for HTTP. The encryption stops at the gateway, and traffic between the gateway and the app service is unencrypted. Since encryption is CPU-intensive, unencrypted traffic at the backend improves performance and allows simpler certificate management. This provides a reasonable level of security since the backend is secured by virtue of the network configuration.
@@ -97,41 +88,41 @@ As described in [Overview of TLS termination and end to end TLS with Application
 This reference implementation uses self-signed certificates for Application Gateway. For production code, a certificate issued by a Certificate Authority should be used. For a list of supported certificate types, see [Certificates supported for TLS termination](/azure/application-gateway/ssl-overview#certificates-supported-for-tls-termination). Read [Configure an application gateway with TLS termination using the Azure portal](/azure/application-gateway/create-ssl-portal) to learn how to create Gateway-terminated encryption. The following lines of code in appgw.bicep configure this programmatically:
 
 ```bicep
-          httpListeners: [for item in appgwApplications: {
-          name: '${appgwListenerName}${item.name}'
-          properties: {
-            frontendIPConfiguration: {
-              id: '${appgwId}/frontendIPConfigurations/${appgwFrontendName}'
-            }
-            frontendPort: {
-              id: '${appgwId}/frontendPorts/port_443'
-            }
-            protocol: 'Https'
-            sslCertificate: {
-              id: '${appgwId}/sslCertificates/${appgwSslCertificateName}${item.name}'
-            }
-            hostName: item.hostName
-            requireServerNameIndication: true
-          }
-        }]
+httpListeners: [for item in appgwApplications: {
+name: '${appgwListenerName}${item.name}'
+properties: {
+  frontendIPConfiguration: {
+    id: '${appgwId}/frontendIPConfigurations/${appgwFrontendName}'
+  }
+  frontendPort: {
+    id: '${appgwId}/frontendPorts/port_443'
+  }
+  protocol: 'Https'
+  sslCertificate: {
+    id: '${appgwId}/sslCertificates/${appgwSslCertificateName}${item.name}'
+  }
+  hostName: item.hostName
+  requireServerNameIndication: true
+}
+}]
 ```
 
 The reference implementation demonstrates end-to-end encryption for traffic between Application Gateway and the web apps on the App Service Environment. The default SSL certificates are used. The backend pools in this implementation are configured to redirect HTTPS traffic with host name overridden by the default domain names associated to the web apps. Application Gateway trusts the default SSL certificates because they're issued by Microsoft. See [Configure App Service with Application Gateway](/azure/application-gateway/configure-web-app-portal) for information about how these configurations are made. The following code from appgw.bicep shows how this is configured in the reference implementation:
 
 ```bicep
-        backendHttpSettingsCollection: [for item in appgwApplications: {
-        name: '${appgwHttpSettingsName}${item.name}'
-        properties: {
-          port: 443
-          protocol: 'Https'
-          cookieBasedAffinity: 'Disabled'
-          pickHostNameFromBackendAddress: true
-          requestTimeout: 20
-          probe: {
-            id: '${appgwId}/probes/${appgwHealthProbeName}${item.name}'
-          }
-        }
-      }]
+backendHttpSettingsCollection: [for item in appgwApplications: {
+name: '${appgwHttpSettingsName}${item.name}'
+properties: {
+  port: 443
+  protocol: 'Https'
+  cookieBasedAffinity: 'Disabled'
+  pickHostNameFromBackendAddress: true
+  requestTimeout: 20
+  probe: {
+    id: '${appgwId}/probes/${appgwHealthProbeName}${item.name}'
+  }
+}
+}]
 ```
 
 ##### Web Application Firewall
@@ -139,12 +130,12 @@ The reference implementation demonstrates end-to-end encryption for traffic betw
 [Web Application Firewall (WAF) on Application Gateway](/azure/web-application-firewall/ag/ag-overview) protects the web apps from malicious attacks, such as SQL injection. It is also integrated with Azure Monitor, to monitor attacks using a real-time log. WAF needs to be enabled on the gateway, as described in [Create an application gateway with a Web Application Firewall using the Azure portal](/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal). The reference implementation enables WAF programmatically in the appgw.bicep file with the following snippet:
 
 ```bicep
-        webApplicationFirewallConfiguration: {
-        enabled: true
-        firewallMode: 'Detection'
-        ruleSetType: 'OWASP'
-        ruleSetVersion: '3.0'
-      }
+webApplicationFirewallConfiguration: {
+  enabled: true
+  firewallMode: 'Detection'
+  ruleSetType: 'OWASP'
+  ruleSetVersion: '3.2'
+}
 ```
 
 #### Virtual Network
@@ -179,70 +170,32 @@ You can lock down access to App Service Environment applications by tightly cont
 
 #### Key Vault
 
-Some services support managed identities but use Azure RBAC to set up permissions for the app. For example, see the built-in Service Bus [roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [Azure RBAC in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control). *Owner* access to the subscription is required for granting these permissions, even though personnel with *Contributor* access can deploy these services. To allow a wider team of developers to be able to run the deployment scripts, the next best option is to use native access control policies of the service:
+Some services support managed identities and use Azure RBAC to set up permissions for the app. For example, see the built-in Service Bus [roles](/azure/service-bus-messaging/service-bus-managed-service-identity#built-in-rbac-roles-for-azure-service-bus) and [Azure RBAC in Azure Cosmos DB](/azure/cosmos-db/role-based-access-control). *User access administrator* access to the subscription is required for granting these permissions, even though personnel with *Contributor* access can deploy these services. To allow a wider team of developers to be able to run the deployment scripts, the alternative is to use native access control provided by the services:
 
 - For Service Bus, it's [shared access signatures](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature).
 - For Azure Cosmos DB, it's [keys](/azure/cosmos-db/secure-access-to-data#master-keys).
 
-The connection strings for these access control policies are then stored in Key Vault. The vault itself is accessed through managed identities, which require Azure RBAC. Set the access policy for these connection strings appropriately. For example, read-only for the backend, write-only for the frontend, and so on, instead of using default root access policy.
+If the workload needs service-based access, then those pre-shared secrets should be stored in Key Vault. The vault itself should be accessed through the managed identity of the web application.
 
-The following code in [services.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/services.bicep) shows the Key Vault configuration for these services:
-
-```bicep
-      resource keyVaultName_CosmosKey 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-      parent: keyVaultName
-      name: 'CosmosKey'
-      properties: {
-        value: cosmosName.listKeys().primaryMasterKey 
-      }
-    }
-
-      resource keyVaultName_ServiceBusListenerConnectionString 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-      parent: keyVaultName
-      name: 'ServiceBusListenerConnectionString'
-      properties: {
-        value: listKeys(serviceBusName_ListenerSharedAccessKey.id, '2021-11-01').primaryConnectionString
-      }
-    }
-
-      resource keyVaultName_ServiceBusSenderConnectionString 'Microsoft.KeyVault/vaults/secrets@2022-07-01' = {
-      parent: keyVaultName
-      name: 'ServiceBusSenderConnectionString'
-      properties: {
-        value: listKeys(serviceBusName_SenderSharedAccessKey.id, '2021-11-01').primaryConnectionString
-      }
-    }
-```
-
-These connection string values are accessed by the apps, which reference the Key Vault key/value pair. This is done in the [sites.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.bicep) file, as the following code for Voting App shows:
+Secrets stored in Key Vault are accessed by the apps, which reference the Key Vault key/value pair. This is done in the [sites.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.bicep) file, as the following code for Voting App shows:
 
 ```bicep
-  properties: {
-    enabled: true
-    hostingEnvironmentProfile: {
-      id:aseId
-    }
-    serverFarmId: votingWebPlanName.id
-    siteConfig: {
-      appSettings: [
-        {
-          name: 'ConnectionStrings:sbConnectionString'
-          value: '@Microsoft.KeyVault(SecretUri=${reference(resourceId('Microsoft.KeyVault/vaults/secrets', keyVaultName, serviceBusSenderConnectionStringSecretName), '2022-07-01').secretUriWithVersion})'
-        }
-        {
-          name: 'ConnectionStrings:RedisConnectionString'
-          value: '@Microsoft.KeyVault(SecretUri=${reference(keyVaultName_redisSecretName.id, '2022-07-01').secretUriWithVersion})'
-        }
-        {
-          name: 'ConnectionStrings:CosmosKey'
-          value: '@Microsoft.KeyVault(SecretUri=${reference(resourceId('Microsoft.KeyVault/vaults/secrets', keyVaultName, cosmosKeySecretName), '2022-07-01').secretUriWithVersion})'
-        }
-      ]
-    }
+properties: {
+  enabled: true
+  hostingEnvironmentProfile: {
+    id: aseId
   }
+  serverFarmId: votingWebPlanName.id
+  siteConfig: {
+    appSettings: [
+      {
+        name: 'ASecret'
+        value: '@Microsoft.KeyVault(SecretUri=${applicationKeyVault::secretName.secretUriWithVersion})'
+      }
+    ]
+  }
+}
 ```
-
-The function also accesses the Service Bus listener connection string in a similar manner.
 
 ### Scalability
 
