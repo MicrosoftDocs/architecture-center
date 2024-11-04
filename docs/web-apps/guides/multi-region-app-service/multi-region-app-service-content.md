@@ -46,7 +46,7 @@ You should also configure your CI/CD pipelines to deploy your code, including wh
 
 In an active-active architecture, identical web apps are deployed in two separate regions. Azure Front Door is used to route traffic to both the active regions:
 
-:::image type="content" source="../_images/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service." :::
+:::image type="content" source="../_images/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service." border="false" :::
 
 Identical App Service apps are deployed in two separate regions. Each region's App Service applications use the same configuration, including pricing tier and instance count. 
 
@@ -94,21 +94,11 @@ The [Create a highly available multi-region app in Azure App Service](/azure/app
 
 In an active-passive approach, identical web apps are deployed in two separate regions. Azure Front Door is used to route traffic to one region only (the *active* region).
 
-:::image type="content" source="../_images/active-passive-architecture.png" alt-text="A diagram showing an active-passive architecture of Azure App Service.":::
-
-- **Cost controls:** Identical App Service apps are deployed in two separate regions. To save cost, the secondary App Service plan is configured to have fewer instances and/or be in a lower pricing tier. There are three possible approaches:
-
-    - **Preferred:** The secondary App Service plan has the same pricing tier as the primary, with the same number of instances or fewer. This approach ensures parity in both feature and VM sizing for the two App Service plans. The RTO during a geo-failover only depends on the time to scale out the instances.
-
-    - **Less preferred:**  The secondary App Service plan has the same pricing tier type (such as PremiumV3) but smaller VM sizing, with lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in P1V3 tier. This approach still ensures feature parity for the two App Service plans, but the lack of size parity may require a manual scale-up when the secondary region becomes the active region. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
-
-    - **Least-preferred:** The secondary App Service plan has a different pricing tier than the primary and lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in S1 tier. Make sure that the secondary App Service plan has all the features your application needs in order to run. Differences in features availability between the two may cause delays to your web app recovery. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
-
-    Autoscale is configured on the secondary region in the event the active region becomes inactive. It’s advisable to have similar autoscale rules in both active and passive regions.
+:::image type="content" source="../_images/active-passive-architecture.png" alt-text="A diagram showing an active-passive architecture of Azure App Service." border="false" :::
 
 - **During normal operations:** Azure Front Door routes traffic to the primary region only. Public traffic directly to the App Service apps is blocked.
 
-- **During a region failure:** If primary region becomes inactive, Azure Front Door health probes detect the faulty origin and routes traffic to the origin in the secondary region starts. The secondary region becomes the active region. Once the secondary region becomes active, the network load triggers the preconfigured autoscale rules to scale out the secondary web app.
+- **During a region failure:** If primary region becomes inactive, Azure Front Door health probes detect the faulty origin and routes traffic to the origin in the secondary region starts. The secondary region becomes the active region. Once the secondary region becomes active, the network load triggers preconfigured autoscale rules to scale out the secondary web app.
 
    You may need to scale up the pricing tier for the secondary region manually, if it doesn't already have the needed features to run as the active region. For example, [autoscaling requires Standard tier or higher](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
@@ -121,6 +111,16 @@ In an active-passive approach, identical web apps are deployed in two separate r
 - **Failback:** When the primary region is available again, Azure Front Door automatically directs traffic back to it, and the architecture is back to active-passive as before.
 
 ### Considerations
+
+- **Cost controls:** Identical App Service apps are deployed in two separate regions. To save cost, the secondary App Service plan is configured to have fewer instances and/or be in a lower pricing tier. There are three possible approaches:
+
+    - **Preferred:** The secondary App Service plan has the same pricing tier as the primary, with the same number of instances or fewer. This approach ensures parity in both feature and VM sizing for the two App Service plans. The RTO during a geo-failover only depends on the time to scale out the instances.
+
+    - **Less preferred:**  The secondary App Service plan has the same pricing tier type (such as PremiumV3) but smaller VM sizing, with lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in P1V3 tier. This approach still ensures feature parity for the two App Service plans, but the lack of size parity may require a manual scale-up when the secondary region becomes the active region. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
+
+    - **Least-preferred:** The secondary App Service plan has a different pricing tier than the primary and lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in S1 tier. Make sure that the secondary App Service plan has all the features your application needs in order to run. Differences in features availability between the two may cause delays to your web app recovery. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
+
+- **Autoscale:** Autoscale should be configured in the secondary region in case traffic is redirected and there's a sudden influx of requests. It’s advisable to have similar autoscale rules in both active and passive regions.
 
 - **Load balancing and failover:** This approach uses Azure Front Door for global load balancing, traffic distribution, and failover. Azure provides other load balancing options, such as Azure Traffic Manager. For a comparison of the various options, see [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
