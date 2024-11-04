@@ -127,7 +127,7 @@ After you establish the virtual network gateway connections, test the environmen
 
 ### Troubleshooting
 
-If a previously functioning ExpressRoute circuit fails to connect, if there are no configuration changes on-premises or within your private virtual network, you might need to contact the connectivity provider and work with them to correct the issue. Use the following PowerShell commands to verify that the ExpressRoute circuit is provisioned correctly:
+If a previously functioning ExpressRoute circuit fails to connect and there are no configuration changes on-premises or within your private virtual network, you might need to contact the connectivity provider and work with them to correct the issue. Use the following PowerShell commands to verify that the ExpressRoute circuit is provisioned correctly:
 
 ```powershell
 Get-AzExpressRouteCircuit -Name <circuit-name> -ResourceGroupName <resource-group>
@@ -160,7 +160,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Scalability
 
-ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
+ExpressRoute circuits provide a high-bandwidth path between networks. Generally, the higher the bandwidth, the higher the cost.
 
 ExpressRoute offers two [pricing plans][expressroute-pricing]: the Metered Plan and the Unlimited Data plan. Charges vary according to circuit bandwidth. Available bandwidth will probably vary from provider to provider. Use the `Get-AzExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
@@ -174,7 +174,7 @@ The ExpressRoute Premium add-on provides:
 
 See [ExpressRoute pricing][expressroute-pricing] for details.
 
-Although some providers allow you to change your bandwidth, be sure to choose an initial bandwidth that surpasses your needs and provides room for growth. If you need to increase bandwidth in the future, you're left with two options:
+Although some providers allow you to change your bandwidth, be sure to choose an initial bandwidth that surpasses your needs and provides room for growth. If you need to increase bandwidth in the future, you have two options:
 
 - Increase the bandwidth. Avoid this option as much as possible. Not all providers allow you to increase bandwidth dynamically. But if you need a bandwidth increase, check with your provider to ensure that they support changing ExpressRoute bandwidth properties by using PowerShell commands. If they do, run the following commands:
 
