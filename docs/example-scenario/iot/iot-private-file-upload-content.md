@@ -1,4 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This article describes how to use a private network to upload files to an Azure Storage account.
 
