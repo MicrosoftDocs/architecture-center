@@ -30,8 +30,6 @@ There are two primary topologies within many event-driven architectures:
 
 - **Mediator topology**. This topology addresses some of the shortcomings of broker topology. There is an event mediator that manages and controls the flow of events. The event mediator maintains the state and manages error handling and restart capabilities. Unlike broker topology, components broadcast occurrences as commands and only to designated channels, usually message queues. These commands aren't expected to be ignored by their consumers. This topology offers more control, better distributed error handling, and potentially better data consistency. This topology does introduce increased coupling between components, and the event mediator could become a bottleneck or a reliability concern.
 
-Many applications use event-driven architecture as their primary architecture; however, it can be combined with other architectural styles, resulting in hybrid architectures. Common combinations include [microservices](./microservices.yml), [space-based architecture](https://en.wikipedia.org/wiki/Space-based_architecture), and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrating event-driven architecture enhances system performance by eliminating bottlenecks and providing [back pressure](https://en.wikipedia.org/wiki/Back_pressure) during high request volumes.
-
 ## When to use this architecture
 
 - Multiple subsystems must process the same events.
@@ -79,6 +77,7 @@ Many applications use event-driven architecture as their primary architecture; h
 
 - The amount of data to include in an event can be a significant consideration that affects both performance and cost. Putting all the relevant information needed for processing in the event itself can simplify the processing code and save additional lookups. Putting the minimal amount of information in an event, like just a couple of identifiers, will reduce transport time and cost, but requires the processing code to look up any additional information it needs. For more information on this, take a look at [this blog post](https://particular.net/blog/putting-your-events-on-a-diet).
 - While a request is only visible to the request-handling component, events are often visible to multiple components in a workload, even if those components don't or aren't meant to consume them. Operating with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
+- Many applications use event-driven architecture as their primary architecture; however, it can be combined with other architectural styles, resulting in hybrid architectures. Common combinations include [microservices](./microservices.yml), [space-based architecture](https://en.wikipedia.org/wiki/Space-based_architecture), and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrating event-driven architecture enhances system performance by eliminating bottlenecks and providing [back pressure](https://en.wikipedia.org/wiki/Back_pressure) during high request volumes.
 
 ## Related resources
 
