@@ -197,7 +197,7 @@ To prepare the secondary region to receive traffic, deploy all required App Serv
 
    Even after you've created your application in the secondary region, you might need to deal with complexities like DNS records and TLS certificates. Ensure that you've planned each step that's required to send traffic to your secondary region, and test your plans regularly.
 
-- **High RPO:** Backups are usually taken hourly or daily. If your primary application goes offline, the backup you restore into a secondary region might be outdated. Your RPO depends on the frequency of your backups as well as how quickly those backups are replicated between regions.
+- **High RPO:** Backups can be scheduled to occur up to once per hour. If your primary application goes offline, the backup you restore into a secondary region might be outdated. Your RPO depends on the frequency of your backups as well as how quickly those backups are replicated between regions.
 
 ### How-to steps
 
@@ -207,19 +207,19 @@ The steos you use to configure a passive-cold deployment depends on whether your
 
 The steps to create a passive-cold region for your web app in App Service are summarized as follows: 
 
-1. Create an Azure storage account in the same region as your web app. Choose Standard performance tier and select redundancy as Geo-redundant storage (GRS) or Geo-Zone-redundant storage (GZRS).
+1. Create an Azure storage account in the same region as your web app. Choose Standard performance tier and select redundancy as geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS).
 
-1. Enable RA-GRS or RA-GZRS (read access for the secondary region). 
+1. Enable RA-GRS or RA-GZRS (read access for the secondary region).
 
 1. [Configure custom backup](/azure/app-service/manage-backup) for your web app. You may decide to set a schedule for your web app backups, such as hourly.
 
-1. Verify that the web app backup files can be retrieved the secondary region of your storage account.
+1. Verify that the web app backup files can be retrieved in the secondary region of your storage account.
 
 # [Regions without a pair](#tab/non-paired-regions)
 
 The steps to create a passive-cold region for your web app in App Service are summarized as follows: 
 
-1. Create an Azure storage account in the same region of your web app. Choose Standard performance tier and select redundancy as zone-redundant storage (ZRS).
+1. Create an Azure storage account in the same region as your web app. Choose Standard performance tier and select redundancy as zone-redundant storage (ZRS) if it's available.
 
 1. [Configure custom backup](/azure/app-service/manage-backup) for your web app. You may decide to set a schedule for your web app backups, such as hourly.
 
