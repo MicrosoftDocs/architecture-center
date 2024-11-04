@@ -50,21 +50,23 @@ In an active-active architecture, identical web apps are deployed in two separat
 
 Identical App Service apps are deployed in two separate regions. Each region's App Service applications use the same configuration, including pricing tier and instance count. 
 
-**Normal operations:** During normal operations, Azure Front Door is used to route traffic to both the active regions. Public traffic directly to the App Service apps is blocked, which ensures that traffic flows through Azure Front Door. This approach can help you to ensure requests are inspected by the Azure Front Door web application firewall (WAF), or that they otherwise are secured or managed centrally.
+- **During normal operations:** During normal operations, Azure Front Door is used to route traffic to both the active regions. Public traffic directly to the App Service apps is blocked, which ensures that traffic flows through Azure Front Door. This approach can help you to ensure requests are inspected by the Azure Front Door web application firewall (WAF), or that they otherwise are secured or managed centrally.
 
-**During a region failure:** If one of the regions goes offline, the Azure Front Door health probes detect the faulty origin and reconfigures the routes so that traffic is sent exclusively to the region that remains online. The RTO during such a geo-failover depends on how soon the health probes detect the faulty region, which is usually within a couple of minutes.
+- **During a region failure:** If one of the regions goes offline, the Azure Front Door health probes detect the faulty origin and reconfigures the routes so that traffic is sent exclusively to the region that remains online. 
 
-**Application files:** Application files should be deployed to both web apps with a CI/CD solution. This ensures that the RPO for the application content is practically zero.
+- **Application files:** Application files should be deployed to both web apps with a CI/CD solution. This ensures that the RPO for the application content is practically zero.
 
-**State:** Where possible, it's a good practice to store your application state outside of the App Service file system. For example, use a database or Azure Storage, and configure those components to meet your geo-redundancy requirements.
+- **State:** Where possible, it's a good practice to store your application state outside of the App Service file system. For example, use a database or Azure Storage, and configure those components to meet your geo-redundancy requirements.
 
-If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
+   If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
 
-**Failback:** When the faulty region recovers, the Azure Front Door health probes detect the healthy origin and restores normal traffic routing.
+- **Failback:** When the faulty region recovers, the Azure Front Door health probes detect the healthy origin and restores normal traffic routing.
 
 ### Considerations
 
-This approach uses Azure Front Door for global load balancing, traffic distribution, and failover. Azure provides other load balancing options, such as Azure Traffic Manager. For a comparison of the various options, see [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview).
+- **Low RTO:** The RTO during such a geo-failover depends on how soon the health probes detect the faulty region. By default, probes check every 30 seconds, but [you can configure a different probe frequency](/azure/frontdoor/health-probes).
+
+- **Load balancing and failover:** This approach uses Azure Front Door for global load balancing, traffic distribution, and failover. Azure provides other load balancing options, such as Azure Traffic Manager. For a comparison of the various options, see [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ### Deploy active-active App Service web apps
 
@@ -94,33 +96,33 @@ In an active-passive approach, identical web apps are deployed in two separate r
 
 :::image type="content" source="../_images/active-passive-architecture.png" alt-text="A diagram showing an active-passive architecture of Azure App Service.":::
 
-Identical App Service apps are deployed in two separate regions. To save cost, the secondary App Service plan is configured to have fewer instances and/or be in a lower pricing tier. There are three possible approaches:
+- **Cost controls:** Identical App Service apps are deployed in two separate regions. To save cost, the secondary App Service plan is configured to have fewer instances and/or be in a lower pricing tier. There are three possible approaches:
 
-- **Preferred:** The secondary App Service plan has the same pricing tier as the primary, with the same number of instances or fewer. This approach ensures parity in both feature and VM sizing for the two App Service plans. The RTO during a geo-failover only depends on the time to scale out the instances.
+    - **Preferred:** The secondary App Service plan has the same pricing tier as the primary, with the same number of instances or fewer. This approach ensures parity in both feature and VM sizing for the two App Service plans. The RTO during a geo-failover only depends on the time to scale out the instances.
 
-- **Less preferred:**  The secondary App Service plan has the same pricing tier type (such as PremiumV3) but smaller VM sizing, with lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in P1V3 tier. This approach still ensures feature parity for the two App Service plans, but the lack of size parity may require a manual scale-up when the secondary region becomes the active region. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
+    - **Less preferred:**  The secondary App Service plan has the same pricing tier type (such as PremiumV3) but smaller VM sizing, with lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in P1V3 tier. This approach still ensures feature parity for the two App Service plans, but the lack of size parity may require a manual scale-up when the secondary region becomes the active region. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
 
-- **Least-preferred:** The secondary App Service plan has a different pricing tier than the primary and lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in S1 tier. Make sure that the secondary App Service plan has all the features your application needs in order to run. Differences in features availability between the two may cause delays to your web app recovery. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
+    - **Least-preferred:** The secondary App Service plan has a different pricing tier than the primary and lesser instances. For example, the primary region may be in P3V3 tier while the secondary region is in S1 tier. Make sure that the secondary App Service plan has all the features your application needs in order to run. Differences in features availability between the two may cause delays to your web app recovery. The RTO during a geo-failover depends on the time to both scale up and scale out the instances.
 
-Autoscale is configured on the secondary region in the event the active region becomes inactive. It’s advisable to have similar autoscale rules in both active and passive regions.
+    Autoscale is configured on the secondary region in the event the active region becomes inactive. It’s advisable to have similar autoscale rules in both active and passive regions.
 
-**Normal operations:** Azure Front Door routes traffic to the primary region only. Public traffic directly to the App Service apps is blocked.
+- **During normal operations:** Azure Front Door routes traffic to the primary region only. Public traffic directly to the App Service apps is blocked.
 
-**During a region failure:** If primary region becomes inactive, Azure Front Door health probes detect the faulty origin and routes traffic to the origin in the secondary region starts. The secondary region becomes the active region. Once the secondary region becomes active, the network load triggers the preconfigured autoscale rules to scale out the secondary web app.
+- **During a region failure:** If primary region becomes inactive, Azure Front Door health probes detect the faulty origin and routes traffic to the origin in the secondary region starts. The secondary region becomes the active region. Once the secondary region becomes active, the network load triggers the preconfigured autoscale rules to scale out the secondary web app.
 
-You may need to scale up the pricing tier for the secondary region manually, if it doesn't already have the needed features to run as the active region. For example, [autoscaling requires Standard tier or higher](https://azure.microsoft.com/pricing/details/app-service/windows/).
+   You may need to scale up the pricing tier for the secondary region manually, if it doesn't already have the needed features to run as the active region. For example, [autoscaling requires Standard tier or higher](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
-**Application files:** Application files should be deployed to both web apps with a CI/CD solution. This ensures that the RPO for the application content is practically zero.
+- **Application files:** Application files should be deployed to both web apps with a CI/CD solution. This ensures that the RPO for the application content is practically zero.
 
-**State:** Where possible, it's a good practice to store your application state outside of the App Service file system. For example, use a database or Azure Storage, and configure those components to meet your geo-redundancy requirements.
+- **State:** Where possible, it's a good practice to store your application state outside of the App Service file system. For example, use a database or Azure Storage, and configure those components to meet your geo-redundancy requirements.
 
-If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
+   If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
 
-**Failback:** When the primary region is available again, Azure Front Door automatically directs traffic back to it, and the architecture is back to active-passive as before.
+- **Failback:** When the primary region is available again, Azure Front Door automatically directs traffic back to it, and the architecture is back to active-passive as before.
 
 ### Considerations
 
-This approach uses Azure Front Door for global load balancing, traffic distribution, and failover. Azure provides other load balancing options, such as Azure Traffic Manager. For a comparison of the various options, see [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview).
+- **Load balancing and failover:** This approach uses Azure Front Door for global load balancing, traffic distribution, and failover. Azure provides other load balancing options, such as Azure Traffic Manager. For a comparison of the various options, see [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ### Deploy active-passive App Service web apps
 
@@ -169,7 +171,7 @@ Use [RA-GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storag
 
 If RA-GZRS isn't available, configure the account as [RA-GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage).
 
-Both RA-GZRS and RA_GRS have an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
+Both RA-GZRS and RA-GRS have an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
 
 For more information on designing your applications to take advantage of geo-redundant storage, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
 
@@ -214,7 +216,7 @@ The steps to create a passive-cold region for your web app in App Service are su
 
 # [Regions without a pair](#tab/non-paired-regions)
 
-Steps to create a passive-cold region without GRS and GZRS are summarized as follows: 
+The steps to create a passive-cold region for your web app in App Service are summarized as follows: 
 
 1. Create an Azure storage account in the same region of your web app. Choose Standard performance tier and select redundancy as zone-redundant storage (ZRS).
 
