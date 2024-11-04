@@ -291,3 +291,6 @@ Microsoft Learn modules:
 - [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
 - [Scale model deployment with Azure Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/scale-model-deployment-with-azure-machine-learning-anywhere/ba-p/2888753)
 - [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
+
+
+test Mon
