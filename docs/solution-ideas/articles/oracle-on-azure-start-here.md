@@ -21,12 +21,12 @@ Oracle on Azure provide two principal technology platform options:
 
 - [Oracle on Azure Virtual Machines:](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/) Run Oracle databases and enterprise applications, such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications on Azure infrastructure. You can use an Oracle Linux image, Red Hat Enterprise Linux (RHEL), or another endorsed operating system. There are multiple VMs and storage options available.
 
-- [Oracle Database@Azure:](https://learn.microsoft.com/en-us/azure/oracle/oracle-db/oracle-database-what-is-new) You can use Oracle Database@Azure to run Oracle Exadata infrastructure in Azure. Oracle Exadata is a high-performance database platform. Oracle Database@Azure supports tools, such as Oracle Real Application Clusters (RAC) and Oracle Data Guard. Oracle enterprise applications such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications run on Azure VMs and can connect to Oracle Database@Azure.
+- [Oracle Database@Azure:](https://learn.microsoft.com/azure/oracle/oracle-db/oracle-database-what-is-new) You can use Oracle Database@Azure to run Oracle Exadata infrastructure in Azure. Oracle Exadata is a high-performance database platform. Oracle Database@Azure supports tools, such as Oracle Real Application Clusters (RAC) and Oracle Data Guard. Oracle enterprise applications such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications run on Azure VMs and can connect to Oracle Database@Azure.
 
 In addition to Oracle databases, Azure also supports:
 
 - [WebLogic Server integrated with Azure services](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-weblogic). Run Weblogic server on Azure with different options
-- [Accelerate your cloud adoption with Microsoft and Oracle](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/oracle-iaas/). Run your Oracle Database and enterprise applications on Azure and Oracle Cloud.
+- [Accelerate your cloud adoption with Microsoft and Oracle](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/). Run your Oracle Database and enterprise applications on Azure and Oracle Cloud.
 
 - [Java on Azure](https://azure.microsoft.com/resources/developers/java/). Run Java EE applications with Oracle WebLogic Server on Azure Kubernetes Service (AKS) with solutions validated by Microsoft and Oracle.
 
