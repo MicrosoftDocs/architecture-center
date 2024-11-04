@@ -183,8 +183,6 @@ Object replication doesn't guarantee how quickly data is replicated. However, yo
 
 Alternatively, you can use a tool like [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to explicitly copy the backup files between storage accounts in different regions. AzCopy is a tool, not a service, so you need to configure it to run by using Azure Automation or another compute platform:
 
-:::image type="content" source="../_images/alternative-no-grs-no-gzrs.png" alt-text="Diagram that shows how to create a passive or cold region without GRS or GZRS." lightbox="../_images/alternative-no-grs-no-gzrs.png":::
-
 ---
 
 ### Region-down experience
