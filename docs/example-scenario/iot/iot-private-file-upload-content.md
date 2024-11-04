@@ -7,7 +7,8 @@ But if you have stricter network segmentation requirements, you can restrict acc
 
 ## Architecture
 
-:::image type="complex" source="./media/azure-iot-file-upload-private-network.svg" alt-text="Diagram that shows the Azure IoT Hub private file upload architecture." border="false" lightbox="./media/azure-iot-file-upload-private-network.svg":::
+:::image type="complex" source="./media/azure-iot-file-upload-private-network.svg" alt-text="Diagram that shows the Azure IoT Hub private file upload architecture." border="false" lightbox="./media/azure-iot-file-upload-private-network.svg"
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-file-upload-private-network.vsdx) of this architecture.*
 
