@@ -22,6 +22,6 @@ products:
   - azure-firewall
   - azure-virtual-network
   - azure-application-gateway
-thumbnailUrl: /azure/architecture/browse/thumbs/iothub-file-upload-private-link.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-iot-file-upload-private-network.png
 content: |
    [!INCLUDE[](iot-private-file-upload-content.md)]

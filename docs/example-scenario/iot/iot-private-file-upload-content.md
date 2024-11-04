@@ -8,7 +8,7 @@ But if you have stricter network segmentation requirements, you can restrict acc
 
 ## Architecture
 
-:::image type="complex" source="./media/iot-file-upload-private-network.svg" alt-text="Diagram that shows the Azure IoT Hub private file upload architecture." border="false" lightbox="./media/iot-file-upload-private-network.svg":::
+:::image type="complex" source="./media/azure-iot-file-upload-private-network.svg" alt-text="Diagram that shows the Azure IoT Hub private file upload architecture." border="false" lightbox="./media/azure-iot-file-upload-private-network.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-file-upload-private-network.vsdx) of this architecture.*
 
@@ -30,7 +30,7 @@ The following workflow corresponds to the preceding diagram.
 1. Application Gateway receives the HTTP POST from the client device and sends it to the Blob Storage account via Azure Private Link.
 1. When the file upload is finished, the IoT client device uses the Azure IoT SDK to notify IoT Hub.
 
-   The IoT client device updates the file upload status so that IoT Hub can trigger a file upload notification to back-end services, if configured. The client device also releases resources that are associated with the file upload in IoT Hub.
+   The IoT client device updates the file upload status so that IoT Hub can trigger a file upload notification to back-end services, if the notification is configured. The client device also releases resources that are associated with the file upload in IoT Hub.
 
 ### Components
 
@@ -40,8 +40,8 @@ The following workflow corresponds to the preceding diagram.
 - [IoT Hub](https://azure.microsoft.com/products/iot-hub/) is a PaaS-managed solution that acts as a central message hub for bidirectional communication between an IoT application and the devices that it manages. In this architecture, IoT Hub is the central endpoint that IoT client devices connect to for control and data plane operations.
 - [Private Link](https://azure.microsoft.com/products/private-link) provides private access to services that are hosted on the Azure platform while keeping your data on the Microsoft network. In this architecture, Private Link provides private communication between Application Gateway and the Blob Storage account.
 - [Storage](https://azure.microsoft.com/products/category/storage) offers a durable, highly available, and massively scalable cloud storage solution. It includes object, file, disk, queue, and table storage capabilities. In this architecture, devices use Blob Storage to upload files to the cloud via short-lived SAS tokens that IoT Hub provides through user delegation.
-- [Private DNS zones](/azure/dns/private-dns-overview) provide a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need for a custom DNS solution. In this architecture, a private DNS zone provides a private DNS entry for Blob Storage so that the Storage blob endpoint translates to its private IP endpoint within the network.
-- [Virtual Network](https://azure.microsoft.com/products/virtual-network/) is the fundamental building block for your private network in Azure. This service enables many types of Azure resources, such as Azure virtual machines, to securely communicate with each other, the internet, and on-premises networks. This architecture uses Virtual Network to build a private network topology, which avoids internet public endpoints for Azure-based services.
+- [Private DNS zones](/azure/dns/private-dns-overview) provide a reliable, enhanced-security DNS service to manage and resolve domain names in a virtual network without the need for a custom DNS solution. In this architecture, a private DNS zone provides a private DNS entry for Blob Storage so that the Storage blob endpoint translates to its private IP endpoint within the network.
+- [Virtual Network](https://azure.microsoft.com/products/virtual-network/) is the fundamental building block for your private network in Azure. This service enables many types of Azure resources, such as Azure virtual machines, to communicate with each other, the internet, and on-premises networks with enhanced security. This architecture uses Virtual Network to build a private network topology, which avoids internet public endpoints for Azure-based services.
 
 ## Scenario details
 
@@ -59,7 +59,7 @@ If you have internal security requirements to use private endpoints for many Azu
 
 This architecture can apply to any scenario that uses devices that need to communicate with a Storage account that isn't exposed publicly.
 
-For example, an industrial automation vendor provides managed connected edge controllers and sensors. These sensors need to communicate with the Azure cloud through the public internet, but the vendor's security team requires the Storage account to be denied public internet access. This architecture solves this requirement.
+For example, an industrial automation vendor provides managed connected edge controllers and sensors. These sensors need to communicate with the Azure cloud through the public internet, but the vendor's security team requires the Storage account to be denied public internet access. This architecture meets this requirement.
 
 ### Alternatives
 
