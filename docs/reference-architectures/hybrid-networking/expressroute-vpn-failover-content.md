@@ -217,7 +217,7 @@ You can configure high availability for your Azure connection in different ways,
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering. (Each peering is designated a pair of /30 address spaces, as described in the previous section.)
 
-    ![[0]][0]
+    ![[Diagram that shows a configuration with redundant on-premises routers connected to the primary and secondary circuits.]][0]
 
 - If you use a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
@@ -381,7 +381,7 @@ Microsoft Learn modules:
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
-[0]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
-[1]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
-[2]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
+[0]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Diagram that shows using redundant routers with ExpressRoute primary and secondary circuits."
+[1]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Diagram that shows adding security devices to the on-premises network."
+[2]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Diagram that shows using forced tunneling to audit internet-bound traffic."
 [visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx
