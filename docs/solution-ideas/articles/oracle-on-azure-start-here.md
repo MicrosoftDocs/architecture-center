@@ -17,14 +17,14 @@ products:
 
 # Oracle on Azure architecture design
 
-Microsoft and Oracle have partnered to enable customers to deploy Oracle applications in the cloud. You can run your Oracle Database and enterprise applications on Oracle Linux, Windows Server, and other supported operating systems in Azure. In addition to Oracle databases, Azure also supports:
+Microsoft and Oracle have partnered to enable customers to deploy Oracle Database & applications on Azure cloud. You can run your Oracle Database and enterprise applications on Oracle Linux, Windows Server, and other supported operating systems on Azure. In addition to Oracle databases, Azure also supports:
 
 - WebLogic Server integrated with Azure services
 - Applications on Oracle Linux and WebLogic Server
 - Options for high availability and for disaster recovery
 - Options for backing up Oracle workloads
 
-The interoperability of Microsoft and Oracle’s cloud services enables you to migrate and run mission-critical enterprise workloads across Microsoft Azure and Oracle Cloud Infrastructure (OCI).
+The co-location of Oracle Database & Oracle Applications on Azure enables you to migrate and run mission-critical enterprise workloads with minimal latency and best of both worlds (OCI & Azure).
 
 Azure provides a wide range of services to support Oracle on Azure. Following are some of the key services:
 
@@ -35,19 +35,9 @@ Azure provides a wide range of services to support Oracle on Azure. Following ar
 - [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/#overview). Use preconfigured solutions from Oracle and host Java application servers with Oracle WebLogic on Azure virtual machines (VMs).
 
 ## Introduction to Oracle on Azure
-
-If you're new to Azure, the best place to start learning about Azure is Microsoft Learn. This free online platform provides interactive training for Microsoft products and more.
-
-If you have an SAP workload that depends on an Oracle database, the Learn modules in the following table can help you understand what Azure has to offer for Oracle databases and SAP.
-
-- [Explore Azure for SAP databases](/training/modules/explore-azure-databases). This module explores SAP databases on Azure and best practices for Azure for SAP workloads, including recommendations from Oracle.
-
-- [Implement high availability for SAP workloads in Azure](/training/modules/implement-high-availability-for-sap-workloads-azure). This module explores high availability and disaster recovery support of Azure for SAP workloads, including use of Oracle Data Guard for high availability of Oracle databases that support SAP workloads.
-
-- [Perform backups and restores for SAP workloads on Azure](/training/modules/perform-backups-restores). This module explores backup and restoration of Azure VMs and examines the steps and considerations in backing up and restoring SAP workloads on Azure, including the Oracle databases that support them.
-
-> [!div class="nextstepaction"]
-> [Search Learn for current offerings about Oracle](/search/?terms=Oracle&category=Learn)
+Oracle on Azure adoption scenarios provide two principal technology platform options:
+- [Oracle on Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/): Run Oracle databases and enterprise applications, such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications on Azure infrastructure. You can use an Oracle Linux image, Red Hat Enterprise Linux (RHEL), or another endorsed operating system. There are multiple VMs and storage options available.
+-	[Oracle Database@Azure](https://learn.microsoft.com/en-us/azure/oracle/oracle-db/oracle-database-what-is-new): You can use Oracle Database@Azure to run Oracle Exadata infrastructure in Azure. Oracle Exadata is a high-performance database platform. Oracle Database@Azure supports tools, such as Oracle Real Application Clusters (RAC) and Oracle Data Guard. Oracle enterprise applications such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications run on Azure VMs and can connect to Oracle Database@Azure.
 
 ## Path to production
 
@@ -89,9 +79,9 @@ The articles in this section can help you decide on a solution for running Oracl
 
 The articles in this section can help you identify and select the services and configurations that will best support your solutions for Oracle on Azure.
 
-- [SAP deployment on Azure using an Oracle database](../../example-scenario/apps/sap-production.yml). This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability.
+- [SAP deployment on Azure using an Oracle database](../../example-scenario/apps/sap-production.yml). This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database on Azure, with high availability.
 
-- [Connectivity to Oracle Cloud Infrastructure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci). This article describes methods for integrating an Azure landing zone architecture with Oracle Cloud Infrastructure (OCI).
+- [Deploy Oracle Datbase on Azure](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/oracle-iaas/). This article describes Azure landing zone architecture for Oracle Database on Azure, both IaaS & Exadata Service.
 
 ## Oracle on Azure architectures
 
