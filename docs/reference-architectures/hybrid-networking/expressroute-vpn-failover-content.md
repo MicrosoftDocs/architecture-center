@@ -32,7 +32,7 @@ The architecture consists of the following components.
 
 - **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the internet, but accessing them by using an ExpressRoute circuit provides low latency and more predictable performance, because traffic doesn't go through the internet.
 
-- **Microsoft 365 services**. The publicly available Microsoft 365 applications and services that are provided by Microsoft. Connections use [Microsoft peering](/azure/expressroute/expressroute-circuit-peerings) and addresses that are owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online by using Microsoft peering.
+- **Microsoft 365 services**. The publicly available Microsoft 365 applications and services that Microsoft provides. Connections use [Microsoft peering](/azure/expressroute/expressroute-circuit-peerings) and addresses that are owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online by using Microsoft peering.
 
 - **Connectivity providers** (not shown). Companies that provide a connection by using either layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
@@ -74,7 +74,7 @@ For more information about connectivity providers, see the [ExpressRoute introdu
 
 ### ExpressRoute circuit
 
-You can use the following steps to create an ExpressRoute circuit:
+You can use the following steps to create an ExpressRoute circuit.
 
 1. Run the following PowerShell command:
 
@@ -100,7 +100,7 @@ You can use the following steps to create an ExpressRoute circuit:
 
     1. Reserve two /30 subnets composed of valid public IP addresses for each type of peering that you want to implement. These /30 subnets are used to provide IP addresses for the routers that are used for the circuit. If you're implementing private and Microsoft peering, you need four /30 subnets with valid public IP addresses.
 
-    2. Configure routing for the ExpressRoute circuit. Run the following PowerShell commands for each type of peering that you want to configure (private and Microsoft). For more information, see [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing].
+    2. Configure routing for the ExpressRoute circuit. Run the following PowerShell commands for both private and Microsoft peering. For more information, see [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing].
 
         ```powershell
         Set-AzExpressRouteCircuitPeeringConfig -Name <peering-name> -ExpressRouteCircuit <circuit-name> -PeeringType <peering-type> -PeerASN <peer-ASN> -PrimaryPeerAddressPrefix <primary-peer-address-prefix> -SecondaryPeerAddressPrefix <secondary-peer-address-prefix> -VlanId <vlan-ID>
@@ -116,7 +116,7 @@ If you already have an existing VPN virtual network gateway in your Azure virtua
 
 Follow the instructions in [Configure a hybrid network architecture with Azure ExpressRoute][configure-expressroute] to establish your ExpressRoute connection.
 
-Follow the instructions in [Configure a hybrid network architecture with Azure and On-premises VPN][configure-vpn] to establish your VPN virtual network gateway connection.
+Follow the instructions in [Configure a hybrid network architecture with Azure and on-premises VPN][configure-vpn] to establish your VPN virtual network gateway connection.
 
 After you establish the virtual network gateway connections, test the environment by following these steps:
 
@@ -203,13 +203,13 @@ Although some providers allow you to change your bandwidth, be sure to choose an
     >
     >
 
-    You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to metered. If you downgrade the SKU, your bandwidth consumption must remain within the default limit of the Standard SKU.
+    You can upgrade the SKU without disruption, but you can't switch from the unlimited pricing plan to the metered plan. If you downgrade the SKU, your bandwidth consumption must remain within the default limit of the Standard SKU.
 
 ### Availability
 
 ExpressRoute doesn't support router redundancy protocols like Hot Standby Routing Protocol (HSRP) and Virtual Router Redundancy Protocol (VRRP) for high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly available connections to your network, Azure provisions two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
-By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked unavailable and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If you need to, you can change your BGP time-out settings on the on-premises router to a shorter value. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit. You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you have a managed layer 3 connection service).
+By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked unavailable and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If you need to, you can change your BGP time-out settings on the on-premises router to a shorter duration. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit. You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you have a managed layer 3 connection service).
 
 You can configure high availability for your Azure connection in different ways, depending on the type of provider you use and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. Here's a summary of your availability options:
 
@@ -237,11 +237,11 @@ To maximize security, add network security appliances between the on-premises ne
 
 ![[1]][1]
 
-For auditing or compliance, you might need to prohibit direct access from components running in the virtual network to the internet and implement forced tunneling. In this situation, internet traffic should be redirected back through a proxy that's running on-premises, where it can be audited. You can configure the proxy to block unauthorized traffic flowing out and filter potentially malicious inbound traffic.
+For auditing or compliance, you might need to block direct internet access for components that run in the virtual network and implement forced tunneling. In this situation, internet traffic should be redirected back through a proxy that's running on-premises, where it can be audited. You can configure the proxy to block unauthorized traffic from flowing out and filter potentially malicious inbound traffic.
 
 ![[2]][2]
 
-To maximize security, don't enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
+To maximize security, don't enable a public IP address for your VMs, and use NSGs to help ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
 
 If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
 

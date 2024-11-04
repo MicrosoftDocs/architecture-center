@@ -2,7 +2,7 @@
 metadata:
   title: Connect an On-Premises Network to Azure by Using ExpressRoute
   titleSuffix: Azure Reference Architectures
-  description: Learn how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute with a virtual private network (VPN) gateway failover.
+  description: Learn how to connect an on-premises network to an Azure virtual network by using ExpressRoute with a virtual private network (VPN) gateway failover.
   author: duongau
   ms.author: duau
   ms.date: 11/01/2024
