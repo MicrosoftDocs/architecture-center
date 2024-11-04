@@ -37,9 +37,13 @@ The recommendations described in [Basic enterprise integration][basic-enterprise
 
 ### Service Bus
 
-Service Bus has two delivery modes, *pull* or *proxied push*. In the pull model, the receiver continuously polls for new messages. Polling can be inefficient, especially if you have many queues that each receive a few messages, or if there's much time between messages. In the proxied push model, Service Bus sends an event through Event Grid when there are new messages. The receiver subscribes to the event. When the event is triggered, the receiver pulls the next batch of messages from Service Bus.
+Service Bus has two delivery models, *pull* or *proxied push*:
 
-When you create a logic app to consume Service Bus messages, we recommend using the proxied push model with Event Grid integration. It's often more cost efficient, because the logic app doesn't need to poll Service Bus. For more information, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept). Currently, Service Bus [Premium tier](https://azure.microsoft.com/pricing/details/service-bus/) is required for Event Grid notifications.
+- **Pull** model: The receiver continuously polls for new messages. If you need to manage multiple queues and polling times, polling might be inefficient. On the other hand, this model can simplify your architecture by removing extra components and data hops.
+
+- **Proxied push** model: The receiver initially subscribes to a specific event type on an event grid topic. When a new message is available, Service Bus raises and sends an event through Event Grid. This event then triggers the receiver to pull the next batch of messages from Service Bus. This model allows systems to receive messages almost in real time but without using resources to continuously poll for new messages. However, the architecture still uses additional components that must be deployed, managed, and secured.
+
+When you create a Standard logic app workflow that consumes Service Bus messages, we recommend that you use the Service Bus built-in connector triggers. The built-in connector triggers abstract most of the pull model configuration for you without adding extra cost. This capability provides the right balance between cost, surface area management, and security because the connector continuously loops within the Azure Logic Apps runtime engine. For more information, see [Azure Service Bus built-in connector triggers - Azure Logic Apps](/azure/connectors/connectors-create-api-servicebus#service-bus-built-in-connector-triggers).
 
 Use [PeekLock](/azure/service-bus-messaging/service-bus-messaging-overview#queues) for accessing a group of messages. When you use PeekLock, the logic app can perform steps to validate each message before completing or abandoning the message. This approach protects against accidental message loss.
 
