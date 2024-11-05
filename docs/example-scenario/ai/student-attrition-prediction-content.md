@@ -211,7 +211,6 @@ Other contributors:
 - [Track ML models with MLflow and Azure Machine Learning](/azure/machine-learning/how-to-use-mlflow)
 - [What is automated machine learning (AutoML)?](/azure/machine-learning/concept-automated-ml)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-- [Unleash the power of predictive analytics in Azure Synapse Analytics with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
