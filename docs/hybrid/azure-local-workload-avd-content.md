@@ -1,8 +1,8 @@
 This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-stack-hci-baseline.yml). To effectively deploy **Azure Virtual Desktop for Azure Local**, it's important to understand the baseline architecture. This process includes familiarizing yourself with the design choices for the physical machines that deliver the compute, storage, and networking capabilities.
 
-This workload reference architecture aims to provide guidance on selecting and setting up an Azure Virtual Desktop (AVD) workload for Azure Local. By using this reference architecture, you can minimize the time and effort required to deploy and manage your AVD for Azure Local solution.
+This workload reference architecture aims to provide guidance on selecting and setting up an Azure Virtual Desktop workload for Azure Local. By using this reference architecture, you can minimize the time and effort required to deploy and manage your Azure Virtual Desktop for Azure Local solution.
 
-This guide factors in workload specific design considerations, requirements, and scale limitations, offering you a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) when designing an AVD for Azure Local solution.
+This guide looks at workload specific design considerations, requirements, and scale limitations, offering you a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) when designing an Azure Virtual Desktop for Azure Local solution.
 
 For additional information review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
 
@@ -62,7 +62,7 @@ Azure Virtual Desktop for Azure Local is a robust desktop and application virtua
 
 In Azure Virtual Desktop, Arc virtual machines (VMs) running Windows are used to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. Note that all references to VMs in this article are referring to the use of [Arc VMs](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 
-Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. This makes them ideal for modern, scalable environments. While you can create non-Arc VMs, they lack the advanced management features and integration benefits provided by Arc. 
+Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. While you can create non-Arc VMs, they lack the advanced management features and integration benefits provided by Arc. 
 
 ### Benefits
 
@@ -96,7 +96,7 @@ Your Azure Local instances must be running a minimum of [version 23H2](/azure-st
 To use session hosts on Azure Local with Azure Virtual Desktop, you also need to:
 
 - **License and activate the virtual machines.** For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Local](/azure-stack/hci/manage/vm-activate).
-- **Install the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview)** on the virtual machines so they can communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint). The Azure Connected Machine agent is automatically installed when you add session hosts using the Azure portal as part of the process to [Deploy Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop) or [Add session hosts to a host pool](/azure/virtual-desktop/add-session-hosts-host-pool).
+- Install the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on the virtual machines so they can communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint). The Azure Connected Machine agent is automatically installed when you add session hosts using the Azure portal, as part of the process to [Deploy Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop) or [Add session hosts to a host pool](/azure/virtual-desktop/add-session-hosts-host-pool).
 
 Finally, users can connect using the same [Remote Desktop clients](/azure/virtual-desktop/users/remote-desktop-clients-overview) as Azure Virtual Desktop.
 
@@ -118,7 +118,7 @@ An example ARM template and parameter file to deploy an Azure Local instance is 
 
 This [ARM template for Azure Virtual Desktop for Azure Local](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) serves as a foundation for automation. We do not anticipate further updates to this template unless necessary to address critical issues or integrate significant enhancements. Therefore, this template serves as a versatile starting point for building and managing your Azure Virtual Desktop deployments.
 
-Terraform can be used to deploy Azure Local instances, logical networks, and Arc VMs. However there is not a provider to deploy Azure Virtual Desktop at this time. Links to the Terraform providers for Azure Local are below:
+Terraform can be used to deploy Azure Local instances, logical networks, and Arc VMs. However there is not a provider to deploy Azure Virtual Desktop at this time. Links to the Terraform providers for Azure Local are as follows:
 
 - **Azure Local instance**: [Azure/avm-res-azurestackhci-cluster/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-cluster/azurerm)
 
@@ -143,7 +143,7 @@ Session host virtual machines in an Azure Virtual Desktop for Azure Local enviro
 | Heavy         | Software engineers, content creators | Database entry applications, command-line interfaces, Microsoft Word, static web pages, Microsoft Outlook, Microsoft PowerPoint, dynamic web pages, software development |
 | Power         | Graphic designers, 3D model makers, machine learning researchers | Database entry applications, command-line interfaces, Microsoft Word, static web pages, Microsoft Outlook, Microsoft PowerPoint, dynamic web pages, photo and video editing, computer-aided design (CAD), computer-aided manufacturing (CAM) |
 
-Note that the workload types (light/medium/heavy/power) are indicative. We recommend you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Additionally, the information provided here is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates can change over time due to changes in these factors.
+Note that workload types (light/medium/heavy/power) are indicative. We recommend you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Additionally, the information provided here is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates can change over time due to changes in these factors.
 
 ## User profiles and storage
 
@@ -170,7 +170,7 @@ When you deploy Azure Virtual Desktop for Azure Local, FSLogix can be installed 
 
 In Azure Virtual Desktop, user sessions can be classified into single-session and multi-session modes, each offering different performance and user experience options:
 
-- **Single-session**: Each virtual machine (VM) hosts one user session, effectively providing a dedicated environment. This is similar to a traditional virtual desktop infrastructure (VDI) model where each user has their own desktop experience. Single-session is ideal for workloads that demand high performance, custom configurations, or applications that do not work well in shared environments.
+- **Single-session**: Each virtual machine (VM) hosts one user session, which is similar to a traditional virtual desktop infrastructure (VDI) model where each user has their own desktop experience. Single-session is ideal for workloads that demand high performance, custom configurations, or applications that do not work well in shared environments.
 
 - **Multi-session**: A single VM hosts multiple user sessions simultaneously. This is optimized for cost-efficiency and scalability, where resources like CPU, memory, and storage are shared across users. Multi-session is suited for scenarios where users need access to standard applications or lighter workloads, like task workers or shared workstations, as it consolidates resources across many users.
 
@@ -222,7 +222,7 @@ The following section outlines the key factors that organizations should conside
 
 ### Recommendation
 
-While single-session Azure Virtual Desktop for Azure Local offers dedicated resources, performance isolation, and extensive user customization, these benefits come with significantly higher resource demands. **Organizations that prioritize efficient scaling and cost savings should consider Windows 10/11 multi-session as the optimal choice.** By sharing resources across users, reducing infrastructure costs, and delivering a familiar user experience, multi-session deployments provide a compelling solution for businesses seeking to maximize their virtual desktop environments while maintaining high performance. Thus, we recommend that customers pursue the Windows 10/11 multi-session setup for their Azure Virtual Desktop for Azure Local use case.
+While single-session Azure Virtual Desktop for Azure Local offers dedicated resources, performance isolation, and extensive user customization, these benefits come with higher resource demands. **Organizations that prioritize efficient scaling and cost savings should consider Windows 10/11 multi-session as the optimal choice.** By sharing resources across users, multi-session deployments provide a compelling solution for businesses seeking to maximize their virtual desktop environments while maintaining high performance. Thus, we recommend that customers pursue the Windows 10/11 multi-session setup for their Azure Virtual Desktop for Azure Local use case.
 
 ### Example workload use case
 
@@ -238,7 +238,7 @@ The multi-session use case is chosen over the single session use case given that
 1. **General business applications**: Multi-session VMs are well-suited for running productivity applications like Microsoft Office, web browsers, and line-of-business applications that do not require high individual user resources.
 2. **Cost effective solution**: Multi-session setups provide a cost-effective solution for environments with many concurrent users, such as call centers or customer support teams, where many users typically engage in lightweight tasks.
 
-For the recommended use case above, the section below outlines the minimum hardware requirements:
+For the recommended use case, the section below outlines the minimum hardware requirements:
 
 #### Multi-session, medium workload, 2,000 users
 
@@ -246,7 +246,7 @@ For the recommended use case above, the section below outlines the minimum hardw
 |----------------|-------------|-------------------|-----------------------|-------------------------------|
 | 140            | 280         | 0.7               | 2.0                   | 60.0                          |
 
-These are sample guidelines for reference and has not been validated. These numbers assume 50% concurrency and a 2:1 oversubscription rate (_vCPUs to physical cores_). Additionally, the machine and instance storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local instance for resiliency. For example, if the instance goes down, customers have another dormant host pool on a different instance for high availability, and the user profiles remain secure.
+These sample guidelines serve as reference and have not been validated. These numbers assume 50% concurrency and a 2:1 oversubscription rate (_vCPUs to physical cores_). Additionally, the machine and instance storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local instance for resiliency. For example, if the instance goes down, customers have another dormant host pool on a different instance for high availability, and the user profiles remain secure.
 
 # Well-Architected Framework considerations
 
@@ -254,7 +254,7 @@ To help improve your Azure Virtual Desktop for Azure Local deployments, consider
 
 ## Reliability
 
-Reliability ensures that your Azure Virtual Desktop for Azure Local deployment can consistently meet performance commitments of your end users, while maintaining availability and resilience in the face of disruptions. By adopting best practices in high availability, backup, monitoring, and automated recovery, you can ensure reliable access to virtual desktops.
+Reliability ensures that your Azure Virtual Desktop for Azure Local deployment can consistently meet performance commitments of your end users, while maintaining availability in the face of disruptions. By adopting best practices in high availability, backup, monitoring, and automated recovery, you can ensure reliable access to virtual desktops.
 
 ### Reliability considerations include
 
@@ -296,7 +296,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - **Single vs multi-session types**: Azure Virtual Desktop offers you the option of single or multi-session setups, whereby each VM hosts either one or multiple user sessions respectively. Depending on your needs, you have the flexibility to choose either. However, running single-session Azure Virtual Desktop for Azure Local can be resource-intensive, as it requires dedicated resources for each individual user. In contrast, multi-session allows multiple users to share the same VM and its resources, making it a far more cost-effective option. Given that Windows 10 and 11 multi-session are available exclusively through Azure Virtual Desktop, it offers a compelling advantage in both cost savings and user experience. Review [recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) for more information.
 
-- **Cost monitoring consolidation**: To consolidate monitoring costs, use Azure Local Insights and patch using Update Manager for Azure Local. Insights uses Azure Monitor to provide rich metrics and alerting capabilities. The lifecycle manager component of Azure Local integrates with Update Manager to simplify the task of keeping your instances up to date, by consolidating update workflows for various components into a single experience. Using Monitor and Update Manager helps to optimize resource allocation and contribute to overall cost efficiency. Review [recommendations for consolidation](/azure/well-architected/cost-optimization/consolidation) for more information.
+- **Cost monitoring consolidation**: To consolidate monitoring costs, use Azure Local Insights and patch using Update Manager for Azure Local. Insights uses Azure Monitor to provide rich metrics and alerting capabilities. The lifecycle manager integrates with Update Manager to simplify the task of keeping your instances up to date, by consolidating update workflows for various components into a single experience. Using Monitor and Update Manager helps to optimize resource allocation and contribute to overall cost efficiency. Review [recommendations for consolidation](/azure/well-architected/cost-optimization/consolidation) for more information.
 
 - **Initial workload capacity and growth**: When you plan your Azure Local deployment, consider your initial workload capacity, resiliency requirements, and future growth considerations to create a cost model. Consider if using a two or three-node storage switchless architecture could reduce costs, such as removing the need to procure storage-class network switches. Procuring extra storage-class network switches can be an expensive component of new Azure Local instance deployments. Instead, you can use existing switches for management and compute networks, which simplify the infrastructure. If your workload capacity and resiliency needs don't scale beyond a three-node configuration, consider if you can use existing switches for the management and compute networks and use the three-node storage switchless architecture to deploy Azure Local. Review [recommendations for creating a cost model](/azure/well-architected/cost-optimization/cost-model) for more information.
 
@@ -310,11 +310,11 @@ Operational excellence focuses on creating reliable processes to deploy, manage,
 
 ### Operational Excellence considerations include
 
-- **Simplified provisioning and management experience integrated with Azure**: The cloud-based deployment in Azure provides a wizard-driven interface that shows you how to create an Azure Local instance. Similarly, Azure simplifies the process of managing Azure Local instances and Azure Arc VMs. You can automate the portal-based deployment of the Azure Local instance by using the ARM template. This template provides consistency and automation to deploy Azure Local at scale, specifically in edge scenarios such as retail stores or manufacturing sites that require an Azure Local instance to run business-critical workloads. See [recommendations for enabling automation](/azure/well-architected/operational-excellence/enable-automation) for more information.
+- **Simplified provisioning and management experience integrated with Azure**: The cloud-based deployment in Azure provides a wizard-driven interface that shows you how to create an Azure Local instance. Similarly, Azure simplifies the process of managing Azure Local instances and Azure Arc VMs. You can automate the portal-based deployment of the Azure Local instance by using the ARM template. This template provides consistency and automation to deploy Azure Local at scale. This is crucial in retail stores or manufacturing sites that require an Azure Local instance to run business-critical workloads. See [recommendations for enabling automation](/azure/well-architected/operational-excellence/enable-automation) for more information.
 
 - **Automation capabilities for Virtual Machines**: Azure Local provides a wide range of automation capabilities for managing workloads. For example, with the automated deployment of Azure Arc VMs using Azure CLI, ARM, Bicep, or Terraform templates. Virtual Machine OS updates using Azure Arc Extension for Updates and Azure Update Manager to update Azure Local instance machines. You can run Azure CLI commands locally from one of the Azure Local machines or remotely using Cloud Shell, or a management computer. Integration with Azure Automation and Azure Arc facilitates a wide range of automation scenarios for VM workloads through Azure Arc extensions. Review [recommendations for using infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) for additional information.
 
-- **Strict change control procedures**: These procedures require that all changes are tested and validated in a representative test environment before implementation in production. All changes submitted to the weekly change advisory board process must include a detailed implementation plan (or link to source code), risk level score, a comprehensive rollback plan, post-release testing and verification, and clear success criteria for a change to be reviewed or approved. See [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
+- **Strict change control procedures**: These procedures require that all changes are tested and validated in a representative test environment before implementation in production. All changes submitted to the weekly change advisory board process must include an implementation plan or link to source code, risk level score, rollback plan, post-release tests, and clear success criteria for a change to be reviewed or approved. See [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 
 - **Configure robust monitoring and logging**: Using [Azure Local Insights](/azure-stack/hci/manage/monitor-hci-single-23h2) and [Azure Virtual Desktop Insights](/azure/virtual-desktop/whats-new-insights), you can capture detailed metrics and logs for the platform and workload. These insights help identify performance issues and improve operational response times.
 
@@ -322,7 +322,7 @@ For more information, see [Well-Architected Framework Operational Excellence Des
 
 ## Performance Efficiency
 
-Performance efficiency ensures that your Azure Virtual Desktop for Azure Local deployment can handle user demand effectively, especially during peak usage times. Scaling resources to meet concurrent user needs while optimizing for cost and responsiveness is crucial in maintaining high performance. Performance efficiency encompasses optimizing storage performance, load balancing, and caching strategies. These aim to deliver a consistent and high-quality experience to end-users.
+Performance efficiency ensures that your Azure Virtual Desktop for Azure Local deployment can handle user demand effectively, especially during peak usage times. Scaling resources to meet concurrent user needs while optimizing for cost and responsiveness is crucial in maintaining high performance.
 
 ### Performance Efficiency considerations include
 
