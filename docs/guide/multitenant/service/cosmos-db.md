@@ -203,7 +203,6 @@ Learn more about multitenancy and Azure Cosmos DB:
 Refer to some of our other Cosmos DB architectural scenarios:
 
 - [Serverless apps using Azure Cosmos DB](/azure/architecture/databases/idea/serverless-apps-using-cosmos-db)
-- [Azure Cosmos DB in IoT workloads](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
 - [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/databases/guide/transactional-outbox-cosmos)
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
 - [Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)
