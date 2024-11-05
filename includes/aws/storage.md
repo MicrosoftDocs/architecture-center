@@ -32,8 +32,8 @@ ms.service: architecture-center
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [S3 Infrequent Access (IA)](https://aws.amazon.com/s3/storage-classes) | [Storage cool tier](/azure/storage/blobs/access-tiers-overview) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
-| [S3 Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage cold access tier](/azure/storage/blobs/access-tiers-overview) | Cold storage has lower storage costs and higher access costs. It still retains millisecond access time. |
-| [S3 Deep Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage archive access tier](/azure/storage/blobs/access-tiers-overview) | Archive storage has the lowest storage cost and higher data retrieval costs. It can take hours to retrieve data.|
+| [S3 Glacier](https://aws.amazon.com/s3/storage-classes)| [Storage cold access tier](/azure/storage/blobs/access-tiers-overview) | Cold storage has lower storage costs and higher access costs. It still retains millisecond access time. |
+| [S3 Glacier Deep Archive](https://aws.amazon.com/s3/storage-classes) | [Storage archive access tier](/azure/storage/blobs/access-tiers-overview) | Archive storage has the lowest storage cost and higher data retrieval costs. It can take hours to retrieve data.|
 | [Backup](https://aws.amazon.com/backup/) | [Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files, databases, disks and virtual machines. Azure Backup also supports backing up comptatible on-premises Windows systems. |
 
 ### Hybrid storage
