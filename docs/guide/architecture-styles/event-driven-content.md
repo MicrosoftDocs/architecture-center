@@ -1,4 +1,4 @@
-Event-driven architecture is a popular style for building applications that are fault-tolerant, modular, highly scalable, and capable of evolving quickly. It consists of **event producers** that generate a stream of events, **event consumers** that listen for these events, and **event channels**—typically message queues or pub/sub topics—that transfer events between producers and consumers
+An event-driven architecture consists of **event producers** that generate a stream of events, **event consumers** that listen for these events, and **event channels** that transfer events from producers to consumers.
 
 ![Diagram of an event-driven architecture style](./images/event-driven.svg)
 
