@@ -4,9 +4,9 @@ This architecture is based on the [basic enterprise integration][basic-enterpris
 
 The back-end systems that this design references include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-:::image type="content" source="./media/enterprise-integration-message-broker-events.png" alt-text="Diagram that shows a reference architecture for enterprise integration that uses queues and events." border="false" lightbox="./media/enterprise-integration-message-broker-events.png":::
+:::image type="content" source="./media/enterprise-integration-message-broker-events.svg" alt-text="Diagram that shows a reference architecture for enterprise integration that uses queues and events." border="false" lightbox="./media/enterprise-integration-message-broker-events.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/queues-events-content.vsdx) of this architecture*.
+*Download a [Visio file](https://arch-center.azureedge.net/queues-events.vsdx) of this architecture*.
 
 ### Scenario details
 
