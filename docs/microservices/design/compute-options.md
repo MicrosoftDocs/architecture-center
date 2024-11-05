@@ -1,5 +1,5 @@
 ---
-title: Choose a compute option for microservices
+title: Choose a Compute Option for Microservices
 description: Learn about compute options, the hosting models for the computing resources that your application runs on, like service orchestrator and serverless architecture.
 author: francisnazareth
 ms.author: fnazaret
@@ -30,7 +30,7 @@ Although these options aren't the only ones, they're both proven approaches to b
 
 :::image type="content" source="../design/images/microservice-compute-options.svg" alt-text="A diagram that shows microservice compute options in Azure." border="false" lightbox="../design/images/microservice-compute-options.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/microservice-compute-options.vsdx) of this architecture.*
 
 ## Use a serverless platform
 
@@ -54,7 +54,7 @@ On the Azure platform, consider the following options:
 
 - [Container Apps](/azure/container-apps) is a managed service built on Kubernetes that abstracts the complexities of container orchestration and other management tasks. Container Apps simplifies the deployment and management of containerized applications and microservices in a serverless environment while providing the features of Kubernetes. Container Apps is ideal for scenarios where direct access to Kubernetes APIs isn't required.
 
-- [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. You can delploy microservices to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). By using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services.
+- [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. You can deploy microservices to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). By using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services.
 
 - Use [Azure Red Hat OpenShift](/azure/openshift) to deploy fully managed OpenShift clusters. Azure Red Hat OpenShift extends Kubernetes. Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft.
 
@@ -78,7 +78,7 @@ Reliability ensures that your workload can meet the commitments that you make to
 
 One of the key pillars of reliability is resiliency. The goal of resiliency is to return the workload to a fully functioning state after a failure occurs. 
 
-If you choose Azure Functions as the microservice computing platform, consider deploying the [Functions premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or app service plan in a zone-redundant configuration. For more information, see [Reliability in Functions](/azure/reliability/reliability-functions?tabs=azure-portal). 
+If you choose Azure Functions as the microservice computing platform, consider deploying the [Functions Premium plan](/azure/azure-functions/functions-premium-plan?tabs=portal) or app service plan in a zone-redundant configuration. For more information, see [Reliability in Functions](/azure/reliability/reliability-functions?tabs=azure-portal). 
 
 If you choose AKS as the microservice computing platform, you can enhance microservice reliability by deploying [AKS cluster using availability zones](/azure/aks/availability-zones), by using the [Standard or Premium tier](/azure/aks/free-standard-pricing-tiers) for Azure Kubernetes clusters, and by increasing the minimum number of pods and nodes. For more information, see [deployment and cluster reliability best practices for AKS](/azure/aks/best-practices-app-cluster-reliability).
 
@@ -98,9 +98,9 @@ If you choose Container Apps as the compute platform to deploy microservices, se
 
 Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/well-architected/cost-optimization/).
 
-When you use an orchestrator, you pay for the virtual machines (VMs) that are running in the cluster. When you use a serverless application, you pay only for the actual compute resources that you consume. In both cases, you need to factor in the cost of any extra services, such as storage, databases, and messaging services.
+When you use an orchestrator, you pay for the virtual machines that run in the cluster. When you use a serverless application, you pay only for the actual compute resources that you consume. In both cases, you need to factor in the cost of any extra services, such as storage, databases, and messaging services.
 
-Azure Functions, Container Apps, and AKS provide autoscaling options. Note that Container Apps and Functions provide serverless platforms where the cost is based on consumpution and can be zero. AKS provides only dedicated compute options.
+Azure Functions, Container Apps, and AKS provide autoscaling options. Container Apps and Functions provide serverless platforms where the cost is based on consumption and can be zero. AKS provides only dedicated compute options.
 
 If you choose AKS as the compute platform to deploy microservices, you need to understand cost optimization best practices. For more information, see [Optimize costs in Azure Kubernetes Service](/azure/aks/best-practices-cost). 
 
