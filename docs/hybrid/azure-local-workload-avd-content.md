@@ -56,11 +56,15 @@ The following three sections provide an overview of Azure Virtual Desktop for Az
 
 ### Azure Virtual Desktop for Azure Local
 
-Azure Virtual Desktop for Azure Local is a robust desktop and application virtualization solution that combines the flexibility of Azure Virtual Desktop with the performance and reliability of Azure Local. This setup allows customers to deliver secure, scalable virtual desktops and applications, leveraging their existing on-premises infrastructure. Azure Virtual Desktop for Azure Local has been selected as a high-priority workload as it allows us to compete in the desktop virtualization market against established solutions like VMware Horizon and Citrix DaaS. Notably, Citrix will also support Azure Virtual Desktop for Azure Local, further expanding the options available for customers seeking integrated solutions. This collaboration highlights the flexibility of the platform, and strengthens our ability to offer competitive solutions to customers looking for both Citrix and Azure Virtual Desktop as part of their infrastructure.
+Azure Virtual Desktop for Azure Local is a robust desktop and application virtualization solution that combines the flexibility of Azure Virtual Desktop with the performance and reliability of Azure Local. This setup allows customers to deliver secure, scalable virtual desktops and applications, leveraging their existing on-premises infrastructure. 
+
+Azure Virtual Desktop for Azure Local has been selected as a high-priority workload as it allows us to compete in the desktop virtualization market against established solutions like VMware Horizon and Citrix DaaS. Notably, Citrix will also support Azure Virtual Desktop for Azure Local, further expanding the options available for customers seeking integrated solutions. This collaboration highlights the flexibility of the platform, and strengthens our ability to offer competitive solutions to customers looking for both Citrix and Azure Virtual Desktop as part of their infrastructure.
 
 ### Virtual Machines in Azure Virtual Desktop
 
-In Azure Virtual Desktop, customers leverage Windows virtual machines to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. It is important to clarify that our references to VMs throughout this page refer to Arc VMs, which represent the key use case for customers, especially when deploying on 23H2 Azure Local or newer. Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services, making them ideal for modern, scalable environments. While customers can still create regular VMs, these lack the advanced management features and integration benefits provided by Arc, resulting in a more limited and isolated deployment experience.
+In Azure Virtual Desktop, customers leverage Windows virtual machines to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. It is important to clarify that our references to VMs throughout this page refer to Arc VMs, which represent the key use case for customers, especially when deploying on 23H2 Azure Local or newer. 
+
+Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services, making them ideal for modern, scalable environments. While customers can still create regular VMs, these lack the advanced management features and integration benefits provided by Arc, resulting in a more limited and isolated deployment experience.
 
 ## Benefits
 
@@ -244,9 +248,97 @@ For the recommended use case above, here are the minimum hardware cluster level 
 |----------------|-------------|-------------------|-----------------------|-------------------------------|
 | 140            | 280         | 0.7               | 2.0                   | 60.0                          |
 
-Note that this is purely a sample guidance for reference and has not been validated. Additionally, the Node and Cluster Storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local cluster for resiliency (e.g., if the cluster goes down, customers have another dormant host pool on a different cluster for high availability, and the user profiles remain secure).
+Note that this is purely a sample guidance for reference and has not been validated. These numbers assume 50% concurrency and a 2:1 oversubscription rate (vCPUs to physical cores). Additionally, the Node and Cluster Storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local cluster for resiliency (e.g., if the cluster goes down, customers have another dormant host pool on a different cluster for high availability, and the user profiles remain secure).
 
-Additionally, these numbers assume 50% concurrency and a 2:1 oversubscription rate (vCPUs to physical cores).
+# Well-Architected Framework
+
+For your Azure Virtual Desktop for Azure Local deployments, you should consider reviewing and implementing the pillars of the Azure Well-Architected Framework. They are a set of guiding tenets that you can use to improve the quality of your workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/).
+
+## Reliability
+
+Reliability ensures that your Azure Virtual Desktop for Azure Local deployment can consistently meet performance commitments to users, maintaining availability and resilience in the face of disruptions. By adopting best practices in high availability, backup, monitoring, and automated recovery, you can ensure reliable access to virtual desktops. 
+
+### Reliability considerations include:
+
+- **Implement Multi-node Clustering for High Availability**: Ensuring high availability is crucial for Azure Virtual Desktop for Azure Local deployments. By deploying multiple nodes in a clustered environment, you can minimize downtime caused by individual node failures. Azure Local supports clustering across physical nodes, which means virtual desktops can continue to operate even if one node goes offline. For business-critical or mission-critical use cases, we recommend that you deploy multiple instances of a workload or service across two or more separate Azure Local clusters, ideally in separate physical locations. This redundancy also enables load balancing, distributing workloads across available nodes to avoid overloading any single one. Refer to the following links for details on [Redundancy](https://learn.microsoft.com/en-us/azure/architecture/checklist/high-availability) and [Regions and availability zones](https://learn.microsoft.com/en-us/azure/availability-zones/az-overview).
+
+- **Leverage Backup and Restore Solutions**: To safeguard against data loss, Azure Backup or similar backup solutions should be configured to regularly snapshot VMs and user profiles. Backup schedules ensure minimal data loss in the event of corruption or accidental deletion, providing a safety net for user data and configurations. Azure Site Recovery can also replicate virtual machines to another location, providing an additional recovery option. Learn more about [backup strategies for Azure](https://learn.microsoft.com/en-us/azure/backup/backup-overview).
+
+- **Implement Health Monitoring and Alerts**: Configuring health monitoring for Azure Virtual Desktop components is essential. Azure Monitor can be configured to track metrics like CPU, memory, and storage usage, sending alerts when thresholds are breached. Health monitoring enables proactive maintenance, addressing issues before they impact users. This monitoring setup includes configuring Log Analytics Workspaces to aggregate health data, which enables a unified view of cluster status. Explore [monitoring strategies](https://learn.microsoft.com/en-us/azure/azure-monitor/insights/monitoring-overview).
+
+- **Strict Change Control Procedures**: These procedures require that all changes are tested and validated in a representative test environment before implementation in production. All changes submitted to the weekly change advisory board process must include a detailed implementation plan (or link to source code), risk level score, a comprehensive rollback plan, post-release testing and verification, and clear success criteria for a change to be reviewed or approved. See [Recommendations for safe deployment practices](https://learn.microsoft.com/en-us/azure/devops/learn/git/change-management?view=azure-devops).
+
+- **Regularly Test Failover and Disaster Recovery**: Regular testing of failover and disaster recovery plans ensures that your recovery processes are effective and up-to-date. Testing these procedures helps identify gaps and ensures minimal downtime. It’s beneficial to simulate various failure scenarios, such as power outages or hardware failures, to validate your failover strategies. See [best practices for disaster recovery](https://learn.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery).
+
+For more information, see [Well-Architected Framework Reliability principles](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/reliability-pillars).
+
+# Security
+
+Security is fundamental to protecting your Azure Virtual Desktop for Azure Local environment from deliberate threats and unauthorized access, safeguarding valuable data and user trust. By implementing robust identity protection, network controls, and data encryption, you can create a secure virtual desktop experience that mitigates risks of attacks and data breaches.
+
+## Security considerations include:
+
+- **Enable Multi-Factor Authentication (MFA)**: Implementing Multi-Factor Authentication (MFA) adds an extra layer of security by requiring users to provide additional verification methods beyond just a password when accessing Azure Virtual Desktop resources. This significantly reduces the risk of unauthorized access due to compromised credentials. Microsoft Entra ID (formerly Azure Active Directory) offers built-in MFA capabilities that integrate seamlessly with Azure Virtual Desktop, including deployments on Azure Local. [Learn about implementing MFA.](https://learn.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-azure-mfa)
+
+- **Regularly Update and Patch Virtual Desktops**: Keeping virtual machines and software up-to-date is crucial for mitigating security vulnerabilities. Use tools like Windows Admin Center or Azure Update Manager to automate patching of your Azure Local cluster and Azure Virtual Desktop session hosts. Regular updates should include operating systems, applications, and security solutions to maintain a strong defense against threats. [Learn about update management.](https://learn.microsoft.com/en-us/azure/update-center/overview)
+
+- **Protection from Threats and Vulnerabilities**: Defender for Cloud protects your Azure Local clusters from various threats and vulnerabilities. This service helps improve the security posture of your Azure Local environment and can protect against existing and evolving threats.
+
+- **Threat Detection and Remediation**: Microsoft Advanced Threat Analytics detects and remediates threats, such as those targeting AD DS, that provide authentication services to Azure Local cluster nodes and their Windows Server VM workloads.
+
+- **Network Isolation**: Isolate networks if needed. For example, you can provision multiple logical networks that use separate VLANs and network address ranges. When you use this approach, ensure that the management network can reach each logical network and VLAN so that Azure Local cluster nodes can communicate with the VLAN networks through the ToR switches or gateways. This configuration is required for management of the workload, such as allowing infrastructure management agents to communicate with the workload guest OS.
+
+For more information, see [Well-Architected Framework Security design principles.](https://learn.microsoft.com/en-us/azure/architecture/framework/security/overview)
+
+# Cost Optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. On Azure Virtual Desktop for Azure Local, this is crucial in minimizing hardware cost whilst maximizing the user experience and performance for each session.
+
+## Cost Optimization Considerations Include:
+
+- **Optimize VM Sizing for Cost Efficiency**: Right-sizing VMs based on usage patterns helps avoid unnecessary costs. Monitoring CPU and memory usage over time enables you to adjust VM sizes or scale back resources during off-peak hours. This optimization ensures that you're only paying for the resources you need. [Learn about VM sizing](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes).
+
+- **Automatic VM Guest Patching for Azure Arc VMs**: This feature helps reduce the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation and contributes to overall cost efficiency.
+
+- **Single vs Multi-Session Types**: Azure Virtual Desktop offers you the option of single or multi-session setups, whereby each VM hosts either one or multiple user sessions respectively. Depending on your needs, you will have the flexibility to choose either. However, running single-session Azure Virtual Desktop for Azure Local can be resource-intensive, as it requires dedicated resources for each individual user. In contrast, multi-session allows multiple users to share the same VM and its resources, making it a far more cost-effective option. Given that Windows 10 and 11 multi-session is available exclusively through Azure Virtual Desktop, it offers a compelling advantage in both cost savings and user experience.
+
+- **Cost Monitoring Consolidation**: To consolidate monitoring costs, use Azure Local Insights and patch using Update Manager for Azure Local. Insights uses Azure Monitor to provide rich metrics and alerting capabilities. The lifecycle manager component of Azure Local integrates with Update Manager to simplify the task of keeping your clusters up to date by consolidating update workflows for various components into a single experience. Use Monitor and Update Manager to optimize resource allocation and contribute to overall cost efficiency.
+
+- **Initial Workload Capacity and Growth**: When you plan your Azure Local deployment, consider your initial workload capacity, resiliency requirements, and future growth considerations. Consider if using a two or three-node storage switchless architecture could reduce costs, such as removing the need to procure storage-class network switches. Procuring extra storage-class network switches can be an expensive component of new Azure Local cluster deployments. Instead, you can use existing switches for management and compute networks, which simplifies the infrastructure. If your workload capacity and resiliency needs don't scale beyond a three-node configuration, consider if you can use existing switches for the management and compute networks and use the three-node storage switchless architecture to deploy Azure Local.
+
+- **Implement Auto-Scaling**: VM auto-scaling enables automatic resource adjustments based on real-time demand of your Azure Virtual Desktop users. This elasticity avoids the cost of idle resources and ensures adequate capacity during peak usage. Configuring auto-scaling based on demand fluctuations allows you to reduce overall spending without compromising user experience. [Understand auto-scaling in Azure](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/).
+
+For more information, see [Well-Architected Framework Cost Optimization design principles](https://learn.microsoft.com/en-us/azure/architecture/framework/cost/overview).
+
+# Operational Excellence
+
+Operational excellence focuses on creating reliable processes to deploy, manage, and monitor Azure Virtual Desktop for Azure Local instances effectively, ensuring smooth operations in production environments. By building well-defined workflows, automating routine tasks, and setting up robust monitoring, you can streamline operations and reduce the risk of downtime.
+
+## Operational Excellence Considerations
+
+- **Simplified Provisioning and Management Experience Integrated with Azure**: The cloud-based deployment in Azure provides a wizard-driven interface that shows you how to create an Azure Local cluster. Similarly, Azure simplifies the process of managing Azure Local clusters and Azure Arc VMs. You can automate the portal-based deployment of the Azure Local cluster by using the ARM template. This template provides consistency and automation to deploy Azure Local at scale, specifically in edge scenarios such as retail stores or manufacturing sites that require an Azure Local cluster to run business-critical workloads.
+
+- **Automation Capabilities for Virtual Machines**: Azure Local provides a wide range of automation capabilities for managing workloads, such as Azure Arc VMs, with the automated deployment of Azure Arc VMs by using Azure CLI, ARM, or Bicep templates, with Virtual Machine OS updates using Azure Arc Extension for Updates and Azure Update Manager to update each Azure Local cluster. Azure Local also provides support for Azure Arc VM management by using Azure CLI and non-Azure Arc VMs by using Windows PowerShell. You can run Azure CLI commands locally from one of the Azure Local servers or remotely from a management computer. Integration with Azure Automation and Azure Arc facilitates a wide range of extra automation scenarios for VM workloads through Azure Arc extensions.
+
+- **Set Up Robust Monitoring and Logging**: Using [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and Log Analytics, you can capture detailed metrics and logs for every component. These insights help identify performance issues and improve operational response times.
+
+For more information, see [Well-Architected Framework Operational Excellence Design Principles](https://learn.microsoft.com/azure/architecture/framework/operational-excellence/).
+
+# Performance Efficiency
+
+Performance efficiency ensures that your Azure Virtual Desktop for Azure Local deployment can handle user demand effectively, especially during peak usage times. Scaling resources to meet concurrent user needs while optimizing for cost and responsiveness is crucial in maintaining high performance. Performance efficiency encompasses optimizing storage performance, load balancing, and caching strategies, all aimed at delivering a consistent and high-quality experience to end-users.
+
+## Performance Efficiency Considerations
+
+- **Leverage Load Balancing for Optimal Performance**: Distributing network traffic evenly across Azure Virtual Desktop instances ensures that no single VM becomes a bottleneck. Load balancers help improve responsiveness by evenly distributing user sessions, which is especially important during peak times. Azure Virtual Desktop supports built-in load balancing algorithms that manage user session distribution effectively. Breadth-First Load Balancing assigns new user sessions to the session host with the least number of connections, promoting an even distribution. Depth-First Load Balancing fills up one session host before moving on to the next, which can be efficient during low usage periods. Learn more about [load balancing](https://learn.microsoft.com/azure/load-balancer/load-balancer-overview).
+
+- **Optimize Storage Performance for Virtual Desktops**: 
+  - **High-Performance Storage Solutions**: Utilize high-speed storage options, such as NVMe SSDs, to reduce latency and improve input/output operations per second (IOPS) for virtual desktops.
+  - **Storage Spaces Direct (S2D)**: Implement S2D in Azure Local to pool local storage from cluster nodes, providing high-performance and resilient storage for your VMs.
+  - **Storage Tiering**: Use storage tiers to automatically move frequently accessed data to faster storage media and less-accessed data to slower media, optimizing performance and cost. Read more about [Azure Storage Performance](https://learn.microsoft.com/azure/architecture/framework/performance-efficiency/).
+
+For more information, see [Well-Architected Framework Performance Efficiency Design Principles](https://learn.microsoft.com/azure/architecture/framework/performance-efficiency/).
+
 
 ## Related resources
 
@@ -293,4 +385,3 @@ Microsoft Learn modules:
 - [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
 
 
-test Mon
