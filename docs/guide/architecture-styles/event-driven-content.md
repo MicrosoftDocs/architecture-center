@@ -42,7 +42,7 @@ There are two primary topologies within many event-driven architectures:
 - Producers and consumers are decoupled.
 - No point-to-point integrations. It's easy to add new consumers to the system.
 - Consumers can respond to events immediately as they arrive.
-- Highly scalable, elastic and distributed.
+- Highly scalable, elastic, and distributed.
 - Subsystems have independent views of the event stream.
 
 ## Challenges
