@@ -1613,6 +1613,8 @@ items:
               href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
           - name: Azure Stack HCI Hybrid cross cluster scaling
             href: hybrid/hybrid-cross-cluster-scaling.yml
+          - name: Azure Virtual Desktop for Azure Local
+            href: hybrid/azure-local-workload-avd.yml
       - name: Azure Stack Hub solutions
         items:
         - name: Back up files on Azure Stack Hub
