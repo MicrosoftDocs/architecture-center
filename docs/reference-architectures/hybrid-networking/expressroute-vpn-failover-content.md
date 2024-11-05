@@ -217,7 +217,7 @@ You can configure high availability for your Azure connection in different ways,
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering. (Each peering is designated a pair of /30 address spaces, as described in the previous section.)
 
-    ![0]][0]
+    ![0][0]
 
 - If you use a layer 3 connection, verify that it provides redundant BGP sessions that handle availability for you.
 
