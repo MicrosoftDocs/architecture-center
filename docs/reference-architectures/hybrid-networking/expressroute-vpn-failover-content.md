@@ -380,5 +380,4 @@ Microsoft Learn modules:
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
-[2]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Diagram that shows using forced tunneling to audit internet-bound traffic."
 [visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx
