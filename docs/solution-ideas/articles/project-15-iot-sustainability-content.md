@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Project 15 Open Platform was developed in partnership with the GEF Small Grants Programme, which the United Nations Development Programme implemented. For more information, see [Project 15 from Microsoft – A Story in Five Parts](http://aka.ms/project15story).
+Project 15 Open Platform was developed in partnership with the GEF Small Grants Programme, which the United Nations Development Programme implemented. For more information, see [Project 15 from Microsoft – A story in five parts](http://aka.ms/project15story).
 
 ## Architecture
 
@@ -92,7 +92,9 @@ The goal of [Project 15 Open Platform][Project 15 from Microsoft] is to bring th
 The core goals of Project 15 Open Platform are to:
 
 * **Close the skills gap, boost innovation, and accelerate problem-solving.** Project 15 Open Platform is a ready-made platform that scientific developers can use for specific scenarios.
+
 * **Decrease the time to deployment.** Project 15 Open Platform gets teams to 80% completion of their projects. This boost dramatically reduces the time that teams need to start making crucial insights.
+
 * **Reduce development costs.** Project 15 Open Platform reduces overall development costs and makes building connected device-based solutions on Azure less complex. The open platform also gives teams opportunities to partner with the open-source developer community and universities.
 
 :::image type="complex" source="../media/project-15-open-platform-overview.svg" alt-text="A diagram that provides an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires." border="false" lightbox="../media/project-15-open-platform-overview.svg":::
@@ -109,12 +111,12 @@ The solution has three main categories:
 
   Azure services make up the core infrastructure of the solution. You deploy these services only once, and then you expand them as you add devices to the solution. You don't need to fully understand these services to take advantage of the platform. To get a better understanding of these core components, see the following resources:
 
-  - [Internet of Things Event Learning Path][Internet of Things Learning Path]
+  - [Internet of Things event learning path][Internet of Things Learning Path]
   - [Introduction to Azure IoT][Introduction to Azure IoT]
 
 * **Components that are included but need customization**
 
-  The platform deploys these services for you, but you need to modify them to meet your solution's requirements. For more information on these services, see [Project 15 Open Platform developer guide][Project 15 Open Platform Developer Guide].
+  The platform deploys these services for you, but you need to modify them to meet your solution's requirements. For more information on these services, see [Project 15 Open Platform developer guide][Project 15 Open Platform developer guide].
 
 * **Components that aren't included and require full customization**
 
@@ -149,9 +151,9 @@ Principal authors:
 
 - For more information about deploying to Azure and customizing conservation and ecological sustainability solutions, see [Project 15 Open Platform on GitHub][Project 15 on GitHub].
 - [Introduction to Azure IoT][Introduction to Azure IoT]
-- [Internet of Things Event Learning Path][Internet of Things Learning Path]
-- [Microsoft & Sustainability][Microsoft & Sustainability]
-- [Seeed Studio's IoT Into the Wild][Seeed Studio’s IoT Into the Wild]
+- [Internet of Things event learning path][Internet of Things Learning Path]
+- [Microsoft and sustainability][Microsoft & Sustainability]
+- [Seeed Studio's IoT into the wild][Seeed Studio’s IoT Into the Wild]
 
 ## Related resources
 
@@ -186,5 +188,5 @@ Principal authors:
 [Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
 [Microsoft Power Platform]: https://powerplatform.microsoft.com
 [Internet of Things Learning Path]: https://aka.ms/iotlp
-[Introduction to Azure IoT]: https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-iot/
+[Introduction to Azure IoT]: https://learn.microsoft.com/training/modules/introduction-to-azure-iot/
 [Seeed Studio’s IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html
