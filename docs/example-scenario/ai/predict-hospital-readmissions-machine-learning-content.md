@@ -163,7 +163,6 @@ Principal authors:
 ## Related resources
 
 - [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
 - [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
