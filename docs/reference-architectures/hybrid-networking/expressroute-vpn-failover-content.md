@@ -239,7 +239,7 @@ To maximize security, add network security appliances between the on-premises ne
 
 For auditing or compliance, you might need to block direct internet access for components that run in the virtual network and implement forced tunneling. In this situation, internet traffic should be redirected back through a proxy that's running on-premises, where it can be audited. You can configure the proxy to block unauthorized traffic from flowing out and filter potentially malicious inbound traffic.
 
-![[2]][2]
+![Diagram that shows using forced tunneling to audit internet-bound traffic.](../_images/guidance-hybrid-network-expressroute/figure4.png)
 
 To maximize security, don't enable a public IP address for your VMs, and use NSGs to help ensure that these VMs aren't publicly accessible. VMs should only be available via the internal IP address. You can make these addresses accessible through the ExpressRoute network, which enables on-premises DevOps staff to perform configuration or maintenance.
 
