@@ -187,7 +187,7 @@ You need to replicate your app backups to a storage account in a different regio
 
 Object replication doesn't guarantee how quickly data is replicated. However, you can [check the replication status of a blob](/azure/storage/blobs/object-replication-configure#check-the-replication-status-of-a-blob).
 
-Alternatively, you can use a tool like [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to explicitly copy the backup files between storage accounts in different regions. AzCopy is a tool, not a service, so you need to configure it to run by using Azure Automation or another compute platform:
+If you need to control the frequency of data replication between storage accounts, you can use a tool like [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to explicitly copy the backup files between storage accounts in different regions. AzCopy is a tool, not a service, so you need to configure it to run by using Azure Automation or another compute platform:
 
 ---
 
