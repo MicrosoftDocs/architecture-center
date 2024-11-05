@@ -264,7 +264,7 @@ Cost Optimization is about reducing unnecessary expenses and improving operation
 
 For ExpressRoute cost considerations, see these articles:
 
-- [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#considerations).
+- [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml#considerations).
 
 #### ExpressRoute
 
@@ -360,7 +360,6 @@ Microsoft Learn modules:
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Connect an on-premises network to Azure](index.yml)
-- [Extend an on-premises network using ExpressRoute](expressroute.yml)
 - [Implement a secure hybrid network](../dmz/secure-vnet-dmz.yml)
 - [Integrate on-premises AD with Azure](../identity/index.yml)
 
@@ -368,9 +367,9 @@ Microsoft Learn modules:
 
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
-[configure-expressroute]: ./expressroute.yml
+[configure-expressroute]: ./expressroute-vpn-failover.yml
 [configure-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
-[guidance-expressroute]: ./expressroute.yml
+[guidance-expressroute]: ./expressroute-vpn-failover.yml
 [guidance-vpn]: /azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
 [best-practices-security]: /azure/best-practices-network-security
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
