@@ -5594,6 +5594,11 @@
       "source_path": "docs/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml",
       "redirect_url": "/azure/confidential-computing/choose-confidential-containers-offerings",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/realtime-analytics-vehicle-iot.yml",
+      "redirect_url": "/azure-sphere/app-development/setup-iot-edge?view=azure-sphere-integrated",
+      "redirect_document_id": false
     }
   ]
 }

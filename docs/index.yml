@@ -293,9 +293,6 @@ conceptualContent:
         - text: IoT architecture
           itemType: architecture
           url: reference-architectures/iot.yml
-        - text: Automotive IoT data
-          itemType: get-started
-          url:  example-scenario/data/realtime-analytics-vehicle-iot.yml
 
     - title: Microservices
       links:
