@@ -2,7 +2,7 @@ This architecture is based on the [basic enterprise integration][basic-enterpris
 
 ## Architecture
 
-The back-end systems that this design references include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
+The back-end systems that this design references include software as a service (SaaS) systems, Azure services, message-based services, and existing web services in your enterprise.
 
 :::image type="content" source="./media/enterprise-integration-message-broker-events.svg" alt-text="Diagram that shows a reference architecture for enterprise integration that uses queues and events." border="false" lightbox="./media/enterprise-integration-message-broker-events.svg":::
 
