@@ -2636,8 +2636,6 @@ items:
         href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
       - name: Loan credit risk modeling
         href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
-      - name: Long-term security logs in Data Explorer
-        href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.yml
       - name: Securely managed web apps

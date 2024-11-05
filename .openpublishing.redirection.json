@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/security/security-log-retention-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-service-bus",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/analytics/optimize-inventory-forecast-demand.yml",
       "redirect_url": "/azure/architecture/example-scenario/ai/citizen-ai-power-platform",
       "redirect_document_id": false
