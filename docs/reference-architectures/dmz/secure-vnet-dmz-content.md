@@ -31,7 +31,7 @@ The architecture consists of the following aspects:
 
 ## Potential use cases
 
-This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn-failover] or an [ExpressRoute][ra-expressroute] connection. Typical uses for this architecture include:
+This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn-failover] or an ExpressRoute connection. Typical uses for this architecture include:
 
 - Hybrid applications where workloads run partly on-premises and partly in Azure.
 - Infrastructure that requires granular control over traffic entering an Azure virtual network from an on-premises datacenter.
