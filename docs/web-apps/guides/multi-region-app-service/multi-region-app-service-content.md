@@ -53,8 +53,10 @@ Each region's App Service applications use the same configuration, including pri
 **During normal operations**,  public traffic direct to the App Service app is blocked. Traffic is instead routed though Azure Front Door to both active regions. This approach helps you to ensure that requests are inspected by the Azure Front Door web application firewall (WAF), or that they otherwise are secured or managed centrally.
 
 **During a region failure**, if one of the regions goes offline, the Azure Front Door health probes detect the faulty origin and reconfigure the routes so that traffic is sent exclusively to the region that remains online. 
+
+**During a faulty region recovery (failback)**, the Azure Front Door health probes detect the healthy origin and restore normal traffic routing.
+
 ### Recommendations
-**During a faulty region recovery (Failback)**, the Azure Front Door health probes detect the healthy origin and restore normal traffic routing.
 
 - To meet an RPO of zero for application content, use a CI/CD solution to deploy application files to both web apps.
 
@@ -62,9 +64,6 @@ Each region's App Service applications use the same configuration, including pri
 
    >[!TIP]
    >If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
-
-- **Failback:** When the faulty region recovers, the Azure Front Door health probes detect the healthy origin and restores normal traffic routing.
-
 ### Considerations
 
 - **Low RTO:** The RTO during such a geo-failover depends on how soon the health probes detect the faulty region. By default, probes check every 30 seconds, but [you can configure a different probe frequency](/azure/frontdoor/health-probes).
@@ -103,19 +102,19 @@ In an active-passive architecture, identical web apps are deployed in two separa
 
 **During a region failure**, if the primary region becomes inactive, Azure Front Door health probes detect the faulty origin and begins traffic routing to the origin in the secondary region. The secondary region then becomes the active region. Once the secondary region becomes active, the network load triggers preconfigured autoscale rules to scale out the secondary web app.
 
-**During a faulty region recovery (Failback)**, Azure Front Door automatically directs traffic back to the primary region, and the architecture is back to active-passive as before.
+**During a faulty region recovery (failback)**, Azure Front Door automatically directs traffic back to the primary region, and the architecture is back to active-passive as before.
 
    >[!NOTE]
    >You may need to scale up the pricing tier for the secondary region manually, if it doesn't already have the needed features to run as the active region. For example, [autoscaling requires Standard tier or higher](https://azure.microsoft.com/pricing/details/app-service/windows/).
+
 ### Recommendations
+
 - To meet an RPO of zero for application content, use a CI/CD solution to deploy application files to both web apps.
 
 -  Where possible, store application state outside of the App Service file system such as in a database or Azure Storage. Configure those components to meet your geo-redundancy requirements.
 
    >[!TIP]
    >If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
-
-- **Failback:** When the primary region is available again, Azure Front Door automatically directs traffic back to it, and the architecture is back to active-passive as before.
 
 ### Considerations
 
