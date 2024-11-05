@@ -17,7 +17,7 @@ products:
 
 # Oracle on Azure architecture design
 
-Oracle on Azure providse two principal technology platform options:
+Oracle on Azure provides two principal technology platform options:
 
 - [Oracle on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/). Run Oracle databases and enterprise applications, such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications on Azure infrastructure. You can use an Oracle Linux image, Red Hat Enterprise Linux (RHEL), or another endorsed operating system. There are multiple VMs and storage options available.
 
