@@ -432,8 +432,6 @@ items:
         href: guide/power-platform/eventual-consistency.yml
       - name: Extract text using Power Automate
         href: example-scenario/ai/extract-object-text.yml
-      - name: Optimize inventory and forecast demand
-        href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
       - name: Power Automate deployment at scale
         href: example-scenario/power-automate/power-automate.yml
     - name: Azure and Microsoft 365 scenarios
@@ -2936,8 +2934,6 @@ items:
         href: example-scenario/apps/ecommerce-search.yml
       - name: Magento e-commerce platform in AKS
         href: example-scenario/magento/magento-azure.yml
-      - name: Optimize inventory and forecast demand
-        href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
   - name: Financial Services

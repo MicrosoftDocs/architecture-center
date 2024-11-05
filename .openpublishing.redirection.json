@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/analytics/optimize-inventory-forecast-demand.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/citizen-ai-power-platform",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/synapse-exploratory-data-analytics.yml",
       "redirect_url": "/azure/synapse-analytics/sql/on-demand-workspace-overview",
       "redirect_document_id": false
