@@ -56,13 +56,13 @@ The following three sections provide an overview of Azure Virtual Desktop for Az
 
 ### Azure Virtual Desktop for Azure Local
 
-Azure Virtual Desktop for Azure Local is a robust desktop and application virtualization solution that combines the flexibility of Azure Virtual Desktop with the performance and reliability of Azure Local. This setup allows customers to deliver secure, scalable virtual desktops and applications, using their existing on-premises infrastructure.
+Azure Virtual Desktop for Azure Local is a robust desktop and application virtualization solution that combines the flexibility of Azure Virtual Desktop with the performance and reliability of Azure Local. This setup allows you to deliver secure, scalable virtual desktops and applications, using their existing on-premises infrastructure.
 
 ### Virtual Machines in Azure Virtual Desktop
 
 In Azure Virtual Desktop, Arc virtual machines (VMs) running Windows are used to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. Note that all references to VMs in this article is referring to the use of [Arc VMs](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 
-Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. While you can create non-Arc VMs, they lack the advanced management features and integration benefits provided by Arc.
+Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that you can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. While you can create non-Arc VMs, they lack the advanced management features and integration benefits provided by Arc.
 
 ### Benefits
 
@@ -222,7 +222,7 @@ The following section outlines the key factors that organizations should conside
 
 ### Recommendation
 
-While single-session Azure Virtual Desktop for Azure Local offers dedicated resources, performance isolation, and extensive user customization, these benefits come with higher resource demands. **Organizations that prioritize efficient scaling and cost savings should consider Windows 10/11 multi-session as the optimal choice.** By sharing resources across users, multi-session deployments provide a compelling solution for businesses seeking to maximize their virtual desktop environments while maintaining high performance. Thus, we recommend that customers pursue the Windows 10/11 multi-session setup for their Azure Virtual Desktop for Azure Local use case.
+While single-session Azure Virtual Desktop for Azure Local offers dedicated resources, performance isolation, and extensive user customization, these benefits come with higher resource demands. **Organizations that prioritize efficient scaling and cost savings should consider Windows 10/11 multi-session as the optimal choice.** By sharing resources across users, multi-session deployments provide a compelling solution for businesses seeking to maximize their virtual desktop environments while maintaining high performance. Thus, we recommend that you pursue the Windows 10/11 multi-session setup for their Azure Virtual Desktop for Azure Local use case.
 
 ### Example workload use case
 
@@ -246,7 +246,7 @@ For the recommended use case, the section below outlines the minimum hardware re
 |----------------|-------------|-------------------|-----------------------|-------------------------------|
 | 140            | 280         | 0.7               | 2.0                   | 60.0                          |
 
-These sample guidelines serve as reference and have not been validated. These numbers assume 50% concurrency and a 2:1 oversubscription rate (_vCPUs to physical cores_). Additionally, the machine and instance storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local instance for resiliency. For example, if the instance goes down, customers have another dormant host pool on a different instance for high availability, and the user profiles remain secure.
+These sample guidelines serve as reference and have not been validated. These numbers assume 50% concurrency and a 2:1 oversubscription rate (_vCPUs to physical cores_). Additionally, the machine and instance storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local instance for resiliency. For example, if the instance goes down, you have another dormant host pool on a different instance for high availability, and the user profiles remain secure.
 
 # Well-Architected Framework considerations
 
