@@ -235,7 +235,7 @@ ExpressRoute operates in layer 3. You can provide protection from threats in the
 
 To maximize security, add network security appliances between the on-premises network and the provider edge routers. This helps to restrict the inflow of unauthorized traffic from the virtual network:
 
-![[1]][1]
+![Diagram that shows adding security devices to the on-premises network.](../_images/guidance-hybrid-network-expressroute/figure3.png)
 
 For auditing or compliance, you might need to block direct internet access for components that run in the virtual network and implement forced tunneling. In this situation, internet traffic should be redirected back through a proxy that's running on-premises, where it can be audited. You can configure the proxy to block unauthorized traffic from flowing out and filter potentially malicious inbound traffic.
 
