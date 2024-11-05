@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about sample architectures, solutions, and guides that can help you explore Oracle workloads on Azure.
 author: kisshetty
 ms.author: kishetty
-ms.date: 08/31/2022
+ms.date: 11/05/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -17,16 +17,16 @@ products:
 
 # Oracle on Azure architecture design
 
-Oracle on Azure provide two principal technology platform options:
+Oracle on Azure providse two principal technology platform options:
 
-- [Oracle on Azure Virtual Machines:](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/) Run Oracle databases and enterprise applications, such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications on Azure infrastructure. You can use an Oracle Linux image, Red Hat Enterprise Linux (RHEL), or another endorsed operating system. There are multiple VMs and storage options available.
+- [Oracle on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/). Run Oracle databases and enterprise applications, such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications on Azure infrastructure. You can use an Oracle Linux image, Red Hat Enterprise Linux (RHEL), or another endorsed operating system. There are multiple VMs and storage options available.
 
-- [Oracle Database@Azure:](https://learn.microsoft.com/azure/oracle/oracle-db/oracle-database-what-is-new) You can use Oracle Database@Azure to run Oracle Exadata infrastructure in Azure. Oracle Exadata is a high-performance database platform. Oracle Database@Azure supports tools, such as Oracle Real Application Clusters (RAC) and Oracle Data Guard. Oracle enterprise applications such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications run on Azure VMs and can connect to Oracle Database@Azure.
+- [Oracle Database@Azure](/azure/oracle/oracle-db/oracle-database-what-is-new). You can use Oracle Database@Azure to run Oracle Exadata infrastructure in Azure. Oracle Exadata is a high-performance database platform. Oracle Database@Azure supports tools, such as Oracle Real Application Clusters (RAC) and Oracle Data Guard. Oracle enterprise applications such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications run on Azure VMs and can connect to Oracle Database@Azure.
 
 In addition to Oracle databases, Azure also supports:
 
-- [WebLogic Server integrated with Azure services](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-weblogic). Run Weblogic server on Azure with different options
-- [Accelerate your cloud adoption with Microsoft and Oracle](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/). Run your Oracle Database and enterprise applications on Azure and Oracle Cloud.
+- [WebLogic Server integrated with Azure services](/azure/virtual-machines/workloads/oracle/oracle-weblogic). Run Weblogic server on Azure with different options
+- [Accelerate your cloud adoption with Microsoft and Oracle](/azure/cloud-adoption-framework/scenarios/oracle-iaas/). Run your Oracle Database and enterprise applications on Azure and Oracle Cloud.
 
 - [Java on Azure](https://azure.microsoft.com/resources/developers/java/). Run Java EE applications with Oracle WebLogic Server on Azure Kubernetes Service (AKS) with solutions validated by Microsoft and Oracle.
 
@@ -70,10 +70,10 @@ The articles in this section can help you decide on a solution for running Oracl
 
 The articles in this section can help you identify and select the services and configurations that will best support your solutions for Oracle on Azure.
 
-- [SAP deployment on Azure using an Oracle database](../../example-scenario/apps/sap-production.yml). This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability.
-- [Data Migration Scenario](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-migration).                   Options to migrate data as part of database Migration
-- [Pefromance Best Practices](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-performance-best-practice). Host Oracle Database on Azure VMs and storage ptions
-- [Partner storage offereing](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-third-party-storage).       Host Oracle Database on Azure VMs with storage solution offering from partner.
+- [SAP deployment on Azure using an Oracle database](../../example-scenario/apps/sap-production.yml). Learn about a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability.
+- [Data migration scenario](/azure/virtual-machines/workloads/oracle/oracle-migration). Find options to migrate data as part of database migration.
+- [Perfomance best practices](/azure/virtual-machines/workloads/oracle/oracle-performance-best-practice). Host Oracle Database on Azure VMs and learn about storage options.
+- [Partner storage offering](/azure/virtual-machines/workloads/oracle/oracle-third-party-storage). Host Oracle Database on Azure VMs with storage solutions from a partner.
 
 ## Oracle on Azure architectures
 
@@ -84,7 +84,7 @@ The articles in this section describe architectures for deploying Oracle applica
 
 ## Stay current with Oracle on Azure
 
-To stay informed about Oracle on Azure, check Azure updates and the Microsoft Azure blog.
+To stay informed about Oracle on Azure, check Azure updates and the Azure blog.
 
 > [!div class="nextstepaction"]
 > [Check Azure updates for news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle)
