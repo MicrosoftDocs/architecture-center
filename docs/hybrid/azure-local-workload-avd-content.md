@@ -44,7 +44,7 @@ The steps outlined in the workflow section below provide an overview of the end 
    - The Azure Arc agent running on the session host VM provides additional governance and monitoring capabilities, VM lifecycle management operations are performed by the Azure Local instance.
 
 5. **User profile storage with FSLogix**
-   - Microsoft recommends using [FSLogix containers](https://learn.microsoft.com/en-us/fslogix/tutorial-configure-profile-containers) with Azure Virtual Desktop to manage and roam user profiles and personalization. These profiles are preferably stored on a dedicated NAS/SMB file share off the Azure Local instance or within the Storage Spaces Direct (S2D) pool on the Azure Local instance, allowing for efficient profile management and quick load times during user sessions.
+   - Microsoft recommends using [FSLogix containers](/fslogix/tutorial-configure-profile-containers) with Azure Virtual Desktop to manage and roam user profiles and personalization. These profiles are preferably stored on a dedicated NAS/SMB file share off the Azure Local instance or within the Storage Spaces Direct (S2D) pool on the Azure Local instance, allowing for efficient profile management and quick load times during user sessions.
 
 ## Components
 
@@ -71,12 +71,12 @@ Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuri
 By using Azure Virtual Desktop for Azure Local, you can:
 
 - **Improve performance** for Azure Virtual Desktop users in areas with poor connectivity to the Azure public cloud by giving them session hosts closer to their location.
-- **Meet data locality requirements** by keeping app and user data on-premises. For more information, see [Data locations for Azure Virtual Desktop](https://learn.microsoft.com/azure/virtual-desktop/data-locations).
+- **Meet data locality requirements** by keeping app and user data on-premises. For more information, see [Data locations for Azure Virtual Desktop](/azure/virtual-desktop/data-locations).
 - **Improve access to legacy on-premises apps and data sources** by keeping desktops and apps in the same location.
 - **Reduce cost and improve user experience** with Windows 10 and Windows 11 Enterprise multi-session, which allows multiple concurrent interactive sessions.
 - **Simplify your VDI deployment and management** compared to traditional on-premises VDI solutions by using the Azure portal.
-- **Achieve the best performance** by using [RDP Shortpath](https://learn.microsoft.com/en-us/azure/virtual-desktop/rdp-shortpath?tabs=managed-networks) for low-latency user access.
-- **Deploy the latest fully patched images quickly and easily** using [Azure Marketplace images](https://learn.microsoft.com/en-us/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
+- **Achieve the best performance** by using [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=managed-networks) for low-latency user access.
+- **Deploy the latest fully patched images quickly and easily** using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 
 ## Deploy this scenario
 
@@ -97,24 +97,24 @@ Your Azure Local instances must be running a minimum of [version 23H2](/azure-st
 
 To use session hosts on Azure Local with Azure Virtual Desktop, you also need to:
 
-- **License and activate the virtual machines.** For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](https://learn.microsoft.com/en-us/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Local](https://learn.microsoft.com/azure/virtual-desktop/activate-windows-server-vms).
-- **Install the [Azure Connected Machine agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview)** on the virtual machines so they can communicate with [Azure Instance Metadata Service](https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/virtual-desktop/required-fqdn-endpoint). The Azure Connected Machine agent is automatically installed when you add session hosts using the Azure portal as part of the process to [Deploy Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-azure-virtual-desktop) or [Add session hosts to a host pool](https://learn.microsoft.com/en-us/azure/virtual-desktop/add-session-hosts-host-pool).
+- **License and activate the virtual machines.** For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Local](azure/virtual-desktop/activate-windows-server-vms).
+- **Install the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview)** on the virtual machines so they can communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint). The Azure Connected Machine agent is automatically installed when you add session hosts using the Azure portal as part of the process to [Deploy Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop) or [Add session hosts to a host pool](/azure/virtual-desktop/add-session-hosts-host-pool).
 
-Finally, users can connect using the same [Remote Desktop clients](https://learn.microsoft.com/en-us/azure/virtual-desktop/users/remote-desktop-clients-overview) as Azure Virtual Desktop.
+Finally, users can connect using the same [Remote Desktop clients](/azure/virtual-desktop/users/remote-desktop-clients-overview) as Azure Virtual Desktop.
 
 ## Deployment methods
 
 Deploying Azure Virtual Desktop for Azure Local can be done using the following means:
 
-- [Azure Portal](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal)
-- [Azure CLI](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=cli)
-- [Azure PowerShell](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=powershell)
+- [Azure Portal](/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal)
+- [Azure CLI](/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=cli)
+- [Azure PowerShell](/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=powershell)
 
 A detailed guide is available in the links above, whereby users are guided stepwise through the prerequisites, host pool, workspace, application group, and assignment creation.
 
 ### ARM Templates and Terraform
 
-The Azure Virtual Desktop workload deployment can be streamlined significantly using [ARM (Azure Resource Manager)](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) templates, which provide automation, consistency, and repeatability when deploying Azure resources.
+The Azure Virtual Desktop workload deployment can be streamlined significantly using [ARM (Azure Resource Manager)](/azure/azure-resource-manager/templates/overview) templates, which provide automation, consistency, and repeatability when deploying Azure resources.
 
 An example ARM template and parameter file to deploy an Azure Local instance is [here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip).
 
@@ -128,7 +128,7 @@ Terraform can be used to deploy Azure Local instances, logical networks and Arc 
 
 - **Virtual machine**: [Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm)
 
-For a consolidated list of recent feature updates, see [What's new in Azure Virtual Desktop? - Azure | Microsoft Learn](https://learn.microsoft.com/azure/virtual-desktop/whats-new).
+For a consolidated list of recent feature updates, see [What's new in Azure Virtual Desktop? - Azure | Microsoft Learn](/azure/virtual-desktop/whats-new).
 
 ## Workload design considerations
 
@@ -136,7 +136,7 @@ In building out an Azure Virtual Desktop for Azure Local solution, there are sev
 
 ### Azure Virtual Desktop workload types
 
-Session host virtual machines in an Azure Virtual Desktop for Azure Local environment can accommodate a wide range of workload types, each with specific resource requirements. To assist in estimating the optimal sizing for your virtual machines, the following table presents examples of various [workload categories](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs).
+Session host virtual machines in an Azure Virtual Desktop for Azure Local environment can accommodate a wide range of workload types, each with specific resource requirements. To assist in estimating the optimal sizing for your virtual machines, the following table presents examples of various [workload categories](/windows-server/remote/remote-desktop-services/virtual-machine-recs).
 
 | Workload Type | Example Users                 | Example Apps                                                                                         |
 |---------------|-------------------------------|------------------------------------------------------------------------------------------------------|
@@ -151,7 +151,7 @@ Please note that the workload types (light/medium/heavy/power) are indicative. W
 
 In Azure Virtual Desktop, managing user profiles and storage efficiently is pivotal for ensuring a seamless user experience. A user profile contains data elements about the individual, including configuration information like desktop settings, persistent network connections, and application settings.
 
-[**FSLogix**](https://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-containers) is Microsoft’s recommended solution for profile management in virtual desktop environments, designed to simplify and enhance user experience. It provides a robust and scalable approach for handling user profiles, ensuring fast login times and consistent user experience across sessions. [FSLogix uses profile containers](https://learn.microsoft.com/en-us/fslogix/overview-what-is-fslogix) to store user profiles in Virtual Hard Disks (VHD) files located either on the Azure Local instance itself or on a separate Azure or SMB-compatible file share. This method isolates user profiles, preventing conflicts and ensuring a personalized experience for each user, while also enhancing security and performance by maintaining profile independence. Additionally, FSLogix integrates seamlessly with Azure Virtual Desktop, optimizing the management and performance of user profiles in both single and multi-session environments.
+[**FSLogix**](/azure/virtual-desktop/fslogix-profile-containers) is Microsoft’s recommended solution for profile management in virtual desktop environments, designed to simplify and enhance user experience. It provides a robust and scalable approach for handling user profiles, ensuring fast login times and consistent user experience across sessions. [FSLogix uses profile containers](/fslogix/overview-what-is-fslogix) to store user profiles in Virtual Hard Disks (VHD) files located either on the Azure Local instance itself or on a separate Azure or SMB-compatible file share. This method isolates user profiles, preventing conflicts and ensuring a personalized experience for each user, while also enhancing security and performance by maintaining profile independence. Additionally, FSLogix integrates seamlessly with Azure Virtual Desktop, optimizing the management and performance of user profiles in both single and multi-session environments.
 
 When deploying Azure Virtual Desktop for Azure Local, FSLogix can be installed in one of two configurations to effectively manage user profiles:
 
@@ -160,7 +160,7 @@ When deploying Azure Virtual Desktop for Azure Local, FSLogix can be installed i
 1. **Location**: FSLogix profiles can be stored on a dedicated file share within your on-premises environment. This file share can be hosted on an existing file server, network-attached storage (NAS), or a dedicated storage solution configured to serve the Azure Local instance.
 2. **Benefits**: Using a separate file share allows for centralized and scalable profile management. This approach is ideal for larger environments where centralizing profile storage ensures easier management and scalability.
 3. **Considerations**: Network performance and latency are crucial. The file share must be highly accessible with minimal latency to ensure quick login times and seamless user experience. Ensuring robust network infrastructure is essential to support this setup.
-4. **Recommendation for Large Deployments**: For organizations looking to scale beyond on-premises storage capacities, cloud-based storage solutions like [Azure Files](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction) can be used. These options provide high availability, robust performance, and simplified management, while alleviating storage constraints on the Azure Local instance. They can also offer better scalability and flexibility compared to local on-prem file shares.
+4. **Recommendation for large deployments**: For organizations looking to scale beyond on-premises storage capacities, cloud-based storage solutions like [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) can be used. These options provide high availability, robust performance, and simplified management, while alleviating storage constraints on the Azure Local instance. They can also offer better scalability and flexibility compared to local on-prem file shares. Consider network latency and bandwidth / through-put requirements when consider using cloud based storage solutions.
 
 ### 2. Same Azure Local instance
 
@@ -168,55 +168,55 @@ When deploying Azure Virtual Desktop for Azure Local, FSLogix can be installed i
 2. **Benefits**: This setup benefits from the high performance and low latency of local storage resources, which can enhance user experience by providing faster access to profile data. It also simplifies the deployment architecture by consolidating resources.
 3. **Considerations**: While this approach offers simplicity and performance benefits, it might limit scalability compared to using a separate file share. This option is more appropriate for smaller deployments or environments where the storage capacity and performance of the Azure Local instance can manage the additional load without affecting other workloads. Selecting this option could increase the Azure Local storage capacity and performance requirements, make sure to consider this when defining the Azure Local instance(s) hardware specification.
 
-## Session Types
+## Session types
 
 In Azure Virtual Desktop, user sessions can be classified into single-session and multi-session modes, each offering different performance and user experience options:
 
-- **Single-Session**: Each virtual machine (VM) hosts one user session, effectively providing a dedicated environment. This is similar to a traditional virtual desktop infrastructure (VDI) model where each user has their own desktop experience. Single-session is ideal for workloads that demand high performance, custom configurations, or applications that do not work well in shared environments.
+- **Single-session**: Each virtual machine (VM) hosts one user session, effectively providing a dedicated environment. This is similar to a traditional virtual desktop infrastructure (VDI) model where each user has their own desktop experience. Single-session is ideal for workloads that demand high performance, custom configurations, or applications that do not work well in shared environments.
 
-- **Multi-Session**: A single VM hosts multiple user sessions simultaneously. This is optimized for cost-efficiency and scalability, where resources like CPU, memory, and storage are shared across users. Multi-session is suited for scenarios where users need access to standard applications or lighter workloads, like task workers or shared workstations, as it consolidates resources across many users.
+- **Multi-session**: A single VM hosts multiple user sessions simultaneously. This is optimized for cost-efficiency and scalability, where resources like CPU, memory, and storage are shared across users. Multi-session is suited for scenarios where users need access to standard applications or lighter workloads, like task workers or shared workstations, as it consolidates resources across many users.
 
-### Considerations Between Session Types
+### Considerations between session types
 
 Running single-session Azure Virtual Desktop for Azure Local can be resource-intensive, as it requires dedicated resources for each individual user. In contrast, Windows 10/11 multi-session allows multiple users to share the same virtual machine (VM) and its resources, making it a far more efficient option. Given that Windows 10 and 11 multi-session is available exclusively through Azure Virtual Desktop, it offers a compelling advantage in both cost savings and user experience. Leading with Windows 10/11 multi-session enables organizations to maximize their infrastructure by supporting more users per VM, reducing overall resource consumption while delivering a familiar, high-quality desktop experience.
 
 The following section outlines the key factors that organizations should consider when selecting between single or multi-session environments.
 
-### 1. Cost Savings
+### 1. Cost savings
 
-- **Single-Session Environment**:
+- **Single-session environment**:
   - Each user gets a dedicated virtual machine (VM).
   - Ensures consistent performance without resource competition.
   - Requires provisioning VMs for peak individual user demand.
   - Significantly increases resource requirements per user.
 
-- **Multi-Session Environment**:
+- **Multi-session environment**:
   - Multiple users share a single VM's resources.
   - Dynamically allocates resources based on current user needs.
   - Optimizes resource usage, reducing demand per user.
   - Increases user density on each node, leading to cost savings.
   - Potential for minor performance variability, but efficiencies generally outweigh this.
 
-### 2. Enhanced User Experience
+### 2. Enhanced user experience
 
-- **Single-Session Environment**:
+- **Single-session environment**:
   - Provides complete performance isolation between users.
   - Ideal for consistent performance needs and resource-intensive applications.
   - Eliminates impact of one user's activities on another's experience.
 
-- **Multi-Session Environment**:
-  - Maintains software isolation but may have hardware resource contention.
+- **Multi-session environment**:
+  - Maintains software isolation but could have hardware resource contention.
   - Offers a familiar Windows 10/11 desktop environment.
   - Balances high-quality experience for typical office tasks and general applications with lower costs.
 
-### 3. User Customization
+### 3. User customization
 
-- **Single-Session Environment**:
+- **Single-session environment**:
   - Allows highly personalized setups for individual users.
   - Users can install and configure their own applications and settings.
   - Critical for scenarios requiring specific software versions or custom configurations.
 
-- **Multi-Session Environment**:
+- **Multi-session environment**:
   - Customization is limited to maintain stability for all users.
   - Administrators manage software installations and updates to avoid conflicts.
   - Restricts the level of personalization achievable by individual users.
@@ -228,7 +228,7 @@ While single-session Azure Virtual Desktop for Azure Local offers dedicated reso
 
 ### Example workload use case
 
-The section below  provides an example workload use case for Azure Virtual Desktop for Azure Local based on the published [Azure Virtual Desktop user density guide](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs), this can be used as a reference when deploying solutions.
+The section below  provides an example workload use case for Azure Virtual Desktop for Azure Local based on the published [Azure Virtual Desktop user density guide](/remote-desktop-services/virtual-machine-recs), this can be used as a reference when deploying solutions.
 
 - **Use Case**
   - **Session Type**: Multi-session
@@ -237,12 +237,12 @@ The section below  provides an example workload use case for Azure Virtual Deskt
 
 The multi-session use case is chosen over the single session use case given that most customers utilize this setup. This configuration coupled with Windows 11 Enterprise Multi-session offers an ideal setup for medium workloads, where applications have modest demands in terms of CPU and memory usage. Multi-session capabilities are a significant value proposition especially for Azure Virtual Desktop for Azure Local, enabling efficient resource utilization and cost savings by serving multiple users from a shared pool of resources. Key reasons for selecting this setup include:
 
-1. **General Business Applications**: Multi-session VMs are well-suited for running productivity applications like Microsoft Office, web browsers, and line-of-business applications that do not require high individual user resources.
-2. **Cost Effective Solution**: Multi-session setups provide a cost-effective solution for environments with many concurrent users, such as call centers or customer support teams, where many users typically engage in lightweight tasks.
+1. **General business applications**: Multi-session VMs are well-suited for running productivity applications like Microsoft Office, web browsers, and line-of-business applications that do not require high individual user resources.
+2. **Cost effective solution**: Multi-session setups provide a cost-effective solution for environments with many concurrent users, such as call centers or customer support teams, where many users typically engage in lightweight tasks.
 
 For the recommended use case above, the section below outlines the minimum hardware requirements:
 
-#### Multi-Session, Medium Workload, 2,000 Users
+#### Multi-session, medium workload, 2,000 users
 
 | Physical Cores | Total vCPUs | Total Memory (TB) | Total OS Storage (TB) | Profile Container Storage (TB) |
 |----------------|-------------|-------------------|-----------------------|-------------------------------|
@@ -250,7 +250,7 @@ For the recommended use case above, the section below outlines the minimum hardw
 
 Note that this is purely a sample guidance for reference and has not been validated. These numbers assume 50% concurrency and a 2:1 oversubscription rate (_vCPUs to physical cores_). Additionally, the machine and instance storage (TB) values do not include the Profile Container storage requirements, as the recommendation is that user profiles are stored on a separate file share off the Azure Local instance for resiliency (e.g., if the instance goes down, customers have another dormant host pool on a different instance for high availability, and the user profiles remain secure).
 
-# Well-Architected Framework
+# Well-Architected Framework considerations
 
 To help improve your Azure Virtual Desktop for Azure Local deployments, consider reviewing and implementing the recommendations from the five pillars of the Azure Well-Architected Framework. These are a set of guiding tenets that you can use to improve the reliability and quality of your workload solutions. For more information, see [Azure Well-Architected Framework perspective on Azure Stack HCI](/azure/well-architected/service-guides/azure-stack-hci).
 
@@ -381,5 +381,4 @@ Microsoft Learn modules:
 - [Introduction to Azure Arc-enabled servers](/training/modules/intro-to-arc-for-servers)
 - [Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
 - [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
-- [Scale model deployment with Azure Machine Learning anywhere - Tech Community Blog](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/scale-model-deployment-with-azure-machine-learning-anywhere/ba-p/2888753)
 - [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
