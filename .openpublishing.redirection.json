@@ -5599,6 +5599,11 @@
       "source_path": "docs/example-scenario/iot/attestation-provisioning.yml",
       "redirect_url": "/azure/iot-dps/concepts-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
+      "redirect_document_id": false
     }
   ]
 }

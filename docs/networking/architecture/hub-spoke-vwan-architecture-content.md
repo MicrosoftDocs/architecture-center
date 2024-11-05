@@ -107,11 +107,7 @@ A virtual hub can be created as a secured virtual hub or converted to a secure o
 
 ### GatewaySubnet
 
-For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
-
--   [Hybrid network using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml)
-
--   [Hybrid network using a VPN Gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
+For more information about setting up the gateway, see [Hybrid network using a VPN Gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
