@@ -223,7 +223,7 @@ The steps to create a passive-cold region for your web app in App Service are as
 
 # [Regions without a pair](#tab/non-paired-regions)
 
-The steps to create a passive-cold region for your web app in App Service are summarized as follows: 
+The steps to create a passive-cold region for your web app in App Service are as follows: 
 
 1. Create an Azure storage account in the same region as your web app. Choose Standard performance tier and select redundancy as zone-redundant storage (ZRS) if it's available.
 
