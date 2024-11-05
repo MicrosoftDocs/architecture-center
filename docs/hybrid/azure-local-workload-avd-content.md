@@ -21,11 +21,11 @@ For additional information review the [Azure Local Well-Architected Framework se
     Diagram that shows a reference architecture for deploying Azure Virtual Desktop on Azure Local.
 :::image-end:::
 
-The architecture diagram above provides a high-level overview of the Azure Virtual Desktop for Azure Local solution.
+Architecture diagram showing a high-level overview of the Azure Virtual Desktop for Azure Local solution.
 
 ### Workflow
 
-The steps outlined in the workflow section below provide an overview of the end to end service, starting with the communication from the client device to the AVD service. Correlate the workflow steps with the numbers in the architecture diagram.
+The steps outlined in the workflow section provide an overview of the end to end service, starting with the communication from the client device to the Azure Virtual Desktop cloud service. Correlate the workflow steps with the numbers in the architecture diagram.
 
 1. **User device initiates connection**
    - User devices (either on-premises or remote) run the Azure Virtual Desktop client and initiate a connection to the Azure Virtual Desktop service in Azure.
@@ -33,7 +33,7 @@ The steps outlined in the workflow section below provide an overview of the end 
 2. **User authentication via Microsoft Entra ID**
    - The Azure Virtual Desktop service in Azure interacts with [Microsoft Entra ID (formerly Azure Active Directory)](https://www.microsoft.com/en-sg/security/business/identity-access/microsoft-entra-id) to authenticate the user and perform a token exchange during login.
 
-   - **Hybrid identity synchronization**: A hybrid identity sync occurs between the on-prem AD DS (Active Directory Domain Services) server and the cloud-based Microsoft Entra ID, ensuring that user identities are synchronized and available for both local authentication (for session hosts on Azure Local) and cloud access. Note that this step operates continuously in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
+   - **Hybrid identity synchronization**: A hybrid identity sync occurs between the on-prem AD DS (Active Directory Domain Services) server and the cloud-based Microsoft Entra ID, ensuring that user identities are synchronized and available for both local authentication (for session hosts on Azure Local) and cloud access. This step operates continuously in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
 
    - **Session host connects to on premises AD DS**: The selected Azure Virtual Desktop session host connects to the on-premises AD DS server for user credential validation and applies any necessary group policies to configure the user's environment appropriately.
 
@@ -41,7 +41,7 @@ The steps outlined in the workflow section below provide an overview of the end 
    - The Azure Virtual Desktop agent installed on the session host VM communicates with the Azure Virtual Desktop service in Azure to manage session brokering, handle user sessions, and provide metering and diagnostics data.
 
 4. **Azure Arc agent infrastructure management**
-   - The Azure Arc agent running on the session host VM provides additional governance and monitoring capabilities, VM lifecycle management operations are performed by the Azure Local instance.
+   - The Azure Arc agent running on the session host VM provides security, governance and monitoring capabilities. Arc VM lifecycle management operations are orchestrated using the Azure Resource Bridge (ARB) component of the Azure Local instance.
 
 5. **User profile storage with FSLogix**
    - Microsoft recommends using [FSLogix containers](/fslogix/tutorial-configure-profile-containers) with Azure Virtual Desktop to manage and roam user profiles and personalization. These profiles are preferably stored on a dedicated NAS/SMB file share off the Azure Local instance or within the Storage Spaces Direct (S2D) pool on the Azure Local instance, allowing for efficient profile management and quick load times during user sessions.
@@ -52,7 +52,7 @@ The architecture resources remain mostly unchanged from the baseline reference a
 
 ## Product overview
 
-The following three sections provide an overview of Azure Virtual Desktop for Azure Local, Arc VMs and the benefits of the solution. If you require additional information please refer to the [Azure Virtual Desktop for Azure Local Microsoft learn documentation](/azure/virtual-desktop/azure-stack-hci-overview).
+The following three sections provide an overview of Azure Virtual Desktop for Azure Local, Arc VMs and the benefits of the solution. If you require additional information, please refer to the [Azure Virtual Desktop for Azure Local Microsoft learn documentation](/azure/virtual-desktop/azure-stack-hci-overview).
 
 ### Azure Virtual Desktop for Azure Local
 
