@@ -53,7 +53,7 @@ Each region's App Service applications use the same configuration, including pri
 **During normal operations**,  public traffic direct to the App Service app is blocked. Traffic is instead routed though Azure Front Door to both active regions. This approach helps you to ensure that requests are inspected by the Azure Front Door web application firewall (WAF), or that they otherwise are secured or managed centrally.
 
 **During a region failure**, if one of the regions goes offline, the Azure Front Door health probes detect the faulty origin and reconfigure the routes so that traffic is sent exclusively to the region that remains online. 
-
+### Recommendations
 **During a faulty region recovery (Failback)**, the Azure Front Door health probes detect the healthy origin and restore normal traffic routing.
 
 - To meet an RPO of zero for application content, use a CI/CD solution to deploy application files to both web apps.
