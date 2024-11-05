@@ -7,7 +7,7 @@ Project 15 Open Platform was developed in partnership with the GEF Small Grants 
 The following sections describe the functionality and architecture of Project 15 Open Platform.
 
 :::image type="complex" source="../media/project-15-reference-architecture.svg" alt-text="A diagram that shows how Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data." border="false" lightbox="../media/project-15-reference-architecture.svg":::
-The diagram shows the Azure components that make up Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
+The diagram shows the Azure components that make up Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows illustrate the flow of data between these layers and the interactions of users and devices with the system.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/project-15-reference-architecture.vsdx) of this architecture.*
@@ -28,7 +28,7 @@ The following Azure services and configurations make up Project 15 Open Platform
 1. Users connect to the presentation layer through browsers. In that layer:
 
    - Azure SignalR Service messaging provides real-time visualization.
-   - Azure App Service and its Web Apps feature provide platforms for building, deploying, and scaling web apps.
+   - Azure App Service and its Web Apps feature provide platforms that you can use to build, deploy, and scale web apps.
    - Tools like Power BI visualize IoT devices, telemetry, and events in websites.
    - Tools like Power Apps and Power Automate provide low-code apps and automated workflows.
 
@@ -39,10 +39,10 @@ The following Azure services and configurations make up Project 15 Open Platform
    - Azure Functions and Azure API Management work to make device management events available in websites.
    - Microsoft Entra ID manages users.
    - API Management and Event Grid manage external data.
-   - Azure Digital Twins provides modeling capabilities for optimizing operations.
+   - Azure Digital Twins provides modeling capabilities that you can use to optimize operations.
    - Microsoft Defender for Cloud secures the solution by establishing security policies and access controls.
    - Azure Notification Hubs and Azure Logic Apps handle notifications.
-   - Azure Machine Learning provides AI capabilities for predicting device behavior.
+   - Azure Machine Learning provides AI capabilities to help you predict device behavior.
    - Azure Maps tracks geofencing data to provide location-based services.
 
 ### Components
@@ -53,7 +53,7 @@ The following Azure services and configurations make up Project 15 Open Platform
 
 - [Event Hubs][Event Hubs] is a fully managed, big data streaming platform.
 
-- [Event Grid][Event Grid] simplifies event-based apps. This service routes events from sources to destinations while it decouples event publishers from event subscribers.
+- [Event Grid][Event Grid] simplifies event-based apps. This service routes events from sources to destinations and decouples event publishers from event subscribers.
 
 - [Stream Analytics][Stream Analytics] provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. Stream Analytics on IoT Edge can filter or aggregate data that you send to the cloud for further processing or storage.
 
@@ -101,7 +101,7 @@ The diagram shows the components and describes the functionality of Project 15 O
 
 *Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
 
-Although it's currently maintained by developers at Microsoft, Project 15 Open Platform isn't an official product from Microsoft.
+Developers at Microsoft currently maintain Project 15 Open Platform, but it isn't an official Microsoft product.
 
 The solution has three main categories:
 
@@ -109,16 +109,16 @@ The solution has three main categories:
 
   Azure services make up the core infrastructure of the solution. You deploy these services only once, and then you expand them as you add devices to the solution. You don't need to fully understand these services to take advantage of the platform. To get a better understanding of these core components, see the following resources:
 
-  - [Internet of Things Learning Path][Internet of Things Learning Path]
+  - [Internet of Things Event Learning Path][Internet of Things Learning Path]
   - [Introduction to Azure IoT][Introduction to Azure IoT]
 
 * **Components that are included but need customization**
 
-  The platform deploys these services for you, but you need to modify them to meet your solution's requirements. For details on these services, see [Project 15 Open Platform developer guide][Project 15 Open Platform Developer Guide].
+  The platform deploys these services for you, but you need to modify them to meet your solution's requirements. For more information on these services, see [Project 15 Open Platform developer guide][Project 15 Open Platform Developer Guide].
 
 * **Components that aren't included and require full customization**
 
-   You deploy the services to your own Azure account where you can then customize them to create your solution. Your IP resides in this account. 
+   You deploy the services to your own Azure account where you can then customize them to create your solution. Your IP address resides in this account. 
 
 ### Potential use cases
 
@@ -147,9 +147,9 @@ Principal authors:
 
 ## Next steps
 
-- To deploy to Azure and learn more about how to customize conservation and ecological sustainability solutions, see [Project 15 Open Platform on GitHub][Project 15 on GitHub].
+- For more information about deploying to Azure and customizing conservation and ecological sustainability solutions, see [Project 15 Open Platform on GitHub][Project 15 on GitHub].
 - [Introduction to Azure IoT][Introduction to Azure IoT]
-- [Internet of Things Learning Path][Internet of Things Learning Path]
+- [Internet of Things Event Learning Path][Internet of Things Learning Path]
 - [Microsoft & Sustainability][Microsoft & Sustainability]
 - [Seeed Studio's IoT Into the Wild][Seeed Studio’s IoT Into the Wild]
 
