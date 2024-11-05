@@ -52,7 +52,7 @@ The architecture resources remain mostly unchanged from the baseline reference a
 
 ## Product overview
 
-The following three sections provide an overview of Azure Virtual Desktop for Azure Local, Arc VMs, and the benefits of the solution. If you require additional information, please refer to the [Azure Virtual Desktop for Azure Local Microsoft learn documentation](/azure/virtual-desktop/azure-stack-hci-overview).
+The following three sections provide an overview of Azure Virtual Desktop for Azure Local, Arc VMs, and the benefits of the solution. If you require additional information, refer to the [Azure Virtual Desktop for Azure Local Microsoft learn documentation](/azure/virtual-desktop/azure-stack-hci-overview).
 
 ### Azure Virtual Desktop for Azure Local
 
@@ -60,9 +60,9 @@ Azure Virtual Desktop for Azure Local is a robust desktop and application virtua
 
 ### Virtual Machines in Azure Virtual Desktop
 
-In Azure Virtual Desktop, Arc virtual machines (VMs) running Windows are used to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. It is important to clarify that our references to VMs throughout this page refer to Arc VMs, which represent the key use case for customers (especially when deploying on 23H2 Azure Local or newer).
+In Azure Virtual Desktop, Arc virtual machines (VMs) running Windows are used to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. Note that all references to VMs in this article are referring to the use of [Arc VMs](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 
-Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. This makes them ideal for modern, scalable environments. While customers can still create regular VMs, these lack the advanced management features and integration benefits provided by Arc. 
+Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. This makes them ideal for modern, scalable environments. While you can create non-Arc VMs, they lack the advanced management features and integration benefits provided by Arc. 
 
 ### Benefits
 
@@ -294,7 +294,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - **Automatic VM guest OS patching for Azure Arc VMs**: This feature helps reduce the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation and contributes to overall cost efficiency. For more information, review [recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time)
 
-- **Single vs multi-session types**: Azure Virtual Desktop offers you the option of single or multi-session setups, whereby each VM hosts either one or multiple user sessions respectively. Depending on your needs, you will have the flexibility to choose either. However, running single-session Azure Virtual Desktop for Azure Local can be resource-intensive, as it requires dedicated resources for each individual user. In contrast, multi-session allows multiple users to share the same VM and its resources, making it a far more cost-effective option. Given that Windows 10 and 11 multi-session are available exclusively through Azure Virtual Desktop, it offers a compelling advantage in both cost savings and user experience. Review [recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) for more information.
+- **Single vs multi-session types**: Azure Virtual Desktop offers you the option of single or multi-session setups, whereby each VM hosts either one or multiple user sessions respectively. Depending on your needs, you have the flexibility to choose either. However, running single-session Azure Virtual Desktop for Azure Local can be resource-intensive, as it requires dedicated resources for each individual user. In contrast, multi-session allows multiple users to share the same VM and its resources, making it a far more cost-effective option. Given that Windows 10 and 11 multi-session are available exclusively through Azure Virtual Desktop, it offers a compelling advantage in both cost savings and user experience. Review [recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) for more information.
 
 - **Cost monitoring consolidation**: To consolidate monitoring costs, use Azure Local Insights and patch using Update Manager for Azure Local. Insights uses Azure Monitor to provide rich metrics and alerting capabilities. The lifecycle manager component of Azure Local integrates with Update Manager to simplify the task of keeping your instances up to date, by consolidating update workflows for various components into a single experience. Using Monitor and Update Manager helps to optimize resource allocation and contribute to overall cost efficiency. Review [recommendations for consolidation](/azure/well-architected/cost-optimization/consolidation) for more information.
 
