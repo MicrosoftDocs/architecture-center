@@ -1607,8 +1607,6 @@ items:
         maintainContext: true
       - name: Connect on-premises with ExpressRoute
         href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-      - name: Deploy AI and ML with Azure Stack Edge
-        href: ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml
       - name: Design a hybrid Domain Name System
         href: hybrid/hybrid-dns-infra.yml
       - name: 'Enhanced-security hybrid: client access'
