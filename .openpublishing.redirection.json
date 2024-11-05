@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "docs/guide/aks/aks-cicd-github-actions-and-gitops.yml",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml",
+      "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/teradata-vantage-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/azure-data-factory-mission-critical",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/ai-ml/architecture/customer-lifecycle-churn.yml",
       "redirect_url": "/azure/architecture/ai-ml",
       "redirect_document_id": false
