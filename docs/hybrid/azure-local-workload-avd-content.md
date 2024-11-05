@@ -60,9 +60,9 @@ Azure Virtual Desktop for Azure Local is a robust desktop and application virtua
 
 ### Virtual Machines in Azure Virtual Desktop
 
-In Azure Virtual Desktop, Arc virtual machines (VMs) running Windows are used to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. Note that all references to VMs in this article are referring to the use of [Arc VMs](/azure-stack/hci/manage/azure-arc-vm-management-overview).
+In Azure Virtual Desktop, Arc virtual machines (VMs) running Windows are used to host remote end user sessions. Understanding the specific requirements of these workloads is crucial for accurately sizing your virtual machines (VMs), and ultimately drives the design considerations for the Azure Virtual Desktop workloads. Note that all references to VMs in this article is referring to the use of [Arc VMs](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 
-Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. While you can create non-Arc VMs, they lack the advanced management features and integration benefits provided by Arc. 
+Importantly, Arc VMs maintain full compliance with Azure Virtual Desktop, ensuring that customers can run these workloads without any compatibility issues. Arc VMs also offer enhanced capabilities such as hybrid management, centralized policy enforcement, and seamless integration with Azure services. While you can create non-Arc VMs, they lack the advanced management features and integration benefits provided by Arc.
 
 ### Benefits
 
@@ -163,10 +163,10 @@ When you deploy Azure Virtual Desktop for Azure Local, FSLogix can be installed 
 ### 2. Same Azure Local instance
 
 1. **Location**: FSLogix can be installed directly on the same Azure Local instance that hosts the Azure Virtual Desktop infrastructure. The profile containers can be stored on the instance's storage.
-2. **Benefits**: This setup benefits from the high performance and low latency of local storage resources, which can enhance user experience by providing faster access to profile data. It also simplifies the deployment architecture by consolidating resources.
-3. **Considerations**: While this approach offers simplicity and performance benefits, it might limit scalability compared to using a separate file share. This option is more appropriate for smaller deployments or environments where the storage capacity and performance of the Azure Local instance can manage the additional load without affecting other workloads. Selecting this option could increase the Azure Local storage capacity and performance requirements. 
+1. **Benefits**: This setup benefits from the high performance and low latency of local storage resources, which can enhance user experience by providing faster access to profile data. It also simplifies the deployment architecture by consolidating resources.
+1. **Considerations**: While this approach offers simplicity and performance benefits, it might limit scalability compared to using a separate file share. This option is more appropriate for smaller deployments or environments where the storage capacity and performance of the Azure Local instance can manage the additional load without affecting other workloads. Selecting this option could increase the Azure Local storage capacity and performance requirements.
 
-## Session types
+### Session types
 
 In Azure Virtual Desktop, user sessions can be classified into single-session and multi-session modes, each offering different performance and user experience options:
 
@@ -180,7 +180,7 @@ Running single-session Azure Virtual Desktop for Azure Local can be resource-int
 
 The following section outlines the key factors that organizations should consider when selecting between single or multi-session environments.
 
-### 1. Cost savings
+#### 1. Cost savings
 
 - **Single-session environment**:
   - Each user gets a dedicated virtual machine (VM).
@@ -195,7 +195,7 @@ The following section outlines the key factors that organizations should conside
   - Increases user density on each node, leading to cost savings.
   - Potential for minor performance variability, but efficiencies generally outweigh this.
 
-### 2. Enhanced user experience
+#### 2. Enhanced user experience
 
 - **Single-session environment**:
   - Provides complete performance isolation between users.
@@ -207,7 +207,7 @@ The following section outlines the key factors that organizations should conside
   - Offers a familiar Windows 10/11 desktop environment.
   - Balances high-quality experience for typical office tasks and general applications with lower costs.
 
-### 3. User customization
+#### 3. User customization
 
 - **Single-session environment**:
   - Allows highly personalized setups for individual users.
