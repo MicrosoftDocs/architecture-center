@@ -5594,6 +5594,11 @@
       "source_path": "docs/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml",
       "redirect_url": "/azure/confidential-computing/choose-confidential-containers-offerings",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": false
     }
   ]
 }

@@ -1944,8 +1944,6 @@ items:
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Real-time asset tracking and management
-        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
   - name: Mainframe + Midrange
