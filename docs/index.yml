@@ -335,6 +335,7 @@ conceptualContent:
         - text: Choose a hybrid network architecture
           itemType: architecture
           url: reference-architectures/hybrid-networking/index.yml
+        - text: ExpressRoute with VPN failover
           itemType: architecture
           url: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
         - text: Troubleshoot a hybrid VPN connection
