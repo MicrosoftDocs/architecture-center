@@ -97,7 +97,7 @@ Your Azure Local instances must be running a minimum of [version 23H2](/azure-st
 
 To use session hosts on Azure Local with Azure Virtual Desktop, you also need to:
 
-- **License and activate the virtual machines.** For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Local](azure/virtual-desktop/activate-windows-server-vms).
+- **License and activate the virtual machines.** For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Local](/azure/virtual-desktop/activate-windows-server-vms).
 - **Install the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview)** on the virtual machines so they can communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint). The Azure Connected Machine agent is automatically installed when you add session hosts using the Azure portal as part of the process to [Deploy Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop) or [Add session hosts to a host pool](/azure/virtual-desktop/add-session-hosts-host-pool).
 
 Finally, users can connect using the same [Remote Desktop clients](/azure/virtual-desktop/users/remote-desktop-clients-overview) as Azure Virtual Desktop.
@@ -228,7 +228,7 @@ While single-session Azure Virtual Desktop for Azure Local offers dedicated reso
 
 ### Example workload use case
 
-The section below  provides an example workload use case for Azure Virtual Desktop for Azure Local based on the published [Azure Virtual Desktop user density guide](/remote-desktop-services/virtual-machine-recs), this can be used as a reference when deploying solutions.
+The section below  provides an example workload use case for Azure Virtual Desktop for Azure Local based on the published [Azure Virtual Desktop user density guide](/windows-server/remote/remote-desktop-services/virtual-machine-recs), this can be used as a reference when deploying solutions.
 
 - **Use Case**
   - **Session Type**: Multi-session
