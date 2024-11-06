@@ -217,7 +217,7 @@ You might wish to review the following [Azure example scenario](/azure/architect
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [cross-connected]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [dr-site]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
-[expressroute]: ../../reference-architectures/hybrid-networking/expressroute.yml
+[expressroute]: ../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
