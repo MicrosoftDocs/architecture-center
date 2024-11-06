@@ -125,7 +125,7 @@ Consider the following factors when you choose between an orchestrator approach 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Interservice communication](./interservice-communication.yml)
+> [Microservices on Azure](https://azure.microsoft.com/solutions/microservice-applications/?msockid=3bbaeb6b4c8a60711338fe44488a669b)
 
 ## Related resources
 
