@@ -1,4 +1,4 @@
-This architecture is based on the [basic enterprise integration][basic-enterprise-integration] architecture but includes how to integrate enterprise back-end systems. This architecture uses message brokers and events to decouple services for greater scalability and reliability. Ensure that you're familiar with the design and components in the basic integration architecture, which provide foundational information about the core components of this architecture.
+This architecture is based on the [basic enterprise integration][basic-enterprise-integration] architecture but includes how to integrate enterprise back-end systems. This architecture uses message brokers and events to decouple services for greater scalability and reliability. Ensure that you're familiar with the design and components in the basic integration architecture. These elements provide foundational information about the core components of this architecture.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ The back-end systems that this design references include software as a service (
 
 ### Scenario details
 
-The preceding architecture builds on the simpler [basic enterprise integration][basic-enterprise-integration] architecture that uses [Azure Logic Apps][logic-apps] to orchestrate workflows directly with back-end systems and [Azure API Management][apim] to create catalogs of APIs.
+The preceding architecture builds on the simpler [basic enterprise integration architecture][basic-enterprise-integration] that uses [Azure Logic Apps][logic-apps] to orchestrate workflows directly with back-end systems and uses [Azure API Management][apim] to create catalogs of APIs.
 
 This version of the architecture adds two components that help make the system more reliable and scalable:
 
@@ -23,7 +23,7 @@ This architecture uses asynchronous communication via a message broker instead o
 - Uses the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml) to handle bursts in workloads via load-leveling
 
 - Uses the [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml) so that you can broadcast messages to multiple consumers
-- Reliably tracks the progress of long-running workflows that involve multiple steps or multiple applications
+- Tracks the progress of long-running workflows reliably, even when they involve multiple steps or multiple applications
 - Helps to decouple applications
 - Integrates with existing message-based systems
 - Provides the ability to queue messages when a back-end system isn't available
@@ -38,7 +38,7 @@ Consider the following recommendations. For more recommendations, see [Basic ent
 
 ### Service Bus
 
-Service Bus has two delivery models, *pull* or *proxied push*:
+Service Bus has two delivery models, the *pull* model and the *proxied push* model:
 
 - **Pull model:** The receiver continuously polls for new messages. If you need to manage multiple queues and polling times, polling might be inefficient. But this model can simplify your architecture because it removes extra components and data hops.
 
@@ -50,7 +50,7 @@ Use [PeekLock mode](/azure/service-bus-messaging/message-transfers-locks-settlem
 
 ### Event Grid
 
-When an Event Grid trigger fires, it means *at least one* event happened. For example, when a logic app gets an Event Grid trigger for a Service Bus message, there might be several messages available to process.
+When an Event Grid trigger fires, it means that *at least one* event happened. For example, when a logic app gets an Event Grid trigger for a Service Bus message, there might be several messages available to process.
 
 ## Considerations
 
@@ -85,7 +85,7 @@ The Event Grid service helps secure event delivery through a validation code. If
 
 Consider network security throughout your design.
 
-- You can bind [Service Bus Premium](/azure/service-bus-messaging/network-security) to a virtual network subnet service endpoint. This configuration helps secure the namespace because it only accepts traffic from authorized virtual networks. You can also use [Azure Private Link](/azure/private-link/private-link-overview) to allow only private traffic to your virtual network via [private endpoints](/azure/service-bus-messaging/network-security#private-endpoints).
+- You can bind [Service Bus Premium](/azure/service-bus-messaging/network-security) to a virtual network subnet service endpoint. This configuration helps secure the namespace because it only accepts traffic from authorized virtual networks. You can also use [Azure Private Link](/azure/private-link/private-link-overview) to only allow private traffic to your virtual network via [private endpoints](/azure/service-bus-messaging/network-security#private-endpoints).
 
 - You can configure [Logic Apps Standard and Premium](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) to accept inbound traffic through [private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-inbound-traffic-through-private-endpoints) and to send outbound traffic through [virtual network integration](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-outbound-traffic-using-virtual-network-integration).
 - You can use an Azure virtual network to help secure access to your API Management instance and APIs. This method supports [private endpoints](/azure/api-management/virtual-network-concepts#inbound-private-endpoint). For more information, see [Use a virtual network with API Management](/azure/api-management/virtual-network-concepts).
