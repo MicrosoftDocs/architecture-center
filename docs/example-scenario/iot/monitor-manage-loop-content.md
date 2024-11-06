@@ -64,4 +64,4 @@ Principal author:
 ## Related resources
 
 - [Measure and control loops](measure-control-loop.yml)
-- [Analyze and optimize loops](analyze-optimize-loop.yml)
+

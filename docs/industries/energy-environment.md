@@ -58,7 +58,6 @@ The following are other ideas that you can use as a starting point for your ener
 - [Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)
 - [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
 - [Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
-- [IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)
 - [IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network)
 - [IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
