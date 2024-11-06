@@ -4,10 +4,10 @@ description: Compare options for real-time message stream processing in Azure, w
 author: martinekuan
 ms.author: pnp
 categories: azure
-ms.date: 07/25/2022
+ms.date: 11/06/2024
 ms.topic: conceptual
-ms.service: azure-architecture-center
-ms.subservice: architecture-guide
+ms.service: architecture-center
+ms.subservice: azure-guide
 products:
   - azure-databricks
   - azure-app-service
@@ -16,63 +16,124 @@ ms.custom:
 ---
 
 <!-- cSpell:ignore HDFS -->
-
 # Choose a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.
 
-Real-time stream processing consumes messages from either queue or file-based storage, processes the messages, and forwards the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.yml).
+# What is streaming data
+
+Organizations often have variety of data sources simultaneously emitting messages, records, or data ranging from a few bytes to several megabytes (MB). Streaming data is emitted at high volume in a continuous, incremental manner with the goal of low-latency processing. This type of data includes changes coming from applications, locations, events, and sensor information that companies use for real-time analytics and visibility into various aspects of their business.
+
+# Streaming Data Characteristics
+
+- Imperfect Data Integrity
+
+  Temporary errors at the source may result in  missing data elements. Guaranteeing data consistency is challenging due to the continuous nature of the stream, so stream processing and analytics systems typically include logic for data validation to mitigate these errors.
+
+- Continous data flow
+  
+  A data stream has no beginning or end, collecting data constantly is required. For example, server activity logs accumulate as long as the server runs
+
+- Nonhomogeneous Data Formats
+  
+  Data may be streamed in multiple formats, such as JSON, Avro, and CSV, with various data types including strings, numbers, dates, and binary types. Stream processing systems must handle these data variations.
+
+- Data Order 
+  
+  Individual elements in a data stream contain timestamps, and the data stream itself may be time-sensitive with diminished significance after a specific interval. In certain cases, there would be a need to preserve the order in which data gets processed.
 
 ## What are your options when choosing a technology for real-time processing?
 
-In Azure, all of the following data stores will meet the core requirements supporting real-time processing:
+Inorder to choose the right technology lets start exploring te different options we have across the stack from ingestion to consumption. Below, we have provided options segmented by using a highlevel stream processing flow.
 
-- [Azure Stream Analytics](/azure/stream-analytics/)
-- [HDInsight with Spark Streaming](/azure/hdinsight/spark/apache-spark-streaming-overview)
-- [Apache Spark in Azure Databricks](/azure/azure-databricks/)
-- [Azure Functions](/azure/azure-functions/functions-overview)
-- [Azure App Service WebJobs](/azure/app-service/web-sites-create-web-jobs)
-- [Apache Kafka streams API](/azure/hdinsight/kafka/apache-kafka-streams-api)
+# Highlevel Stream processing flow
 
-## Key Selection Criteria
+Visio Diagram goes here
 
-For real-time processing scenarios, begin choosing the appropriate service for your needs by answering these questions:
+- ## Stream Producers
 
-- Do you prefer a declarative or imperative approach to authoring stream processing logic?
+  Streaming producers are responsible for generating and pushing data into Azure's ingestion services. They continuously produce data from external sources like IoT devices, application logs, or databases.
 
-- Do you need built-in support for temporal processing or windowing?
+- Key Considerations:
 
-- Does your data arrive in formats besides Avro, JSON, or CSV? If yes, consider options that support any format using custom code.
+  - Capturing Real-time Data: Producers continuously collect data from sources such as IoT devices, user interactions, and application logs, streaming it into Azure services like Event Hubs or IoT Hub.
+  - Optimizing Throughput with Batching & Compression: Producers enhance efficiency by batching messages and applying compression to minimize data size during transmission.
+   - Ensuring Reliable Transmission with Error Handling & Retries: Producers in Azure Event Hubs are equipped to manage network disruptions or broker failures through automatic retries, ensuring dependable data delivery.
+  - Guaranteeing Data Integrity with Idempotence: Producers can be configured to support exactly-once delivery, preventing duplicate messages and ensuring consistent data flow.
 
-- Do you need to scale your processing beyond 1 GBps? If yes, consider the options that scale with the cluster size.
+*Azure databases such as SQLDB and CosmosDB support Change data capture. This data has to be read using connectors such as debezium  or change feed for CosmosDB hosted on fuctions or App service enviroments. 
 
-## Capability matrix
-
-The following tables summarize the key differences in capabilities.
+** Debezium can be hosted as stand alone applcations on managed services such as (AKS, Azure App service environments)
 
 ### General capabilities
 
-| Capability           | Azure Stream Analytics                                                           | HDInsight with Spark Streaming                                                 | Apache Spark in Azure Databricks                                           | Azure Functions                                 | Azure App Service WebJobs      |
-|----------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------|-------------------------------------------------|--------------------------------|
-| Programmability      | SQL, JavaScript                                                                  | [C#/F#][dotnet-spark], Java, Python, Scala                                     | [C#/F#][dotnet-spark], Java, Python, R, Scala                              | C#, F#, Java, Node.js, Python                   | C#, Java, Node.js, PHP, Python |
-| Programming paradigm | Declarative                                                                      | Mixture of declarative and imperative                                          | Mixture of declarative and imperative                                      | Imperative                                      | Imperative                     |
-| Pricing model        | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | [Node cost per minute](https://azure.microsoft.com/pricing/details/hdinsight/) | [Databricks units](https://azure.microsoft.com/pricing/details/databricks) | Per function execution and resource consumption | Per App Service plan hour      |
+| Capability | Azure IOT Hub  | CDC Producers |Custom Applications|
+| --- | --- | --- | --- | 
+| Device Telemetry | Yes | No | No | 
+| Managed Service | Yes | No* | No* | 
+| Scalability | Yes | Yes** | Yes** | 
 
-### Integration capabilities
 
-| Capability | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | Azure Functions | Azure App Service WebJobs |
-| --- | --- | --- | --- | --- | --- |
-| Inputs | Azure Event Hubs, Azure IoT Hub, Azure Blob storage/Data Lake Storage Gen2  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Azure Cosmos DB, Files |
-| Sinks |  Azure Data Lake Storage Gen 1, Azure Data Explorer, Azure Database for PostgreSQL, Azure SQL Database, Azure Synapse Analytics, Blob storage and Azure Data Lake Gen 2, Azure Event Hubs, Power BI, Azure Table storage, Azure Service Bus queues, Azure Service Bus topics, Azure Cosmos DB,  Azure Functions  | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Azure Cosmos DB | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Azure Cosmos DB | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Azure Cosmos DB, Files |
+- ## Stream Ingestion
+  
+  Data that is continuously generated from producers like web and mobile applications, IoT devices, and sensors must be ingested efficiently into the stream processing pipeline for real-time and batch analysis.
 
-### Processing capabilities
+- Key Considerations:
+  
+    - Data Velocity: High-frequency data arrival from multiple sources, format compatability and size
+    - Scalability: Ability to scale ingestion buffer as data volume, variety and veocity grows.
+    - Data Integrity & Reliability: Ensuring data is not lost or duplicated during transmission.
 
-| Capability | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | Azure Functions | Azure App Service WebJobs |
-| --- | --- | --- | --- | --- | --- |
-| Built-in temporal/windowing support | Yes | Yes | Yes | No | No |
-| Input data formats | Avro, JSON or CSV, UTF-8 encoded | Any format using custom code | Any format using custom code  Any format using custom code | Any format using custom code |
-| Scalability | [Query partitions](/azure/stream-analytics/stream-analytics-parallelization) | Bounded by cluster size | Bounded by Databricks cluster scale configuration | Up to 200 function app instances processing in parallel | Bounded by App Service plan capacity |
-| Late arrival and out of order event handling support | Yes | Yes | Yes | No | No |
+### General capabilities
+
+| Capability | Azure Event Hubs  | Kafka on HdInsight | Confluent Kafka|
+| --- | --- | --- | --- | 
+| Message retention | Yes | Yes | Yes | 
+| Managed Service | Yes | Managed Iaas | Yes | 
+| Auto Scale | Yes | Yes | Yes | 
+| Pricing model | [Based on Tier](https://azure.microsoft.com/en-us/pricing/details/event-hubs/) | [Per Cluster Hour]() | [Consumption models](https://azuremarketplace.microsoft.com/en/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
+| Partner Offering | No | No | Yes |
+
+- ## Stream Processing
+
+  This step involves real-time transformation, filtering, aggregating, enriching, or analytics on the ingested data.
+
+- Key Considerations:
+
+  - Stateful vs Stateless Processing: Deciding between processing that depends on previously seen data (stateful) versus independent events (stateless).
+  - Windowing: Managing time-based aggregations and analytics using sliding or tumbling windows.
+  - Fault Tolerance: Ensuring the system can recover from failures without losing data or processing steps.
+
+  ### General capabilities
+
+| Capability |Stream Analytics | * Spark Structured Streaming (Fabric, Databricks, Synapse) | Azure Functions|
+| --- | --- | --- | --- | 
+| Stateful Processing | Yes | Yes | Yes | 
+| Check Pointing | Yes | Managed Iaas | Yes | 
+| Scalability |  | Yes** | Yes** | Yes|
+| Pricing model | [Streaming Units](https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption) | Yes** | Yes** |
+
+
+- ## Streaming Sinks
+
+  After data has been processed, it needs to be directed to appropriate destinations (sinks) where it can be stored, analyzed further, or used in real-time applications. These destinations may include databases, data lakes, analytics tools, or dashboards for visualization.
+
+- Key Considerations:
+
+  - Data Consumption and Usage: For real-time analytics or reporting dashboards, Power BI is highly integrated and allows live visualizations of data streams.
+  - Low-Latency Requirements: Many systems will need to efficiently provide analytics over real-time data streams such as device telemetry, application logs. There may be other applications that need ultra-low latency reads and writes, suitable for operational analytics or real-time applications.
+  - Scalability & Volume: Requirements for ingesting large volume of data, providing compatibility for various formats and need to scale cost-effectively.
+
+### General capabilities
+
+| Capability |Azure Datalake Storage | Fabric Event Store | CosmosDB|SQLDB|
+| --- | --- | --- | --- | --| 
+| General purpose object store | Yes | No | No | No|
+| Streaming data aggregations | No | Yes | No | No|
+| Low latency reads and writes for Json docuemnts | No | Yes | Yes | No|
+| Structured data aggregations for PowerBI | No | Yes | No | Yes|
+| Pricing model | Per GB/TB | [Fabric SKU](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) | [Request Units](https://learn.microsoft.com/en-us/azure/cosmos-db/request-units) |[DTU/Vcpus](https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/)|
+
 
 ## Contributors
 
@@ -80,7 +141,7 @@ The following tables summarize the key differences in capabilities.
 
 Principal author:
 
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+- [Pratima Valavala]() | Principal Solution Architect
 
 ## Next steps
 
