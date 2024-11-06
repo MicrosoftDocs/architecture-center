@@ -36,9 +36,9 @@ This article guides you through a model-view-presenter (MVP) architecture by usi
 
 - [Microsoft Power Platform](/power-platform): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power App, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents).
 
-- [Power Apps](https://powerapps.microsoft.com): A platform with a suite of apps, services, and connectors. It provides an environment for rapid application development to build custom apps for your business needs.
+- [Power Apps](/power-apps/powerapps-overview): A platform with a suite of apps, services, and connectors. It provides an environment for rapid application development to build custom apps for your business needs.
 
-- [Power Automate](https://flow.microsoft.com): A service that helps you create automated workflows between your favorite apps and services. Use it to synchronize files, get notifications, collect data, and so on.
+- [Power Automate](/power-automate/getting-started): A service that helps you create automated workflows between your favorite apps and services. Use it to synchronize files, get notifications, collect data, and so on.
 
 ### Alternatives
 
@@ -122,7 +122,7 @@ You can use Power Automate to build a low-code workflow to parse a user's input,
 
 :::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the dashboard workflow." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" :::
 
-To deploy this end-to-end example, follow step by step instructions in [Car Price Predictor - Azure ML + Power App Solution](https://github.com/Azure/carprice-aml-powerapp).
+To deploy this end-to-end example, follow step by step instructions in [Car Price Predictor - Azure Machine Learning + Power App Solution](https://github.com/Azure/carprice-aml-powerapp).
 
 ## Contributors
 
