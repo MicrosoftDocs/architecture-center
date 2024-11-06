@@ -60,9 +60,13 @@ The tables that follow identify the detailed characteristics for that level of p
 - [Training module: Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops)
 - [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
+- [Machine Learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
 
 ## Related resources
 
 - [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
 - [Secure MLOps solutions with Azure network security](../../ai-ml/guide/network-security-mlops.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
+
+
+[def]: /azure/machine-learning/concept-machine-learning-registries-mlops
