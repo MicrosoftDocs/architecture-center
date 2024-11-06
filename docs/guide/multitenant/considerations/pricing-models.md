@@ -30,7 +30,7 @@ When you're developing pricing models for your solution, consider the following 
 - **Will the COGS be higher than the profit you earn from the solution?** An [unprofitable pricing model](#unprofitable-pricing-models) approach might work for a time but it's unsustainable in the long term.
 - **Can the COGS change over time, based on growth in users or changes in usage patterns?** Model your COGS and growth to understand whether your COGS makes your solution unprofitable as you grow.
 - **How difficult is it to [measure and record the information required to operate the pricing model](measure-consumption.md)?** For example, if you plan to bill your customers based on the number of API calls they make, it's important to identify how you measure the API calls made by each customer.
-- **Does your profitability depend on ensuring customers use your solution in a limited way?** Avoid this type of structure, which creates mismatched incentives and can lead to mixed signaling to customers.
+- **Does your pricing model discourage use of your product?** Avoid situations where your pricing model reduces the potential value a customer can achieve from the product, such as by making common activities very costly. This structure creates mismatched incentives and can lead to mixed signaling to customers.
 - **If a customer overuses the solution, does that mean you're no longer profitable?** If you're concerned about misuse, put guard rails in place like rate limits.
 
 There are some key factors that influence your profitability:
@@ -271,10 +271,12 @@ It is usually complex to implement and manage many different pricing models at o
 
 When changing pricing models, consider the following factors:
 
+- **Contractual implications.** If tenants have signed contracts based on a specific pricing model, ensure you don't accidentaly violate those agreements.
 - **Desirability.** Clearly communicate the ROV for new pricing models to your existing tenants. Ensure you make the new model attractive enough so that tenants want to migrate to the new model. Decide how you'll discourage tenants from using older pricing models that you plan to retire.
+- **Timeline.** Give tenants plenty of notice for any changes, to allow them to prepare.
 - **Migration process.** Make it easy for tenants to migrate to the new model.
 - **Reduce pricing risks.** Evaluate each new pricing model to understand whether it's [risky](#risky-pricing-models). For example, be cautious when removing rate limits that are currently protecting critical resources from overuse. Throughout the change, monitor the performance and utilization of your services so that you can ensure continued satisfaction and profitability.
-- **Reduce bill shock risks.** Changes in pricing model can result in *bill shock*, which is a negative reaction to an unexpected bill. Communicate pricing model changes clearly and proactively. Calculate each tenant's bill before and after the change so you can detect 
+- **Reduce bill shock risks.** Changes in pricing model can result in *bill shock*, which is a negative reaction to an unexpected bill. Communicate pricing model changes clearly and proactively. Calculate or simulate each tenant's bill before and after the change so you can detect situations where a tenant will pay significantly more after the change.
 
 ## Contributors
 
