@@ -148,7 +148,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived Git branches. For example, `<developer_name>/<branch_name>`.
 
-1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks-off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
+1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
 
 1. On completion of the PR validation, the commit to main will trigger a build pipeline that publishes all necessary build artifacts.
 

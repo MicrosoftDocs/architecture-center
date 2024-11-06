@@ -15,7 +15,7 @@ This article describes how to extract insights from customer conversations at a 
 
    - [Blob trigger](/azure/azure-functions/functions-bindings-storage-blob-trigger): Configure a blob trigger to initiate intelligent transcription as soon as an audio file is uploaded to the blob container.
 
-1. The azure function will trigger an Azure App Service which will execute the following steps in sequence:
+1. The Azure function will trigger an Azure App Service which will execute the following steps in sequence:
 
    1. Call the Azure AI Speech to transcribe the file(s).
 
