@@ -1,8 +1,8 @@
 ---
 title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
-author: martinekuan
-ms.author: pnp
+author: pratimav0420
+ms.author: prvalava
 categories: azure
 ms.date: 11/06/2024
 ms.topic: conceptual
@@ -48,7 +48,7 @@ Inorder to choose the right technology lets start exploring te different options
 
 # Highlevel Stream processing flow
 
-Visio Diagram goes here
+[![A diagram that shows the dataflow for the end-to-end data processing solution.](../images/StreamProcessing.svg)](../images/StreamProcessing.svg#lightbox)
 
 - ## Stream Producers
 
