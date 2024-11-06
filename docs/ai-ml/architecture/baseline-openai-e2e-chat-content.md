@@ -50,12 +50,12 @@ In the context of utilizing these services in the AOAI baseline architecture, we
 - **Azure Red Hat OpenShift** is suitable for organizations that prefer using OpenShift for their container orchestration needs. For example, you can use Azure Red Hat OpenShift to deploy a SaaS application that requires enterprise-grade security and compliance. This application can include the front end to your AI workload.
 
 When choosing the application service offering for your scenario consider:
-- the need for running containerized workloads as compared to the simplicity of deploying application code to a resource directly
-- your overall deployment and operations strategy
-- the overhead of operating the resource type that you choose and potential future complexity if your workload grows
-- the cost implications of the option you selected 
-- the required performance of your workload and the workload's ability to deal with latency or inherent slowness of AI services
-- the need to distribute tasks to different application services (in comparison to the simplicity of running a single application service)
+- The need for running containerized workloads as compared to the simplicity of deploying application code to a resource directly
+- Your overall deployment and operations strategy
+- The overhead of operating the resource type that you choose and potential future complexity if your workload grows
+- The cost implications of the option you selected 
+- The required performance of your workload and the workload's ability to deal with latency or inherent slowness of AI services
+- The need to distribute tasks to different application services (in comparison to the simplicity of running a single application service)
 
 ## Considerations and recommendations
 
