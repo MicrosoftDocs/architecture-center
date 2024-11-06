@@ -43,12 +43,12 @@ The on-premises components of the proposed solution include the following servic
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network)
-- [Azure Recovery Services](https://azure.microsoft.com/products/site-recovery)
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute)
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs)
-- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+- [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview)
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
+- [Azure Stack Hub](/azure/well-architected/service-guides/azure-stack-hub/reliability)
 
 ### Alternatives
 

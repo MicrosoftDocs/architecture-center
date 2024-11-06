@@ -17,11 +17,11 @@ The architecture consists of the following steps:
 
 ### Components
 
-- [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning)
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge)
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning)
+- [Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [Azure Stack Edge](/azure/databox-online/azure-stack-edge-pro-2-overview)
+- [Azure IoT Hub](/azure/well-architected/service-guides/iot-hub/reliability)
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
 
 ## Scenario details
 

@@ -36,10 +36,10 @@ The on-premises components include the following services:
 
 ### Components
 
-- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub)
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
-- [Azure storage account](https://azure.microsoft.com/products/category/storage)
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute)
+- [Azure Stack Hub](/azure/well-architected/service-guides/azure-stack-hub/reliability)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
+- [Azure storage account](/azure/well-architected/service-guides/storage-accounts/reliability)
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
 
 ### Alternatives
 
