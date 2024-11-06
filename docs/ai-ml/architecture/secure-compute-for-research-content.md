@@ -39,37 +39,37 @@ Here are the core components that move and process research data.
 
 - [**Azure Data Science Virtual Machine (DSVM):**](/azure/machine-learning/data-science-virtual-machine/overview) VMs that are configured with tools used for data analytics and machine learning. The DSVM is used when specific packages or tools are to be used that cannot be supported in PaaS services such as MATLAB or SAS. From a security and ease of use perspective, AML and other PaaS options are preferred when supported.
 
-- [**Azure Machine Learning:**](/azure/machine-learning/) Used to train, deploy, automate, and manage machine learning models and to manage the allocation and use of machine learning compute resources. AML is the tool of choice for Jupyter notebooks for development.
+- [**Azure Machine Learning:**](/azure/well-architected/service-guides/azure-machine-learning) Used to train, deploy, automate, and manage machine learning models and to manage the allocation and use of machine learning compute resources. AML is the tool of choice for Jupyter notebooks for development.
 
 - **Azure Machine Learning Compute:** A cluster of nodes that are used to train and test machine learning and AI models. The compute is allocated on demand based on an automatic scaling option. Visual Studio Code (VS Code) can be deployed as a streaming app from Virtual Desktop and connected to the AML compute for an alternative development environment.
 
-- [**Azure Blob storage:**](/azure/storage/blobs/) There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
+- [**Azure Blob storage:**](/azure/well-architected/service-guides/azure-blob-storage) There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
 
-- [**Azure Data Factory:**](/azure/data-factory/) Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
+- [**Azure Data Factory:**](/azure/data-factory/introduction) Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
-- [**Azure Synapse:**](/azure/synapse-analytics/) Analytical tools for big data as well as Pipelines for data integration and ETL/ELT. Synapse is also a preferred service to run Apache Spark workloads.
+- [**Azure Synapse:**](/azure/synapse-analytics/overview-what-is) Analytical tools for big data as well as Pipelines for data integration and ETL/ELT. Synapse is also a preferred service to run Apache Spark workloads.
 
-- [**Azure Virtual Desktop**](/azure/virtual-desktop/) is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use [Azure Bastion](/azure/bastion/). But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
+- [**Azure Virtual Desktop**](/azure/well-architected/azure-virtual-desktop/overview) is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use [Azure Bastion](/azure/bastion/). But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
   - Ability to stream an app like Microsoft Visual Studio Code to run notebooks against the machine learning compute resources.
   - Ability to limit copy, paste, and screen captures.
   - Support for Microsoft Entra authentication to DSVM.
 
-- [**Azure Logic Apps**](/azure/logic-apps) provides automated low-code workflow to develop both the *trigger* and *release* portions of the manual approval process.
+- [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview) provides automated low-code workflow to develop both the *trigger* and *release* portions of the manual approval process.
 
 #### Posture management components
 
 These components continuously monitor the posture of the workload and its environment. The purpose is to discover and mitigate risks as soon as they are discovered.
 
-- [**Microsoft Defender for Cloud**](/azure/defender-for-cloud/) is used to evaluate the overall security posture of the implementation and provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use features to track progress such as secure score and compliance score. This is an important tool to verify compliance.
+- [**Microsoft Defender for Cloud**](/azure/defender-for-cloud/defender-for-cloud-introduction) is used to evaluate the overall security posture of the implementation and provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use features to track progress such as secure score and compliance score. This is an important tool to verify compliance.
 
-- [**Microsoft Sentinel**](/azure/sentinel/) is Security Information and Event Management (SIEM) and security orchestration, automation, and response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats. This provides valuable security insights to ensure traffic and activities associated with the workspaces ensuring the activities are as expected.
+- [**Microsoft Sentinel**](/azure/sentinel/overview) is Security Information and Event Management (SIEM) and security orchestration, automation, and response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats. This provides valuable security insights to ensure traffic and activities associated with the workspaces ensuring the activities are as expected.
 
-- [**Azure Monitor**](/azure/azure-monitor) provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Microsoft Defender for Cloud, also push log data to Azure Monitor.
+- [**Azure Monitor**](/azure/azure-monitor/overview) provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Microsoft Defender for Cloud, also push log data to Azure Monitor.
 
 #### Governance components
 
-- [**Azure Policy**](/azure/azure-policy) helps to enforce organizational standards and to assess compliance at-scale.
+- [**Azure Policy**](/azure/governance/policy/overview) helps to enforce organizational standards and to assess compliance at-scale.
 
 ### Alternatives
 
