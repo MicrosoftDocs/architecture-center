@@ -25,7 +25,7 @@ This article describes an architecture that you can use to replace the manual an
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for the end-to-end machine learning lifecycle.
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable, enhanced-security, cost-effective cloud storage for high-performance analytics workloads.
 - [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It's used to retrieve information about each image.
-- [Custom Vision](/azure/ai-services/custom-vision-service) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
 - [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) (formerly SQL DW) is a collection of analytics resources that are provisioned when you use Azure Synapse SQL.
