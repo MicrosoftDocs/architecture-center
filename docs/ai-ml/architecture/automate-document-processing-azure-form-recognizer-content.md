@@ -285,7 +285,7 @@ Principal author:
 [Azure Cosmos DB]: /azure/well-architected/service-guides/cosmos-db
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
-[Azure Database for MySQL]: /azure/mysql
+[Azure Database for MySQL]: /azure/mysql/flexible-server/overview
 [Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
 [Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
 [Azure Form Recognizer service page]:/azure/azure-functions/functions-overview
