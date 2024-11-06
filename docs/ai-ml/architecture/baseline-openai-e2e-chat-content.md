@@ -35,6 +35,28 @@ Many components of this architecture are the same as the [basic Azure OpenAI end
 - [Private Link](https://azure.microsoft.com/products/private-link/) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
 
+### Alternatives
+
+#### Application tier components
+
+You have several managed application services offerings available to you in Azure. This section helps you compare the various [options](https://learn.microsoft.com/en-us/azure/container-apps/compare-options). 
+In the context of utilizing these services in the AOAI baseline architecture, we have ranked the various options by complexity here:
+- **Azure App Service** is best suited for building and hosting web apps and can be used to host a user-facing websites or a web API that needs to be highly available and scalable. Azure App Service allows you to host supported web application binaries directly and is easy to deploy to with little operational overhead. 
+- **Azure Spring Apps** is designed for developers using the Spring framework to build Java applications. For instance, you can use Azure Spring Apps to deploy a Spring Boot application that handles user interaction with your app.
+- **Azure Functions** is best for running small pieces of code in response to events without managing infrastructure. For example, you can use Azure Functions to process data, trigger workflows based on database changes, or send notifications when certain conditions are met. One frequent use case is to ingest new files into an index as they get uploaded.
+- **Azure Container Apps** is ideal for building serverless microservices and jobs based on containers without requiring direct access to the underlying Kubernetes APIs. Container Apps may be preferable to an App Service driven solution if you have a need to containerize your code and/or keep it cross-cloud compatible. 
+- **Azure Container Instances (ACI)** is suitable for scenarios where you need to run containers without the overhead of managing Kubernetes. This simple alternative to a full Container App allows you to run application code that is already containerized. (for example batch tasks such as offline inferencing, chunking, or data preparation)
+- **Azure Kubernetes Service (AKS)** is ideal for teams that need full control over Kubernetes clusters and require advanced orchestration capabilities. For instance, you can use AKS to deploy a complex application with multiple microservices, each managed by its own Kubernetes pod. You will see further benefits from running AKS as the number of services you deploy grows. 
+- **Azure Red Hat OpenShift** is suitable for organizations that prefer using OpenShift for their container orchestration needs. For example, you can use Azure Red Hat OpenShift to deploy a SaaS application that requires enterprise-grade security and compliance. This application can include the front end to your AI workload.
+
+When choosing the application service offering for your scenario consider:
+- the need for running containerized workloads as compared to the simplicity of deploying application code to a resource directly
+- your overall deployment and operations strategy
+- the overhead of operating the resource type that you choose and potential future complexity if your workload grows
+- the cost implications of the option you selected 
+- the required performance of your workload and the workload's ability to deal with latency or inherent slowness of AI services
+- the need to distribute tasks to different application services (in comparison to the simplicity of running a single application service)
+
 ## Considerations and recommendations
 
 ### Reliability
