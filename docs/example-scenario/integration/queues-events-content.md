@@ -90,9 +90,9 @@ Consider network security throughout your design.
 - You can configure [Logic Apps Standard and Premium](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) to accept inbound traffic through [private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-inbound-traffic-through-private-endpoints) and to send outbound traffic through [virtual network integration](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-outbound-traffic-using-virtual-network-integration).
 - You can use an Azure virtual network to help secure access to your API Management instance and APIs. This method supports [private endpoints](/azure/api-management/virtual-network-concepts#inbound-private-endpoint). For more information, see [Use a virtual network with API Management](/azure/api-management/virtual-network-concepts).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
@@ -116,19 +116,19 @@ Service Bus queues are included in all tiers: Basic, Standard, and Premium. Serv
 
 Event Grid uses a serverless model. Billing is calculated based on the number of operations. Operations include events that go to domains or topics, advanced matches, delivery attempts, and management calls. Usage of up to 100,000 operations is free of charge.
 
-For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) and [Well-Architected Framework cost optimization][aaf-cost].
+For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) and [Well-Architected Framework Cost Optimization][aaf-cost].
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The basic enterprise integration reference architecture provides [guidance about DevOps patterns](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops), which align to the Well-Architected Framework [operational excellence](/azure/architecture/framework/devops/) pillar. 
+The basic enterprise integration reference architecture provides [guidance about DevOps patterns](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops), which align to the Well-Architected Framework [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
 
 Automate recovery operations as much as possible to help improve operational excellence. With automation in mind, you can combine [Azure log monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. For an example of automation logic to initiate a failover, see [Failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. For more information, see [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging) and [Autoscaling feature](/azure/service-bus-messaging/automate-update-messaging-units).
 
