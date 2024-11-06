@@ -4,7 +4,7 @@ Moodle is an open-source learning management system that requires high throughpu
 
 For the best user experience, Moodle requires consistent low latency access to scalable shared storage to meet the demands of office and home workers that use the service. Virtual Machine Scale Sets and Azure NetApp Files capacity pools and volumes can be sized up and down as the demand changes.
 
-:::image type="complex" source="./media/azure-netapp-files-moodle-zonal.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="./media/azure-netapp-files-moodle-zonal.svg" border="false":::
+:::image type="complex" source="media/azure-netapp-files-moodle-zonal.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-zone replication." lightbox="media/azure-netapp-files-moodle-zonal.svg" border="false":::
     A diagram that illustrates the single-region Azure NetApp Files Moodle deployment. Inside of the same Azure region box, there's a second zone that includes disaster recovery versions of the Azure NetApp Files. The Azure Traffic Manager routes students to the application in zone one or zone two.
 :::image-end:::
 
@@ -50,7 +50,7 @@ The Moodle service can be deployed using any NFS based shared file service if re
 
 This diagram captures an example of a single-region deployment:
 
-:::image type="complex" source="./media/azure-netapp-files-moodle-architecture.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle." lightbox="./media/azure-netapp-files-moodle-architecture.svg" border="false":::
+:::image type="complex" source="media/azure-netapp-files-moodle-architecture.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle." lightbox="media/azure-netapp-files-moodle-architecture.svg" border="false":::
     A black-lined rectangle denotes an Azure region that contains a virtual network. The virtual network has multiple three smaller rectangles inside of it. Two rectangles are stacked and one is on the righthand side. The top rectangle denotes a network security group the Moodle, a PHP application, an HTTP server, and a Redis cache connected to the third rectangle: the MySQL database. The network security group also includes with a DNS router connected to an application gateway for the Virtual Machine Scale Sets, which is attached to the Azure other rectangle that represents the Azure NetApp Files delegated subnet that contains three volumes and related snapshots. Students access the Moodle through the DNS, while the Azure VPN gateway securely connects the resources to the customer data center.
 :::image-end:::
 
