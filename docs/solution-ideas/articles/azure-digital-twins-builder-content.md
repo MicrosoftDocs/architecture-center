@@ -91,5 +91,4 @@ Principal authors:
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
-- [Facilities management powered by mixed reality and IoT](facilities-management-powered-by-mixed-reality-and-iot.yml)
 - [Facilities architectures](../../browse/index.yml?terms=facilities)
