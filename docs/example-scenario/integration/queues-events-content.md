@@ -122,7 +122,7 @@ For more information, see [Event Grid pricing](https://azure.microsoft.com/prici
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The basic enterprise integration reference architecture provides [guidance about DevOps patterns](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops), which align to the Well-Architected Framework [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
+The basic enterprise integration reference architecture provides [guidance about DevOps patterns](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops), which align to the Well-Architected Framework [Operational Excellence](/azure/well-architected/operational-excellence/checklist) pillar. 
 
 Automate recovery operations as much as possible to help improve operational excellence. With automation in mind, you can combine [Azure log monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. For an example of automation logic to initiate a failover, see [Failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow).
 
