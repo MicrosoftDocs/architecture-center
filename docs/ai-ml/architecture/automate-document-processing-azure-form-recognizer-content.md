@@ -288,7 +288,7 @@ Principal author:
 [Azure Database for MySQL]: /azure/mysql/flexible-server/overview
 [Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
 [Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
-[Azure Form Recognizer service page]:/azure/azure-functions/functions-overview
+[Azure Form Recognizer service page]:/azure/ai-services/document-intelligence/overview
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
 [Azure Functions service page]: /azure/azure-functions/functions-overview
