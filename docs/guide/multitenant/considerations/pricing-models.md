@@ -30,7 +30,7 @@ When you're developing pricing models for your solution, consider the following 
 - **Will the COGS be higher than the profit you earn from the solution?** An [unprofitable pricing model](#unprofitable-pricing-models) approach might work for a time but it's unsustainable in the long term.
 - **Can the COGS change over time, based on growth in users or changes in usage patterns?** Model your COGS and growth to understand whether your COGS makes your solution unprofitable as you grow.
 - **How difficult is it to [measure and record the information required to operate the pricing model](measure-consumption.md)?** For example, if you plan to bill your customers based on the number of API calls they make, it's important to identify how you measure the API calls made by each customer.
-- **Does your profitability depend on ensuring customers use your solution in a limited way?** Avoid this type of structure, which creates mismatched incentives and can lead to mixed signalling to customers.
+- **Does your profitability depend on ensuring customers use your solution in a limited way?** Avoid this type of structure, which creates mismatched incentives and can lead to mixed signaling to customers.
 - **If a customer overuses the solution, does that mean you're no longer profitable?** If you're concerned about misuse, put guard rails in place like rate limits.
 
 There are some key factors that influence your profitability:
@@ -78,7 +78,7 @@ A per-user pricing model involves charging your customers based on the number of
 
 Per-user pricing models are very common, due to their simplicity to implement in a multitenant solution. However, they're associated with several commercial risks.
 
-**Benefits:** When you bill your customers for each user, it's easy to calculate and forecast your revenue stream. Additionally, assuming that you have fairly consistent usage patterns for each user, then revenue increases at the same rate as service adoption, making this a scalable model.
+**Benefits:** When you bill your customers for each user, it's easy to calculate and forecast your revenue stream. Additionally, assuming that you have fairly consistent usage patterns for each user, then revenue increases at the same rate as service adoption, which makes this model scalable as you grow.
 
 **Complexity and operational cost:** Per-user models tend to be easy to implement. However, in some situations, you need to measure per-user consumption, which can help you to ensure that the COGS for a single user remains profitable. By measuring the consumption and associating it with a particular user, you can increase the operational complexity of your solution.
 
