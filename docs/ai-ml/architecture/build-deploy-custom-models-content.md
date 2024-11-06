@@ -52,9 +52,9 @@ This article describes Azure solutions for building, training, deploying, and us
 
 - [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural language processing services. The suite offers prebuilt and customizable options. For more information, see the Azure AI Language [available features](/azure/cognitive-services/language-service/overview#available-features).
 
-  [Language Studio](https://aka.ms/languageStudio) provides a UI for exploring and analyzing Azure AI Language features. Language Studio also provides options for building, tagging, training, and deploying custom models.
+  [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI for exploring and analyzing Azure AI Language features. Language Studio also provides options for building, tagging, training, and deploying custom models.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an open platform for managing machine learning model development and deployment at scale.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an open platform for managing machine learning model development and deployment at scale.
 
   - Azure Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects).
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Azure Machine Learning datasets. You can use the datasets for training and deploying models in Azure Machine Learning notebooks.
@@ -64,7 +64,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 You can add more workflows to this scenario based on specific use cases.
 
-- If the document is in image or PDF format, you can extract the data by using Azure [computer vision](/azure/cognitive-services/computer-vision/overview-ocr), [Document Intelligence Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read?pivots=programming-language-python), or open-source libraries.
+- If the document is in image or PDF format, you can extract the data by using Azure [computer vision](/azure/cognitive-services/computer-vision/overview-ocr), [Document Intelligence Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read), or open-source libraries.
 
 - You can do [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview) by using the prebuilt model in Azure AI Language.
 
