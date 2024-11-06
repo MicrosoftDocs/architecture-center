@@ -35,7 +35,7 @@ This article describes an architecture that you can use to replace the manual an
 
 - [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
 - [Azure Data Factory](/azure/data-factory/introduction) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
-- [Azure Functions](/azure/azure-functions/functions-overview?pivots=programming-language-csharp) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
 - [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database for modern app development.
 
 ## Scenario details

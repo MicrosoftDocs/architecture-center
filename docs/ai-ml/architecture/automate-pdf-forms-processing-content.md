@@ -24,17 +24,17 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ### Components
 
-- [Azure AI services](https://azure.microsoft.com/products/applied-ai-services) is a category of Azure AI products that use Azure AI services, task-specific AI, and business logic to provide turnkey AI services for common business processes. One of these products is [Azure AI Document Intelligence](https://azure.microsoft.com/products/form-recognizer), which uses machine learning models to extract key-value pairs, text, and tables from documents.
-- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs.
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is the foundation for building enterprise data lakes on Azure.
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
-- [Power BI](https://msit.powerbi.com) is a collection of software services, apps, and connectors that work together so that you can turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [Azure AI services](/azure/ai-services/what-are-ai-services) is a category of Azure AI products that use Azure AI services, task-specific AI, and business logic to provide turnkey AI services for common business processes. One of these products is [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview), which uses machine learning models to extract key-value pairs, text, and tables from documents.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is the foundation for building enterprise data lakes on Azure.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together so that you can turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
 ### Alternatives
 
-- You can use [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) instead of Azure Cosmos DB to store the processed forms data.
-- You can use [Azure Data Explorer](https://dataexplorer.azure.com/publicfreecluster) to visualize the processed forms data that's stored in Data Lake Storage.
+- You can use [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) instead of Azure Cosmos DB to store the processed forms data.
+- You can use [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) to visualize the processed forms data that's stored in Data Lake Storage.
 
 ## Scenario details
 
