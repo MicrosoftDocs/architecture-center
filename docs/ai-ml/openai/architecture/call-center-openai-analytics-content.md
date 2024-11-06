@@ -32,17 +32,17 @@ This article describes how to extract insights from customer conversations at a 
 
 ### Components
 
-- [Blob Storage](https://azure.microsoft.com/products/storage/blobs) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for languages like .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) for storing large amounts of data, which optimizes cost.
+- [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for languages like .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) for storing large amounts of data, which optimizes cost.
 
-- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/).
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) provides access to the Azure OpenAI language models, including GPT-3, Codex, and the embeddings model series, for content generation, summarization, semantic search, and natural language-to-code translation. You can access the service through REST APIs, Python SDK, or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/).
 
-- [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Azure AI Speech batch transcription functionality.
+- [Azure AI Speech](/azure/ai-services/speech-service/overview) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Azure AI Speech batch transcription functionality.
 
-- [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language) consolidates the Azure natural-language processing services. For information about prebuilt and customizable options, see [Azure AI Language available features](/azure/ai-services/language-service/overview#available-features).
+- [Azure AI Language](/azure/ai-services/language-service/overview) consolidates the Azure natural-language processing services. For information about prebuilt and customizable options, see [Azure AI Language available features](/azure/ai-services/language-service/overview#available-features).
 
-- [Language Studio](https://aka.ms/languageStudio) provides a UI for exploring and analyzing AI services for language features. Language Studio provides options for building, tagging, training, and deploying custom models.
+- [Language Studio](/azure/ai-services/language-service/language-studio) provides a UI for exploring and analyzing AI services for language features. Language Studio provides options for building, tagging, training, and deploying custom models.
 
-- [Power BI](https://powerbi.microsoft.com) is a software-as-a-service (SaaS) that provides visual and interactive insights for business analytics. It provides transformation capabilities and connects to other data sources.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a software-as-a-service (SaaS) that provides visual and interactive insights for business analytics. It provides transformation capabilities and connects to other data sources.
 
 ### Alternatives
 

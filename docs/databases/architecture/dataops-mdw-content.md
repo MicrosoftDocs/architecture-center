@@ -35,19 +35,19 @@ Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data
 
 The solution uses these components:
 
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
+* [Azure Data Factory](/azure/data-factory/introduction)
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks)
+* [Azure Databricks](/azure/databricks/introduction)
 
-* [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+* [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+* [Azure Key Vault](/azure/key-vault/general/overview)
 
-* [Azure DevOps](https://azure.microsoft.com/services/devops)
+* [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
 
-* [Power BI](https://powerbi.microsoft.com)
+* [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ## Scenario details
 
