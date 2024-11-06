@@ -26,15 +26,15 @@ This article guides you through a model-view-presenter (MVP) architecture by usi
 
 ### Components
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): A Hadoop-compatible file system. It has an integrated hierarchical namespace and the scale and economy of Azure Blob Storage.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction): A Hadoop-compatible file system. It has an integrated hierarchical namespace and the scale and economy of Azure Blob Storage.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): An enterprise-grade machine learning service used to quickly build and deploy models. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment to support your preferred integrated development environment.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning): An enterprise-grade machine learning service used to quickly build and deploy models. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment to support your preferred integrated development environment.
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service): Machine Learning has varying support across different compute targets. Azure Kubernetes Service is one such target, and it's a great fit for high-scale production deployments. It provides a fast response time and autoscaling of the deployed service.
+- [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service): Machine Learning has varying support across different compute targets. Azure Kubernetes Service is one such target, and it's a great fit for high-scale production deployments. It provides a fast response time and autoscaling of the deployed service.
 
-- [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Container Instances is great fit for real-time inference, and it's recommended for development and test purposes only. If you don't need to manage a cluster, use it for low-scale CPU-based workloads that require less than 48 GB of RAM.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): Container Instances is great fit for real-time inference, and it's recommended for development and test purposes only. If you don't need to manage a cluster, use it for low-scale CPU-based workloads that require less than 48 GB of RAM.
 
-- [Microsoft Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power App, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents).
+- [Microsoft Power Platform](/power-platform): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power App, Power Automate, Power BI, and Microsoft Copilot Studio (formerly Power Virtual Agents).
 
 - [Power Apps](https://powerapps.microsoft.com): A platform with a suite of apps, services, and connectors. It provides an environment for rapid application development to build custom apps for your business needs.
 

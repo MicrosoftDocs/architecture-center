@@ -10,7 +10,7 @@ Securing identities in the cloud is a high priority.
 
 - The [Microsoft 2019 Security Intelligence Report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December 2018.
 
-The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication (AuthN), authorization, and encryption, while also providing compartmentalized access and better operational agility.
+The [Zero Trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication (AuthN), authorization, and encryption, while also providing compartmentalized access and better operational agility.
 
 Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive security combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
 
