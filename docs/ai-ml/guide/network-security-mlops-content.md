@@ -29,17 +29,17 @@ The architecture diagram shows a sample MLOps solution.
 
 The sample MLOps solution consists of these components:
 
-- Data storage: [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) for data storage.
-- Model training, validation, and registration: [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) workspace
-- Model deployment: [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) and [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
-- Model monitor: [Azure Monitor](https://azure.microsoft.com/services/monitor) for Application Insights
-- MLOps pipelines: [Azure DevOps](https://azure.microsoft.com/services/devops/) and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+- Data storage: [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) for data storage.
+- Model training, validation, and registration: [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) workspace
+- Model deployment: [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) and [Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service)
+- Model monitor: [Azure Monitor](/azure/azure-monitor/overview) for Application Insights
+- MLOps pipelines: [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 This example scenario also uses the following services to help protect the MLOps solution:
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy/)
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network/)
+- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Policy](/azure/governance/policy/overview)
+- [Virtual Network](/azure/virtual-network/virtual-networks-overview)
 
 ## Scenario details
 
