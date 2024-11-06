@@ -1866,8 +1866,6 @@ items:
           href: example-scenario/iot/cloud-to-device.yml
       - name: Computer vision with Azure IoT Edge
         items:
-        - name: Overview
-          href: guide/iot-edge-vision/index.md
         - name: Camera selection
           href: guide/iot-edge-vision/camera.md
         - name: Hardware acceleration
