@@ -34,6 +34,7 @@ Many components of this architecture are the same as the [basic Azure OpenAI end
 - [Azure virtual network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
 - [Private Link](https://azure.microsoft.com/products/private-link/) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
+- [Azure Firewall](https://learn.microsoft.com/azure/firewall/) is a cloud-native, intelligent network firewall service that provides the latest threat protection for Azure workloads.
 
 ## Considerations and recommendations
 
@@ -150,6 +151,20 @@ Along with identity-based access, network security is at the core of the baselin
 - Data exfiltration is minimized by using Private Link to keep traffic in Azure.
 - Network resources are logically grouped and isolated from each other through network segmentation.
 
+#### Azure Firewall
+
+This architecture considers the use of Private Endpoints for secure communication within the deployment. Azure Firewall serves as a critical tool for inspecting and controlling traffic in your Azure Virtual Network. When deploying Azure Firewall, it’s important to evaluate communication paths involving the internet and on-premises connections. Many organizations opt to deploy Azure Firewall in a centralized ‘hub’ that hosts other shared network resources for cost-efficiency and ease of management, rather than implementing separate instances per application/deployment.
+
+Azure Firewall Standard has unrestricted cloud scalability. This enables mature enterprise deployments to scale out as much as is needed for changing traffic patterns/flows. many organizations have ebbs and flows of traffic during the year so if you are expecting peak traffic during the year for your applications, you should consider the Standard SKU to accommodate the traffic.
+
+When selecting between the Basic and Standard SKUs, traffic filtering requirements play a key role. Azure Firewall Basic offers foundational network traffic filtering and firewall capabilities, suitable for smaller organizations or environments with predictable, low-volume traffic not exceeding 250 Mbps and having limited traffic filtering requirements. It does not include Advanced Threat Protection, making it best suited for scenarios with limited security demands, minimal applications, or no complex traffic patterns.
+
+On the other hand, Azure Firewall Standard is tailored for more complex and hybrid networking environments. It supports advanced configurations, including Custom DNS to integrate with DNS servers in Azure, which are often a component of enterprise landscapes, and resolves Azure Private DNS zones within the same virtual network. In the most restrictive network environments, Standard can be deployed without a public IP when using force tunnel mode. It also offers web categorization capabilities, enabling traffic control based on website categories for more precise access management.
+
+Azure Firewall is enabled with Threat Intelligence, powered by Microsoft Threat Intelligence. This includes known malicious IP addresses. This feature is available with Azure Firewall basic only in alert mode, while Standard comes with this enabled at all times. Consider the internet traffic for your application. This is not often a consideration for smaller network landscapes, however, more mature scenarios require strict routing of internet traffic due to organizational policies.
+
+Consider Azure Firewall Basic for simpler deployments with limited filtering needs and less mature Azure environments, while Azure Firewall Standard should be considered for complex scenarios with more comprehensive traffic filtering and hybrid integration requirements.
+
 ##### Network flows
 
 :::image type="complex" source="_images/openai-end-to-end-aml-deployment-flows.svg" border="false" lightbox="_images/openai-end-to-end-aml-deployment-flows.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI with flow numbers.":::
@@ -216,6 +231,8 @@ Consider the following points when implementing virtual network segmentation and
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. Use the strictest rules that enable full solution functionality.
 
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups) to group NSGs. Grouping NSGs makes rule creation easier for complex environments.
+
+- Use firewall such as [Azure Firewall](https://learn.microsoft.com/azure/firewall/) for traffic filtering.
 
 #### Key rotation
 
@@ -415,6 +432,7 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Azure Application Insights
 - Azure Bastion
 - Azure Virtual Machine for the jump box
+- Azure Firewall
 
 ###### Ephemeral components
 
