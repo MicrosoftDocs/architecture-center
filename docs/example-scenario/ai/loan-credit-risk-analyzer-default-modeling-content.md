@@ -59,7 +59,7 @@ The following dataflow corresponds to the preceding diagram:
 - [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that brings together the best of SQL and Spark technologies and a unified user experience for data explorer and pipelines. It integrates with Power BI, Azure Cosmos DB, and Azure Machine Learning. The service supports both dedicated and serverless resource models and the ability to switch between those models.
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an always up-to-date, fully managed relational database that's built for the cloud.
 - [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a cloud service for managing machine learning project lifecycles. It provides an integrated environment for data exploration, model building and management, and deployment and supports code-first and low-code/no-code approaches to machine learning.
-- [Power BI](https://powerbi.microsoft.com/) is a visualization tool that provides easy integration with Azure resources.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a visualization tool that provides easy integration with Azure resources.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure. Supported languages include .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python.
 
 ### Alternatives
