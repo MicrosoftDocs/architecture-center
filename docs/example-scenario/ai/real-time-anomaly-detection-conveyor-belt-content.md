@@ -30,7 +30,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
    *Model training* is the process of using a machine learning algorithm to learn patterns based on data and pick a suitable model for making predictions.
 
-   [Azure Machine learning](https://azure.microsoft.com/services/machine-learning) is used to train the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle. The lifecycle includes training, deploying models, and managing machine learning operations (MLOps).
+   [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is used to train the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle. The lifecycle includes training, deploying models, and managing machine learning operations (MLOps).
 
 1. AI / machine learning - inference
 
