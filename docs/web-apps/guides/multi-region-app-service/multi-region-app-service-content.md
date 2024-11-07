@@ -82,7 +82,7 @@ Follow these steps to create an active-active approach for your web apps by usin
 1. Create an Azure Front Door profile with:
 
     - An endpoint.
-    - An origin group with two origins, each with a priority of 1. The equal priority values tells Azure Front Door to route traffic to the applications in both regions equally (active-active).
+    - An origin group with two origins, each with a priority of 1. The equal priority values tell Azure Front Door to route traffic to the applications in both regions equally (active-active).
     - A route. 
 
 1. [Limit network traffic to the web apps only from the Azure Front Door instance](/azure/app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance). 
