@@ -5561,8 +5561,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/example-scenario/iot/analyze-optimize-loop.yml",
-      "redirect_url": "/azure/architecture/articles/iot/iot-overview-analyze-visualize",
+      "source_path": "docs/example-scenario/iot/monitor-manage-loop.yml",
+      "redirect_url": "/azure-docs/articles/iot/iot-overview-solution-management",
       "redirect_document_id": false  
     },
     {
