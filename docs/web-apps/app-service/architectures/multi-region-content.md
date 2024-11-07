@@ -67,13 +67,20 @@ Your requirements might differ from the architecture described here. Use the rec
 
 ### Regional pairing
 
-Each Azure region is paired with another region within the same geography. In general, choose regions from the same regional pair (for example, East US 2 and Central US). Benefits of doing so include:
+Many Azure regions are paired with another region within the same geography. Some regions don't have a paired region. For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][regional-pairs].
+
+If your primary region has a pair, consider using the paired region as your secondary region (for example, East US 2 and Central US). Benefits of doing so include:
 
 - If there's a broad outage, recovery of at least one region out of every pair is prioritized.
 - Planned Azure system updates are rolled out to paired regions sequentially to minimize possible downtime.
 - In most cases, regional pairs reside within the same geography to meet data residency requirements.
 
-However, make sure that both regions support all of the Azure services needed for your application. See [Services by region][services-by-region]. For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][regional-pairs].
+If your primary region doesn't have a pair, consider the following factors when selecting a secondary region:
+
+- Minimize latency by selecting regions that are geographically close to your users.
+- Meet your data residency requirements by select regions that are in geographies you can store and process data in.
+
+Whether your region is paired or unpaired, make sure that both regions support all of the Azure services needed for your application. See [Services by region][services-by-region].
 
 ### Resource groups
 
