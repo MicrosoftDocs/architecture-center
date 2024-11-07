@@ -121,7 +121,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
- 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+#### Logging 
 
 Microsoft Entra [audit reports](/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
 
@@ -134,7 +136,7 @@ You can route Microsoft Entra ID log data to endpoints like:
 
 You can also use the Microsoft Graph [reporting API](/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume Microsoft Entra ID log data within your own scripts.
 
- 
+#### On-premises and hybrid considerations
 
 Authentication methods are key to securing your organization's identities in a hybrid scenario. Microsoft provides [specific guidance](/azure/security/fundamentals/choose-ad-authn) on choosing a hybrid authentication method with Microsoft Entra ID.
 
@@ -150,7 +152,9 @@ You can use Defender for Identity with [Microsoft Entra ID Protection](/azure/ac
 
 If some of your apps already use an existing [delivery controller or network controller](/azure/active-directory/manage-apps/secure-hybrid-access) to provide off-network access, you can integrate them with Microsoft Entra ID. Several partners including [Akamai](/azure/active-directory/saas-apps/akamai-tutorial), [Citrix](/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [F5 Networks](/azure/active-directory/saas-apps/headerf5-tutorial), and [Zscaler](/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) offer solutions and guidance for integration with Microsoft Entra ID.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Microsoft Entra pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Microsoft Entra pricing](https://azure.microsoft.com/pricing/details/active-directory).
 

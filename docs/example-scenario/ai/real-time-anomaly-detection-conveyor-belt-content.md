@@ -127,7 +127,7 @@ Azure Industrial IoT can help you accelerate your path to modernize your connect
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The components in this architecture provide high availability. However, machine learning and analytics tasks are made up of two parts: training and production deployment.
 
@@ -135,7 +135,7 @@ Resources required for training don't typically require high availability. For p
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Microsoft Entra authentication or role-based access control. Consider the following [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
@@ -147,25 +147,25 @@ See the following resources for more information about security features for thi
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 - [Overview of the security pillar](/azure/architecture/framework/security/overview)
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - To optimize costs, scalability of the resources is based on the analytics workload and the training and deployment workloads.
 - Choose the appropriate pricing tier for the IoT hub and appropriate compute sizes for machine learning and data processing components.
 - To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), inputting the services described in this article. [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) can also be helpful.
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
 - [MLOps v2](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
 - [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2)
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Most components in this scenario can be scaled up or down based on the analysis activity levels.
 - You can scale [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) based on the data size and the necessary compute resources for model training. For the deployment, you can scale compute resources based on the expected load and scoring service and latency requirements with the AKS service.
@@ -173,6 +173,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Contributors
+
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:

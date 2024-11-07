@@ -90,15 +90,15 @@ In the world of machine learning and custom model training and deployment, you s
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Most of the components that are used in this example scenario are managed services that automatically scale. The [availability of those services](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service%2Cvirtual-machines&regions=all) varies by region.
 
 Apps that are based on machine learning usually require one set of resources for training and another for serving. Resources that are required for training generally don't need high availability, because live production requests don't directly hit these resources. However, resources that are required for serving production requests need high availability.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 **Azure pricing:** First-party services that provide infrastructure as a service (IaaS) and platform as a service (PaaS) on Azure use a consumption-based pricing model. They don't require a license or subscription fee. You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of using the services with your specific data size and workloads.
 
