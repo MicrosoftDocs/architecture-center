@@ -130,5 +130,4 @@ Principal author:
 - [Predictive maintenance solution](predictive-maintenance-solution.yml)
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
 - [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
-- [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)

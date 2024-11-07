@@ -29,8 +29,6 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 - [Real-time asset tracking for vehicles](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml). Azure IoT Central and other Azure services track and manage vehicles and other assets in real time.
 
-- [Railway health system with IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml). Edge computing enables fast, consistent responses with reduced dependency on cloud connectivity and resources. The intelligent edge brings data processing and storage close to the data source in this train maintenance and safety solution.
-
 - [Automated guided vehicles fleet control](../../example-scenario/iot/automated-guided-vehicles-fleet-control.yml). Automated guided vehicles (AGVs) are an important part of just-in-time manufacturing and automated shop-floor logistics. In this example, AGVs deliver parts to automotive assembly lines.
 
 ## Energy and environment
@@ -46,8 +44,6 @@ The following Azure IoT solutions and example scenarios address unique business 
 ## Manufacturing
 
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml). Condition monitoring helps manufacturers discover anomalies before they become critical. In this solution, IoT devices connect to the cloud through OPC UA and Azure industrial IoT components.
-
-- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml). Predictive maintenance diagnoses and predicts malfunctions and maintenance needs in OPC UA connected equipment. This solution uses mixed reality and digital twins technologies to optimize production in real time.
 
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml). Industries use computer vision and ML for safety and quality assurance applications. This example shows an end-to-end approach to IoT computer vision that improves processes over time.
 
