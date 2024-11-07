@@ -17,7 +17,7 @@ This article contains architecture, code, and configuration guidance to implemen
 
 ## Architecture guidance
 
-The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few additional architectural components to implement. You need a message queue, container platform, decoupled service data store, and a container registry (*see figure 1*).
+The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few extra architectural components to implement. You need a message queue, container platform, decoupled service data store, and a container registry (*see figure 1*).
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Modern Web App pattern.*
@@ -29,7 +29,7 @@ For a higher service-level objective (SLO), you can add a second region to your 
 
 ### Decouple architecture
 
-To implement the Modern Web App pattern, you need to decouple the existing web app architecture. Decoupling architecture involves breaking down a monolithic application into smaller, independent services, each responsible for a specific feature or functionality. This process entails evaluating the current web app, modifying the architecture, and finally, extracting the web app code to a container platform. The goal is to systematically identify and extract application services that will benefit most from being decoupled. To decouple your architecture, follow these recommendations:
+To implement the Modern Web App pattern, you need to decouple the existing web app architecture. Decoupling architecture involves breaking down a monolithic application into smaller, independent services, each responsible for a specific feature or functionality. This process entails evaluating the current web app, modifying the architecture, and finally, extracting the web app code to a container platform. The goal is to systematically identify and extract application services that benefit most from being decoupled. To decouple your architecture, follow these recommendations:
 
 - *Identify service boundaries* Apply domain driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Services that represent distinct business functions and have fewer dependencies are good candidates for decoupling.
 
@@ -179,7 +179,7 @@ For example, the reference implementation uses the Competing Consumers pattern o
 - *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
 - *PrefetchCount*: Set to 0 to avoid prefetching messages.
 
-The processor logs message processing details, which aids troubleshooting and monitoring. It captures deserialization errors and routes invalid messages to a dead-letter queue, preventing repetitive processing of faulty messages. The service scales at the container level, allowing for efficient handling of message spikes based on queue length.
+The processor logs message processing details, which aid troubleshooting and monitoring. It captures deserialization errors and routes invalid messages to a dead-letter queue, preventing repetitive processing of faulty messages. The service scales at the container level, allowing for efficient handling of message spikes based on queue length.
 
 ```C#
 // Create a processor for the given queue that will process
@@ -306,15 +306,15 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications to r
 
 As applications become more service-oriented and their components are decoupled, monitoring the execution flow between services is crucial. The Modern Web App pattern uses Azure Application Insights and Azure Monitor for visibility into application health and performance through OpenTelemetry APIs, which support distributed tracing.
 
-Distributed tracing tracks a user request as it traverses multiple services. When a request is received, it is tagged with a trace identifier, which is passed to other components via HTTP headers, and Service Bus properties during dependencies invocation. Traces and logs then include both the trace identifier and an activity identifier (or span identifier), which corresponds to the specific component and its parent activity. Monitoring tools like Application Insights use this to display a tree of activities and logs across different services, crucial for monitoring distributed applications.
+Distributed tracing tracks a user request as it traverses multiple services. When a request is received, it's tagged with a trace identifier, which is passed to other components via HTTP headers, and Service Bus properties during dependencies invocation. Traces and logs then include both the trace identifier and an activity identifier (or span identifier), which corresponds to the specific component and its parent activity. Monitoring tools like Application Insights use it to display a tree of activities and logs across different services, crucial for monitoring distributed applications.
 
 - *Install OpenTelemetry libraries.* Use Instrumentation Libraries to enable tracing and metrics from common components. Add custom instrumentation with `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` if necessary. Use Exporter Libraries to listen for OpenTelemetry diagnostics and record them in persistent stores. Utilize existing exporters or create your own with `System.Diagnostics.ActivityListener`.
 
-- *Set up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include additional OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
+- *Set up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include other OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
 
 - *Monitor and analyze.* After configuring, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included, allowing Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services effectively.
 
-The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Additional instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket rendering service like this:
+The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). More instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket rendering service like this:
 
 ```csharp
 builder.Logging.AddOpenTelemetry(o => 
