@@ -57,7 +57,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 
 ### Reference architecture
 
-- [Hybrid network with ExpressRoute](./expressroute.yml)
+- [Hybrid network with ExpressRoute](./expressroute-vpn-failover.yml)
 
 ## ExpressRoute with VPN failover
 

@@ -22,8 +22,7 @@ This architecture consists of several Azure services and is divided into two cat
 
 #### Hub resources
 
-Let's start by looking at the resources deployed on the hub network. These shared resources enable, filter, and monitor
-communication between the spoke network and the outside world.
+Let's start by looking at the resources deployed on the hub network. These shared resources enable, filter, and monitor communication between the spoke network and the outside world.
 
 The following resources are deployed on the hub network:
 
@@ -31,7 +30,7 @@ The following resources are deployed on the hub network:
 
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) enables one of two ways to connect to the hub network from the public internet. The other way is to use Azure Bastion service. The VPN gateway is assigned a public IP address so that VPN clients can connect to it from the public internet.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) enables one of two ways to connect to jumpboxes from the public internet. The other way is to use VPN gateway. Azure Bastion is deployed on the hub network and is assigned a public IP address so that users can connect to it from the public internet.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) enables one of two ways to connect to jumpboxes from the public internet. The other way is to use VPN Gateway. Azure Bastion is deployed on the hub network and is assigned a public IP address so that users can connect to it from the public internet.
 
 - [Linux Jumpbox](https://azure.microsoft.com/services/virtual-machines) is a Linux VM with preinstalled tools to access the resources deployed, submit jobs, and monitor their progress. The jumpbox is deployed on the hub network and can be accessed from the on-premises network using the VPN gateway or Azure Bastion.
 
@@ -39,7 +38,7 @@ The following resources are deployed on the hub network:
 
 - [Log Analytics Workspace](https://azure.microsoft.com/services/log-analytics) enables collection of logs. Whenever possible, resources deployed are configured to save logs to the workspace. The logs are used to monitor the resources and troubleshoot issues. When combined with [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net), it provides performance monitoring and troubleshooting capabilities for the resources deployed.
 
-- [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview) provides an inbound endpoint to resolve IPs of private endpoints if queried outside of the provisioned virtual network, for example, from on-premises resources. DNS Private Resolver is deployed when the Azure VPN Gateway is deployed.
+- [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview) provides an inbound endpoint to resolve IPs of private endpoints if queried outside of the provisioned virtual network, for example, from on-premises resources. DNS Private Resolver is deployed when the Azure VPN gateway is deployed.
 
 #### Spoke resources
 
@@ -53,15 +52,15 @@ The resources deployed on the spoke network are as follows:
   - They use the corresponding subnets on the spoke network, thus they get assigned address space from the subnet's address range. It also means that all network security group (NSG) rules and traffic forwarding rules set up on those subnets are applied to the compute nodes as well.
   - They don't assign public IP addresses to the compute nodes to ensure that the compute nodes aren't accessible from the public internet directly.
   - They make it easier for workloads executing on compute notes to access shared storage resources, by mounting the supported storage resources on the compute nodes during initialization.
-  - They use a user-assigned managed identity to authenticate the compute nodes with storage account, container registry, and any other resources as they join the Batch pool. Doing so ensures that the compute nodes are authenticated using certificates instead of passwords or keys.
+  - They use a user-assigned managed identity to authenticate the compute nodes with storage account, Container Registry, and any other resources as they join the batch pool. Doing so ensures that the compute nodes are authenticated using certificates instead of passwords or keys.
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores deployment secrets such as Batch account certificates. These certificates are used to authenticate compute node resources as they join the Batch pool. The Key Vault is deployed on the spoke network and is configured to allow access only from the Batch service. This configuration ensures that the certificates aren't accessible from the public internet.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores deployment secrets such as Batch account certificates. These certificates are used to authenticate compute node resources as they join the batch pool. The key vault is deployed on the spoke network and is configured to allow access only from the Batch service. This configuration ensures that the certificates aren't accessible from the public internet.
 
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores input and output data. The deployment creates two storage accounts: one for blob storage and one for file storage. The blob storage account is mounted on Linux pool using NFS. The file storage account is mounted on both Linux and Windows pool using SMB.
 
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores container images used by the Batch compute nodes. Using a private deployment of the container registry helps control access to container images and also provides a more secure way to store container images. The container registry is deployed on the spoke network and is configured to allow access only from the Batch service. This configuration ensures that the container images aren't accessible from the public internet.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores container images used by the batch compute nodes. Using a private deployment of the container registry helps control access to container images and also provides a more secure way to store container images. The container registry is deployed on the spoke network and is configured to allow access only from the Batch service. This configuration ensures that the container images aren't accessible from the public internet.
 
-- [Azure Managed Identity](/azure/batch/managed-identity-pools) is used to authenticate the compute nodes added to pools automatically with container registry, storage accounts, and other resources.
+- [Azure Managed Identity](/azure/batch/managed-identity-pools) is used to authenticate the compute nodes added to pools automatically with Container Registry, storage accounts, and other resources.
 
 ### Alternatives
 
@@ -86,14 +85,14 @@ This architecture can be used to run a wide variety of FSI workloads. Some examp
 
 ### Network topology
 
-This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, VPN gateways, and jump boxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
+This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, VPN gateways, and jump boxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, Container Registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
 
 Here are some highlights of the network topology:
 
 - Resources on spoke are isolated from the public internet and can only be accessed from the hub network, which minimizes direct exposure of the resources to the public internet.
 - All outgoing traffic, including that from the pool compute nodes, is routed through a firewall, which ensures that all outgoing traffic is filtered, logged, and tracked.
 - The firewall is configured to allow only allowlisted traffic, which ensures that only the allowlisted traffic can go out of the virtual network.
-- Access to resources on the spoke network is enabled through optionally deployed VPN gateway or Azure Bastion. Both provide secure ways to connect to the hub network from the public internet.
+- Access to resources on the spoke network is enabled through optionally deployed VPN Gateway or Azure Bastion. Both provide secure ways to connect to the hub network from the public internet.
 - Windows and Linux jumpboxes are provided with preinstalled tools to access the resources deployed, submit jobs, and monitor their progress. These jumpboxes are deployed on the hub network and can be accessed from the on-premises network using the VPN gateway or Azure Bastion.
 - All Azure services use private endpoints to ensure that they're accessed over private network instead of accessing them through public endpoints. This configuration also helps ensure that the services aren't accessible from the public internet.
 - NSG rules are set up to allow only the required traffic in and out of the virtual network. This configuration helps protect the network from malicious attacks and monitor traffic in and out of the network. These rules even restrict the traffic between the resources in the virtual network.
@@ -102,19 +101,19 @@ Here are some highlights of the network topology:
 
 The hub virtual network contains resources that allow or monitor traffic in and out of the spoke network. The virtual network defines the following subnets in the deployment template:
 
-1. `GatewaySubnet`: subnet for the VPN gateway, if deployed
-1. `AzureBastionSubnet`: subnet for the Azure Bastion service, if deployed
-1. `AzureFirewallSubnet`: subnet for the Azure Firewall service
-1. `sn-jumpbox`: subnet for the jumpboxes
-1. `sn-dnspr`: subnet delegated to Azure DNS resolver
+1. `GatewaySubnet`: Subnet for the VPN gateway, if deployed
+1. `AzureBastionSubnet`: Subnet for the Azure Bastion service, if deployed
+1. `AzureFirewallSubnet`: Subnet for the Azure Firewall service
+1. `sn-jumpbox`: Subnet for the jumpboxes
+1. `sn-dnspr`: Subnet delegated to Azure DNS resolver
 
 #### Spoke virtual network
 
 The spoke virtual network contains the Batch service, Batch compute nodes, and other service endpoints needed by the workload. The virtual network defines the following subnets in the deployment template:
 
-1. `pool-linux`: subnet for the Linux pool
-1. `pool-windows`: subnet for the Windows pool
-1. `private-endpoints`: subnet used for private endpoints for Azure services deployed on the spoke network
+1. `pool-linux`: Subnet for the Linux pool
+1. `pool-windows`: Subnet for the Windows pool
+1. `private-endpoints`: Subnet used for private endpoints for Azure services deployed on the spoke network
 
 The spoke network is peered with the hub network, which allows the resources on the spoke network to access the resources on the hub network. Route tables are set up to ensure that the traffic between the spoke is routed through the firewall.
 
@@ -124,7 +123,7 @@ To submit computation jobs to the Batch service, connect with the Batch service 
 
 The architecture provides two options to connect to the network so you can submit jobs to the Batch service:
 
-- **Use VPN Gateway**. Connect to the hub network using a VPN Gateway. After being connected to the VPN, you can submit jobs to the Batch service from the local machine directly, which also makes it easier to monitor jobs using Batch Explorer installed on the local machine. This configuration requires that the Azure CLI, Batch Explorer, and other tools are installed on the local machine. Alternatively, after connected to the VPN, you can use the Linux or Windows Jumpboxes to submit jobs to the Batch service. Doing so requires that you have an SSH client or RDP client installed on the local machine.
+- **Use VPN Gateway**. Connect to the hub network using a VPN gateway. After being connected to the VPN, you can submit jobs to the Batch service from the local machine directly, which also makes it easier to monitor jobs using Batch Explorer installed on the local machine. This configuration requires that the Azure CLI, Batch Explorer, and other tools are installed on the local machine. Alternatively, after connected to the VPN, you can use the Linux or Windows Jumpboxes to submit jobs to the Batch service. Doing so requires that you have an SSH client or RDP client installed on the local machine.
 
 - **Use Azure Bastion**. Instead of using VPN, you can use Azure Bastion to sign in to the Linux or Windows Jumpboxes. Sign in to the Azure portal and then use Azure Bastion to sign in to the jumpbox VM directly from the web browser. After signed in to the jumpbox, you can submit jobs to the Batch service using the Azure CLI, Batch Explorer, and other tools installed on the jumpbox.
 
@@ -140,7 +139,7 @@ Batch pools can be set up to automatically scale up and down based on the number
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-To minimize sharing of secrets such as passwords and keys, the architecture uses managed identities to authenticate the compute nodes with storage account, container registry, and other resources as they join the Batch pool. This authentication is done by assigning managed identities to the Batch pools and then granting the managed identities access to the resources. The managed identities can be granted the least privilege required to access the resources by using role-based access control.
+To minimize sharing of secrets such as passwords and keys, the architecture uses managed identities to authenticate the compute nodes with storage account, Container Registry, and other resources as they join the batch pool. This authentication is done by assigning managed identities to the batch pools and then granting the managed identities access to the resources. The managed identities can be granted the least privilege required to access the resources by using role-based access control.
 
 The architecture also uses private endpoints to help ensure that the services aren't accessible from the public internet. This configuration helps minimize the attack surface and also helps ensure that the services are accessed over private network instead of accessing them through public endpoints.
 
@@ -152,7 +151,7 @@ The compute nodes themselves aren't accessible from the public internet because 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure Batch itself is a free service, and customers pay only for the underlying virtual machine, storage, and networking costs. In this workload, besides the compute nodes, the storage account, jumpboxes, VPN gateway, and Azure Bastion are the other resources that incur cost. Since the workload is designed to support alternatives for accessing the resources, the cost of running can be optimized by choosing one of those paths. For example, if VPN gateway is preferred for accessing resources, then Azure Bastion and jumpbox VMs can be disabled during deployment to reduce the cost.
+Azure Batch itself is a free service, and customers pay only for the underlying virtual machine, storage, and networking costs. In this workload, besides the compute nodes, the storage account, jumpboxes, VPN Gateway, and Azure Bastion are the other resources that incur cost. Since the workload is designed to support alternatives for accessing the resources, the cost of running can be optimized by choosing one of those paths. For example, if VPN Gateway is preferred for accessing resources, then Azure Bastion and jumpbox VMs can be disabled during deployment to reduce the cost.
 
 To help reduce costs associated with the compute resources, use VM SKUs that are more cost effective for the workload. Further, using spot instances or pool autoscaling can help reduce the costs associated with compute nodes.
 

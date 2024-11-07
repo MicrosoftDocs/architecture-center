@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "docs/ai-ml/architecture/customer-lifecycle-churn.yml",
+      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/customer-feedback-and-analytics.yml",
+      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/customer-churn-prediction.yml",
+      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/custom-mobile-workforce-app.yml",
       "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
       "redirect_document_id": false
@@ -3086,18 +3101,43 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/plan-implementation.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/java/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/java/plan-implementation.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/guidance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/overview.md",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
       "redirect_document_id": true
     },
     {
@@ -3177,8 +3217,8 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/customer-feedback-and-analytics.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/customer-feedback-and-analytics",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/large-scale-custom-natural-language-processing.yml",
@@ -3242,8 +3282,8 @@
     },
     {      
       "source_path": "docs/solution-ideas/articles/customer-churn-prediction.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/customer-churn-prediction",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/ai-ml",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/personalized-offers.yml",
@@ -5533,6 +5573,31 @@
     {
       "source_path": "docs/data-guide/cognitive-services/decision-applied-ai.md",
       "redirect_url": "/azure/architecture/data-guide/technology-choices/ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml",
+      "redirect_url": "/azure/architecture/databases/idea/topic-migrate-oracle-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/orchestrate-mlops-azure-databricks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/orchestrate-machine-learning-azure-databricks",
+      "redirect_document_id": false
+    },
+    {
+    "source_path": "docs/example-scenario/mainframe/devops-mainframe-ibm-z.yml",
+    "redirect_url": "/azure/architecture/mainframe/mainframe-midrange-architecture",
+    "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml",
+      "redirect_url": "/azure/confidential-computing/choose-confidential-containers-offerings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
       "redirect_document_id": false
     }
   ]

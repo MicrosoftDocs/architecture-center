@@ -84,7 +84,7 @@ The following sections provide links to reference architectures in a few high-le
 
 ### Oracle migrations
 
-- [Oracle database migration to Azure](../../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)
+- [Migrate an Oracle database to Azure](../../databases/idea/topic-migrate-oracle-azure.yml)
 
 ### Migrations of banking systems
 

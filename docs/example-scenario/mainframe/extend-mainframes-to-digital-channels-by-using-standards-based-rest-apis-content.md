@@ -145,7 +145,3 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 - [Technical White Paper on Azure DevOps for z Systems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf)
 - [Microsoft Power Platform](https://powerplatform.microsoft.com/en-us/)
 - [IBM z/OS Connect overview](https://www.ibm.com/docs/en/was-liberty/zos?topic=overview-zos-connect)
-
-## Related resources
-
-- [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z)

@@ -1,4 +1,4 @@
-An event-driven architecture consists of **event producers** that generate a stream of events, and **event consumers** that listen for the events.
+An event-driven architecture consists of **event producers** that generate a stream of events, **event consumers** that listen for these events, and **event channels** that transfer events from producers to consumers.
 
 ![Diagram of an event-driven architecture style](./images/event-driven.svg)
 
@@ -42,7 +42,7 @@ There are two primary topologies within many event-driven architectures:
 - Producers and consumers are decoupled.
 - No point-to-point integrations. It's easy to add new consumers to the system.
 - Consumers can respond to events immediately as they arrive.
-- Highly scalable and distributed.
+- Highly scalable, elastic, and distributed.
 - Subsystems have independent views of the event stream.
 
 ## Challenges
@@ -67,10 +67,18 @@ There are two primary topologies within many event-driven architectures:
 
   Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never makes it into the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component has acknowledged the receipt of the event. These features are usually known as _client acknowledge mode_ and _last participant support_.
 
+- Implementing a traditional request-response pattern.
+
+  Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be achieved through [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
+
+  This pattern is usually implemented by utilizing multiple queues - a request queue and a response queue. The event producer sends an asynchronous request to a request queue, pauses other operation on that task, and awaits a response in the reply queue; effectively turning this into a synchronous process. Event consumers then process the request and send the reply back through a response queue. This approach usually utilizes a session ID for tracking, so the event producer knows which message in the response queue is related to the specific request. The original request could also specify the name of the response queue, potentially ephemeral, in a [reply-to header](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replyto) or another mutually agreed-upon custom attribute.
+  
 ### Additional considerations
 
 - The amount of data to include in an event can be a significant consideration that affects both performance and cost. Putting all the relevant information needed for processing in the event itself can simplify the processing code and save additional lookups. Putting the minimal amount of information in an event, like just a couple of identifiers, will reduce transport time and cost, but requires the processing code to look up any additional information it needs. For more information on this, take a look at [this blog post](https://particular.net/blog/putting-your-events-on-a-diet).
 - While a request is only visible to the request-handling component, events are often visible to multiple components in a workload, even if those components don't or aren't meant to consume them. Operating with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
+- Many applications use event-driven architecture as their primary architecture; however, this approach can be combined with other architectural styles, resulting in hybrid architectures. Common combinations include [microservices](./microservices.yml) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrating event-driven architecture enhances system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes.
+- [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a particular domain might impact many components.
 
 ## Related resources
 
