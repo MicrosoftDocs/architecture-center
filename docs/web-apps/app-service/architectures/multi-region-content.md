@@ -80,7 +80,7 @@ If your primary region doesn't have a pair, consider the following factors when 
 - Minimize latency by selecting regions that are geographically close to your users.
 - Meet your data residency requirements by select regions that are in geographies you can store and process data in.
 
-Whether your region is paired or unpaired, make sure that both regions support all of the Azure services needed for your application. See [Services by region][services-by-region].
+Whether your regions are paired or unpaired, make sure that both regions support all of the Azure services needed for your application. See [Services by region][services-by-region].
 
 ### Resource groups
 
