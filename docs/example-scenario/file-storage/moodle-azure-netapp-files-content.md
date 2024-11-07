@@ -145,3 +145,9 @@ Principal author:
 - [Azure NetApp Files for NFS storage with Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 - [Solution architectures using Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures)
 - [Automatic scaling with Virtual Machine Scale Sets flexible orchestration mode](https://azure.microsoft.com/updates/automatic-scaling-for-vms-with-azure-virtual-machine-scale-sets-flexible-orchestration-mode/)
+
+
+[Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files]: https://anfcommunity.com/2020/11/05/fault-tolerance-high-availability-and-resiliency-in-azure-netapp-files/
+[Overview of autoscale with Azure virtual machine scale sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+[Resize a capacity pool or a volume]: /azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes
+[Performance considerations for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations
