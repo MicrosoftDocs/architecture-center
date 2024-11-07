@@ -58,7 +58,7 @@ Some considerations on when to leverage database vector search capabilities may 
 
 **Search in Integrated Data:** If your application requires tight integration with existing operational data, using database vector search capabilities can be beneficial. For example, Azure Cosmos DB, PostgreSQL, and Azure SQL Database allow you to store and query vector data alongside your relational or NoSQL data, reducing data duplication and synchronization lag.
 **Complex Queries:** When you need to combine vector search with complex relational queries, databases like PostgreSQL with the pgvector extension or Azure SQL Database can be advantageous. They allow you to leverage the full power of SQL for advanced querying.
-**Organizational Strategy and Existing Infrastructure:** If your team is already familiar with a particular database technology, it might be easier to implement vector search within that environment. For instance, if you are already using PostgreSQL or MongoDB, extending their capabilities with vector search can be more straightforward.
+**Strategic Alignment and Current Infrastructure:** If your team is already familiar with a particular database technology, it might be easier to implement vector search within that environment. For instance, if you are already using PostgreSQL or MongoDB, extending their capabilities with vector search can be more straightforward.
 
 If you need a scalable, high-performance search solution with advanced features and easy integration, Azure AI Search would be more suitable.
 
