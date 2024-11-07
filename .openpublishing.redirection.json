@@ -5561,6 +5561,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/analyze-optimize-loop.yml",
+      "redirect_url": "/azure/architecture/articles/iot/iot-overview-analyze-visualize",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/data-guide/cognitive-services/speech-api.md",
       "redirect_url": "/azure/architecture/data-guide/ai-services/speech-service-capabilities",
       "redirect_document_id": false
