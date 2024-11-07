@@ -51,6 +51,17 @@ For the AOAI baseline chat bot architecture, Azure App Service and Azure Kuberne
 
 The same considerations for performance, compute choice, and scalability apply that you would apply to most non-AI workloads containing app services.
 
+#### Vector Database Search Alternatives
+For alternatives to Azure AI Search, leverage the [flow diagram]https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/vector-search#key-requirements) to help decide which AI service would fit your needs based on vector search capabilities. 
+
+Some considerations on when to leverage database vector search capabilities may be Search in Integrated Data, ability to run complex queries, Organizational Strategy and Existing Infrastructure
+
+**Search in Integrated Data:** If your application requires tight integration with existing operational data, using database vector search capabilities can be beneficial. For example, Azure Cosmos DB, PostgreSQL, and Azure SQL Database allow you to store and query vector data alongside your relational or NoSQL data, reducing data duplication and synchronization lag.
+**Complex Queries:** When you need to combine vector search with complex relational queries, databases like PostgreSQL with the pgvector extension or Azure SQL Database can be advantageous. They allow you to leverage the full power of SQL for advanced querying.
+**Organizational Strategy and Existing Infrastructure:** If your team is already familiar with a particular database technology, it might be easier to implement vector search within that environment. For instance, if you are already using PostgreSQL or MongoDB, extending their capabilities with vector search can be more straightforward.
+
+If you need a scalable, high-performance search solution with advanced features and easy integration, Azure AI Search would be more suitable.
+
 ## Considerations and recommendations
 
 ### Reliability
