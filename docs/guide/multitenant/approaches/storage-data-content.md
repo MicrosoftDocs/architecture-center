@@ -127,9 +127,14 @@ For relational databases, these include:
 
 There are some features that can be useful for multitenancy. However, these aren't available in all database services. Consider whether you need these, when you decide on the service to use for your scenario:
 
-- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in Azure SQL and Postgres Flex, but it's not available in other databases, like MySQL or Azure Cosmos DB.
+- **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like Azure SQL and Postgres Flex.
+
+    When you use row-level security you need to ensure the user's identity and tenant identity are propagated through the application and into the data store. This approach can be complex to design and implement, and many multitenant solutions don't use row-level security because of those complexities.
+
 - **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Azure Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-cmk) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
+
 - **Resource pooling** provides the ability to share resources and cost, between multiple databases or containers. This feature is available in Azure SQL's [elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [managed instances](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) and in Azure Cosmos DB [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database), although each option has limitations you should be aware of.
+
 - **Sharding and partitioning** has stronger native support in some services than others. This feature is available in Azure Cosmos DB, by using its [logical and physical partitioning](/azure/cosmos-db/partitioning-overview). While Azure SQL doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
 
 Additionally, when you work with relational databases or other schema-based databases, consider where the schema upgrade process should be triggered, when you maintain a fleet of databases. In a small estate of databases, you might consider using a deployment pipeline to deploy schema changes. As the number of databases increases, it might be better for your application tier to detect the schema version for a specific database and to initiate the upgrade process.
