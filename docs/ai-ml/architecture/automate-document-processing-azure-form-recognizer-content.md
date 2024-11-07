@@ -299,7 +299,7 @@ Principal author:
 [Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
 [Azure Storage documentation]: /azure/storage
 [Azure Storage service page]: /azure/storage/common/storage-introduction
-[Azure Web Application Firewall service page]: https://azure.microsoft.com/products/web-application-firewall
+[Azure Web Application Firewall service page]: /azure/web-application-firewall/ag/ag-overview
 [Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
