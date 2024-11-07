@@ -43,7 +43,7 @@ Here are the core components that move and process research data.
 
 - **Azure Machine Learning Compute:** A cluster of nodes that are used to train and test machine learning and AI models. The compute is allocated on demand based on an automatic scaling option. Visual Studio Code (VS Code) can be deployed as a streaming app from Virtual Desktop and connected to the AML compute for an alternative development environment.
 
-- [**Azure Blob storage:**](/azure/storage/blobs/) There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
+- [**Azure Blob storage:**](/azure/storage/blobs/) There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores de-identified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
 
 - [**Azure Data Factory:**](/azure/data-factory/) Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
