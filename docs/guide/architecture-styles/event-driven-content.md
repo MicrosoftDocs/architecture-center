@@ -85,7 +85,6 @@ There are two primary topologies within many event-driven architectures:
 - While a request is only visible to the request-handling component, events are often visible to multiple components in a workload, even if those components don't or aren't meant to consume them. Operating with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
 - Many applications use event-driven architecture as their primary architecture; however, this approach can be combined with other architectural styles, resulting in hybrid architectures. Common combinations include [microservices](./microservices.yml) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrating event-driven architecture enhances system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes.
 - [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a particular domain might impact many components.
-  
 ## Related resources
 
 -  [Community discussion video](https://particular.net/webinars/2023-orchestration-choreography-qa) on the considerations of choosing between choreography and orchestration.
