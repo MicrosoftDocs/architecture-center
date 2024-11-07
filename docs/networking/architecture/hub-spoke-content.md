@@ -81,10 +81,8 @@ The following recommendations outline how to configure the subnets on the virtua
 
 The virtual network gateway requires this subnet. You can also use a hub-spoke topology without a gateway if you don't need cross-premises network connectivity.
 
-Create a subnet named *GatewaySubnet* with an address range of at least `/27`. The `/27` address range gives the subnet enough scalability configuration options to prevent reaching the gateway size limitations in the future. For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
-
-- [Hybrid network using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml)
-- [Hybrid network using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
+Create a subnet named *GatewaySubnet* with an address range of at least `/27`. The `/27` address range gives the subnet enough scalability configuration options to prevent reaching the gateway size limitations in the future. For more information about setting up the gateway, see
+[Hybrid network using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
 

@@ -5634,6 +5634,11 @@
       "source_path": "docs/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml",
       "redirect_url": "/azure/confidential-computing/choose-confidential-containers-offerings",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
+      "redirect_document_id": false
     }
   ]
 }

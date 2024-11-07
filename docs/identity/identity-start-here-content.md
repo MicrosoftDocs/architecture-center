@@ -109,7 +109,7 @@ The following resources provide practical recommendations and information for sp
 ### Microsoft Entra ID in educational environments
 
 - [Introduction to Microsoft Entra tenants][Introduction to Azure Active Directory Tenants]
-- [Design a multi-tenant architecture for large institutions][Design a multi-tenant architecture for large institutions]
+- [Design a multi-directory architecture for large institutions][Design a multi-tenant architecture for large institutions]
 - [Design Tenant Configuration][Design Tenant Configuration]
 - [Design authentication and credential strategies][Design authentication and credential strategies]
 - [Design an account strategy][Design an account strategy]

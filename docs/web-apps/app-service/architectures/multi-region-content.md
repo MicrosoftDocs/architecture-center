@@ -49,7 +49,7 @@ There are several general approaches to achieve high availability across regions
 
 - Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it's taken out of rotation.
 
-This reference focuses on active/passive with hot standby. 
+This reference focuses on active/passive with hot standby. For information about designing solutions that use the other approaches, see [Multi-region App Service app approaches for disaster recovery](../../guides/multi-region-app-service/multi-region-app-service.yml).
 
 ### Potential use cases
 
