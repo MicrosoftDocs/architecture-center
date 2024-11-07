@@ -19,9 +19,7 @@ items:
         - name: Baseline web application with zone redundancy
           href: app-service/architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
-          href: app-service/architectures/multi-region.yml
-        - name: Multi-region App Service apps for disaster recovery
-          href: guides/multi-region-app-service/multi-region-app-service.yml
+          href: app-service/architectures/multi-region.ym
       - name: Host web apps with App Service Environment
         items:
         - name: Standard deployment
@@ -88,6 +86,10 @@ items:
                 href: guides/reliable-web-app/java/plan-implementation.yml
               - name: Apply the pattern
                 href: guides/reliable-web-app/java/apply-pattern.yml
+      - name: Disaster recovery for web apps
+        items:
+        - name: Multi-region App Service apps for disaster recovery
+          href: guides/multi-region-app-service/multi-region-app-service.yml
     - name: Hosting Wordpress on Azure
       items:
       - name: Overview
