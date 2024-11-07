@@ -12,7 +12,7 @@ If instead of adding stamps, you move a single instance of your IoT solution to 
 
 - **Separation of Customers:** You may need to keep certain customers' data isolated from other customers' data. Similarly, you may have some customers that require more system resources to service than others, and consider grouping them on different stamps.
 
-- **Single and multi-tenant instances:** You might have some large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multi-tenant deployment.
+- **Single and multitenant instances:** You might have some large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multitenant deployment.
 
 - **Complex deployment requirements:** You might need to deploy updates to your service in a controlled manner and deploy to different stamps at different times.
 

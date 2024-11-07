@@ -80,7 +80,7 @@ This solution uses the following components:
 
 - [Azure Databricks](https://azure.microsoft.com/free/databricks) is a data analytics platform. Based on the latest Apache Spark distributed processing system, Azure Databricks supports seamless integration with open-source libraries. This solution uses Azure Databricks notebooks to transform all member data into a common format.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based identity and access management service.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service.
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
