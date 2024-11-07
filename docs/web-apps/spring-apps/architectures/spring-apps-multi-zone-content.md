@@ -50,7 +50,7 @@ The following Azure services are the components in this architecture:
 Azure Database for MySQL isn't the only option for a database. You can also use:
 
 - [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)
-- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-dbb)
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
 
 ## Redundancy
