@@ -143,9 +143,19 @@ This solution is ideal for the finance industry. It can also apply to the automo
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-Keep these points in mind when you use this solution.
+### Reliability
 
-### Availability
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Resiliancy
+
+- The solution's resiliency depends on the failure modes of individual services like App Service, Functions, Azure Cosmos DB, Storage, and Application Gateway. For more information, see [Resiliency checklist for specific Azure services][Resiliency checklist for specific Azure services].
+
+- You can make Azure AI Document Intelligence resilient. Possibilities include designing it to fail over to another region and splitting the workload into two or more regions. For more information, see [Back up and recover your Azure AI Document Intelligence models][Back up and recover your Form Recognizer models].
+
+- Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
+
+#### Availability
 
 The availability of the architecture depends on the Azure services that make up the solution:
 
@@ -167,28 +177,9 @@ The availability of the architecture depends on the Azure services that make up 
   - [SLA for Application Gateway][SLA for Application Gateway]
   - [SLA for Azure Kubernetes Service (AKS)][SLA for Azure Kubernetes Service (AKS)]
 
-### Scalability
-
-- App Service can automatically scale out and in as the application load varies. For more information, see [Create an autoscale setting for Azure resources based on performance data or a schedule][Create an Autoscale Setting for Azure resources based on performance data or a schedule].
-
-- Azure Functions can scale automatically or manually. The hosting plan that you choose determines the scaling behavior of your function apps. For more information, see [Azure Functions hosting options][Azure Functions hosting options].
-
-- By default, Azure AI Document Intelligence supports 15 concurrent requests per second. You can increase this value by [creating an Azure Support ticket][Create an Azure support request] with a quota increase request.
-
-- For custom models that you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
-
-- For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
-
-- For AI Language, data and rate limits apply. For more information, see these resources:
-
-  - [How to use named entity recognition (NER)][How to use named entity recognition (NER) - Data limits]
-  - [How to detect and redact personal information][How to detect and redact Personal Information - Data limits]
-  - [How to use sentiment analysis and opinion mining][How to: Use Sentiment analysis and Opinion Mining - Data limits]
-  - [How to use Text Analytics for health][How to use Text Analytics for health - Data limits]
-
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Worldwide Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
@@ -213,17 +204,11 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - You can [use Transport Layer Security (TLS) to secure web services][Use TLS to secure a web service through Azure Machine Learning] that you deploy through Machine Learning.
   - To protect data, you can [change the access keys for Azure Storage accounts][Regenerate storage account access keys] that Machine Learning uses.
 
-### Resiliency
+Keep these points in mind when you use this solution.
 
-- The solution's resiliency depends on the failure modes of individual services like App Service, Functions, Azure Cosmos DB, Storage, and Application Gateway. For more information, see [Resiliency checklist for specific Azure services][Resiliency checklist for specific Azure services].
+### Cost Optimization
 
-- You can make Azure AI Document Intelligence resilient. Possibilities include designing it to fail over to another region and splitting the workload into two or more regions. For more information, see [Back up and recover your Azure AI Document Intelligence models][Back up and recover your Form Recognizer models].
-
-- Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The cost of implementing this solution depends on which components you use and which options you choose for each component.
 
@@ -246,6 +231,27 @@ These resources provide information on component pricing options:
 - [Azure Machine Learning pricing][Azure Machine Learning pricing]
 
 After deciding on a pricing tier for each component, use the [Azure Pricing calculator][Azure Pricing calculator] to estimate the solution cost.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- App Service can automatically scale out and in as the application load varies. For more information, see [Create an autoscale setting for Azure resources based on performance data or a schedule][Create an Autoscale Setting for Azure resources based on performance data or a schedule].
+
+- Azure Functions can scale automatically or manually. The hosting plan that you choose determines the scaling behavior of your function apps. For more information, see [Azure Functions hosting options][Azure Functions hosting options].
+
+- By default, Azure AI Document Intelligence supports 15 concurrent requests per second. You can increase this value by [creating an Azure Support ticket][Create an Azure support request] with a quota increase request.
+
+- For custom models that you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
+
+- For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
+
+- For AI Language, data and rate limits apply. For more information, see these resources:
+
+  - [How to use named entity recognition (NER)][How to use named entity recognition (NER) - Data limits]
+  - [How to detect and redact personal information][How to detect and redact Personal Information - Data limits]
+  - [How to use sentiment analysis and opinion mining][How to: Use Sentiment analysis and Opinion Mining - Data limits]
+  - [How to use Text Analytics for health][How to use Text Analytics for health - Data limits]
 
 ## Contributors
 
