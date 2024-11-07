@@ -58,7 +58,7 @@ On the Azure platform, consider the following options:
 
 - Use [Azure Red Hat OpenShift](/azure/openshift) to deploy fully managed OpenShift clusters. Azure Red Hat OpenShift extends Kubernetes. Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft.
 
-- Other options, such as Docker Enterprise Edition, can run in an cloud-computing environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
+- Other options, such as Docker Enterprise Edition, can run in a cloud-computing environment on Azure. You can find deployment templates on [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
 ### Use Kubernetes APIs
 
