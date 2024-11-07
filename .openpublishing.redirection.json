@@ -5501,6 +5501,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/event-routing.yml",
+      "redirect_url": "azure-docs/articles/iot/iot-overview-message-processing",
+      "redirect_document_id": false
+    },
+    {    
       "source_path": "docs/ai-ml/idea/vision-classifier-model-with-custom-vision.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/intelligent-apps-image-processing",
       "redirect_document_id": false
