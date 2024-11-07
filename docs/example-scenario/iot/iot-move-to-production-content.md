@@ -22,9 +22,6 @@ If instead of adding stamps, you move a single instance of your IoT solution to 
 
 To avoid the preceding issues, consider grouping your service into multiple stamps. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region may contain a single stamp, or may contain multiple stamps to allow for horizontal scale-out within the region. Each stamp contains a subset of your customers.
 
-> [!div class="nextstepaction"]
-> [Scale IoT solutions with stamps](/azure/architecture/example-scenario/iot/application-stamps)
-
 ## Use back-off when a transient fault occurs
 
 All applications that communicate with remote services and resources must be sensitive to transient faults. This is especially the case for applications that run in the cloud, where the nature of the environment and connectivity over the internet means these types of faults are likely to be encountered more often. Transient faults include:
