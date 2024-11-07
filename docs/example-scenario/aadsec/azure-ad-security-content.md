@@ -117,9 +117,11 @@ Microsoft Entra ID can use the following Conditional Access controls with Condit
 
 ## Considerations
 
-Keep these points in mind when you use this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Logging
+### Security
+
+ 
 
 Microsoft Entra [audit reports](/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
 
@@ -132,7 +134,7 @@ You can route Microsoft Entra ID log data to endpoints like:
 
 You can also use the Microsoft Graph [reporting API](/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume Microsoft Entra ID log data within your own scripts.
 
-### On-premises and hybrid considerations
+ 
 
 Authentication methods are key to securing your organization's identities in a hybrid scenario. Microsoft provides [specific guidance](/azure/security/fundamentals/choose-ad-authn) on choosing a hybrid authentication method with Microsoft Entra ID.
 
