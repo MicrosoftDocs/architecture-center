@@ -1,6 +1,6 @@
 <!-- cSpell:ignore writeback MSOL -->
 
-Microsoft Entra ID is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Microsoft Entra ID to provide cloud-based identity authentication.
+Microsoft Entra ID is a cloud-based directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Microsoft Entra ID to provide cloud-based identity authentication.
 
 ## Architecture
 
