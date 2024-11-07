@@ -37,7 +37,7 @@ Key technologies used to implement this architecture:
 - [Azure Redis Cache][Azure-Redis-Cache] is a high-performance caching service that provides an in-memory data store for faster retrieval of data, based on the open-source implementation Redis cache.
 - [Azure SQL Database][Azure-SQL-Database] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine.
 - [Azure Cosmos DB][Azure-Cosmos-DB] is a globally distributed, fully managed, low latency, multi-model, multi query-API database for managing data at large scale.
-- [Azure Cognitive Search][Azure-Search] can be used to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
+- [Azure AI Search][Azure-Search] can be used to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
 
 ## Scenario details
 
@@ -128,13 +128,13 @@ Queue storage is referenced as an alternative messaging option to Azure Service 
 
 In order to benefit from the highest resilience offered for Azure Service Bus, use the premium tier for your namespaces. The premium tier makes use of [availability zones](/azure/service-bus-messaging/service-bus-geo-dr#availability-zones), which makes your namespaces resilient to data center outages. If there's a widespread disaster affecting multiple data centers, the [Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr) feature included with the premium tier can help you recover. The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (queues, topics, subscriptions, and filters) is continuously replicated from a primary namespace to a secondary namespace when paired. It allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will repoint the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated.
 
-### Azure Cognitive Search
+### Azure AI Search
 
-In Cognitive Search, availability is achieved through multiple replicas, whereas business continuity and disaster recovery (BCDR) is achieved through multiple search services.
+In AI Search, availability is achieved through multiple replicas, whereas business continuity and disaster recovery (BCDR) is achieved through multiple search services.
 
-In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](/azure/search/search-capacity-planning#adjust-capacity). 
+In AI Search, replicas are copies of your index. Having multiple replicas allows Azure AI Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](/azure/search/search-capacity-planning#adjust-capacity). 
 
-You can utilize [Availability Zones](/azure/availability-zones/az-overview) with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
+You can utilize [Availability Zones](/azure/availability-zones/az-overview) with Azure AI Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
 
 For BCDR considerations, refer to the [Multiple services in separate geographic regions](/azure/search/search-performance-optimization#multiple-services-in-separate-geographic-regions) documentation.
 
@@ -313,17 +313,17 @@ Azure Search removes the overhead of performing complex data searches from the p
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [system-managed-identities]: /azure/active-directory/managed-identities-azure-resources/overview
 [visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-multi-region-webapp.vsdx
-[Azure-Active-Directory]: https://azure.microsoft.com/services/active-directory
-[Azure-DNS]: https://azure.microsoft.com/services/dns
-[Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn
-[Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor
+[Azure-Active-Directory]: /entra/fundamentals/whatis
+[Azure-DNS]: /azure/dns/dns-overview
+[Azure-Content-Delivery-Network]: /azure/cdn/cdn-overview
+[Azure-Front-Door]: /azure/well-architected/service-guides/azure-front-door
 [Azure-AppService]: /azure/well-architected/service-guides/app-service-web-apps
-[Azure-Function]: https://azure.microsoft.com/services/functions
-[Azure-Storage]: https://azure.microsoft.com/product-categories/storage
-[Azure-Redis-Cache]: https://azure.microsoft.com/services/cache
-[Azure-SQL-Database]: https://azure.microsoft.com/products/azure-sql/database
-[Azure-Cosmos-DB]: https://azure.microsoft.com/services/cosmos-db
-[Azure-Search]: https://azure.microsoft.com/services/search
+[Azure-Function]: /azure/well-architected/service-guides/azure-functions-security
+[Azure-Storage]: /azure/storage/common/storage-introduction
+[Azure-Redis-Cache]: /azure/well-architected/service-guides/azure-cache-redis/reliability
+[Azure-SQL-Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
+[Azure-Cosmos-DB]: /azure/well-architected/service-guides/cosmos-db
+[Azure-Search]: /azure/search/search-what-is-azure-search
 [front-door-routing]: /azure/frontdoor/front-door-routing-methods
 [front-door-tier]: /azure/frontdoor/standard-premium/tier-comparison
 [endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring

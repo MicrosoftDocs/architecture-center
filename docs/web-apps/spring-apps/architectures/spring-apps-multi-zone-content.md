@@ -33,25 +33,25 @@ This workflow corresponds to the previous diagram:
 
 The following Azure services are the components in this architecture:
 
-- The standard version of [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) is used to host a sample Java Spring Boot application that's implemented as microservices.
+- The standard version of [Azure Spring Apps](/azure/spring-apps/enterprise/overview) is used to host a sample Java Spring Boot application that's implemented as microservices.
 
-- The standard v2 version of [Application Gateway](https://azure.microsoft.com/products/application-gateway) is used to manage traffic to the applications. It acts as a local reverse proxy in the region that your application runs.
+- The standard v2 version of [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is used to manage traffic to the applications. It acts as a local reverse proxy in the region that your application runs.
 
-    This SKU has [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) integrated to help protect your web applications from exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
+    This SKU has [Web Application Firewall](/azure/web-application-firewall/overview) integrated to help protect your web applications from exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
 
-- [Azure DNS](https://azure.microsoft.com/products/dns) is used to resolve requests that are sent to the host name of the application. It resolves those requests to the Application Gateway public endpoint. [Azure DNS private zones](/azure/dns/private-dns-privatednszone) are used to resolve requests to the private endpoints that access the named [Azure Private Link](https://azure.microsoft.com/products/private-link) resources.
+- [Azure DNS](/azure/dns/dns-overview) is used to resolve requests that are sent to the host name of the application. It resolves those requests to the Application Gateway public endpoint. [Azure DNS private zones](/azure/dns/private-dns-privatednszone) are used to resolve requests to the private endpoints that access the named [Azure Private Link](/azure/private-link/private-link-overview) resources.
 
-- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is used to store state in a back-end relational database.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization) is used to store state in a back-end relational database.
 
-- [Key Vault](https://azure.microsoft.com/products/key-vault) is used to store application secrets and certificates. The microservices that run in Azure Spring Apps use the application secrets. Azure Spring Apps and Application Gateway use the certificates for host name preservation.
+- [Key Vault](/azure/key-vault/general/overview) is used to store application secrets and certificates. The microservices that run in Azure Spring Apps use the application secrets. Azure Spring Apps and Application Gateway use the certificates for host name preservation.
 
 ### Alternatives
 
 Azure Database for MySQL isn't the only option for a database. You can also use:
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql)
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db)
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/)
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql)
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-dbb)
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)
 
 ## Redundancy
 
