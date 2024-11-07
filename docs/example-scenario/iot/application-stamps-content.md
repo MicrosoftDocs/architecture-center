@@ -90,7 +90,6 @@ Principal author:
 ## Next steps
 
 - [IoT devices, platform, and applications](devices-platform-application.yml)
-- [IoT application-to-device commands](cloud-to-device.yml)
 - [Deployment Stamps design pattern](../../patterns/deployment-stamp.yml)
 
 ## Related resources

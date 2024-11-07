@@ -1875,8 +1875,6 @@ items:
           href: example-scenario/iot/devices-platform-application.yml
         - name: Attestation, authentication, provisioning
           href: example-scenario/iot/attestation-provisioning.yml
-        - name: Application-to-device commands
-          href: example-scenario/iot/cloud-to-device.yml
       - name: Computer vision with Azure IoT Edge
         items:
         - name: Overview
