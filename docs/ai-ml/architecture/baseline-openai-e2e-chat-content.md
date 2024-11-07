@@ -49,6 +49,8 @@ There are several managed application services offerings available in Azure. Thi
 
 For the AOAI baseline chat bot architecture, Azure App Service and Azure Kubernetes Service (AKS) are the most suitable options based on performance, compute, and scalability. Azure App Service is optimized for web applications and provides a robust environment for hosting the chat UI, while AKS offers advanced orchestration capabilities and can handle large-scale deployments, making it ideal for the AI components of the chat bot.
 
+The same considerations for performance, compute choice, and scalability apply that you would apply to most non-AI workloads containing app services.
+
 ## Considerations and recommendations
 
 ### Reliability
