@@ -135,13 +135,13 @@ The technologies in this solution were chosen for their scalability and availabi
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The components in this solution feature high availability. But there are two parts to machine learning and analytics tasks: training and production deployment. Resources that are required for training don't typically need high availability. As for production deployment, Azure VMs fully support high availability. For detailed information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The components in this solution offer built-in security. They also support permissions that you can manage by using Microsoft Entra authentication or role-based access control. For information about establishing suitable enterprise-level security, see [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security).
 
@@ -154,23 +154,23 @@ When you implement security features in this solution, consider guidelines in th
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 
-### Cost optimization
+### Cost Optimization
 
-One aspect of cost optimization is looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information about creating a cost-effective workload, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - To optimize costs by paying only for what you need, scale resources according to your analytics, training, and deployment workloads.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator).
 - For information about various licenses that Power BI offers, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 You can scale most components in this scenario up or down depending on the analysis activity levels. Azure Synapse Analytics provides scalability and high performance. At low activity levels, you can pause this service or scale back computing resources.
 
 You can scale Machine Learning according to the size of your data and the compute resources that you need for model training. For deployment, you can scale compute resources based on your expected load, scoring service, and latency requirements with Azure Kubernetes Service (AKS).
 
-For guidance about designing scalable solutions, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
+For guidance about designing scalable solutions, see [Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ### Other considerations
 
