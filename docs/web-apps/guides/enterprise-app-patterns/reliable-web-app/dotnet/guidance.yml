@@ -3,8 +3,8 @@ metadata:
   title: Reliable Web App pattern for .NET
   titleSuffix: Azure Reference Architectures
   description: Implement the Reliable Web App pattern for .NET. Migrate (replatform) web apps to the cloud with prescriptive architecture, code, and configuration guidance.
-  author: stephen-sumner
-  ms.author: keschlob
+  author: nishanil
+  ms.author: nanil
   ms.reviewer: ssumner
   ms.date: 10/15/2024
   ms.topic: azure-guide

@@ -82,6 +82,8 @@ items:
             items:
             - name: .NET
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
+            - name: Java
+              href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
 
     - name: Hosting Wordpress on Azure
       items:

@@ -3,8 +3,8 @@ metadata:
   title: Modern Web App pattern for .NET
   titleSuffix: Azure Reference Architectures
   description: Implement the Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.
-  author: coderandhiker
-  ms.author: chrisrt
+  author: nishanil
+  ms.author: nanil
   ms.reviewer: ssumner
   ms.date: 10/15/2024
   ms.topic: reference-architecture
@@ -24,6 +24,6 @@ products:
   - dotnet
 name: Modern Web App pattern for .NET
 summary: Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.
-thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
+thumbnailUrl: /azure/architecture/browse/thumbs/modern-web-app-dotnet.png
 content: |
    [!include[](guidance-content.md)]
