@@ -62,8 +62,9 @@ Each region's App Service applications use the same configuration, including pri
 
 -  Where possible, store application state outside of the App Service file system such as in a database or Azure Storage. Configure those components to meet your geo-redundancy requirements.
 
-   >[!TIP]
-   >If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
+   > [!TIP]
+   > If your application actively modifies the file system, and your App Service app region [has a paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions), you can reduce the RPO for your file system by writing to a [mounted Azure Storage share](/azure/app-service/configure-connect-to-azure-storage) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) or [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
+
 ### Considerations
 
 - **Low RTO:** The RTO during such a geo-failover depends on how soon the health probes detect the faulty region. By default, probes check every 30 seconds, but [you can configure a different probe frequency](/azure/frontdoor/health-probes).
@@ -239,3 +240,9 @@ The steps to create a passive-cold region for your web app in App Service are as
 1. Verify that the web app backup files can be retrieved in the secondary region of your storage account.
 
 ---
+
+## Next steps
+
+Review Azure App Service reference architectures:
+- For a single-region zone-redundant application, see [Baseline highly available zone-redundant web application](../../app-service/architectures/baseline-zone-redundant.yml).
+- For an active/passive multi-region application, see [Highly available multi-region web application](../../app-service/architectures/multi-region.yml).
