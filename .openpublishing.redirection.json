@@ -5231,6 +5231,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/measure-control-loop.yml",
+      "redirect_url": "/azure-docs/articles/iot/iot-overview-device-management",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/example-scenario/service-to-service/restrict-communications.yml",
       "redirect_url": "/azure/architecture/guide/security/security-start-here",
       "redirect_document_id": false
