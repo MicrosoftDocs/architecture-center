@@ -51,6 +51,12 @@ For the AOAI baseline chat bot architecture, Azure App Service and Azure Kuberne
 
 The same considerations for performance, compute choice, and scalability apply that you would apply to most non-AI workloads containing app services.
 
+
+#### High Availability and Disaster Recovery for  Flow Deployments
+Enterprise deployments require zonal redundancy, which involves deploying resources that support availability zones and ensuring at least three instances. Machine Learning compute doesn't support availability zones, so clusters must be established in various regions with a load balancer and health checks. Prompt flows, as containerized applications, can be deployed to Azure services like AKS, Azure Functions, Azure Container Apps, and App Service, all of which support availability zones. This allows for zonal redundancy without the complexity of multi-region deployment.
+
+An alternative with App service is described in this section [Zonal redundancy for flow deployments](#zonal-redundancy-for-flow-deployments)
+
 #### Vector Database Search Alternatives
 For alternatives to Azure AI Search, leverage the [flow diagram]https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/vector-search#key-requirements) to help decide which AI service would fit your needs based on vector search capabilities. 
 
@@ -74,7 +80,7 @@ This section addresses reliability from the perspective of the components in thi
 
 #### Zonal redundancy for flow deployments
 
-Enterprise deployments usually require zonal redundancy. To achieve zonal redundancy in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least three instances of the resource or enable the platform support when instance control isn't available. Currently, Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on Machine Learning components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You can use health checks to help ensure that calls are only routed to clusters that are functioning properly.
+To achieve zonal redundancy in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least three instances of the resource or enable the platform support when instance control isn't available. Currently, Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on Machine Learning components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You can use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
 Deploying prompt flows isn't limited to Machine Learning compute clusters. The executable flow, being a containerized application, can be deployed to any Azure service that's compatible with containers. These options include services like Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps, and App Service. Each of those services supports availability zones. To achieve zonal redundancy for prompt flow execution, without the added complexity of a multi-region deployment, you should deploy your flows to one of those services.
 
