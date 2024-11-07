@@ -253,7 +253,7 @@ Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/
     }
     ```
 
-- *Configure Azure resources.* Configure the Azure resource to use the app's health check URLs to confirm liveness and readiness. For example, you can use Terraform to use the health check URLs to confirm the liveness and readiness of apps deployed to Azure Container Apps. Read [Health probes in Azure Container Apps](azure/container-apps/health-probes) to learn more.
+- *Configure Azure resources.* Configure the Azure resource to use the app's health check URLs to confirm liveness and readiness. For example, you can use Terraform to use the health check URLs to confirm the liveness and readiness of apps deployed to Azure Container Apps. For more information, see [Health probes in Azure Container Apps](/azure/container-apps/health-probes).
 
 ### Implement the Retry Pattern
 
