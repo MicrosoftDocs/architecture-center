@@ -299,4 +299,3 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
