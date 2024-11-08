@@ -4982,7 +4982,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml",
-      "redirect_url": "/azure/architecture/data-guide/technology-choices/natural-language-processing",
+      "redirect_url": "/azure/architecture/articles/ai-services/speech-service/voice-assistants",
       "redirect_document_id": false  
     },
     {
