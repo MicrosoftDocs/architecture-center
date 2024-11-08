@@ -1848,8 +1848,6 @@ items:
         items:
         - name: Devices, platform, and applications
           href: example-scenario/iot/devices-platform-application.yml
-        - name: Attestation, authentication, provisioning
-          href: example-scenario/iot/attestation-provisioning.yml
         - name: Application-to-device commands
           href: example-scenario/iot/cloud-to-device.yml
       - name: Industrial IoT patterns
@@ -1864,8 +1862,6 @@ items:
           href: example-scenario/iot/event-routing.yml
         - name: Measure and control loop
           href: example-scenario/iot/measure-control-loop.yml
-        - name: Monitor and manage loop
-          href: example-scenario/iot/monitor-manage-loop.yml
         - name: Real-time IoT updates
           href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
         - name: Scale solutions with deployment stamps
