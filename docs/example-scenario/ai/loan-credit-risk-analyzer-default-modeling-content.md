@@ -54,12 +54,12 @@ The following dataflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable object storage for unstructured data. It's optimized for storing files like binary files, activity logs, and files that don't adhere to a specific format.
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) is the storage foundation for creating cost-effective data lakes on Azure. It provides blob storage with a hierarchical folder structure and enhanced performance, management, and security. It services multiple petabytes of information while sustaining hundreds of gigabits of throughput.
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) is an analytics service that brings together the best of SQL and Spark technologies and a unified user experience for data explorer and pipelines. It integrates with Power BI, Azure Cosmos DB, and Azure Machine Learning. The service supports both dedicated and serverless resource models and the ability to switch between those models.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is an always up-to-date, fully managed relational database that's built for the cloud.
-- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/) is a cloud service for managing machine learning project lifecycles. It provides an integrated environment for data exploration, model building and management, and deployment and supports code-first and low-code/no-code approaches to machine learning.
-- [Power BI](https://powerbi.microsoft.com/) is a visualization tool that provides easy integration with Azure resources.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides scalable object storage for unstructured data. It's optimized for storing files like binary files, activity logs, and files that don't adhere to a specific format.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is the storage foundation for creating cost-effective data lakes on Azure. It provides blob storage with a hierarchical folder structure and enhanced performance, management, and security. It services multiple petabytes of information while sustaining hundreds of gigabits of throughput.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that brings together the best of SQL and Spark technologies and a unified user experience for data explorer and pipelines. It integrates with Power BI, Azure Cosmos DB, and Azure Machine Learning. The service supports both dedicated and serverless resource models and the ability to switch between those models.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an always up-to-date, fully managed relational database that's built for the cloud.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a cloud service for managing machine learning project lifecycles. It provides an integrated environment for data exploration, model building and management, and deployment and supports code-first and low-code/no-code approaches to machine learning.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a visualization tool that provides easy integration with Azure resources.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure. Supported languages include .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python.
 
 ### Alternatives

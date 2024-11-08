@@ -31,13 +31,13 @@ A companion article, [Many models machine learning at scale with Azure Machine L
 
 ### Components
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics.
 - Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios. It offers both serverless and dedicated resource models.
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure storage service for high-performance analytics workloads.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
-- [Azure DevOps](https://azure.microsoft.com/services/devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
-- [Microsoft Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is a massively scalable and secure storage service for high-performance analytics workloads.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
+- [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights.
 
 ### Alternatives
 
