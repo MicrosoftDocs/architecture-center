@@ -47,7 +47,7 @@ There are several managed application services offerings available in Azure. Thi
 
 **Framework/strategy:** If using the Spring framework to build Java applications, is part of Organizational strategy then Azure Spring Apps cab be deployed to Spring Boot application that handles user interaction with your app. Similarly, if as an organization, you prefer Openshift container orchestration needs, then Azure Red Hat OpenShift can be deployed to the front end.
 
-For the AOAI baseline chat bot architecture, Azure App Service and Azure Kubernetes Service (AKS) are the most suitable options based on performance, compute, and scalability. Azure App Service is optimized for web applications and provides a robust environment for hosting the chat UI, while AKS offers advanced orchestration capabilities and can handle large-scale deployments, making it ideal for the AI components of the chat bot.
+For this chat architecture, Azure App Service and Azure Kubernetes Service (AKS) are the most suitable options based on typical needs for performance, compute, and scalability for this type of workload. Azure App Service is optimized for web applications and provides a robust environment for hosting the chat UI, while AKS offers advanced orchestration capabilities and can handle large-scale deployments, making it tenable choice for the AI components of a chat scenario.
 
 The same considerations for performance, compute choice, and scalability apply that you would apply to most non-AI workloads containing app services.
 
