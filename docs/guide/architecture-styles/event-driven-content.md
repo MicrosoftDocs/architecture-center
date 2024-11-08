@@ -72,6 +72,12 @@ There are two primary topologies within many event-driven architectures:
   Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be achieved through [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
 
   This pattern is usually implemented by utilizing multiple queues - a request queue and a response queue. The event producer sends an asynchronous request to a request queue, pauses other operation on that task, and awaits a response in the reply queue; effectively turning this into a synchronous process. Event consumers then process the request and send the reply back through a response queue. This approach usually utilizes a session ID for tracking, so the event producer knows which message in the response queue is related to the specific request. The original request could also specify the name of the response queue, potentially ephemeral, in a [reply-to header](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replyto) or another mutually agreed-upon custom attribute.
+
+- Maintaining the appropriate number of events.
+
+  Generating an excessive number of fine-grained events can saturate and overwhelm the system, making it difficult to effectively analyze the overall flow of events. This issue is exacerbated when changes need to be rolled back. Conversely, overly consolidating events can also create problems, resulting in unnecessary processing and responses from event consumers.
+
+  To achieve the right balance, consider the consequences of events and whether consumers need to inspect the event payloads to determine their responses. For instance, if you have a compliance check component, it may be sufficient to publish only two types of events: *compliant* and *non-compliant*. This approach allows each event to be processed only by relevant consumers, preventing unnecessary processing.
   
 ### Additional considerations
 
