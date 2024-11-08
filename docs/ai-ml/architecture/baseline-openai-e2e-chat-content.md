@@ -135,7 +135,7 @@ This architecture isn't built to be a regional stamp in a multi-region architect
 - A failover and failback strategy to achieve your workload's RTO and RPO
 - Decisions around region availability for developer experiences in the Azure Studio Hub resource
 
-If your workload's requirements require a multi-region strategy, you need to invest in additional design efforts around components and operational processes on top of what is presented in this architecture. You design to support load blancing or failover at the following layers:
+If your workload's requirements require a multi-region strategy, you need to invest in additional design efforts around components and operational processes on top of what is presented in this architecture. You design to support load balancing or failover at the following layers:
 
 - Grounding data
 - Model hosting
