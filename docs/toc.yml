@@ -1856,8 +1856,6 @@ items:
         items:
         - name: Overview
           href: guide/iot-edge-vision/index.md
-        - name: Hardware acceleration
-          href: guide/iot-edge-vision/hardware.md
         - name: Image storage
           href: guide/iot-edge-vision/image-storage.md
         - name: User interface and scenarios
