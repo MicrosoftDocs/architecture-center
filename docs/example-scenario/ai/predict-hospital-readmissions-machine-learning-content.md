@@ -146,7 +146,6 @@ Principal authors:
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 - [What is automated machine learning (AutoML)?](/azure/machine-learning/concept-automated-ml)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-- [Unleash the power of predictive analytics in Azure Synapse with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
@@ -163,7 +162,6 @@ Principal authors:
 ## Related resources
 
 - [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
 - [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
