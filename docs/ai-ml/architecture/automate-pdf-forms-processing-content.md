@@ -24,17 +24,17 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ### Components
 
-- [Azure AI services](https://azure.microsoft.com/products/applied-ai-services) is a category of Azure AI products that use Azure AI services, task-specific AI, and business logic to provide turnkey AI services for common business processes. One of these products is [Azure AI Document Intelligence](https://azure.microsoft.com/products/form-recognizer), which uses machine learning models to extract key-value pairs, text, and tables from documents.
-- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs.
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is the foundation for building enterprise data lakes on Azure.
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
-- [Power BI](https://msit.powerbi.com) is a collection of software services, apps, and connectors that work together so that you can turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [Azure AI services](/azure/ai-services/what-are-ai-services) is a category of Azure AI products that use Azure AI services, task-specific AI, and business logic to provide turnkey AI services for common business processes. One of these products is [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview), which uses machine learning models to extract key-value pairs, text, and tables from documents.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless solution that makes it possible for you to write less code, maintain less infrastructure, and save on costs.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is the foundation for building enterprise data lakes on Azure.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL and relational database for modern app development.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together so that you can turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
 ### Alternatives
 
-- You can use [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) instead of Azure Cosmos DB to store the processed forms data.
-- You can use [Azure Data Explorer](https://dataexplorer.azure.com/publicfreecluster) to visualize the processed forms data that's stored in Data Lake Storage.
+- You can use [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) instead of Azure Cosmos DB to store the processed forms data.
+- You can use [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) to visualize the processed forms data that's stored in Data Lake Storage.
 
 ## Scenario details
 
@@ -64,7 +64,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 A reliable workload is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your workload when they need to.
 
@@ -76,7 +76,7 @@ For the availability guarantees of the Azure services that this solution uses, s
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 The Outlook email account that's used in this architecture is a dedicated email account that receives PDF forms as attachments. It's good practice to limit the senders to trusted parties only and to prevent malicious actors from spamming the email account.
 
@@ -85,18 +85,18 @@ The implementation of this architecture that's described in [Deploy this scenari
 - The PowerShell and Bicep deployment scripts use Azure Key Vault to store sensitive information so that it isn't displayed on terminal screens or stored in deployment logs.
 - Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when they connect to resources that support Microsoft Entra authentication. The function app uses managed identities so that the code doesn't depend on individual principals and doesn't contain sensitive identity information.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and to improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and to improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Here are some guidelines for optimizing costs:
 
 - Use the pay-as-you-go strategy for your architecture, and [scale out](/azure/architecture/framework/cost/optimize-autoscale) as needed rather than investing in large-scale resources at the start.
 - The implementation of the architecture that's described in [Deploy this scenario](#deploy-this-scenario) deploys a starting solution that's suitable for proof of concept. The deployment scripts create a working architecture with minimal resource requirements. For example, the deployment scripts create a smallest serverless Linux host to run the function app.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale in an efficient manner to meet the demands that are placed on it by users. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale in an efficient manner to meet the demands that are placed on it by users. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This architecture uses services that have built-in scaling capabilities that you can use to improve performance efficiency. Here are some examples:
 

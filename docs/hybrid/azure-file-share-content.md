@@ -22,9 +22,9 @@ The architecture consists of the following components:
 
 Key technologies used to implement this architecture:
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
-- [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
-- [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
+- [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
 
 ## Scenario details
 
@@ -141,7 +141,6 @@ Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
-- [Back up files and applications on Azure Stack Hub](./azure-stack-backup.yml)
 - [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)
 - [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml)
 - [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
