@@ -37,37 +37,25 @@ Many components of this architecture are the same as the [basic Azure OpenAI end
 
 ### Alternatives
 
-This architecture uses [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you could use [Azure Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning), as both services have overlapping features. While AI Studio is a good choice if you're designing a prompt flow solution, there are some features that Azure Machine Learning currently has better support for. For more information, see the [feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match Azure AI Studio and Azure Machine Learning. If your work can be done completely in AI studio, use AI studio. If you still need features from Azure Machine Learning studio, continue to use Azure Machine Learning studio.
+This architecture has multiple components that could be served by other Azure services that might align better to your functional and non-functional requirements of your workload. Here are a few such alternatives to be aware of.
 
-### Alternatives
+#### Azure Machine Learning workspaces (and portal experiences)
+
+This architecture uses [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you could use [Azure Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning), as both services have overlapping features. While AI Studio is a good choice if you're designing a prompt flow solution, there are some features that Azure Machine Learning currently has better support for. For more information, see the [feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match Azure AI Studio and Azure Machine Learning. If your work can be done completely in AI studio, use AI studio. If you still need features from Azure Machine Learning studio, continue to use Azure Machine Learning studio.
 
 #### Application tier components
 
-There are several managed application services offerings available in Azure that can serve as an application tier for chat UI front end. This article helps you compare the various [options](https://learn.microsoft.com/en-us/azure/container-apps/compare-options to understand which one to choose from. In the context of utilizing these services in this chat architecture, consider the following options based on these areas:
+There are several managed application services offerings available in Azure that can serve as an application tier for chat UI front end. See [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) for all compute and [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) for container solutions. For example, while Azure Web Apps and Web App for Containers was selected for both the Chat UI API and the Prompt flow host respectively, very similar results could be achieved with Azure Kubernetes Service or Azure Container Apps. Choose your workload's application platform based on the workload's specific functional and non-functional requirements.
 
-**Need for running containerized workloads:** Container Apps may be preferable to an App Service driven solution if you have a need to containerize your code and/or keep it cross-cloud compatible in case if there is a need to move it in the future. Azure Kubernetes Service (AKS) may be another option if there is a need for advanced orchestration capabilities and containerized applications part of the Organizational Strategy.
+#### Prompt flow hosting
 
-**Need to run batch processes or batch front end:** If there is a need to process data/files updated asynchronously, then ACI or Azure functions can be used to trigger workflows based on file uploads or changes to the backend databases. 
+Deploying prompt flows isn't limited to Machine Learning compute clusters, and this architecture illustrates that with an alternative in Azure App Service. Flows are ultimately a containerized application can be deployed to any Azure service that's compatible with containers. These options include services like Azure Kubernetes Service (AKS), Azure Container Apps, and Azure App Service. [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) based on your orchestration layer's specific functional and non-functional requirements.
 
-**Framework/strategy:** If using the Spring framework to build Java applications, is part of Organizational strategy then Azure Spring Apps cab be deployed to Spring Boot application that handles user interaction with your app. Similarly, if as an organization, you prefer Openshift container orchestration needs, then Azure Red Hat OpenShift can be deployed to the front end.
+An examples around why hosting prompt flow hosting on an alternative compute is a consideration is discussed later in this article.
 
-For this chat architecture, Azure App Service and Azure Kubernetes Service (AKS) are the most suitable options based on typical needs for performance, compute, and scalability for this type of workload. Azure App Service is optimized for web applications and provides a robust environment for hosting the chat UI, while AKS offers advanced orchestration capabilities and can handle large-scale deployments, making it tenable choice for the AI components of a chat scenario.
+#### Grounding data store
 
-The same considerations for performance, compute choice, and scalability apply that you would apply to most non-AI workloads containing app services.
-
-#### Prompt Flow Hosting 
-Deploying prompt flows isn't limited to Machine Learning compute clusters. The executable flow, being a containerized application, can be deployed to any Azure service that's compatible with containers. These options include services like Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps, and App Service.
-
-#### Vector Database Search Alternatives
-For alternatives to Azure AI Search, leverage the [flow diagram]https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/vector-search#key-requirements) to help decide which AI service would fit your needs based on vector search capabilities. 
-
-Some considerations on when to leverage database vector search capabilities may be Search in Integrated Data, ability to run complex queries, Organizational Strategy and Existing Infrastructure
-
-**Search in Integrated Data:** If your application requires tight integration with existing operational data, using database vector search capabilities can be beneficial. For example, Azure Cosmos DB, PostgreSQL, and Azure SQL Database allow you to store and query vector data alongside your relational or NoSQL data, reducing data duplication and synchronization lag.
-**Complex Queries:** When you need to combine vector search with complex relational queries, databases like PostgreSQL with the pgvector extension or Azure SQL Database can be advantageous. They allow you to leverage the full power of SQL for advanced querying.
-**Strategic Alignment and Current Infrastructure:** If your team is already familiar with a particular database technology, it might be easier to implement vector search within that environment. For instance, if you are already using PostgreSQL or MongoDB, extending their capabilities with vector search can be more straightforward.
-
-If you need a scalable, high-performance search solution with advanced features and easy integration, Azure AI Search would be more suitable.
+While this architecture leads with Azure AI Search, your choice of data store for your grounding data is an architectural decision specific to your workload. Many workloads are in fact polyglot and have disparate sources and technologies for grounding data. These data platforms range from existing OLTP data stores, cloud native databases such as Azure Cosmos DB, through specialized solutions such as Azure AI Search. A common, but not required, characteristic for such a data store is vector search. See [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search) to explore options in this space.
 
 ## Considerations and recommendations
 
@@ -81,9 +69,9 @@ This section addresses reliability from the perspective of the components in thi
 
 #### Zonal redundancy for flow deployments
 
-Enterprise deployments usually require zonal redundancy. To achieve zonal redundancy in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least three instances of the resource or enable the platform support when instance control isn't available. To mitigate the potential impact of a datacenter-level catastrophe on Machine Learning components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You can use health checks to help ensure that calls are only routed to clusters that are functioning properly.
+Enterprise deployments usually require zonal redundancy. To achieve zonal redundancy in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least three instances of the resource or enable the platform support when instance control isn't available. Currently, Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on Machine Learning components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You can use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
-There are some options alternative to Machine Learning clusters such as Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps, and App Service. Each of those services supports availability zones. To achieve zonal redundancy for prompt flow execution, without the added complexity of a multi-region deployment, you should deploy your flows to one of those services.
+There are some options alternative to Machine Learning compute clusters such as Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps, and Azure App Service. Each of those services supports availability zones. To achieve zonal redundancy for prompt flow execution, without the added complexity of a multi-region deployment, you should deploy your flows to one of those services.
 
 The following diagram shows an alternate architecture where prompt flows are deployed to App Service. App Service is used in this architecture because the workload already uses it for the chat UI and wouldn't benefit from introducing a new technology into the workload. Workload teams who have experience with AKS should consider deploying in that environment, especially if AKS is being used for other components in the workload.
 
@@ -135,6 +123,26 @@ Managed online endpoints act as a load balancer and router for the managed compu
 
 > [!NOTE]
 > The same [App Service scalability guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) from the baseline architecture applies if you deploy your flow to App Service.
+
+#### Multi-region design
+
+This architecture is not built to be a regional stamp in a multi-region architecture. It does provide high availability within a single region due to its complete usage of availability zones, but lacks some key components to make this truly ready for a multi-region solution. These are some components or considerations that are missing from this architecture:
+
+- Global ingress and routing
+- DNS management strategy
+- Data replication (or isolation) strategy
+- An active-active, active-passive, or active-cold designation
+- A failover and failback strategy to achieve your workload's RTO and RPO
+- Decisions around region availability for developer experiences in the Azure Studio Hub resource
+
+If your workload's requirements require a multi-region strategy, you'll need to invest in additional design efforts around components and operational processes on top of what is presented in this architecture. You'll need to address load shifting or failover at the following layers:
+
+- Grounding data
+- Model hosting
+- Orchestration layer (Prompt flow in this architecture)
+- Client-facing UI
+
+In addition, you'll need to ensuring business continuity in observability, portal experiences, and responsible AI concerns, such as content safety.
 
 ### Security
 
