@@ -1,6 +1,46 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/security/security-log-retention-azure-data-explorer.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-service-bus",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/optimize-inventory-forecast-demand.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/citizen-ai-power-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/synapse-exploratory-data-analytics.yml",
+      "redirect_url": "/azure/synapse-analytics/sql/on-demand-workspace-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/greenfield-lakehouse-fabric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml",
+      "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-01-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/aks/aks-cicd-github-actions-and-gitops.yml",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml",
+      "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/guide/teradata-vantage-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/azure-data-factory-mission-critical",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/ai-ml/architecture/customer-lifecycle-churn.yml",
       "redirect_url": "/azure/architecture/ai-ml",
       "redirect_document_id": false
@@ -3553,7 +3593,7 @@
     {
       "source_path": "docs/hybrid/deploy-ai-ml-azure-stack-edge.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/ai/customer-lifecycle-churn.yml",
@@ -5602,6 +5642,11 @@
     },
     {
       "source_path": "docs/guide/iot-edge-vision/hardware.md",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iot-edge-vision/camera.md",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
     }
