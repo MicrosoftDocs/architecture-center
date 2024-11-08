@@ -113,6 +113,10 @@ For a calculator that computes the Azure NetApp Files performance and total cost
 
 Azure NetApp Files also provides a [performance and TCO calculator](https://aka.ms/anfcalc), which you can use to find the most optimal balance between capacity, performance, and cost.
 
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
 ### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
