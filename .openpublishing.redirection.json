@@ -5661,6 +5661,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/azure-digital-twins-builder.yml",
+      "redirect_url": "/azure/digital-twins/concepts-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/hybrid/azure-stack-backup.yml",
       "redirect_url": "/azure-stack/operator/",
       "redirect_document_id": false

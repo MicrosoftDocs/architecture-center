@@ -1878,8 +1878,6 @@ items:
         href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
-      - name: Azure digital twins builder
-        href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
       - name: Environment monitoring
@@ -3144,8 +3142,6 @@ items:
         items:
         - name: All facilities and real estate architectures
           href: /azure/architecture/browse/?terms=facilities
-        - name: Azure digital twins (construction)
-          href: solution-ideas/articles/azure-digital-twins-builder.yml
         - name: Facilities management with mixed reality
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
         - name: IoT connectivity for healthcare facilities
