@@ -173,10 +173,10 @@ Other contributors:
 
 - [Azure-Samples/openai-python-enterprise-logging (GitHub)](https://github.com/Azure-Samples/openai-python-enterprise-logging)
 - [Configure Azure AI Services virtual networks](/azure/ai-services/cognitive-services-virtual-networks)
+- [Azure OpenAI: Documentation, quickstarts, API reference](/azure/ai-services/openai/)
 
 ## Related resources
 
 - [Generative AI gateway](../../../ai-ml/guide/azure-openai-gateway-guide.yml)
-- [Azure OpenAI: Documentation, quickstarts, API reference](/azure/ai-services/openai/)
 - [Protect APIs with Application Gateway and API Management](../../../web-apps/api-management/architectures/protect-apis.yml)
 - [AI architecture design](../../../data-guide/big-data/ai-overview.md)
