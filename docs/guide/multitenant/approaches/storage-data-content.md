@@ -129,7 +129,7 @@ There are some features that can be useful for multitenancy. However, these aren
 
 - **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in some databases, like Azure SQL and Postgres Flex.
 
-    When you use row-level security you need to ensure the user's identity and tenant identity are propagated through the application and into the data store. This approach can be complex to design and implement, and many multitenant solutions don't use row-level security because of those complexities.
+    When you use row-level security you need to ensure the user's identity and tenant identity are propagated through the application and into the data store with each query. This approach can be complex to design, implement, test, and maintain. Many multitenant solutions don't use row-level security because of those complexities.
 
 - **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Azure Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-cmk) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
 
