@@ -139,7 +139,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Azure solutions provide defense in depth and a Zero Trust approach.
 
@@ -151,9 +151,9 @@ Consider implementing the following security features in this architecture:
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 - [Azure security baseline for Synapse Analytics Workspace](/security/benchmark/azure/baselines/synapse-analytics-workspace-security-baseline)
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -162,17 +162,17 @@ Also consider these resources:
 - [Plan and manage costs for Azure Synapse Analytics](/azure/synapse-analytics/plan-manage-costs)
 - [Plan and manage costs for Azure Machine Learning](/azure/machine-learning/concept-plan-manage-cost)
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Machine learning solutions need to be scalable and standardized for easier management and maintenance. Ensure that your solution supports ongoing inference with retraining cycles and automated redeployments of models.
 
 For more information, see [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/well-architected/scalability/performance-efficiency).
 - For information about regulated industries, see [Scale AI and machine learning initiatives in regulated industries](../../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml).

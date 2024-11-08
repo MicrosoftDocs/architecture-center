@@ -53,19 +53,15 @@ Consider these points when you analyze and process documents:
 - The metadata that's output from Azure Functions can contain extra characters if there's text outside the object's boundaries.
 - The AI Builder creation process can tag more than one object. The resulting JSON file from Azure Functions contains all object types and text. The application consumes the metadata and needs to parse through and process the results.
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Azure replicates data to ensure durability and high availability. Data redundancy protects you from planned and unplanned events, including transient hardware failures, network or power outages, and natural disasters. Choose to replicate your data within the same datacenter, across zonal datacenters within the same region, or across geographically separated regions.
 
-### Scalability
-
-Azure Functions is highly scalable. This platform offers multiple plans that automatically scale on demand when events are triggered. For more information, see [Event-driven scaling](/azure/azure-functions/event-driven-scaling).
-
-Azure Functions has a limit of 200 instances. If you need to scale beyond this limit, add multiple regions or app plans.
-
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Use standard security practices for the components that you use, and for the SharePoint document library that you store the metadata in.
 
@@ -73,13 +69,21 @@ Document Intelligence is designed with compliance, privacy, and security in mind
 
 AI Builder relies on environment security and Dataverse security roles and privileges to grant access to AI features in Power Apps. Privileges are set by default in Dataverse. System administrators can use the default built-in security roles without further actions. For more information, see [Security overview](/power-platform/admin/wp-security).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - For Power Automate, make sure the licenses that you've purchased and assigned are adequate for the volume of documents that you process. Include an HTTP premium connector to call Document Intelligence and Azure Functions.
 - Purchase AI Builder credits based on the expected model usage.
 - To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+Azure Functions is highly scalable. This platform offers multiple plans that automatically scale on demand when events are triggered. For more information, see [Event-driven scaling](/azure/azure-functions/event-driven-scaling).
+
+Azure Functions has a limit of 200 instances. If you need to scale beyond this limit, add multiple regions or app plans.
 
 ## Deploy this scenario
 

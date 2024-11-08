@@ -61,9 +61,9 @@ Many of the components of this architecture are the same as the resources in the
   
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses a feature of Machine Learning that is used to deploy and host executable flows for AI applications that are powered by language models. This feature is [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference) that let you deploy a flow for real-time inferencing. In this architecture, they're used as a PaaS endpoint for the chat UI to invoke the prompt flows hosted by the Machine Learning automatic runtime.
 
-- [Storage](https://azure.microsoft.com/services/storage) is used to persist the prompt flow source files for prompt flow development.
+- [Storage](/azure/storage/common/storage-introduction) is used to persist the prompt flow source files for prompt flow development.
 
-- [Container Registry](https://azure.microsoft.com/services/container-registry) lets you build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this architecture, flows are packaged as container images and stored in Container Registry.
+- [Container Registry](/azure/container-registry/container-registry-intro) lets you build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this architecture, flows are packaged as container images and stored in Container Registry.
 
 - [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. In this architecture, in addition to model access, it's used to add common enterprise features such as [managed identity](/azure/ai-services/openai/how-to/managed-identity) support, and content filtering.
 

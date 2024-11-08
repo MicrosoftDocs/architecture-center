@@ -88,7 +88,9 @@ To achieve these objectives, healthcare and life science organizations should ai
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Providing real-time clinical data and insights is critical for many healthcare organizations. Here are ways to minimize downtime and keep data safe:
 
@@ -98,13 +100,9 @@ Providing real-time clinical data and insights is critical for many healthcare o
 - Databricks provides [disaster recovery guidance](/azure/databricks/administration-guide/disaster-recovery) for its data analytics platform.
 - The Machine Learning deployment can be [multi-regional](/azure/machine-learning/how-to-high-availability-machine-learning).
 
-### Performance
-
- The Data Factory self-hosted integration runtime can be [scaled up for high availability and scalability](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
-
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Healthcare data often includes sensitive protected health information (PHI) and personal information. The following resources are available to secure this data:
 
@@ -112,9 +110,9 @@ Healthcare data often includes sensitive protected health information (PHI) and 
 - Azure Synapse Analytics provides a number of [access and security controls](/azure/azure-sql/database/logins-create-manage?bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) at the database, column, and row levels. Data can also be protected at the cell level and through [data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview?bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&toc=/azure/synapse-analytics/sql-data-warehouse/toc.json).
 - Data Factory provides a [basic security infrastructure](/azure/data-factory/data-movement-security-considerations) for data movement in both hybrid and cloud scenarios.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Pricing for this solution is based on:
 
@@ -125,6 +123,12 @@ Pricing for this solution is based on:
 - Compute resources that are needed to perform machine learning tasks.
 
 You can estimate costs by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+ The Data Factory self-hosted integration runtime can be [scaled up for high availability and scalability](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
 
 ## Contributors
 
@@ -146,7 +150,6 @@ Principal authors:
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 - [What is automated machine learning (AutoML)?](/azure/machine-learning/concept-automated-ml)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-- [Unleash the power of predictive analytics in Azure Synapse with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
@@ -163,7 +166,6 @@ Principal authors:
 ## Related resources
 
 - [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
 - [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

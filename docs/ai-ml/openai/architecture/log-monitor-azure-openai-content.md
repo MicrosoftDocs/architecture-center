@@ -141,9 +141,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This scenario mitigates the risk of data exfiltration and leakage by implementing best practices for application-level and network-level isolation of your cloud services. All network traffic that contains potentially sensitive data and is input to the model is isolated within a private network. This traffic doesn't traverse public internet routes. You can use Azure ExpressRoute to further isolate network traffic to the corporate intranet and help ensure end-to-end network security.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To help you explore the cost of running this scenario, we preconfigured all of the services in the Azure pricing calculator. To learn how the pricing might change for your use case, change the appropriate variables to match your expected traffic.
 

@@ -111,27 +111,31 @@ These toolkits minimize the time and effort needed to prototype the benefits of 
 
 ## Considerations
 
-When you use these services to create a proof of concept or MVP, you're not finished. There's more work to make a production solution. Frameworks such as the [Well-Architected Framework](/azure/well-architected/) provide reference guidance and best practices to apply to your architecture.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Most of the components used in this example scenario are managed services that scale automatically. The [availability of the services](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service%2Cvirtual-machines&regions=all) used in this example varies by region.
 
 Apps based on ML typically require one set of resources for training and another for serving. Resources required for training generally don't need high availability, as live production requests don't directly hit these resources. Resources required for serving requests need high availability.
 
-### DevOps
+### Cost Optimization
 
-DevOps practices are used to orchestrate the end-to-end approach used in this example. The [Machine Learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
-
-DevOps automation can be applied to Microsoft Power Platform solution provided in this example. For more information about Microsoft Power Platform DevOps, see [Power Platform Build Tools for Azure DevOps: Power Platform](/power-platform/alm/devops-build-tools).
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost-optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 **Azure pricing:** First-party infrastructure as a service (IaaS) and platform as a service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
 **Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software as a service (SaaS) applications and have their own pricing models, including per app plan and per user.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+DevOps practices are used to orchestrate the end-to-end approach used in this example. The [Machine Learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
+
+DevOps automation can be applied to Microsoft Power Platform solution provided in this example. For more information about Microsoft Power Platform DevOps, see [Power Platform Build Tools for Azure DevOps: Power Platform](/power-platform/alm/devops-build-tools).
 
 ## Deploy this scenario
 

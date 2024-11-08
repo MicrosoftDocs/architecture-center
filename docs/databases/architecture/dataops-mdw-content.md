@@ -99,22 +99,32 @@ This article uses the fictional city of Contoso to describe the use case scenari
 
 ## Considerations
 
-The following list summarizes key learnings and best practices demonstrated by this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+The considerations in this section summarize key learnings and best practices demonstrated by this solution:
 
 > [!NOTE]
-> Each item in the list below links out to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
+> Each consideration in this section links to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
 
-* [Use Data Tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#1-use-data-tiering-in-your-data-lake).
-
-* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#2-validate-data-early-in-your-pipeline).
+* [Use data tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#1-use-data-tiering-in-your-data-lake).
 
 * [Make your data pipelines replayable and idempotent](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#3-make-your-data-pipelines-replayable-and-idempotent).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#6-secure-and-centralize-configuration).
+
+### Operational Excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#2-validate-data-early-in-your-pipeline).
 
 * [Ensure data transformation code is testable](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#4-ensure-data-transformation-code-is-testable).
 
 * [Have a CI/CD pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#5-have-a-cicd-pipeline).
-
-* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#6-secure-and-centralize-configuration).
 
 * [Monitor infrastructure, pipelines, and data](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#7-monitor-infrastructure-pipelines-and-data).
 

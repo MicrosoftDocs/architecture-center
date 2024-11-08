@@ -21,7 +21,7 @@ The architecture consists of the following aspects:
     > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
-- **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
+- **Azure Firewall**. [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 

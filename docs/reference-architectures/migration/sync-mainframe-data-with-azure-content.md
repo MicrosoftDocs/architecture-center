@@ -182,24 +182,22 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - [Azure data architecture guide](/azure/architecture/databases/)
 - [Azure data platform end-to-end][Azure data platform end-to-end]
 
-[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
-[Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db/
-[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
-[Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage/
+[Azure Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
+[Azure Cosmos DB]: /azure/well-architected/service-guides/cosmos-db
+[Azure Data Factory]: /azure/data-factory/introduction
+[Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
 [Azure Data Lake Storage Gen2]: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
 [Azure data platform end-to-end]: ../../example-scenario/dataplate2e/data-platform-end-to-end.yml
-[Azure Database for MariaDB]: https://azure.microsoft.com/services/mariadb/
-[Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql/
-[Azure Databricks]: https://azure.microsoft.com/services/databricks/
-[Azure ExpressRoute]: https://azure.microsoft.com/services/expressroute/
+[Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
+[Azure Databricks]: /azure/well-architected/service-guides/azure-databricks-security
+[Azure ExpressRoute]: /azure/well-architected/service-guides/azure-expressroute
 [Azure Marketplace]: https://azuremarketplace.microsoft.com/marketplace/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure SQL]: https://azure.microsoft.com/services/azure-sql/
-[Azure SQL Database]: https://azure.microsoft.com/services/sql-database/
-[Azure SQL Managed Instance]: https://azure.microsoft.com/services/azure-sql/sql-managed-instance/
-[Azure SQL on VM]: https://azure.microsoft.com/services/virtual-machines/sql-server/
-[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics/
-[Azure virtual machines]: https://azure.microsoft.com/services/virtual-machines/
+[Azure SQL]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
+[Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
+[Azure SQL Managed Instance]: /azure/well-architected/service-guides/azure-sql-managed-instance/reliability
+[Azure SQL on VM]: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
+[Azure Synapse Analytics]: /azure/synapse-analytics/overview-what-is
 [ELT]: https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP
 [Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
 [Gateway considerations]: /data-integration/gateway/service-gateway-onprem#considerations
@@ -223,7 +221,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 [SQL Server Migration Assistant for Db2]: /sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
 [Types of Databases on Azure]: https://azure.microsoft.com/product-categories/databases/
 [What is an on-premises data gateway?]: /data-integration/gateway/service-gateway-onprem
-[Azure Database for MySQL]: https://azure.microsoft.com/services/mysql/
+[Azure Database for MySQL]: /azure/well-architected/service-guides/azure-db-mysql-cost-optimization
 [What is HIS]: /host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html
 [Azure Synapse Analytics]: /azure/synapse-analytics/overview-what-is
