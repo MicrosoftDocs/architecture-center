@@ -17,12 +17,12 @@ This solution provides comprehensive logging and monitoring capabilities and enh
     > The load balancing of stateful operations, such as model fine-tuning and deployments and the inference of fine-tuned models, aren't supported.
 
 3. Azure API Management enables security controls and the auditing and monitoring of Azure OpenAI models.
-   - In API Management, Microsoft Entra groups that have subscription-based access permissions grant enhanced security access.
+   - In API Management, Microsoft Entra groups that have subscription-based access permissions grant enhanced-security access.
    - Azure Monitor request logging enables auditing for all interactions with the models.
    - Monitoring provides detailed information about Azure OpenAI model usage, key performance indicators (KPIs), and metrics, including prompt information and token statistics for usage traceability.
 4. API Management connects to all origin resources via Azure Private Link. This configuration provides enhanced privacy for all traffic by containing it in the private network.
-5. This topology also supports [multiple Azure OpenAI instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend), so you can scale out API usage to ensure high availability and disaster recovery for the service.
-6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, API management policies forward requests to Azure Event Hubs and Azure Stream Analytics. These services extract payload information and store it in an Azure data storage service like Azure SQL Database or Azure Data Explorer. This process captures specific data for compliance and auditing purposes without any limits on payload sizing and with minimal effect on performance.
+5. This topology also supports [multiple Azure OpenAI instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend), so you can scale out API usage to help ensure high availability and disaster recovery for the service.
+6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, API Management policies forward requests to Azure Event Hubs and Azure Stream Analytics. These services extract payload information and store it in an Azure data storage service like Azure SQL Database or Azure Data Explorer. This process captures specific data for compliance and auditing without any limits on payload sizing and with minimal effect on performance.
 
     > [!NOTE]
     > Streaming responses with Azure OpenAI models requires more configuration to capture model completions. This type of configuration isn't covered in this architecture.
