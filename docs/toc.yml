@@ -1854,8 +1854,6 @@ items:
         items:
         - name: Overview
           href: guide/iot-edge-vision/index.md
-        - name: Image storage
-          href: guide/iot-edge-vision/image-storage.md
         - name: User interface and scenarios
           href: guide/iot-edge-vision/user-interface.md
       - name: Industrial IoT patterns

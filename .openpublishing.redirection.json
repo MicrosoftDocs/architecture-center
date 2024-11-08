@@ -5651,6 +5651,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/iot-edge-vision/image-storage.md",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/guide/iot-edge-vision/hardware.md",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
