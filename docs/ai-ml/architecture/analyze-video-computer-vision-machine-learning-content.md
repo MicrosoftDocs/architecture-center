@@ -8,7 +8,7 @@ This article describes an architecture that you can use to replace the manual an
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
 
-### Workflow
+### Workflow 
 
 1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
 2. A preconfigured pipeline in Azure Machine Learning recognizes that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
