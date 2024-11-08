@@ -469,6 +469,5 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Hybrid architecture design](hybrid-start-here.md)
-- [Back up files and applications on Azure Stack Hub](azure-stack-backup.yml)
 - [Hybrid connections](../solution-ideas/articles/hybrid-connectivity.yml)
 - [Hybrid file share with disaster recovery for remote and local branch workers](../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)

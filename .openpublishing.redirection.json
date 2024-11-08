@@ -5599,6 +5599,36 @@
       "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-stack-backup.yml",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-stack-vm-disaster-recovery",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-relay-connection",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cross-cloud-scaling",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-connectivity",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/unlock-legacy-data",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
     }
   ]
 }

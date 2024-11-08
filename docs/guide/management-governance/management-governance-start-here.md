@@ -91,7 +91,7 @@ The following sections provide links to reference architectures in some key mana
 ### Hybrid management
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
-- [Back up files and applications on Azure Stack Hub](../../hybrid/azure-stack-backup.yml)
+- [Back up files and applications on Azure Stack Hub](/azure/backup/backup-mabs-files-applications-azure-stack)
 - [Disaster recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-disaster-recovery.yml)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Manage configurations for Azure Arc-enabled servers](../../hybrid/azure-arc-hybrid-config.yml)

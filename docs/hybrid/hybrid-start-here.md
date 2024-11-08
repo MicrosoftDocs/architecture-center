@@ -42,7 +42,7 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 - [Use Azure file shares](azure-file-share.yml)
-- [Back up files](azure-stack-backup.yml)
+- [Back up files](/azure/backup/backup-mabs-files-applications-azure-stack)
 - [Monitor performance](hybrid-perf-monitoring.yml)
 - [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
 

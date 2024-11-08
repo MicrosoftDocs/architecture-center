@@ -1602,14 +1602,6 @@ items:
               href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
           - name: Azure Stack HCI Hybrid cross cluster scaling
             href: hybrid/hybrid-cross-cluster-scaling.yml
-      - name: Azure Stack Hub solutions
-        items:
-        - name: Back up files on Azure Stack Hub
-          href: hybrid/azure-stack-backup.yml
-        - name: Disaster recovery for Stack Hub VMs
-          href: hybrid/azure-stack-vm-disaster-recovery.yml
-        - name: Hybrid relay connection
-          href: solution-ideas/articles/hybrid-relay-connection.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
         maintainContext: true
@@ -1643,14 +1635,6 @@ items:
         href: hybrid/azure-file-share.yml
     - name: Solution ideas
       items:
-      - name: Azure Stack Hub solutions
-        items:
-        - name: Cross-cloud scaling
-          href: solution-ideas/articles/cross-cloud-scaling.yml
-        - name: Hybrid connections
-          href: solution-ideas/articles/hybrid-connectivity.yml
-        - name: Unlock legacy data with Azure Stack
-          href: solution-ideas/articles/unlock-legacy-data.yml
       - name: Azure VMware Solution foundations
         items:
         - name: Capacity planning considerations
