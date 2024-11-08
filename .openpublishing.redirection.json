@@ -5641,6 +5641,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/iot-using-cosmos-db.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot",
       "redirect_document_id": false
