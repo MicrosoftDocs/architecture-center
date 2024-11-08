@@ -1,13 +1,15 @@
 Enterprise chat applications can empower employees through conversational interaction. This is especially true due to the continuous advancement of language models, such as OpenAI's GPT models and Meta's LLaMA models. These chat applications consist of a chat user interface (UI), data repositories that contain domain-specific information pertinent to the user's queries, language models that reason over the domain-specific data to produce a relevant response, and an orchestrator that oversees the interaction between these components.
 
-This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture employs Azure Machine Learning prompt flow to create executable flows. These executable flows orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language models, along with other required Python logic. The executable flow is deployed to a Machine Learning compute cluster behind a managed online endpoint.
+This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture employs prompt flow to create executable flows. These executable flows orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language models, along with other required Python logic. The executable flow is deployed to a deployed to a managed online endpoint with managed compute.
 
-The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Services. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. The chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint. Public access to the Machine Learning workspace is disabled.
+The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Services. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. The chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint. Public access to Azure AI Studio is disabled.
 
 > [!IMPORTANT]
 > The article doesn't discuss the components or architecture decisions from the [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Read that article for architectural guidance on how to host the chat UI.
 
-The Machine Learning workspace is configured with [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) that requires all outbound connections to be approved. With this configuration, a managed virtual network is created, along with managed private endpoints that enable connectivity to private resources, such as the workplace Azure Storage, Azure Container Registry, and Azure OpenAI. These private connections are used during flow authoring and testing, and by flows that are deployed to Machine Learning compute.
+The Azure AI Studio hub is configured with [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network) that requires all outbound connections to be approved. With this configuration, a managed virtual network is created, along with managed private endpoints that enable connectivity to private resources, such as the workplace Azure Storage, Azure Container Registry, and Azure OpenAI. These private connections are used during flow authoring and testing, and by flows that are deployed to Machine Learning compute.
+
+A hub is the top-level Azure AI Studio resource which provides a central way to govern security, connectivity, and other concerns across multiple projects. This architecture requires only one project for its workload. If you have additional experiences that require different prompt flows with different logic, potentially using different back-end resources such as data stores, you might consider implementing those in a different project.
 
 > [!TIP]
 > ![GitHub logo.](../../_images/github.svg) This article is backed by a [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) which showcases a baseline end-to-end chat implementation on Azure. You can use this implementation as a basis for custom solution development in your first step toward production.
@@ -24,16 +26,18 @@ The Machine Learning workspace is configured with [managed virtual network isola
 
 Many components of this architecture are the same as the [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml#components). The following list highlights only the changes to the basic architecture.
 
-> [!NOTE]
-> The [basic Azure OpenAI end-to-end chat architecture](./basic-openai-e2e-chat.yml) was updated to use Azure AI Studio. While this architecture and implementation are still functional, they are both scheduled to be updated to use Azure AI Studio in the next month. If you are building a new application, we suggest you use Azure AI Studio for prompt flow development instead of Azure Machine Learning workspaces.
-
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both the basic and this baseline architecture. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture takes advantage of enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture does not implement.
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is used in both the basic and this baseline architecture. Azure OpenAI is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. The baseline architecture takes advantage of enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks) that the basic architecture doesn't implement.
+- [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. AI Studio is used in this architecture to build, test, and deploy the prompt flow orchestration logic for the chat application. In this architecture, Azure AI Studio provides the [managed virtual network](/azure/ai-studio/how-to/configure-managed-network) for network security. For more information, see the [networking section](#networking) for more details.
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a layer 7 (HTTP/S) load balancer and web traffic router. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 - [Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. Web Application Firewall provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
 - [Azure Key Vault](/azure/key-vault/general/overview) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
 - [Azure virtual network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
 - [Private Link](/azure/private-link/private-link-overview) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to a private endpoint's IP address.
+
+### Alternatives
+
+This architecture uses [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you could use [Azure Machine Learning workspaces](/azure/well-architected/service-guides/azure-machine-learning), as both services have overlapping features. While AI Studio is a good choice if you're designing a prompt flow solution, there are some features that Azure Machine Learning currently has better support for. For more information, see the [feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match Azure AI Studio and Azure Machine Learning. If your work can be done completely in AI studio, use AI studio. If you still need features from Azure Machine Learning studio, continue to use Azure Machine Learning studio.
 
 ## Considerations and recommendations
 
@@ -59,9 +63,9 @@ The following diagram shows an alternate architecture where prompt flows are dep
 
 The diagram is numbered for notable areas in this architecture:
 
-1. Flows are still authored in Machine Learning prompt flow and the Machine Learning network architecture is unchanged. Flow authors still connect to the workspace authoring experience through a private endpoint, and the managed private endpoints are used to connect to Azure services when testing flows.
+1. Flows are still authored in prompt flow and the network architecture is unchanged. Flow authors still connect to the authoring experience in the AI Studio project through a private endpoint, and the managed private endpoints are used to connect to Azure services when testing flows.
 
-1. This dotted line indicates that containerized executable flows are pushed to Container Registry. Not shown in the diagram are the pipelines that containerize the flows and push to Container Registry.
+1. This dotted line indicates that containerized executable flows are pushed to Container Registry. Not shown in the diagram are the pipelines that containerize the flows and push to Container Registry. The compute in which those pipelines run must have network line of sight to resources such as the Azure Container Registry and the AI Studio project.
 
 1. There's another web app deployed to the same App Service plan that's already hosting the chat UI. The new web app hosts the containerized prompt flow, colocated on the same App Service plan that already runs at a minimum of three instances, spread across availability zones. These App Service instances connect to Container Registry over a private endpoint when loading the prompt flow container image.
 
@@ -85,9 +89,9 @@ Consider the following guidance for determining the appropriate number of replic
 
 - Use monitoring metrics and logs and performance analysis to determine the appropriate number of replicas to avoid query-based throttling and partitions and to avoid index-based throttling.
 
-#### Machine Learning - reliability
+#### Azure AI Studio - reliability
 
-If you deploy to compute clusters behind the Machine Learning-managed online endpoint, consider the following guidance regarding scaling:
+If you deploy to compute clusters behind the Machine Learning managed online endpoint, consider the following guidance regarding scaling:
 
 - [Automatically scale your online endpoints](/azure/machine-learning/how-to-autoscale-endpoints) to ensure enough capacity is available to meet demand. If usage signals aren't timely enough due to burst usage, consider overprovisioning to prevent an impact on reliability from too few instances being available.
 
@@ -97,6 +101,8 @@ If you deploy to compute clusters behind the Machine Learning-managed online end
 
 - Avoid deployments against in-use instances. Instead deploy to a new deployment and shift traffic over after the deployment is ready to receive traffic.
 
+Managed online endpoints act as a load balancer and router for the managed compute running behind them. You're able to configure the percentage of traffic that should be routed to each deployment, as long as the percentages add up to 100%. You're also able to deploy a managed online endpoint with 0% traffic being routed to any deployment. If, like in the provided reference implementation, you're using infrastructure as code (IaC) to deploy your resources, including your managed online endpoints, there's a reliability concern. If you have traffic configured to route to deployments (created via CLI or the Azure AI Studio) and you perform a subsequent IaC deployment that includes the managed online endpoint, even if it doesn't update the managed online endpoint in any way, the endpoint traffic reverts to routing 0% traffic. Effectively, this means that your deployed prompt flows will no longer be reachable until you adjust the traffic back to where you want it.
+
 > [!NOTE]
 > The same [App Service scalability guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) from the baseline architecture applies if you deploy your flow to App Service.
 
@@ -104,7 +110,7 @@ If you deploy to compute clusters behind the Machine Learning-managed online end
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./baseline-openai-e2e-chat.yml#security). While the basic architecture uses system-assigned managed identities and system-assigned role assignments, this architecture uses user-assigned identities with manually created role assignments.
+This architecture extends the security footprint implemented in the [Basic end-to-end chat with Azure OpenAI architecture](./basic-openai-e2e-chat.yml). While the basic architecture uses system-assigned managed identities and system-assigned role assignments, this architecture uses user-assigned identities with manually created role assignments.
 
 The architecture implements a network security perimeter, along with the identity perimeter implemented in the basic architecture. From a network perspective, the only thing that should be accessible from the internet is the chat UI via Application Gateway. From an identity perspective, the chat UI should authenticate and authorize requests. Managed identities are used, where possible, to authenticate applications to Azure services.
 
@@ -114,31 +120,61 @@ Along with networking considerations, this section describes security considerat
 
 When using user-assigned managed identities, consider the following guidance:
 
-- Create separate managed identities for the following Machine Learning resources, where applicable:
-  - Workspaces for flow authoring and management
-  - Compute instances for testing flows
+- Create separate managed identities for the following Azure AI Studio and Machine Learning resources, where applicable:
+  - AI Studio Hub
+  - AI Studio projects for flow authoring and management
   - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
 - Implement identity-access controls for the chat UI by using Microsoft Entra ID
 
+Create separate projects and online endpoints for different prompt flows that you want to isolate from others from a permissions perspective. Create a separate managed identity for each project and managed online endpoint. Give prompt flow authors access to only the projects they require.
+
+When you onboard users to Azure AI Studio projects to perform functions like authoring flows, you need to make least privilege role assignments the resources they require.
+
 ### Machine Learning role-based access roles
 
-There are five [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) that you can use to manage access to your Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there's an Azure Machine Learning Workspace Connection Secrets Reader and an AzureML Registry User that can grant access to workspace resources such as the workspace secrets and registry.
+Like in the basic architecture, the system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know what features of the hub and projects you may use, it creates role assignments support all of the potential features. The automatically created role assignments might over provision privileges based on your use case. An example is the 'Contributor' role assigned to the hub for the Container Registry, where it only likely requires 'Reader' access to the control plane. If you need to limit permissions further for least privilege goals, you must use user-assigned identities. You'll create and maintain these role assignments yourself.
 
-Because the architecture uses user-assigned managed identities, you are responsible for creating the appropriate role assignments. This architecture follows the principle of least privilege by only assigning roles to the preceding identities where they're required. Consider the following role assignments.
+Because of the maintenance burden of managing all the required assignments, this architecture favors operational excellence over absolute least privilege role assignments. Note that you have to make all the assignments listed in the table.
 
 | Managed identity | Scope | Role assignments |
 | --- | --- | --- |
-| Workspace managed identity | Resource group | Contributor |
-| Workspace managed identity | Workspace Storage Account | Storage Blob Data Contributor |
-| Workspace managed identity | Workspace Storage Account | Storage File Data Privileged Contributor |
-| Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
-| Workspace managed identity | Workspace Container Registry | AcrPush |
+| Hub managed identity | Contributor | Resource Group |
+| Hub managed identity | Hub | Azure AI Administrator |
+| Hub managed identity | Container Registry | Contributor |
+| Hub managed identity | Key Vault | Contributor |
+| Hub managed identity | Key Vault | Administrator |
+| Hub managed identity | Storage Account | Reader |
+| Hub managed identity | Storage Account | Storage Account Contributor |
+| Hub managed identity | Storage Account | Storage Blob Data Contributor |
+| Hub managed identity | Storage Account | Storage File Data Privileged Contributor |
+| Hub managed identity | Storage Account | Storage Table Data Contributor |
+| Project managed identity | Project | Azure AI Administrator |
+| Project managed identity | Container Registry | Contributor |
+| Project managed identity | Key Vault | Contributor |
+| Project managed identity | Key Vault | Administrator |
+| Project managed identity | Storage Account | Reader |
+| Project managed identity | Storage Account | Storage Account Contributor |
+| Project managed identity | Storage Account | Storage Blob Data Contributor |
+| Project managed identity | Storage Account | Storage File Data Privileged Contributor |
+| Project managed identity | Storage Account | Storage Table Data Contributor |
+| Online endpoint managed identity | Project | Azure Machine Learning Workspace Connection Secrets |
+| Online endpoint managed identity | Project | AzureML Metrics Writer |
+| Online endpoint managed identity | Container Registry | ACRPull |
 | Online endpoint managed identity | Azure OpenAI | Cognitive Services OpenAI User |
-| Online endpoint managed identity | Workspace Container Registry | AcrPull |
-| Online endpoint managed identity | Workspace Storage Account | Storage Blob Data Reader |
-| Online endpoint managed identity | Machine Learning workspace | AzureML Workspace Connection Secrets Reader |
-| Compute instance managed identity | Workspace Container Registry | AcrPull |
-| Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader |
+| Online endpoint managed identity | Storage Account | Storage Blob Data Contributor |
+| Online endpoint managed identity | Storage Account | Storage Blob Data Reader |
+| App Service (when prompt flow is deployed to App Service) | Azure OpenAI | Cognitive Services OpenAI User |
+| Portal User (prompt flow development) | Azure OpenAI | Cognitive Services OpenAI User |
+| Portal User (prompt flow development) | Storage Account | Storage Blob Data Contributor (use conditional access) |
+| Portal User (prompt flow development) | Storage Account | Storage File Data Privileged Contributor |
+
+It's important to understand that the AI Studio hub has Azure resources that are shared across projects, such as a Storage Account and Container Registry. If you have users that only need access to a subset of the projects, consider using [role assignment conditions](/azure/role-based-access-control/conditions-role-assignments-portal), for Azure services that support them, to provide least privilege access to resources. For example, blobs in Azure Storage support role assignment conditions. For a user that requires access to a subset of the projects, instead of assigning permissions on a per-container basis, use role access conditions to limit permissions to the blob containers used by those projects. Each project has a unique GUID that serves as a prefix for the names of the blob containers used in that project. That GUID can be used as part of the role assignment conditions.
+
+The hub has a requirement to have `Contributor` access to the hub resource group in order to allow it to create and managed hub and project resources. A side effect of that the hub has control plane access to any resource also in the resource group. Any Azure resources not directly related to the hub and its projects should be created in a separate resource group. We recommend you create, at a minimum, two resource groups for a workload team using a self-managed Azure AI Studio Hub. One resource group to contain the hub, its projects, and all of its direct dependencies like the Azure Container Registry, Key Vault, etc. One resource group to contain everything else in your workload.
+
+We recommend that you minimize the use of Azure resources needed for the hub's operation (Container Registry, Storage Account, Key Vault, Application Insights) by other components in your workloads. For example, if you need to store secrets as part of your workload, you should create a separate Key Vault apart from the Key Vault associated with the hub. The hub Key Vault should only be used by the hub to store hub and project secrets.
+
+Ensure that for each distinct project, the role assignments for its dependencies don't provide access to resources the portal user and managed online endpoint managed identity don't require. For example, the `Cognitive Services OpenAI User` role assignment to Azure OpenAI grants access to all deployments for that resource. There's no way to restrict flow authors or managed online endpoint managed identities with that role assignment access to specific model deployments in Azure OpenAI. For scenarios such as this, our guidance is to deploy services such as Azure OpenAI and Azure AI Search on a per-project basis and don't deploy resources to those services that flow authors or managed online endpoint managed identities shouldn't have access to. For example, only deploy models to the project Azure OpenAI instance that the project requires access to. Only deploy indexes to the project Azure AI Search instance that the project should have access to.
 
 #### Networking
 
@@ -174,9 +210,9 @@ Private endpoint access is also required for connecting to the Machine Learning 
 
 The diagram shows a prompt flow author connecting through Azure Bastion to a virtual machine jump box. From that jump box, the author can connect to the Machine Learning workspace through a private endpoint in the same network as the jump box. Connectivity to the virtual network could also be accomplished through ExpressRoute or VPN gateways and virtual network peering.
 
-##### Flow from the Machine Learning-managed virtual network to Azure PaaS services
+##### Flow from the Azure AI Studio managed virtual network to Azure PaaS services
 
-We recommend that you configure the Machine Learning workspace for [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) that requires all outbound connections to be approved. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are to resources required for the solution to work, such as Container Registry and Storage. *User-defined outbound rules* are to custom resources, such as Azure OpenAI or AI Search, that your workflow is going to use. You must configure user-defined outbound rules. Required outbound rules are configured when the managed virtual network is created.
+We recommend that you configure the Azure AI Studio hub for [managed virtual network isolation](/azure/ai-studio/how-to/configure-managed-network) that requires all outbound connections to be approved. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are to resources required for the solution to work, such as Container Registry and Storage. *User-defined outbound rules* are to custom resources, such as Azure OpenAI or AI Search, that your workflow is going to use. You must configure user-defined outbound rules. Required outbound rules are configured when the managed virtual network is created. The managed virtual network is deployed on-demand when you first use it and is persistant from then on.
 
 The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Container Registry, Storage, Azure Key Vault, Azure OpenAI, and AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, or downloading base container images from external repositories.
 
@@ -189,7 +225,8 @@ The network in this architecture has separate subnets for the following purposes
 - Private endpoints
 - Azure Bastion
 - Jump box virtual machine
-- Training - not used for model training in this architecture
+- Training and Scoring subnets - both of these are for bring your own compute related to training and inferencing. In this architecture, we're not doing training and we're using managed compute.
+
 - Scoring
 
 Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what's required. The following table shows a simplified view of the NSG rules that the baseline adds to each subnet. The table provides the rule name and function.
@@ -219,11 +256,11 @@ Consider the following points when implementing virtual network segmentation and
 
 #### Key rotation
 
-There are two services in this architecture that use key-based authentication: Azure OpenAI and the Machine Learning managed online endpoint. Because you use key-based authentication for these services, it's important to:
+There's one service in this architecture that uses key-based authentication: the Machine Learning managed online endpoint. Because you use key-based authentication for this service, it's important to:
 
 - Store the key in a secure store, like Key Vault, for on-demand access from authorized clients, such as the Azure Web App hosting the prompt flow container.
 
-- Implement a key rotation strategy. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), create a key expiration policy and use Azure Policy to monitor whether the key has been rotated.
+- Implement a key rotation strategy. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), create a key expiration policy and use Azure Policy to monitor whether the key was rotated.
 
 #### OpenAI model fine tuning
 
@@ -241,19 +278,19 @@ To help ensure alignment with security, consider using Azure Policy and network 
 - Require specific configuration of network access rules or NSGs.
 - Require encryption, such as the use of customer-managed keys.
 
-#### Azure Machine Learning workspace role assignments for Azure Key Vault
+#### Azure AI Studio role assignments for Azure Key Vault
 
-The [Azure Machine Learning workspace managed identity requires both control plane (Contributor) and data plane (Key Vault Administrator) role assignments](/azure/machine-learning/how-to-identity-based-service-authentication#workspace). This means that this identity has read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload has services other than Azure Machine Learning that require access to secrets, keys, or certificates in Key Vault, your workload or security team may not be comfortable with the Azure Machine Learning workspace managed identity having access to those artifacts. In this case, consider deploying a  Key Vault instance specifically for the Azure Machine Learning workspace, and other Azure Key Vault instances as appropriate for other parts of your workload.
+The Azure AI Studio managed identity requires both control plane (Contributor) and data plane (Key Vault Administrator) role assignments. This means that this identity has read and write access to all secrets, keys, and certificates stored in the Azure key vault. If your workload has services other than Azure AI Studio that require access to secrets, keys, or certificates in Key Vault, your workload or security team may not be comfortable with the Azure AI Studio hub managed identity having access to those artifacts. In this case, consider deploying a Key Vault instance specifically for the Azure AI Studio hub, and other Azure Key Vault instances as appropriate for other parts of your workload.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You need to customize the example to match your usage because this example only includes the components included in the architecture. The most expensive components in the scenario are the chat UI and prompt flow compute and AI Search. Optimize those resources to save the most cost.
+To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You need to customize the example to match your usage because this example only includes the components included in the architecture. The most expensive components in the scenario are DDoS protection and the firewall that is deployed as part of the managed online endpoint. Other notable costs are the chat UI and prompt flow compute and AI Search. Optimize those resources to save the most cost.
 
 #### Compute
 
-Machine Learning prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Machine Learning, AKS, App Service, and Azure Kubernetes Service. Each of these options has their own billing model. The choice of compute affects the overall cost of the solution.
+Prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Machine Learning, AKS, App Service, and Azure Kubernetes Service. Each of these options has their own billing model. The choice of compute affects the overall cost of the solution.
 
 #### Azure OpenAI
 
@@ -289,13 +326,13 @@ Azure OpenAI is a consumption-based service, and as with any consumption-based s
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-#### Machine Learning - built-in prompt flow runtimes
+#### Built-in prompt flow runtimes
 
 Like in the basic architecture, this architecture uses the **Automatic Runtime** to minimize operational burden. The automatic runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low maintenance, ephemeral, and application-driven. Using **Compute Instance Runtime** or externalized compute, such as in this architecture, requires a more workload team-managed lifecycle of the compute, and should be selected when workload requirements exceed the configuration capabilities of the automatic runtime option.
 
 #### Monitoring
 
-Like in the basic architecture, diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record user interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
+Like in the basic architecture, diagnostics are configured for all services. All services but App Service are configured to capture all logs. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs. In production, all logs are likely excessive. Tune log streams to your operational needs. For this architecture, the Azure Machine Learning logs used by the Azure AI Studio project that are of interest include: AmlComputeClusterEvent, AmlDataSetEvent, AmlEnvironmentEvent, and AmlModelsEvent.
 
 Evaluate building custom alerts for the resources in this architecture such as those found in the Azure Monitor baseline alerts. For example:
 
@@ -309,7 +346,7 @@ Deployment for Azure OpenAI-based chat solutions like this architecture should f
 
 ##### Development
 
-Machine Learning prompt flow offers both a browser-based authoring experience in Machine Learning studio or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Machine Learning studio, the files are stored in a Storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
+Prompt flow offers both a browser-based authoring experience in Azure AI Studio or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Azure AI Studio, the files are stored in a Storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
 
 In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This approach facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
 
@@ -401,7 +438,7 @@ You can use Machine Learning endpoints to deploy models in a way that enables fl
 
 ##### Infrastructure
 
-When you deploy the baseline Azure OpenAI end-to-end chat components, some of the services provisioned are foundational and permanent within the architecture, whereas other components are more ephemeral in nature, their existence tied to a deployment.
+When you deploy the baseline Azure OpenAI end-to-end chat components, some of the services provisioned are foundational and permanent within the architecture, whereas other components are more ephemeral in nature, their existence tied to a deployment. Also, while the managed virtual network is foundational, it's automatically provisioned when you create a compute instance which leads to some considerations.
 
 ###### Foundational components
 
@@ -429,6 +466,14 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 - The Machine Learning endpoint's deployments are updated when a flow is deployed or deleted.
 
 - The key vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
+
+###### On-demand managed virtual network
+
+The managed virtual network is automatically provisioned when you first create a compute instance. If you're using infrastructure as code to deploy your hub, and you don't have AI Studio compute resources in the bicep, the managed virtual network is not deployed and you'll receive an error when connecting to Azure AI Studio. You'll need to perform a one-time action to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network#manually-provision-a-managed-vnet) after your IaC deployment.
+
+#### Resource organization
+
+If you have a scenario where the hub is centrally owned by a team other than the workload team, you may choose to deploy projects to separate resource groups. If you're using infrastrastructure as code, you can accomplish that by setting a different resource group in the Bicep. If you're using the portal, you can set the `defaultWorkspaceResourceGroup` property under the `workspaceHubConfig` to the resource group you would like your projects to be created.
 
 ### Performance efficiency
 
@@ -480,7 +525,7 @@ To deploy and run the reference implementation, follow the steps in the [OpenAI 
 
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
 - [Azure OpenAI language models](/azure/ai-services/openai/concepts/models)
-- [Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
+- [Prompt flow in Azure AI Studio](/azure/ai-studio/how-to/prompt-flow)
 - [Workspace managed virtual network isolation](/azure/machine-learning/how-to-managed-network)
 - [Configure a private endpoint for a Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
 - [Content filtering](/azure/ai-services/openai/concepts/content-filter)
