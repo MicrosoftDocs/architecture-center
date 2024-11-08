@@ -75,7 +75,7 @@ ML-based applications typically require one set of resources for training and an
 
 This solution is divided into three operational areas:
 
-- In *IoT operations*, an ML model on the edge device uses real-time images from [connected cameras](../../guide/iot-edge-vision/camera.md) to inference video frames. The edge device also sends cached video streams to cloud storage to use for auditing and model retraining. After ML retraining, Azure IoT Hub updates the edge device with the new ML inferencing module.
+- In *IoT operations*, an ML model on the edge device uses real-time images from connected cameras to inference video frames. The edge device also sends cached video streams to cloud storage to use for auditing and model retraining. After ML retraining, Azure IoT Hub updates the edge device with the new ML inferencing module.
 
 - [MLOps](/azure/machine-learning/concept-model-management-and-deployment) uses DevOps practices to orchestrate model training, testing, and deployment operations. MLOps life cycle management automates the process of using ML models for complex decision-making, or *productionizing* the models. The key to MLOps is tight coordination among the teams that build, train, evaluate, and deploy the ML models.
 
