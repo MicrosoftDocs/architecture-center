@@ -1832,7 +1832,7 @@
     {
       "source_path": "docs/hybrid/azure-stack-vm-dr.yml",
       "redirect_url": "/azure-stack/operator/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/dmz/secure-vnet-hybrid.md",

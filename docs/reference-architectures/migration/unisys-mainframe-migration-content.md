@@ -182,5 +182,4 @@ Explore related resources:
 - [Mainframe file replication and synchronization on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Replicate and synchronization mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
-- [Unlock legacy data with Azure Stack](../../solution-ideas/articles/unlock-legacy-data.yml)
 - [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
