@@ -36,8 +36,8 @@ The operator reviews the asset contents and extracts metadata for the MAM system
 
 ## Components
 
-- [Azure Event Grid](https://azure.microsoft.com/products/event-grid) allows a developer to easily build applications with event-based architectures.
-- [Azure Blob storage](https://azure.microsoft.com/products/storage/blobs) is a service for storing any type of text or binary data, such as a document, media file, or application installer.
+- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) allows a developer to easily build applications with event-based architectures.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) is a service for storing any type of text or binary data, such as a document, media file, or application installer.
 
 ## Next steps
 

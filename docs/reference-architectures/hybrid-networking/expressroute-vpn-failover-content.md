@@ -38,11 +38,11 @@ The architecture consists of the following components.
 
 ### Components
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). You can use ExpressRoute to extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, like Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute). You can use ExpressRoute to extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, like Azure and Microsoft 365.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines, to communicate with each other, the internet, and on-premises networks with enhanced security.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability). Azure Virtual Network is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines, to communicate with each other, the internet, and on-premises networks with enhanced security.
 
-- [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway). VPN Gateway is a virtual network gateway that enables you to connect your on-premises network to an Azure virtual network by using a site-to-site virtual private network (VPN) connection.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). VPN Gateway is a virtual network gateway that enables you to connect your on-premises network to an Azure virtual network by using a site-to-site virtual private network (VPN) connection.
 
 ## Scenario details
 

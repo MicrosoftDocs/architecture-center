@@ -212,7 +212,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [azure-sentinel]: /azure/sentinel/overview
 [azure-security-center]: /azure/security-center/security-center-introduction
 [azure-backup]: /azure/backup/backup-overview
-[azure-premier-support]: https://azure.microsoft.com/support/plans/premier/
 [azure-monitor-for-vms]: /azure/azure-monitor/insights/vminsights-enable-policy
 [connect-sql-server-to-azure-arc]: /sql/sql-server/azure-arc/connect?view=sql-server-ver15#generate-a-registration-script-for-sql-server
 [connect-sql-server-to-azure-arc-at-scale]: /sql/sql-server/azure-arc/connect-at-scale?view=sql-server-ver15
@@ -238,23 +237,23 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [azure-arc-sql-mi-ha]: /azure/azure-arc/data/managed-instance-features#RDBMSHA
 [azure-arc-sql-mi-security]: /azure/azure-arc/data/managed-instance-features#RDBMSS
 [server-configure-tls-12]: /azure/azure-arc/servers/agent-overview#transport-layer-security-12-protocol
-[sql-server-service-page]: https://www.microsoft.com/sql-server/sql-server-2019
-[azure-arc-service-page]: https://azure.microsoft.com/products/azure-arc
-[azure-arc-enabled-servers-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
-[azure-arc-enabled-sql-server-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
-[azure-kubernetes-service-service-page]: https://azure.microsoft.com/products/kubernetes-service
-[azs-hci-service-page]: https://azure.microsoft.com/products/azure-stack/hci
-[azure-kubernetes-service-on-azs-hci-service-page]: https://azure.microsoft.com/products/azure-stack/hci/#aks-on-hci
-[azure-arc-enabled-kubernetes-service-page]: https://azure.microsoft.com/products/azure-arc
-[azure-arc-enabled-data-services-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
-[sql-managed-instance-service-page]: https://azure.microsoft.com/products/azure-sql/managed-instance
-[azure-arc-enabled-sql-managed-instance-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
-[azure-resource-manager-service-page]: https://azure.microsoft.com/get-started/azure-portal/resource-manager
-[azure-monitor-service-page]: https://azure.microsoft.com/products/monitor
-[azure-log-analytics-service-page]: https://azure.microsoft.com/products/monitor
-[azure-sentinel-service-page]: https://azure.microsoft.com/products/microsoft-sentinel
-[azure-security-center-service-page]: https://azure.microsoft.com/products/defender-for-cloud
-[azure-backup-service-page]: https://azure.microsoft.com/products/backup
+[sql-server-service-page]: /sql/sql-server/what-is-sql-server
+[azure-arc-service-page]: /azure/azure-arc/overview
+[azure-arc-enabled-servers-service-page]: /azure/azure-arc/servers/overview
+[azure-arc-enabled-sql-server-service-page]: /sql/sql-server/azure-arc/overview
+[azure-kubernetes-service-service-page]: /azure/well-architected/service-guides/azure-kubernetes-service
+[azs-hci-service-page]: /azure/well-architected/service-guides/azure-stack-hci
+[azure-kubernetes-service-on-azs-hci-service-page]: /azure/aks/hybrid/overview
+[azure-arc-enabled-kubernetes-service-page]: /azure/azure-arc/kubernetes/overview
+[azure-arc-enabled-data-services-service-page]: /azure/azure-arc/data/overview
+[sql-managed-instance-service-page]: /azure/well-architected/service-guides/azure-sql-managed-instance/reliability
+[azure-arc-enabled-sql-managed-instance-service-page]: /azure/azure-arc/data/managed-instance-overview
+[azure-resource-manager-service-page]: /azure/azure-resource-manager/management/overview
+[azure-monitor-service-page]: /azure/azure-monitor/overview
+[azure-log-analytics-service-page]: /azure/well-architected/service-guides/azure-log-analytics
+[azure-sentinel-service-page]: /azure/sentinel/overview
+[azure-security-center-service-page]: /azure/defender-for-cloud/defender-for-cloud-introduction
+[azure-backup-service-page]: /azure/backup/backup-overview
 [Introduction to Azure Arc enabled servers - training content]: /training/modules/intro-to-arc-for-servers
 [Introduction to Azure Arc-enabled data services - training content]: /training/modules/intro-to-arc-enabled-data-services
 [Introduction to Azure Arc-enabled Kubernetes - training content]: /training/modules/intro-to-arc-enabled-kubernetes
