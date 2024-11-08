@@ -4946,6 +4946,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/iiot-patterns/iiot-visibility-patterns.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/guide/hpc/autodesk-inventor.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
