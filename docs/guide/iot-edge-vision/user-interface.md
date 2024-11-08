@@ -138,7 +138,6 @@ Principal author:
 This series of articles described how to build a vision AI workload with Azure IoT Edge. For the other articles in this series, see:
 
 - [Azure IoT Edge vision AI overview](./index.md)
-- [Camera selection for Azure IoT Edge vision AI](./camera.md)
 - [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)
 - [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.yml)
 - [Image storage and management for Azure IoT Edge vision AI](./image-storage.md)

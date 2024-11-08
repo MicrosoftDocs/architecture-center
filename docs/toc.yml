@@ -1856,8 +1856,6 @@ items:
         items:
         - name: Overview
           href: guide/iot-edge-vision/index.md
-        - name: Camera selection
-          href: guide/iot-edge-vision/camera.md
         - name: Hardware acceleration
           href: guide/iot-edge-vision/hardware.md
         - name: Image storage
