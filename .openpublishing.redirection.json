@@ -5562,7 +5562,7 @@
     },
     {
       "source_path": "docs/example-scenario/iot/monitor-manage-loop.yml",
-      "redirect_url": "/azure-docs/articles/iot/iot-overview-solution-management",
+      "redirect_url": "/azure/iot/iot-overview-solution-management",
       "redirect_document_id": false  
     },
     {
