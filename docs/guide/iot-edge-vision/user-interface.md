@@ -39,7 +39,7 @@ Here are some of the services and software you can use to create user interfaces
 
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps) is a technology for IoT visualization and computer vision projects. Azure Maps lets you create location-aware web and mobile apps by using simple and secure geospatial services, APIs, and SDKs. Azure Maps has built-in location intelligence from worldwide technology partners. You can deliver seamless experiences based on geospatial data.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides single sign-on and multi-factor authentication to secure your apps and user interfaces.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides single sign-on and multifactor authentication to secure your apps and user interfaces.
 
 - [Power BI](https://powerbi.microsoft.com) is a set of analytics services, apps, and connectors that turn data into customizable, interactive visualizations and dashboards. Power BI is available as a managed service or self-hosted package, and connects to many popular database systems and data services. With [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded), you can create customer-facing reports and dashboards, and brand them as your own apps. Power BI can conserve developer resources by automating analytics monitoring, management, and deployment.
 
@@ -139,7 +139,6 @@ This series of articles described how to build a vision AI workload with Azure I
 
 - [Azure IoT Edge vision AI overview](./index.md)
 - [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.yml)
-- [Image storage and management for Azure IoT Edge vision AI](./image-storage.md)
 
 To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 
