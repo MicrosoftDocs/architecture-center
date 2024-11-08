@@ -17,7 +17,7 @@ This article describes an architecture that you can use to replace the manual an
 5. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 6. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition (OCR)) model to identify textual information in the images.
 7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
-8. Power BI provides data visualization.
+8. Power BI provides data visualization. 
 
 ### Components
 
