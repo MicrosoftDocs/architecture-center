@@ -208,5 +208,4 @@ Other contributors:
 - [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
-- [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
