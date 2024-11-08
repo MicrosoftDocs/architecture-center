@@ -77,7 +77,7 @@ There are two primary topologies within many event-driven architectures:
 
   Generating an excessive number of fine-grained events can saturate and overwhelm the system, making it difficult to effectively analyze the overall flow of events. This issue is exacerbated when changes need to be rolled back. Conversely, overly consolidating events can also create problems, resulting in unnecessary processing and responses from event consumers.
 
-  To achieve the right balance, consider the consequences of events and whether consumers need to inspect the event payloads to determine their responses. For instance, if you have a check-compliance component, it may be sufficient to publish only two types of events: "compliant" and "non-compliant." This approach allows each event to be processed only by relevant consumers, preventing unnecessary processing.
+  To achieve the right balance, consider the consequences of events and whether consumers need to inspect the event payloads to determine their responses. For instance, if you have a compliance check component, it may be sufficient to publish only two types of events: *compliant* and *non-compliant*. This approach allows each event to be processed only by relevant consumers, preventing unnecessary processing.
   
 ### Additional considerations
 
