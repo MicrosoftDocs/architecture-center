@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service
+  title: Use Application Gateway Ingress Controller (AGIC) with a Multitenant Azure Kubernetes Service
   titleSuffix: Azure Architecture Center
   description: Learn how to use the Application Gateway Ingress Controller (AGIC) with your Azure Kubernetes Service (AKS) cluster to expose microservice-based applications to the internet.
   author: paolosalvatori
   ms.author: paolos
-  ms.date: 09/20/2024
-  ms.topic: example-scenario
+  ms.date: 11/08/2024
+  ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
   ms.category:
