@@ -39,7 +39,7 @@ Many components of this architecture are the same as the [basic Azure OpenAI end
 
 #### Application tier components
 
-There are several managed application services offerings available in Azure. This article helps you compare the various [options](https://learn.microsoft.com/en-us/azure/container-apps/compare-options to understand which one to choose from. In the context of utilizing these services in this AOAI baseline architecture, consider the following options based on these areas:
+There are several managed application services offerings available in Azure. This article helps you compare the various [options](https://learn.microsoft.com/en-us/azure/container-apps/compare-options to understand which one to choose from. In the context of utilizing these services in this chat architecture, consider the following options based on these areas:
 
 **Need for running containerized workloads:** Container Apps may be preferable to an App Service driven solution if you have a need to containerize your code and/or keep it cross-cloud compatible in case if there is a need to move it in the future. Azure Kubernetes Service (AKS) may be another option if there is a need for advanced orchestration capabilities and containerized applications part of the Organization Strategy.
 
