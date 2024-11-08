@@ -1,4 +1,4 @@
-The Internet-of-Things (IoT) *analyze and optimize loop* enables the generation and application of business optimization insights to one or more deployments of physical systems controlled by software, based on the entire enterprise business context. The analyze and optimize loop sources telemetry, typically from [monitor and manage loop](monitor-manage-loop.yml) processes, refines it, and combines it with enterprise data sources to generate insights.
+The Internet-of-Things (IoT) *analyze and optimize loop* enables the generation and application of business optimization insights to one or more deployments of physical systems controlled by software, based on the entire enterprise business context.
 
 This article provides an overview of analyze and optimize process loop architecture, characteristics, and components.
 
@@ -21,7 +21,7 @@ The following diagram shows the schematic of a typical analyze and optimize loop
 
 *Download a [Visio file](https://arch-center.azureedge.net/analyze-and-optimize.vsdx) of this architecture.*
 
-In an analyze and optimize loop, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops](monitor-manage-loop.yml) and [measure and control loops](measure-control-loop.yml).
+In an analyze and optimize loop, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights.
 
 ## Characteristics
 
@@ -47,7 +47,6 @@ Principal author:
 
 ## Next steps
 
-- [Monitor and manage loops](monitor-manage-loop.yml)
 - [Measure and control loops](measure-control-loop.yml)
 
 ## Related Resources

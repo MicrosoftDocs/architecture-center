@@ -151,5 +151,4 @@ Other contributor:
 ## Related resources
 
 - [Secure a data lakehouse with Azure Synapse Analytics](../analytics/secure-data-lakehouse-synapse.yml)
-- [Query a data lake or lakehouse by using Azure Synapse serverless](synapse-exploratory-data-analytics.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)

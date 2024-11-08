@@ -84,7 +84,9 @@ Before you implement this solution, some factors you might want to consider incl
 
 - Specific business requirements for your analytics use case could require the use of services or features that aren't considered in this design.
 
-### Cost optimization
+### Cost Optimization
+
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 All services deployed in this solution use a consumption-based pricing model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for a specific scenario. For other considerations, see [Cost optimization](/azure/architecture/framework/cost) in the Well-Architected Framework.
 

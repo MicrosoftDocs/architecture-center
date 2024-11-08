@@ -23,17 +23,17 @@ The architecture meets infrastructure requirements in the following ways:
 
 ### Components
 
-- [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
+- [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
+- [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for private networks in Azure. Virtual networks are used for communication between nodes, Azure services, and hybrid connectivity needs.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides seamless, enhanced security RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed service that provides seamless, enhanced security RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to provide enhanced-security access to any of the worker nodes or optional jump box machines.
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is an infrastructure as a service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](https://azure.microsoft.com/services/virtual-machines/linux) to provide a jump box for management of your OMS Azure-based resources and services.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) is an infrastructure as a service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](../../reference-architectures/n-tier/linux-vm.yml) to provide a jump box for management of your OMS Azure-based resources and services.
 
 ### Alternatives
 

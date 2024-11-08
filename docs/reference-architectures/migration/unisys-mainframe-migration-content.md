@@ -64,27 +64,27 @@ H. A printer subsystem manages on-premises printers.
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
+- [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
-- [Virtual networks](https://azure.microsoft.com/products/virtual-network) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
+- [Virtual networks](/azure/well-architected/service-guides/azure-virtual-network/reliability) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although a virtual network is similar to a traditional on-premises network, it offers the added Azure infrastructure benefits, such as scalability, availability, and isolation.
 
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let VMs communicate with the internet, Azure, and on-premises resources. You can add several network interface cards to one VM so that child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure managed disks](https://azure.microsoft.com/products/storage/disks) are block-level storage volumes that Azure manages on Virtual Machines. The types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture works best with Premium SSD or Ultra Disk Storage.
+- [Azure managed disks](/azure/virtual-machines/disks-types) are block-level storage volumes that Azure manages on Virtual Machines. The types of disks are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture works best with Premium SSD or Ultra Disk Storage.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in your Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
+- [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in your Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently and access files via the industry standard Server Message Block (SMB) protocol.
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to cloud services like Azure and Microsoft 365.
+- [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to cloud services like Azure and Microsoft 365.
 
-- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that runs on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed PaaS database engine that runs on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
-- [Private Link](https://azure.microsoft.com/products/private-link) for SQL Database provides a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
+- [Private Link](/azure/private-link/private-link-overview) for SQL Database provides a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
 
-- [Site Recovery](https://azure.microsoft.com/products/site-recovery) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
+- [Site Recovery](/azure/site-recovery/site-recovery-overview) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
 
-- [Load Balancer](https://azure.microsoft.com/products/load-balancer) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can provide a better customer experience to automatically scale your increasing app traffic. You don't need to reconfigure or manage the load balancer.
+- [Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can provide a better customer experience to automatically scale your increasing app traffic. You don't need to reconfigure or manage the load balancer.
 
 ## Scenario details
 
