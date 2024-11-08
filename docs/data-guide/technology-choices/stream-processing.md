@@ -6,8 +6,8 @@ ms.author: prvalava
 categories: azure
 ms.date: 11/06/2024
 ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
+ms.service: azure-architecture-center
+ms.subservice: architecture-guide
 products:
   - azure-databricks
   - azure-app-service
@@ -145,7 +145,8 @@ Inorder to choose the right technology lets start exploring te different options
 
 Principal author:
 
-- [Pratima Valavala]() | Principal Solution Architect
+- [Pratima Valavala](https://www.linkedin.com/in/pratimavalavala) | Principal Solution Architect
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
 ## Next steps
 
