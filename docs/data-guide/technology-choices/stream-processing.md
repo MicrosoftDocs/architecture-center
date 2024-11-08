@@ -30,7 +30,7 @@ Organizations often have variety of data sources simultaneously emitting message
 
   Temporary errors at the source may result in  missing data elements. Guaranteeing data consistency is challenging due to the continuous nature of the stream, so stream processing and analytics systems typically include logic for data validation to mitigate these errors.
 
-- Continous data flow
+- Continuous data flow
   
   A data stream has no beginning or end, collecting data constantly is required. For example, server activity logs accumulate as long as the server runs
 
@@ -48,9 +48,9 @@ Inorder to choose the right technology lets start exploring te different options
 
 # Highlevel Stream processing flow
 
-[![A diagram that shows the dataflow for the end-to-end data processing solution.](../images/StreamProcessing.svg)](../images/StreamProcessing.svg#lightbox)
+[![A diagram that shows the dataflow for the end-to-end data processing solution.](../images/StreamProcessing.png)](../images/StreamProcessing.png#lightbox)
 
-- ## Stream Producers
+ # Stream Producers
 
   Streaming producers are responsible for generating and pushing data into Azure's ingestion services. They continuously produce data from external sources like IoT devices, application logs, or databases.
 
@@ -61,9 +61,9 @@ Inorder to choose the right technology lets start exploring te different options
    - Ensuring Reliable Transmission with Error Handling & Retries: Producers in Azure Event Hubs are equipped to manage network disruptions or broker failures through automatic retries, ensuring dependable data delivery.
   - Guaranteeing Data Integrity with Idempotence: Producers can be configured to support exactly-once delivery, preventing duplicate messages and ensuring consistent data flow.
 
-*Azure databases such as SQLDB and CosmosDB support Change data capture. This data has to be read using connectors such as debezium  or change feed for CosmosDB hosted on fuctions or App service enviroments. 
+*Azure databases such as SQLDB and CosmosDB support Change data capture. This data has to be read using connectors such as debezium  or change feed for CosmosDB hosted on functions or App service environments. If you are using Fabric event Streams (discussed in the next section) there is no need to have a separate applications such as debezium to connect producers with downstream consumers
 
-** Debezium can be hosted as stand alone applcations on managed services such as (AKS, Azure App service environments)
+** Debezium can be hosted as stand alone applications on managed services such as (AKS, Azure App service environments)
 
 ### General capabilities
 
@@ -74,14 +74,14 @@ Inorder to choose the right technology lets start exploring te different options
 | Scalability | Yes | Yes** | Yes** | 
 
 
-- ## Stream Ingestion
+# Stream Ingestion
   
   Data that is continuously generated from producers like web and mobile applications, IoT devices, and sensors must be ingested efficiently into the stream processing pipeline for real-time and batch analysis.
 
 - Key Considerations:
   
-    - Data Velocity: High-frequency data arrival from multiple sources, format compatability and size
-    - Scalability: Ability to scale ingestion buffer as data volume, variety and veocity grows.
+    - Data Velocity: High-frequency data arrival from multiple sources, format compatibility and size
+    - Scalability: Ability to scale ingestion buffer as data volume, variety and velocity grows.
     - Data Integrity & Reliability: Ensuring data is not lost or duplicated during transmission.
 
 ### General capabilities
@@ -89,34 +89,38 @@ Inorder to choose the right technology lets start exploring te different options
 | Capability | Azure Event Hubs  | Kafka on HdInsight | Confluent Kafka|
 | --- | --- | --- | --- | 
 | Message retention | Yes | Yes | Yes | 
+| Message size limit| 1MB | Configurable | Configurable |
 | Managed Service | Yes | Managed Iaas | Yes | 
 | Auto Scale | Yes | Yes | Yes | 
-| Pricing model | [Based on Tier](https://azure.microsoft.com/en-us/pricing/details/event-hubs/) | [Per Cluster Hour]() | [Consumption models](https://azuremarketplace.microsoft.com/en/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
 | Partner Offering | No | No | Yes |
+| Pricing model | [Based on Tier](https://azure.microsoft.com/en-us/pricing/details/event-hubs/) | [Per Cluster Hour]() | [Consumption models](https://azuremarketplace.microsoft.com/en/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=PlansAndPrice) |
 
-- ## Stream Processing
+# Stream Processing
 
   This step involves real-time transformation, filtering, aggregating, enriching, or analytics on the ingested data.
 
 - Key Considerations:
 
   - Stateful vs Stateless Processing: Deciding between processing that depends on previously seen data (stateful) versus independent events (stateless).
+  - Event time Handling: When there is a need to handle streams from different sources that will have to be processed together as in the case of late arriving records.
   - Windowing: Managing time-based aggregations and analytics using sliding or tumbling windows.
   - Fault Tolerance: Ensuring the system can recover from failures without losing data or processing steps.
 
   ### General capabilities
 
-| Capability |Stream Analytics | * Spark Structured Streaming (Fabric, Databricks, Synapse) | Azure Functions|
-| --- | --- | --- | --- | 
-| Stateful Processing | Yes | Yes | Yes | 
-| Check Pointing | Yes | Managed Iaas | Yes | 
-| Scalability |  | Yes** | Yes** | Yes|
-| Pricing model | [Streaming Units](https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption) | Yes** | Yes** |
+| Capability |Stream Analytics | * Spark Structured Streaming (Fabric, Databricks, Synapse) | Fabric Event Streams| Azure Functions|
+| --- | --- | --- | --- | --- | 
+| Micro batch processing| Yes | Yes | Yes| No | 
+| Event based processing| No | No | Yes| Yes | 
+| Stateful Processing | Yes | Yes | Yes| No | 
+| Support for Check Pointing | Yes | Yes | Yes| No |
+| Low code Interface | Yes| No | Yes | No | 
+| Pricing model | [Streaming Units](https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption) | Yes** | [Fabric SKU](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/)| Yes** |
 
 
-- ## Streaming Sinks
+# Streaming Sinks
 
-  After data has been processed, it needs to be directed to appropriate destinations (sinks) where it can be stored, analyzed further, or used in real-time applications. These destinations may include databases, data lakes, analytics tools, or dashboards for visualization.
+  After data has been processed, it needs to be directed to appropriate destinations (sinks) where it can be stored, analyzed further, or used in real-time applications. These destinations can include databases, data lakes, analytics tools, or dashboards for visualization.
 
 - Key Considerations:
 
@@ -130,7 +134,7 @@ Inorder to choose the right technology lets start exploring te different options
 | --- | --- | --- | --- | --| 
 | General purpose object store | Yes | No | No | No|
 | Streaming data aggregations | No | Yes | No | No|
-| Low latency reads and writes for Json docuemnts | No | Yes | Yes | No|
+| Low latency reads and writes for Json documents | No | Yes | Yes | No|
 | Structured data aggregations for PowerBI | No | Yes | No | Yes|
 | Pricing model | Per GB/TB | [Fabric SKU](https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/) | [Request Units](https://learn.microsoft.com/en-us/azure/cosmos-db/request-units) |[DTU/Vcpus](https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/)|
 
