@@ -112,4 +112,3 @@ For more computer vision architectures, examples, and ideas that use Azure IoT, 
 - [End-to-end manufacturing using computer vision at the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

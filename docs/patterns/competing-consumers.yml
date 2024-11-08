@@ -14,7 +14,7 @@ products:
   - azure-functions
   - azure-service-bus
 name: Competing Consumers pattern
-summary: <Write a summary. Can be same as description.>
+summary: Explore the Competing Consumers pattern. This pattern enables many concurrent consumers to process messages that are received on the same messaging channel.
 thumbnailUrl: /azure/architecture/browse/thumbs/competing-consumers-diagram.png
 content: |
-  [!include[](competing-consumers-content.md)]
+  [!INCLUDE[](competing-consumers-content.md)]

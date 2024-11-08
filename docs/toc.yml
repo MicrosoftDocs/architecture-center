@@ -432,12 +432,8 @@ items:
         href: guide/power-platform/eventual-consistency.yml
       - name: Extract text using Power Automate
         href: example-scenario/ai/extract-object-text.yml
-      - name: Optimize inventory and forecast demand
-        href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
       - name: Power Automate deployment at scale
         href: example-scenario/power-automate/power-automate.yml
-      - name: Real-time ML with Power Platform
-        href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
     - name: Azure and Microsoft 365 scenarios
       items:
       - name: Overview
@@ -509,17 +505,6 @@ items:
           maintainContext: true
         - name: Manage AWS costs in Azure
           href: /azure/cost-management-billing/costs/aws-integration-manage
-          maintainContext: true
-      - name: Hybrid solutions for AWS
-        items:
-        - name: AWS Ubuntu with Terraform and Azure
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-ubuntu
-          maintainContext: true
-        - name: AWS Linux with Terraform and Azure Arc
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-al2
-          maintainContext: true
-        - name: AWS EC2 with Ansible and Azure Arc
-          href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-scale-ansible
           maintainContext: true
       - name: Identity management for AWS
         items:
@@ -825,12 +810,6 @@ items:
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
       - name: Azure Synapse for landing zones
         href: example-scenario/analytics/synapse-analytics-landing-zone.yml
-      - name: Big data on confidential computing
-        href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
-      - name: Data contextualization with graph in SQL Database
-        href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
-      - name: Data lake queries via Synapse serverless
-        href: example-scenario/data/synapse-exploratory-data-analytics.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: Employee retention with Databricks and AKS
@@ -1097,8 +1076,6 @@ items:
             href: guide/aks/aks-high-availability.yml
           - name: CI/CD for AKS apps (Azure Pipelines)
             href: guide/aks/aks-cicd-azure-pipelines.yml
-          - name: CI/CD for AKS apps (GitHub Actions and GitOps)
-            href: guide/aks/aks-cicd-github-actions-and-gitops.yml
           - name: GitOps for AKS
             href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
           - name: Migrate an app from Service Fabric to AKS
@@ -1628,8 +1605,6 @@ items:
         maintainContext: true
       - name: Connect on-premises with ExpressRoute
         href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-      - name: Deploy AI and ML with Azure Stack Edge
-        href: ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml
       - name: Design a hybrid Domain Name System
         href: hybrid/hybrid-dns-infra.yml
       - name: 'Enhanced-security hybrid: client access'
@@ -1638,8 +1613,6 @@ items:
         href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
       - name: 'Enhanced-security hybrid: web access'
         href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
-      - name: Extend on-premises using ExpressRoute
-        href: reference-architectures/hybrid-networking/expressroute.yml
       - name: Hybrid availability and monitoring
         href: hybrid/hybrid-perf-monitoring.yml
       - name: Hybrid file services
@@ -1875,20 +1848,12 @@ items:
         items:
         - name: Devices, platform, and applications
           href: example-scenario/iot/devices-platform-application.yml
-        - name: Attestation, authentication, provisioning
-          href: example-scenario/iot/attestation-provisioning.yml
         - name: Application-to-device commands
           href: example-scenario/iot/cloud-to-device.yml
       - name: Computer vision with Azure IoT Edge
         items:
         - name: Overview
           href: guide/iot-edge-vision/index.md
-        - name: Camera selection
-          href: guide/iot-edge-vision/camera.md
-        - name: Hardware acceleration
-          href: guide/iot-edge-vision/hardware.md
-        - name: Image storage
-          href: guide/iot-edge-vision/image-storage.md
         - name: User interface and scenarios
           href: guide/iot-edge-vision/user-interface.md
       - name: Industrial IoT patterns
@@ -1903,8 +1868,6 @@ items:
           href: example-scenario/iot/event-routing.yml
         - name: Measure and control loop
           href: example-scenario/iot/measure-control-loop.yml
-        - name: Monitor and manage loop
-          href: example-scenario/iot/monitor-manage-loop.yml
         - name: Real-time IoT updates
           href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
         - name: Scale solutions with deployment stamps
@@ -1943,14 +1906,16 @@ items:
         href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: COVID-19 solutions
-        items:
       - name: Environment monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: IoT analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
       - name: IoT Edge data storage and processing
         href: solution-ideas/articles/data-storage-edge.yml
+      - name: IoT private file upload to Azure Storage
+        href: example-scenario/iot/iot-private-file-upload.yml
+      - name: Light and power for emerging markets
+        href: solution-ideas/articles/iot-power-management.yml
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
@@ -2016,8 +1981,6 @@ items:
           href: example-scenario/mainframe/avanade-amt-zos-migration.yml
         - name: IBM z/OS online transaction processing
           href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
-        - name: Implement Azure DevOps for IBM Z mainframe applications
-          href: example-scenario/mainframe/devops-mainframe-ibm-z.yml
         - name: Integrate IBM MQs with Azure
           href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
         - name: Micro Focus Enterprise Server on Azure
@@ -2510,7 +2473,7 @@ items:
         href: /azure/virtual-machines/workloads/oracle/oracle-reference-architecture
         maintainContext: true
       - name: Oracle database migration to Azure
-        href: databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml
+        href: databases/idea/topic-migrate-oracle-azure.yml
       - name: Oracle Database with Azure NetApp Files
         href: example-scenario/file-storage/oracle-azure-netapp-files.yml
       - name: SAP deployment using an Oracle database
@@ -2661,8 +2624,6 @@ items:
         href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
       - name: Loan credit risk modeling
         href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
-      - name: Long-term security logs in Data Explorer
-        href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.yml
       - name: Securely managed web apps
@@ -2959,8 +2920,6 @@ items:
         href: example-scenario/apps/ecommerce-search.yml
       - name: Magento e-commerce platform in AKS
         href: example-scenario/magento/magento-azure.yml
-      - name: Optimize inventory and forecast demand
-        href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
   - name: Financial Services

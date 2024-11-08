@@ -105,13 +105,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides more assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides more assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Consider how to help secure your MLOps solution beginning with the architecture design. Development environments might not need significant security, but it's important in the staging and production environments.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 Configuring Virtual Network is free of charge, but there are charges for the other services that your scenario might require, such as private links, DNS zones, and virtual network peering. The following table describes the charges for those services and others that might be required.
 
@@ -125,9 +125,9 @@ Configuring Virtual Network is free of charge, but there are charges for the oth
 | ExpressRoute    | Charges are for ExpressRoute and ExpressRoute Gateways. |
 | Azure Bastion   | Billing involves a combination of hourly pricing that is based on SKU, scale units, and data transfer rates. |
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 To streamline continuous integration and continuous delivery (CI/CD), the best practice is to use tools and services for infrastructure as code (IaC), such as Terraform or Azure Resource Manager templates, Azure DevOps, and Azure Pipelines.
 
