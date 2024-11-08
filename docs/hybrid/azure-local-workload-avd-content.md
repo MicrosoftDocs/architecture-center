@@ -76,6 +76,20 @@ By using Azure Virtual Desktop for Azure Local, you can:
 - **Achieve the best performance** by using [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=managed-networks) for low-latency user access.
 - **Deploy the latest fully patched images quickly and easily** using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 
+### Key Considerations
+
+Key points to consider when deploying Azure Virtual Desktop for Azure Local include:
+- Each host pool must only contain session hosts on Azure   or on Azure Local. You cannot mix session hosts on Azure and on Azure Local in the same host pool (see diagram below):
+ 
+:::image type="complex" source="images/azure-local-workload-avd-logical-separation.png" alt-text="Diagram that shows the logical separation for the components that run in Azure and Azure Local." lightbox="images/azure-local-workload-avd-logical-separation.png" border="false":::
+    Diagram that shows the logical separation for the components that run in Azure and Azure Local.
+:::image-end:::
+
+- Azure Virtual Desktop for Azure Local is connected to Azure cloud via agents to provide features such as additional governance, monitoring, lifecycle management services, and identity management.
+- Azure Local supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts running on Azure. Azure Virtual Desktop's virtual machine sizing guidelines are broad, so you should use them for initial performance estimates and monitor after deployment. More details in the sections to follow.
+- You can only join session hosts on Azure Local to an Active Directory Domain Services domain.
+
+
 ## Deploy this scenario
 
 ## Prerequisites
