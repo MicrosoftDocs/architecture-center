@@ -37,7 +37,7 @@ Many components of this architecture are the same as the [basic Azure OpenAI end
 
 ### Alternatives
 
-This architecture uses [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you could use [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning), as both services have overlapping features. While AI Studio is a good choice if you're designing a prompt flow solution, there are some features that Azure Machine Learning currently has better support for. For more information, see the [feature comparison](/ai/ai-studio-experiences-overview) for more information. We recommend that you don't mix and match Azure AI Studio and Azure Machine Learning. If your work can be done completely in AI studio, use AI studio. If you still need features from Azure Machine Learning studio, continue to use Azure Machine Learning studio.
+This architecture uses [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) to build, test, and deploy prompt flows. Alternatively, you could use [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning), as both services have overlapping features. While AI Studio is a good choice if you're designing a prompt flow solution, there are some features that Azure Machine Learning currently has better support for. For more information, see the [feature comparison](/ai/ai-studio-experiences-overview). We recommend that you don't mix and match Azure AI Studio and Azure Machine Learning. If your work can be done completely in AI studio, use AI studio. If you still need features from Azure Machine Learning studio, continue to use Azure Machine Learning studio.
 
 ## Considerations and recommendations
 
@@ -65,7 +65,7 @@ The diagram is numbered for notable areas in this architecture:
 
 1. Flows are still authored in prompt flow and the network architecture is unchanged. Flow authors still connect to the workspace authoring experience through a private endpoint, and the managed private endpoints are used to connect to Azure services when testing flows.
 
-1. This dotted line indicates that containerized executable flows are pushed to Container Registry. Not shown in the diagram are the pipelines that containerize the flows and push to Container Registry. The compute in which those pipelines run must be must have network line of sight to resources such as the Azure Container Registry and the AI Studio project.
+1. This dotted line indicates that containerized executable flows are pushed to Container Registry. Not shown in the diagram are the pipelines that containerize the flows and push to Container Registry. The compute in which those pipelines run must have network line of sight to resources such as the Azure Container Registry and the AI Studio project.
 
 1. There's another web app deployed to the same App Service plan that's already hosting the chat UI. The new web app hosts the containerized prompt flow, colocated on the same App Service plan that already runs at a minimum of three instances, spread across availability zones. These App Service instances connect to Container Registry over a private endpoint when loading the prompt flow container image.
 
@@ -148,7 +148,6 @@ Because of the maintenance burden of managing all the required assignments, this
 | Hub managed identity | Storage Account | Storage Blob Data Contributor |
 | Hub managed identity | Storage Account | Storage File Data Privileged Contributor |
 | Hub managed identity | Storage Account | Storage Table Data Contributor |
-
 | Project managed identity | Project | Azure AI Administrator |
 | Project managed identity | Container Registry | Contributor |
 | Project managed identity | Key Vault | Contributor |
@@ -158,16 +157,13 @@ Because of the maintenance burden of managing all the required assignments, this
 | Project managed identity | Storage Account | Storage Blob Data Contributor |
 | Project managed identity | Storage Account | Storage File Data Privileged Contributor |
 | Project managed identity | Storage Account | Storage Table Data Contributor |
-
 | Online endpoint managed identity | Project | Azure Machine Learning Workspace Connection Secrets |
 | Online endpoint managed identity | Project | AzureML Metrics Writer |
 | Online endpoint managed identity | Container Registry | ACRPull |
 | Online endpoint managed identity | Azure OpenAI | Cognitive Services OpenAI User |
 | Online endpoint managed identity | Storage Account | Storage Blob Data Contributor |
 | Online endpoint managed identity | Storage Account | Storage Blob Data Reader |
-
 | App Service (when prompt flow is deployed to App Service) | Azure OpenAI | Cognitive Services OpenAI User |
-
 | Portal User (prompt flow development) | Azure OpenAI | Cognitive Services OpenAI User |
 | Portal User (prompt flow development) | Storage Account | Storage Blob Data Contributor (use conditional access) |
 | Portal User (prompt flow development) | Storage Account | Storage File Data Privileged Contributor |
