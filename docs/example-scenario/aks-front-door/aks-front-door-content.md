@@ -180,9 +180,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Don't expose remote connectivity to your AKS nodes. Create an Azure Bastion host, or jumpbox, in a management virtual network. Use the Azure Bastion host to route traffic to your AKS cluster.
 - Consider using a [private AKS cluster](/azure/aks/private-clusters) in your production environment. Or, at a minimum, use [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in AKS to secure access to the API server. When you use authorized IP address ranges on a public cluster, allow all the egress IP addresses in the Azure firewall network rule collection. In-cluster operations consume the Kubernetes API server.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - Use the [cluster autoscaler](/azure/aks/cluster-autoscaler), [Kubernetes event-driven Autoscaling (KEDA)](https://keda.sh/), and the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to scale the number of pods and nodes based on traffic conditions.
 
@@ -198,9 +198,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - Use Azure tags to associate AKS resources with specific workloads or tenants to improve cost tracking and management.
 - For more information, see [Cost optimization](/azure/well-architected/service-guides/azure-kubernetes-service#cost-optimization) and [Optimize costs in AKS](/azure/aks/best-practices-cost).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### DevOps
 
@@ -299,4 +299,3 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)

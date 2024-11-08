@@ -84,8 +84,9 @@ Because it uses both the Azure cloud and Azure Stack Edge, this solution archite
 
 ### Cloud management, automation, and observability
 
-The solution is managed remotely via Azure cloud. It's a multi-tenant solution that gives role-based access control to network admins, enabling them to view, manage, and control private 5G networks and SIMs. Cloud management provides cost savings for several reasons: 
-- The solution can be serviced without the need to send technicians or agents to a site. 
+The solution is managed remotely via Azure cloud. It's a multitenant solution that gives role-based access control to network admins, enabling them to view, manage, and control private 5G networks and SIMs. Cloud management provides cost savings for several reasons:
+
+- The solution can be serviced without the need to send technicians or agents to a site.
 - Cloud management eliminates the need for an additional on-premises operations support system (OSS).
 - Exposed northbound APIs can be easily integrated with existing SIM and OSS/BSS (business support system) solutions.
 

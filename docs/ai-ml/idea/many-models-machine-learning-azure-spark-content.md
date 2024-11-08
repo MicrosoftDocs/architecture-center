@@ -73,9 +73,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - **Online inferencing:** If a pipeline loads and caches all models at the start, the models might exhaust the container's memory. Therefore, load the models on demand in the run method, even though it might increase latency slightly.
 - **Training scalability:** By using Spark, you can train hundreds of thousands of models in parallel. Spark spins up multiple training processes in every VM in a cluster. Each core can run a separate process. While this means good utilization of resources, it's important to size the cluster accurately and choose the right SKU, especially if the training process is expensive and long running.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To better understand the cost of running this scenario on Azure, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator). Good starting assumptions are:
 

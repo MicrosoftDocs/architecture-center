@@ -14,8 +14,8 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ### Components
 
-- [Event Hubs](https://azure.microsoft.com/products/event-hubs)
-- [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer)
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs)
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview)
 - [Azure Event Hubs data connection to Azure Data Explorer](/azure/data-explorer/ingest-data-event-hub-overview)
 
 ### Alternatives
@@ -282,5 +282,4 @@ Principal author:
 
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)
 

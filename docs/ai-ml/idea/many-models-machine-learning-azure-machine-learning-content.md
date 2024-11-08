@@ -70,9 +70,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - **ParallelRunStep Class:** The Python [ParallelRunStep Class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is a powerful option to run many models training and inferencing. It can partition your data in a variety of ways, and then apply your machine learning script on elements of the partition in parallel. Like other forms of Machine Learning training, you can specify a custom training environment with access to Python Package Index (PyPI) packages, or a more advanced custom Docker environment for configurations that require more than standard PyPI. There are many CPUs and GPUs to choose from.
 - **Online inferencing:** If a pipeline loads and caches all models at the start, the models might exhaust the container's memory. Therefore, load the models on demand in the run method, even though it might increase latency slightly.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To better understand the cost of running this scenario on Azure, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator). Good starting assumptions are:
 

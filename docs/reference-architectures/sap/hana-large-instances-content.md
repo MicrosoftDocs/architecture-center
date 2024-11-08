@@ -60,7 +60,7 @@ Microsoft helps establish the large instance setup, but it is your responsibilit
 
 Storage layout is implemented according to the recommendation of the TDI for SAP HANA. HANA Large Instances come with a specific storage configuration for the standard TDI specifications. However, you can purchase additional storage in 1 TB increments.
 
-To support the requirements of mission-critical environments including fast recovery, NFS is used and not direct attached storage. The NFS storage server for HANA Large Instances is hosted in a multi-tenant environment, where tenants are segregated and secured using compute, network, and storage isolation.
+To support the requirements of mission-critical environments including fast recovery, NFS is used and not direct attached storage. The NFS storage server for HANA Large Instances is hosted in a multitenant environment, where tenants are segregated and secured using compute, network, and storage isolation.
 
 To support high availability at the primary site, use different storage layouts. For example, in a multi-host scale-out, the storage is shared. Another high availability option is application-based replication, such as HSR. For DR, however, a snapshot-based storage replication is used.
 
@@ -161,7 +161,7 @@ Based on your business requirements, choose from several options available.
 | Log backup         | Combined with full HANA data backup, offers point in time recovery.                                                                   |                                                            |
 | Other backup tools | Redundant backup location.                                                                             | Additional licensing costs.                                |
 
-For details about a do-it-yourself approach to backup and more options provided with HANA Large Instances, see the [Backup and restore][backup-restore] article.
+For details about a do-it-yourself approach to backup and more options provided with HANA Large Instances, see the [Backup and restore][hli-backup] article.
 
 ### Manageability
 
@@ -175,7 +175,7 @@ Microsoft offers basic tools and resources to help you [monitor HANA Large Insta
 
 - Data in transit between HANA Large Instances and theVMs is not encrypted. To encrypt the data transfer, enable the application-specific encryption. See SAP Note [2159014][sap-2159014] - FAQ: SAP HANA Security.
 
-- Isolation provides security between the tenants in the multi-tenant HANA Large Instance environment. Tenants are isolated using their own VLAN.
+- Isolation provides security between the tenants in the multitenant HANA Large Instance environment. Tenants are isolated using their own VLAN.
 
 - [Azure network security best practices][network-best-practices] provide helpful guidance.
 
@@ -196,10 +196,10 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal author: 
+Principal author:
 
- - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
- 
+- [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
@@ -217,7 +217,7 @@ You might wish to review the following [Azure example scenario](/azure/architect
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [cross-connected]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [dr-site]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
-[expressroute]: ../../reference-architectures/hybrid-networking/expressroute.yml
+[expressroute]: ../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
