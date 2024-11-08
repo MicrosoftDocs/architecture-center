@@ -51,13 +51,13 @@ You can deploy the Moodle service by using any NFS-based shared file service tha
 This diagram captures an example of a single-region deployment:
 
 :::image type="complex" source="media/azure-netapp-files-moodle-architecture.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle." lightbox="media/azure-netapp-files-moodle-architecture.svg" border="false":::
-    A rectangle denotes an Azure region that contains a virtual network. The virtual network has three smaller rectangles inside of it. Two rectangles are stacked and one is on the right side. The top rectangle denotes a network security group the Moodle, a PHP application, an HTTP server, and a Redis cache that's connected to the third rectangle, which contains the MySQL database. The network security group also includes a DNS router that's connected to an application gateway for Virtual Machine Scale Sets, which is attached to the other rectangle that represents the Azure NetApp Files delegated subnet. That rectangle contains three volumes and related snapshots. Students access the Moodle application through the DNS, and the Azure VPN gateway securely connects the resources to the customer data center.
+    A rectangle denotes an Azure region that contains a virtual network. The virtual network has three smaller rectangles inside of it. Two rectangles are stacked and one is on the right side. The top rectangle denotes a network security group the Moodle, a PHP application, an HTTP server, and a Redis cache that's connected to the third rectangle, which contains the MySQL database. The network security group also includes a DNS router that's connected to an application gateway for Virtual Machine Scale Sets, which is attached to the other rectangle that represents the Azure NetApp Files delegated subnet. That rectangle contains three volumes and related snapshots. Students access the Moodle application through the DNS, and the Azure VPN gateway securely connects the resources to the customer datacenter.
 :::image-end:::
 
 This single-region setup provides highly available access to the Moodle application and other components of the configuration.
 
 <!-- 
-If you desire protection against unlikely Azure region failure, you can choose to replicate the Azure NetApp Files data volumes to a second region where only the Azure NetApp Files volumes need to be present.
+If you want protection against unlikely Azure region failure, you can choose to replicate the Azure NetApp Files data volumes to a second region where only the Azure NetApp Files volumes need to be present.
 
 :::image type="complex" source="./media/azure-netapp-files-moodle-secondary-region.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-region replication." lightbox="./media/azure-netapp-files-moodle-secondary-region.svg" border="false":::
     A diagram that replicates the single-region Azure NetApp Files Moodle deployment. The diagram adds a second black rectangle to the right of the first one, representing a second Azure region. Azure Traffic Manager routes students to either region to access the application. The Azure NetApp Files volumes are replicated to the secondary region for data protection.
@@ -97,9 +97,9 @@ As the [Alternative deployments with Azure NetApp Files section](#alternative-de
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer- and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For information and best practices about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
+For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2,048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. Azure NetApp Files supports both customer-managed and platform-managed keys. These solutions provide unrestricted access to stored data, meet compliance requirements, and enhance data security. For information and best practices about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files](/azure/azure-netapp-files/faq-security).
 
-### Cost optimization
+### Cost Optimization
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
@@ -113,7 +113,7 @@ For a calculator that computes the Azure NetApp Files performance and total cost
 
 Azure NetApp Files also provides a [performance and TCO calculator](https://aka.ms/anfcalc), which you can use to find the most optimal balance between capacity, performance, and cost.
 
-### Performance efficiency
+### Performance Efficiency
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
