@@ -41,7 +41,7 @@ Many components of this architecture are the same as the [basic Azure OpenAI end
 
 There are several managed application services offerings available in Azure that can serve as an application tier for chat UI front end. This article helps you compare the various [options](https://learn.microsoft.com/en-us/azure/container-apps/compare-options to understand which one to choose from. In the context of utilizing these services in this chat architecture, consider the following options based on these areas:
 
-**Need for running containerized workloads:** Container Apps may be preferable to an App Service driven solution if you have a need to containerize your code and/or keep it cross-cloud compatible in case if there is a need to move it in the future. Azure Kubernetes Service (AKS) may be another option if there is a need for advanced orchestration capabilities and containerized applications part of the Organization Strategy.
+**Need for running containerized workloads:** Container Apps may be preferable to an App Service driven solution if you have a need to containerize your code and/or keep it cross-cloud compatible in case if there is a need to move it in the future. Azure Kubernetes Service (AKS) may be another option if there is a need for advanced orchestration capabilities and containerized applications part of the Organizational Strategy.
 
 **Need to run batch processes or batch front end:** If there is a need to process data/files updated asynchronously, then ACI or Azure functions can be used to trigger workflows based on file uploads or changes to the backend databases. 
 
