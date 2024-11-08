@@ -118,7 +118,7 @@ In this section, we discuss lessons learned from the implementation of the archi
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 #### Environments
 
@@ -160,9 +160,22 @@ Multifactor authentication must be in place and implemented for access to all en
 
 Multifactor authentication must be enforced to all users, including Azure service managers, data engineers, and data scientists.
 
-### Operational excellence
+### Cost Optimization
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+
+Cost management is an important part of design in the implementation of scalable AI and machine learning platforms, since running costs don't follow simple and predictable patterns. Cost is primarily driven by the number and size of the AI and machine learning experiments being executed in the platform, and more specifically on the number and SKUs of the compute resources used in model training and inference.
+
+Here are some practices we recommend:
+
+- Assign every use case and AI and machine learning product its own Azure services budget, which is a good cost management practice.
+- Establish a transparent cost model for platform shared services.
+- Use tags consistently to associate use case and product resources with cost centers.
+- Use Azure Advisor and Azure Budget to understand where resources aren't being used in the most optimal way and review configurations regularly.
+
+### Operational Excellence
+
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 #### Logging and monitoring
 
@@ -188,9 +201,9 @@ In regulated environments, IT systems must follow strict waterfall-style quality
 
 Azure environments and data science development follow iterative processes, anchored in a DevOps culture. A significant effort in scaling AI and machine learning initiatives is spent communicating the pillars of a DevOps organization and creating automated end-to-end traceability mapping between Azure DevOps epics, features, user stories, test plans and CI/CD pipelines, and required quality control entities and evidence.
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 To scale AI and machine learning in regulated environments, and drive rapid adoption across organization's business areas, we recommend you design and put in place an adoption framework to measure, monitor, and evaluate the value created by the Azure services. From our life sciences and healthcare industry example, the following business value levers and key performance indicators (KPIs) were evaluated:
 
@@ -223,19 +236,6 @@ To scale AI and machine learning in regulated environments, and drive rapid adop
 
 - Critical services uptime
 - Number of incidents reported related to performance availability
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-Cost management is an important part of design in the implementation of scalable AI and machine learning platforms, since running costs don't follow simple and predictable patterns. Cost is primarily driven by the number and size of the AI and machine learning experiments being executed in the platform, and more specifically on the number and SKUs of the compute resources used in model training and inference.
-
-Here are some practices we recommend:
-
-- Assign every use case and AI and machine learning product its own Azure services budget, which is a good cost management practice.
-- Establish a transparent cost model for platform shared services.
-- Use tags consistently to associate use case and product resources with cost centers.
-- Use Azure Advisor and Azure Budget to understand where resources aren't being used in the most optimal way and review configurations regularly.
 
 ## Contributors
 

@@ -85,6 +85,10 @@ items:
             - name: Java
               href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
 
+      - name: Disaster recovery for web apps
+        items:
+        - name: Multi-region App Service apps for disaster recovery
+          href: guides/multi-region-app-service/multi-region-app-service.yml
     - name: Hosting Wordpress on Azure
       items:
       - name: Overview

@@ -104,7 +104,7 @@ External ingress controllers simplify traffic ingestion into AKS clusters, impro
 
 Application Gateway has built-in autoscaling capabilities, unlike in-cluster ingress controllers that must be scaled out if they consume an undesired amount of compute resources. Application Gateway can perform layer-7 routing and SSL termination and has end-to-end Transport Layer Security (TLS) integrated with a built-in *web application firewall (WAF)*.
 
-For the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress/) ingress option, you must enable [CNI networking](/azure/aks/configure-azure-cni) when you configure the AKS cluster because Application Gateway is deployed into a subnet of the AKS virtual network. Multi-tenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers.
+For the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress/) ingress option, you must enable [CNI networking](/azure/aks/configure-azure-cni) when you configure the AKS cluster because Application Gateway is deployed into a subnet of the AKS virtual network. Multitenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers.
 
 ### Zero-trust network policies
 
@@ -294,7 +294,7 @@ Consider the following points when planning for scalability.
 
 - You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
 
-- Multi-tenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
+- Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
 ### Manageability
 

@@ -42,6 +42,7 @@ If your tenants use Microsoft Entra ID as their identity system, you can configu
 You can also integrate Azure App Service with Azure AD B2C for authentication of consumers.
 
 More information:
+
 - [App Service authorization](/azure/app-service/overview-authentication-authorization)
 - [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
 - [Working with multitenant Microsoft Entra identities](../../../multitenant-identity/index.yml)
