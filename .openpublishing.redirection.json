@@ -5641,6 +5641,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/iot-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/iot/attestation-provisioning.yml",
       "redirect_url": "/azure/iot-dps/concepts-service",
       "redirect_document_id": false
@@ -5678,6 +5683,11 @@
     {
       "source_path": "docs/solution-ideas/articles/unlock-legacy-data.yml",
       "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iot-edge-vision/user-interface.md",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
     },
     {

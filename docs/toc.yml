@@ -1834,12 +1834,6 @@ items:
           href: example-scenario/iot/devices-platform-application.yml
         - name: Application-to-device commands
           href: example-scenario/iot/cloud-to-device.yml
-      - name: Computer vision with Azure IoT Edge
-        items:
-        - name: Overview
-          href: guide/iot-edge-vision/index.md
-        - name: User interface and scenarios
-          href: guide/iot-edge-vision/user-interface.md
       - name: Industrial IoT patterns
         items:
         - name: Visibility patterns
@@ -1876,8 +1870,6 @@ items:
         href: example-scenario/iot/efficient-docker-image-deployment.yml
       - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-      - name: IoT using Azure Cosmos DB
-        href: solution-ideas/articles/iot-using-cosmos-db.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
       - name: Automotive connected fleets
