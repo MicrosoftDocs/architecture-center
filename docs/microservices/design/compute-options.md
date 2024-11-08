@@ -94,9 +94,9 @@ If you choose AKS as your compute platform to deploy microservices, the [AKS sec
 
 If you choose Container Apps as your compute platform to deploy microservices, see the [security baseline for Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline) for security best practices.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 When you use an orchestrator, you pay for the virtual machines that run in the cluster. When you use a serverless application, you pay only for the actual compute resources that you consume. In both cases, you need to factor in the cost of any extra services, such as storage, databases, and messaging services.
 
@@ -108,9 +108,9 @@ If you choose Container Apps as your microservices compute platform, you need to
 
 If you choose Azure Functions as your microservices compute platform, you need to understand the various billing models and decide on the Functions plan based on your workload requirements. For more information, see [Estimate consumption-based costs](/azure/azure-functions/functions-consumption-costs) and [Azure Functions plan details](/azure/azure-functions/functions-scale#billing).
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 You can deploy all of the microservice compute choices that this article describes in an automated manner by using Terraform, Bicep, and other scripting languages. You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview), [Azure Monitor](/azure/azure-monitor/overview), and other monitoring solutions to monitor these compute platforms and microservices.
 
