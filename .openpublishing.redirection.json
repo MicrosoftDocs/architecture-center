@@ -4860,6 +4860,11 @@
         "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/real-time-iot-updates-cloud-apps.yml",
+      "redirect_url": "/azure-docs/articles/iot-hub/iot-hub-live-data-visualization-in-power-bi",
+      "redirect_document_id": false
+  },
+  {  
       "source_path": "docs/guide/hpc/hpc-deployments.md",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
