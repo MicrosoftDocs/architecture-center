@@ -318,7 +318,7 @@ The primary considerations regarding manageability of Site Recovery-based disast
 
 #### Implementation of Site Recovery on Azure Stack Hub
 
-To implement Site Recovery on Azure Stack Hub in a small to medium sized single-tenant environment, you can follow the manual provisioning process driven by the graphical interface of Recovery Services Vault in the Azure portal. For multi-tenant implementations, you might want to consider automating parts of the implementation process, because you will typically need to set up a separate configuration server VM and a separate Recovery Services vault for each tenant. You also have the option to automate deployment of the mobility agent by following the procedure described in [Prepare source machine for push installation of mobility agent](/azure/site-recovery/vmware-azure-install-mobility-service).
+To implement Site Recovery on Azure Stack Hub in a small to medium sized single-tenant environment, you can follow the manual provisioning process driven by the graphical interface of Recovery Services Vault in the Azure portal. For multitenant implementations, you might want to consider automating parts of the implementation process, because you will typically need to set up a separate configuration server VM and a separate Recovery Services vault for each tenant. You also have the option to automate deployment of the mobility agent by following the procedure described in [Prepare source machine for push installation of mobility agent](/azure/site-recovery/vmware-azure-install-mobility-service).
 
 #### Failover and failback procedures
 

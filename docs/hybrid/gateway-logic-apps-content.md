@@ -108,7 +108,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
-- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
 [architectural-diagram]: ./images/gateway-logic-apps.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx

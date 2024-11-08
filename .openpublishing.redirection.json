@@ -5599,6 +5599,11 @@
       "source_path": "docs/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml",
       "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
+      "redirect_document_id": false
     }
   ]
 }

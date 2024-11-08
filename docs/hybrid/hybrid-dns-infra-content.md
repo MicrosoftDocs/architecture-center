@@ -170,7 +170,6 @@ Explore related architectures:
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [N-tier application with Apache Cassandra](../databases/architecture/n-tier-cassandra.yml)
 - [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
-- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx
 [1]: /azure/expressroute/expressroute-introduction
