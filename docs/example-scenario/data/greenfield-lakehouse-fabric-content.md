@@ -100,7 +100,7 @@ Power Automate is a low-code application platform that you can use to automate r
 
 The following components are used in this solution.
 
-- [Fabric](https://www.microsoft.com/microsoft-fabric): An end-to-end cloud-based data analytics platform that's designed for enterprises. It provides a unified environment for various data tasks, like data ingestion, transformation, analysis, and visualization.
+- [Fabric](/fabric/get-started/microsoft-fabric-overview): An end-to-end cloud-based data analytics platform that's designed for enterprises. It provides a unified environment for various data tasks, like data ingestion, transformation, analysis, and visualization.
 
   - [OneLake](/fabric/onelake/onelake-overview): The central hub for all your data in Fabric. It's designed as an open data lake, which means that it can store data in its native format, regardless of structure.
 
@@ -114,7 +114,7 @@ The following components are used in this solution.
   
   - [Copilot](/fabric/get-started/copilot-fabric-overview): A tool that you can use to analyze data, generate insights, and create visualizations and reports in Fabric and Power BI by using natural language.
 
-- [Power BI](https://www.microsoft.com/power-platform/products/power-bi): A business intelligence tool for creating interactive dashboards and reports for visualizing data and gaining insights.
+- [Power BI](/power-bi/fundamentals/power-bi-overview): A business intelligence tool for creating interactive dashboards and reports for visualizing data and gaining insights.
 
 ### Alternatives
 
