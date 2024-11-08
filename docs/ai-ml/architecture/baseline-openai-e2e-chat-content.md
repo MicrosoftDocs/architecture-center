@@ -473,7 +473,7 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 
 ###### On-demand managed virtual network
 
-The managed virtual network is automatically provisioned when you create a compute instance. If you are using infrastructure as code to deploy your hub, and you do not have AI Studio compute resources in the bicep, the managed virtual network will not be deployed and you will receive an error when connecting to Azure AI Studio. You will need to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network?tabs=azure-cli#manually-provision-a-managed-vnet) after your IaC deployment.
+The managed virtual network is automatically provisioned when you first create a compute instance. If you are using infrastructure as code to deploy your hub, and you do not have AI Studio compute resources in the bicep, the managed virtual network will not be deployed and you will receive an error when connecting to Azure AI Studio. You will need to [manually provision the managed virtual network](/azure/ai-studio/how-to/configure-managed-network?tabs=azure-cli#manually-provision-a-managed-vnet) after your IaC deployment.
 
 #### Resource organization
 
