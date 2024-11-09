@@ -205,6 +205,4 @@ Azure Architecture Center overview articles:
 
 - [Big compute architecture style](/azure/architecture/guide/architecture-styles/big-compute)
 
-Relevant architecture:
 
-- [Real-time asset tracking and management](/azure/architecture/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central)

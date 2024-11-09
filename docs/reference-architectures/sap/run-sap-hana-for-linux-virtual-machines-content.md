@@ -54,12 +54,12 @@ Because all other VMs supporting SAP HANA allow the choice of either Gen2 only o
 
 ### Components
 
-* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
-* [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines)
-* [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp)
-* [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer)
-* [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks)
+* [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
+* [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
+* [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
+* [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability)
+* [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview)
 
 ## Considerations
 

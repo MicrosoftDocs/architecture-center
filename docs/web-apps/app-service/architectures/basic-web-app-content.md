@@ -24,9 +24,9 @@ This article provides a basic architecture intended for learning about running w
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
 - [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web applications.
-- [Azure Monitor](https://azure.microsoft.com/products/monitor/) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
+- [Azure Monitor](/azure/azure-monitor/overview) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment.
 - [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a managed relational database service for relational data.
 
 ## Recommendations and considerations
