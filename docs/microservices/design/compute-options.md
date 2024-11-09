@@ -116,11 +116,11 @@ You can deploy all of the microservice compute choices that this article describ
 
 Consider the following factors when you choose between an orchestrator approach and a serverless approach:
 
-**Flexibility and control:** An orchestrator gives you control over configuring and managing your services and the cluster. The trade-off is more complexity. With a serverless architecture, you give up some degree of control because these details are abstracted.
+- **Flexibility and control:** An orchestrator gives you control over configuring and managing your services and the cluster. The trade-off is more complexity. With a serverless architecture, you give up some degree of control because these details are abstracted.
 
-**Portability:** All of the orchestrators listed in this article, including Kubernetes, DC/OS, Docker Swarm, and Service Fabric, can run on-premises or in multiple public clouds.
+- **Portability:** All of the orchestrators listed in this article, including Kubernetes, DC/OS, Docker Swarm, and Service Fabric, can run on-premises or in multiple public clouds.
 
-**Application integration:** It can be challenging to build a complex application that uses a serverless architecture because you need to coordinate, deploy, and manage many small, independent functions. One option in Azure is to use [Azure Logic Apps](/azure/logic-apps/) to coordinate a set of Azure functions. For an example of this approach, see [Create a function that integrates with Logic Apps](/azure/azure-functions/functions-twitter-email).
+- **Application integration:** It can be challenging to build a complex application that uses a serverless architecture because you need to coordinate, deploy, and manage many small, independent functions. One option in Azure is to use [Azure Logic Apps](/azure/logic-apps/) to coordinate a set of Azure functions. For an example of this approach, see [Create a function that integrates with Logic Apps](/azure/azure-functions/functions-twitter-email).
 
 ## Next step
 
