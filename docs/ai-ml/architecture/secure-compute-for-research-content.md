@@ -1,33 +1,33 @@
-This architecture shows a secure research environment intended to allow researchers to access sensitive data under a higher level of control and data protection. This article is applicable for organizations that are bound by regulatory compliance or other strict security requirements.
+This architecture shows a secure research environment that allows researchers to access sensitive data under a higher level of control and data protection. This article applies to organizations that are bound by regulatory compliance or other strict security requirements.
 
 ## Architecture
 
-:::image type="content" source="_images/secure-research-env.svg" alt-text="Diagram of a secure research environment." lightbox="_images/secure-research-env.svg":::
+[![A diagram that shows a secure research environment.](_images/secure-compute-for-research.svg)](_images/secure-compute-for-research.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-compute-for-research.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
+1. Data owners upload datasets into a public blob storage account. They use Microsoft-managed keys to encrypt the data.
 
-2. [Azure Data Factory](/azure/data-factory) uses a trigger that starts copying of the uploaded dataset to a specific location (import path) on another storage account with security controls. The storage account can only be reached through a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
+2. [Azure Data Factory](/azure/data-factory) uses a trigger that starts copying the uploaded dataset to a specific location, or import path, on another storage account with security controls. You can reach the storage account only through a private endpoint. Also, a service principal accesses it with limited permissions. Data Factory deletes the original copy, which makes the dataset immutable.
 
-3. Researchers access the secure environment through a streaming application using [Azure Virtual Desktop](/azure/virtual-desktop) as a privileged jump box.
+3. Researchers access the secure environment through a streaming application by using [Azure Virtual Desktop](/azure/virtual-desktop) as a privileged jump box.
 
-4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.
+4. The dataset in the secure storage account is presented to the data science virtual machines (VMs) that you provision in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
-5. The secure environment has [Azure Machine Learning](/azure/machine-learning) and [Azure Synapse Analytics](/azure/synapse-analytics) that can access the dataset through a private endpoint. These platforms are used to train, deploy, automate, and manage machine learning models or utilize Azure Synapse Analytics service. At this point, models are created that meet regulatory guidelines. All model data is de-identified by removing personal information.
+5. The secure environment has [Azure Machine Learning](/azure/machine-learning) and [Azure Synapse Analytics](/azure/synapse-analytics) that can access the dataset through a private endpoint. You can use these platforms to train, deploy, automate, and manage machine learning models or use Azure Synapse Analytics service. At this point, you create models that meet regulatory guidelines. You de-identify all model data by removing personal information.
 
-6. Models or de-identified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a logic app is triggered. In this architecture, the logic app is outside the secure environment because no data is sent to the logic app. Its only function is to send notification and start the manual approval process.
+6. Models or de-identified data is saved to a separate location on the secure storage, or export path. When new data is added to the export path, a logic app is triggered. In this architecture, the logic app is outside the secure environment because no data is sent to the logic app. Its only function is to send notifications and start the manual approval process.
 
     The app starts an approval process requesting a review of data that is queued to be exported. The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied.
 
     > [!NOTE]
-    > If an approval step is not required on exfiltration, the logic app step could be omitted.
+    > If an approval step isn't required on exfiltration, the logic app step can be omitted.
 
 7. If the de-identified data is approved, it's sent to the Data Factory instance.
 
-8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
+8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to access their exported data and models. Alternately, you can provision another storage account in a lower security environment.
 
 ### Components
 
@@ -74,7 +74,7 @@ These components continuously monitor the posture of the workload and its enviro
 ### Alternatives
 
 - This solution uses Data Factory to move the data to the public storage account in a separate container, in order to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
-- This solution uses Azure Virtual Desktop as a jump box to gain access to the resources in the secure environment, with streaming applications and a full desktop. Alternately, you can use Azure Bastion. But, Virtual Desktop has some advantages, which include the ability to stream an app, to limit copy/paste and screen captures, and to support AAC authentication. You can also consider configuring Point to Site VPN for offline training locally. This will also help save costs of having multiple VMs for workstations.
+- This solution uses Virtual Desktop as a jump box to gain access to the resources in the secure environment, with streaming applications and a full desktop. Alternately, you can use Azure Bastion. But, Virtual Desktop has some advantages, which include the ability to stream an app, to limit copy/paste and screen captures, and to support AAC authentication. You can also consider configuring Point to Site VPN for offline training locally. This will also help save costs of having multiple VMs for workstations.
 - To secure data at rest, this solution encrypts all Azure Storage with Microsoft-managed keys using strong cryptography. Alternately, you can use customer-managed keys. The keys must be stored in a managed key store.
 
 ## Scenario details
@@ -118,7 +118,7 @@ Azure resources that are used to store, test, and train research data sets are p
 - Inbound and outbound access to the public internet and within the virtual network.
 - Access to and from specific services and ports. For example, this architecture blocks all ports ranges except the ones required for Azure Services (such as Azure Monitor). A full list of Service Tags and the corresponding services can be found in [Virtual network service tags](/azure/virtual-network/service-tags-overview).
 
-    Also, access from virtual network with Azure Virtual Desktop on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other virtual network (with Virtual Desktop) is relatively open.
+    Also, access from virtual network with Virtual Desktop on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other virtual network (with Virtual Desktop) is relatively open.
 
 The main blob storage in the secure environment is off the public internet. It's only accessible within the virtual network through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to shares in Azure Files.
 
@@ -136,7 +136,7 @@ For Azure services that cannot be configured effectively with private endpoints,
 
 The Blob storage access is through Azure Role-based access controls (RBAC).
 
-Azure Virtual Desktop supports Microsoft Entra authentication to DSVM.
+Virtual Desktop supports Microsoft Entra authentication to DSVM.
 
 Data Factory uses managed identity to access data from the blob storage. DSVMs also uses managed identity for remediation tasks.
 
