@@ -6,15 +6,7 @@ This article provides an overview of the measure and control process loop archit
 
 *Download a [Visio file](https://arch-center.azureedge.net/measure-and-control.vsdx) of this architecture.*
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [monitor and manage loops](monitor-manage-loop.yml) that operate in a much larger context.
-=======
 A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-optimize-loop.yml) that operate in a much larger context.
->>>>>>> b4635de9bd56d29f1872e028d47e7c6165591106
-=======
-A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller.
->>>>>>> e1cef1bb9944b6e7b8072cf95e9fe8ad5097ac80
 
 ### Characteristics
 
@@ -69,8 +61,4 @@ Principal author:
 
 ## Related resources
 
-<<<<<<< HEAD
-- [Monitor and manage loops](monitor-manage-loop.yml)
-=======
 - [Analyze and optimize loops](analyze-optimize-loop.yml)
->>>>>>> b4635de9bd56d29f1872e028d47e7c6165591106
