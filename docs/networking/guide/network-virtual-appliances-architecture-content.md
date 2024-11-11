@@ -103,7 +103,6 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-- [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)

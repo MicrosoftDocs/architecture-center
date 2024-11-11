@@ -61,4 +61,3 @@ The following are some additional ideas that you can use as a starting point for
 - [HPC Risk Analysis Template](../solution-ideas/articles/hpc-risk-analysis.yml)
 - [Loan ChargeOff Prediction with Azure HDInsight Spark Clusters](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)
 - [Loan Credit Risk + Default Modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
-- [Unlock Legacy Data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)

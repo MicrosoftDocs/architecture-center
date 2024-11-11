@@ -98,10 +98,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
 - [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
 
-#### Architecture, engineering, and construction (AEC)
-
-[Azure digital twins builder][Azure digital twins builder]: Use building information modeling data from Autodesk Forge to automate the creation of an Azure Digital Twins foundational dataset.
-
 #### Healthcare
 
 [Health data consortium][Health data consortium]: Share data among members of a healthcare consortium.
@@ -170,7 +166,6 @@ The following resources provide practical recommendations and information for sp
 [Architect API integration in Azure]: /training/paths/architect-api-integration
 [Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
 [AWS to Azure services comparison—Miscellaneous backend process logic]: ../aws-professional/services.md#miscellaneous
-[Azure digital twins builder]: ../solution-ideas/articles/azure-digital-twins-builder.yml
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json

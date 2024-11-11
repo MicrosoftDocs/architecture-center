@@ -47,12 +47,12 @@ Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, b
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs)
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/#overview)
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory)
-- [Azure Analysis Services](https://azure.microsoft.com/products/analysis-services)
-- [Power BI](https://powerbi.microsoft.com)
-- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
+- [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure Analysis Services](/azure/analysis-services/analysis-services-overview)
+- [Power BI](/power-bi/fundamentals/power-bi-overview)
+- [Microsoft Entra ID](/entra/fundamentals/whatis)
 
 ## Scenario details
 
