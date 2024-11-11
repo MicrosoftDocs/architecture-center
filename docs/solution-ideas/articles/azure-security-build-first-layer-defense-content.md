@@ -1,9 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-You can create a complete IT infrastructure for your organization using a wide range of Azure services. Azure also provides security services to protect this infrastructure. By utilizing Azure’s security solutions, you can enhance your IT environment's security posture, mitigate vulnerabilities, and prevent breaches by following Microsoft's best practice recommendations for a well-architected solution.
-While some security services come with associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
+You can use a various Azure services to create a complete IT infrastructure for your organization. Azure also provides security services that can help you protect your infrastructure. By using Azure security solutions, you can enhance your IT environment's security posture, mitigate vulnerabilities, and protect against breaches via a well-architected solution that's based on Microsoft best practices.
 
-Some security services come with additional costs, while others are available at no extra charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and many more. This article focuses on these cost-free security services.
+Although some security services incur associated costs, many are available at no additional charge. Free services include network security groups (NSGs), storage encryption, TLS/SSL, shared access signature tokens, and more. This article focuses on these cost-free services.
 
 This article is the third in a series of five. To review the previous two articles in this series, including the introduction and a review of how you can map threats against an IT environment, see the following articles:
 
@@ -12,7 +11,7 @@ This article is the third in a series of five. To review the previous two articl
 
 ## Potential use cases
 
-This article organizes Azure security services by each Azure resource, allowing you to focus on specific threats targeting resources such as virtual machines (VMs), operating systems, Azure networks, or applications, as well as attacks that could compromise users and passwords. The diagram provided will guide you in identifying the appropriate Azure security services to safeguard both resources and user identities from these types of threats.
+This article organizes Azure security services by Azure resource so you can focus on specific threats that target resources like virtual machines (VMs), operating systems, Azure networks, or applications, in addition to attacks that can compromise users and passwords. The following diagram can help you identify the Azure security services that help protect resources and user identities against these types of threats.
 
 
 ## Architecture
@@ -25,13 +24,13 @@ This article organizes Azure security services by each Azure resource, allowing 
 
 The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org) and [National Institute of Standards and Technology](https://www.nist.gov). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
-The diagram doesn't include every Azure security service available, but it highlights the services most commonly used by organizations. All the security services shown in the architectural diagram can be combined and configured to work together based on your IT environment and your organization's specific security needs.
+The diagram doesn't include every Azure security service available, but it does highlight the services that are used most commonly. All the security services shown in the architectural diagram can be combined and configured to work together with your IT environment and your organization's specific security needs.
 
 ### Workflow
 
 This section describes the components and services that appear in the diagram. Many of those are labeled with their ASB control codes, in addition to their abbreviated labels. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
 
-1. **AZURE SECURITY BENCHMARK**
+1. **Azure Security Benchmark**
 
     Each security control refers to one or more specific Azure security services. The architecture reference in this article shows some of them and their control numbers according to the ASB documentation. The controls include:
 
@@ -50,7 +49,7 @@ This section describes the components and services that appear in the diagram. M
 
     For more information about security controls, see [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview).
 
-1. **NETWORK**
+1. **Network**
 
     The following table describes the network services in the diagram.
     
@@ -58,8 +57,8 @@ This section describes the components and services that appear in the diagram. M
     |---|---|---|
     | **NSG** | A free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections. | [Network security groups](/azure/virtual-network/network-security-groups-overview) |
     | **VPN** | A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) |
-    | **AZURE FIREWALL** | A platform as a service (PaaS) that delivers protection in layer 4 and is attached to an entire virtual network. | [What is Azure Firewall](/azure/firewall/overview)? |
-    | **APP GW + WAF** | Azure Application Gateway with Web Application Firewall (WAF). Application Gateway is a load balancer for web traffic that works in layer 7 and adds WAF to protect applications that use HTTP and HTTPS. | [What is Azure Application Gateway](/azure/application-gateway/overview)? |
+    | **Azure Firewall** | A platform as a service (PaaS) that delivers protection in layer 4 and is attached to an entire virtual network. | [What is Azure Firewall?](/azure/firewall/overview). |
+    | **Azure Application Gateway with WAF** | Application Gateway is a load balancer for web traffic that works in layer 7 and adds WAF to protect applications that use HTTP and HTTPS. | [What is Azure Application Gateway?](/azure/application-gateway/overview).|
     | **NVA** | Network Virtual Appliance (NVA), a virtual security services from the marketplace that is provisioned on VMs on Azure. | [Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances) |
     | **DDOS** | DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. | [Azure DDoS Network Protection overview](/azure/ddos-protection/ddos-protection-overview) |
     | **TLS/SSL** | TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. | [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) |
@@ -105,7 +104,7 @@ This section describes the components and services that appear in the diagram. M
     | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials. | [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)? |
     | **MFA** | Multifactor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Microsoft Entra multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) |
     | **ID PROTECTION** | Identity Protection, a security service from Microsoft Entra ID, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)? |
-    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administorator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
+    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, User Administrator) and Azure subscriptions (for example, Role Based Access Control Administrator or Key Vault Administrator). | [What is Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
     | **COND ACC** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
 
 ### Components
