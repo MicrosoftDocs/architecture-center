@@ -26,7 +26,7 @@ There are two primary approaches to structuring event payloads:
 
 - **Including all required attributes in the payload**: This approach is used when you desire consumers have all available information without the need query an external data source. However, it can lead to data consistency issues due to multiple [systems of record](https://wikipedia.org/wiki/System_of_record), particularly after updates. Contract management and versioning can also become complex.
 
-- **Including only key(s) in the payload**: In this approach, consumers retrieve the necessary attributes by querying the database. While this method offers better data consistency due to a single system of record, it is less scalable and performs poorer than the first approach since consumers must query the database frequently. There are fewer concerns regarding stamp coupling, bandwidth, contract management, or versioning, as events are smaller and contracts simpler.
+- **Including only key(s) in the payload**: In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. While this method offers better data consistency due to a single system of record, it can perform poorer than the first approach since consumers must query the data source frequently. There are fewer concerns regarding coupling, bandwidth, contract management, or versioning, as events are smaller and contracts simpler.
 
 Ultimately, your goal should be to provide the required data to your consumers while considering your system's constraints and requirements. A hybrid approach may be necessary to balance scalability, performance, and data consistency.
 
