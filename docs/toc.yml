@@ -1834,10 +1834,18 @@ items:
           href: example-scenario/iot/devices-platform-application.yml
         - name: Application-to-device commands
           href: example-scenario/iot/cloud-to-device.yml
-      - name: Industrial IoT patterns
+      - name: Computer vision with Azure IoT Edge
         items:
-        - name: Visibility patterns
-          href: guide/iiot-patterns/iiot-visibility-patterns.yml
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: User interface and scenarios
+          href: guide/iot-edge-vision/user-interface.md
       - name: IoT patterns
         items:
         - name: Analyze and optimize loop
