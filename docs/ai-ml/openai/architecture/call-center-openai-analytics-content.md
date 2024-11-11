@@ -9,7 +9,7 @@ This article describes how to extract insights from customer conversations at a 
 
 1. A phone call between an agent and a customer is recorded and stored in Azure Blob Storage. Audio files are uploaded to an Azure Storage account via a supported method, such as the UI-based tool, [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer), or a [Storage SDK or API](/azure/storage/blobs/reference).
 
-1. An Azure Function is configured with one of the following triggers to start the intelligent transcription process:
+1. An Azure function is configured with one of the following triggers to start the intelligent transcription process:
 
    - [Timer trigger](/azure/azure-functions/functions-bindings-timer): Configure a time-based trigger to process a batch of audio files accumulated over a specified time period.
 
@@ -17,18 +17,17 @@ This article describes how to extract insights from customer conversations at a 
 
 1. The Azure function will trigger an Azure App Service which will execute the following steps in sequence:
 
-   1. Call the Azure AI Speech to transcribe the file(s).
+   1. Call the Azure AI Speech to transcribe the files.
 
    1. Optionally, save this raw file in Azure blob storage for future reference.
 
    1. Pass the raw data to the Azure AI Language service to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
-   1. Send the redacted data to the Azure OpenAI service to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call. 
-
+   1. Send the redacted data to the Azure OpenAI service to perform various post call analytics like understand the intent and sentiment of the call, extract entities, or [summarize the conversation](/azure/ai-services/openai/quickstart#try-text-summarization) to evaluate the effectiveness of the call.
 
    1. Store the processed output in Azure Storage for visualization or consumption by downstream applications for further processing.
 
-1. [Power BI](/power-bi/fundamentals/power-bi-overview) can be used to visualize the post call analytics on different criteria as required by the business use case. You can also store this output in a customer relationship management (CRM), so agents have contextual information about why the customer called and can quickly solve potential problems. This process is fully automated, which saves the agents time and effort. 
+1. [Power BI](/power-bi/fundamentals/power-bi-overview) can be used to visualize the post call analytics on different criteria as required by the business use case. You can also store this output in a customer relationship management (CRM), so agents have contextual information about why the customer called and can quickly solve potential problems. This process is fully automated, which saves the agents time and effort.
 
 ### Components
 
@@ -53,7 +52,7 @@ Depending on your scenario, you can add the following workflows.
 
 ## Scenario details
 
-This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, listing product /service offering based on the number of queries/customer complaints etc. Scale the services and the pipeline to accommodate any volume of recorded data.
+This solution uses Azure AI Speech to Text to convert call-center audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform analytics on the extractions like reason for the call, resolution provided or not, sentiment of the call, listing product /service offering based on the number of queries/customer complaints, and so on. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
