@@ -229,7 +229,7 @@ You can use pod autoscaling to scale pods automatically, based on resource deman
 
 [Vertical pod autoscaling (VPA)](/azure/aks/vertical-pod-autoscaler) enables efficient resource management for pods. By adjusting the CPU and memory allocated to pods, VPA helps you reduce the number of nodes required to run tenant applications, thereby reducing the total cost of ownership and avoiding the [Noisy Neighbor issue][noisy-neighbor].
 
-[Capacity reservation groups](/azure/aks/manage-node-pools#associate-capacity-reservation-groups-to-node-pools) allows you to assign capacity reservation groups to node pools, providing better resource allocation and isolation for different tenants.
+[Capacity reservation groups](/azure/aks/manage-node-pools#associate-capacity-reservation-groups-to-node-pools) enable you to assign capacity reservation groups to node pools, providing better resource allocation and isolation for different tenants.
 
 ## Maintenance
 
