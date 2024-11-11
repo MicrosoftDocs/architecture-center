@@ -92,11 +92,11 @@ Key points to consider when deploying Azure Virtual Desktop for Azure Local incl
 
 ## Deploy this scenario
 
-## Prerequisites
+### Prerequisites
 
 For a general idea of what is required and supported, such as operating systems (OSs), virtual networks, and identity providers, review [Prerequisites for Azure Virtual Desktop](/azure/virtual-desktop/prerequisites). That article also includes a list of the [supported Azure regions](/azure/virtual-desktop/prerequisites#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the metadata for the host pool can be stored. However, session hosts can be located in any Azure region and on-premises with [Azure Local](/azure/virtual-desktop/azure-stack-hci-overview). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](/azure/virtual-desktop/data-locations).
 
-## Supported deployment configurations
+### Supported deployment configurations
 
 Your Azure Local instances must be running a minimum of [version 23H2](/azure-stack/hci/release-information). Once the instance is deployed and ready, you can use the following 64-bit operating system images for your session hosts Arc VMs:
 
@@ -114,7 +114,7 @@ To use session hosts on Azure Local with Azure Virtual Desktop, you also need to
 
 Finally, users can connect using the same [Remote Desktop clients](/azure/virtual-desktop/users/remote-desktop-clients-overview) as Azure Virtual Desktop.
 
-## Deployment methods
+### Deployment methods
 
 Deploying Azure Virtual Desktop for Azure Local can be done using the following means:
 
@@ -124,7 +124,7 @@ Deploying Azure Virtual Desktop for Azure Local can be done using the following 
 
 A detailed guide is available in the links above, whereby users are guided stepwise through the prerequisites, host pool, workspace, application group, and assignment creation.
 
-### ARM Templates and Terraform
+#### ARM templates and Terraform
 
 The Azure Virtual Desktop workload deployment can be streamlined significantly using [ARM (Azure Resource Manager)](/azure/azure-resource-manager/templates/overview) templates, which provide automation, consistency, and repeatability when deploying Azure resources.
 
