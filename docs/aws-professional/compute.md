@@ -52,7 +52,6 @@ Principal author:
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [Cross-cloud scaling with Azure Functions](../solution-ideas/articles/cross-cloud-scaling.yml)
 - [Run a Linux virtual machine on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)

@@ -1592,14 +1592,6 @@ items:
               href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
           - name: Azure Stack HCI Hybrid cross cluster scaling
             href: hybrid/hybrid-cross-cluster-scaling.yml
-      - name: Azure Stack Hub solutions
-        items:
-        - name: Back up files on Azure Stack Hub
-          href: hybrid/azure-stack-backup.yml
-        - name: Disaster recovery for Stack Hub VMs
-          href: hybrid/azure-stack-vm-disaster-recovery.yml
-        - name: Hybrid relay connection
-          href: solution-ideas/articles/hybrid-relay-connection.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
         maintainContext: true
@@ -1631,14 +1623,6 @@ items:
         href: hybrid/azure-file-share.yml
     - name: Solution ideas
       items:
-      - name: Azure Stack Hub solutions
-        items:
-        - name: Cross-cloud scaling
-          href: solution-ideas/articles/cross-cloud-scaling.yml
-        - name: Hybrid connections
-          href: solution-ideas/articles/hybrid-connectivity.yml
-        - name: Unlock legacy data with Azure Stack
-          href: solution-ideas/articles/unlock-legacy-data.yml
       - name: Azure VMware Solution foundations
         items:
         - name: Capacity planning considerations
@@ -1848,20 +1832,8 @@ items:
         items:
         - name: Devices, platform, and applications
           href: example-scenario/iot/devices-platform-application.yml
-        - name: Attestation, authentication, provisioning
-          href: example-scenario/iot/attestation-provisioning.yml
         - name: Application-to-device commands
           href: example-scenario/iot/cloud-to-device.yml
-      - name: Computer vision with Azure IoT Edge
-        items:
-        - name: Overview
-          href: guide/iot-edge-vision/index.md
-        - name: Hardware acceleration
-          href: guide/iot-edge-vision/hardware.md
-        - name: Image storage
-          href: guide/iot-edge-vision/image-storage.md
-        - name: User interface and scenarios
-          href: guide/iot-edge-vision/user-interface.md
       - name: Industrial IoT patterns
         items:
         - name: Visibility patterns
@@ -1874,8 +1846,6 @@ items:
           href: example-scenario/iot/event-routing.yml
         - name: Measure and control loop
           href: example-scenario/iot/measure-control-loop.yml
-        - name: Monitor and manage loop
-          href: example-scenario/iot/monitor-manage-loop.yml
         - name: Real-time IoT updates
           href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
         - name: Scale solutions with deployment stamps
@@ -1900,8 +1870,6 @@ items:
         href: example-scenario/iot/efficient-docker-image-deployment.yml
       - name: IoT Edge railroad maintenance and safety
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-      - name: IoT using Azure Cosmos DB
-        href: solution-ideas/articles/iot-using-cosmos-db.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
       - name: Automotive connected fleets
@@ -1910,8 +1878,6 @@ items:
         href: industries/automotive/automotive-telemetry-analytics.yml
     - name: Solution ideas
       items:
-      - name: Azure digital twins builder
-        href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
       - name: Environment monitoring
@@ -1924,12 +1890,8 @@ items:
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Light and power for emerging markets
         href: solution-ideas/articles/iot-power-management.yml
-      - name: Process real-time vehicle data using IoT
-        href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Real-time asset tracking and management
-        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
       - name: Voice assistants and IoT devices
         href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
   - name: Mainframe + Midrange
@@ -3178,8 +3140,6 @@ items:
         items:
         - name: All facilities and real estate architectures
           href: /azure/architecture/browse/?terms=facilities
-        - name: Azure digital twins (construction)
-          href: solution-ideas/articles/azure-digital-twins-builder.yml
         - name: Facilities management with mixed reality
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
         - name: IoT connectivity for healthcare facilities
