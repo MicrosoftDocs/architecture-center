@@ -147,7 +147,7 @@ Azure Virtual Desktop, much like Azure, has certain service limitations that you
 | Role assignment | Any Azure Virtual Desktop object | 200 |
 | Session host | HostPool | 10,000 |
 
-* If you require more than 500 application groups, submit a support ticket via the Azure portal.
+`*` If you require more than 500 application groups, submit a support ticket via the Azure portal.
 
 - We recommend that you deploy no more than 5,000 VMs per Azure subscription per region. This recommendation applies to both personal and pooled host pools, based on Windows Enterprise single and multi-session. Most customers use Windows Enterprise multi-session, which allows multiple users to sign in to each VM. You can increase the resources of individual session-host VMs to accommodate more user sessions.
 - For automated session-host scaling tools, the limits are around 2,500 VMs per Azure subscription per region, because VM status interaction consumes more resources.
