@@ -15,22 +15,22 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ### Components
 
-- **Event Hubs** ingests the data stream. [Event Hubs](https://azure.microsoft.com/products/event-hubs) is designed for high-throughput data streaming scenarios.
+- **Event Hubs** ingests the data stream. [Event Hubs](/azure/well-architected/service-guides/event-hubs) is designed for high-throughput data streaming scenarios.
 
    > [!NOTE]
    > For Internet of Things (IoT) scenarios, we recommend [Azure IoT Hub][iot-hub-product]. IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
 
-- **Function App**. [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger. In this architecture, when events arrive at Event Hubs, they trigger a function that processes the events and writes the results to storage.
+- **Function App**. [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger. In this architecture, when events arrive at Event Hubs, they trigger a function that processes the events and writes the results to storage.
 
    Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider [Apache Spark using Azure Databricks][spark-databricks-product], or [Azure Stream Analytics][stream-analytics-product].
 
-- **Azure Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using [Azure Cosmos DB for NoSQL][cosmosdb-sql].
+- **Azure Cosmos DB**. [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using [Azure Cosmos DB for NoSQL][cosmosdb-sql].
 
-- **Queue storage**. [Queue storage](https://azure.microsoft.com/products/storage/queues) is used for dead-letter messages. If an error occurs while processing an event, the function stores the event data in a dead-letter queue for later processing. For more information, see the [Resiliency section](#resiliency) later in this article.
+- **Queue Storage**. [Queue Storage](/azure/well-architected/service-guides/queue-storage/reliability) is used for dead-letter messages. If an error occurs while processing an event, the function stores the event data in a dead-letter queue for later processing. For more information, see the [Resiliency section](#resiliency) later in this article.
 
-- **Azure Monitor**. [Monitor](https://azure.microsoft.com/products/monitor) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution.
+- **Azure Monitor**. [Monitor](/azure/azure-monitor/overview) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution.
 
-- **Azure Pipelines**. [Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
+- **Azure Pipelines**. [Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
 
 ## Considerations
 
@@ -233,7 +233,7 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 [eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
 [functions]: /azure/azure-functions/functions-overview
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
-[iot-hub-product]: https://azure.microsoft.com/services/iot-hub/
+[iot-hub-product]: /azure/well-architected/service-guides/iot-hub/reliability
 [log-analytics]: /azure/log-analytics/log-analytics-queries
 [monitor]: /azure/azure-monitor/overview
 [partition-key]: /azure/cosmos-db/partitioning-overview
@@ -243,8 +243,8 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
 
-[spark-databricks-product]: https://azure.microsoft.com/services/databricks/
-[stream-analytics-product]: https://azure.microsoft.com/services/stream-analytics/
+[spark-databricks-product]: /azure/well-architected/service-guides/azure-databricks-security
+[stream-analytics-product]: /azure/stream-analytics/stream-analytics-introduction
 
 [github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
 [readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

@@ -15,7 +15,7 @@ items:
         - name: Migrate an Oracle database to an Azure virtual machine
           href: idea/migrate-oracle-azure-iaas.yml
         - name: Migrate an Oracle database to OD@A Exadata Database Service
-          href: idea/migrate-oracle-odaa-exadata.yml        
+          href: idea/migrate-oracle-odaa-exadata.yml
       - name: NoSQL
         items:
         - name: Serverless apps using Azure Cosmos DB
@@ -74,10 +74,6 @@ items:
         items:
         - name: Big data architectures
           href: guide/big-data-architectures.yml
-      - name: Data transform
-        items:
-        - name: VantageCloud integration with Azure Data Factory
-          href: guide/teradata-vantage-data-factory.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix
