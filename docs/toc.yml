@@ -3142,7 +3142,7 @@ items:
 =======
         - name: Facilities management with mixed reality
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
->>>>>>> b4635de9bd56d29f1872e028d47e7c6165591106
+>>>>>>>
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
         - name: Smart places with Azure Digital Twins
