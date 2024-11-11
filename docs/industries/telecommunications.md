@@ -44,7 +44,6 @@ The following articles provide detailed analysis of architectures created and re
 |--|--|--|
 |[Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml)|Learn how Azure Arc extends Kubernetes cluster management and configuration across your datacenters, edge locations, and multiple cloud environments.| Hybrid/Multicloud|
 |[Customer churn prediction using real-time analytics](../solution-ideas/articles/customer-churn-prediction.yml) |Predict customer churn and find patterns in existing data that's associated with the predicted churn rate by using the Microsoft AI platform.|AI / Machine learning |
-|[Deploy AI and machine learning at the edge](../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)|Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations by using Azure Stack Edge. |AI / Machine learning|
 |[Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml) |Learn how to build a robust, highly secure, and actively learning chatbot by using the Microsoft Bot Framework.|AI / Machine learning|
 |[Real-time fraud detection](../example-scenario/data/fraud-detection.yml)|Analyze data in real time to detect fraudulent transactions or other anomalous activity. This architecture can be used to detect fraudulent mobile-phone calls. |Security|
 

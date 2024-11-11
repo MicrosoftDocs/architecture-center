@@ -84,7 +84,6 @@ To learn about related solutions, see this information:
 
 - [IoT event routing](./event-routing.yml)
 - [IoT measure and control loops](./measure-control-loop.yml)
-- [IoT monitor and manage loops](./monitor-manage-loop.yml)
 
 ### IoT architectures
 
