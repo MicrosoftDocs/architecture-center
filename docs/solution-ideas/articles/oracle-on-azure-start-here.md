@@ -25,7 +25,7 @@ Oracle on Azure provides two principal technology platform options:
 
 In addition to Oracle databases, Azure also supports:
 
-- [WebLogic Server integrated with Azure services](/azure/virtual-machines/workloads/oracle/oracle-weblogic). Run Weblogic server on Azure with different options
+- [WebLogic Server integrated with Azure services](/azure/virtual-machines/workloads/oracle/oracle-weblogic). Run WebLogic Server (WLS) on Azure with different options.
 - [Accelerate your cloud adoption with Microsoft and Oracle](/azure/cloud-adoption-framework/scenarios/oracle-iaas/). Run your Oracle Database and enterprise applications on Azure and Oracle Cloud.
 
 - [Java on Azure](https://azure.microsoft.com/resources/developers/java/). Run Java EE applications with Oracle WebLogic Server on Azure Kubernetes Service (AKS) with solutions validated by Microsoft and Oracle.
