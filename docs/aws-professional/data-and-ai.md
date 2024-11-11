@@ -97,7 +97,7 @@ Platforms that store vast amounts of raw, unstructured, and structured data in i
 
 
 ### Big Data Analytics
-Services that process and analyze large and complex datasets to uncover patterns, insights, and trends.
+Services that process and analyze large and complex datasets to uncover patterns, insights, and trends. Below you will find direct comparisons of individual Big Data services, but the recommended all-in-one service for Big Data & Analytics is Microsoft Fabric. Fabric encompasses the below capabilities and more. 
 
 | AWS Service                                                   | Azure Service                                                                                                                                             | Analysis                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
