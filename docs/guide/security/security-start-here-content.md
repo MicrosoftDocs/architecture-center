@@ -70,10 +70,6 @@ For information about security for sensitive IaaS workloads, see [Security consi
 
 - [Homomorphic encryption with SEAL](../../solution-ideas/articles/homomorphic-encryption-seal.yml)
 
-### Discover and respond
-
-- [Long-term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)
-
 ## Stay current with security
 
 Get the latest updates on [Azure security services and features](https://azure.microsoft.com/updates/?category=security).

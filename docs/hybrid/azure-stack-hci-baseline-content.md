@@ -522,7 +522,7 @@ Microsoft Learn modules:
 [azs-hci-automate-aks-update]: /azure/aks/hybrid/cluster-upgrade
 [azs-hci-automate-arc-aks]: /azure/aks/hybrid/aks-create-clusters-cli?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json
 [azs-hci-automate-arc-vms]: /azure-stack/hci/manage/create-arc-virtual-machines?tabs=azurecli
-[azs-hci]: /azure/virtual-desktop/deploy-azure-virtual-desktop?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&tabs=portal
+[azs-hci]: /azure/well-architected/service-guides/azure-stack-hci
 [azs-hci-basic-security]: /azure-stack/hci/concepts/security-features
 [azs-hci-billing]: /azure-stack/hci/concepts/billing
 [azs-hci-csv-cache]: /azure-stack/hci/manage/use-csv-cache#planning-considerations
