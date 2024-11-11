@@ -90,8 +90,7 @@ Principal author:
 - [What is Azure Data Explorer?](/azure/data-explorer/data-explorer-overview)
 - [Visualize data with Azure Data Explorer dashboards](/azure/data-explorer/azure-data-explorer-dashboards)
 
-## Related resources
+## Related resource
 
-- [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
 

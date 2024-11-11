@@ -59,7 +59,6 @@ The following are other ideas that you can use as a starting point for your ener
 - [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
 - [Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
 - [IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network)
-- [IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
 - [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 - [Oil and gas tank-level forecasting](/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting)

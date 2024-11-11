@@ -189,16 +189,16 @@ Explore related architectures:
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.pptx
 [Azure Arc docs]: /azure/azure-arc/
-[Azure Arc-enabled servers]: https://azure.microsoft.com/services/azure-arc/#infrastructure
+[Azure Arc-enabled servers]: /azure/azure-arc/servers/overview
 [Azure Arc-enabled servers docs]: /azure/azure-arc/servers/overview
 [Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
-[Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
-[Azure Monitor]: https://azure.microsoft.com/services/monitor/
+[Azure Log Analytics]: /azure/well-architected/service-guides/azure-log-analytics
+[Azure Monitor]: /azure/azure-monitor/overview
 [Azure Arc]: /azure/azure-arc
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [Azure virtual machines]: /azure/virtual-machines/
-[Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network/
+[Azure Virtual Network]: /azure/well-architected/service-guides/azure-virtual-network/reliability
 [caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
 [windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
@@ -208,8 +208,8 @@ Explore related architectures:
 [connect-hybrid-at-scale]: /azure/azure-arc/servers/onboard-service-principal
 [Hyper-V nested virtualization]: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [manage-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
-[Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
-[Microsoft Sentinel]: https://azure.microsoft.com/services/microsoft-sentinel/
+[Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
+[Microsoft Sentinel]: /azure/sentinel/overview
 [microsoft-package-repo]: https://packages.microsoft.com/
 [networking configuration]: /azure/azure-arc/servers/agent-overview#networking-configuration
 [onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
