@@ -5396,6 +5396,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/event-routing.yml",
+      "redirect_url": "/azure/iot/iot-overview-message-processing",
+      "redirect_document_id": false    
+    },
+    {
       "source_path": "docs/ai-ml/architecture/real-time-recommendation.yml",
       "redirect_url": "/azure/architecture/ai-ml",
       "redirect_document_id": false

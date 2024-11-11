@@ -1848,8 +1848,8 @@ items:
           href: guide/iot-edge-vision/user-interface.md
       - name: IoT patterns
         items:
-        - name: Event routing
-          href: example-scenario/iot/event-routing.yml
+        - name: Analyze and optimize loop
+          href: example-scenario/iot/analyze-optimize-loop.yml
         - name: Measure and control loop
           href: example-scenario/iot/measure-control-loop.yml
         - name: Real-time IoT updates
