@@ -23,6 +23,6 @@ products:
   - azure-vm-scalesets
 name: Moodle deployment with Azure NetApp Files
 summary: Deploy Moodle with Azure NetApp Files for a resilient solution that provides high-throughput, low-latency access to scalable shared storage.
-thumbnailUrl: /azure/architecture/browse/thumbs/moodle-azure-netapp-files-architecture-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-netapp-files-moodle-architecture.png
 content: |
-  [!include[](moodle-azure-netapp-files-content.md)]
+  [!INCLUDE[](moodle-azure-netapp-files-content.md)]

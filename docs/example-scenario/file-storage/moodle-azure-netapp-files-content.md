@@ -88,7 +88,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Azure NetApp Files is built on a bare-metal fleet of redundant, solid-state hardware. The service operates without interruption, even during maintenance operations. For more information about resiliency, see [Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files][Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files].
 
-Azure NetApp Files has a guaranteed availability of 99.99%. For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Files](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+Azure NetApp Files provides high availability for your stored data. For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Files](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 <!-- 
 As the [Alternative deployments with Azure NetApp Files section](#alternative-deployments-with-azure-netapp-files) explains, you can make the solution more resilient. You can provide disaster recovery by adding a secondary region and using Azure NetApp Files cross-region replication. This functionality efficiently replicates the NFS volumes to a secondary passive region. During the unlikely event of a complete region failure, the application runs in that secondary region. -->
