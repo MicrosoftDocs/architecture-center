@@ -83,7 +83,6 @@ To learn about related solutions, see this information:
 ### IoT patterns
 
 - [IoT measure and control loops](./measure-control-loop.yml)
-- [IoT monitor and manage loops](./monitor-manage-loop.yml)
 
 ### IoT architectures
 

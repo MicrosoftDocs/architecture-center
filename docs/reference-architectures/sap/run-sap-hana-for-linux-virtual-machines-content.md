@@ -24,7 +24,7 @@ This reference architecture describes a typical SAP HANA database running in Azu
 
 If applications connecting to SAP HANA are running on VMs, the application VMs should be located in same virtual network but within a dedicated application subnet. Alternatively, if SAP HANA connection isn't the primary database, the application VMs can be located in other virtual networks. Separating into subnets by workload allows easier enablement of network security groups (NSG) to set security rules applicable to SAP HANA VMs only.
 
-**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet, but you can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. Use zone-redundant Azure ExpressRoute or VPN gateways to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment. It's worth mentioning here that the IP addresses used need to be of Standard SKU for a zone deployment of the gateways.
+**Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use ExpressRoute to create private connections that don't go over the public internet, but you can also use a site-to-site connection. Use zone-redundant Azure ExpressRoute or VPN gateways to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment. It's worth mentioning here that the IP addresses used need to be of Standard SKU for a zone deployment of the gateways.
 
 **Network security groups (NSG).**  To restrict incoming and outgoing network traffic of the virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli), which are in turn assigned to specific subnets. DB and application subnets are secured with workload specific NSGs.
 
@@ -54,12 +54,12 @@ Because all other VMs supporting SAP HANA allow the choice of either Gen2 only o
 
 ### Components
 
-* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
-* [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines)
-* [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp)
-* [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer)
-* [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks)
+* [Azure Virtual Network](/azure/well-architected/service-guides/azure-virtual-network/reliability)
+* [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute)
+* [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines)
+* [Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
+* [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability)
+* [Azure Disk Storage](/azure/virtual-machines/managed-disks-overview)
 
 ## Considerations
 

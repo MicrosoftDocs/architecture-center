@@ -85,7 +85,6 @@ You might also find the following resources useful:
 - [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/ise/large-scale-data-operations-platform-for-autonomous-vehicles/)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
-## Related resources
+## Related resource
 
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
-- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml)

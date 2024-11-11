@@ -195,7 +195,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Architecture | Description |
 |----|----|
 | [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot) | A recommended architecture for IoT applications on Azure by using platform as a service (PaaS) components. |
-| [Process real-time vehicle data by using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot) | This example builds a real-time data ingestion and processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure. |
 
 [view all](../browse/index.yml?azure_categories=iot)
 
