@@ -73,7 +73,6 @@ The related resources provide further information on edge solutions, including i
 
 - [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 
-### Architectures
+### Architecture
 
-- [IoT using Azure Cosmos DB](iot-using-cosmos-db.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)

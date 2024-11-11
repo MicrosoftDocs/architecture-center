@@ -248,5 +248,4 @@ Other contributors:
 ## Related resources
 
 - [Cross-cloud scaling (on-premises data) pattern](/hybrid/app-solutions/pattern-cross-cloud-scale-onprem-data)
-- [Cross-cloud scaling pattern](/hybrid/app-solutions/pattern-cross-cloud-scale)
-- [Cross-cloud scaling with Azure Functions](/azure/architecture/solution-ideas/articles/cross-cloud-scaling)
+- [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale)

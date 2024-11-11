@@ -35,19 +35,19 @@ Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data
 
 The solution uses these components:
 
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
+* [Azure Data Factory](/azure/data-factory/introduction)
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks)
+* [Azure Databricks](/azure/databricks/introduction)
 
-* [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+* [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+* [Azure Key Vault](/azure/key-vault/general/overview)
 
-* [Azure DevOps](https://azure.microsoft.com/services/devops)
+* [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
 
-* [Power BI](https://powerbi.microsoft.com)
+* [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ## Scenario details
 
@@ -158,7 +158,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived Git branches. For example, `<developer_name>/<branch_name>`.
 
-1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks-off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
+1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
 
 1. On completion of the PR validation, the commit to main will trigger a build pipeline that publishes all necessary build artifacts.
 

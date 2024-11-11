@@ -113,7 +113,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 ### Alternatives
 
-- You can use [Azure Virtual Machines][Choose the right VM for your workload and reduce costs] instead of App Service to host your application.
+- You can use [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instead of App Service to host your application.
 
 - You can use any relational database for persistent storage of the extracted data, including:
 
@@ -280,32 +280,31 @@ Principal author:
 [Achieve high availability with Azure Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway
-[Application Gateway service page]: https://azure.microsoft.com/products/application-gateway
+[Application Gateway service page]: /azure/well-architected/service-guides/azure-application-gateway
 [Authenticate requests to Azure Cognitive Services]: /azure/cognitive-services/authentication
-[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs
+[Azure Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
 [Azure Blob Storage pricing]: https://azure.microsoft.com/pricing/details/storage/blobs
-[Azure Cognitive Search]: https://azure.microsoft.com/services/search
-[Azure Cognitive Service service page]: https://azure.microsoft.com/products/cognitive-services/language-service
-[Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
+[Azure Cognitive Search]: /azure/search/search-what-is-azure-search
+[Azure Cognitive Service service page]: /azure/ai-services/language-service/overview
+[Azure Cosmos DB]: /azure/well-architected/service-guides/cosmos-db
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
-[Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
-[Azure Database for MySQL]: https://azure.microsoft.com/services/mysql
-[Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql
+[Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
+[Azure Database for MySQL]: /azure/mysql/flexible-server/overview
+[Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
 [Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
-[Azure Form Recognizer service page]: https://azure.microsoft.com/products/applied-ai-services
+[Azure Form Recognizer service page]:/azure/ai-services/document-intelligence/overview
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
-[Azure Functions service page]: https://azure.microsoft.com/products/functions
-[Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service
+[Azure Functions service page]: /azure/azure-functions/functions-overview
+[Azure Kubernetes Service (AKS)]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Machine Learning pricing]: https://azure.microsoft.com/pricing/details/machine-learning/#overview
-[Azure Machine Learning service page]: https://azure.microsoft.com/products/machine-learning
+[Azure Machine Learning service page]: /azure/well-architected/service-guides/azure-machine-learning
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure SQL Database]: https://azure.microsoft.com/products/azure-sql/database
+[Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
 [Azure Storage documentation]: /azure/storage
-[Azure Storage service page]: https://azure.microsoft.com/products/category/storage
-[Azure Web Application Firewall service page]: https://azure.microsoft.com/products/web-application-firewall
+[Azure Storage service page]: /azure/storage/common/storage-introduction
+[Azure Web Application Firewall service page]: /azure/web-application-firewall/ag/ag-overview
 [Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
-[Choose the right VM for your workload and reduce costs]: https://azure.microsoft.com/services/virtual-machines/#overview
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
 [Deploy Azure Machine Learning to ACI]: /azure/machine-learning/how-to-deploy-azure-container-instance#deploy-to-aci
@@ -334,7 +333,7 @@ Principal author:
 [Manage access to an Azure Machine Learning workspace]: /azure/machine-learning/how-to-assign-roles
 [Opinion mining]: /azure/cognitive-services/language-service/sentiment-opinion-mining/overview#opinion-mining
 [ParallelRunStep Class]: /python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py
-[Power BI]: https://powerbi.microsoft.com
+[Power BI]: /power-bi/fundamentals/power-bi-overview
 [Regenerate storage account access keys]: /azure/machine-learning/how-to-change-storage-access-key
 [Resiliency checklist for specific Azure services]: ../../checklist/resiliency-per-service.md
 [Secure an Azure Machine Learning workspace with virtual networks]: /azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe
