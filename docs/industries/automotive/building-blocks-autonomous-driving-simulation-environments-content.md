@@ -205,7 +205,4 @@ Azure Architecture Center overview articles:
 
 - [Big compute architecture style](/azure/architecture/guide/architecture-styles/big-compute)
 
-Relevant architecture:
-
-- [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
 
