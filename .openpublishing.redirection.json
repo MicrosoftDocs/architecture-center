@@ -5352,7 +5352,7 @@
     },
     {
       "source_path": "docs/example-scenario/iot/event-routing.yml",
-      "redirect_url": "/azure-docs/articles/iot/iot-overview-message-processing",
+      "redirect_url": "/azure/articles/iot/iot-overview-message-processing",
       "redirect_document_id": false    
     },
     {
