@@ -22,6 +22,12 @@ On the consumer side, there are some common variations:
 
 The source of the events may be external to the system, such as physical devices in an IoT solution. In that case, the system must be able to ingest the data at the volume and throughput that is required by the data source.
 
+There are two primary approaches to structuring event payloads:
+
+- **Including all required attributes in the payload**: This approach is used when you want consumers to have all available information without the need to query an external data source. However, it can lead to data consistency issues due to multiple [systems of record](https://wikipedia.org/wiki/System_of_record), particularly after updates. Contract management and versioning can also become complex.
+
+- **Including only key(s) in the payload**: In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. While this method offers better data consistency due to a single system of record, it can perform poorer than the first approach since consumers must query the data source frequently. There are fewer concerns regarding coupling, bandwidth, contract management, or versioning, as events are smaller and contracts simpler.
+
 In the logical diagram above, each type of consumer is shown as a single box. In practice, it's common to have multiple instances of a consumer, to avoid having the consumer become a single point of failure in system. Multiple instances might also be necessary to handle the volume and frequency of events. Also, a single consumer might process events on multiple threads. This can create challenges if events must be processed in order or require exactly-once semantics. See [Minimize Coordination][minimize-coordination].
 
 There are two primary topologies within many event-driven architectures:
