@@ -45,7 +45,7 @@ Principal author:
 
 * [Hanukumar Pinnamraju](https://www.linkedin.com/in/hanukumar-pinnamraju-b290298) | Principal Software Engineering Manager
 
-## Next step
+## Next steps
 
 - [Measure and control loops](measure-control-loop.yml)
 
