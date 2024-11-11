@@ -88,64 +88,7 @@ For detailed information on using Azure Service Bus queues, see [Service Bus que
 
 For information on Queue triggered Azure Functions, see [Azure Service Bus trigger for Azure Functions](/azure/azure-functions/functions-bindings-service-bus-trigger).
 
-The following code shows how you can create a new message and send it to a Service Bus Queue by using a `ServiceBusClient` instance.
-
-```csharp
-private string serviceBusConnectionString = ...;
-...
-
-  public async Task SendMessagesAsync(CancellationToken  ct)
-  {
-   try
-   {
-    var msgNumber = 0;
-
-    var serviceBusClient = new ServiceBusClient(serviceBusConnectionString);
-
-    // create the sender
-    ServiceBusSender sender = serviceBusClient.CreateSender("myqueue");
-
-    while (!ct.IsCancellationRequested)
-    {
-     // Create a new message to send to the queue
-     string messageBody = $"Message {msgNumber}";
-     var message = new ServiceBusMessage(messageBody);
-
-     // Write the body of the message to the console
-     this._logger.LogInformation($"Sending message: {messageBody}");
-
-     // Send the message to the queue
-     await sender.SendMessageAsync(message);
-
-     this._logger.LogInformation("Message successfully sent.");
-     msgNumber++;
-    }
-   }
-   catch (Exception exception)
-   {
-    this._logger.LogException(exception.Message);
-   }
-  }
-```
-
-The following code example shows a consumer, written as a C# Azure Function, that reads message metadata and logs a Service Bus Queue message. Note how the `ServiceBusTrigger` attribute is used to bind it to a Service Bus Queue.
-
-```csharp
-[FunctionName("ProcessQueueMessage")]
-public static void Run(
-    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnectionString")]
-    string myQueueItem,
-    Int32 deliveryCount,
-    DateTime enqueuedTimeUtc,
-    string messageId,
-    ILogger log)
-{
-    log.LogInformation($"C# ServiceBus queue trigger function consumed message: {myQueueItem}");
-    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.LogInformation($"DeliveryCount={deliveryCount}");
-    log.LogInformation($"MessageId={messageId}");
-}
-```
+To see how you can use the Azure Service Bus client library for .NET to send messages to a Service Bus Queue, see the published [Examples](/dotnet/api/overview/azure/messaging.servicebus-readme?view=azure-dotnet#examples).
 
 ## Next steps
 

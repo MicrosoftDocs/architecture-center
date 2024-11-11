@@ -151,17 +151,17 @@ For more information, see [What happens during a slot swap for Azure Functions](
 
 The Gridwich media processing solution uses Azure Event Grid, Azure Functions, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The CI/CD and saga orchestration processes use Azure Repos, Azure Pipelines, and Terraform.
 
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) manages the routing of Gridwich events, with two sandwiched Event Grid jobs that allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
+- [Azure Event Grid](/azure/well-architected/service-guides/event-grid/reliability) manages the routing of Gridwich events, with two sandwiched Event Grid jobs that allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
 
   Gridwich encapsulates events within the [Event Grid schema](/azure/event-grid/event-schema) `Event.Data` property object, which is opaque to the Event Grid broker and transport layer. Gridwich also uses the `eventType` and `dataVersion` object fields to route events. So that the Event Grid request broker can be substituted with other publication-subscription event brokers, Gridwich depends on the fewest event fields possible, and doesn't use the `topic` or `subject` fields.
 
-- [Azure Functions](https://azure.microsoft.com/services/functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) provides scalable, cost-efficient cloud storage and access for unstructured data like media assets. Gridwich uses both Azure Storage block blobs and containers.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides scalable, cost-efficient cloud storage and access for unstructured data like media assets. Gridwich uses both Azure Storage block blobs and containers.
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) safeguards cryptographic keys, passwords, and other secrets that Azure and third-party apps and services use.
+- [Azure Key Vault](/azure/key-vault/general/overview) safeguards cryptographic keys, passwords, and other secrets that Azure and third-party apps and services use.
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer and operations services, including Git-based code repositories and automated build and release pipelines, that integrate with Azure. Gridwich uses [Azure Repos](https://azure.microsoft.com/services/devops/repos/) to store and update the code projects, and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) for CI/CD and other workflows.
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) is a set of developer and operations services, including Git-based code repositories and automated build and release pipelines, that integrate with Azure. Gridwich uses [Azure Repos](/azure/devops/repos/get-started/what-is-repos) to store and update the code projects, and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) for CI/CD and other workflows.
 
 - [Terraform](https://www.terraform.io/) is an open-source tool that uses Infrastructure as Code to provision and manage infrastructures and services.
 
