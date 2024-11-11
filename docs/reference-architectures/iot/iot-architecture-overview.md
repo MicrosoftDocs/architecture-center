@@ -72,8 +72,6 @@ IoT architectural guides provide insights into IoT concepts, architectures, and 
 
 - [IoT solution architecture](../../example-scenario/iot/devices-platform-application.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
 
-- [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload. Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI combine to deliver quality assurance and safety solutions.
-
 - [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml). Learn best practices and what to avoid when moving an IoT solution from a test environment to a production environment.
 
 ## Next steps

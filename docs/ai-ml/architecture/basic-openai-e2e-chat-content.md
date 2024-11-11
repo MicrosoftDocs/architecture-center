@@ -50,7 +50,7 @@ Many of the components of this architecture are the same as the resources in the
 - [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. AI Studio is used in this architecture to build, test, and deploy the prompt flow orchestration logic for the chat application.
 
   - [AI Studio Hub](/azure/ai-studio/concepts/ai-resources) is the top-level resource for AI Studio. It's the central resource where you can govern security, connectivity, and compute resources for use in your AI Studio projects. You define connections to resources such as Azure OpenAI in the AI Studio Hub. The AI Studio Projects inherit these connections.
-  
+
   - [AI Studio Projects](/azure/ai-studio/how-to/create-projects) are the environments used to collaborate while developing, deploying, and evaluating AI models and solutions.
 
 - [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. Prompt flow is used in this architecture as the layer that orchestrates flows between the prompt, different data stores, and the language model. For development, you can host your prompt flows in two types of runtimes.
@@ -58,7 +58,7 @@ Many of the components of this architecture are the same as the resources in the
   - **Automatic runtime:** A serverless compute option that manages the lifecycle and performance characteristics of the compute and allows flow-driven customization of the environment. This architecture uses the automatic runtime for simplicity.
 
   - **Compute instance runtime:** An always-on compute option in which the workload team must select the performance characteristics. This runtime offers more customization and control of the environment.
-  
+
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses a feature of Machine Learning that is used to deploy and host executable flows for AI applications that are powered by language models. This feature is [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference) that let you deploy a flow for real-time inferencing. In this architecture, they're used as a PaaS endpoint for the chat UI to invoke the prompt flows hosted by the Machine Learning automatic runtime.
 
 - [Storage](/azure/storage/common/storage-introduction) is used to persist the prompt flow source files for prompt flow development.
@@ -112,7 +112,7 @@ The following guidance extends the [identity and access management guidance in t
 
 If you choose to use user-assigned managed identities, you should create separate identities for each of the above resources.
 
-Azure AI Studio projects are intended to be isolated from one another. In order to allow multiple projects to write to the same Azure storage account, but keep the projects isolated, conditions are applied to their role assignments for blob storage. These conditions grant access to only certain containers within the storage account. If you use user-assigned managed identities, you'll need to follow a similar approach in order to maintain least privilege.
+Azure AI Studio projects are intended to be isolated from one another. In order to allow multiple projects to write to the same Azure Storage account, but keep the projects isolated, conditions are applied to their role assignments for blob storage. These conditions grant access to only certain containers within the storage account. If you use user-assigned managed identities, you'll need to follow a similar approach in order to maintain least privilege.
 
 Currently, the chat UI is using keys to connect to the deployed managed online endpoint. The keys are stored in Azure Key Vault. When moving to production, you should use Managed Identity to authenticate the chat UI to the managed online endpoint.
 
@@ -186,7 +186,7 @@ Because this architecture is optimized for learning and isn't intended for produ
 
 ##### Development
 
-Prompt flow offers both a browser-based authoring experience in Azure AI studio or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Azure AI studio, the files are stored in files in a storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
+Prompt flow offers both a browser-based authoring experience in Azure AI Studio or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Azure AI Studio, the files are stored in files in a storage account. When you work in Microsoft Visual Studio Code, the files are stored in your local file system.
 
 Because this architecture is meant for learning, it's fine to use the browser-based authoring experience. As you start moving toward production, follow the [guidance in the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#development) around development and source control best practices.
 
