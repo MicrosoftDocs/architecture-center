@@ -1,4 +1,4 @@
-This article describes a solution that tracks changes that service administrators make and adds an approval process to deployments to Microsoft 365 tenants. It can help you prevent untracked changes to Microsoft 365 tenants. It also helps you prevent configuration drift between multiple Microsoft 365 tenants.
+This article describes a solution that tracks changes that service administrators make and adds an approval process to deployments to Microsoft 365 tenants. It can help you prevent untracked changes to Microsoft 365 tenants and prevent configuration drift between multiple Microsoft 365 tenants.
 
 ## Architecture
 
@@ -13,16 +13,16 @@ This article describes a solution that tracks changes that service administrator
 3. Admin 1 creates a pull request (PR) to merge the changes to the main repository.
 4. The build pipeline runs on the PR.
 5. Admins review the code and merge the PR.
-6. The merged PR triggers a pipeline to compile Managed Object Format (MOF) files. The pipeline calls Azure Key Vault to retrieve credentials that are used in the MOF files.
+6. The merged PR triggers a pipeline to compile Managed Object Format (MOF) files. The pipeline calls Azure Key Vault to retrieve the credentials that are used in the MOF files.
 7. An Azure PowerShell task in a multistage pipeline uses the compiled MOF files to deploy configuration changes via Microsoft365DSC.
 8. Admins validate the changes in a staged Microsoft 365 tenant.
 9. Admins get notification from the approval process in Azure DevOps for the production Microsoft 365 tenant. Admins approve or reject the changes.
 
 ### Components
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is an Azure DevOps service for continuous integration (CI) and continuous delivery (CD). Use Azure Pipelines to test and build your code and ship it to any target. You can also use Azure Pipelines to implement quality gates to ensure that you deploy changes in a controlled and consistent manner.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) improves the security of storage for tokens, passwords, certificates, API keys, and other secrets. It also provides tightly controlled access to these secrets. Use Key Vault to store service principals and certificates that you use to deploy configuration changes to Microsoft 365 tenants.
-- [Microsoft365DSC](https://microsoft365dsc.com) provides automation for the deployment, configuration, and monitoring of Microsoft 365 tenants via PowerShell Desired Stage Configuration (DSC). Use Micrsosoft365DSC to deploy configuration changes to Microsoft 365 tenants via Azure Pipelines.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is an Azure DevOps service for continuous integration and continuous delivery. Use Azure Pipelines to test and build your code and ship it to any target. You can also use Azure Pipelines to implement quality gates to help ensure that you deploy changes in a controlled and consistent manner.
+- [Key Vault](https://azure.microsoft.com/services/key-vault) improves the security of storage for tokens, passwords, certificates, API keys, and other secrets. It also provides tightly controlled access to these secrets. Use Key Vault to store service principals and certificates that you use to deploy configuration changes to Microsoft 365 tenants.
+- [Microsoft365DSC](https://microsoft365dsc.com) provides automation for the deployment, configuration, and monitoring of Microsoft 365 tenants via PowerShell Desired Stage Configuration (DSC). Use Microsoft365DSC to deploy configuration changes to Microsoft 365 tenants via Azure Pipelines.
 - [Windows PowerShell DSC](/powershell/scripting/dsc/overview) is a management platform in PowerShell. You can use it to manage your development infrastructure by using a configuration-as-code model. This model is the underlying technology that Microsoft365DSC uses.
 
 ### Alternatives
@@ -39,7 +39,7 @@ Many companies are adopting DevOps practices and want to apply these practices t
 - Challenges with tracking configuration changes
 - No approval process for tenant modifications
 
-You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell DSC](/powershell/scripting/dsc/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code.
+You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell DSC](/powershell/scripting/dsc/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style, which is configuration as code.
 
 ### Potential use cases
 
@@ -86,7 +86,7 @@ Using a configuration-as-code model isn't a one-time task. It's a shift in your 
 
 Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-You can use this solution when you're working with multiple environments, multiple workloads, or multiple teams. You can configure the validation process so that experts need to approve each workload. You can also extend the solution to deploy to multiple tenants for scenarios, including dev, test, acceptance, and production scenarios, or for multiple organizations.
+You can use this solution when you work with multiple environments, multiple workloads, or multiple teams. You can configure the validation process so that experts need to approve each workload. You can also extend the solution to deploy to multiple tenants for scenarios, including development, test, acceptance, and production scenarios, or for multiple organizations.
 
 ## Deploy this scenario
 
