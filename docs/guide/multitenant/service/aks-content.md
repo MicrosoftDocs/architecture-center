@@ -280,24 +280,11 @@ Azure Dedicated Host can help SaaS providers ensure tenant applications meet reg
 
 ### Karpenter
 
-[Karpenter][karpenter] is an open-source node lifecycle management project built for Kubernetes. Adding Karpenter to a Kubernetes cluster can dramatically improve the efficiency and cost of running workloads on that cluster. The [AKS Karpenter Provider](https://github.com/Azure/karpenter-provider-azure) enables node autoprovisioning using Karpenter on your AKS cluster.
+[Karpenter][karpenter] is an open-source node lifecycle management project built for Kubernetes. Adding Karpenter to a Kubernetes cluster can improve the efficiency and cost of running workloads on that cluster. Karpenter watches for pods that the Kubernetes scheduler has marked as unschedulable, and dynamically provisions and manages nodes that can meet the pod requirements.
 
-Karpenter improves the efficiency and cost of running workloads on Kubernetes clusters by watching for pods that the Kubernetes scheduler has marked as unschedulable, and dynamically provisioning and managing nodes that can meet the pod requirements.
+Karpenter provides fine-grained control over node provisioning and workload placement in a managed cluster, improving multitenancy by optimizing resource allocation, ensuring isolation between each tenant's applications, and reducing operational costs. When you build a multitenant solution on AKS, Karpenter provides useful capabilities to help you manage diverse application requirements to support different tenants. For example, you might need some tenants' applications to run on GPU-optimized node pools, and others to run on memory-optimized node pools. If your application requires very low latency for storage, you can use Karpenter to indicate that a pod requires a node running in a specific availability zone so that you can colocate your storage and application tier.
 
-Karpenter provider for Azure Kubernetes Service (AKS) can be used in two modes:
-
-- **Node Auto Provisioning (NAP) mode** (preview): Karpenter is run by AKS as a managed addon similar to managed Cluster Autoscaler. This is the recommended mode for most users. For more information, see  [Node Auto Provisioning](/azure/aks/node-autoprovision).
-- **Self-hosted mode**: Karpenter is run as a standalone deployment in the cluster. This mode is useful for advanced users who want to customize or experiment with Karpenter's deployment. For more information, see [AKS Karpenter Provider](https://github.com/Azure/karpenter-provider-azure).
-
-Karpenter can improve multitenancy in a managed cluster like Azure Kubernetes Service (AKS) shared by multiple tenant applications in several ways:
-
-1. **Efficient Node Provisioning**: Karpenter evaluates scheduling constraints requested by pods and provisions nodes that meet those requirements. This ensures that nodes are only provisioned when necessary, optimizing resource utilization and reducing costs.
-2. **Customizable NodePools**: By applying NodePools to Karpenter, you can configure constraints on node provisioning. This allows you to set specific values for node expiry, node consolidation, Kubernetes tolerations, labels, and cloud-specific settings. You can define requirements such as instance types, zones, computer architecture, and capacity type, ensuring that the nodes meet the specific needs of each tenant application.
-3. **Scheduling Constraints**: When deploying tenant workloads, you can specify scheduling constraints in the pod specifications. This includes resource requests and limits, node selectors, node affinity, pod affinity/anti-affinity, tolerations, and topology spread constraints. These constraints help Karpenter determine the appropriate nodes for each workload, ensuring efficient utilization of resources and isolation between tenant applications. 
-4. **Resource Limits**: Karpenter allows you to set limits on the total CPU and memory that can be used by the cluster. This prevents further node provisioning when resource limits have been reached, preventing resource contention and ensuring fair resource distribution among tenant applications.
-5. **Persistent Volume Topology**: Karpenter supports specifying persistent volume topology requirements. This allows you to indicate that a pod has a storage requirement that requires a node running in a specific zone, ensuring that the storage can be made available to the pod.
-
-Overall, Karpenter provides fine-grained control over node provisioning and workload placement in a managed cluster, improving multitenancy by optimizing resource allocation, ensuring isolation between tenant applications, and reducing operational costs.
+AKS enables node autoprovisioning using Karpenter on your AKS cluster. Most users should use the node autoprovisioning (NAP) mode to enable Karpenter as a managed addon. For more information, see [Node Auto Provisioning](https://github.com/azure/aks/node-autoprovision). If you need more advanced customization you can choose to self-host Karpenter. For more information, see [AKS Karpenter Provider](https://github.com/Azure/karpenter-provider-azure).
 
 ### Confidential Virtual Machines
 
@@ -393,7 +380,7 @@ When AKS-hosted applications connect to a large number of databases or external 
 
 ## Monitoring
 
-You can use [Azure Monitor](/azure/aks/monitor-aks) and [Container Insights](/azure/azure-monitor/containers/container-insights-overview) to monitor tenant applications that run on a shared AKS cluster, and to calculate cost breakdowns on individual namespaces. Azure Monitor allows you to monitor the health and performance of Azure Kubernetes Service (AKS). It includes the collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and visualizations of collected data, to identify trends and to configure alerting to proactively notify you of critical issues. You can enable [Container insights](/azure/azure-monitor/containers/container-insights-overview) to expand on this monitoring. 
+You can use [Azure Monitor](/azure/aks/monitor-aks) and [Container Insights](/azure/azure-monitor/containers/container-insights-overview) to monitor tenant applications that run on a shared AKS cluster, and to calculate cost breakdowns on individual namespaces. Azure Monitor allows you to monitor the health and performance of Azure Kubernetes Service (AKS). It includes the collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and visualizations of collected data, to identify trends and to configure alerting to proactively notify you of critical issues. You can enable [Container insights](/azure/azure-monitor/containers/container-insights-overview) to expand on this monitoring.
 
 You can also adopt open-source tools, such as [Prometheus](https://prometheus.io) and [Grafana](https://www.prometheus.io/docs/visualization/grafana), which are widely used by the community for Kubernetes monitoring. Or, you can adopt other third-party tools for monitoring and observability.
 
@@ -438,7 +425,6 @@ Review [Resources for architects and developers of multitenant solutions](../rel
 [aks]: /azure/aks/what-is-aks
 [kubectl]: https://kubernetes.io/docs/reference/kubectl
 [helm]: https://helm.sh
-[operator]: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
 [flux]: https://fluxcd.io
 [argo-cd]: https://argo-cd.readthedocs.io/en/stable
 [noisy-neighbor]: /azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor
