@@ -44,8 +44,6 @@ Students access the Moodle application data through an Azure Application Gateway
 
 You can deploy the Moodle service by using any NFS-based shared file service that meets your requirements for low latency, high input or output operations per second, and throughput, especially for higher numbers of concurrent users. You can use an NFS service built on top of a set of Linux VMs, but this configuration can cause manageability, scalability, and performance challenges. Azure NetApp Files provides the lowest latency, best performance and scalability, and secure access to NFS shared storage.
 
-<!-- Azure NetApp Files also offers alternative deployment methods with cross-region  replication that improve the disaster preparedness of your deployment. -->
-
 #### Alternative deployments by using Azure NetApp Files
 
 This diagram captures an example of a single-region deployment:
@@ -55,17 +53,6 @@ This diagram captures an example of a single-region deployment:
 :::image-end:::
 
 This single-region setup provides highly available access to the Moodle application and other components of the configuration.
-
-<!-- 
-If you want protection against unlikely Azure region failure, you can choose to replicate the Azure NetApp Files data volumes to a second region where only the Azure NetApp Files volumes need to be present.
-
-:::image type="complex" source="./media/azure-netapp-files-moodle-secondary-region.svg" alt-text="Architecture diagram of Azure NetApp Files for Moodle with cross-region replication." lightbox="./media/azure-netapp-files-moodle-secondary-region.svg" border="false":::
-    A diagram that replicates the single-region Azure NetApp Files Moodle deployment. The diagram adds a second black rectangle to the right of the first one, representing a second Azure region. Azure Traffic Manager routes students to either region to access the application. The Azure NetApp Files volumes are replicated to the secondary region for data protection.
-:::image-end:::
-
-The Azure NetApp Files volumes are replicated using [cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction), a storage-based replication engine built into the Azure NetApp Files service.
-
--->
 
 ## Scenario details
 
@@ -89,9 +76,6 @@ Reliability ensures your application can meet the commitments you make to your c
 Azure NetApp Files is built on a bare-metal fleet of redundant, solid-state hardware. The service operates without interruption, even during maintenance operations. For more information about resiliency, see [Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files][Fault Tolerance, High Availability, and Resiliency in Azure NetApp Files].
 
 Azure NetApp Files provides high availability for your stored data. For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Files](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-
-<!-- 
-As the [Alternative deployments with Azure NetApp Files section](#alternative-deployments-with-azure-netapp-files) explains, you can make the solution more resilient. You can provide disaster recovery by adding a secondary region and using Azure NetApp Files cross-region replication. This functionality efficiently replicates the NFS volumes to a secondary passive region. During the unlikely event of a complete region failure, the application runs in that secondary region. -->
 
 ### Security
 
