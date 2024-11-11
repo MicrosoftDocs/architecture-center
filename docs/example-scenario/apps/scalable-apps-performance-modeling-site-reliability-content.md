@@ -46,7 +46,7 @@ Because this solution uses a highly scalable microservices-based architecture, c
 
 ## Appropriate reliability
 
-The degree of reliability that's required for a solution depends on the business context. A Retail outlet store that's open for 14 hours, and that has system usage peaking within that span, has different requirements than an online business that accepts orders at all hours. SRE practices can be tailored to achieve the appropriate level of reliability.
+The degree of reliability that's required for a solution depends on the business context. A retail outlet store that's open for 14 hours, and that has system usage peaking within that span, has different requirements than an online business that accepts orders at all hours. SRE practices can be tailored to achieve the appropriate level of reliability.
 
 Reliability is defined and measured using *service level objectives* (service-level objectives (SLOs)) that define the target level of reliability for a service. Achieving the target level assures that consumers are satisfied. The SLO goals can evolve or change depending on the demands of the business. However, the service owners should constantly measure reliability against the SLOs to detect issues and take corrective actions. SLOs are usually defined as a percentage achievement over a period.
 
@@ -102,7 +102,7 @@ The load produces the following scale requirements, under normal peak load, for 
 - Orders and payment microservice: about 100 RPS
 - Content microservice: about 50 RPS
 
-These scale requirements don't take into consideration seasonal and random peaks, and peaks during special events such as Marketing promotions. During peaks, the scale requirement for some user activities is up to 10 times the normal peak load. Keep these constraints and expectations in mind when you make the design choices for the microservices.
+These scale requirements don't take into consideration seasonal and random peaks, and peaks during special events such as marketing promotions. During peaks, the scale requirement for some user activities is up to 10 times the normal peak load. Keep these constraints and expectations in mind when you make the design choices for the microservices.
 
 ### Define SLI metrics to calculate SLOs
 
