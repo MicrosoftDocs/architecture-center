@@ -1615,14 +1615,6 @@ items:
             href: hybrid/hybrid-cross-cluster-scaling.yml
           - name: Azure Virtual Desktop for Azure Local
             href: hybrid/azure-local-workload-avd.yml
-      - name: Azure Stack Hub solutions
-        items:
-        - name: Back up files on Azure Stack Hub
-          href: hybrid/azure-stack-backup.yml
-        - name: Disaster recovery for Stack Hub VMs
-          href: hybrid/azure-stack-vm-disaster-recovery.yml
-        - name: Hybrid relay connection
-          href: solution-ideas/articles/hybrid-relay-connection.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
         maintainContext: true
