@@ -35,7 +35,7 @@ This request flow implements the [Publisher-Subscriber](../../../patterns/publis
 
 This architecture uses the following Azure components:
 
-**[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
+**[Azure Kubernetes Service](/azure/well-architected/service-guides/azure-kubernetes-service)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
 
 The AKS infrastructure features used in this architecture include:
 
@@ -46,29 +46,29 @@ The AKS infrastructure features used in this architecture include:
 - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
 - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
 
-**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
+**[Azure virtual networks](/azure/well-architected/service-guides/azure-virtual-network/reliability)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
-**[Azure Private Link](https://azure.microsoft.com/services/private-link)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
+**[Azure Private Link](/azure/private-link/private-link-overview)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](https://github.com/Azure/application-gateway-kubernetes-ingress) as the Kubernetes ingress controller.
+**[Azure Application Gateway](/azure/well-architected/service-guides/azure-application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](https://github.com/Azure/application-gateway-kubernetes-ingress) as the Kubernetes ingress controller.
 
-**[Azure Bastion](https://azure.microsoft.com/services/azure-bastion)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
+**[Azure Bastion](/azure/bastion/bastion-overview)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
 
-**[Azure Firewall](https://azure.microsoft.com/services/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
+**[Azure Firewall](/azure/well-architected/service-guides/azure-firewall)** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
 
 **External storage and other components:**
 
-**[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** stores and manages security keys for AKS services.
+**[Azure Key Vault](/azure/key-vault/general/overview)** stores and manages security keys for AKS services.
 
-**[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub.
+**[Azure Container Registry](/azure/container-registry/container-registry-intro)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+**[Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
-**[Azure Service Bus](https://azure.microsoft.com/services/service-bus/)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
+**[Azure Service Bus](/azure/well-architected/service-guides/service-bus/reliability)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
-**[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
+**[Azure Cache for Redis](/azure/well-architected/service-guides/azure-cache-redis/reliability)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
-**[Azure Monitor](https://azure.microsoft.com/services/monitor)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
+**[Azure Monitor](/azure/azure-monitor/overview)** collects and stores metrics and logs, including application telemetry and Azure platform and service metrics. You can use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures.
 
 **Other operations support system (OSS) components:**
 
@@ -104,7 +104,7 @@ External ingress controllers simplify traffic ingestion into AKS clusters, impro
 
 Application Gateway has built-in autoscaling capabilities, unlike in-cluster ingress controllers that must be scaled out if they consume an undesired amount of compute resources. Application Gateway can perform layer-7 routing and SSL termination and has end-to-end Transport Layer Security (TLS) integrated with a built-in *web application firewall (WAF)*.
 
-For the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress/) ingress option, you must enable [CNI networking](/azure/aks/configure-azure-cni) when you configure the AKS cluster because Application Gateway is deployed into a subnet of the AKS virtual network. Multi-tenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers.
+For the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress/) ingress option, you must enable [CNI networking](/azure/aks/configure-azure-cni) when you configure the AKS cluster because Application Gateway is deployed into a subnet of the AKS virtual network. Multitenant workloads, or a single cluster that supports development and testing environments, could require more ingress controllers.
 
 ### Zero-trust network policies
 
@@ -294,7 +294,7 @@ Consider the following points when planning for scalability.
 
 - You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
 
-- Multi-tenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
+- Multitenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
 ### Manageability
 

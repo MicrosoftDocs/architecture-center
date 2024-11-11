@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use Azure NetApp Files as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
   author: gvanteylingen
   ms.author: b-gevant
-  ms.date: 06/06/2023
+  ms.date: 11/05/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: example-scenario

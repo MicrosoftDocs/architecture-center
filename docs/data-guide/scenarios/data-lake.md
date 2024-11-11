@@ -94,5 +94,4 @@ Principal author:
 ## Related resources
 
 - [Choose an analytical data store in Azure](../technology-choices/analytical-data-stores.md)
-- [Query a data lake or lakehouse by using Azure Synapse Analytics serverless](../../example-scenario/data/synapse-exploratory-data-analytics.yml)
 - [Modern data warehouse for small and medium businesses](../../example-scenario/data/small-medium-data-warehouse.yml)

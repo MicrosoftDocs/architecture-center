@@ -17,30 +17,30 @@ This solution provides comprehensive logging and monitoring capabilities and enh
     > The load balancing of stateful operations, such as model fine-tuning and deployments and the inference of fine-tuned models, aren't supported.
 
 3. Azure API Management enables security controls and the auditing and monitoring of Azure OpenAI models.
-   - In API Management, Microsoft Entra groups that have subscription-based access permissions grant enhanced security access.
+   - In API Management, Microsoft Entra groups that have subscription-based access permissions grant enhanced-security access.
    - Azure Monitor request logging enables auditing for all interactions with the models.
    - Monitoring provides detailed information about Azure OpenAI model usage, key performance indicators (KPIs), and metrics, including prompt information and token statistics for usage traceability.
 4. API Management connects to all origin resources via Azure Private Link. This configuration provides enhanced privacy for all traffic by containing it in the private network.
-5. This topology also supports [multiple Azure OpenAI instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend), so you can scale out API usage to ensure high availability and disaster recovery for the service.
-6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, API management policies forward requests to Azure Event Hubs and Azure Stream Analytics. These services extract payload information and store it in an Azure data storage service like Azure SQL Database or Azure Data Explorer. This process captures specific data for compliance and auditing purposes without any limits on payload sizing and with minimal effect on performance.
+5. This topology also supports [multiple Azure OpenAI instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend), so you can scale out API usage to help ensure high availability and disaster recovery for the service.
+6. For Azure OpenAI model inputs and outputs that exceed the default logging capabilities, API Management policies forward requests to Azure Event Hubs and Azure Stream Analytics. These services extract payload information and store it in an Azure data storage service like Azure SQL Database or Azure Data Explorer. This process captures specific data for compliance and auditing without any limits on payload sizing and with minimal effect on performance.
 
     > [!NOTE]
     > Streaming responses with Azure OpenAI models requires more configuration to capture model completions. This type of configuration isn't covered in this architecture.
 
 ### Components
 
-- [Application Gateway](https://azure.microsoft.com/services/application-gateway/). An application load balancer that helps ensure that all Azure OpenAI API users get the fastest response and highest throughput for model completions. The application gateway also provides a WAF to help protect against common web vulnerabilities and exploits.
-- [API Management](https://azure.microsoft.com/services/api-management/). An API management platform for back-end Azure OpenAI endpoint access. It provides monitoring and logging capabilities that aren't available natively in Azure OpenAI. API Management also provides monitoring, logging, and managed access to Azure OpenAI resources.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/). A private network infrastructure in the cloud. It provides network isolation so that all network traffic for models is routed privately to Azure OpenAI. In this architecture, the virtual network provides network isolation for all deployed Azure resources.
-- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service/). A service that hosts models and provides generative model completion outputs. Azure OpenAI provides its users with access to the GPT large language models (LLMs).
-- [Monitor](https://azure.microsoft.com/services/monitor/). A platform service that provides end-to-end observability for applications. It provides access to application logs via Kusto Query Language. It also enables dashboard reports and monitoring and alerting capabilities. In this architecture, Monitor provides access to API Management logs and metrics.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). A service that enhances security storage for keys and secrets that applications use. Key Vault provides enhanced-security storage for all resource secrets.
-- [Azure Storage](https://azure.microsoft.com/services/storage/). A group of services that provide application storage in the cloud. Storage gives Azure OpenAI access to model training artifacts. It also provides persistence of Azure OpenAI managed artifacts.
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs/). An event ingestion service that receives and processes events from applications and services. Event Hubs provides a scalable event ingestion service for streaming Azure OpenAI model completions.
-- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). An event-processing engine that provides real-time data stream processing from Event Hubs. Stream Analytics provides real-time processing of streamed messages.
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/). A fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer can store all logged conversations that are sent in streaming mode from the LLM.
-- [SQL Database](https://azure.microsoft.com/services/sql-database/). A managed relational database service that provides a secure, scalable database for storing structured data. SQL Database can store all logged conversations that are sent in streaming mode from the LLM.
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/). A service that enables user authentication and authorization to the application and to platform services that support the application. Microsoft Entra ID provides enhanced-security access, including identity-based access control, to all Azure resources.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway). An application load balancer that helps ensure that all Azure OpenAI API users get the fastest response and highest throughput for model completions. The application gateway also provides a WAF to help protect against common web vulnerabilities and exploits.
+- [API Management](/azure/api-management/api-management-key-concepts). An API management platform for back-end Azure OpenAI endpoint access. It provides monitoring and logging capabilities that aren't available natively in Azure OpenAI. API Management also provides monitoring, logging, and managed access to Azure OpenAI resources.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview). A private network infrastructure in the cloud. It provides network isolation so that all network traffic for models is routed privately to Azure OpenAI. In this architecture, the virtual network provides network isolation for all deployed Azure resources.
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai). A service that hosts models and provides generative model completion outputs. Azure OpenAI provides access to the GPT large language models (LLMs).
+- [Azure Monitor](/azure/azure-monitor/overview). A platform service that provides end-to-end observability for applications. It provides access to application logs via Kusto Query Language. It also enables dashboard reports and monitoring and alerting capabilities. In this architecture, Monitor provides access to API Management logs and metrics.
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts). A service that enhances the security of storage for keys and secrets that applications use. Key Vault provides enhanced-security storage for all resource secrets.
+- [Azure Storage](/azure/storage/common/storage-introduction). A group of services that provide application storage in the cloud. Azure Storage provides Azure OpenAI with access to model training artifacts. It also provides persistence of Azure OpenAI managed artifacts.
+- [Event Hubs](/azure/well-architected/service-guides/event-hubs). An event ingestion service that receives and processes events from applications and services. Event Hubs provides a scalable event ingestion service for streaming Azure OpenAI model completions.
+- [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction). An event-processing engine that provides real-time data stream processing from Event Hubs. Stream Analytics provides real-time processing of streamed messages.
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). A fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer can store all logged conversations that are sent in streaming mode from the LLM.
+- [SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework). A managed relational database service that provides a scalable database for storing structured data. SQL Database can store all logged conversations that are sent in streaming mode from the LLM.
+- [Microsoft Entra ID](/entra/fundamentals/whatis). A service that enables user authentication and authorization to the application and to platform services that support the application. Microsoft Entra ID provides enhanced-security access, including identity-based access control, to all Azure resources.
 
 ### Alternatives
 
@@ -56,18 +56,18 @@ The following table compares the metrics that the default Azure OpenAI logging f
 |Token transactions (total)| x| x|
 |Caller IP address |x (last octet masked)| x|
 |Model utilization || x|
-|Token utilization (Prompt/Completion) |x| x|
-|Input prompt detail || x |
-|Output completion detail|| x |
+|Token utilization (prompt/completion) |x| x|
+|Input prompt details || x |
+|Output completion details|| x |
 |Request parameters |x| x|
 |Deployment operations |x |x|
 |Embedding operations |x| x|
-|Embedding text detail | | x|
+|Embedding text details | | x|
 |Image generation operations |x | x|
-|Image generation prompt detail | | x|
+|Image generation prompt details | | x|
 |Speech-to-text operations |x | x|
 |Assistants API operations |x | x|
-|Assistants API prompt detail | | x|
+|Assistants API prompt details | | x|
 
 ## Scenario details
 
@@ -141,9 +141,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This scenario mitigates the risk of data exfiltration and leakage by implementing best practices for application-level and network-level isolation of your cloud services. All network traffic that contains potentially sensitive data and is input to the model is isolated within a private network. This traffic doesn't traverse public internet routes. You can use Azure ExpressRoute to further isolate network traffic to the corporate intranet and help ensure end-to-end network security.
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To help you explore the cost of running this scenario, we preconfigured all of the services in the Azure pricing calculator. To learn how the pricing might change for your use case, change the appropriate variables to match your expected traffic.
 
@@ -170,11 +170,13 @@ Other contributors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-- [Generative AI Gateway](../../../ai-ml/guide/azure-openai-gateway-guide.yml)
+
 - [Azure-Samples/openai-python-enterprise-logging (GitHub)](https://github.com/Azure-Samples/openai-python-enterprise-logging)
 - [Configure Azure AI Services virtual networks](/azure/ai-services/cognitive-services-virtual-networks)
+- [Azure OpenAI: Documentation, quickstarts, API reference](/azure/ai-services/openai/)
 
 ## Related resources
-- [Azure OpenAI: Documentation, quickstarts, API reference](/azure/ai-services/openai/)
+
+- [Generative AI gateway](../../../ai-ml/guide/azure-openai-gateway-guide.yml)
 - [Protect APIs with Application Gateway and API Management](../../../web-apps/api-management/architectures/protect-apis.yml)
 - [AI architecture design](../../../data-guide/big-data/ai-overview.md)
