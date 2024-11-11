@@ -23,4 +23,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/oracle-migration-odaa.png
 content: |
-   [!include[](migrate-oracle-odaa-exadata-content.md)]
+   [!INCLUDE[](migrate-oracle-odaa-exadata-content.md)]

@@ -51,3 +51,6 @@ By facilitating independent development and flexible deployments, this pattern a
 
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for .NET](./modern-web-app/dotnet/guidance.yml)
+
+>[!div class="nextstepaction"]
+>[Modern Web App pattern for Java](./modern-web-app/java/guidance.yml)
