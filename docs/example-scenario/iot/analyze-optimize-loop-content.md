@@ -45,10 +45,6 @@ Principal author:
 
 * [Hanukumar Pinnamraju](https://www.linkedin.com/in/hanukumar-pinnamraju-b290298) | Principal Software Engineering Manager
 
-## Next steps
-
-- [Measure and control loops](measure-control-loop.yml)
-
 ## Related Resources
 
 - [Environment monitoring and supply chain optimization with IoT - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
