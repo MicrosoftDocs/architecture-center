@@ -299,13 +299,9 @@ Azure Dedicated Host can help SaaS providers ensure tenant applications meet reg
 
 ### Karpenter
 
-[Karpenter][karpenter] is an open-source node lifecycle management project built for Kubernetes. Adding Karpenter to a Kubernetes cluster can dramatically improve the efficiency and cost of running workloads on that cluster. The [AKS Karpenter Provider](https://github.com/Azure/karpenter-provider-azure) enables node autoprovisioning using [Karpenter](https://karpenter.sh/) on your AKS cluster. Karpenter improves the efficiency and cost of running workloads on Kubernetes clusters by:
+[Karpenter][karpenter] is an open-source node lifecycle management project built for Kubernetes. Adding Karpenter to a Kubernetes cluster can dramatically improve the efficiency and cost of running workloads on that cluster. The [AKS Karpenter Provider](https://github.com/Azure/karpenter-provider-azure) enables node autoprovisioning using Karpenter on your AKS cluster.
 
-- **Watching** for pods that the Kubernetes scheduler has marked as unschedulable
-- **Evaluating** scheduling constraints (resource requests, node selectors, affinities, tolerations, and topology-spread constraints) requested by the pods
-- **Provisioning** nodes that meet the requirements of the pods
-- **Removing** the nodes when they are no longer needed
-- **Consolidating** existing nodes onto cheaper nodes with higher utilization per node
+Karpenter improves the efficiency and cost of running workloads on Kubernetes clusters by watching for pods that the Kubernetes scheduler has marked as unschedulable, and dynamically provisioning and managing nodes that can meet the pod requirements.
 
 Karpenter provider for Azure Kubernetes Service (AKS) can be used in two modes:
 
