@@ -2,7 +2,7 @@
 metadata:
   title: Moodle Deployment with Azure NetApp Files
   titleSuffix: Azure Architecture Center
-  description: Deploy Moodle by using Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.
+  description: Deploy Moodle by using Azure NetApp Files for a resilient solution that provides high-throughput, low-latency access to scalable shared storage.
   author: arntdg
   ms.author: b-arntdegier
   ms.date: 11/11/2024
