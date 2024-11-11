@@ -209,7 +209,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Architecture | Description |
 |----|----|
 | [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
-| [Cross-cloud scaling architecture](/azure/architecture/solution-ideas/articles/cross-cloud-scaling) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
+| [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 ## DevOps and application monitoring
 
@@ -250,7 +250,6 @@ Here are some architectures that use AKS as the orchestrator.
 | Architecture | Description |
 |----|----|
 | [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot) | A recommended architecture for IoT applications on Azure by using platform as a service (PaaS) components. |
-| [Process real-time vehicle data by using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot) | This example builds a real-time data ingestion and processing pipeline to ingest and process messages from IoT devices into a big data analytic platform on Azure. |
 
 [view all](../browse/index.yml?azure_categories=iot)
 

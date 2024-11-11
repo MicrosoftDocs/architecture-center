@@ -47,6 +47,5 @@ This scenario shows how you can visualize a virtual replica of your physical spa
 
 ## Related resources
 
-* [Azure digital twins builder](../../solution-ideas/articles/azure-digital-twins-builder.yml)
 * [Training and procedural guidance powered by mixed reality](../../solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)
 * [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)

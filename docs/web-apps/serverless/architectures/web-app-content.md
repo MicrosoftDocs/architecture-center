@@ -25,13 +25,13 @@ Functions are executed when an external trigger occurs, such as an HTTP request 
 
 The architecture consists of the following components:
 
-**Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the back-end APIs. There's no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
+**Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the back-end APIs. There's no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
 
-**Content Delivery Network**. Use [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
+**Content Delivery Network**. Use [Azure Content Delivery Network](/azure/cdn/cdn-overview) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
 
-**Function Apps**. [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request. The request is always routed through an API gateway, described below.
+**Function Apps**. [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request. The request is always routed through an API gateway, described below.
 
-**API Management**. [Azure API Management](https://azure.microsoft.com/services/api-management) provides an API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the back end, set request or response headers, and so forth.
+**API Management**. [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) provides an API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the back end, set request or response headers, and so forth.
 
 API Management can also be used to implement cross-cutting concerns such as:
 
@@ -43,13 +43,13 @@ API Management can also be used to implement cross-cutting concerns such as:
 
 If you don't need all of the functionality provided by API Management, another option is to use [Functions Proxies][functions-proxy]. This feature of Azure Functions lets you define a single API surface for multiple function apps, by creating routes to back-end functions. Function proxies can also perform limited transformations on the HTTP request and response. However, they don't provide the same rich policy-based capabilities of API Management.
 
-**Azure Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is a multi-model database service. For this scenario, the function application fetches documents from Azure Cosmos DB in response to HTTP GET requests from the client.
+**Azure Cosmos DB**. [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a multi-model database service. For this scenario, the function application fetches documents from Azure Cosmos DB in response to HTTP GET requests from the client.
 
-**Microsoft Entra ID**. Users sign into the web application by using their [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) credentials. Microsoft Entra ID returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
+**Microsoft Entra ID**. Users sign into the web application by using their [Microsoft Entra ID](/entra/fundamentals/whatis) credentials. Microsoft Entra ID returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
 
-**Azure Monitor**. [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. It also collected application logs.
+**Azure Monitor**. [Azure Monitor](/azure/azure-monitor/overview) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. It also collected application logs.
 
-**Azure Pipelines**. [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
+**Azure Pipelines**. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
 
 **GitHub Actions**. [Workflow][gh-actions] is an automated process (CI/CD) that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
 
@@ -355,7 +355,6 @@ Related guidance:
 [ase]: /azure/app-service/environment/intro
 [azure-messaging]: /azure/event-grid/compare-messaging-services
 [claims]: https://en.wikipedia.org/wiki/Claims-based_identity
-[cdn]: https://azure.microsoft.com/services/cdn
 [cdn-https]: /azure/cdn/cdn-custom-ssl
 [cors-policy]: /azure/api-management/api-management-cross-domain-policies
 [cosmosdb]: /azure/cosmos-db/introduction

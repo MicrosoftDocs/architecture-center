@@ -69,7 +69,6 @@ For more information, see the following articles:
 
 The related resources provide further information on edge solutions, including information on relevant Azure components, and on specific architectures.
 
-### Architectures
+### Architecture
 
-- [IoT using Azure Cosmos DB](iot-using-cosmos-db.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)

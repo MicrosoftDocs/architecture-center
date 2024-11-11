@@ -82,6 +82,9 @@ items:
             items:
             - name: .NET
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
+            - name: Java
+              href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
+
       - name: Disaster recovery for web apps
         items:
         - name: Multi-region App Service apps for disaster recovery

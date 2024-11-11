@@ -63,22 +63,22 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 ### Components
 
--   [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
+-   [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
 
--   [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own datacenter, but it brings more benefits of Azure's infrastructure, such as scale, availability, and isolation.
+-   [Azure Virtual Network (VNet)](/azure/well-architected/service-guides/azure-virtual-network/reliability) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own datacenter, but it brings more benefits of Azure's infrastructure, such as scale, availability, and isolation.
 
--   [Azure Files](/azure/storage/files/storage-files-introduction) offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
+-   [Azure Files](/azure/well-architected/service-guides/azure-files) offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
--   [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+-   [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
 
--   [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
+-   [Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer/reliability) operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to back-end pool instances. These flows are according to configured load balancing rules and health probes. The back-end pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
--   [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with
+-   [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is a fully managed platform as a service (PaaS) database engine that always runs the latest stable version of SQL Server and patched OS, with
     99.99-percent availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
--   [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is an Azure PaaS service for NoSQL databases.
+-   [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is an Azure PaaS service for NoSQL databases.
 
--   [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is an Azure PaaS service for PostgreSQL databases.
+-   [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql) is an Azure PaaS service for PostgreSQL databases.
 
 ## Scenario details
 
