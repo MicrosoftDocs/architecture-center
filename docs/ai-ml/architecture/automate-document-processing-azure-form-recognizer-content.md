@@ -113,7 +113,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 ### Alternatives
 
-- You can use [Azure Virtual Machines][Choose the right VM for your workload and reduce costs] instead of App Service to host your application.
+- You can use [Azure Virtual Machines](/azure/well-architected/service-guides/virtual-machines) instead of App Service to host your application.
 
 - You can use any relational database for persistent storage of the extracted data, including:
 
@@ -143,9 +143,19 @@ This solution is ideal for the finance industry. It can also apply to the automo
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-Keep these points in mind when you use this solution.
+### Reliability
 
-### Availability
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+#### Resiliency
+
+- The solution's resiliency depends on the failure modes of individual services like App Service, Functions, Azure Cosmos DB, Storage, and Application Gateway. For more information, see [Resiliency checklist for specific Azure services][Resiliency checklist for specific Azure services].
+
+- You can make Azure AI Document Intelligence resilient. Possibilities include designing it to fail over to another region and splitting the workload into two or more regions. For more information, see [Back up and recover your Azure AI Document Intelligence models][Back up and recover your Form Recognizer models].
+
+- Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
+
+#### Availability
 
 The availability of the architecture depends on the Azure services that make up the solution:
 
@@ -167,28 +177,9 @@ The availability of the architecture depends on the Azure services that make up 
   - [SLA for Application Gateway][SLA for Application Gateway]
   - [SLA for Azure Kubernetes Service (AKS)][SLA for Azure Kubernetes Service (AKS)]
 
-### Scalability
-
-- App Service can automatically scale out and in as the application load varies. For more information, see [Create an autoscale setting for Azure resources based on performance data or a schedule][Create an Autoscale Setting for Azure resources based on performance data or a schedule].
-
-- Azure Functions can scale automatically or manually. The hosting plan that you choose determines the scaling behavior of your function apps. For more information, see [Azure Functions hosting options][Azure Functions hosting options].
-
-- By default, Azure AI Document Intelligence supports 15 concurrent requests per second. You can increase this value by [creating an Azure Support ticket][Create an Azure support request] with a quota increase request.
-
-- For custom models that you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
-
-- For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
-
-- For AI Language, data and rate limits apply. For more information, see these resources:
-
-  - [How to use named entity recognition (NER)][How to use named entity recognition (NER) - Data limits]
-  - [How to detect and redact personal information][How to detect and redact Personal Information - Data limits]
-  - [How to use sentiment analysis and opinion mining][How to: Use Sentiment analysis and Opinion Mining - Data limits]
-  - [How to use Text Analytics for health][How to use Text Analytics for health - Data limits]
-
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Worldwide Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
@@ -213,17 +204,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - You can [use Transport Layer Security (TLS) to secure web services][Use TLS to secure a web service through Azure Machine Learning] that you deploy through Machine Learning.
   - To protect data, you can [change the access keys for Azure Storage accounts][Regenerate storage account access keys] that Machine Learning uses.
 
-### Resiliency
+### Cost Optimization
 
-- The solution's resiliency depends on the failure modes of individual services like App Service, Functions, Azure Cosmos DB, Storage, and Application Gateway. For more information, see [Resiliency checklist for specific Azure services][Resiliency checklist for specific Azure services].
-
-- You can make Azure AI Document Intelligence resilient. Possibilities include designing it to fail over to another region and splitting the workload into two or more regions. For more information, see [Back up and recover your Azure AI Document Intelligence models][Back up and recover your Form Recognizer models].
-
-- Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The cost of implementing this solution depends on which components you use and which options you choose for each component.
 
@@ -246,6 +229,27 @@ These resources provide information on component pricing options:
 - [Azure Machine Learning pricing][Azure Machine Learning pricing]
 
 After deciding on a pricing tier for each component, use the [Azure Pricing calculator][Azure Pricing calculator] to estimate the solution cost.
+
+### Performance Efficiency
+
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+- App Service can automatically scale out and in as the application load varies. For more information, see [Create an autoscale setting for Azure resources based on performance data or a schedule][Create an Autoscale Setting for Azure resources based on performance data or a schedule].
+
+- Azure Functions can scale automatically or manually. The hosting plan that you choose determines the scaling behavior of your function apps. For more information, see [Azure Functions hosting options][Azure Functions hosting options].
+
+- By default, Azure AI Document Intelligence supports 15 concurrent requests per second. You can increase this value by [creating an Azure Support ticket][Create an Azure support request] with a quota increase request.
+
+- For custom models that you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
+
+- For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
+
+- For AI Language, data and rate limits apply. For more information, see these resources:
+
+  - [How to use named entity recognition (NER)][How to use named entity recognition (NER) - Data limits]
+  - [How to detect and redact personal information][How to detect and redact Personal Information - Data limits]
+  - [How to use sentiment analysis and opinion mining][How to: Use Sentiment analysis and Opinion Mining - Data limits]
+  - [How to use Text Analytics for health][How to use Text Analytics for health - Data limits]
 
 ## Contributors
 
@@ -276,32 +280,31 @@ Principal author:
 [Achieve high availability with Azure Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway
-[Application Gateway service page]: https://azure.microsoft.com/products/application-gateway
+[Application Gateway service page]: /azure/well-architected/service-guides/azure-application-gateway
 [Authenticate requests to Azure Cognitive Services]: /azure/cognitive-services/authentication
-[Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs
+[Azure Blob Storage]: /azure/well-architected/service-guides/azure-blob-storage
 [Azure Blob Storage pricing]: https://azure.microsoft.com/pricing/details/storage/blobs
-[Azure Cognitive Search]: https://azure.microsoft.com/services/search
-[Azure Cognitive Service service page]: https://azure.microsoft.com/products/cognitive-services/language-service
-[Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
+[Azure Cognitive Search]: /azure/search/search-what-is-azure-search
+[Azure Cognitive Service service page]: /azure/ai-services/language-service/overview
+[Azure Cosmos DB]: /azure/well-architected/service-guides/cosmos-db
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
-[Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
-[Azure Database for MySQL]: https://azure.microsoft.com/services/mysql
-[Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql
+[Azure Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
+[Azure Database for MySQL]: /azure/mysql/flexible-server/overview
+[Azure Database for PostgreSQL]: /azure/well-architected/service-guides/postgresql
 [Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
-[Azure Form Recognizer service page]: https://azure.microsoft.com/products/applied-ai-services
+[Azure Form Recognizer service page]:/azure/ai-services/document-intelligence/overview
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
-[Azure Functions service page]: https://azure.microsoft.com/products/functions
-[Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service
+[Azure Functions service page]: /azure/azure-functions/functions-overview
+[Azure Kubernetes Service (AKS)]: /azure/well-architected/service-guides/azure-kubernetes-service
 [Azure Machine Learning pricing]: https://azure.microsoft.com/pricing/details/machine-learning/#overview
-[Azure Machine Learning service page]: https://azure.microsoft.com/products/machine-learning
+[Azure Machine Learning service page]: /azure/well-architected/service-guides/azure-machine-learning
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure SQL Database]: https://azure.microsoft.com/products/azure-sql/database
+[Azure SQL Database]: /azure/well-architected/service-guides/azure-sql-database-well-architected-framework
 [Azure Storage documentation]: /azure/storage
-[Azure Storage service page]: https://azure.microsoft.com/products/category/storage
-[Azure Web Application Firewall service page]: https://azure.microsoft.com/products/web-application-firewall
+[Azure Storage service page]: /azure/storage/common/storage-introduction
+[Azure Web Application Firewall service page]: /azure/web-application-firewall/ag/ag-overview
 [Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
-[Choose the right VM for your workload and reduce costs]: https://azure.microsoft.com/services/virtual-machines/#overview
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
 [Deploy Azure Machine Learning to ACI]: /azure/machine-learning/how-to-deploy-azure-container-instance#deploy-to-aci
@@ -330,7 +333,7 @@ Principal author:
 [Manage access to an Azure Machine Learning workspace]: /azure/machine-learning/how-to-assign-roles
 [Opinion mining]: /azure/cognitive-services/language-service/sentiment-opinion-mining/overview#opinion-mining
 [ParallelRunStep Class]: /python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py
-[Power BI]: https://powerbi.microsoft.com
+[Power BI]: /power-bi/fundamentals/power-bi-overview
 [Regenerate storage account access keys]: /azure/machine-learning/how-to-change-storage-access-key
 [Resiliency checklist for specific Azure services]: ../../checklist/resiliency-per-service.md
 [Secure an Azure Machine Learning workspace with virtual networks]: /azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe

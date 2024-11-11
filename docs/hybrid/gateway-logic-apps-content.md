@@ -25,9 +25,9 @@ The architecture consists of the following:
 
 Key technologies used to implement this architecture:
 
-- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) is a fully managed service for Spring developers. Manage the lifecycle of your Spring Boot applications with comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, and blue-green deployments.
-- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a leading integration platform as a service (iPaaS) built on a containerized runtime. Deploy and run Logic Apps anywhere to increase scale and portability while automating business-critical workflows anywhere.
-- [Azure Queue storage](https://azure.microsoft.com/products/storage/queues) is a simple, cost-effective, durable message queueing for large workloads.
+- [Azure Spring Apps](/azure/spring-apps/enterprise/overview) is a fully managed service for Spring developers. Manage the lifecycle of your Spring Boot applications with comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, and blue-green deployments.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a leading integration platform as a service (iPaaS) built on a containerized runtime. Deploy and run Logic Apps anywhere to increase scale and portability while automating business-critical workflows anywhere.
+- [Azure Queue storage](/azure/well-architected/service-guides/queue-storage/reliability) is a simple, cost-effective, durable message queueing for large workloads.
 
 ## Scenario details
 
@@ -108,7 +108,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
-- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
 [architectural-diagram]: ./images/gateway-logic-apps.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx
