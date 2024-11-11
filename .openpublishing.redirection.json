@@ -5676,6 +5676,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/iot-edge-vision/index.md",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/azure-digital-twins-builder.yml",
       "redirect_url": "/azure/digital-twins/concepts-models",
       "redirect_document_id": false
