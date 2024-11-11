@@ -24,7 +24,7 @@ The source of the events may be external to the system, such as physical devices
 
 There are two primary approaches to structuring event payloads:
 
-- **Including all required attributes in the payload**: This approach is faster and more scalable, as consumers do not need to query the database. However, it can lead to data consistency issues due to multiple [systems of record](https://en.wikipedia.org/wiki/System_of_record), particularly after updates. Additionally, this method may result in [stamp coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming)) and bandwidth challenges at scale. Contract management and versioning can also become complex.
+- **Including all required attributes in the payload**: This approach is used when you desire consumers have all available information without the need query an external data source. However, it can lead to data consistency issues due to multiple [systems of record](https://wikipedia.org/wiki/System_of_record), particularly after updates. Contract management and versioning can also become complex.
 
 - **Including only key(s) in the payload**: In this approach, consumers retrieve the necessary attributes by querying the database. While this method offers better data consistency due to a single system of record, it is less scalable and performs poorer than the first approach since consumers must query the database frequently. There are fewer concerns regarding stamp coupling, bandwidth, contract management, or versioning, as events are smaller and contracts simpler.
 
