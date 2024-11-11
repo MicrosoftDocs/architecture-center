@@ -221,7 +221,7 @@ SynapseML also brings networking capabilities to the Spark ecosystem. With the H
 |Item|Description|
 |--------|-----------|
 |**Type**                    |Open-source, distributed machine learning and microservices framework for Apache Spark|
-|**Languages supported**     |Scala 2.11, Java, Python 3.5+, R (beta)|
+|**Languages supported**     |Scala, Java, Python, R and .Net|
 |**Machine learning phases** |Data preparation<br>Model training<br>Deployment|
 |**Key benefits**            |Scalability<br>Streaming + Serving compatible<br>Fault-tolerance|
 |**Considerations**          |Requires Apache Spark|
@@ -230,9 +230,10 @@ SynapseML also brings networking capabilities to the Spark ecosystem. With the H
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | chief executive officer (CEO) and Architect
+- [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 
 ## Next steps
 
