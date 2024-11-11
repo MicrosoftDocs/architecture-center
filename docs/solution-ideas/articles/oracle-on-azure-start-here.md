@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about sample architectures, solutions, and guides that can help you explore Oracle workloads on Azure.
 author: kisshetty
 ms.author: kishetty
-ms.date: 11/05/2024
+ms.date: 11/12/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
