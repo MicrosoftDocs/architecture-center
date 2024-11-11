@@ -1871,8 +1871,8 @@
     },
     {
       "source_path": "docs/hybrid/azure-stack-vm-dr.yml",
-      "redirect_url": "/azure/architecture/hybrid/azure-stack-vm-disaster-recovery",
-      "redirect_document_id": true
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/dmz/secure-vnet-hybrid.md",
@@ -5641,6 +5641,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/data/realtime-analytics-vehicle-iot.yml",
+      "redirect_url": "/azure-sphere/app-development/setup-iot-edge?view=azure-sphere-integrated",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/iot-using-cosmos-db.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot",
       "redirect_document_id": false
@@ -5653,6 +5663,41 @@
     {
       "source_path": "docs/reference-architectures/hybrid-networking/expressroute.yml",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-digital-twins-builder.yml",
+      "redirect_url": "/azure/digital-twins/concepts-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-stack-backup.yml",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-stack-vm-disaster-recovery.yml",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-relay-connection.yml",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cross-cloud-scaling.yml",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-connectivity.yml",
+      "redirect_url": "/azure-stack/operator/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/unlock-legacy-data.yml",
+      "redirect_url": "/azure-stack/operator/",
       "redirect_document_id": false
     },
     {

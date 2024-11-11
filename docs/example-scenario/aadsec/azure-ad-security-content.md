@@ -10,7 +10,7 @@ Securing identities in the cloud is a high priority.
 
 - The [Microsoft 2019 Security Intelligence Report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December 2018.
 
-The [zero trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication (AuthN), authorization, and encryption, while also providing compartmentalized access and better operational agility.
+The [Zero Trust security model](https://www.microsoft.com/security/business/zero-trust) treats all hosts as if they're internet-facing, and considers the entire network to be potentially compromised and hostile. This approach focuses on building strong authentication (AuthN), authorization, and encryption, while also providing compartmentalized access and better operational agility.
 
 Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive security combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
 
@@ -56,7 +56,7 @@ The following security processes and components contribute to this Microsoft Ent
 
 - [Smart lockout](/azure/active-directory/authentication/howto-password-smart-lockout) compares legitimate authentication attempts with brute-force attempts to gain unauthorized access. Under the default smart lockout policy, an account locks out for one minute after 10 failed sign-in attempts. As sign-in attempts continue to fail, the account lockout time increases. You can use policies to adjust the settings for the appropriate mix of security and usability for your organization.
 
-- [Multi-factor authentication (MFA)](/azure/active-directory/authentication/concept-mfa-howitworks) requires multiple forms of authentication when users attempt to access protected resources. Most users are familiar with using something they know, like a password, when accessing resources. MFA asks users to also demonstrate something that they have, like access to a trusted device, or something that they are, like a biometric identifier. MFA can use different kinds of [authentication methods](/azure/active-directory/authentication/concept-authentication-methods) like phone calls, text messages, or [notification through the authenticator app](https://www.microsoft.com/en-us/account/authenticator).
+- [Multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) requires multiple forms of authentication when users attempt to access protected resources. Most users are familiar with using something they know, like a password, when accessing resources. MFA asks users to also demonstrate something that they have, like access to a trusted device, or something that they are, like a biometric identifier. MFA can use different kinds of [authentication methods](/azure/active-directory/authentication/concept-authentication-methods) like phone calls, text messages, or [notification through the authenticator app](https://www.microsoft.com/en-us/account/authenticator).
 
 - [Passwordless authentication](https://www.microsoft.com/security/business/identity-access/azure-active-directory-passwordless-authentication) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN. Microsoft passwordless authentication can work with Azure resources like [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft Authenticator app](https://www.microsoft.com/en-us/account/authenticator) on mobile devices. You can also enable passwordless authentication with [FIDO2-compatible security keys](/azure/active-directory/authentication/howto-authentication-passwordless-security-key), which use [WebAuthn](https://www.w3.org/TR/webauthn-2/) and the [FIDO Alliance's Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
 
@@ -84,7 +84,7 @@ Microsoft Entra ID can use the following Conditional Access controls with Condit
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
-- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) is a *cloud access security broker (CASB)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With Defender for Cloud Apps, you can:
+- [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps) is a *cloud access security broker (CASB)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With Defender for Cloud Apps, you can:
 
   - [Create policies](/cloud-app-security/control-cloud-apps-with-policies) to manage interaction with apps and services
   - Identify applications as [sanctioned or unsanctioned](/cloud-app-security/governance-discovery)
@@ -94,7 +94,7 @@ Microsoft Entra ID can use the following Conditional Access controls with Condit
   Defender for Cloud Apps can also work with [access policies](/cloud-app-security/access-policy-aad) and [session policies](/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
 
   - [Limit the IP ranges](/azure/active-directory/conditional-access/location-condition) that can access apps
-  - [Require MFA](/azure/active-directory/authentication/concept-mfa-howitworks) for app access
+  - [Require multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) for app access
   - [Allow activities only from within approved apps](/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - The [access control page in the SharePoint admin center](https://admin.microsoft.com/sharepoint?page=accessControl&modern=true) provides several ways to control access to SharePoint and OneDrive content. You can choose to [block access](/sharepoint/control-access-from-unmanaged-devices#block-access-using-the-new-sharepoint-admin-center), allow [limited, web-only access](/sharepoint/control-access-from-unmanaged-devices#limit-access-using-the-new-sharepoint-admin-center) from unmanaged devices, or [control access based on network location](/sharepoint/control-access-based-on-network-location).
@@ -123,7 +123,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-#### Logging 
+#### Logging
 
 Microsoft Entra [audit reports](/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
 

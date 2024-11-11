@@ -8,7 +8,7 @@ This article describes an architecture that you can use to replace the manual an
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
 
-### Workflow 
+### Workflow
 
 1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
 2. A preconfigured pipeline in Azure Machine Learning recognizes that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
@@ -17,26 +17,26 @@ This article describes an architecture that you can use to replace the manual an
 5. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 6. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition (OCR)) model to identify textual information in the images.
 7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
-8. Power BI provides data visualization. 
+8. Power BI provides data visualization.
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) provides object storage for cloud-native workloads and machine learning stores. In this architecture, it stores the uploaded video files.
-- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) is an enterprise-grade machine learning service for the end-to-end machine learning lifecycle.
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides massively scalable, enhanced-security, cost-effective cloud storage for high-performance analytics workloads.
-- [Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) is part of [Azure AI services](https://azure.microsoft.com/products/cognitive-services). It's used to retrieve information about each image.
-- [Custom Vision](https://azure.microsoft.com/products/cognitive-services/custom-vision-service) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
-- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides object storage for cloud-native workloads and machine learning stores. In this architecture, it stores the uploaded video files.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is an enterprise-grade machine learning service for the end-to-end machine learning lifecycle.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable, enhanced-security, cost-effective cloud storage for high-performance analytics workloads.
+- [Computer Vision](/azure/ai-services/computer-vision/overview) is part of [Azure AI services](/azure/ai-services/what-are-ai-services). It's used to retrieve information about each image.
+- [Custom Vision](/azure/ai-services/custom-vision-service/overview) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
 - [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) (formerly SQL DW) is a collection of analytics resources that are provisioned when you use Azure Synapse SQL.
-- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
 
 ### Alternatives
 
-- [Azure Video Indexer](https://azure.microsoft.com/products/ai-video-indexer) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development.
+- [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
+- [Azure Data Factory](/azure/data-factory/introduction) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
+- [Azure Functions](/azure/azure-functions/functions-overview) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a fully managed NoSQL database for modern app development.
 
 ## Scenario details
 
