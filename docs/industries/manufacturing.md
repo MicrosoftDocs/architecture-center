@@ -73,7 +73,6 @@ The following articles provide detailed analysis of architectures developed and 
 The following are other ideas that you can use as a starting point for your manufacturing solution.
 
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
-- [Facilities management powered by mixed reality and IoT](/azure/architecture/solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
 - [Predictive insights with vehicle telematics](/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics)
