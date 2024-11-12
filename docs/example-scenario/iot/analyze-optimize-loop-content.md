@@ -48,3 +48,4 @@ Principal author:
 ## Related Resources
 
 - [Environment monitoring and supply chain optimization with IoT - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
+
