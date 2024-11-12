@@ -5017,7 +5017,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml",
-      "redirect_url": "/azure/architecture/articles/spatial-anchors/index",
+      "redirect_url": "/azure/spatial-anchors/",
       "redirect_document_id": false
     },
     {   
