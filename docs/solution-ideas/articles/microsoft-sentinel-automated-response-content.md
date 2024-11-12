@@ -103,7 +103,7 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
     - Leave the **Associate with integration service environment** checkbox unchecked.
     - Leave **Integration service environment** empty.
   - Select **Next: Connections >** to go to the **Connections** tab of **Create playbook**.
-  - Choose how you'll authenticate within the playbook’s components. Authentication is required for:
+  - Choose how to authenticate within the playbook's components. Authentication is required for:
     - Microsoft Entra ID
     - Microsoft Sentinel
     - Office 365 Outlook
