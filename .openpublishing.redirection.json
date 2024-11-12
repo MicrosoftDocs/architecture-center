@@ -5282,7 +5282,7 @@
     },
     {
       "source_path": "docs/example-scenario/iot/measure-control-loop.yml",
-      "redirect_url": "/azure-docs/articles/iot/iot-overview-device-management",
+      "redirect_url": "/azure/iot/iot-overview-device-management",
       "redirect_document_id": false
     },
     {  
