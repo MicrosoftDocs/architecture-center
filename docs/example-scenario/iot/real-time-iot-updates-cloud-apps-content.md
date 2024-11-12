@@ -82,11 +82,10 @@ To learn about related solutions, see this information:
 
 ### IoT patterns
 
-- [IoT measure and control loops](./measure-control-loop.yml)
+- [IoT event routing](./event-routing.yml)
 
 ### IoT architectures
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Project 15 Open Platform](../../solution-ideas/articles/project-15-iot-sustainability.yml)
 

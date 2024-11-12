@@ -4976,6 +4976,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/predictive-maintenance/iot-predictive-maintenance.yml",
+      "redirect_url": "/azure/iot-edge/tutorial-deploy-stream-analytics",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/guide/hpc/ansys-rocky.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
@@ -5034,6 +5039,11 @@
       "source_path": "docs/guide/hpc/cp2k.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml",
+      "redirect_url": "/azure/ai-services/Speech-Service/voice-assistants",
+      "redirect_document_id": false  
     },
     {
       "source_path": "docs/guide/hpc/devito-virtual-machine.yml",
@@ -5286,6 +5296,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/measure-control-loop.yml",
+      "redirect_url": "/azure/iot/iot-overview-device-management",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/example-scenario/service-to-service/restrict-communications.yml",
       "redirect_url": "/azure/architecture/guide/security/security-start-here",
       "redirect_document_id": false
@@ -5486,6 +5501,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/application-stamps.yml",
+      "redirect_url": "/azure/iot/iot-overview-scalability-high-availability",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/industries/finance/financial-risk-model.yml",
       "redirect_url": "/azure/architecture/industries/finance",
       "redirect_document_id": false

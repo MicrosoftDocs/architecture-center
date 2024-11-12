@@ -22,7 +22,7 @@ On the consumer side, there are some common variations:
 
 The source of the events may be external to the system, such as physical devices in an IoT solution. In that case, the system must be able to ingest the data at the volume and throughput that is required by the data source.
 
-There are two primary approaches to structuring event payloads:
+There are two primary approaches to structuring event payloads. When you have control over your event consumers, make this payload structure decision per consumer; mixing approaches as needed within a single workload.
 
 - **Including all required attributes in the payload**: This approach is used when you want consumers to have all available information without the need to query an external data source. However, it can lead to data consistency issues due to multiple [systems of record](https://wikipedia.org/wiki/System_of_record), particularly after updates. Contract management and versioning can also become complex.
 

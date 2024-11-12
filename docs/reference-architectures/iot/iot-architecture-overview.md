@@ -54,7 +54,7 @@ This section lists useful patterns and guides for building IoT solutions. For in
 
 IoT architecture patterns are reusable building blocks that address key IoT solution areas. Patterns are generic and usable across different industry verticals. For examples of industry-specific IoT solutions, see [Industry specific Azure IoT solutions and scenarios](industry-iot-hub-page.md).
 
-- [Scale IoT solutions with deployment stamps](../../example-scenario/iot/application-stamps.yml). Stamps are discrete units of solution components that optimally support a defined number of devices. Deployment stamping supports scaling up the number of connected IoT devices by replicating stamps.
+- [Real-time IoT updates](../../example-scenario/iot/real-time-iot-updates-cloud-apps.yml). Instead of traditional polling requests, clients can receive updates from devices in real time. Azure SignalR service sends real-time IoT data to clients like web pages and mobile apps.
 
 - [Azure IoT client SDK support for third-party token servers](../../guide/iot/azure-iot-client-sdk-support.yml). Azure IoT Hub supports shared access signature (SAS) token authentication in client SDKs. Learn what to do in each SDK to achieve third-party token server authentication.
 
