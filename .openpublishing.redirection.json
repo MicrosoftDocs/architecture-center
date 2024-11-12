@@ -4972,7 +4972,7 @@
     },
     {
       "source_path": "docs/example-scenario/predictive-maintenance/iot-predictive-maintenance.yml",
-      "redirect_url": "/articles/iot-edge/tutorial-deploy-stream-analytics",
+      "redirect_url": "/azure/iot-edge/tutorial-deploy-stream-analytics",
       "redirect_document_id": false
     },
     {  
