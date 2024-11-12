@@ -5031,6 +5031,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml",
+      "redirect_url": "/azure/ai-services/Speech-Service/voice-assistants",
+      "redirect_document_id": false  
+    },
+    {
       "source_path": "docs/guide/hpc/devito-virtual-machine.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false

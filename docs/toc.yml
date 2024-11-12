@@ -1898,8 +1898,8 @@ items:
         href: solution-ideas/articles/iot-power-management.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Voice assistants and IoT devices
-        href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
+      - name: Real-time asset tracking and management
+        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
   - name: Mainframe + Midrange
     items:
     - name: Get started
