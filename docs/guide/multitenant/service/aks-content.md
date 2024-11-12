@@ -413,10 +413,10 @@ Principal author:
  
 Other contributors:
 
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer
+ * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Senior Customer Engineer
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
  * [Chad Kittel](https://www.linkedin.com/in/chadkittel)  | Principal Software Engineer
  * [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer
- * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Senior Customer Engineer
 
 ## Next steps
 
