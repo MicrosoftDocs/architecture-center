@@ -4,7 +4,7 @@ This article describes how to integrate Azure Kubernetes Service (AKS) and Azure
 
 ## Concepts
 
-API Management allows secure access to back-end services through multiple mechanisms. At the transport (network) layer, [API Management can present client certificates to the backend](/azure/api-management/api-management-howto-mutual-certificates) and verify the certificate that the back-end server presents. In this mTLS authentication scenario, the system follows these steps:
+API Management enables enhanced-security access to back-end services through multiple mechanisms. At the transport (network) layer, [API Management can present client certificates to the backend](/azure/api-management/api-management-howto-mutual-certificates) and verify the certificate that the back-end server presents. In this mTLS authentication scenario, the system follows these steps:
 
 1. API Management connects to the backend server. In this scenario, it connects to the ingress controller that runs in AKS.
 
@@ -52,7 +52,7 @@ API Management allows secure access to back-end services through multiple mechan
 
 - **[AKS](https://azure.microsoft.com/services/kubernetes-service):** AKS provides fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications. In this scenario, the backend logic and microservices are deployed in AKS.
 
-- **[Azure Container Registry](https://azure.microsoft.com/services/container-registry):** Container Registry is a managed, private Docker registry service on Azure. You can use Container Registry to store private container images. These images are deployed to the cluster.
+- **[Azure Container Registry](https://azure.microsoft.com/services/container-registry):** Container Registry is a managed private Docker registry service on Azure. You can use Container Registry to store private container images. These images are deployed to the cluster.
 
 - **[Microsoft Entra ID](https://azure.microsoft.com/services/active-directory):** In this scenario, the client requests can contain an OAuth 2.0 token, which [API Management authorizes](/azure/api-management/api-management-howto-protect-backend-with-aad) against Microsoft Entra ID by using the [validate Microsoft Entra token policy]( /azure/api-management/validate-azure-ad-token-policy).
 
@@ -62,7 +62,7 @@ API Management allows secure access to back-end services through multiple mechan
 
 - **[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db):** Azure Cosmos DB is a fully managed NoSQL database service for building and modernizing scalable, high-performance applications. In this scenario, Azure Cosmos DB is used as the data persistence layer for semi-structured data.
 
-- **[API Management](https://azure.microsoft.com/products/api-management):** You can use API Management to publish APIs to your developers, partners, and employees. In this scenario, API Management is used to provide secure and managed access to microservices and business logic hosted in AKS.
+- **[API Management](https://azure.microsoft.com/products/api-management):** You can use API Management to publish APIs to your developers, partners, and employees. In this scenario, API Management is used to help provide secure and managed access to microservices and business logic hosted in AKS.
 
 - **[Azure Private Link](https://azure.microsoft.com/products/private-link):** Private Link provides access to PaaS services that are hosted on Azure, so you can keep your data on the Microsoft network. In this scenario, the network connectivity from AKS to SQL Database, Azure Cosmos DB, and to Container Registry is through private links.
 
@@ -72,11 +72,11 @@ API Management allows secure access to back-end services through multiple mechan
 
 - **[Azure Monitor](https://azure.microsoft.com/products/monitor):** You can use Monitor to collect, analyze, and act on telemetry data from your Azure and on-premises environments. Monitor helps you maximize the performance and availability of your applications and proactively identify problems.
 
-- **[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview):** You can use Log Analytics to edit and run log queries with data in Azure Monitor logs. In this scenario, diagnostic logs from various services such as Application Gateway, AKS, API Management, SQL Database, and Azure Cosmos DB can be sent to a Log Analytics workspace. This allows the logs to be analyzed according to specific requirements.
+- **[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview):** You can use Log Analytics to edit and run log queries with data in Azure Monitor logs. In this scenario, diagnostic logs from various services, such as Application Gateway, AKS, API Management, SQL Database, and Azure Cosmos DB, can be sent to a Log Analytics workspace. This allows the logs to be analyzed according to specific requirements.
 
 - **[Application Insights](/azure/azure-monitor/app/app-insights-overview):** Application Insights is an extension of Azure Monitor. It provides application performance monitoring. API Management and containers in AKS can be integrated to Application Insights to obtain and analyze application level traces.
 
-- **[Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel):** Microsoft Sentinel is a cloud-native security information and event manager platform (SIEM) that uses built-in AI to help you analyze large volumes of data. In this scenario, Microsoft Sentinel is used as the SIEM solution to enhance the solution security.
+- **[Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel):** Microsoft Sentinel is a cloud-native security information and event manager platform (SIEM) that uses built-in AI to help you analyze large volumes of data. In this scenario, Microsoft Sentinel is used as the SIEM solution to enhance solution security.
 
 - **[Azure Bastion](https://azure.microsoft.com/products/azure-bastion):** Azure Bastion is a fully managed service that provides remote desktop protocol and SSH access to VMs without any exposure through public IP addresses. You can provision the service directly in your local or peered virtual network to get support for all VMs in that network. In this scenario, the private network resources are accessed through jump servers via Azure Bastion.
 
