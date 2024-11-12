@@ -5486,6 +5486,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/application-stamps.yml",
+      "redirect_url": "/azure/iot/iot-overview-scalability-high-availability",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/industries/finance/financial-risk-model.yml",
       "redirect_url": "/azure/architecture/industries/finance",
       "redirect_document_id": false

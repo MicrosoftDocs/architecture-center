@@ -111,4 +111,3 @@ Principal author:
 ## Related resources
 
 - [IoT devices, platform, and applications](devices-platform-application.yml)
-- [Scale IoT solutions with application stamps](application-stamps.yml)
