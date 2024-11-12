@@ -17,12 +17,12 @@ products:
 
 # Data and AI
 
-This article compares the core Azure data and AI services to those of Amazon Web Services (AWS).
+This article compares the core Azure data and AI services to the corresponding Amazon Web Services (AWS) services.
 
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
 - For a complete comparison of Azure services with AWS services, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
 
-## Data governance, management and platforms
+## Data governance, management, and platforms
 
 Both Microsoft Purview and the combination of AWS services described in the following table aim to provide comprehensive data governance solutions. These solutions enable organizations to effectively manage, discover, classify, and provide security for their data assets.
 
@@ -38,7 +38,7 @@ Both AWS and Fabric provide services for data integration, processing, analytics
 
 | AWS services | Fabric | Description          |
 |  --| ------  |  -- |
-| [AWS Glue](https://aws.amazon.com/glue/), [AWS Data Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html) | [Data integration with Azure Data Factory](/fabric/data-factory/) | AWS provides a suite of individual services that can be combined to build data and analytics solutions, offering flexibility but requiring more effort to integrate into an end-to-end solution. Fabric provides these capabilities within a single unified platform to simplify workflows, collaboration, and management. |
+| [AWS Glue](https://aws.amazon.com/glue/), [AWS Data Pipeline](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html) | [Data integration with Azure Data Factory](/fabric/data-factory/) | AWS provides a suite of individual services that can be combined to build data and analytics solutions. This approach provides flexibility but requires more effort to integrate the services into an end-to-end solution. Fabric provides these capabilities within a single unified platform to simplify workflows, collaboration, and management. |
 
 ### Detailed comparison of AWS services with Fabric components
 
@@ -77,7 +77,7 @@ These solutions are designed to store and manage large volumes of structured dat
 | [Amazon Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html)  | [Azure Synapse Analytics with Data Lake integration](https://azure.microsoft.com/services/synapse-analytics/)   | These services enable you to query data across data warehouses and data lakes without moving data. Azure Synapse Analytics provides integrated SQL and Spark engines. Redshift Spectrum extends Redshift's SQL querying to data in Amazon S3.  |
 | [AWS Lake Formation](https://aws.amazon.com/lake-formation/)    | [Azure Synapse Analytics with Azure Data Lake Storage](https://azure.microsoft.com/services/synapse-analytics/) | These services can help you create secure data lakes for analytics. Azure combines data lake and data warehouse functionalities in Azure Synapse Analytics. AWS provides Lake Formation for data lakes and Redshift as a separate data warehouse service.  |
 | [Amazon RDS](https://aws.amazon.com/rds/) with [Redshift Federated Query](https://docs.aws.amazon.com/redshift/latest/dg/querying-data-federation.html) | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)  | These services support querying across operational databases and data warehouses. Azure Synapse Analytics provides a unified, built-in analytics experience. AWS requires you to combine RDS and Redshift for similar cross-service querying capabilities. |
-| [Amazon Aurora](https://aws.amazon.com/rds/aurora/) with integration to Redshift  | [Azure Synapse Analytics Link for Azure Cosmos DB](https://azure.microsoft.com/services/synapse-analytics/) | These services provide high-performance analytics over operational data. AWS requires that you set up data pipelines between Aurora and Redshift. With Azure Synapse Link, you don't need to move data.|
+| [Amazon Aurora](https://aws.amazon.com/rds/aurora/) with Redshift integration | [Azure Synapse Analytics Link for Azure Cosmos DB](https://azure.microsoft.com/services/synapse-analytics/) | These services provide high-performance analytics over operational data. AWS requires that you set up data pipelines between Aurora and Redshift. With Azure Synapse Link, you don't need to move data.|
 
 ## Data lake solutions
 
@@ -111,7 +111,7 @@ These services provide data visualization, reporting, and dashboards to help bus
 | [Amazon QuickSight](https://aws.amazon.com/quicksight/)     | [Power BI](https://powerbi.microsoft.com/)  |  QuickSight and Power BI provide business analytics tools for data visualization and interactive dashboards.|
 | [Amazon Managed Grafana](https://aws.amazon.com/grafana/)   | [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana/)             | These services provide managed Grafana, which enables you to visualize metrics, logs, and traces across multiple data sources.      |
 | [AWS Data Exchange](https://aws.amazon.com/data-exchange/)   | [Azure Data Share](https://azure.microsoft.com/services/data-share/)      | These services facilitate the secure sharing and exchange of data between organizations. Data Exchange provides a marketplace model. Data Share focuses on cross-tenant data sharing.     |
-| [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/) with Kibana | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) with dashboards | These services provide real-time data exploration and interactive analytics over large volumes of data. OpenSearch use Kibana for search and visualization. Azure Data Explorer use Kusto, which is optimized for fast data ingestion and querying. |
+| [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/) with Kibana | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) with dashboards | These services provide real-time data exploration and interactive analytics over large volumes of data. OpenSearch uses Kibana for search and visualization. Azure Data Explorer uses Kusto, which is optimized for fast data ingestion and querying. |
 
 ## Real-time data processing
 
@@ -124,7 +124,7 @@ These systems ingest and analyze data as it's generated to provide immediate ins
 | [AWS Lambda](https://aws.amazon.com/lambda/)    | [Azure Functions](https://azure.microsoft.com/services/functions/)      | These serverless compute platforms run code in response to events and automatically manage the underlying compute resources.             |
 | [Amazon DynamoDB Streams](https://aws.amazon.com/pm/dynamodb/)  | [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed)    |These services enable real-time data processing by capturing and providing a stream of data modifications.      |
 | [Amazon ElastiCache with Redis streams](https://aws.amazon.com/elasticache/)   | [Azure Cache for Redis with Redis streams](https://azure.microsoft.com/services/cache/)   | These services provide managed Redis instances that support Redis streams for real-time data ingestion and processing.      |
-| [Amazon IoT Analytics](https://aws.amazon.com/iot-analytics/)   | [Azure IoT Hub with Azure Stream Analytics](https://azure.microsoft.com/services/iot-hub/)   | These services enable you to process and analyze data from IoT devices in real-time. AWS IoT Analytics provides built-in data storage and analysis capabilities. Azure provides modular services: IoT Hub handles ingestion, and Stream Analytics processes the data.     |
+| [Amazon IoT Analytics](https://aws.amazon.com/iot-analytics/)   | [Azure IoT Hub with Azure Stream Analytics](https://azure.microsoft.com/services/iot-hub/)   | These services enable you to process and analyze data from IoT devices in real time. AWS IoT Analytics provides built-in data storage and analysis capabilities. Azure provides modular services: IoT Hub handles ingestion, and Stream Analytics processes the data.     |
 
 ## Machine learning services
 
@@ -139,7 +139,7 @@ These tools and platforms enable the development, training, and deployment of ma
 
 ## AI services
 
-AI services provide prebuilt, customizable AI capabilities to applications, including vision, speech, language, and decision-making APIs. (In Azure, they were previously called Cognitive Services. You might still see this name.)
+AI services provide prebuilt, customizable AI capabilities to applications, including vision, speech, language, and decision making. (In Azure, these services were previously called Cognitive Services. You might still see this name.)
 
 | AWS service     | Azure service | Analysis   |
 |  -------  | ------  |--|
