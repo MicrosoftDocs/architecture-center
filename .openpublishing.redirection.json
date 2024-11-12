@@ -5021,6 +5021,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml",
+      "redirect_url": "/azure/spatial-anchors/",
+      "redirect_document_id": false
+    },
+    {   
       "source_path": "docs/guide/hpc/cp2k.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
