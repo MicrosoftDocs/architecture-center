@@ -56,4 +56,3 @@ Principal author:
  - [Hanu Kommalapati](https://www.linkedin.com/in/hanuk/) | Principal Software Engineer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
