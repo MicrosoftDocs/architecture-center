@@ -19,7 +19,7 @@ products:
 
 Oracle on Azure provides two principal technology platform options:
 
-- [Oracle on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/). Run Oracle databases and enterprise applications, like Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications, on Azure infrastructure. You can use Oracle Linux, Red Hat Enterprise Linux (RHEL), or another supported operating system. Multiple VM and storage options are available.
+- [Oracle on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/). Run Oracle databases and enterprise applications, like Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications, on Azure infrastructure. You can use Oracle Linux, Red Hat Enterprise Linux (RHEL), or another supported operating system. Multiple virtual machine (VM) and storage options are available.
 
 - [Oracle Database@Azure](/azure/oracle/oracle-db/database-overview). Run Oracle Exadata infrastructure in Azure. Oracle Exadata is a high-performance database platform. Oracle Database@Azure supports tools like Oracle Real Application Clusters (RAC) and Oracle Data Guard. Oracle enterprise applications like Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications run on Azure VMs and can connect to Oracle Database@Azure.
 
@@ -30,13 +30,9 @@ In addition to Oracle databases, Azure also supports:
 
 - [Java on Azure](https://azure.microsoft.com/resources/developers/java/). Run Java EE applications with Oracle WebLogic Server on Azure Kubernetes Service (AKS) with solutions validated by Microsoft and Oracle.
 
-- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/#overview). Use preconfigured solutions from Oracle and host Java application servers with Oracle WebLogic on Azure virtual machines (VMs).
+- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/#overview). Use preconfigured solutions from Oracle and host Java application servers with Oracle WebLogic on Azure VMs.
 
-The following sections can help you on the path to production for Oracle on Azure:
-
-- [Database migration and deployment](#database-migration-and-deployment)
-- [Backup and recovery of databases and workloads](#backup-and-recovery-of-databases-and-workloads)
-- [WebLogic Server](#weblogic-server)
+The following sections can help you on the path to production for Oracle on Azure.
 
 ### Database migration and deployment
 
@@ -58,13 +54,13 @@ The articles in this section describe methods of backing up and recovering Oracl
 
 ### WebLogic Server
 
-The articles in this section can help you decide on a solution for running Oracle WebLogic Server on Azure and help you prepare for migration.
+The following articles can help you decide on a solution for running Oracle WebLogic Server on Azure and help you prepare for migration.
 
-- [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic) This article describes solutions for running Oracle WebLogic Server on Azure VMs.
+- [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)  
 
-- [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks) This article describes solutions for running Oracle WebLogic Server on the Azure Kubernetes Service (AKS).
+- [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)  
 
-- [Migrate WebLogic Server applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines). This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure VMs.
+- [Migrate WebLogic Server applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines). 
 
 ## Best practices
 
@@ -84,13 +80,13 @@ The articles in this section describe architectures for deploying Oracle applica
 
 ## Stay current with Oracle on Azure
 
-To stay informed about Oracle on Azure, check Azure updates and the Azure blog.
+To stay informed about Oracle on Azure, check Azure updates and the Azure Blog.
 
 > [!div class="nextstepaction"]
 > [Check Azure updates for news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle)
 
 > [!div class="nextstepaction"]
-> [Check Microsoft Azure Blog for posts about Oracle on Azure](https://azure.microsoft.com/search/blog/?q=Oracle)
+> [Check the Azure Blog for posts about Oracle on Azure](https://azure.microsoft.com/search/blog/?q=Oracle)
 
 ## Additional resources
 
