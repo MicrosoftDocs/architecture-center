@@ -4901,7 +4901,7 @@
     },
     {
       "source_path": "docs/example-scenario/iot/real-time-iot-updates-cloud-apps.yml",
-      "redirect_url": "/azure-docs/articles/iot-hub/iot-hub-live-data-visualization-in-power-bi",
+      "redirect_url": "/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi",
       "redirect_document_id": false
   },
   {  
