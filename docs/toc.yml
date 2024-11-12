@@ -1850,8 +1850,8 @@ items:
         items:
         - name: Analyze and optimize loop
           href: example-scenario/iot/analyze-optimize-loop.yml
-        - name: Measure and control loop
-          href: example-scenario/iot/measure-control-loop.yml
+        - name: Event routing
+          href: example-scenario/iot/event-routing.yml
         - name: Real-time IoT updates
           href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
       - name: Migration to Azure IoT best practices
