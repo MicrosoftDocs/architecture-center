@@ -56,8 +56,6 @@ IoT architecture patterns are reusable building blocks that address key IoT solu
 
 - [Real-time IoT updates](../../example-scenario/iot/real-time-iot-updates-cloud-apps.yml). Instead of traditional polling requests, clients can receive updates from devices in real time. Azure SignalR service sends real-time IoT data to clients like web pages and mobile apps.
 
-- [Scale IoT solutions with deployment stamps](../../example-scenario/iot/application-stamps.yml). Stamps are discrete units of solution components that optimally support a defined number of devices. Deployment stamping supports scaling up the number of connected IoT devices by replicating stamps.
-
 - [Azure IoT client SDK support for third-party token servers](../../guide/iot/azure-iot-client-sdk-support.yml). Azure IoT Hub supports shared access signature (SAS) token authentication in client SDKs. Learn what to do in each SDK to achieve third-party token server authentication.
 
 - [Efficient Docker image deployment](../../example-scenario/iot/efficient-docker-image-deployment.yml). Edge devices are typically provisioned by deploying software container images. Use a reliable and resilient deployment capability for situations that have limited, intermittent, or low bandwidth.
@@ -71,8 +69,6 @@ IoT architecture patterns are reusable building blocks that address key IoT solu
 IoT architectural guides provide insights into IoT concepts, architectures, and workstreams.
 
 - [IoT solution architecture](../../example-scenario/iot/devices-platform-application.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
-
-- [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload. Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI combine to deliver quality assurance and safety solutions.
 
 - [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml). Learn best practices and what to avoid when moving an IoT solution from a test environment to a production environment.
 
