@@ -5497,7 +5497,7 @@
     },
     {
       "source_path": "docs/example-scenario/iot/cloud-to-device.yml",
-      "redirect_url": "articles/iot-hub/iot-hub-devguide-c2d-guidance",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-c2d-guidance",
       "redirect_document_id": false  
     },
     {
