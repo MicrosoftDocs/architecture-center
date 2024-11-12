@@ -28,7 +28,7 @@ Both Microsoft Purview and the combination of AWS services described in the foll
 
 | Microsoft service  | AWS services   | Description      |
 | ------- |--- |--|
-| [Microsoft Purview](https://azure.microsoft.com/services/purview/) | [AWS Glue Data Catalog](https://aws.amazon.com/glue/), [AWS Lake Formation](https://aws.amazon.com/lake-formation/), [Amazon Macie](https://aws.amazon.com/macie/), [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/), [AWS Config](https://aws.amazon.com/config/) | Both options provide robust data governance, cataloging, and compliance features. Microsoft Purview is a unified data governance solution that allows organizations to discover, classify, and manage data across on-premises, multi-cloud, and SaaS environments. It also provides data lineage and compliance capabilities. AWS provides similar functionalities with multiple services: [AWS Glue Data Catalog](https://aws.amazon.com/glue/) for metadata management, [AWS Lake Formation](https://aws.amazon.com/lake-formation/) for data lake creation and governance, [Amazon Macie](https://aws.amazon.com/macie/) for data classification and protection, [AWS IAM](https://aws.amazon.com/iam/) for access control, and [AWS Config](https://aws.amazon.com/config/) for configuration management and compliance tracking. |
+| [Microsoft Purview](https://azure.microsoft.com/services/purview/) | [AWS Glue Data Catalog](https://aws.amazon.com/glue/), [AWS Lake Formation](https://aws.amazon.com/lake-formation/), [Amazon Macie](https://aws.amazon.com/macie/), [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/), [AWS Config](https://aws.amazon.com/config/) | Both options provide robust data governance, cataloging, and compliance features. Microsoft Purview is a unified data governance solution that allows organizations to discover, classify, and manage data across on-premises, multicloud, and SaaS environments. It also provides data lineage and compliance capabilities. AWS provides similar functionalities with multiple services: [AWS Glue Data Catalog](https://aws.amazon.com/glue/) for metadata management, [AWS Lake Formation](https://aws.amazon.com/lake-formation/) for data lake creation and governance, [Amazon Macie](https://aws.amazon.com/macie/) for data classification and protection, [AWS IAM](https://aws.amazon.com/iam/) for access control, and [AWS Config](https://aws.amazon.com/config/) for configuration management and compliance tracking. |
 
 ## All-in-one platform vs. AWS services
 
@@ -52,7 +52,7 @@ Both AWS and Fabric provide services for data integration, processing, analytics
 | [Amazon QuickSight](https://aws.amazon.com/quicksight/)       | [Power BI for business intelligence](https://powerbi.microsoft.com/)          |
 | [Amazon S3](https://aws.amazon.com/s3/)     | [OneLake unified data lake storage](/fabric/onelake/)       |
 | [AWS Lake Formation](https://aws.amazon.com/lake-formation/), [AWS Glue Data Catalog](https://aws.amazon.com/glue/), [Amazon Macie](https://aws.amazon.com/macie/) | [Data governance (Microsoft Purview integration)](https://azure.microsoft.com/services/purview/)    |
-| [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Amazon SageMaker JumpStart](https://aws.amazon.com/sagemaker/jumpstart/)         | [Generative AI (Azure OpenAI Service integration)](/azure/azure-openai/)        |
+| [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Amazon SageMaker JumpStart](https://aws.amazon.com/sagemaker/jumpstart/)         | [Generative AI (Azure OpenAI Service integration)](https://azure.microsoft.com/products/ai-services/openai-service)        |
 
 ## Data integration and ETL tools
 
@@ -77,7 +77,7 @@ These solutions are designed to store and manage large volumes of structured dat
 | [Amazon Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html)  | [Azure Synapse Analytics with Data Lake integration](https://azure.microsoft.com/services/synapse-analytics/)   | These services enable you to query data across data warehouses and data lakes without moving data. Azure Synapse Analytics provides integrated SQL and Spark engines. Redshift Spectrum extends Redshift's SQL querying to data in Amazon S3.  |
 | [AWS Lake Formation](https://aws.amazon.com/lake-formation/)    | [Azure Synapse Analytics with Azure Data Lake Storage](https://azure.microsoft.com/services/synapse-analytics/) | These services can help you create secure data lakes for analytics. Azure combines data lake and data warehouse functionalities in Azure Synapse Analytics. AWS provides Lake Formation for data lakes and Redshift as a separate data warehouse service.  |
 | [Amazon RDS](https://aws.amazon.com/rds/) with [Redshift Federated Query](https://docs.aws.amazon.com/redshift/latest/dg/querying-data-federation.html) | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)  | These services support querying across operational databases and data warehouses. Azure Synapse Analytics provides a unified, built-in analytics experience. AWS requires you to combine RDS and Redshift for similar cross-service querying capabilities. |
-| [Amazon Aurora](https://aws.amazon.com/rds/aurora/) with integration to Redshift  | [Azure Synapse Analytics Link for Azure Cosmos DB](https://azure.microsoft.com/services/synapse-analytics/) | These services provide high-performance analytics over operational data. AWS requires that you set up data pipelines between Aurora and Redshift. With Azure Synapose Link, you don't need to move data.|
+| [Amazon Aurora](https://aws.amazon.com/rds/aurora/) with integration to Redshift  | [Azure Synapse Analytics Link for Azure Cosmos DB](https://azure.microsoft.com/services/synapse-analytics/) | These services provide high-performance analytics over operational data. AWS requires that you set up data pipelines between Aurora and Redshift. With Azure Synapse Link, you don't need to move data.|
 
 ## Data lake solutions
 
@@ -133,13 +133,13 @@ These tools and platforms enable the development, training, and deployment of ma
 | AWS service   | Azure service | Analysis       |
 |  --- |  ----- |  ----- |
 | [Amazon SageMaker](https://aws.amazon.com/sagemaker/)    | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)   | These comprehensive platforms enable you to build, train, and deploy machine learning models.   |
-| [AWS Deep Learning AMIs](https://aws.amazon.com/machine-learning/amis/)   | [Azure Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)   | These services provide pre-configured virtual machines that are optimized for machine learning and data science workloads.   |
+| [AWS Deep Learning AMIs](https://aws.amazon.com/machine-learning/amis/)   | [Azure Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)   | These services provide preconfigured virtual machines that are optimized for machine learning and data science workloads.   |
 | [Amazon SageMaker Autopilot](https://aws.amazon.com/sagemaker/autopilot/) | [Automated machine learning (AutoML)](https://azure.microsoft.com/solutions/automated-machine-learning/) |These services provide automated machine learning for building and training models.    |
-| [Amazon SageMaker Studio](https://aws.amazon.com/sagemaker/studio/)  | [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/) | These services provide integrated development environments for machine learing. SageMaker Studio provides a unified interface for all machine learning development steps, including debugging and profiling tools. |
+| [Amazon SageMaker Studio](https://aws.amazon.com/sagemaker/studio/)  | [Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning/) | These services provide integrated development environments for machine learning. SageMaker Studio provides a unified interface for all machine learning development steps, including debugging and profiling tools. |
 
 ## AI services
 
-AI services provide pre-built, customizable AI capabilities to applications, including vision, speech, language, and decision-making APIs. (In Azure, they were previously called Cognitive Services. You might still see this name.)
+AI services provide prebuilt, customizable AI capabilities to applications, including vision, speech, language, and decision-making APIs. (In Azure, they were previously called Cognitive Services. You might still see this name.)
 
 | AWS service     | Azure service | Analysis   |
 |  -------  | ------  |--|
@@ -182,5 +182,5 @@ Director, Partner Technology Strategist
 
 ## Related resources
 
-- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services)
-- [Compare Microsoft machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning)
+- [Choose an Azure AI services technology](../data-guide/technology-choices/ai-services.md)
+- [Compare Microsoft machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning.md)
