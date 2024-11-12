@@ -17,19 +17,20 @@ products:
 
 # Data and AI
 
-This article compares the core data and AI services Microsoft Azure and Amazon Web Services (AWS) offer.
+This article compares the core Azure data and AI services to those of Amazon Web Services (AWS).
 
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
-- For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
+- For a complete comparison of Azure services with AWS services, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
 
-### Data Governance, Management & Platforms
-Both Microsoft Purview and the combination of AWS services aim to provide comprehensive data governance solutions, enabling organizations to effectively manage, discover, classify, and secure their data assets.
+## Data governance, management and platforms
 
-| Microsoft Service  | AWS Service(s)   | Description      |
+Both Microsoft Purview and the combination of AWS services described in the following table aim to provide comprehensive data governance solutions. These solutions enable organizations to effectively manage, discover, classify, and provide security for their data assets.
+
+| Microsoft service  | AWS services   | Description      |
 | ------- |--- |--|
-| [Microsoft Purview](https://azure.microsoft.com/services/purview/) | [AWS Glue Data Catalog](https://aws.amazon.com/glue/), [AWS Lake Formation](https://aws.amazon.com/lake-formation/), [Amazon Macie](https://aws.amazon.com/macie/), [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/), [AWS Config](https://aws.amazon.com/config/) | Both options offer robust data governance, cataloging, and compliance features, but they achieve these through different sets of tools and integrations. Microsoft Purview offers a unified data governance solution that allows organizations to discover, classify, and manage data across on-premises, multi-cloud, and SaaS environments with data lineage and compliance capabilities. AWS provides similar functionalities through multiple services: [AWS Glue Data Catalog](https://aws.amazon.com/glue/) for metadata management, [AWS Lake Formation](https://aws.amazon.com/lake-formation/) for data lake creation and governance, [Amazon Macie](https://aws.amazon.com/macie/) for data classification and protection, [AWS IAM](https://aws.amazon.com/iam/) for access control, and [AWS Config](https://aws.amazon.com/config/) for configuration management and compliance tracking. |
+| [Microsoft Purview](https://azure.microsoft.com/services/purview/) | [AWS Glue Data Catalog](https://aws.amazon.com/glue/), [AWS Lake Formation](https://aws.amazon.com/lake-formation/), [Amazon Macie](https://aws.amazon.com/macie/), [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/), [AWS Config](https://aws.amazon.com/config/) | Both options offer robust data governance, cataloging, and compliance features. Microsoft Purview offers a unified data governance solution that allows organizations to discover, classify, and manage data across on-premises, multi-cloud, and SaaS environments with data lineage and compliance capabilities. AWS provides similar functionalities through multiple services: [AWS Glue Data Catalog](https://aws.amazon.com/glue/) for metadata management, [AWS Lake Formation](https://aws.amazon.com/lake-formation/) for data lake creation and governance, [Amazon Macie](https://aws.amazon.com/macie/) for data classification and protection, [AWS IAM](https://aws.amazon.com/iam/) for access control, and [AWS Config](https://aws.amazon.com/config/) for configuration management and compliance tracking. |
 
-## All-in-one platform vs AWS services
+### All-in-one platform vs AWS services
 
 Microsoft Fabric offers an all-in-one platform that unifies the various data and AI services needed for modern analytics solutions. It streamlines the process of moving data between services, ensures unified governance and security, and simplifies pricing models. This unified approach contrasts with AWS’s offerings, where services are often used separately and require more effort to integrate. Fabric’s seamless integration across these categories enables organizations to accelerate their data-driven initiatives within the Azure ecosystem.
 
@@ -53,7 +54,7 @@ Both AWS and Microsoft Fabric offer services for data integration, processing, a
 | [AWS Lake Formation](https://aws.amazon.com/lake-formation/), [AWS Glue Data Catalog](https://aws.amazon.com/glue/), [Amazon Macie](https://aws.amazon.com/macie/) | [Data Governance (Microsoft Purview integration)](https://azure.microsoft.com/services/purview/)           |
 | [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Amazon SageMaker JumpStart](https://aws.amazon.com/sagemaker/jumpstart/)                                       | [Generative AI (Azure OpenAI integration)](/azure/azure-openai/)                |
 
-### Data Integration & ETL Tools
+## Data Integration & ETL Tools
 
 Data Integration & ETL Tools help extract, transform, and load data from multiple sources into a unified system for analysis.
 
@@ -66,7 +67,7 @@ Data Integration & ETL Tools help extract, transform, and load data from multipl
 | [Amazon AppFlow](https://aws.amazon.com/appflow/)    | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)                                                                               | Enable automated data flows between cloud applications and services without coding.  Azure Logic Apps offers  extensive integration capabilities with a wide range of connectors and a visual designer, while Amazon AppFlow focuses on secure data transfer between specific SaaS applications and AWS services with built-in data transformation features.    |
 | [AWS Step Functions](https://aws.amazon.com/step-functions/)                                                       | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) with [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Provide workflow orchestration for coordinating distributed applications and microservices.  AWS Step Functions is designed for orchestrating AWS services and microservices in serverless applications. Azure Logic Apps is used for both data integration and enterprise workflow automation.          |
 
-### Data Warehousing
+## Data Warehousing
 
 Solutions designed to store and manage large volumes of structured data optimized for querying and reporting.
 
@@ -78,7 +79,7 @@ Solutions designed to store and manage large volumes of structured data optimize
 | [Amazon RDS](https://aws.amazon.com/rds/) with [Redshift Federated Query](https://docs.aws.amazon.com/redshift/latest/dg/querying-data-federation.html) | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)                                        | These services support querying across operational databases and data warehouses. Azure provides unified experience with built-in analytics in Synapse, whereas AWS requires combining RDS and Redshift for similar cross-service querying capabilities.        |
 | [Amazon Aurora](https://aws.amazon.com/rds/aurora/) with integration to Redshift             | [Azure Synapse Link for Azure Cosmos DB](https://azure.microsoft.com/services/synapse-analytics/)               | These services aim to provide high-performance analytics over operational data. AWS requires setting up data pipelines between Aurora and Redshift. Azure Synapose Link does not require data movement.|
 
-### Data Lake Solutions
+## Data Lake Solutions
 
 Platforms that store vast amounts of raw, unstructured, and structured data in its native format for future processing.
 
@@ -89,7 +90,7 @@ Platforms that store vast amounts of raw, unstructured, and structured data in i
 | [Amazon Athena](https://aws.amazon.com/athena/)              | [Azure Synapse Serverless SQL Pools](/azure/synapse-analytics/sql/on-demand-overview) | These services allow querying data stored in data lakes using SQL without the need to set up infrastructure. Amazon Athena is a standalone experience that integrates with other AWS services. Azure Synapse Serverless SQL Pools is part of the Azure Synapse Analytics platform.       |
 | [AWS Glue Data Catalog](https://aws.amazon.com/glue/)        | [Microsoft Purview](https://azure.microsoft.com/services/purview/)        | These services provide a centralized metadata repository to store and manage data schemas and metadata for data lakes. AWS Glue provides a subset of Microsoft Purview's features. Microsoft Purview supports data cataloging, lineage tracking, and sensitive data classification whether the data resides on-premises, in a cloud, or in a SaaS application.  |
 
-### Big Data Analytics
+## Big Data Analytics
 
 Services that process and analyze large and complex datasets to uncover patterns, insights, and trends. Below you will find direct comparisons of individual Big Data services, but the recommended all-in-one service for Big Data & Analytics is Microsoft Fabric. Fabric encompasses the below capabilities and more. 
 
@@ -100,7 +101,7 @@ Services that process and analyze large and complex datasets to uncover patterns
 | [Amazon Kinesis](https://aws.amazon.com/kinesis/)             | [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | Provide services for real-time data streaming and analytics to process and analyze high-volume data streams.        |
 | [AWS Glue with AWS Glue Studio](https://aws.amazon.com/glue/) | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) with Apache Spark Pools                                                | Both services offer big data processing capabilities with integrated data transformation and analytics.   |
 
-### Business Intelligence & Reporting
+## Business Intelligence & Reporting
 
 Services that offer data visualization, reporting, and dashboards to help businesses make informed decisions.
 
@@ -112,7 +113,7 @@ Services that offer data visualization, reporting, and dashboards to help busine
 | [AWS Data Exchange](https://aws.amazon.com/data-exchange/)                          | [Azure Data Share](https://azure.microsoft.com/services/data-share/)                       | Facilitate the sharing and exchange of data securely between organizations. AWS Data Exchange provides a marketplace model while Azure Data Share is focused on cross-tenant data sharing.     |
 | [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/) with Kibana | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) with dashboards | These services provide capabilities for real-time data exploration and interactive analytics over large volumes of data. OpenSearch leverages Kibana for search and visualization, while Azure Data Explorer offers Kusto, which is optimized for fast data ingestion and querying. |
 
-### Real-time Data Processing
+## Real-time Data Processing
 
 Systems that ingest and analyze data as it is generated to provide immediate insights and responses.
 
@@ -125,7 +126,7 @@ Systems that ingest and analyze data as it is generated to provide immediate ins
 | [Amazon ElastiCache with Redis Streams](https://aws.amazon.com/elasticache/)   | [Azure Cache for Redis with Redis Streams](https://azure.microsoft.com/services/cache/)           | Provide managed Redis instances that support Redis Streams for real-time data ingestion and processing.      |
 | [Amazon IoT Analytics](https://aws.amazon.com/iot-analytics/)                  | [Azure IoT Hub with Azure Stream Analytics](https://azure.microsoft.com/services/iot-hub/)       | Enable processing and analyzing data from IoT devices in real-time. AWS IoT offers a IoT analytics service with built-in data storage and analysis capabilities, while Azure provides modular services where IoT Hub handles ingestion and Stream Analytics processes the data.     |
 
-### Machine Learning Services
+## Machine Learning Services
 
 Tools and platforms that enable the development, training, and deployment of machine learning models.
 
@@ -136,7 +137,7 @@ Tools and platforms that enable the development, training, and deployment of mac
 | [Amazon SageMaker Autopilot](https://aws.amazon.com/sagemaker/autopilot/) | [Automated Machine Learning (AutoML) \| Microsoft Azure](https://azure.microsoft.com/solutions/automated-machine-learning/) | Automated machine learning to automatically build and train models.    |
 | [Amazon SageMaker Studio](https://aws.amazon.com/sagemaker/studio/)       | [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/)                                           | Integrated development environments for ML. SageMaker Studio offers a unified interface for all ML development steps, including debugging and profiling tools. |
 
-### AI Services
+## AI Services
 
 AI Services provide pre-built, customizable AI capabilities to applications, including vision, speech, language, and decision-making APIs. In Azure they were formerly called Cognitive Services and are still referenced this way in some places.
 
@@ -151,7 +152,7 @@ AI Services provide pre-built, customizable AI capabilities to applications, inc
 | [Amazon Textract](https://aws.amazon.com/textract/)                     | [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence/) | Both services automatically extract text and data from scanned documents and forms using machine learning. Azure offers customizable models for specific document types, allowing for tailored data extraction, while Amazon Textract provides out-of-the-box extraction of complex data structures               |
 | [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/) | [Azure AI Search - Generative Search](https://azure.microsoft.com/products/ai-services/ai-search/)      | Amazon OpenSearch and Azure AI Search provide powerful search and analytics capabilities and can be leveraged for common AI pattern like RAG.   |
 
-### Generative AI Services
+## Generative AI Services
 
 AI services that create new content or data resembling human-generated output, such as text, images, or audio. 
 
