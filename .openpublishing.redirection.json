@@ -5427,7 +5427,7 @@
     },
     {
       "source_path": "docs/example-scenario/iot/application-stamps.yml",
-      "redirect_url": "/azure-docs/articles/iot/iot-overview-scalability-high-availability",
+      "redirect_url": "/azure/iot/iot-overview-scalability-high-availability",
       "redirect_document_id": false
     },
     {  
