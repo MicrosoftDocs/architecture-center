@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for measuring the consumption of each tenant in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 12/14/2023
+ms.date: 11/12/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -27,7 +27,7 @@ There are two primary concerns driving the need for measuring each tenant's cons
 - You need to measure the actual cost to serve each tenant. This is important to monitor the profitability of the solution for each tenant.
 - You need to determine the amount to charge the tenant, when you're using [consumption-based pricing](./pricing-models.md#consumption-based-pricing).
 
-However, it can be difficult to measure the actual resources used by a tenant in a multitenant solution. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage, based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It's difficult to determine exactly how much space each tenant uses of that relational database, either in terms of storage or of the compute capacity that's required to service any queries and requests.
+However, it can be difficult to measure the actual resources used by a tenant in a multitenant solution. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage, based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It's difficult to determine exactly how much capacity each tenant uses of that relational database, either in terms of data storage or of the compute resources required to service any queries and requests.
 
 By contrast, for a single-tenant solution, you can use [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) within the Azure portal, to get a complete cost breakdown for all the Azure resources that are consumed by that tenant.
 
@@ -38,14 +38,14 @@ Therefore, when facing these challenges, it's important to consider how to measu
 
 ## Indicative consumption metrics
 
-Modern applications (built for the cloud) are usually made up of many different services, each with different measures of consumption. For example, a storage account measures consumption based on the amount of data stored, the data transmitted, and the numbers of transactions. However, Azure App Service consumption is measured by the amount of compute resources allocated over time. If you have a solution that includes a storage account and App Service resources, then combining all these measurements together to calculate the actual COGS (cost of goods sold) can be a very difficult task. Often, it's easier to use a single indicative measurement to represent consumption in the solution.
+Modern applications (built for the cloud) are usually made up of many different services, each with different measures of consumption. For example, a storage account measures consumption based on the amount of data stored, the data transmitted, and the numbers of transactions. In contrast, Azure App Service consumption is measured by the amount of compute resources allocated over time. If you have a solution that includes a storage account and App Service resources, then combining all these measurements together to calculate the actual COGS (cost of goods sold) can be a very difficult task.
 
-For example, if a multitenant solution shares a single relational database, then the data stored by a tenant might be a good indicative consumption metric.
+Often, it's easier to use a single indicative measurement to represent consumption in the solution. For example, if a multitenant solution shares a single relational database, then the data stored by a tenant might be a good indicative consumption metric.
 
-> [!NOTE]
-> Even if you use the volume of data stored by a tenant as an indicative consumption measure, it might not be a true representation of consumption for every tenant. For example, if a particular tenant does a lot more reads or runs more reporting from the solution, but it doesn't write a lot of data, then it could use a lot more compute than the storage requirements would indicate.
+Even if you use the volume of data stored by a tenant as an indicative consumption measure, it might not be a true representation of consumption for every tenant. If a particular tenant does a lot more reads or runs more reporting from the solution, but doesn't write a lot of data, then that tenant could use a lot more compute than the storage requirements would indicate.
 
-It's important to occasionally measure and review the actual consumption across your tenants, to determine whether the assumptions you're making about your indicative metrics are correct.
+> [!TIP]
+> Occasionally you should measure and review the actual consumption across your tenants, to create a baseline model. This model helps you to determine whether the assumptions you're making about your indicative metrics are correct.
 
 ## Transaction metrics
 
@@ -55,10 +55,9 @@ This method is usually easy and cost effective to implement, as there's usually 
 
 ## Per-request metrics
 
-In solutions that are primarily API-based, it might make sense to use a consumption metric that is based around the number of API requests being made to the solution. This can often be quite simple to implement, but it does require you to use APIs as the primary interface to the system. There will be an increased operational cost of implementing a per-request metric, especially for high volume services, because of the need to record the request utilization (for audit and billing purposes).
+In solutions that are primarily API-based, it might make sense to use a consumption metric that's based around the number of API requests being made to the solution. This can often be quite simple to implement, but it does require you to use APIs as the primary interface to the system. There will be an increased operational cost of implementing a per-request metric, especially for high volume services, because of the need to record the request utilization (for audit and billing purposes).
 
-> [!NOTE]
-> User-facing solutions that consist of a single-page application (SPA), or a mobile application that uses the APIs, may not be a good fit for the per-request metric. This is because there's little understanding by the end user of the relationship between the use of the application and the consumption of APIs. Your application might be chatty (it makes many API requests) or chunky (it makes too few API requests), and the user wouldn't notice a difference.
+User-facing solutions that consist of a single-page application (SPA), or a mobile application that uses the APIs, may not be a good fit for the per-request metric. This is because there's little understanding by the end user of the relationship between the use of the application and the consumption of APIs. Your application might be chatty (it makes many API requests) or chunky (it makes too few API requests), and the user wouldn't notice a difference. However, if you only need an approximate idea of each tenant's consumption, it might still be a reasonable choice.
 
 > [!WARNING]
 > Make sure you store request metrics in a reliable data store that's designed for this purpose. For example, although Azure Application Insights can track requests and can even track tenant IDs (by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties)), Application Insights is not designed to store every piece of telemetry. It removes data, as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that will give you a high level of accuracy.
@@ -81,7 +80,7 @@ You might also choose to estimate consumption in combination with [indicative co
 In some solutions, you can charge your customers the COGS for their tenant's resources. For example, you might use [Azure resource tags](/azure/azure-resource-manager/management/tag-resources) to allocate billable Azure resources to tenants. You can then determine the cost to each tenant for the set of resources that's dedicated to them, plus a margin for profit and operation.
 
 > [!NOTE]
-> Some [Azure services don't support tags](/azure/azure-resource-manager/management/tag-support). For these services, you'll need to attribute the costs to a tenant, based on the resource name, resource group, or subscription.
+> Some [Azure services don't support tags](/azure/azure-resource-manager/management/tag-support). For these services, you need to attribute the costs to a tenant based on other characteristics, like the resource name, resource group, or subscription.
 
 [Azure Cost Analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis) can be used to analyze Azure resource costs for single tenant solutions that use tags, resource groups, or subscriptions to attribute costs.
 

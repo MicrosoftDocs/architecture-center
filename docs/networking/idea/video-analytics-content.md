@@ -65,7 +65,3 @@ Principal author:
 - [Azure Network Function Manager simplifies 5G deployments (Video)](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments)
 - [Introduction to Azure IoT Hub](/training/modules/introduction-to-iot-hub)
 - [Introduction to Azure Stack](/training/modules/intro-to-azure-stack)
-
-## Related resources
-
-- [IoT event routing](../../example-scenario/iot/event-routing.yml)
