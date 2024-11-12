@@ -4,19 +4,19 @@ This article describes how to integrate Azure Kubernetes Service (AKS) and Azure
 
 ## Concepts
 
-API Management enables enhanced-security access to back-end services through multiple mechanisms. At the transport (network) layer, [API Management can present client certificates to the backend](/azure/api-management/api-management-howto-mutual-certificates) and verify the certificate that the back-end server presents. In this mTLS authentication scenario, the system follows these steps:
+API Management enables enhanced-security access to backend services through multiple mechanisms. At the transport (network) layer, [API Management can present client certificates to the backend](/azure/api-management/api-management-howto-mutual-certificates) and verify the certificate that the backend server presents. In this mTLS authentication scenario, the system follows these steps:
 
 1. API Management connects to the backend server. In this scenario, it connects to the ingress controller that runs in AKS.
 
-1. The back-end server, which is the ingress controller in AKS, presents the server certificate.
+1. The backend server, which is the ingress controller in AKS, presents the server certificate.
 
 1. API Management validates the server certificate.
 
-1. API Management presents the client certificate to the server, which is the ingress controller in AKS.
+1. API Management presents the client certificate to the server.
 
-1. The server, which is the ingress controller in AKS, validates the certificate presented by API Management.
+1. The server validates the certificate presented by API Management.
 
-1. The server, which is the ingress controller in AKS, grants access to the request that's proxied through API Management.
+1. The server grants access to the request that's proxied through API Management.
 
 ## Architecture
 
@@ -30,7 +30,7 @@ API Management enables enhanced-security access to back-end services through mul
 
 1. Azure Application Gateway receives traffic as HTTPS and presents a public certificate that's previously loaded from Azure Key Vault to the user.
 
-1. Application Gateway decrypts incoming traffic by using private keys, which offloads the SSL processing. It then performs web application firewall inspections on the unencrypted data and re-encrypts the traffic by using public keys, which helps ensure end-to-end encryption.
+1. Application Gateway decrypts incoming traffic by using private keys, which offloads the SSL processing. It then performs web application firewall inspections on the unencrypted data and re-encrypts the traffic by using public keys, which helps ensure end-to-end encryption. 
 
 1. Application Gateway applies rules and backend settings based on the backend pool and sends traffic to the API Management backend pool over HTTPS.
 
@@ -40,7 +40,7 @@ API Management enables enhanced-security access to back-end services through mul
 
 1. API Management sends traffic via HTTPS to an ingress controller for an AKS private cluster by using the client certificate that the AKS ingress controller trusts.
 
-1. The AKS ingress controller receives the HTTPS traffic and verifies the client certificate that API Management presents. Most enterprise-level ingress controllers support mTLS. The AKS ingress controller responds to API Management with SSL server certificate, which API Management validates.
+1. The AKS ingress controller receives the HTTPS traffic and verifies the client certificate that API Management presents. Most enterprise-level ingress controllers support mTLS. The AKS ingress controller responds to API Management with an SSL server certificate, which API Management validates.
 
 1. The ingress controller processes TLS secrets, specifically Kubernetes Secrets, by using cert.pem and key.pem. The ingress controller decrypts traffic by using a private key, which is offloaded for efficiency. For enhanced-security secret management that's based on requirements, CSI driver integration with AKS is available.
 
@@ -105,7 +105,7 @@ You can use this approach to manage the following scenarios:
 
 ### Mutual TLS configuration
 
-For information about how to configure back-end certificates on API Management, see [Secure backend services using client certificate authentication in API Management](/azure/api-management/api-management-howto-mutual-certificates).
+For information about how to configure backend certificates on API Management, see [Secure backend services using client certificate authentication in API Management](/azure/api-management/api-management-howto-mutual-certificates).
 
 You need to configure mTLS in the [managed AKS ingress controller](/azure/aks/app-routing). The server certificate that AKS presents to API Management can be imported directly as a Kubernetes secret or accessed via a Key Vault secret. For information about how to configure the server certificate in AKS managed ingress controller, see [Set up a custom domain name and SSL certificate with the application routing add-on](/azure/aks/app-routing-dns-ssl). You can perform client certificate authentication in the ingress controller to validate the certificate that API Management presents. You need to provide the CA certificate to the AKS cluster to verify the client certificate that API Management presents. Annotations might need to be configured in the ingress controller to enforce client certificate validation by using the CA certificate. For more information, see the steps for [client certificate authentication](https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/) images deployed in Container Registry and a [sample ingress YAML file](https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/ingress.yaml) with annotations.
 
