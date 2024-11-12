@@ -472,6 +472,8 @@ items:
         href: aws-professional/accounts.md
       - name: Compute
         href: aws-professional/compute.md
+      - name: Data and AI
+        href: aws-professional/data-ai.md
       - name: Databases
         href: aws-professional/databases.md
       - name: Messaging

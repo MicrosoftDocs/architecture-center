@@ -1,13 +1,13 @@
 ---
 title: Data and AI
-description: Compare data and AI services in Azure and AWS. Explore the differences in services and tools.
+description: Compare Azure data and AI services with those of AWS. Explore the differences between services and tools.
 author: rhack
 categories: azure
 ms.author: rhackenberg
 ms.date: 11/13/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
-ms.subservice: azure-guide
+ms.subservice: architecture-guide
 azureCategories:
   - compute
   - networking
@@ -44,7 +44,7 @@ Both AWS and Microsoft Fabric offer services for data integration, processing, a
 | AWS Service(s)| Microsoft Fabric      |
 |------|---- |
 | [AWS Glue](https://aws.amazon.com/glue/), [AWS Data Pipeline](https://aws.amazon.com/datapipeline/)                                                                | [Data Integration (Data Factory experience)](/fabric/data-factory/)             |
-| [Amazon EMR](https://aws.amazon.com/emr/), [AWS Glue Interactive Sessions](https://aws.amazon.com/glue/features/interactive-sessions/)                             | [Data Engineering (Spark experience)](https://learn.microsoft.com/fabric/data-engineering/)                |
+| [Amazon EMR](https://aws.amazon.com/emr/), [AWS Glue Interactive Sessions](https://aws.amazon.com/glue/features/interactive-sessions/)                             | [Data Engineering (Spark experience)](/fabric/data-engineering/)                |
 | [Amazon Redshift](https://aws.amazon.com/redshift/)    | [Data Warehousing (Synapse Data Warehouse experience)](/fabric/data-warehouse/) |
 | [Amazon SageMaker](https://aws.amazon.com/sagemaker/)     | [Data Science (Azure Machine Learning integration)](/fabric/data-science/)      |
 | [Amazon Kinesis](https://aws.amazon.com/kinesis/), [Amazon Managed Service for Apache Flink](https://aws.amazon.com/kinesis/data-analytics/)                       | [Real-Time Analytics (KQL Database experience)](/fabric/real-time-analytics/)   |
