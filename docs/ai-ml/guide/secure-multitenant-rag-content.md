@@ -156,11 +156,11 @@ When designing a multitenant RAG inferencing solution, you must take into accoun
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design and evaluate RAG solutions](./rag-solution-design-and-evaluation-guide.yml)
+> [Design and evaluate RAG solutions](./rag/rag-solution-design-and-evaluation-guide.yml)
 
 ## Related resources
 
-- [SaaS and multitenant solution architecture](../../../guide/saas-multitenant-solution-architecture/index.md)
-- [Basic OpenAI end-to-end chat reference architecture](../../architecture/basic-openai-e2e-chat.yml)
-- [Baseline OpenAI end-to-end chat reference architecture](../../architecture/baseline-openai-e2e-chat.yml)
-- [Access Azure OpenAI and other language models through a gateway](../azure-openai-gateway-guide.yml)
+- [SaaS and multitenant solution architecture](../../guide/saas-multitenant-solution-architecture/index.md)
+- [Basic OpenAI end-to-end chat reference architecture](../architecture/basic-openai-e2e-chat.yml)
+- [Baseline OpenAI end-to-end chat reference architecture](../architecture/baseline-openai-e2e-chat.yml)
+- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml)
