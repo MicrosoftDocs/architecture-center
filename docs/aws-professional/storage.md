@@ -36,7 +36,7 @@ In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/st
 
 - [File storage](/azure/storage/files/storage-java-how-to-use-file-storage) provides shared storage for applications. It uses the standard Server Message Block (SMB) or Network File System (NFS) protocol. File storage is used in a way that's similar to how EFS or FSx for Windows File Server are used.
 
-Azure also provides other managed file systems, including Azure Managed Lustre, Azure NetApp Files, and Azure Native Qumulo. See [storage components](../../includes/aws/storage.md) for a more direct comparison.
+Azure also provides other managed file systems, including Azure Managed Lustre, Azure NetApp Files, and Azure Native Qumulo. See [Storage comparison](#storage-comparison) for a more direct comparison.
 
 ## Glacier and Azure Storage
 
