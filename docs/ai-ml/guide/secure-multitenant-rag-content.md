@@ -2,7 +2,7 @@ Retrieval-Augmented Generation (RAG) is a pattern for building applications wher
 
 A multitenant solution is used by multiple customers, where each customer (tenant) consists of multiple users from the same organization, company, or group. In multitenant scenarios, you need to ensure that tenants, or individuals within tenants, are only able to fetch grounding data that they're authorized to see.
 
-While there are multitenant concerns beyond ensuring that users only access the information they're supposed to see, this article focuses on that aspect of multitenancy. The article starts with an overview of single tenant RAG architectures, discusses the challenges regarding multitenancy, and concludes with secure multitenancy considerations and recommendations.
+While there are multitenant concerns beyond ensuring that users only access the information they're supposed to see, this article focuses on that aspect of multitenancy. The article starts with an overview of single tenant RAG architectures, discusses the challenges regarding multitenancy with RAG and some common approaches to follow, and concludes with secure multitenancy considerations and recommendations.
 
 > [!NOTE]
 > This article discusses some Azure OpenAI-specific features, such as Azure OpenAI On Your Data. That said, most of the principles discussed in this document apply to most foundational AI models.
@@ -28,7 +28,7 @@ For more information on the details of RAG, see [Designing and developing a RAG 
 
 ## Single tenant RAG architecture with direct data access
 
-A variant of the single tenant RAG architecture takes advantage of [Azure OpenAI service's ability to integrate directly with data stores such as Azure Search](/azure/ai-services/openai/concepts/use-your-data). In this architecture, you either don't have an orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API has the responsibility to call into the data store to fetch the grounding data and pass that data to the language model. You, in turn, have less control of what grounding data to fetch.
+A variant of the single tenant RAG architecture takes advantage of [Azure OpenAI service's ability to integrate directly with data stores such as Azure Search](/azure/ai-services/openai/concepts/use-your-data). In this architecture, you either don't have your own orchestrator, or your orchestrator has fewer responsibilities. The Azure OpenAI API has the responsibility to call into the data store to fetch the grounding data and pass that data to the language model. You, in turn, have less control of what grounding data to fetch.
 
 > [!NOTE]
 > The Azure OpenAI service, managed by Microsoft, integrates with the data store. The model itself does not integrate with the data stores. The model receives grounding data in the exact same manner as it does if the data is fetched by an orchestrator.
@@ -40,7 +40,7 @@ A variant of the single tenant RAG architecture takes advantage of [Azure OpenAI
 
 ### Workflow
 
-In this RAG architecture, the foundational model has the responsibility of fetching the appropriate proprietary tenant data from the data stores and using that data as grounding data to the foundational model. The following is a high-level workflow:
+In this RAG architecture, the service providing the foundational model has the responsibility of fetching the appropriate proprietary tenant data from the data stores and using that data as grounding data to the foundational model. The following is a high-level workflow:
 
 1. *See Single tenant RAG architecture with orchestrator workflow*
 1. *See Single tenant RAG architecture with orchestrator workflow*
@@ -66,7 +66,7 @@ This workflow is the same as in [Single tenant RAG architecture with orchestrato
 1. *See Single tenant RAG architecture with orchestrator workflow*
 1. *See Single tenant RAG architecture with orchestrator workflow*
 1. The orchestration logic extracts the user's query from the request and calls the appropriate data store to fetch grounding data for the query. The grounding data is added to the prompt that is sent to Azure OpenAI in the next step.
-    1. The orchestration logic fetches grounding data from the appropriate data store tenant instance, potentially applying security filtering rules to return only the data the user is authorized to access.
+    1. The orchestration logic fetches grounding data from the appropriate tenant-specific data store instance, potentially applying security filtering rules to return only the data the user is authorized to access.
     2. The orchestration logic fetches the appropriate tenant's grounding data from the multitenant data store, potentially applying security filtering rules to return only the data the user is authorized to access.
     3. The orchestration logic fetches data from a data store that is shared across tenants.
 1. *See Single tenant RAG architecture with orchestrator workflow*
@@ -79,7 +79,7 @@ There are two main [architectural approaches for storage and data in multitenant
 
 #### Store-per-tenant
 
-In store-per-tenant, as the name suggests, each tenant has its own store. The advantages of this approach include both data and performance isolation. Each tenant's data is encapsulated in its own store and the isolated stores aren't be susceptible to the noisy neighbor problem of other tenants. This approach also simplifies cost allocation, as the entire cost of a store deployment can be attributed to a single tenant.
+In store-per-tenant, as the name suggests, each tenant has its own store. The advantages of this approach include both data and performance isolation. Each tenant's data is encapsulated in its own store. In most data services, the isolated stores aren't susceptible to the noisy neighbor problem of other tenants. This approach also simplifies cost allocation, as the entire cost of a store deployment can be attributed to a single tenant.
 
 The challenges of this approach potentially include higher management and operation overhead and higher cost. This approach shouldn't be considered when there are a large number of small tenants such as business to consumer scenarios.
 
@@ -89,11 +89,11 @@ In multitenant stores, multiple tenants data coexists in the same store. The adv
 
 The challenges of using shared stores include the need to ensure data isolation, data management, the potential for noisy neighbor challenges, and challenges allocating costs to tenants. Ensuring data isolation is the most important concern with this approach. You have the responsibility of implementing the security approach to ensure tenants are only able to access their data. Data management can also be a challenge if tenants have different data lifecycles that may require operations such as building indexes on different schedules.
 
-Some platforms have features that you can take advantage of when you're implementing tenant data isolation in shared stores. For example, Azure SQL and Postgres Flex support row-level security, while Cosmos DB has native support for partitioning and sharding. These platform features aren't commonly used in multitenant solutions because you have to design your solution around these features if you plan to use them in your multitenant store.
+Some platforms have features that you can take advantage of when you're implementing tenant data isolation in shared stores. For example, Azure Cosmos DB has native support for partitioning and sharding, and it's common to use a tenant identifier as a partition key to provide some level of isolation between tenants. Azure SQL and Postgres Flex support row-level security, although this feature isn't commonly used in multitenant solutions because you have to design your solution around these features if you plan to use them in your multitenant store.
 
 #### Shared stores
 
-Multitenant solutions often have data that is shared across tenants. Following on to the earlier healthcare example, there may be a database that stores general medical information or information that isn't tenant specific.
+Multitenant solutions often have data that is shared across tenants. In an example multitenant solution for the healthcare domain, there may be a database that stores general medical information or information that isn't tenant specific.
 
 ### Identity
 
