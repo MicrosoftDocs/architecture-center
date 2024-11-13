@@ -12,7 +12,7 @@ For the best user experience, Moodle requires consistent low-latency access to s
 
 In addition to the Moodle deployment, the architecture uses Azure NetApp Files cross-zone replication to replicate the data volumes to a secondary zone. [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) uses availability zones to provide high availability in a region and replication to a different zone in the same region. A capacity pool that uses the Standard service level can host the destination data volumes during normal operation.
 
-By using this approach, you don't need to start some components of the setup, like compute and ancillary services, during normal operation. As a result, you won't incur any operational cost for these components. You can also scale down the Virtual Machine Scale Sets to the minimum.
+By using this approach, you don't need to start some components of the setup, like compute and ancillary services, during normal operation. As a result, you won't incur any operational cost for these components. You can also scale down the virtual machine scale sets to the minimum.
 
 Only in a disaster recovery scenario should you start and scale up the necessary components to continue the service using the replicated data volumes. At this time, you can upgrade the service level of the destination Azure NetApp Files volumes to the Premium or Ultra service level if necessary.
 
