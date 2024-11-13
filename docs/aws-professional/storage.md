@@ -15,7 +15,7 @@ products:
 
 # Compare storage on Azure and AWS
 
-The audience for this guide is organizations or individuals who are migrating from AWS to Azure or adopting a multi-cloud strategy. The goal of this guide is to help AWS architects understand the storage capabilities of Azure by comparing Azure services to AWS serices.  
+The audience for this guide is organizations or individuals who are migrating from AWS to Azure or adopting a multicloud strategy. The goal of this guide is to help AWS architects understand the storage capabilities of Azure by comparing Azure services to AWS services.  
 
 ## S3/EBS/EFS and Azure Storage
 
@@ -40,7 +40,7 @@ Azure also provides other managed file systems, including Azure Managed Lustre, 
 
 ## Glacier and Azure Storage
 
-[Azure Archive Blob Storage](/azure/storage/blobs/access-tiers-overview#archive-access-tier) is comparable to AWS Glacier storage service. It is intended for rarely accessed data that is stored for at least 180 days and can tolerate several hours of retrieval latency.
+[Azure Archive Blob Storage](/azure/storage/blobs/access-tiers-overview#archive-access-tier) is comparable to AWS Glacier storage service. It's intended for rarely accessed data that is stored for at least 180 days and can tolerate several hours of retrieval latency.
 
 For data that is infrequently accessed but must be available immediately when accessed, [Azure Cool Blob Storage tier](/azure/storage/blobs/access-tiers-overview#cool-access-tier) provides cheaper storage than standard blob storage. This storage tier is comparable to AWS S3 - Infrequent Access storage service.
 
@@ -54,7 +54,7 @@ In Amazon S3, it's common to use [pre-signed URLs](https://docs.aws.amazon.com/A
 
 ## Regional redunandacy and replication for object storage
 
-Organizations often want to protect their storage objects by using rendudant copies. In both AWS and Azure, data is replicated in a particular region. On Azure, you control how data is replicated by using locally redundant storage (LRS) or zone-redundant storage (ZRS). If you use LRS, copies are stored in the same datacenter for cost or compliance reasons. ZRS is similar to AWS replication: it replicates data across availability zones within a region.
+Organizations often want to protect their storage objects by using redundant copies. In both AWS and Azure, data is replicated in a particular region. On Azure, you control how data is replicated by using locally redundant storage (LRS) or zone-redundant storage (ZRS). If you use LRS, copies are stored in the same datacenter for cost or compliance reasons. ZRS is similar to AWS replication: it replicates data across availability zones within a region.
 
 AWS customers often replicate their S3 buckets to another region by using cross-region replication. You can implement this type of replication in Azure by using Azure blob replication. Another options is to configure geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS). GRS and GZRS synchronously replicate data to a secondary region without requiring a replication configuration. The data isn't accessible unless a planned or unplanned failover occurs.
 
@@ -67,10 +67,10 @@ Both platforms provide different types of disks to meet particular performance n
 | gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments |
 | gp2/gp3 |  Premium SSD | Production and performance-sensitive workloads |
 | io1 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency |
-| io2 |  Ultra Disk | IO-intensive workloads, performance demanding databases, and very high transaction workloads that demand high throughput and IOPS |
-| st1/sc1 |  Standard HDD | Non-critical or infrequent access systems. |
+| io2 |  Ultra Disk | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS |
+| st1/sc1 |  Standard HDD | Non-critical or infrequent-access systems |
 
-On Azure, many VMs also have the option to be configured for host caching. When enabled, the cache storage is made available to the VM and be configured for read-only or read/write mode. For some workloads the cache can improve storage performance.
+On Azure, you can configure many VM types for host caching. When host caching is enabled, cache storage is made available to the VM and be configured for read-only or read/write mode. For some workloads, the cache can improve storage performance.
 
 ## Storage comparison
 
@@ -82,11 +82,12 @@ On Azure, many VMs also have the option to be configured for host caching. When 
 
 Principal author:
 
-- [Adam Cerini](https://www.linkedin.com/in/adamcerini)
+- [Adam Cerini](https://www.linkedin.com/in/adamcerini) |
+Director, Partner Technology Strategist
 
 Other contributor:
 
-- [Yuri Baijnath](https://www.linkedin.com/in/yuri-baijnath-za)
+- [Yuri Baijnath](https://www.linkedin.com/in/yuri-baijnath-za) | Senior CSA Manager 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
