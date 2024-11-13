@@ -23,9 +23,9 @@ On the AWS platform, cloud storage is typically deployed in three ways:
 
 - **Simple Storage Service (S3)**. Basic object storage that makes data available through an API.
 
-- **Elastic Block Store (EBS)**. Block level storage that's typically intended for access by a single virtual machine (VM). You can attach it to multiple volumes by using specific storage classes and file systems.
+- **Elastic Block Store (EBS)**. Block-level storage that's typically intended for access by a single virtual machine (VM). You can attach it to multiple volumes by using specific storage classes and file systems.
 
-- **Shared Storage**. AWS provides various shared storage services, like Elastic File System (EFS) and the FSx family of managed file systems.
+- **Shared storage**. Various shared storage services that AWS provides, like Elastic File System (EFS) and the FSx family of managed file systems.
 
 In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/storage-quickstart-create-account) allow you to create and manage the following storage services:
 
@@ -56,11 +56,11 @@ In Amazon S3, it's common to use [pre-signed URLs](https://docs.aws.amazon.com/A
 
 Organizations often want to protect their storage objects by using redundant copies. In both AWS and Azure, data is replicated in a particular region. On Azure, you control how data is replicated by using locally redundant storage (LRS) or zone-redundant storage (ZRS). If you use LRS, copies are stored in the same datacenter for cost or compliance reasons. ZRS is similar to AWS replication: it replicates data across availability zones within a region.
 
-AWS customers often replicate their S3 buckets to another region by using cross-region replication. You can implement this type of replication in Azure by using Azure blob replication. Another options is to configure geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS). GRS and GZRS synchronously replicate data to a secondary region without requiring a replication configuration. The data isn't accessible unless a planned or unplanned failover occurs.
+AWS customers often replicate their S3 buckets to another region by using cross-region replication. You can implement this type of replication in Azure by using Azure blob replication. Another option is to configure geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS). GRS and GZRS synchronously replicate data to a secondary region without requiring a replication configuration. The data isn't accessible unless a planned or unplanned failover occurs.
 
 ## Comparing block storage choices
 
-Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration. 
+Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher-performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration. 
 
 | AWS EBS volume type | Azure Managed disk | Use |
 | ----------- | ------------- | ----------- |
@@ -70,7 +70,7 @@ Both platforms provide different types of disks to meet particular performance n
 | io2 |  Ultra Disk | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS |
 | st1/sc1 |  Standard HDD | Non-critical or infrequent-access systems |
 
-On Azure, you can configure many VM types for host caching. When host caching is enabled, cache storage is made available to the VM and be configured for read-only or read/write mode. For some workloads, the cache can improve storage performance.
+On Azure, you can configure many VM types for host caching. When host caching is enabled, cache storage is made available to the VM and can be configured for read-only or read/write mode. For some workloads, the cache can improve storage performance.
 
 ## Storage comparison
 
@@ -94,7 +94,5 @@ Other contributor:
 ## See also
 
 - [Microsoft Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
-
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide)
-
 - [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.yml)
