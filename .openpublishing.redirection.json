@@ -4900,6 +4900,11 @@
         "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/iot/real-time-iot-updates-cloud-apps.yml",
+      "redirect_url": "/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi",
+      "redirect_document_id": false
+  },
+  {  
       "source_path": "docs/guide/hpc/hpc-deployments.md",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
@@ -5524,6 +5529,11 @@
       "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-rearchitect.yml",
       "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/cloud-to-device.yml",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-c2d-guidance",
+      "redirect_document_id": false  
     },
     {
       "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-overview.yml",

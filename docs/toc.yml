@@ -472,6 +472,8 @@ items:
         href: aws-professional/accounts.md
       - name: Compute
         href: aws-professional/compute.md
+      - name: Data and AI
+        href: aws-professional/data-ai.md
       - name: Databases
         href: aws-professional/databases.md
       - name: Messaging
@@ -1832,8 +1834,8 @@ items:
         items:
         - name: Devices, platform, and applications
           href: example-scenario/iot/devices-platform-application.yml
-        - name: Application-to-device commands
-          href: example-scenario/iot/cloud-to-device.yml
+        - name: Attestation, authentication, provisioning
+          href: example-scenario/iot/attestation-provisioning.yml
       - name: Computer vision with Azure IoT Edge
         items:
         - name: Overview
@@ -1852,8 +1854,6 @@ items:
           href: example-scenario/iot/analyze-optimize-loop.yml
         - name: Event routing
           href: example-scenario/iot/event-routing.yml
-        - name: Real-time IoT updates
-          href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
       - name: Migration to Azure IoT best practices
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
