@@ -95,8 +95,6 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files performance calculator](https://aka.ms/anfcalc). Use this calculator to find the optimal balance between capacity, performance, and cost.
 
-Azure NetApp Files also provides a [performance and TCO calculator](https://aka.ms/anfcalc), which you can use to find the most optimal balance between capacity, performance, and cost.
-
 ### Operational Excellence
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
