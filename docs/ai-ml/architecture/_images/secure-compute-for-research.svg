@@ -75,7 +75,7 @@
 		.st61 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
 		.st62 {marker-start:url(#mrkr4-403);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
 		.st63 {fill:#107c10;stroke:none;stroke-width:1.5}
-		.st64 {fill:#ffffff;font-family:Segoe UI;font-size:0.916672em}
+		.st64 {fill:#ffffff;font-family:Segoe UI;font-size:0.916672em;font-weight:bold}
 		.st65 {marker-end:url(#mrkr4-386);marker-start:url(#mrkr4-403);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
 		.st66 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
 		.st67 {fill:#ffc000;stroke:none;stroke-linecap:butt;stroke-width:6.375}
@@ -1472,7 +1472,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
 		<g id="shape1365-427" v:mID="1365" v:groupContext="shape" v:layerMember="2" transform="translate(251.069,-357.207)">
 			<title>Number.1365</title>
 			<desc>2</desc>
@@ -1487,7 +1487,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
 		<g id="shape1369-430" v:mID="1369" v:groupContext="shape" v:layerMember="2" transform="translate(273.6,-444.9)">
 			<title>Number.1369</title>
 			<desc>6</desc>
@@ -1502,7 +1502,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
 		<g id="shape1370-433" v:mID="1370" v:groupContext="shape" v:layerMember="2" transform="translate(223.839,-393.387)">
 			<title>Number.1370</title>
 			<desc>7</desc>
@@ -1517,7 +1517,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
 		<g id="shape1371-436" v:mID="1371" v:groupContext="shape" v:layerMember="2" transform="translate(214.125,-307.5)">
 			<title>Number.1371</title>
 			<desc>8</desc>
@@ -1532,7 +1532,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
 		<g id="shape1372-439" v:mID="1372" v:groupContext="shape" v:layerMember="1" transform="translate(240.333,-544.21)">
 			<title>Directed line 1.1372</title>
 			<v:userDefs>
@@ -1573,7 +1573,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
 		<g id="shape1375-459" v:mID="1375" v:groupContext="shape" v:layerMember="1"
 				transform="translate(904.403,260.069) rotate(90)">
 			<title>Directed line 1.1375</title>
@@ -1638,7 +1638,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
 		<g id="shape1380-487" v:mID="1380" v:groupContext="shape" transform="translate(387,-352.397)">
 			<title>Sheet.1380</title>
 			<desc>Managed identity</desc>
@@ -2030,7 +2030,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="578.15" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="577.979" rx="11.5215" ry="11.5215" class="st63"/>
-			<text x="8.44" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+			<text x="8.24" y="581.45" class="st64" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
 		<g id="group1408-632" transform="translate(519.91,-331.525)" v:mID="1408" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(55000):26"/>

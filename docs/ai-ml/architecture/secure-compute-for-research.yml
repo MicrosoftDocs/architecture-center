@@ -4,7 +4,7 @@ metadata:
   description: Learn how to design an architecture on Azure for a regulated environment that allows researchers to access sensitive data.
   author: moodaddy
   ms.author: clbarlow
-  ms.date: 11/12/2024
+  ms.date: 11/13/2024
   ms.topic: example-scenario
   ms.collection: ce-skilling-ai-copilot  
   ms.service: azure-architecture-center
