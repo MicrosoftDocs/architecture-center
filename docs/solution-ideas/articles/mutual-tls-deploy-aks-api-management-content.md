@@ -74,7 +74,7 @@ API Management enables enhanced-security access to backend services through mult
 
 - **[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview):** You can use Log Analytics to edit and run log queries with data in Azure Monitor logs. In this scenario, diagnostic logs from various services, such as Application Gateway, AKS, API Management, SQL Database, and Azure Cosmos DB, can be sent to a Log Analytics workspace. This allows the logs to be analyzed according to specific requirements.
 
-- **[Application Insights](/azure/azure-monitor/app/app-insights-overview):** Application Insights is an extension of Azure Monitor. It provides application performance monitoring. API Management and containers in AKS can be integrated to Application Insights to obtain and analyze application level traces.
+- **[Application Insights](/azure/azure-monitor/app/app-insights-overview):** Application Insights is an extension of Azure Monitor. It provides application performance monitoring. To obtain and analyze application-level traces, you can integrate API Management and AKS containers with Application Insights. 
 
 - **[Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel):** Microsoft Sentinel is a cloud-native security information and event manager platform (SIEM) that uses built-in AI to help you analyze large volumes of data. In this scenario, Microsoft Sentinel is used as the SIEM solution to enhance solution security.
 
