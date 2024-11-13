@@ -232,7 +232,6 @@ SynapseML also brings networking capabilities to the Spark ecosystem. With the H
 
 Principal authors:
 
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | chief executive officer (CEO) and Architect
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 
 ## Next steps
