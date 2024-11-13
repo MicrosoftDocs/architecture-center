@@ -81,7 +81,7 @@ There are two main [architectural approaches for storage and data in multitenant
 
 In store-per-tenant, as the name suggests, each tenant has its own store. The advantages of this approach include both data and performance isolation. Each tenant's data is encapsulated in its own store. In most data services, the isolated stores aren't susceptible to the noisy neighbor problem of other tenants. This approach also simplifies cost allocation, as the entire cost of a store deployment can be attributed to a single tenant.
 
-The challenges of this approach potentially include higher management and operation overhead and higher cost. This approach shouldn't be considered when there are a large number of small tenants such as business to consumer scenarios.
+The challenges of this approach potentially include higher management and operation overhead and higher cost. This approach shouldn't be considered when there are a large number of small tenants such as business to consumer scenarios. This approach could also run up against the [service limitations](/azure/search/search-limits-quotas-capacity).
 
 In the context of this AI scenario, a store-per-tenant would mean that the grounding data necessary to bring relevancy into the context would come from an existing or new data store that only contains grounding data for the tenant. In this topology, the database instance is the discriminator used per tenant.
 
