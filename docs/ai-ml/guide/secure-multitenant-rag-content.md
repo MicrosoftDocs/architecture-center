@@ -84,6 +84,7 @@ In store-per-tenant, as the name suggests, each tenant has its own store. The ad
 The challenges of this approach potentially include higher management and operation overhead and higher cost. This approach shouldn't be considered when there are a large number of small tenants such as business to consumer scenarios.
 
 In the context of this AI scenario, a store-per-tenant would mean that the grounding data necessary to bring relevancy into the context would come from an existing or new data store that only contains grounding data for the tenant. In this topology, the database instance is the discriminator used per tenant.
+
 #### Multitenant stores
 
 In multitenant stores, multiple tenants data coexists in the same store. The advantages of this approach include the potential for cost optimization, the ability to handle a higher number of tenants than the store-per-tenant model, and lower management overhead due to the lower number of store instances.
