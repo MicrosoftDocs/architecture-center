@@ -40,10 +40,10 @@ A variant of the single tenant RAG architecture takes advantage of [Azure OpenAI
 
 ### Workflow
 
-In this RAG architecture, the service providing the foundational model has the responsibility of fetching the appropriate proprietary tenant data from the data stores and using that data as grounding data to the foundational model. The following is a high-level workflow:
+In this RAG architecture, the service providing the foundational model has the responsibility of fetching the appropriate proprietary tenant data from the data stores and using that data as grounding data to the foundational model. The following is a high-level workflow (italicized steps are identical to the Single tenant RAG architecture with orchestrator workflow):
 
-1. *See Single tenant RAG architecture with orchestrator workflow*
-1. *See Single tenant RAG architecture with orchestrator workflow*
+1. *A user issues a request to the intelligent web application.*
+1. *An identity provider authenticates the requestor.*
 1. The intelligent application then calls the Azure OpenAI service with the user query.
 1. The Azure OpenAI service connects to supported data stores such as Azure AI Search and Azure Blob storage to fetch the grounding data. The grounding data is used as part of the context when the Azure OpenAI service calls the OpenAI language model. The results are returned to the intelligent application.
 
@@ -51,25 +51,25 @@ In order to consider this architecture in a multitenant solution, the service, s
 
 ## Multitenancy in RAG architecture
 
+In multitenant solutions, tenant data might exist in a tenant-specific store or coexist with other tenants in a multitenant store. There also might be data in a store that is shared across tenants. Only data that the user is authorized to see should be used as grounding data. The users should only see common (all tenant) data or data from their tenant with filtering rules applied to ensure they only see data they're authorized to see.
+
 :::image type="complex" source="./_images/multitenant-rag-multitenant-architecture.svg" lightbox="./_images/multitenant-rag-multitenant-architecture.svg" alt-text="Diagram showing a RAG architecture with a shared database, a multitenant database and two single tenant databases." border="false":::
    The diagram shows a user connecting to an intelligent application (1). The intelligent application then connects to an identity provider (2). The intelligent application then connects to an orchestrator (3). The orchestrator then connects to a single tenant database (4a), a multitenant database (4b), or the shared database (4c). The orchestrator then connects to foundational model (5).
 :::image-end:::
 *Figure 3: RAG architecture - with multiple data store tenants*
 
-In multitenant solutions, tenant data might exist in a tenant-specific store or coexist with other tenants in a multitenant store. There also might be data in a store that is shared across tenants. Only data that the user is authorized to see should be used as grounding data. The users should only see common (all tenant) data or data from their tenant with filtering rules applied to ensure they only see data they're authorized to see.
-
 ### Workflow
 
 This workflow is the same as in [Single tenant RAG architecture with orchestrator](#single-tenant-rag-architecture-with-orchestrator) except step 4.
 
-1. *See Single tenant RAG architecture with orchestrator workflow*
-1. *See Single tenant RAG architecture with orchestrator workflow*
-1. *See Single tenant RAG architecture with orchestrator workflow*
+1. *A user issues a request to the intelligent web application.*
+1. *An identity provider authenticates the requestor.*
+1. *The intelligent application calls the orchestrator API with the user query.*
 1. The orchestration logic extracts the user's query from the request and calls the appropriate data store(s) to fetch tenant-authorized, relevant grounding data for the query. The grounding data is added to the prompt that is sent to Azure OpenAI in the next step.
     1. The orchestration logic fetches grounding data from the appropriate tenant-specific data store instance, potentially applying security filtering rules to return only the data the user is authorized to access.
     2. The orchestration logic fetches the appropriate tenant's grounding data from the multitenant data store, potentially applying security filtering rules to return only the data the user is authorized to access.
     3. The orchestration logic fetches data from a data store that is shared across tenants.
-1. *See Single tenant RAG architecture with orchestrator workflow*
+1. *The orchestration logic connects to the foundational model's inferencing API and sends the prompt that includes the retrieved grounding data. The results are returned to the intelligent application.*
 
 ## Design considerations for multitenant data in RAG
 
@@ -115,7 +115,7 @@ In existing workloads that are being expanded to support this AI scenario, you m
 Once you define what a tenant is for your solution, you must then define your authorization requirements for data. While tenants will only access data from their tenant, your authorization requirements may be more granular. For example, in a healthcare solution you might have rules such as:
 
 - A patient can only access their own patient data
-- A doctor can access their patient's data
+- A healthcare professional can access their patients' data
 - A finance user can access only finance-related data
 - A clinical auditor can see all patients' data
 - All users can access base medical knowledge in a shared data store
