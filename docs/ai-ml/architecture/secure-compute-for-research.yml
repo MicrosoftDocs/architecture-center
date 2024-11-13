@@ -17,7 +17,7 @@ azureCategories:
   - ai-machine-learning
   - compute
   - security
-  products:
+products:
    - azure-data-science-vm
    - azure-machine-learning
    - azure-data-factory
