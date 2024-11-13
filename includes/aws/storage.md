@@ -60,4 +60,4 @@ ms.service: azure-architecture-center
 | [HPC log](/azure/architecture/solution-ideas/articles/azure-batch-rendering) | Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache. |
 | [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage) | Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. |
 
-[View Azure storage architectures](/azure/architecture/browse/&azure_categories=storage)
+[View Azure storage architectures](/azure/architecture/browse/azure_categories=storage)
