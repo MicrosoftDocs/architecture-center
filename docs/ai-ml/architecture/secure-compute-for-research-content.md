@@ -63,7 +63,7 @@ Here are the core components that move and process research data.
 
 These components continuously monitor the posture of the workload and its environment. Their purpose is to discover and mitigate risks as soon as they're discovered.
 
-- [**Microsoft Defender for Cloud**](/azure/defender-for-cloud/defender-for-cloud-introduction) is a service that you can use to evaluate the overall security posture of the implementation and provide an attestation mechanism for regulatory compliance. You can discover issues that you previously found during audits or assessments early. Use features to track progress such as the secure score and compliance score. These scores are important tools that help verify compliance.
+- [**Microsoft Defender for Cloud**](/azure/defender-for-cloud/defender-for-cloud-introduction) is a service that you can use to evaluate the overall security posture of the implementation and provide an attestation mechanism for regulatory compliance. You can discover issues early, instead of when you perform audits or assessments. Use features to track progress such as the secure score and compliance score. These scores are important tools that help verify compliance.
 
 - [**Microsoft Sentinel**](/azure/sentinel/overview) is a security information and event management solution and a security orchestration, automation, and response solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats. This capability provides valuable security insights to help ensure that traffic and any activities associated with the workspace meet your expectations.
 
