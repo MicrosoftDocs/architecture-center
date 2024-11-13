@@ -48,7 +48,7 @@ API Management enables enhanced-security access to backend services through mult
 
 ### Components
 
-- **[Application Gateway](https://azure.microsoft.com/products/application-gateway):** Application Gateway is a web traffic load balancer that you can use to manage traffic to web applications. In this scenario, Application Gateway is the Layer 7 WAF that performs SSL termination and content inspection.
+- **[Application Gateway](https://azure.microsoft.com/products/application-gateway):** Application Gateway is a web traffic load balancer that you can use to manage traffic to web applications. In this scenario, Application Gateway is the Layer 7 [Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-application-gateway) that performs SSL termination and content inspection.
 
 - **[AKS](https://azure.microsoft.com/services/kubernetes-service):** AKS provides fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications. In this scenario, the backend logic and microservices are deployed in AKS.
 
