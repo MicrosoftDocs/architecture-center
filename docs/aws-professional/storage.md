@@ -36,7 +36,7 @@ In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/st
 
 - [File storage](/azure/storage/files/storage-java-how-to-use-file-storage) provides shared storage for applications. It uses the standard Server Message Block (SMB) or Network File System (NFS) protocol. File storage is used in a way that's similar to how EFS or FSx for Windows File Server are used.
 
-Azure also provides other managed file systems, including Azure Managed Lustre, Azure NetApp Files, and Azure Native Qumulo. See [Storage comparison](#storage-comparison) for a more direct comparison.
+Azure also provides other managed file systems, including Azure Managed Lustre, Azure NetApp Files, and Azure Native Qumulo. See [Storage comparison](#storage-comparison) for a more detailed comparison.
 
 ## Glacier and Azure Storage
 
@@ -44,29 +44,29 @@ Azure also provides other managed file systems, including Azure Managed Lustre, 
 
 For data that is infrequently accessed but must be available immediately when accessed, [Azure Cool Blob Storage tier](/azure/storage/blobs/access-tiers-overview#cool-access-tier) provides cheaper storage than standard blob storage. This storage tier is comparable to AWS S3 - Infrequent Access storage service.
 
-## Object Storage Access Control
+## Object storage access control
 
-In AWS access to S3 is typically granted via either an IAM role or directly in the S3 Bucket Policy. Data plane network access is typically controlled using S3 Bucket policies.
+In AWS, access to S3 is typically granted via either an Identity and Access Management (IAM) role or directly in the S3 bucket policy. Data plane network access is typically controlled via S3 bucket policies.
 
-When using Azure blob storage there is a layered approach. Azure storage firewall is used to control data plane network access.
+With Azure Blob Storage, a layered approach is used. The Azure Storage firewall is used to control data plane network access.
 
-Using [pre-signed URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) to give time-bound permission limited access is a common technique when using Amazon S3. When using Azure Blob storage, you can achieve a similar result using a [shared access signature](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
+In Amazon S3, it's common to use [pre-signed URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) to give time-limited permission access. In Azure Blob storage, you can achieve a similar result by using a [shared access signature](/azure/storage/common/storage-sas-overview).
 
-## Object Storage Regional Redunandacy and Replication
+## Regional redunandacy and replication for object storage
 
-Customers often want to protect their storage objects with rendudant copies. In both AWS and Azure, data is replicated in a particular region. When using Azure, you control how data is replicated using Locally Redundant Storage (LRS) or Zone-redundant storage (ZRS). LRS keeps copies within the same DC for cost or compliance reasons, while ZRS is similar to AWS in that it replicates data across AZs within a region.
+Organizations often want to protect their storage objects by using rendudant copies. In both AWS and Azure, data is replicated in a particular region. On Azure, you control how data is replicated by using locally redundant storage (LRS) or zone-redundant storage (ZRS). If you use LRS, copies are stored in the same datacenter for cost or compliance reasons. ZRS is similar to AWS replication: it replicates data across availability zones within a region.
 
-AWS customers often replicate their S3 buckets to another region using cross-region replication. This is possible in Azure using Azure blob replication, another options is to configure Geo-redundant storage (GRS) or Geo-Zone-redundant storage (GZRS). GRS and GZRS will synchronously replicate data to a secondary region without requiring a replication configuration. The data is not accessible unless a planned or unplanned failover occurs.
+AWS customers often replicate their S3 buckets to another region by using cross-region replication. You can implement this type of replication in Azure by using Azure blob replication. Another options is to configure geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS). GRS and GZRS synchronously replicate data to a secondary region without requiring a replication configuration. The data isn't accessible unless a planned or unplanned failover occurs.
 
 ## Comparing block storage choices
 
-Both platforms have different types of disks to meet particular performance needs. While the performance characteristics are not an exact match, a generalized comparison is below. You should always perform testing to determine which storage configurations suit your application best. For higher performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration. 
+Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration. 
 
-| AWS EBS volume type | Azure Managed disk | Description |
+| AWS EBS volume type | Azure Managed disk | Use |
 | ----------- | ------------- | ----------- |
 | gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments |
-| gp2/gp3 |  Premium SSD | Production and performance sensitive workloads |
-| io1 |  Premium SSD v2 | Performance sensitive workloads or workloads that require high IOPS and low latency |
+| gp2/gp3 |  Premium SSD | Production and performance-sensitive workloads |
+| io1 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency |
 | io2 |  Ultra Disk | IO-intensive workloads, performance demanding databases, and very high transaction workloads that demand high throughput and IOPS |
 | st1/sc1 |  Standard HDD | Non-critical or infrequent access systems. |
 
