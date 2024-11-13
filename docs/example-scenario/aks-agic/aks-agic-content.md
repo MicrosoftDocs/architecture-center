@@ -152,7 +152,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Some of these considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution. These considerations include security, performance, availability, reliability, storage, scheduler, service mesh, and monitoring guidance.
 
-### Multitenancy  
+### Multitenancy
 
 - Design AKS clusters for multitenancy. Kubernetes provides features that you can use to logically isolate teams and workloads in the same cluster. Provide the least number of privileges to the resources that each team needs. A [namespace](/azure/aks/concepts-clusters-workloads#namespaces) in Kubernetes creates a logical isolation boundary.
 
@@ -161,7 +161,7 @@ Some of these considerations don't fully pertain to multitenancy in AKS, but the
   
    Use a combination of [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to control the deployment of pods to a specific node pool. Note that you can only taint a node in AKS at the time of node pool creation. Alternately, you  can use [labels and nodePool selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to deploy the workload to specific node pools only.
 
-### Reliability  
+### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
@@ -254,7 +254,7 @@ The security considerations don't fully pertain to multitenancy in AKS, but they
 
 - When you use base images for application images, use automation to build new images when the you update the base image. The base images typically include security fixes, so you must update any downstream application container images. For more information, see [Automate container image builds](/azure/container-registry/container-registry-tutorial-base-image-update).
 
-### Storage  
+### Storage
 
 The storage considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution:
 
@@ -264,7 +264,7 @@ The storage considerations don't fully pertain to multitenancy in AKS, but they'
 - Plan for your application demands so that you deploy the appropriate size of nodes. Each node size supports a maximum number of disks. Different node sizes also provide different amounts of local storage and network bandwidth.
 - Use dynamic provisioning. To reduce management overhead and enable scaling, don't statically create and assign persistent volumes. In your storage classes, define the appropriate reclaim policy to minimize unneeded storage costs after you delete pods.
 
-### Scheduler  
+### Scheduler
 
 Some of the scheduler considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution:
 
@@ -278,7 +278,7 @@ Some of the scheduler considerations don't fully pertain to multitenancy in AKS,
 - Use Kubernetes [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to place resource-intensive applications on specific nodes and to avoid noisy neighbor problems. Keep node resources available for workloads that require them. Don't allow other workloads to be scheduled on the nodes.
 - Use node selectors, node affinity, or inter-pod affinity to control the scheduling of pods on nodes. Use inter-pod [affinity and anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) settings to colocate pods that have chatty communications, to place pods on different nodes, and to avoid running multiple instances of the same pod kind on the same node.
 
-### Service mesh  
+### Service mesh
 
 The service mesh considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution:
 
@@ -313,7 +313,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Use Container Registry or another container registry service, like Docker Hub, to store the private Docker images that you deploy to the cluster. AKS can use its Microsoft Entra identity to authenticate with Container Registry.
 - If you need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as using supported annotations. After you link an application gateway to AGIC, the ingress controller syncs and controls nearly all configurations of that gateway. If you directly configure Application Gateway imperatively or through infrastructure as code, the ingress controller eventually overwrites those changes.
 
-#### Monitoring  
+#### Monitoring
 
 The monitoring considerations don't fully pertain to multitenancy in AKS, but they're essential requirements of this solution:
 

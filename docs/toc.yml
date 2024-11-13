@@ -1832,24 +1832,26 @@ items:
         items:
         - name: Devices, platform, and applications
           href: example-scenario/iot/devices-platform-application.yml
-        - name: Application-to-device commands
-          href: example-scenario/iot/cloud-to-device.yml
-      - name: Industrial IoT patterns
+        - name: Attestation, authentication, provisioning
+          href: example-scenario/iot/attestation-provisioning.yml
+      - name: Computer vision with Azure IoT Edge
         items:
-        - name: Visibility patterns
-          href: guide/iiot-patterns/iiot-visibility-patterns.yml
+        - name: Overview
+          href: guide/iot-edge-vision/index.md
+        - name: Camera selection
+          href: guide/iot-edge-vision/camera.md
+        - name: Hardware acceleration
+          href: guide/iot-edge-vision/hardware.md
+        - name: Image storage
+          href: guide/iot-edge-vision/image-storage.md
+        - name: User interface and scenarios
+          href: guide/iot-edge-vision/user-interface.md
       - name: IoT patterns
         items:
         - name: Analyze and optimize loop
           href: example-scenario/iot/analyze-optimize-loop.yml
         - name: Event routing
           href: example-scenario/iot/event-routing.yml
-        - name: Measure and control loop
-          href: example-scenario/iot/measure-control-loop.yml
-        - name: Real-time IoT updates
-          href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
-        - name: Scale solutions with deployment stamps
-          href: example-scenario/iot/application-stamps.yml
       - name: Migration to Azure IoT best practices
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
@@ -1868,8 +1870,8 @@ items:
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: IoT Edge railroad maintenance and safety
-        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
+      - name: IoT using Azure Cosmos DB
+        href: solution-ideas/articles/iot-using-cosmos-db.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
       - name: Automotive connected fleets
@@ -1890,12 +1892,10 @@ items:
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Light and power for emerging markets
         href: solution-ideas/articles/iot-power-management.yml
-      - name: Process real-time vehicle data using IoT
-        href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Voice assistants and IoT devices
-        href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
+      - name: Real-time asset tracking and management
+        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
   - name: Mainframe + Midrange
     items:
     - name: Get started
@@ -2326,8 +2326,6 @@ items:
       items:
       - name: Design review with mixed reality
         href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
-      - name: Facilities management with mixed reality
-        href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
       - name: Training powered by mixed reality
         href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
   - name: Mobile
@@ -3106,8 +3104,6 @@ items:
           items:
           - name: Design review
             href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
-          - name: Facilities management with mixed reality
-            href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
           - name: Training and procedural guidance
             href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
         - name: Real-time monitoring and observable systems for media
@@ -3142,8 +3138,6 @@ items:
         items:
         - name: All facilities and real estate architectures
           href: /azure/architecture/browse/?terms=facilities
-        - name: Facilities management with mixed reality
-          href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
         - name: Smart places with Azure Digital Twins

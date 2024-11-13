@@ -80,7 +80,7 @@ Microsoft Entra ID can use the following Conditional Access controls with Condit
 
 - [Azure role-based access control (RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
 
-- [Privileged Identity Management](/azure/active-directory/privileged-identity-management) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Microsoft Entra PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Microsoft Entra ID, and other Microsoft 365 services with [just-in-time (JIT) access and just enough administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
+- [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Microsoft Entra PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Microsoft Entra ID, and other Microsoft 365 services with [just-in-time (JIT) access and just enough administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
@@ -123,7 +123,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-#### Logging 
+#### Logging
 
 Microsoft Entra [audit reports](/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
 
