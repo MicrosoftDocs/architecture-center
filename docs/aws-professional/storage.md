@@ -1,9 +1,9 @@
 ---
-title: Compare storage services on Azure and AWS
+title: Compare Storage Services on Azure and AWS
 description: Review storage technology differences between Azure and AWS. Compare Azure Storage with S3, EBS, EFS, and Glacier.
 author: splitfinity-zz-zz
 ms.author: yubaijna, adamcerini
-ms.date: 9/23/2024
+ms.date: 11/13/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: cloud-fundamentals
@@ -15,17 +15,17 @@ products:
 
 # Compare storage on Azure and AWS
 
-The audience for this guide are organizations or individuals who are migrating from AWS to Azure or adopting a multi-cloud strategy. This guide aims to help AWS architects understand the storage capabilities of Azure by comparing to familiar services on AWS.  
+The audience for this guide is organizations or individuals who are migrating from AWS to Azure or adopting a multi-cloud strategy. The goal of this guide is to help AWS architects understand the storage capabilities of Azure by comparing Azure services to AWS serices.  
 
 ## S3/EBS/EFS and Azure Storage
 
-In the AWS platform, cloud storage is typically deployed in three ways:
+On the AWS platform, cloud storage is typically deployed in three ways:
 
-- **Simple Storage Service (S3)**: Basic object storage that makes data available through an API.
+- **Simple Storage Service (S3)**. Basic object storage that makes data available through an API.
 
-- **Elastic Block Storage (EBS)**: Block level storage typically intended for access by a single VM. It is possible to to attach to multiple volumes using specific storage classes and file systems.
+- **Elastic Block Store (EBS)**. Block level storage that's typically intended for access by a single virtual machine (VM). You can attach it to multiple volumes by using specific storage classes and file systems.
 
-- **Shared Storage**: AWS offers various shared storage services such as EFS and the FSX family of managed file systems.
+- **Shared Storage**. AWS provides various shared storage services, like Elastic File System (EFS) and the FSx family of managed file systems.
 
 In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/storage-quickstart-create-account) allow you to create and manage the following storage services:
 
@@ -34,9 +34,9 @@ In Azure Storage, subscription-bound [storage accounts](/azure/storage/common/st
 
 - [Queue storage](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) provides messaging for workflow processing and for communication between components of cloud services.
 
-- [File storage](/azure/storage/files/storage-java-how-to-use-file-storage) offers shared storage for applications using the standard Server Message Block (SMB) or Network File System (NFS)protocol. File storage is used in a similar manner to EFS or FSX for Windows File Server.
+- [File storage](/azure/storage/files/storage-java-how-to-use-file-storage) provides shared storage for applications. It uses the standard Server Message Block (SMB) or Network File System (NFS) protocol. File storage is used in a way that's similar to how EFS or FSx for Windows File Server are used.
 
-Azure also offers additional managed file systems including Azure Managed Lustre, Azure NetApp Files, and Azure Native Qumulo. See the [storage components](../../includes/aws/storage.md) page for a more direct compairon.
+Azure also provides other managed file systems, including Azure Managed Lustre, Azure NetApp Files, and Azure Native Qumulo. See [storage components](../../includes/aws/storage.md) for a more direct comparison.
 
 ## Glacier and Azure Storage
 
@@ -74,8 +74,8 @@ On Azure, many VMs also have the option to be configured for host caching. When 
 
 ## Storage comparison
 
-
 [!INCLUDE [Storage components](../../includes/aws/storage.md)]
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
