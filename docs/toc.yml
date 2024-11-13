@@ -1832,8 +1832,8 @@ items:
         items:
         - name: Devices, platform, and applications
           href: example-scenario/iot/devices-platform-application.yml
-        - name: Application-to-device commands
-          href: example-scenario/iot/cloud-to-device.yml
+        - name: Attestation, authentication, provisioning
+          href: example-scenario/iot/attestation-provisioning.yml
       - name: Computer vision with Azure IoT Edge
         items:
         - name: Overview
@@ -1850,12 +1850,8 @@ items:
         items:
         - name: Analyze and optimize loop
           href: example-scenario/iot/analyze-optimize-loop.yml
-        - name: Measure and control loop
-          href: example-scenario/iot/measure-control-loop.yml
-        - name: Real-time IoT updates
-          href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
-        - name: Scale solutions with deployment stamps
-          href: example-scenario/iot/application-stamps.yml
+        - name: Event routing
+          href: example-scenario/iot/event-routing.yml
       - name: Migration to Azure IoT best practices
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
@@ -1874,8 +1870,8 @@ items:
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: IoT Edge railroad maintenance and safety
-        href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
+      - name: IoT using Azure Cosmos DB
+        href: solution-ideas/articles/iot-using-cosmos-db.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
       - name: Automotive connected fleets
@@ -1898,8 +1894,8 @@ items:
         href: solution-ideas/articles/iot-power-management.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Voice assistants and IoT devices
-        href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
+      - name: Real-time asset tracking and management
+        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
   - name: Mainframe + Midrange
     items:
     - name: Get started
