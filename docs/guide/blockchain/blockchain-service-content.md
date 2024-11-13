@@ -58,7 +58,7 @@ Kaleido Blockchain as a Service has the following features:
 
 - **Enterprise-grade infrastructure**: Meet your most rigorous requirements. Kaleido is SOC 2 Type 2 compliant with built-in high availability (HA) and disaster recovery (DR), automatic failover, secure network isolation, service-level agreements (SLAs), and dedicated around-the-clock support.
 
-- **Integration options (Ethereum events)**: Get event-listening models for off-chain storage and integration with open-source tools, such as Ethlogger from Splunk.
+- **Integration options (Ethereum events)**: Get event-listening models for off-chain storage and integration with open-source tools.
 
 - **Integration options (infrastructure management)**: Get management APIs, support for monitoring and logging blockchain nodes, and integration with Azure services, such as Key Vault.
 
