@@ -65,7 +65,7 @@ This workflow is the same as in [Single tenant RAG architecture with orchestrato
 1. *A user issues a request to the intelligent web application.*
 1. *An identity provider authenticates the requestor.*
 1. *The intelligent application calls the orchestrator API with the user query.*
-1. The orchestration logic extracts the user's query from the request and calls the appropriate data store(s) to fetch tenant-authorized, relevant grounding data for the query. The grounding data is added to the prompt that is sent to Azure OpenAI in the next step.
+1. The orchestration logic extracts the user's query from the request and calls the appropriate data store(s) to fetch tenant-authorized, relevant grounding data for the query. The grounding data is added to the prompt that is sent to Azure OpenAI in the next step. Some or all of the following steps are involved:
     1. The orchestration logic fetches grounding data from the appropriate tenant-specific data store instance, potentially applying security filtering rules to return only the data the user is authorized to access.
     2. The orchestration logic fetches the appropriate tenant's grounding data from the multitenant data store, potentially applying security filtering rules to return only the data the user is authorized to access.
     3. The orchestration logic fetches data from a data store that is shared across tenants.
