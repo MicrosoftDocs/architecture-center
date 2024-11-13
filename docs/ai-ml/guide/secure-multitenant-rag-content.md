@@ -20,7 +20,7 @@ In this single tenant RAG architecture, an orchestrator has the responsibility o
 
 1. A user issues a request to the intelligent web application.
 2. An identity provider authenticates the requestor.
-3. The intelligent application calls the orchestrator API with the user query.
+3. The intelligent application calls the orchestrator API with the user query and the authorization token for the user.
 4. The orchestration logic extracts the user's query from the request and calls the appropriate data store to fetch relevant grounding data for the query. The grounding data is added to the prompt that is sent to the foundational model, for example a model exposed in Azure OpenAI, in the next step.
 5. The orchestration logic connects to the foundational model's inferencing API and sends the prompt that includes the retrieved grounding data. The results are returned to the intelligent application.
 
@@ -47,7 +47,7 @@ In this RAG architecture, the service providing the foundational model has the r
 1. The intelligent application then calls the Azure OpenAI service with the user query.
 1. The Azure OpenAI service connects to supported data stores such as Azure AI Search and Azure Blob storage to fetch the grounding data. The grounding data is used as part of the context when the Azure OpenAI service calls the OpenAI language model. The results are returned to the intelligent application.
 
-In order to consider this architecture in a multitenant solution, the service, such as Azure OpenAI, that is performing direct access must support the multitenant logic required by your solution.
+In order to consider this architecture in a multitenant solution, the service, such as Azure OpenAI, that is directly accessing the grounding data must support the multitenant logic required by your solution.
 
 ## Multitenancy in RAG architecture
 
@@ -64,7 +64,7 @@ This workflow is the same as in [Single tenant RAG architecture with orchestrato
 
 1. *A user issues a request to the intelligent web application.*
 1. *An identity provider authenticates the requestor.*
-1. *The intelligent application calls the orchestrator API with the user query.*
+1. *The intelligent application calls the orchestrator API with the user query and the authorization token for the user.*
 1. The orchestration logic extracts the user's query from the request and calls the appropriate data store(s) to fetch tenant-authorized, relevant grounding data for the query. The grounding data is added to the prompt that is sent to Azure OpenAI in the next step. Some or all of the following steps are involved:
     1. The orchestration logic fetches grounding data from the appropriate tenant-specific data store instance, potentially applying security filtering rules to return only the data the user is authorized to access.
     2. The orchestration logic fetches the appropriate tenant's grounding data from the multitenant data store, potentially applying security filtering rules to return only the data the user is authorized to access.
@@ -88,7 +88,7 @@ In the context of this AI scenario, a store-per-tenant would mean that the groun
 
 In multitenant stores, multiple tenants data coexists in the same store. The advantages of this approach include the potential for cost optimization, the ability to handle a higher number of tenants than the store-per-tenant model, and lower management overhead due to the lower number of store instances.
 
-The challenges of using shared stores include the need to ensure data isolation, data management, the potential for noisy neighbor challenges, and challenges allocating costs to tenants. Ensuring data isolation is the most important concern with this approach. You have the responsibility of implementing the security approach to ensure tenants are only able to access their data. Data management can also be a challenge if tenants have different data lifecycles that may require operations such as building indexes on different schedules.
+The challenges of using shared stores include the need to ensure data isolation, data management, the potential for [noisy neighbor antipattern](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), and difficulty allocating costs to tenants. Ensuring data isolation is the most important concern with this approach. You have the responsibility of implementing the security approach to ensure tenants are only able to access their data. Data management can also be a challenge if tenants have different data lifecycles that may require operations such as building indexes on different schedules.
 
 Some platforms have features that you can take advantage of when you're implementing tenant data isolation in shared stores. For example, Azure Cosmos DB has native support for partitioning and sharding, and it's common to use a tenant identifier as a partition key to provide some level of isolation between tenants. Azure SQL and Postgres Flex support row-level security, although this feature isn't commonly used in multitenant solutions because you have to design your solution around these features if you plan to use them in your multitenant store.
 
@@ -151,6 +151,7 @@ This layer should have the following responsibilities:
 - Select only data from the user's tenant in multitenant stores
 - Use the appropriate identity for a user to support platform-enabled authorization logic
 - Enforce custom security trimming logic
+- Store access logs of grounding information for audit purposes
 
 Code that needs to access tenant data shouldn't be able to query the backend stores directly. All requests for data should flow through this API layer. This API layer provides a single point of governance or security layer over top of your tenant data. This approach keeps the tenant and user data access authorization logic from bleeding into different areas of the application. This logic is encapsulated in the API layer. This encapsulation makes the solution easier to validate and test.
 
@@ -163,7 +164,7 @@ When designing a multitenant RAG inferencing solution, you must take into accoun
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 - [John Downs](https://linkedin.com/in/john-downs) | Principal Software Engineer
-- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](https://linkedin.com/in/dscottraynsford) | Sr. Partner Solution Architect, Data & AI
 
 ## Next steps
 
