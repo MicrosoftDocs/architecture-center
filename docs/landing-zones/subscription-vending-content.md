@@ -54,7 +54,7 @@ The notification and data from the data collection tool should trigger the platf
     "subscriptionBillingScope": {
       "value": "providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/123456"
     },
-  // Insert more parameters here
+    // Insert more parameters here
   }
 }
 ```
@@ -86,11 +86,11 @@ The last task of the subscription vending automation is to create and configure 
 
 | Task category | Pipeline task |
 | --- | --- |
-| Identity |• Create or update Microsoft Entra resources to represent subscription ownership.<br>• Configure privileged workload identities for workload team deployments.<br>
+| Identity |• Create or update Microsoft Entra resources to represent subscription ownership.<br>• Configure privileged workload identities for workload team deployments.|
 | Governance |• Place in management group hierarchy.<br>• Assign subscription owner.<br>• Configure subscription-level role-based access controls (RBACs) to configured security groups.<br>• Assign subscription-level Azure Policy.<br>• Configure the Microsoft Defender for Cloud enrollment.|
-| Networking |• Deploy virtual networks.<br>• Configure virtual network peering to platform resources (regional hub).<br>
-| Budgets |• Create budgets for the subscription owners by using the collected data.<br>|
-| Reporting |• Update external systems, such as IPAM, to commit to IP reservations.<br>• Update the data collection tool request with final subscription name and globally unique identifier (GUID).<br>• Notify the application team that the subscription is ready.<br>
+| Networking |• Deploy virtual networks.<br>• Configure virtual network peering to platform resources (regional hub).|
+| Budgets |• Create budgets for the subscription owners by using the collected data.|
+| Reporting |• Update external systems, such as IPAM, to commit to IP reservations.<br>• Update the data collection tool request with final subscription name and globally unique identifier (GUID).<br>• Notify the application team that the subscription is ready.|
 
 You need a commercial agreement to create a subscription programmatically. If you don't have a commercial agreement, you need to introduce a manual process to create the subscription but can still automate all other aspects of subscription configuration.
 
@@ -110,8 +110,8 @@ The subscription vending automation ends with subscription creation and configur
 **Manage subscription governance.** You should update the subscription as the governance requirements of the workload change. For example, you might need to move a subscription to a different management group. You should build automation for some of these routine operations. For more information, see:
 
 - [Moving management groups and subscription](/azure/governance/management-groups/overview#moving-management-groups-and-subscriptions)
-- [Keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
-- [Resource tagging](/azure/cloud-adoption-framework/govern/resource-consistency/tagging#enforce)
+- [Keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/ready/landing-zone/design-area/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initiatives-up-to-date)
+- [Resource tagging](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 - [Tailor the Azure landing zone architecture to meet requirements](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz)
 
 ## Next steps
