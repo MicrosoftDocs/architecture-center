@@ -17,11 +17,11 @@ This article contains architecture, code, and configuration guidance for impleme
 
 ## Architecture guidance
 
-The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few extra architectural components to implement. You need a message queue, container platform, decoupled service data store, and container registry. The following diatram illustrates the architecture.
+The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few extra architectural components to implement. You need a message queue, container platform, decoupled service data store, and container registry. The following diagram illustrates the architecture.
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
 
-For a higher service-level objective (SLO), you can add a second region to your web app architecture. A second region requires you to configure your load balancer to route traffic to the second region to support either an active-active or an active-passive configuration. Use a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them with enhanced security. The following diatram illustrates this architecture.
+For a higher service-level objective (SLO), you can add a second region to your web app architecture. A second region requires you to configure your load balancer to route traffic to the second region to support either an active-active or an active-passive configuration. Use a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them with enhanced security. The following diagram illustrates this architecture.
 
 [![Diagram showing the Modern Web App pattern architecture with a second region and hub-and-spoke network topology.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
 
@@ -303,13 +303,13 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications to r
 
 As applications become more service-oriented and their components are decoupled, monitoring the execution flow between services is crucial. The Modern Web App pattern uses Application Insights and Azure Monitor for visibility into application health and performance through OpenTelemetry APIs, which support distributed tracing.
 
-Distributed tracing tracks a user request as it traverses multiple services. When a request is received, it's tagged with a trace identifier, which is passed to other components via HTTP headers, and Service Bus properties during dependencies invocation. Traces and logs then include both the trace identifier and an activity identifier (or span identifier), which corresponds to the specific component and its parent activity. Monitoring tools like Application Insights use it to display a tree of activities and logs across different services, crucial for monitoring distributed applications.
+Distributed tracing tracks a user request as it traverses multiple services. When a request is received, it's tagged with a trace identifier, which is passed to other components via HTTP headers, and Service Bus properties during dependencies invocation. Traces and logs then include both the trace identifier and an activity identifier (or span identifier), which corresponds to the specific component and its parent activity. Monitoring tools like Application Insights use this information to display a tree of activities and logs across different services, crucial for monitoring distributed applications.
 
-- *Install OpenTelemetry libraries.* Use instrumentation libraries to enable tracing and metrics from common components. Add custom instrumentation with `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` if necessary. Use exporter libraries to listen for OpenTelemetry diagnostics and record them in persistent stores. Utilize existing exporters or create your own with `System.Diagnostics.ActivityListener`.
+- *Install OpenTelemetry libraries.* Use instrumentation libraries to enable tracing and metrics from common components. Add custom instrumentation with `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` if necessary. Use exporter libraries to listen for OpenTelemetry diagnostics and record them in persistent stores. Use existing exporters or create your own by using `System.Diagnostics.ActivityListener`.
 
-- *Set up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Ensure it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include other OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
+- *Set up OpenTelemetry.* Use the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). Ensure that it exports diagnostics to Application Insights and includes built-in instrumentation for common metrics, traces, logs, and exceptions from the .NET runtime and ASP.NET Core. Include other OpenTelemetry instrumentation packages for SQL, Redis, and Azure SDK clients.
 
-- *Monitor and analyze.* After configuring, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included, allowing Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services effectively.
+- *Monitor and analyze.* After you configure tracing, ensure that logs, traces, metrics, and exceptions are captured and sent to Application Insights. Verify that trace, activity, and parent activity identifiers are included. These identifiers enable Application Insights to provide end-to-end trace visibility across HTTP and Service Bus boundaries. Use this setup to monitor and analyze your application's activities across services.
 
 The Modern Web App sample uses the Azure Monitor distribution of OpenTelemetry (`Azure.Monitor.OpenTelemetry.AspNetCore`). More instrumentation packages are used for SQL, Redis, and Azure SDK clients. OpenTelemetry is configured in the Modern Web App sample ticket-rendering service like this:
 
@@ -336,7 +336,7 @@ builder.Services.AddOpenTelemetry()
     }); 
 ```
 
-The `builder.Logging.AddOpenTelemetry` method routes all logging through OpenTelemetry, ensuring consistent tracing and logging across the application. By registering OpenTelemetry services with `builder.Services.AddOpenTelemetry`, the application is set up to collect and export diagnostics, which are then sent to Application Insights via `UseAzureMonitor`. Additionally, client instrumentation for components like Service Bus and HTTP clients is configured through `WithMetrics` and `WithTracing`, enabling automatic metrics and trace collection without requiring changes to the existing client usage, only an update to the configuration.
+The `builder.Logging.AddOpenTelemetry` method routes all logging through OpenTelemetry to ensure consistent tracing and logging across the application. Because OpenTelemetry services are registered with `builder.Services.AddOpenTelemetry`, the application is set up to collect and export diagnostics, which are then sent to Application Insights via `UseAzureMonitor`. Additionally, client instrumentation for components like Service Bus and HTTP clients is configured by `WithMetrics` and `WithTracing`, which enables automatic metrics and trace collection without requiring changes to the existing client usage. Only an update to the configuration is required.
 
 ## Configuration guidance
 
@@ -350,21 +350,21 @@ The following sections provide guidance on implementing the configuration update
 
 ### Configure authentication and authorization
 
-To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
+To configure authentication and authorization on any new Azure services (*workload identities*) that you add to the web app, follow these recommendations:
 
 - *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. They help you avoid putting sensitive information like connection strings in your code or configuration files.
 
-- *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don't give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
+- *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don't give it pull permissions. Review these permissions regularly and adjust them as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
 
 - *Adopt infrastructure as code (IaC).* Use Bicep or similar IaC tools to define and manage your cloud resources. IaC ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
 
 To configure authentication and authorization on users (*user identities*), follow these recommendations:
 
-- *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
+- *Grant least privilege to users.* As with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
 
 - *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
 
-The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment (`containerRegistryPushRoleId`), application owner (`containerRegistryPushRoleId`), and Container Apps application (`containerRegistryPullRoleId`) (*see the following code*).
+The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment (`containerRegistryPushRoleId`), application owner (`containerRegistryPushRoleId`), and Container Apps application (`containerRegistryPullRoleId`). The following example illustrates the code.
 
 ```bicep
 roleAssignments: \[
@@ -386,14 +386,14 @@ roleAssignments: \[
 \]
 ```
 
-The reference implementation assigns the managed identity as the new Container Apps identity at deployment (*see the following code*).
+The reference implementation assigns the managed identity as the new Container Apps identity at deployment:
 
 ```bicep
 module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' = {
   name: 'application-rendering-service-container-app'
   scope: resourceGroup()
   params: {
-    // Other parameters omitted for brevity
+    // Other parameters omitted for brevity.
     managedIdentities: {
       userAssignedResourceIds: [
         managedIdentity.id
@@ -407,14 +407,14 @@ module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' 
 
 The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
-- *Use stateless services.* Ensure your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
+- *Use stateless services.* Ensure that your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
 
-- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA), often provides granular control, allowing you to scale based on event metrics. [Container Apps](/azure/container-apps/scale-app) and AKS support KEDA. For services that don't support KEDA, such as [App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
+- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA), often provides granular control, allowing you to scale based on event metrics. [Container Apps](/azure/container-apps/scale-app) and AKS support KEDA. For services that don't support KEDA, such as [App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling that's based on metrics-based rules or HTTP traffic.
 
-- *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of one replica. A cold start is when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when configuring autoscaling.
+- *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of one replica. A *cold start* occurs when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when you configure autoscaling.
 
-- *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities triggered by temporary load spikes.
-- *Configure queue-based scaling.* If your application uses a message queue like Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every N messages in the queue (rounded up).
+- *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities that are triggered by temporary load spikes.
+- *Configure queue-based scaling.* If your application uses a message queue like Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every *N* messages in the queue (rounded up).
 
 For example, the reference implementation uses the [Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the container app based on the length of the queue. The `service-bus-queue-length-rule` scales the service based on the length of a specified Service Bus queue. The `messageCount` parameter is set to 10, so the scaler has one service replica for every 10 messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service. The `queue-connection-string` secret, which contains the connection string for the Service Bus queue, is retrieved from Azure Key Vault. This secret is used to authenticate the scaler to the Service Bus.
 
@@ -445,62 +445,65 @@ scaleMinReplicas: 0
 
 ### Containerize service deployment
 
-Containerization means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts. To containerize deployment, follow these recommendations:
+In a containerized deployment, all dependencies required by the app are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts. To containerize deployment, follow these recommendations:
 
-- *Identify domain boundaries.* Start by identifying the domain boundaries within your monolithic application. This helps determine which parts of the application you can extract into separate services.
+- *Identify domain boundaries.* Start by identifying the domain boundaries in your monolithic application. Doing so helps you determine which parts of the application you can extract into separate services.
 
-- *Create Docker images.* When creating Docker images for your .NET services, use [chiseled base images](https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/). These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
+- *Create Docker images.* When you create Docker images for your .NET services, use [chiseled base images](https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/). These images contain only the minimal set of packages that are needed for .NET to run, which minimizes both the package size and the attack surface area.
 
-- *Use multi-stage Dockerfiles.* Implement multi-stage Dockerfiles to separate build-time assets from the runtime container image. It helps to keep your production images small and secure.
+- *Use multi-stage Dockerfiles.* Implement multi-stage Dockerfiles to separate build-time assets from the runtime container image. Using this type of file helps to keep your production images small and secure.
 
-- *Run as a nonroot user.* Run your .NET containers as a nonroot user (via user name or UID, $APP_UID) to align with the principle of least privilege. It limits the potential effects of a compromised container.
+- *Run as a nonroot user.* Run your .NET containers as a nonroot user (via user name or UID $APP_UID) to align with the principle of least privilege. Doing so limits the potential effects of a compromised container.
 
-- *Listen on port 8080.* When running as a nonroot user, configure your application to listen on port 8080. It's a common convention for nonroot users.
+- *Listen on port 8080.* When you run containers as a nonroot user, configure your application to listen on port 8080. This is a common convention for nonroot users.
 
-- *Encapsulate dependencies.* Ensure that all dependencies for the app to function are encapsulated in the Docker container image. Encapsulation allows the app to be reliably deployed to a wide range of hosts.
+- *Encapsulate dependencies.* Ensure that all dependencies for the app are encapsulated in the Docker container image. Encapsulation allows you to reliably deploy the app to a wide range of hosts.
 
 - *Choose the right base images.* The base image you choose depends on your deployment environment. If you're deploying to Container Apps, for instance, you need to use Linux Docker images.
 
-For example, the reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:8.0-jammy`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a nonroot user (`USER $APP_UID`) and exposes port 8080. The dependencies required for the application to operate are included within the Docker image, as evidenced by the commands to copy project files and restore packages. The use of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled`) ensures compatibility with Container Apps, which requires Linux containers for deployment.
+For example, the reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:8.0-jammy`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a nonroot user (`USER $APP_UID`) and exposes port 8080. The dependencies required for the application to operate are included in the Docker image, as evidenced by the commands to copy project files and restore packages. The use of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled`) ensures compatibility with Container Apps, which requires Linux containers for deployment.
 
 ```dockerfile
-# Build in a separate stage to avoid copying the SDK into the final image
+# Build in a separate stage to avoid copying the SDK into the final image.
 FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-# Restore packages
+# Restore packages.
 COPY ["Relecloud.TicketRenderer/Relecloud.TicketRenderer.csproj", "Relecloud.TicketRenderer/"]
 COPY ["Relecloud.Messaging/Relecloud.Messaging.csproj", "Relecloud.Messaging/"]
 COPY ["Relecloud.Models/Relecloud.Models.csproj", "Relecloud.Models/"]
 RUN dotnet restore "./Relecloud.TicketRenderer/Relecloud.TicketRenderer.csproj"
 
-# Build and publish
+# Build and publish.
 COPY . .
 WORKDIR "/src/Relecloud.TicketRenderer"
 RUN dotnet publish "./Relecloud.TicketRenderer.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Chiseled images contain only the minimal set of packages needed for .NET 8.0
+# Chiseled images contain only the minimal set of packages needed for .NET 8.0.
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled AS final
 WORKDIR /app
 EXPOSE 8080
 
-# Copy the published app from the build stage
+# Copy the published app from the build stage.
 COPY --from=build /app/publish .
 
-# Run as non-root user
+# Run as non-root user.
 USER $APP_UID
 ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 ```
 
 ## Deploy the reference implementation
 
-Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
+Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy the implementation, you can simulate and observe design patterns. 
 
-[![Diagram showing architecture of the reference implementation.](../../../_images/modern-web-app-dotnet.svg)](../../../_images/modern-web-app-dotnet.svg)
-*Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-architecture-dotnet.vsdx) of this architecture.*
+The following diagram shows the architecture of the reference implementation:
+
+[![Diagram showing the architecture of the reference implementation.](../../../_images/modern-web-app-dotnet.svg)](../../../_images/modern-web-app-dotnet.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/modern-web-app-architecture-dotnet.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
->[Modern Web App pattern for .NET reference implementation][reference-implementation]
+>[Reference implementation: Modern Web App pattern for .NET][reference-implementation]
 
 [reference-implementation]: https://github.com/Azure/modern-web-app-pattern-dotnet
