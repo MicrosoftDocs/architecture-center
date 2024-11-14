@@ -20,7 +20,12 @@ categories:
 
 # Artificial intelligence (AI) architecture design
 
-*Artificial intelligence (AI)* is a technology that allows machines to imitate intelligent human behavior. With AI, machines can analyze data to create images and videos; they can analyze and synthesize speech, as well as verbally interact in natural ways, make predictions, and generate new data.
+*Artificial intelligence (AI)* is a technology that allows machines to imitate intelligent human behavior. With AI, machines can:
+
+- Analyze data to create images and videos.
+- Analyze and synthesize speech.
+- Verbally interact in natural ways.
+- Make predictions and generate new data.
 
 
 
@@ -54,16 +59,22 @@ The predictive models are validated against known data, measured by performance 
 
 *Generative AI* is a form of artificial intelligence in which models are trained to generate new original content based on natural language input. With generative AI, you can describe a desired output in normal everyday language, and the model can respond by creating appropriate text, image, code, and more. Some examples of generative AI applications are:
 
-- [Microsoft Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that can assist users in writing code, documents, and other text-based content. It is based on OpenAI's GPT-3 model and is integrated into a wide range of Microsoft applications and user experiences.
+- [Microsoft Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that can assist users in writing code, documents, and other text-based content. It's based on OpenAI's GPT-3 model and is integrated into a wide range of Microsoft applications and user experiences.
 
-- [Azure OpenAI](/azure/ai-services/openai/overview) is a development platform as a service that provides access to OpenAI's powerful language models including o1-preview, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. 
+- [Azure OpenAI](/azure/ai-services/openai/overview) is a development platform as a service that provides access to OpenAI's powerful language models such as o1-preview, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task such as:
+
+    - Content generation 
+    - Content summarization
+    - Image understanding 
+    - Semantic search 
+    - Natural language to code translation. 
 
 
 ### Language models
 
 *Language models* are powerful machine learning models used for natural language processing (NLP) tasks, such as text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
 
-Conventional language models have been used in supervised settings for research purposes where the models are trained on well-labeled text datasets for specific tasks. Pre-trained language models offer an accessible way to get started with AI and have become more widely used in recent years. These models are trained on large-scale text corpora from the internet using deep learning neural networks and can be fine-tuned on smaller datasets for specific tasks.
+Conventional language models hare used in supervised settings for research purposes where the models are trained on well-labeled text datasets for specific tasks. Pretrained language models offer an accessible way to get started with AI and have become more widely used in recent years. These models are trained on large-scale text corpora from the internet using deep learning neural networks and can be fine-tuned on smaller datasets for specific tasks.
 
 The size of a language model is determined by its number of parameters, or weights, that determine how the model processes input data and generates output. Parameters are learned during the training process by adjusting the weights within layers of the model to minimize the difference between the model's predictions and the actual data. The more parameters a model has, the more complex and expressive it is, but also the more computationally expensive it is to train and use.
 
@@ -73,11 +84,11 @@ In general, small language models have fewer than 10 billion parameters, and lar
 
 ### Copilots
 
-The availability of language models has led to the emergence of new ways to interact with applications and systems through digital copilots. Copilots are generative AI assistants that are integrated into applications often as chat interfaces. They provide contextualized support for common tasks in those applications.
+The availability of language models led to the emergence of new ways to interact with applications and systems through digital copilots. Copilots are generative AI assistants that are integrated into applications often as chat interfaces. They provide contextualized support for common tasks in those applications.
 
 [Microsoft Copilot](https://m365.cloud.microsoft/chat/) is integrated into a wide range of Microsoft applications and user experiences. It's based on an open architecture that enables third-party developers to create their own plug-ins to extend or customize the user experience with Microsoft Copilot. Additionally, third-party developers can create their own copilots using the same open architecture.
 
-- [Adopt, extend and build Copilot experiences across the Microsoft Cloud](/microsoft-cloud/dev/copilot/overview).
+- [Adopt, extend, and build Copilot experiences across the Microsoft Cloud](/microsoft-cloud/dev/copilot/overview).
 
 - [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 
@@ -86,7 +97,7 @@ The availability of language models has led to the emergence of new ways to inte
 
 ### Retrieval Augmented Generation (RAG) 
 
-*Retrieval Augmented Generation (RAG)* is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides grounding data. Adding an information retrieval system gives you control over grounding data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture means that you can constrain generative AI to your enterprise content sourced from vectorized documents and images, and other data formats if you have embedding models for that content.
+*Retrieval Augmented Generation (RAG)* is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides grounding data. Adding an information retrieval system gives you control over grounding data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture lets you can constrain generative AI to enterprise content thats sourced from vectorized documents, images, and other data formats.
 
 - [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
 
@@ -111,7 +122,7 @@ With [Azure AI services](https://azure.microsoft.com/services/ai-services/) deve
 
 ## AI Language models
 
-- *Large Language Models (LLMs)*, such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
+- *Large Language Models (LLMs)*, such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they aren't perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
 
 - [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
 
@@ -167,9 +178,9 @@ Quickly build ML models at scale using the AutoML capability in Azure Machine Le
 
 - [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, LLMs, playground, and resources to help you build, train, and deploy AI models.
 
-- [Azure Copilot Studio](/microsoft-copilot-studio/)is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for interna and external scenarios. With Copilot Studio, makers can design, test, and publish copilots using the comprehensive authoring canvas. Makers can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
+- [Azure Copilot Studio](/microsoft-copilot-studio/)is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for internal and external scenarios. With Copilot Studio, makers can design, test, and publish copilots using the comprehensive authoring canvas. Makers can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
 
-- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It makes prompt engineering much easier and enables you to build LLM apps with production quality.
+- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It makes prompt engineering easier and enables you to build LLM apps with production quality.
 
 
 ## Data platforms for AI
@@ -223,7 +234,7 @@ With a Microsoft Fabric AI skill, you can configure a generative AI system to ge
 
 ### Apache Spark-based data platforms for AI
 
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is much faster than disk-based applications, such as Hadoop.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly, which is faster than disk-based applications, such as Hadoop.
 
 
 #### Apache Spark in Azure Fabric
@@ -289,7 +300,7 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 
 ### Microsoft Fabric OneLake
 
-OneLake is a single, unified, logical data lake for your whole organization. A data Lake processes large volumes of data from various sources. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. OneLake offers one data lake for the entire organization, as well as a copy of data for use with multiple analytical engines.
+OneLake is a single, unified, logical data lake for your whole organization. A data Lake processes large volumes of data from various sources. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. OneLake offers one data lake for the entire organization, and  a copy of data for use with multiple analytical engines.
 
 - [OneLake, the OneDrive for data](/fabric/onelake/onelake-overview)
 
@@ -311,7 +322,7 @@ Azure Data Lake Storage converges the capabilities of [Azure Data Lake Storage G
 
 ### Microsoft Fabric Data Factory
 
-With Data Factory, you can ingest, prepare and transform data from multiple data sources (for example, databases, data warehouse, Lakehouse, real-time data, and more). 
+With Data Factory, you can ingest, prepare, and transform data from multiple data sources (for example, databases, data warehouse, Lakehouse, real-time data, and more). 
 
 Data Factory supports both code and no/low code solutions:
 
@@ -329,7 +340,7 @@ Also see:
 
 With Databricks Data Intelligence Platform, you can write code to create a machine learning workflow using *feature engineering*:
 
-- Data pipelines ingest raw data, create feature tables, train models, and perform batch inference. When you train and log a model using feature engineering in Unity Catalog, the model is packaged with feature metadata. When you use the model for batch scoring or online inference, it automatically retrieves feature values. The caller does not need to know about them or include logic to look up or join features to score new data.
+- Data pipelines ingest raw data, create feature tables, train models, and perform batch inference. When you train and log a model using feature engineering in Unity Catalog, the model is packaged with feature metadata. When you use the model for batch scoring or online inference, it automatically retrieves feature values. The caller doesn't need to know about them or include logic to look up or join features to score new data.
 - Model and feature serving endpoints are available with a single click and provide milliseconds of latency.
 - Data and model monitoring.
 
@@ -342,7 +353,7 @@ You can also use [Mosaic AI Vector Search], which is optimized for storing and r
 
 ## Data connectors for AI
 
-Azure Data Factory and Azure Synapse Analytics pipelines support a number of data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. To see the available data store connectors, the supported capabilities and the corresponding configurations, as well as generic ODBC connection options, see [Azure Data Factory and Azure Synapse Analytics connector overview](/azure/data-factory/connector-overview).
+Azure Data Factory and Azure Synapse Analytics pipelines support many data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. To see the available data store connectors, the supported capabilities and the corresponding configurations, and generic ODBC connection options, see [Azure Data Factory and Azure Synapse Analytics connector overview](/azure/data-factory/connector-overview).
 
 
 ## Custom AI
@@ -359,7 +370,7 @@ Azure Machine Learning offer the following capabilities:
 
     [How to select algorithms for Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms)
 
-- **Hyperparameter tuning or optimization** is the process of finding the configuration of hyperparameters that results in the best performance. The process is typically computationally expensive and manual. *Hyperparameters* are adjustable parameters that let you control the model training process. For example, with neural networks, you decide the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
+- **Hyperparameter tuning or optimization** is the process of finding the configuration of hyperparameters that results in the best performance. The process is computationally expensive and manual. *Hyperparameters* are adjustable parameters that let you control the model training process. For example, with neural networks, you decide the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
 
     Azure Machine Learning lets you automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
     
@@ -368,7 +379,7 @@ Azure Machine Learning offer the following capabilities:
     - [Learning Path: Perform hyperparameter tuning with Azure Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
 
 
-- **Model training.** With Azure Machine Learning, you can iteratively use an algorithm to create or "teach" models. Once trained, these models can then be used to analyze data from which which predictions can be made. During the training phase, a quality set of known data is tagged so that individual fields are identifiable. The tagged data is fed to an algorithm configured to make a particular prediction. When finished, the algorithm outputs a model that describes the patterns it found as a set of parameters. During validation, fresh data is tagged and used to test the model. The algorithm is adjusted as needed and possibly put through more training. Finally, the testing phase uses real-world data without any tags or preselected targets. Assuming the model's results are accurate, it is considered ready for use and can be deployed.
+- **Model training.** With Azure Machine Learning, you can iteratively use an algorithm to create or "teach" models. Once trained, these models can then be used to analyze data from which predictions can be made. During the training phase, a quality set of known data is tagged so that individual fields are identifiable. The tagged data is fed to an algorithm configured to make a particular prediction. When finished, the algorithm outputs a model that describes the patterns it found as a set of parameters. During validation, fresh data is tagged and used to test the model. The algorithm is adjusted as needed and possibly put through more training. Finally, the testing phase uses real-world data without any tags or preselected targets. Assuming the model's results are accurate, It's considered ready for use and can be deployed.
     
     - [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
     - [Tutorial: Train a model in Azure Machine Learning](/azure/machine-learning/tutorial-train-model)
@@ -414,7 +425,7 @@ For more information, see:
 
 [Custom speech](/azure/ai-services/speech-service/custom-speech-overview) is a feature of the Azure AI Speech service. With custom speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription.
 
-Out of the box, speech recognition utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pre-trained with dialects and phonetics representing various common domains. When you make a speech recognition request, the most recent base model for each supported language is used by default. The base model works well in most speech recognition scenarios.
+Out of the box, speech recognition utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. When you make a speech recognition request, the most recent base model for each supported language is used by default. The base model works well in most speech recognition scenarios.
 
 A custom model can be used to augment the base model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions.
 
@@ -441,18 +452,18 @@ Custom Translator offers the following features:
 
 #### Document Intelligence custom models
 
-[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
+[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, prebuilt/pretrained, or your trained standalone custom models.
 
 [Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) now include [custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business. Standalone custom extraction models can be combined to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
 
 
 ### Custom AI tools
 
-Although prebuilt AI models are useful (and increasingly flexible), the best way to get what you need from AI is to build a model that's tailored to your specific needs. There are two primary tools for creating custom AI models: Generative AI and traditional machine learning:
+Although prebuilt AI models are useful and increasingly flexible, the best way to get what you need from AI is to build a model that's tailored to your specific needs. There are two primary tools for creating custom AI models: Generative AI and traditional machine learning:
 
-#### Azure Machine Learning Studio
+#### Azure Machine Learning studio
 
-[Azure Machine Learning Studio](https://ml.azure.com/home) Azure Machine Learning is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).:
+[Azure Machine Learning studio](https://ml.azure.com/home) Azure Machine Learning is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).:
 
 - Build and train Azure Machine Learning model with any type of compute including Spark and GPUs for cloud-scale large AI workloads.
 - Run automated Azure Machine Learning (AutoML) and drag-and-drop UI for low-code Azure Machine Learning.
@@ -533,17 +544,17 @@ Microsoft has fully embraced the R programming language and provides many differ
 
 - [Azure Machine Learning Python SDK notebooks](https://github.com/Azure/MachineLearningNotebooks). A GitHub repo of example notebooks demonstrating the Azure Machine Learning Python SDK.
 
-- [Train R models using the Azure ML CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
+- [Train R models using the Azure Machine Learning CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
 
 
 ## Customer stories
 
-Different industries are applying AI in innovative and inspiring ways. Following are a number of customer case studies and success stories:
+Different industries are applying AI in innovative and inspiring ways. Following are a few customer case studies and success stories:
 
 
 - [Volkswagen: Machine translation speaks Volkswagen – in 40 languages](https://customers.microsoft.com/story/779468-volkswagen-azure-automotive-en)
-- [Healthcare for All with Kry using Azure Open AI Service](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
+- [Healthcare for All with Kry using Azure Open AI](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://customers.microsoft.com/story/1834023197365666109-pimco-azure-ai-search-banking-and-capital-markets-en-united-states)
 - [Legrand and Azure OpenAI Service: Powering smarter solutions with AI-driven tools](https://customers.microsoft.com/story/1833247205652391288-legrand-cloud-for-manufacturing-discrete-manufacturing-en-france)
 - [C.H. Robinson overcomes decades-old barriers to automate the logistics industry using Azure AI](https://customers.microsoft.com/story/1833509185850734713-chrobinson-azure-ai-studio-other-en-united-states)
