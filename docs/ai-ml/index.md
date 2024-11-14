@@ -423,7 +423,7 @@ You can also train a model with structured text when the data follows a pattern,
 
 #### Custom Translator
 
-[Custom Translator](/azure/ai-services/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. With Custom Translator, enterprises, app developers, and language service providers can build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
+[Custom Translator](/azure/ai-services/translator/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. With Custom Translator, enterprises, app developers, and language service providers can build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 
 The platform enables users to build and publish custom translation systems to and from English. Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, see [Translator language support](/azure/ai-services/translator/language-support).
 
@@ -556,9 +556,9 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 - [Microsoft AI](https://www.microsoft.com/ai/)
 
-- [AI learning hub](https://learn.microsoft.com/ai/).
+- [AI learning hub](/ai/).
 
-- [Azure AI](https://azure.microsoft.com/en-us/solutions/ai/)
+- [Azure AI](https://azure.microsoft.com/solutions/ai/)
 
 - [Microsoft AI News](https://news.microsoft.com/source/topics/ai/)
 
@@ -570,7 +570,7 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 - To learn about the artificial intelligence development products available from Microsoft, go to [Microsoft AI](https://www.microsoft.com/ai).
 
-- For training in how to develop AI solutions, go to [AI learning hub](https://learn.microsoft.com/ai/).
+- For training in how to develop AI solutions, go to [AI learning hub](/ai/).
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI) organizes the Microsoft open source AI-based repositories, providing tutorials and learning materials.
 
