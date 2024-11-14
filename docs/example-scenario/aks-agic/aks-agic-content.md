@@ -4,9 +4,9 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/aks-agic.png" alt-text="Diagram that shows the AGIC solution." lightbox="./media/aks-agic.png":::
+:::image type="content" border="false" source="./media/aks-agic.svg" alt-text="Diagram that shows the AGIC solution." lightbox="./media/aks-agic.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic-multitenant.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -134,9 +134,7 @@ When you plan to build a multitenant AKS cluster, you should consider the layers
 
 Kubernetes can't guarantee perfectly secure isolation between tenants, but it does offer features that provide sufficient security for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their own namespaces. You can then use [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. For example, the following diagram shows the typical SaaS provider model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application is in a separate namespace. When tenants need a higher level of physical isolation and guaranteed performance, their workloads can be deployed to a dedicated set of nodes, dedicated pool, or even a dedicated cluster.
 
-:::image type="content" border="false" source="./media/aks-agic-multi-tenancy.png" alt-text="Diagram that shows a multitenancy example." lightbox="./media/aks-agic-multi-tenancy.png":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
+:::image type="content" border="false" source="./media/aks-agic-multitenancy.svg" alt-text="Diagram that shows a multitenancy example." lightbox="./media/aks-agic-multitenancy.svg":::
 
 The [AGIC](/azure/application-gateway/ingress-controller-overview) is a Kubernetes application, so [AKS](/azure/aks/intro-kubernetes) customers can use an [application gateway](/azure/application-gateway/overview) to expose their containerized applications to the internet. The AGIC monitors the Kubernetes cluster that it's hosted on and continuously updates an application gateway so that the selected services are exposed to the internet. The AGIC runs in its own pod on the customer's AKS instance. The AGIC monitors a subset of Kubernetes resources for changes. The state of the AKS cluster is translated to Application Gateway-specific configuration and applied to [Resource Manager](/azure/azure-resource-manager/management/overview). This architecture describes proven practices to deploy a public or private [AKS cluster](/azure/aks/intro-kubernetes) via an [application gateway](/azure/application-gateway/overview) and an [AGIC](/azure/application-gateway/ingress-controller-overview) add-on.
 
@@ -336,9 +334,9 @@ The performance considerations don't fully pertain to multitenancy in  AKS, but 
 
 The source code for this scenario is available on [GitHub](https://github.com/Azure-Samples/aks-agic). The following diagram shows a demo application that you can find in the [AKS multitenant AGIC GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
 
-:::image type="content" border="false" source="./media/aks-agic-sample.png" alt-text="Diagram that shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.png":::
+:::image type="content" border="false" source="./media/aks-agic-sample.svg" alt-text="Diagram that shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic-multitenant.vsdx) of this architecture.*
 
 ### Prerequisites
 
