@@ -77,7 +77,7 @@ The availability of language models has led to the emergence of new ways to inte
 
 [Microsoft Copilot](https://m365.cloud.microsoft/chat/) is integrated into a wide range of Microsoft applications and user experiences. It's based on an open architecture that enables third-party developers to create their own plug-ins to extend or customize the user experience with Microsoft Copilot. Additionally, third-party developers can create their own copilots using the same open architecture.
 
-- [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/microsoft-cloud/dev/copilot/overview).
+- [Adopt, extend and build Copilot experiences across the Microsoft Cloud](/microsoft-cloud/dev/copilot/overview).
 
 - [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 
@@ -111,9 +111,9 @@ With [Azure AI services](https://azure.microsoft.com/services/ai-services/) deve
 
 ## AI Language models
 
-- *Large Language Models (LLMs)*, such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
+- *Large Language Models (LLMs)*, such as GPT-3, are powerful tools that can generate natural language across various domains and tasks. However, they are not perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
 
-- [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](https://learn.microsoft.com/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
+- [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
 
 
 
@@ -167,7 +167,7 @@ Quickly build ML models at scale using the AutoML capability in Azure Machine Le
 
 - [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, LLMs, playground, and resources to help you build, train, and deploy AI models.
 
-- [Azure Copilot Studio](https://learn.microsoft.com/microsoft-copilot-studio/)is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for interna and external scenarios. With Copilot Studio, makers can design, test, and publish copilots using the comprehensive authoring canvas. Makers can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
+- [Azure Copilot Studio](/microsoft-copilot-studio/)is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for interna and external scenarios. With Copilot Studio, makers can design, test, and publish copilots using the comprehensive authoring canvas. Makers can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
 
 - [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It makes prompt engineering much easier and enables you to build LLM apps with production quality.
 
@@ -321,7 +321,7 @@ Data Factory supports both code and no/low code solutions:
 
 
 Also see:
-- [Data Factory end-to-end scenario: introduction and architecture](fabric/data-factory/tutorial-end-to-end-introduction)
+- [Data Factory end-to-end scenario: introduction and architecture](/fabric/data-factory/tutorial-end-to-end-introduction)
 
 
 
@@ -363,7 +363,7 @@ Azure Machine Learning offer the following capabilities:
 
     Azure Machine Learning lets you automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
     
-    - [Hyperparameter tuning a model with Azure Machine Learning (v1)](/azure/machine-learning/how-to-tune-hyperparameters?view=azureml-api-1)
+    - [Hyperparameter tuning a model with Azure Machine Learning (v1)](/azure/machine-learning/how-to-tune-hyperparameters)
     - [Upgrade hyperparameter tuning to SDK v2](/azure/machine-learning/migrate-to-v2-execution-hyperdrive)
     - [Learning Path: Perform hyperparameter tuning with Azure Machine Learning](/training/modules/perform-hyperparameter-tuning-azure-machine-learning-pipelines/)
 
@@ -371,7 +371,7 @@ Azure Machine Learning offer the following capabilities:
 - **Model training.** With Azure Machine Learning, you can iteratively use an algorithm to create or "teach" models. Once trained, these models can then be used to analyze data from which which predictions can be made. During the training phase, a quality set of known data is tagged so that individual fields are identifiable. The tagged data is fed to an algorithm configured to make a particular prediction. When finished, the algorithm outputs a model that describes the patterns it found as a set of parameters. During validation, fresh data is tagged and used to test the model. The algorithm is adjusted as needed and possibly put through more training. Finally, the testing phase uses real-world data without any tags or preselected targets. Assuming the model's results are accurate, it is considered ready for use and can be deployed.
     
     - [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model)
-    - [Tutorial: Train a model in Azure Machine Learning](/azure/machine-learning/tutorial-train-model?view=azureml-api-2)
+    - [Tutorial: Train a model in Azure Machine Learning](/azure/machine-learning/tutorial-train-model)
     - [Deep learning and distributed training with Azure Machine Learning](/azure/machine-learning/concept-distributed-training)
 
 - **Automated machine learning (AutoML)** is the process of automating the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time it takes to get production-ready ML models. Automated ML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
@@ -423,9 +423,9 @@ You can also train a model with structured text when the data follows a pattern,
 
 #### Custom Translator
 
-[Custom Translator](/azure/ai-services/custom-translator/overview) is a feature of the [Azure AI Translator](../translator-overview.md) service. With Custom Translator, enterprises, app developers, and language service providers can build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
+[Custom Translator](/azure/ai-services/custom-translator/overview) is a feature of the [Azure AI Translator](/azure/ai-services/translator/translator-overview) service. With Custom Translator, enterprises, app developers, and language service providers can build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 
-The platform enables users to build and publish custom translation systems to and from English. Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](/azure/ai-services/custom-translator/language-support).
+The platform enables users to build and publish custom translation systems to and from English. Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, see [Translator language support](/azure/ai-services/translator/language-support).
 
 
 Custom Translator offers the following features:
@@ -433,10 +433,10 @@ Custom Translator offers the following features:
 |Feature  |Description  |
 |---------|---------|
 |[Apply neural machine translation technology](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Improve your translation by applying neural machine translation (NMT) provided by Custom translator.       |
-|[Build systems that knows your business terminology](/azure/ai-services/custom-translator/beginners-guide)     |  Customize and build translation systems using parallel documents that understand the terminologies used in your own business and industry.       |
-|[Use a dictionary to build your models](/azure/ai-services/custom-translator/how-to/train-custom-model#when-to-select-dictionary-only-training)     |   If you don't have training data set, you can train a model with only dictionary data.       |
-|[Collaborate with others](/azure/ai-services/custom-translator/how-to/create-manage-workspace#manage-workspace-settings)     |   Collaborate with your team by sharing your work with different people.     |
-|[Access your custom translation model](/azure/ai-services/custom-translator/how-to/translate-with-custom-model)     |  You can access your custom translation model anytime using your existing applications/ programs via Microsoft Translator Text API V3.       |
+|[Build systems that knows your business terminology](/azure/ai-services/translator/custom-translator/beginners-guide)     |  Customize and build translation systems using parallel documents that understand the terminologies used in your own business and industry.       |
+|[Use a dictionary to build your models](/azure/ai-services/translator/custom-translator/how-to/train-custom-model#when-to-select-dictionary-only-training)     |   If you don't have training data set, you can train a model with only dictionary data.       |
+|[Collaborate with others](/azure/ai-services/translator/custom-translator/how-to/create-manage-workspace#manage-workspace-settings)     |   Collaborate with your team by sharing your work with different people.     |
+|[Access your custom translation model](/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model)     |  You can access your custom translation model anytime using your existing applications/ programs via Microsoft Translator Text API V3.       |
 
 
 #### Document Intelligence custom models
