@@ -541,41 +541,26 @@ Microsoft has fully embraced the R programming language and provides many differ
 
 Different industries are applying AI in innovative and inspiring ways. Following are a number of customer case studies and success stories:
 
-- [ASOS: Online retailer solves challenges with Azure Machine Learning service](https://customers.microsoft.com/story/asos-retailers-azure)
-
-- [KPMG helps financial institutions save millions in compliance costs with Azure Cognitive Services](https://customers.microsoft.com/story/754840-kpmg-partner-professional-services-azure)
 
 - [Volkswagen: Machine translation speaks Volkswagen – in 40 languages](https://customers.microsoft.com/story/779468-volkswagen-azure-automotive-en)
+- [Healthcare for All with Kry using Azure Open AI Service](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
+- [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://customers.microsoft.com/story/1834023197365666109-pimco-azure-ai-search-banking-and-capital-markets-en-united-states)
+- [Legrand and Azure OpenAI Service: Powering smarter solutions with AI-driven tools](https://customers.microsoft.com/story/1833247205652391288-legrand-cloud-for-manufacturing-discrete-manufacturing-en-france)
+- [C.H. Robinson overcomes decades-old barriers to automate the logistics industry using Azure AI](https://customers.microsoft.com/story/1833509185850734713-chrobinson-azure-ai-studio-other-en-united-states)
 
-- [Buncee: NYC school empowers readers of all ages and abilities with Azure AI](https://customers.microsoft.com/story/778859-the-young-womens-leadership-school-of-astoria-education-azure)
-
-- [InterSystems: Data platform company boosts healthcare IT by generating critical information at unprecedented speed](https://customers.microsoft.com/story/778067-microsoft-startups-intersystems-professional-services-azure)
-
-- [Zencity: Data-driven startup uses funding to help local governments support better quality of life for residents](https://customers.microsoft.com/story/742112-microsoft-m12-zencity-partner-professional-services-azure)
-
-- [Bosch uses IoT innovation to drive traffic safety improvements by helping drivers avoid serious accidents](https://customers.microsoft.com/story/772105-microsoft-iot-ndrive-bosch-azure)
-
-- [Automation Anywhere: Robotic process automation platform developer enriches its software with Azure Cognitive Services](https://customers.microsoft.com/story/761416-automation-anywhere-partner-professional-services-azure)
-
-- [Wix deploys smart, scalable search across 150 million websites with Azure Cognitive Search](https://customers.microsoft.com/story/764974-wix-partner-professional-services-azure-cognitive-search)
-
-- [Asklepios Klinik Altona: Precision surgeries with Microsoft HoloLens 2 and 3D visualization](https://customers.microsoft.com/story/770897-asklepios-apoqlar-azure-hololens-cognitive-services-health-en)
-
-- [AXA Global P&C: Global insurance firm models complex natural disasters with cloud-based high-performance computing (HPC)](https://customers.microsoft.com/story/axa-global-p-and-c)
-
-[Browse more AI customer stories](https://customers.microsoft.com/search?sq=&ff=story_product_categories%26%3EArtificial%20Intelligence&p=0&so=story_publish_date%20desc)
+[Browse more AI customer stories](https://customers.microsoft.com/search?sq=AI&ff=&p=0&so=story_publish_date%20desc)
 
 ## General info on Microsoft AI
 
 Learn more about Microsoft AI, and keep up-to-date with related news:
 
-- [Microsoft AI School](https://aischool.microsoft.com/)
+- [Microsoft AI](https://www.microsoft.com/ai/)
 
-- [Azure AI platform page](https://azure.microsoft.com/overview/ai-platform/)
+- [AI learning hub](https://learn.microsoft.com/ai/).
 
-- [Microsoft AI platform page](https://www.microsoft.com/ai)
+- [Azure AI](https://azure.microsoft.com/en-us/solutions/ai/)
 
-- [Microsoft AI Blog](https://blogs.microsoft.com/ai/)
+- [Microsoft AI News](https://news.microsoft.com/source/topics/ai/)
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
 
@@ -583,9 +568,9 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 ## Next steps
 
-- To learn about the artificial intelligence development products available from Microsoft, refer to the [Microsoft AI platform](https://www.microsoft.com/ai) page.
+- To learn about the artificial intelligence development products available from Microsoft, go to [Microsoft AI](https://www.microsoft.com/ai).
 
-- For training in how to develop AI solutions, refer to [Microsoft AI School](https://aischool.microsoft.com/learning-paths).
+- For training in how to develop AI solutions, go to [AI learning hub](https://learn.microsoft.com/ai/).
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI) organizes the Microsoft open source AI-based repositories, providing tutorials and learning materials.
 
