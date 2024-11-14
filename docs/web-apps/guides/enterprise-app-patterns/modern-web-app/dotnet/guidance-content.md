@@ -17,15 +17,15 @@ This article contains architecture, code, and configuration guidance for impleme
 
 ## Architecture guidance
 
-The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few extra architectural components to implement. You need a message queue, container platform, decoupled service data store, and container registry. The following diagram illustrates the architecture.
+The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few extra architectural components to implement. You need a message queue, container platform, decoupled service data store, and container registry. The following diagram illustrates the baseline architecture.
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
 
-For a higher service-level objective (SLO), you can add a second region to your web app architecture. A second region requires you to configure your load balancer to route traffic to the second region to support either an active-active or an active-passive configuration. Use a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them with enhanced security. The following diagram illustrates this architecture.
+For a higher service-level objective (SLO), you can add a second region to your web app architecture. If you add a second region, you need to configure your load balancer to route traffic to that region to support either an active-active or an active-passive configuration. Use a hub-and-spoke network topology to centralize and share resources, such as a network firewall. Access the container repository through the hub virtual network. If you have virtual machines, add a bastion host to the hub virtual network to manage them with enhanced security. The following diagram illustrates this architecture.
 
 [![Diagram showing the Modern Web App pattern architecture with a second region and hub-and-spoke network topology.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
 
-### Decouple architecture
+### Decouple the architecture
 
 To implement the Modern Web App pattern, you need to decouple the existing web app architecture. Decoupling the architecture involves breaking down a monolithic application into smaller independent services, each responsible for a specific feature or functionality. This process entails evaluating the current web app, modifying the architecture, and finally, extracting the web app code to a container platform. The goal is to systematically identify and extract application services that benefit most from being decoupled. To decouple your architecture, follow these recommendations:
 
@@ -35,7 +35,7 @@ To implement the Modern Web App pattern, you need to decouple the existing web a
 
 - *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how data is managed and shared across services. Decoupled services should manage their own data and minimize direct database access across service boundaries.
 
-- *Deploy Azure services.* Select and deploy the Azure services you need in order to support the web app service you intend to extract. For guidance, see [Select the right Azure services](#select-the-right-azure-services).
+- *Deploy Azure services.* Select and deploy the Azure services you need to support the web app service you intend to extract. For guidance, see [Select the right Azure services](#select-the-right-azure-services).
 
 - *Decouple web app services.* Define clear interfaces and APIs to enable the newly extracted web app services to interact with other parts of the system. Design a data-management strategy that allows each service to manage its own data while ensuring consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, see the [Code guidance](#code-guidance) section of this article.
 
@@ -88,7 +88,7 @@ Each design pattern provides benefits that align with one or more pillars of the
 | Design pattern | Implementation location | Reliability (RE) | Security (SE) | Cost Optimization (CO) | Operational Excellence (OE) | Performance Efficiency (PE) | Supporting Well-Architected Framework principles |
 |----------|-----------|-------|----|----------|---------------|------| --- |
 | [Strangler Fig pattern](#implement-the-strangler-fig-pattern) | Main web app | ✔ |  | ✔ | ✔ |  | [RE:08](/azure/well-architected/reliability/testing-strategy) <br> [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs) <br> [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs) <br> [OE:06](/azure/well-architected/operational-excellence/workload-supply-chain) <br> [OE:11](/azure/well-architected/operational-excellence/safe-deployments) |
-| [Queue-Based Load Leveling pattern](#implement-the-queue-based-load-leveling-pattern) | Producer of decoupled service | ✔ |  | ✔ |  | ✔ | [RE:06](/azure/well-architected/reliability/background-jobs) <br> [RE:07](/azure/well-architected/reliability/handle-transient-faults) <br> [CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs) <br> [PE:05](/azure/well-architected/performance-efficiency/scale-partition) |
+| [Queue-Based Load Leveling pattern](#implement-the-queue-based-load-leveling-pattern) | Producer of decoupled service | ✔ |  | ✔ |  | ✔ | [RE:07](/azure/well-architected/reliability/background-jobs) <br> [RE:07](/azure/well-architected/reliability/handle-transient-faults) <br> [CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs) <br> [PE:05](/azure/well-architected/performance-efficiency/scale-partition) |
 | [Competing Consumers pattern](#implement-the-competing-consumers-pattern) | Decoupled service | ✔ |  | ✔ |  | ✔ | [RE:05](/azure/well-architected/reliability/regions-availability-zones) <br> [RE:07](/azure/well-architected/reliability/background-jobs) <br> [CO:05](/azure/well-architected/cost-optimization/get-best-rates) <br> [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs) <br> [PE:05](/azure/well-architected/performance-efficiency/scale-partition) <br> [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
 | [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) | Main web app and decoupled service | ✔ |  |  | ✔ | ✔ | [RE:07](/azure/well-architected/reliability/background-jobs) <br> [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy) <br> [OE:07](/azure/well-architected/operational-excellence/observability) <br> [PE:05](/azure/well-architected/performance-efficiency/scale-partition) |
 | [Retry pattern](#implement-the-retry-pattern) | Main web app and decoupled service | ✔ |  |  |  |  | [RE:07](/azure/well-architected/reliability/self-preservation) |
@@ -161,7 +161,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle out-of-order messages.* Design consumers to process messages that arrive out of sequence. If you have multiple parallel consumers, they might process messages out of order.
 
-- *Scale based on queue length.* Services consuming messages from a queue should autoscale based on queue length. Scale-based autoscaling allows for efficient processing of spikes of incoming messages.
+- *Scale based on queue length.* Services consuming messages from a queue should autoscale based on queue length. Queue-based autoscaling allows for efficient processing of spikes of incoming messages.
 
 - *Use a message-reply queue.* If the system requires notifications for post-message processing, set up a dedicated reply or response queue. This setup divides operational messaging from notification processes.
 
@@ -171,10 +171,10 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 For example, the reference implementation uses the Competing Consumers pattern on a stateless service running in Container Apps to process ticket-rendering requests from a Service Bus queue. It configures a queue processor with:
 
-- *AutoCompleteMessages.* Automatically completes messages if they're processed without failure.
-- *ReceiveMode.* Uses PeekLock mode and redelivers messages if they aren't settled.
-- *MaxConcurrentCalls.* Set to 1 to handle one message at a time.
-- *PrefetchCount.* Set to 0 to avoid prefetching messages.
+- `AutoCompleteMessages`. Automatically completes messages if they're processed without failure.
+- `ReceiveMode`. Uses PeekLock mode and redelivers messages if they aren't settled.
+- `MaxConcurrentCalls`. Set to 1 to handle one message at a time.
+- `PrefetchCount`. Set to 0 to avoid prefetching messages.
 
 The processor logs message-processing details, which can help with troubleshooting and monitoring. It captures deserialization errors and routes invalid messages to a dead-letter queue to prevent repetitive processing of faulty messages. The service scales at the container level, which enables efficient handling of message spikes based on queue length.
 
@@ -272,7 +272,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications to r
 
 - *Use exponential backoff.* Implement an exponential backoff strategy for retry attempts. This strategy involves increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
 
-- *Use the SDK retry functionality.* For services that have specialized SDKs, like Service Bus or Blob Storage, use the built-in retry mechanisms. The built-in retry mechanisms are optimized for the service's typical use cases and can handle retries more effectively with less configuration required. For example, the reference implementation uses the built-in retry functionality of the Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` object fetches settings from `MessageBusOptions` to configure retry settings like `MaxRetries`, `Delay`, `MaxDelay`, and `TryTimeout`.
+- *Use SDK retry functionality.* For services that have specialized SDKs, like Service Bus or Blob Storage, use the built-in retry mechanisms. The built-in retry mechanisms are optimized for the service's typical use cases and can handle retries more effectively with less configuration required. For example, the reference implementation uses the built-in retry functionality of the Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` object fetches settings from `MessageBusOptions` to configure retry settings like `MaxRetries`, `Delay`, `MaxDelay`, and `TryTimeout`.
 
     ```csharp
     // ServiceBusClient is thread-safe and can be reused for the lifetime
@@ -303,7 +303,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications to r
 
 As applications become more service-oriented and their components are decoupled, monitoring the execution flow between services is crucial. The Modern Web App pattern uses Application Insights and Azure Monitor for visibility into application health and performance through OpenTelemetry APIs, which support distributed tracing.
 
-Distributed tracing tracks a user request as it traverses multiple services. When a request is received, it's tagged with a trace identifier, which is passed to other components via HTTP headers, and Service Bus properties during dependencies invocation. Traces and logs then include both the trace identifier and an activity identifier (or span identifier), which corresponds to the specific component and its parent activity. Monitoring tools like Application Insights use this information to display a tree of activities and logs across different services, crucial for monitoring distributed applications.
+Distributed tracing tracks a user request as it traverses multiple services. When a request is received, it's tagged with a trace identifier, which is passed to other components via HTTP headers, and Service Bus properties during dependencies invocation. Traces and logs then include both the trace identifier and an activity identifier (or span identifier), which corresponds to the specific component and its parent activity. Monitoring tools like Application Insights use this information to display a tree of activities and logs across different services, which is crucial for monitoring distributed applications.
 
 - *Install OpenTelemetry libraries.* Use instrumentation libraries to enable tracing and metrics from common components. Add custom instrumentation with `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` if necessary. Use exporter libraries to listen for OpenTelemetry diagnostics and record them in persistent stores. Use existing exporters or create your own by using `System.Diagnostics.ActivityListener`.
 
@@ -447,7 +447,7 @@ scaleMinReplicas: 0
 
 In a containerized deployment, all dependencies required by the app are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts. To containerize deployment, follow these recommendations:
 
-- *Identify domain boundaries.* Start by identifying the domain boundaries in your monolithic application. Doing so helps you determine which parts of the application you can extract into separate services.
+- *Identify domain boundaries.* Start by identifying the domain boundaries in your monolithic application. Doing so helps you determine which parts of the application can be extracted into separate services.
 
 - *Create Docker images.* When you create Docker images for your .NET services, use [chiseled base images](https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/). These images contain only the minimal set of packages that are needed for .NET to run, which minimizes both the package size and the attack surface area.
 
