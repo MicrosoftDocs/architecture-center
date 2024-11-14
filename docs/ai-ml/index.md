@@ -3,7 +3,7 @@ title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: RobBagby
 ms.author: robbag
-ms.date: 10/11/2024
+ms.date: 11/14/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -52,7 +52,11 @@ The predictive models are validated against known data, measured by performance 
 
 ### Generative AI
 
-*Generative AI* is a form of artificial intelligence in which models are trained to generate new original content based on natural language input. With generative AI, you can describe a desired output in normal everyday language, and the model can respond by creating appropriate text, image, code, and more. One popular example of such an application is [Microsoft Copilot](https://m365.cloud.microsoft/chat/), a chatbot companion to browse the web more effectively.
+*Generative AI* is a form of artificial intelligence in which models are trained to generate new original content based on natural language input. With generative AI, you can describe a desired output in normal everyday language, and the model can respond by creating appropriate text, image, code, and more. Some examples of generative AI applications are:
+
+- [Microsoft Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that can assist users in writing code, documents, and other text-based content. It is based on OpenAI's GPT-3 model and is integrated into a wide range of Microsoft applications and user experiences.
+
+- [Azure OpenAI](/azure/ai-services/openai/overview) is a development platform as a service that provides access to OpenAI's powerful language models including o1-preview, o1-mini, GPT-4o, GPT-4o mini, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. 
 
 
 ### Language models
@@ -385,7 +389,7 @@ Azure Machine Learning offer the following capabilities:
 ### Azure OpenAI
 
 
-Azure OpenAI Service lets you tailor our models to your personal datasets by using a process known as fine-tuning. This customization step lets you get more out of the service by providing:
+Azure OpenAI Service lets you tailor our models to your personal datasets by using a process known as *fine-tuning*. This customization step lets you get more out of the service by providing:
 
 - Higher quality results than what you can get just from [prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering)
 - The ability to train on more examples than can fit into a model's max request context limit.
@@ -398,6 +402,49 @@ For more information, see:
 - [Customize a model with fine-tuning](/azure/ai-services/openai/how-to/fine-tuning)
 - [Azure OpenAI GPT-4o-mini fine-tuning tutorial](/azure/ai-services/openai/tutorials/fine-tune)
 - [Baseline OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
+
+
+### Azure AI services for Custom AI
+
+[Azure AI services](https://azure.microsoft.com/services/ai-services/) offers features that let you build custom AI models and applications. This section provides an overview some of these key features.
+
+
+
+#### Custom Speech
+
+[Custom speech](/azure/ai-services/speech-service/custom-speech-overview) is a feature of the Azure AI Speech service. With custom speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription.
+
+Out of the box, speech recognition utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pre-trained with dialects and phonetics representing various common domains. When you make a speech recognition request, the most recent base model for each supported language is used by default. The base model works well in most speech recognition scenarios.
+
+A custom model can be used to augment the base model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions.
+
+You can also train a model with structured text when the data follows a pattern, to specify custom pronunciations, and to customize display text formatting with custom inverse text normalization, custom rewrite, and custom profanity filtering.
+
+
+#### Custom Translator
+
+[Custom Translator](/azure/ai-services/custom-translator/overview) is a feature of the [Azure AI Translator](../translator-overview.md) service. With Custom Translator, enterprises, app developers, and language service providers can build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
+
+The platform enables users to build and publish custom translation systems to and from English. Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](/azure/ai-services/custom-translator/language-support).
+
+
+Custom Translator offers the following features:
+
+|Feature  |Description  |
+|---------|---------|
+|[Apply neural machine translation technology](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Improve your translation by applying neural machine translation (NMT) provided by Custom translator.       |
+|[Build systems that knows your business terminology](/azure/ai-services/custom-translator/beginners-guide)     |  Customize and build translation systems using parallel documents that understand the terminologies used in your own business and industry.       |
+|[Use a dictionary to build your models](/azure/ai-services/custom-translator/how-to/train-custom-model#when-to-select-dictionary-only-training)     |   If you don't have training data set, you can train a model with only dictionary data.       |
+|[Collaborate with others](/azure/ai-services/custom-translator/how-to/create-manage-workspace#manage-workspace-settings)     |   Collaborate with your team by sharing your work with different people.     |
+|[Access your custom translation model](/azure/ai-services/custom-translator/how-to/translate-with-custom-model)     |  You can access your custom translation model anytime using your existing applications/ programs via Microsoft Translator Text API V3.       |
+
+
+#### Document Intelligence custom models
+
+[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
+
+[Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) now include [custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business. Standalone custom extraction models can be combined to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
+
 
 ### Custom AI tools
 
