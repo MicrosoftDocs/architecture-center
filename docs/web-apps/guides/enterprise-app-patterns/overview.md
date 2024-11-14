@@ -32,7 +32,7 @@ The Reliable Web App pattern is designed for organizations that are transitionin
 
 Instead of undertaking a time-consuming rebuilding process, this pattern enables a swift adoption of the cloud. It does this by emphasizing the crucial changes that need to be made, rather than all possible changes. The focus is on updates that provide high value and require minimal code changes. This focus allows you to quickly replatform your application.
 
-This pattern assumes that your organization has an established [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) for the web app, which provides a solid foundation for cloud deployment.
+This pattern assumes that your organization has an established [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) for your web app, which provides a solid foundation for cloud deployment.
 
 >[!div class="nextstepaction"]
 >[Reliable Web App pattern for .NET](./reliable-web-app/dotnet/guidance.yml)
@@ -42,7 +42,7 @@ This pattern assumes that your organization has an established [landing zone](/a
 
 ## Modern Web App pattern
 
-The Modern Web App pattern is designed for organizations that already have a web application in the cloud and are seeking strategic modernizations to enhance performance and optimize costs. This pattern provides prescriptive guidance for targeted modernization of cloud-based web applications.
+The Modern Web App pattern is designed for organizations that already have a web application in the cloud and want to make strategic modernizations to enhance performance and optimize costs. This pattern provides prescriptive guidance for targeted modernization of cloud-based web applications.
 
 The focus of this pattern is on refactoring areas of high demand by gradually decoupling them into standalone services. This decoupling enables independent versioning and scaling. This strategy doesn't just optimize performance in a cost-efficient way. It also serves as a transitional step between monolithic and microservices architectures.
 
