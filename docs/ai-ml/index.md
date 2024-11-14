@@ -97,7 +97,7 @@ The availability of language models led to the emergence of new ways to interact
 
 ### Retrieval Augmented Generation (RAG) 
 
-*Retrieval Augmented Generation (RAG)* is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides grounding data. Adding an information retrieval system gives you control over grounding data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture lets you can constrain generative AI to enterprise content thats sourced from vectorized documents, images, and other data formats.
+*Retrieval Augmented Generation (RAG)* is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides grounding data. Adding an information retrieval system gives you control over grounding data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture lets you can constrain generative AI to enterprise content that's sourced from vectorized documents, images, and other data formats.
 
 - [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
 
@@ -554,7 +554,7 @@ Different industries are applying AI in innovative and inspiring ways. Following
 
 
 - [Volkswagen: Machine translation speaks Volkswagen – in 40 languages](https://customers.microsoft.com/story/779468-volkswagen-azure-automotive-en)
-- [Healthcare for All with Kry using Azure Open AI](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
+- [Healthcare for All with Kry using Azure OpenAI](https://customers.microsoft.com/story/1693712644049090392-kry-azure-open-ai-service-sweden)
 - [PIMCO boosts client service with an AI-powered search platform built on Azure AI](https://customers.microsoft.com/story/1834023197365666109-pimco-azure-ai-search-banking-and-capital-markets-en-united-states)
 - [Legrand and Azure OpenAI Service: Powering smarter solutions with AI-driven tools](https://customers.microsoft.com/story/1833247205652391288-legrand-cloud-for-manufacturing-discrete-manufacturing-en-france)
 - [C.H. Robinson overcomes decades-old barriers to automate the logistics industry using Azure AI](https://customers.microsoft.com/story/1833509185850734713-chrobinson-azure-ai-studio-other-en-united-states)
