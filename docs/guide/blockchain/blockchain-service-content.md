@@ -30,8 +30,6 @@ The following dataflow corresponds to the preceding architecture:
 
 - Organizations use [Azure Managed Applications](https://azure.microsoft.com/products/managed-applications) to offer cloud solutions that are easy for consumers to deploy and operate. Organizations can publish managed applications to Azure Marketplace for all customers, or they can publish managed applications to an internal catalog for their company's users.
 
-- [Ethlogger](https://github.com/splunk/splunk-connect-for-ethereum/blob/main/docs/cli.md) is an event listener that sends data to off-chain data technologies, such as Azure Cosmos DB and Azure SQL.
-
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Azure Cosmos DB is used as a data store to house the output of events that are raised on the blockchain, such as state changes that analytics solutions use or simple reporting.
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most database management functions, such as upgrades, patches, backups, and monitoring. In this scenario, SQL Database is used as a data store to house the output of events that are raised on the blockchain, such as state changes that analytics solutions use or simple reporting. Organizations use the [ledger feature of SQL Database](/azure/azure-sql/database/ledger-landing) to maintain the integrity of the output of events that are replicated from the blockchain to the SQL database.
@@ -60,7 +58,7 @@ Kaleido Blockchain as a Service has the following features:
 
 - **Enterprise-grade infrastructure**: Meet your most rigorous requirements. Kaleido is SOC 2 Type 2 compliant with built-in high availability (HA) and disaster recovery (DR), automatic failover, secure network isolation, service-level agreements (SLAs), and dedicated around-the-clock support.
 
-- **Integration options (Ethereum events)**: Get event-listening models for off-chain storage and integration with open-source tools, such as Ethlogger from Splunk.
+- **Integration options (Ethereum events)**: Get event-listening models for off-chain storage and integration with open-source tools.
 
 - **Integration options (infrastructure management)**: Get management APIs, support for monitoring and logging blockchain nodes, and integration with Azure services, such as Key Vault.
 

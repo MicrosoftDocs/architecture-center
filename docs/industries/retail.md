@@ -77,7 +77,6 @@ The following are other ideas that you can use as a starting point for your reta
 
 **AI**:
 
-- [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
 
 **Analytics**:
@@ -85,10 +84,6 @@ The following are other ideas that you can use as a starting point for your reta
 - [Big data analytics with Azure Data Explorer](../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Interactive price analytics](../solution-ideas/articles/interactive-price-analytics.yml)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
-
-**Mixed Reality**:
-
-- [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
 
 **Networking**:
 

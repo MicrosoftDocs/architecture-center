@@ -6,8 +6,6 @@ items:
       items:
       - name: Document processing
         items:
-        - name: Knowledge mining for customer feedback
-          href: idea/customer-feedback-and-analytics.yml
         - name: Large-scale custom NLP
           href: idea/large-scale-custom-natural-language-processing.yml
       - name: Image processing
@@ -22,8 +20,6 @@ items:
           href: idea/process-audio-files.yml
       - name: Predictive analytics
         items:
-        - name: Customer churn prediction
-          href: idea/customer-churn-prediction.yml
         - name: Personalized offers
           href: idea/personalized-offers.yml
       - name: AI at the edge
@@ -38,10 +34,8 @@ items:
           href: ../solution-ideas/articles/ai-search-skillsets.yml
       - name: MLOps
         items:
-        - name: Orchestrate MLOps with Azure Databricks
-          href: idea/orchestrate-mlops-azure-databricks.yml
-        - name: Deploy AI and ML at the edge
-          href: idea/deploy-ai-ml-azure-stack-edge.yml
+        - name: Use Azure Databricks to orchestrate MLOps
+          href: idea/orchestrate-machine-learning-azure-databricks.yml
         - name: Many models ML with Spark
           href: idea/many-models-machine-learning-azure-spark.yml
         - name: Many models with Machine Learning
@@ -80,10 +74,6 @@ items:
         items:
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
-      - name: Predictive analytics
-        items:
-        - name: Determine customer lifetime and churn
-          href: architecture/customer-lifecycle-churn.yml
       - name: Batch scoring
         items:
         - name: Batch scoring with Spark on Databricks
@@ -116,6 +106,8 @@ items:
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.yml
+      - name: Designing secure multitenant RAG inferencing solutions
+        href: guide/secure-multitenant-rag.yml
       - name: MLOps
         items:
         - name: Machine learning operations (MLOps) v2
@@ -200,6 +192,8 @@ items:
             href: guide/rag/rag-information-retrieval.yml
           - name: LLM end-to-end evaluation phase
             href: guide/rag/rag-llm-evaluation-phase.yml
+        - name: Designing secure multitenant RAG inferencing solutions
+          href: guide/secure-multitenant-rag.yml
         - name: Proxy Azure OpenAI usage
           items:
           - name: Use a gateway in front of Azure OpenAI

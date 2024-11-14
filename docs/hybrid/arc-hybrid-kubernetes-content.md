@@ -18,10 +18,10 @@ The architecture consists of the following aspects:
 
 ### Components
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc) is a bridge that extends the Azure platform, making it possible to build applications and services that can run across datacenters, at the edge, and in multicloud environments.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed service for deploying and scaling Kubernetes clusters.
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy) makes it possible to achieve real-time cloud compliance at scale with consistent resource governance.
-- [Azure Monitor](https://azure.microsoft.com/products/monitor) provides end-to-end observability for your applications, infrastructure, and network.
+- [Azure Arc](/azure/azure-arc/overview) is a bridge that extends the Azure platform, making it possible to build applications and services that can run across datacenters, at the edge, and in multicloud environments.
+- [Azure Kubernetes Service (AKS)](/azure/well-architected/service-guides/azure-kubernetes-service) is a managed service for deploying and scaling Kubernetes clusters.
+- [Azure Policy](/azure/governance/policy/overview) makes it possible to achieve real-time cloud compliance at scale with consistent resource governance.
+- [Azure Monitor](/azure/azure-monitor/overview) provides end-to-end observability for your applications, infrastructure, and network.
 
 ## Scenario details
 

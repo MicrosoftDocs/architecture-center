@@ -321,7 +321,6 @@ Other contributor:
 ## Related resources
 
 - [Get started with Azure IoT solutions][Getting started with Azure IoT solutions]
-- [Vision with Azure IoT Edge][Vision with Azure IoT Edge]
 - [Choose an Internet of Things (IoT) solution in Azure][Choose an Internet of Things (IoT) solution in Azure]
 - [End-to-end manufacturing using computer vision on the edge][End-to-end manufacturing using computer vision on the edge]
 - [IoT analytics with Azure Data Explorer][IoT analytics with Azure Data Explorer]
@@ -390,6 +389,5 @@ Other contributor:
 [Smart Cities Ontology]: https://github.com/Azure/opendigitaltwins-smartcities
 [SVG version of architecture diagram]: ./media/smart-places-diagram.svg
 [UploadModels]: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools
-[Vision with Azure IoT Edge]: ../../guide/iot-edge-vision/index.md
 [What is Azure IoT Edge]: /azure/iot-edge/about-iot-edge?view=iotedge-2018-06
 [What is Azure Synapse Link for Azure Cosmos DB?]: /azure/cosmos-db/synapse-link

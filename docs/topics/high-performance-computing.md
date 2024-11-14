@@ -185,24 +185,6 @@ First, review the [Options for connecting an on-premises network to Azure](../re
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/hybrid-networking/expressroute">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram showing how to connect an on-premises network to Azure using ExpressRoute." src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Connect an on-premises network to Azure using ExpressRoute</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.</p>
-                    </div>
-                </div>
-            </article>
-        </a>
-    </li>
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
             href="/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">

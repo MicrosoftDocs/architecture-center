@@ -1,4 +1,4 @@
-An event-driven architecture consists of **event producers** that generate a stream of events, and **event consumers** that listen for the events.
+An event-driven architecture consists of **event producers** that generate a stream of events, **event consumers** that listen for these events, and **event channels** that transfer events from producers to consumers.
 
 ![Diagram of an event-driven architecture style](./images/event-driven.svg)
 
@@ -22,6 +22,12 @@ On the consumer side, there are some common variations:
 
 The source of the events may be external to the system, such as physical devices in an IoT solution. In that case, the system must be able to ingest the data at the volume and throughput that is required by the data source.
 
+There are two primary approaches to structuring event payloads. When you have control over your event consumers, make this payload structure decision per consumer; mixing approaches as needed within a single workload.
+
+- **Including all required attributes in the payload**: This approach is used when you want consumers to have all available information without the need to query an external data source. However, it can lead to data consistency issues due to multiple [systems of record](https://wikipedia.org/wiki/System_of_record), particularly after updates. Contract management and versioning can also become complex.
+
+- **Including only key(s) in the payload**: In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. While this method offers better data consistency due to a single system of record, it can perform poorer than the first approach since consumers must query the data source frequently. There are fewer concerns regarding coupling, bandwidth, contract management, or versioning, as events are smaller and contracts simpler.
+
 In the logical diagram above, each type of consumer is shown as a single box. In practice, it's common to have multiple instances of a consumer, to avoid having the consumer become a single point of failure in system. Multiple instances might also be necessary to handle the volume and frequency of events. Also, a single consumer might process events on multiple threads. This can create challenges if events must be processed in order or require exactly-once semantics. See [Minimize Coordination][minimize-coordination].
 
 There are two primary topologies within many event-driven architectures:
@@ -42,7 +48,7 @@ There are two primary topologies within many event-driven architectures:
 - Producers and consumers are decoupled.
 - No point-to-point integrations. It's easy to add new consumers to the system.
 - Consumers can respond to events immediately as they arrive.
-- Highly scalable and distributed.
+- Highly scalable, elastic, and distributed.
 - Subsystems have independent views of the event stream.
 
 ## Challenges
@@ -67,10 +73,24 @@ There are two primary topologies within many event-driven architectures:
 
   Another challenge with asynchronous communication is data loss. If any of the components crashes before successfully processing and handing over the event to its next component, then the event is dropped and never makes it into the final destination. To minimize the chance of data loss, persist in-transit events and remove or dequeue the events only when the next component has acknowledged the receipt of the event. These features are usually known as _client acknowledge mode_ and _last participant support_.
 
+- Implementing a traditional request-response pattern.
+
+  Sometimes, the event producer requires an immediate response from the event consumer, such as obtaining a customer eligibility before proceeding with an order. In event-driven architecture, synchronous communication can be achieved through [request-response messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html).
+
+  This pattern is usually implemented by utilizing multiple queues - a request queue and a response queue. The event producer sends an asynchronous request to a request queue, pauses other operation on that task, and awaits a response in the reply queue; effectively turning this into a synchronous process. Event consumers then process the request and send the reply back through a response queue. This approach usually utilizes a session ID for tracking, so the event producer knows which message in the response queue is related to the specific request. The original request could also specify the name of the response queue, potentially ephemeral, in a [reply-to header](/dotnet/api/azure.messaging.servicebus.servicebusmessage.replyto) or another mutually agreed-upon custom attribute.
+
+- Maintaining the appropriate number of events.
+
+  Generating an excessive number of fine-grained events can saturate and overwhelm the system, making it difficult to effectively analyze the overall flow of events. This issue is exacerbated when changes need to be rolled back. Conversely, overly consolidating events can also create problems, resulting in unnecessary processing and responses from event consumers.
+
+  To achieve the right balance, consider the consequences of events and whether consumers need to inspect the event payloads to determine their responses. For instance, if you have a compliance check component, it may be sufficient to publish only two types of events: *compliant* and *non-compliant*. This approach allows each event to be processed only by relevant consumers, preventing unnecessary processing.
+  
 ### Additional considerations
 
 - The amount of data to include in an event can be a significant consideration that affects both performance and cost. Putting all the relevant information needed for processing in the event itself can simplify the processing code and save additional lookups. Putting the minimal amount of information in an event, like just a couple of identifiers, will reduce transport time and cost, but requires the processing code to look up any additional information it needs. For more information on this, take a look at [this blog post](https://particular.net/blog/putting-your-events-on-a-diet).
 - While a request is only visible to the request-handling component, events are often visible to multiple components in a workload, even if those components don't or aren't meant to consume them. Operating with an "assume breach" mindset, be mindful of what information you include in events to prevent unintended information exposure.
+- Many applications use event-driven architecture as their primary architecture; however, this approach can be combined with other architectural styles, resulting in hybrid architectures. Common combinations include [microservices](./microservices.yml) and [pipes and filters](../../patterns/pipes-and-filters.yml). Integrating event-driven architecture enhances system performance by eliminating bottlenecks and providing [back pressure](https://wikipedia.org/wiki/Back_pressure) during high request volumes.
+- [Specific domains](../../microservices/model/domain-analysis.md) often span multiple event producers, consumers, or event channels. Changes to a particular domain might impact many components.
 
 ## Related resources
 

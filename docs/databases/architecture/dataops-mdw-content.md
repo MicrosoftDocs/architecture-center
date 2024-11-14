@@ -35,19 +35,19 @@ Azure Data Factory orchestrates and Azure Data Lake Storage Gen2 stores the data
 
 The solution uses these components:
 
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
+* [Azure Data Factory](/azure/data-factory/introduction)
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks)
+* [Azure Databricks](/azure/databricks/introduction)
 
-* [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+* [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+* [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
 
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+* [Azure Key Vault](/azure/key-vault/general/overview)
 
-* [Azure DevOps](https://azure.microsoft.com/services/devops)
+* [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
 
-* [Power BI](https://powerbi.microsoft.com)
+* [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ## Scenario details
 
@@ -99,22 +99,32 @@ This article uses the fictional city of Contoso to describe the use case scenari
 
 ## Considerations
 
-The following list summarizes key learnings and best practices demonstrated by this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+The considerations in this section summarize key learnings and best practices demonstrated by this solution:
 
 > [!NOTE]
-> Each item in the list below links out to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
+> Each consideration in this section links to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
 
-* [Use Data Tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#1-use-data-tiering-in-your-data-lake).
-
-* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#2-validate-data-early-in-your-pipeline).
+* [Use data tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#1-use-data-tiering-in-your-data-lake).
 
 * [Make your data pipelines replayable and idempotent](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#3-make-your-data-pipelines-replayable-and-idempotent).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
+* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#6-secure-and-centralize-configuration).
+
+### Operational Excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#2-validate-data-early-in-your-pipeline).
 
 * [Ensure data transformation code is testable](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#4-ensure-data-transformation-code-is-testable).
 
 * [Have a CI/CD pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#5-have-a-cicd-pipeline).
-
-* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#6-secure-and-centralize-configuration).
 
 * [Monitor infrastructure, pipelines, and data](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#7-monitor-infrastructure-pipelines-and-data).
 
@@ -148,7 +158,7 @@ The diagram below demonstrates the CI/CD process and sequence for the build and 
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived Git branches. For example, `<developer_name>/<branch_name>`.
 
-1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks-off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
+1. When changes are complete, developers raise a pull request (PR) to the main branch for review. Doing so automatically kicks off the PR validation pipeline, which runs the unit tests, linting, and data-tier application package (DACPAC) builds.
 
 1. On completion of the PR validation, the commit to main will trigger a build pipeline that publishes all necessary build artifacts.
 

@@ -125,7 +125,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Vertex AI](https://cloud.google.com/vertex-ai) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning and foundation models, with notebook, designer, and automate options. |
+| [:::no-loc text="Vertex AI":::](https://cloud.google.com/vertex-ai) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning and foundation models, with notebook, designer, and automate options. |
 | [TensorFlow](https://www.tensorflow.org) | [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) | ML.NET is an open source and cross-platform machine learning framework for both machine learning & AI. |
 | [TensorFlow](https://www.tensorflow.org/) | [ONNX (Open Neural Network Exchange)](http://onnx.ai) | ONNX is an open format built to represent machine learning models that facilitates maximum compatibility and increased inference performance. |
 | [Cloud Vision API - Computer Vision](https://cloud.google.com/vision) | [Azure AI Services Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) | Use visual data processing to enable computers to identify and understand objects and people in images and videos, label content, from objects to concepts, extract printed and handwritten text, recognize familiar subjects like brands and landmarks, and moderate content. |
@@ -209,7 +209,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Architecture | Description |
 |----|----|
 | [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
-| [Cross-cloud scaling architecture](/azure/architecture/solution-ideas/articles/cross-cloud-scaling) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
+| [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale) | Learn how to improve cross-cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation. |
 
 ## DevOps and application monitoring
 
@@ -250,7 +250,6 @@ Here are some architectures that use AKS as the orchestrator.
 | Architecture | Description |
 |----|----|
 | [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot) | A recommended architecture for IoT applications on Azure by using platform as a service (PaaS) components. |
-| [Process real-time vehicle data by using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot) | This example builds a real-time data ingestion and processing pipeline to ingest and process messages from IoT devices into a big data analytic platform on Azure. |
 
 [view all](../browse/index.yml?azure_categories=iot)
 

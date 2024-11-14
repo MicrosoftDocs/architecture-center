@@ -591,8 +591,6 @@ When you enable availability zones, it isn't enough coverage in the unlikely eve
 
 > [!NOTE]
 > The [AKS baseline for multiregion clusters reference architecture](../aks-multi-region/aks-multi-cluster.yml) extends the architecture in this article to include multiple regions in an active/active and highly available configuration.
->
-> Use the [implementation of the multiregion architecture](https://github.com/mspnp/aks-baseline-multi-region) as a starting point, and configure it to your needs.
 
 ### Disaster recovery
 
@@ -661,9 +659,11 @@ For more information about Windows-specific monitoring considerations, see [Wind
 
 ### Network metrics
 
-Basic, cluster-level networking metrics are available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). You can further use the [Network Observability add-on](/azure/aks/network-observability-overview) to expose network metrics at the node level. Most clusters should use the Network Observability add-on to provide extra network troubleshooting capabilities, and to detect unexpected network usage or problems at the node level.
+Basic, cluster-level networking metrics are available through native [platform and Prometheus metrics](/azure/aks/monitor-aks#metrics). You can further use AKS [network observability](/azure/aks/network-observability-overview) to expose network metrics at the node level by using Prometheus metrics. Most clusters should include network observability to provide extra network troubleshooting capabilities, and to detect unexpected network usage or problems at the node level.
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [Advanced Network Observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't install the Advanced Network Observability add-on unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+The reference implementation uses Azure Monitor container insights, which also collects some network-related metrics. The reference implementation disables collection of metrics from Azure Monitor container insights, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
+
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced  network observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
 
 ### Enable self-healing
 
