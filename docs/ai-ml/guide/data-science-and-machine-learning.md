@@ -30,7 +30,6 @@ The following options are available for machine learning in the Azure cloud.
 | [Azure&nbsp;AI&nbsp;Services](#azure-ai-services) | Pre-built AI capabilities implemented through REST APIs and SDKs  | Build intelligent applications using standard programming languages which call APIs that provide inferencing. While machine learning and data science expertise is still ideal to have, this platform can also be adopted by engineering teams without such skills |
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service with machine learning | Train and deploy models inside Azure Synapse Analytics |
-| [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
 | [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLflow](/azure/databricks/applications/mlflow/) platform. |
 
 ## On-premises machine learning product
@@ -122,7 +121,7 @@ Azure AI Studio is a unified platform for developing and deploying generative AI
 |**Type**                   |Unified development environment for AI|
 |**Supported languages**    |Python only|
 |**Machine learning phases**|Data preparation<br>Deployment (Models as a service)|
-|**Key benefits**           |Facilitates collaboration and project management across various Azure AI services.<br/>Provides a comprehensive set of tools and services for building, training, and deploying AI models.<br/>Emphasizes responsible AI development with tools for bias detection, interpretability, and privacy-preserving machine learning.<br/>Supports integration with popular open-source frameworks and tools for accelerated development.|
+|**Key benefits**           |Facilitates collaboration and project management across various Azure AI services.<br/>Provides comprehensive tools for building, training, and deploying AI models.<br/>Emphasizes responsible AI with tools for bias detection, interpretability, and privacy-preserving machine learning.<br/>Supports integration with popular open-source frameworks and tools.<br/>Includes Microsoft Prompt flow for creating and managing prompt-based workflows, simplifying the development cycle of AI applications powered by Large Language Models (LLMs).|
 
 ## Azure Machine Learning Studio
 
