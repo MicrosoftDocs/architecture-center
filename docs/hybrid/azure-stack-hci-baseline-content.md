@@ -234,15 +234,6 @@ A summarization of the logical setup for this multinode storage switched baselin
   
   - This configuration provides sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-#### External network connectivity to Azure
-
-Firewalls: Firewall rules required for the **Public** Endpoints for deployment and management
-The cluster management network (which includes the nodes, cluster IP and ARB, and Network Controller cluster resource) must have connectivity to the endpoints.
-The workload network(s) require connectivity to Arc endpoints.
-Proxy servers are supported if required, but NOT with SSL Inspection, including the use of "Tenant restrictions v1" which is not supported
-Firewall page for more information and rules.
-Arc Gateway will supported in the future to help simplify the list of required endpoints.
-
 #### Network switch requirements
 
 Your Ethernet switches must meet the different specifications required by Azure Stack HCI and set by the Institute of Electrical and Electronics Engineers Standards Association (IEEE SA). For example, for multinode storage switched deployments, the storage network is used for [RDMA via RoCE v2 or iWARP](/azure-stack/hci/concepts/host-network-requirements#rdma). This process requires IEEE 802.1Qbb PFC to ensure lossless communication for the [storage traffic class](/azure-stack/hci/concepts/host-network-requirements#rdma-traffic-class). Your ToR switches must provide support for IEEE 802.1Q for VLANs and IEEE 802.1AB for the Link Layer Discovery Protocol.
