@@ -1,10 +1,10 @@
 ---
-title: Microsoft machine learning products
+title: Overview of Microsoft Machine Learning Products and Technologies
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: RobBagby
 ms.author: robbag
 categories: azure
-ms.date: 07/25/2022
+ms.date: 11/15/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-architecture-center
@@ -33,14 +33,14 @@ The following options are available for machine learning in the Azure cloud.
 | [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
 | [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLflow](/azure/databricks/applications/mlflow/) platform. |
 
-## On-premises machine learning products
+## On-premises machine learning product
 
-The following options are available for machine learning on-premises. On-premises servers can also run in a virtual machine in the cloud.
+The following option is available for machine learning on-premises. On-premises servers can also run in a virtual machine in the cloud.
 
-| On-premises&nbsp;options | What it is | What you can do with it |
+| On-premises | What it is | What you can do with it |
 |-|-|-|
 | [SQL Server Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Server using Python and R scripts |
-| [Machine Learning Services on SQL Server Big Data Clusters](#sql-machine-learning) | Machine learning in Big Data Clusters | Train and deploy models on SQL Server Big Data Clusters |
+
 
 ## Development platforms and tools
 
