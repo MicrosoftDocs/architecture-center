@@ -30,7 +30,7 @@ There are two primary approaches to structure event payloads. When you have cont
 
 In the preceding diagram, each type of consumer is shown as a single box. To avoid having the consumer become a single point of failure in system, it's typical to have multiple instances of a consumer. Multiple instances might also be required to handle the volume and frequency of events. A single consumer can process events on multiple threads. This setup can create challenges if events must be processed in order or require exactly-once semantics. For more information, see [Minimize coordination][minimize-coordination].
 
-Many event-driven architectures have two topologies:
+There are two primary topologies within many event-driven architectures:
 
 - **Broker topology:** Components broadcast occurrences as events to the entire system. Other components either act on the event or ignore the event. This topology is useful when the event processing flow is relatively simple. There's no central coordination or orchestration, so this topology can be dynamic. This topology is highly decoupled, which helps provide scalability, responsiveness, and component fault tolerance. No component owns or is aware of the state of any multistep business transaction, and actions are taken asynchronously. Subsequently, distributed transactions are risky because there's no native way to be restarted or replayed. You need to carefully consider error handling and manual intervention strategies because this topology can be a source of data inconsistency.
 
