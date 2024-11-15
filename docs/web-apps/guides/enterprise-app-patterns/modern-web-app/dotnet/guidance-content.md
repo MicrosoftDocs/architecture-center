@@ -27,7 +27,7 @@ For a higher service-level objective (SLO), you can add a second region to your 
 
 ### Decouple the architecture
 
-To implement the Modern Web App pattern, you need to decouple the existing web app architecture. Decoupling the architecture involves breaking down a monolithic application into smaller independent services, each responsible for a specific feature or functionality. This process entails evaluating the current web app, modifying the architecture, and finally, extracting the web app code to a container platform. The goal is to systematically identify and extract application services that benefit most from being decoupled. To decouple your architecture, follow these recommendations:
+To implement the Modern Web App pattern, you need to decouple the existing web app architecture. Decoupling the architecture involves breaking down a monolithic application into smaller independent services that are each responsible for a specific feature or functionality. This process entails evaluating the current web app, modifying the architecture, and finally, extracting the web app code to a container platform. The goal is to systematically identify and extract application services that benefit most from being decoupled. To decouple your architecture, follow these recommendations:
 
 - *Identify service boundaries.* Apply domain-driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Services that represent distinct business functions and have fewer dependencies are good candidates for decoupling.
 
@@ -95,9 +95,9 @@ Each design pattern provides benefits that align with one or more pillars of the
 
 ### Implement the Strangler Fig pattern
 
-Use the [Strangler Fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new independent services. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. To implement the Strangler Fig pattern, follow these recommendations:
+Use the [Strangler Fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic code base to new independent services. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. To implement the Strangler Fig pattern, follow these recommendations:
 
-- *Set up a routing layer.* In the monolithic web app code base, implement a routing layer that directs traffic based on endpoints. Use custom routing logic as needed to handle specific business rules for directing traffic. For example, if you have a `/users` endpoint in your monolithic app and you moved that functionality to the decoupled service, the routing layer directs all requests to `/users` to the new service.
+- *Set up a routing layer.* In the monolithic web app code base, implement a routing layer that directs traffic based on endpoints. Use custom routing logic as needed to handle specific business rules for directing traffic. For example, if you have a `/users` endpoint in your monolithic app and you move that functionality to the decoupled service, the routing layer directs all requests to `/users` to the new service.
 
 - *Manage feature rollout.* Use .NET feature management libraries to [implement feature flags](/azure/azure-app-configuration/use-feature-flags-dotnet-core) and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core) to gradually roll out the decoupled services. The existing monolithic app routing should control how many requests the decoupled services receive. Start with a small percentage of requests and increase usage over time as you gain confidence in the new service's stability and performance. For example, the reference implementation extracts the ticket-rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket-rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket-rendering functionality from the monolith, completing the transition.
 
@@ -161,7 +161,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle out-of-order messages.* Design consumers to process messages that arrive out of sequence. If you have multiple parallel consumers, they might process messages out of order.
 
-- *Scale based on queue length.* Services consuming messages from a queue should autoscale based on queue length. Queue-based autoscaling allows for efficient processing of spikes of incoming messages.
+- *Scale based on queue length.* Services that consume messages from a queue should autoscale based on queue length. Queue-based autoscaling allows for efficient processing of spikes of incoming messages.
 
 - *Use a message-reply queue.* If the system requires notifications for post-message processing, set up a dedicated reply or response queue. This setup divides operational messaging from notification processes.
 
@@ -409,7 +409,7 @@ The Modern Web App pattern begins breaking up the monolithic architecture and in
 
 - *Use stateless services.* Ensure that your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
 
-- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA), often provides granular control, allowing you to scale based on event metrics. [Container Apps](/azure/container-apps/scale-app) and AKS support KEDA. For services that don't support KEDA, such as [App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features provided by the platform itself. These features often include scaling that's based on metrics-based rules or HTTP traffic.
+- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, event-based scaling, such as Kubernetes Event-Driven Autoscaler (KEDA), often provides granular control that allows you to scale based on event metrics. [Container Apps](/azure/container-apps/scale-app) and AKS support KEDA. For services that don't support KEDA, such as [App Service](/azure/app-service/manage-automatic-scaling), use the autoscaling features that the platform provides. These features often include scaling that's based on metrics-based rules or HTTP traffic.
 
 - *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of one replica. A *cold start* occurs when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when you configure autoscaling.
 
@@ -488,7 +488,7 @@ EXPOSE 8080
 # Copy the published app from the build stage.
 COPY --from=build /app/publish .
 
-# Run as non-root user.
+# Run as nonroot user.
 USER $APP_UID
 ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 ```
