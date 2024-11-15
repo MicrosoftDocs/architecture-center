@@ -61,8 +61,6 @@ The following development platforms and tools are available for machine learning
 
 Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud scale. For a low-code or no-code option, use Azure Machine Learning's interactive [designer](/azure/machine-learning/service/concept-designer) in the studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Additionally, Azure Machine Learning provides integration with Azure DevOps and GitHub Actions for continuous integration and continuous deployment (CI/CD) of machine learning models.
 
-[Try Azure Machine Learning for free](https://aka.ms/AMLFree).
-
 |Item|Description|
 |--------|-----------|
 |**Type**                   |Cloud-based machine learning solution|
