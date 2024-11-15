@@ -106,7 +106,7 @@ The availability of language models led to the emergence of new ways to interact
 
 ### Retrieval Augmented Generation (RAG) 
 
-*Retrieval Augmented Generation (RAG)* is an architecture pattern that augments the capabilities of a large language model (LLM) like ChatGPT, that was trained only on public data. This pattern allows you to add a retrieval system that provides relevant grounding data in the context with the user request. Adding an information retrieval system gives you control over grounding data used by a language model when it formulates a response. RAG architecture helps you scope generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG is not limited to vector search storage however, the pattern is appliable in conjunction with any data store technology.
+*Retrieval Augmented Generation (RAG)* is an architecture pattern that augments the capabilities of a large language model (LLM) like ChatGPT, that was trained only on public data. This pattern allows you to add a retrieval system that provides relevant grounding data in the context with the user request. Adding an information retrieval system gives you control over grounding data used by a language model when it formulates a response. RAG architecture helps you scope generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG is not limited to vector search storage however, the pattern is applicable in conjunction with any data store technology.
 
 - [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
 - [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
