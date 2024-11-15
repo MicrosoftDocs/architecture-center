@@ -8,9 +8,9 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ### Workflow
 
-- **Backend systems**. The right-hand side of the diagram shows the various backend systems that the enterprise has deployed or relies on. These systems might include SaaS systems, other Azure services, or web services that expose REST or SOAP endpoints.
+- **Backend systems**. The right-hand side of the diagram shows the various backend systems that the enterprise relies on. These systems might include SaaS systems, other Azure services, or web services that expose REST or SOAP endpoints.
 
-- **Azure Logic Apps**. In this architecture, logic apps are triggered by HTTP requests. You can also nest workflows for more complex orchestration. Logic Apps uses [connectors][logic-apps-connectors] to integrate with commonly used services. Logic Apps offers hundreds of connectors, and you can create custom connectors.
+- **Azure Logic Apps**. In this architecture, HTTP requests trigger logic apps. You can also nest workflows for more complex orchestration. Logic Apps use [connectors][logic-apps-connectors] to integrate with commonly used services. Logic Apps offers hundreds of connectors, and you can create custom connectors.
 
 - **Azure API Management**. API Management consists of two related components:
 
