@@ -203,7 +203,7 @@ Also, you can evaluate model responses and orchestrate prompt application compon
 
 - [Azure Copilot Studio](/microsoft-copilot-studio/) is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for internal and external scenarios. With Copilot Studio, users can design, test, and publish copilots using the comprehensive authoring canvas. Users can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
 
-
+ 
 
 ## Data platforms for AI
 
