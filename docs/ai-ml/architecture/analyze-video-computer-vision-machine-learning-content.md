@@ -8,7 +8,7 @@ This article describes an architecture that you can use to replace the manual an
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.*
 
-### Workflow 
+### Workflow
 
 1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
 2. A preconfigured pipeline in Azure Machine Learning recognizes that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
@@ -17,7 +17,7 @@ This article describes an architecture that you can use to replace the manual an
 5. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 6. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition (OCR)) model to identify textual information in the images.
 7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
-8. Power BI provides data visualization. 
+8. Power BI provides data visualization.
 
 ### Components
 

@@ -328,5 +328,4 @@ You might also be interested in these related articles:
 - [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
-- [Process real-time vehicle data using IoT](../data/realtime-analytics-vehicle-iot.yml)
 - [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)

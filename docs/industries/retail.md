@@ -85,10 +85,6 @@ The following are other ideas that you can use as a starting point for your reta
 - [Interactive price analytics](../solution-ideas/articles/interactive-price-analytics.yml)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 
-**Mixed Reality**:
-
-- [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
-
 **Networking**:
 
 - [Video capture and analytics for retail](../networking/idea/video-analytics.yml)

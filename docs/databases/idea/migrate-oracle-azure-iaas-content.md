@@ -1,7 +1,6 @@
-This article describes how to use Oracle Data Guard to migrate an on-premises Oracle database to an Azure virtual machine (VM). This article assumes that you have a basic understanding of Oracle Database technologies, Azure compute, and Azure networking. This scenario builds on the scenario in [Migrate Oracle database workloads to Azure](topic-migrate-oracle-azure.yml).
+This article describes how to use Oracle Data Guard to migrate an on-premises Oracle Database to an Azure virtual machine (VM). This article assumes that you have a basic understanding of Oracle Database technologies, Azure compute, and Azure networking. This scenario builds on the scenario in [Migrate Oracle database workloads to Azure](topic-migrate-oracle-azure.yml).
 
 ## Architecture
-
 
 The following diagram shows an example of this scenario.
 
@@ -56,9 +55,9 @@ Do the following steps to verify connectivity.
 
 1. Configure Oracle Data Guard between the on-premises database server (primary replica) and the Azure VM database server (secondary replica). For more information, see [Create a physical standby database](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170).
 1. After the Oracle Data Guard replication finishes and the databases sync, perform a switchover to the Azure VM. For more information, see [Role transitions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/managing-oracle-data-guard-role-transitions.html#GUID-66282DCD-5E7B-43C2-ADA1-03342E2750A0). Coordinate this step with the application team to ensure that they update application services to point to the new database.
-1.  Do the following application migration activities in parallel with the database migration to help ensure the least amount of downtime.
+1. Do the following application migration activities in parallel with the database migration to help ensure the least amount of downtime.
     - Migrate application services in accordance with your plans and discussions.
-    - Update the application services to point to the new database, including the connection string, Transparent Network Substrate (TNS) entries, and other required configurations. 
+    - Update the application services to point to the new database, including the connection string, Transparent Network Substrate (TNS) entries, and other required configurations.
     - Verify that the application services work as expected.
 
 ## Do post-migration activities
@@ -94,4 +93,3 @@ Review the following articles to ensure that your implementation follows recomme
 - [Oracle active Data Guard far sync zero data loss](https://www.oracle.com/docs/tech/database/disaster-recovery.pdf)
 - [Implement Oracle Data Guard on an Azure Linux VM](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
 - [Implement Oracle Golden Gate on an Azure Linux VM](/azure/virtual-machines/workloads/oracle/configure-oracle-golden-gate)
-
