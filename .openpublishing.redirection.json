@@ -5801,6 +5801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/web-apps/spring-apps/guides/blue-green-spring.yml",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml",
       "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone",
       "redirect_document_id": false
