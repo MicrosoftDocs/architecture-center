@@ -86,7 +86,7 @@ Use Azure AI services to develop apps across devices and platforms. The APIs kee
 |**Type**                   |APIs for building intelligent applications|
 |**Supported languages**    |Various options depending on the service. Standard ones are C#, Java, JavaScript, and Python. |
 |**Machine learning phases**|Deployment|
-|**Key benefits**           |Build intelligent applications using pre-trained models available through REST API and SDK.<br/>Variety of models for natural communication methods with vision, speech, language, and decision.<br/>No machine learning or data science expertise required<br/>Scalability and flexibility<br/>Variety of models|
+|**Key benefits**           |Build intelligent applications using pre-trained models available through REST API and SDK.<br/>Variety of models for natural communication methods with vision, speech, language, and decision.<br/>No or minimal machine learning or data science expertise required.<br/>Scalability and flexibility.<br/>Variety of models.|
 
 ## SQL machine learning
 
