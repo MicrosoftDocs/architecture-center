@@ -26,7 +26,7 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure using Python and CLI. Includes features like automated machine learning, prompt flow, and model catalog. Track and understand model performance during production |
+| [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure using Python and CLI. Includes features like automated machine learning (AutoML), prompt flow, model catalog, and Mlflow integration. Track and understand model performance during production |
 | [Azure&nbsp;AI&nbsp;Services](#azure-ai-services) | Pre-built AI capabilities implemented through REST APIs and SDKs  | Build intelligent applications quickly using standard programming languages. Doesn't require machine learning and data science expertise   |
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service with machine learning | Train and deploy models inside Azure Synapse Analytics |
