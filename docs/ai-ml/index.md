@@ -66,7 +66,7 @@ As a workload designer, this option requires a large investment in generating hi
 
 ### Generative AI
 
-*Generative AI* is a form of artificial intelligence in which models are trained to generate new original content based on natural language or computer vision input. With generative AI, you can describe a desired output in normal everyday language, and the model can respond by creating appropriate text, image, code, and more. Some examples of generative AI applications are:
+*Generative AI* is a form of artificial intelligence in which models are trained to generate new original content based on many forms of content such as natural language, computer vision, audio, or image input. With generative AI, you can describe a desired output in normal everyday language, and the model can respond by creating appropriate text, image, code, and more. Some examples of generative AI applications are:
 
 - [Microsoft Copilot](https://m365.cloud.microsoft/chat/) is primarily a user interface that can assist users in writing code, documents, and other text-based content. It's based on popular OpenAI models and is integrated into a wide range of Microsoft applications and user experiences.
 
@@ -81,7 +81,7 @@ As a workload designer, this option requires a large investment in generating hi
 
 ### Language models
 
-*Language models* are powerful machine learning models used for natural language processing (NLP) tasks, such as text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
+*Language models* are a subset of Generative AI that focuses on natural language processing (NLP) tasks, such as text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
 
 Conventional language models hare used in supervised settings for research purposes where the models are trained on well-labeled text datasets for specific tasks. Pretrained language models offer an accessible way to get started with AI and have become more widely used in recent years. These models are trained on large-scale text corpora from the internet using deep learning neural networks and can be fine-tuned on smaller datasets for specific tasks.
 
@@ -106,7 +106,7 @@ The availability of language models led to the emergence of new ways to interact
 
 ### Retrieval Augmented Generation (RAG) 
 
-*Retrieval Augmented Generation (RAG)* is an architecture pattern that augments the capabilities of a large language model (LLM) like ChatGPT, that was trained only on public data. This pattern allows you to add a retrieval system that provides relevant grounding data in the context with the user request. Adding an information retrieval system gives you control over grounding data used by a language model when it formulates a response. RAG architecture lets you can constrain generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG is not limited to vector search storage however, the pattern is appliable in conjunction with any data store technology.
+*Retrieval Augmented Generation (RAG)* is an architecture pattern that augments the capabilities of a large language model (LLM) like ChatGPT, that was trained only on public data. This pattern allows you to add a retrieval system that provides relevant grounding data in the context with the user request. Adding an information retrieval system gives you control over grounding data used by a language model when it formulates a response. RAG architecture helps you scope generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG is not limited to vector search storage however, the pattern is appliable in conjunction with any data store technology.
 
 - [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
 - [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
@@ -116,10 +116,6 @@ The availability of language models led to the emergence of new ways to interact
 *Automated machine learning*, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
 
 - [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
-
-### MLflow
-
-[MLflow](https://www.mlflow.org/) is an open-source framework designed to manage the complete machine learning lifecycle. MLflow uses a consistent set of tools to train and serve models on different platforms. You can use MLflow whether your experiments are running locally or on a remote compute target, virtual machine, or Azure Machine Learning compute instance.
 
 
 
@@ -132,6 +128,8 @@ With [Azure AI services](https://azure.microsoft.com/services/ai-services/) deve
 - [Azure AI services documentation](/azure/ai-services/what-are-ai-services)
 
 - [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
+
+- [MLflow](https://www.mlflow.org/) is an open-source framework designed to manage the complete machine learning lifecycle. 
 
 
 ## AI Language models
@@ -199,11 +197,13 @@ For more information, see [MLflow and Azure Machine Learning](/azure/machine-lea
 
 ### Generative AI tools
 
-- [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, foundation models, playground, and resources to help you build, train, fine-tune, and deploy AI models.
+- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
+
+- [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, foundation models, playground, and resources to help you build, train, fine-tune, and deploy AI models. 
+Also, you can evaluate model responses and orchestrate prompt application components with prompt flow for better performance. 
 
 - [Azure Copilot Studio](/microsoft-copilot-studio/)is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for internal and external scenarios. With Copilot Studio, makers can design, test, and publish copilots using the comprehensive authoring canvas. Makers can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
 
-- [Prompt flow](https://microsoft.github.io/promptflow/index.html) is a suite of development tools designed to streamline the end-to-end development cycle of generative AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring. It supports prompt engineering through expressing actions in a modular orchestration and flow engine.
 
 
 ## Data platforms for AI
