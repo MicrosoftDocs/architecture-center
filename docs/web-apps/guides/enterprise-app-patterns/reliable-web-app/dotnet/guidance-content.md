@@ -130,7 +130,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 
 [!INCLUDE [Retry pattern intro](../includes/retry.md)]
 
-- *Use built-in retry mechanisms* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services provide to expedite your implementation. For example, the reference implementation uses [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
+- *Use built-in retry mechanisms.* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services provide to expedite your implementation. For example, the reference implementation uses [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core):
 
     ```csharp
     services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
@@ -143,7 +143,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
         }));
     ```
 
-- *Use retry programming libraries.* For HTTP communications, integrate a standard resilience library such as [Polly](https://github.com/App-vNext/Polly) or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms that are crucial for managing communications with external web services. For example, the reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
+- *Use retry programming libraries.* For HTTP communications, integrate a standard resilience library like [Polly](https://github.com/App-vNext/Polly) or `Microsoft.Extensions.Http.Resilience`. These libraries provide comprehensive retry mechanisms that are crucial for managing communications with external web services. For example, the reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object:
 
     ```csharp
     private void AddConcertSearchService(IServiceCollection services)
@@ -180,7 +180,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 
 [!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)]
 
-For example, the reference implementation applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time (*see the following code*).
+For example, the reference implementation applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time:
 
 ```csharp
 private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
