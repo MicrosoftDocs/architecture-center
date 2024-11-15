@@ -238,7 +238,7 @@ Principal authors:
 
 - Learn about all the Artificial Intelligence (AI) development products available from Microsoft: [Microsoft AI platform](https://www.microsoft.com/ai).
 - Get training in developing AI and Machine Learning solutions with Microsoft: [Microsoft Learn training](/training/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).
-- Explore more about Microsoft Fabric: [Microsoft Fabric](/fabric/overview).
+- Explore more about Microsoft Fabric: [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
 - Discover Azure AI services: [Azure AI services](/azure/ai-services/).
 - Explore Azure Machine Learning: [Azure Machine Learning](/azure/machine-learning/).
 - Learn about Azure Databricks: [Azure Databricks](/azure/azure-databricks/).
