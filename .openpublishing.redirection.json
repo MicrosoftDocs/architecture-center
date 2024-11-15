@@ -5774,6 +5774,46 @@
       "source_path": "docs/guide/iot-edge-vision/camera.md",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/spring-apps/index.md",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/spring-apps/architectures/spring-apps-multi-zone.yml",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/spring-apps/architectures/spring-apps-multi-region.yml",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/spring-apps/architectures/spring-apps-landing-zone.yml",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-vmware-solution-foundation-landing-zone.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-vmware-solution-foundation-networking.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone",
+      "redirect_document_id": false
     }
   ]
 }
