@@ -134,9 +134,9 @@ With [Azure AI services](https://azure.microsoft.com/services/ai-services/) deve
 
 ## AI Language models
 
-- *Large Language Models (LLMs)*, such as OpenAI's GPT models, are powerful tools that can generate natural language across various domains and tasks. When considering using these models, consider factors such as data privacy, ethical use, accuracy, and bias. For more information, see [Understanding LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
+- *Large Language Models (LLMs)*, such as OpenAI's GPT models, are powerful tools that can generate natural language across various domains and tasks. When considering using these models, consider factors such as data privacy, ethical use, accuracy, and bias. 
 
-- [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
+- [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model.
 
 When designing a workload, you can use language models both as a hosted solution, behind a metered API or for many small language models you can host those in process or at least on the same compute as the consumer. When using language models in your solution, consider your choice of language model and its available hosting options to ensure your using an optimized solution for your use case.
 
