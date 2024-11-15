@@ -26,7 +26,7 @@ This article describes features of Azure Cosmos DB that you can use for multiten
 
 When you plan a multitenant solution, you have two key requirements:
 - Help ensure strong isolation between tenants, and meet stringent security requirements for those who need them.
-- Maintain a low cost per tenant. As the provider, ensure that the cost of running the application remains sustainable as it scales.
+- Maintain a low cost per tenant. As the provider, ensure that the cost to run the application remains sustainable as it scales.
 
 These two needs can often conflict and introduce a trade-off where you must prioritize one over the other. The guidance in this article can help you better understand the trade-offs that you must make to address these needs. This article helps you navigate these considerations so you can make informed decisions when you design your multitenant solution.
 
@@ -73,7 +73,7 @@ If you isolate your tenants by partition key, throughput is shared across tenant
     
     When you query data for a tenant, you can use the `WHERE IN` clause to match all partition keys. You can also use [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys) to provide large tenants with storage greater than 20 GB if you have a high cardinality of tenants. You don't have to use synthetic partition keys or multiple partition key values per tenant for this method.
 
-    Suppose you have a workload that isolates tenants by partition key. One tenant, Contoso, is much larger and more write-heavy than others, and it continues to grow in size. To avoid the risk of not being able to ingest more data for this tenant, you can use hierarchical partition keys. Specify `TenantID` as the first level key, and then add a second level like `UserId`. If you anticipate the `TenantID` and `UserID` combination to produce logical partitions that exceed the 20-GB limit, you can partition further down to another level, such as `SessionID`. Queries that specify either `TenantID` or both `TenantID` and `UserID` are effectively routed to only the subset of physical partitions that contain the relevant data, which avoids a full fan-out query. If the container has 1,000 physical partitions but a specific `TenantId` value is only on five physical partitions, the query is routed to the smaller number of relevant physical partitions.
+    Suppose you have a workload that isolates tenants by partition key. One tenant, Contoso, is larger and more write-heavy than others, and it continues to grow in size. To avoid the risk of not being able to ingest more data for this tenant, you can use hierarchical partition keys. Specify `TenantID` as the first level key, and then add a second level like `UserId`. If you anticipate the `TenantID` and `UserID` combination to produce logical partitions that exceed the 20-GB limit, you can partition further down to another level, such as `SessionID`. Queries that specify either `TenantID` or both `TenantID` and `UserID` are effectively routed to only the subset of physical partitions that contain the relevant data, which avoids a full fan-out query. If the container has 1,000 physical partitions but a specific `TenantId` value is only on five physical partitions, the query is routed to the smaller number of relevant physical partitions.
 
     If your first level doesn't have sufficiently high cardinality, and you reach the 20-GB logical partition limit on your partition key, consider using a synthetic partition key instead of a hierarchical partition key.
 
