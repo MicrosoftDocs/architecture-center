@@ -155,7 +155,7 @@ Use Microsoft Fabric when you need a comprehensive platform to manage your entir
 |**Type**                   |Unified analytics platform|
 |**Supported languages**    |Python, R, SQL, Scala|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Real-time analytics|
-|**Key benefits**           |Unified platform for all data and analytics needs.<br>Seamless integration with other Microsoft services.<br>Scalable and flexible.<br>Supports a wide range of data and analytics tools.<br>Facilitates collaboration across different roles in an organization.|
+|**Key benefits**           |Unified platform for all data and analytics needs.<br>Seamless integration with other Microsoft services.<br>Scalable and flexible.<br>Supports a wide range of data and analytics tools.<br>Facilitates collaboration across different roles in an organization.<br>End-to-end data lifecycle management from ingestion to insights.<br>Real-time analytics and business intelligence capabilities.<br>Supports machine learning model training and deployment.<br>Integration with popular machine learning frameworks and tools.<br>Provides tools for data preparation and feature engineering.<br>Enables real-time machine learning inference and analytics.|
 
 ## Azure Data Science Virtual Machine
 
