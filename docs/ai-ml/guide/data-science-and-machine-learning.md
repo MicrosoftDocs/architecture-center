@@ -71,7 +71,7 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 ## Azure AI services
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) is a comprehensive suite of pre-built APIs that enable developers and organizations to create intelligent, market-ready applications rapidly. These services offer out-of-the-box and customizable APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with minimal code, making it unnecessary to bring datasets or data science expertise to train models. You can easily add intelligent features to your apps, such as:
+[Azure AI services](/azure/ai-services/what-are-ai-services) is a comprehensive suite of pre-built APIs that enable developers and organizations to create intelligent, market-ready applications rapidly. These services offer out-of-the-box and customizable APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with minimal code, making it unnecessary to bring datasets or data science expertise to train models. You can add intelligent features to your apps, such as:
 
 - **Vision:** Object detection, face recognition, optical character recognition (OCR), and so on. For more information, see [Computer Vision](/azure/ai-services/computer-vision/), [Face](/azure/ai-services/computer-vision/overview-identity), [Document Intelligence](/azure/ai-services/document-intelligence/).
 - **Speech:** Speech to text, text to speech, Speaker Recognition, and so on. For more information, see [Speech service](/azure/ai-services/speech-service/).
