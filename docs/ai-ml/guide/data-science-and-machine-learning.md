@@ -146,7 +146,7 @@ For a compressive comparison of Azure Machine Learning Studio and Azure AI Studi
 
 ## Microsoft Fabric
 
-[Microsoft Fabric](/fabric/overview) is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need. It integrates various services and tools to provide a seamless experience for data professionals, including data engineers, data scientists, and business analysts. Microsoft Fabric offers capabilities for data integration, data engineering, data warehousing, data science, real-time analytics, and business intelligence.
+[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need. It integrates various services and tools to provide a seamless experience for data professionals, including data engineers, data scientists, and business analysts. Microsoft Fabric offers capabilities for data integration, data engineering, data warehousing, data science, real-time analytics, and business intelligence.
 
 Use Microsoft Fabric when you need a comprehensive platform to manage your entire data lifecycle, from ingestion to insights.
 
