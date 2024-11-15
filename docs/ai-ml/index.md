@@ -108,13 +108,20 @@ The availability of language models led to the emergence of new ways to interact
 
 *Retrieval Augmented Generation (RAG)* is an architecture pattern that augments the capabilities of a large language model (LLM) like ChatGPT, that was trained only on public data. This pattern allows you to add a retrieval system that provides relevant grounding data in the context with the user request. Adding an information retrieval system gives you control over grounding data used by a language model when it formulates a response. RAG architecture lets you can constrain generative AI to content that's sourced from vectorized documents, images, and other data formats. RAG is not limited to vector search storage however, the pattern is appliable in conjunction with any data store technology.
 
-- [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
+- [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
+- [Choose an Azure service for vector search](/azure/architecture/guide/technology-choices/vector-search)
 
 ### Automated machine learning (AutoML)
 
 *Automated machine learning*, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
 
 - [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
+
+### MLflow
+
+[MLflow](https://www.mlflow.org/) is an open-source framework designed to manage the complete machine learning lifecycle. MLflow uses a consistent set of tools to train and serve models on different platforms. You can use MLflow whether your experiments are running locally or on a remote compute target, virtual machine, or Azure Machine Learning compute instance.
+
+
 
 ## AI services
 
@@ -153,7 +160,7 @@ Azure Machine Learning is a machine learning service to build and deploy models.
 
     :::image type="complex" source="architecture/_images/openai-end-to-end-aml-deployment.svg" border="false" lightbox="architecture/_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
     The diagram shows the App Service baseline architecture with a private endpoint that connects to a managed online endpoint in a Machine Learning managed virtual network. The managed online endpoint sits in front of a Machine Learning compute cluster. The diagram shows the Machine Learning workspace with a dotted line that points to the compute cluster. This arrow represents that the executable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources that are required by the executable flow, such as Container Registry and Storage. The diagram further shows user-defined private endpoints that provide private connectivity to the Azure OpenAI Service and Azure AI Search.
-:::image-end:::
+    :::image-end:::
 
 - [Azure OpenAI chat baseline architecture in an Azure landing zone](../ai-ml/architecture/baseline-openai-e2e-chat.yml) shows you how to build on the Azure OpenAI baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
 
@@ -178,6 +185,18 @@ Build ML models at scale using the AutoML capability in Azure Machine Learning t
 - [Use the CLI extension for Azure Machine Learning](/azure/machine-learning/reference-azure-machine-learning-cli)
 
 - [Automate machine learning activities with the Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
+
+
+### MLflow
+
+Azure Machine Learning workspaces are MLflow-compatible, which means that you can use an Azure Machine Learning workspace the same way you use an MLflow server. This compatibility has the following advantages:
+
+- Azure Machine Learning doesn't host MLflow server instances, but can use the MLflow APIs directly.
+- You can use an Azure Machine Learning workspace as your tracking server for any MLflow code, whether or not it runs in Azure Machine Learning. You only need to configure MLflow to point to the workspace where the tracking should occur.
+- You can run any training routine that uses MLflow in Azure Machine Learning without making any changes.
+
+
+-[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?view=azureml-api-2)
 
 ### Generative AI tools
 
@@ -303,20 +322,29 @@ The Microsoft machine learning library for Apache Spark is [SynapseML](https://g
 
 ### Microsoft Fabric OneLake
 
-OneLake is a single, unified, logical data lake for your whole organization. A data Lake processes large volumes of data from various sources. Like OneDrive, OneLake comes automatically with every Microsoft Fabric tenant and is designed to be the single place for all your analytics data. OneLake offers one data lake for the entire organization, and  a copy of data for use with multiple analytical engines.
+OneLake in Fabric is a unified and logical data lake that's tailored for the entire organization. It serves as the central hub for all analytics data and is included with every Microsoft Fabric tenant. OneLake in Fabric is built on the foundation of Data Lake Storage Gen2.
 
-- [OneLake, the OneDrive for data](/fabric/onelake/onelake-overview)
+OneLake in Fabric:
+
+- Supports structured and unstructured file types.
+- Stores all tabular data in Delta Parquet format.
+- Provides a single data lake within tenant boundaries that's governed by default.
+- Supports the creation of workspaces within a tenant so that an organization can distribute ownership and access policies.
+- Supports the creation of various data items, such as lakehouses and warehouses, from which you can access data.
+
+For more information, see [OneLake, the OneDrive for data](/fabric/onelake/onelake-overview).
 
 
-### Azure Data Lake Storage
+### Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage is a set of capabilities dedicated to and optimized for big data analytics, built on [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction).
+Azure Data Lake Storage is a single, centralized repository where you can store all your data, both structured and unstructured. A data lake enables your organization to quickly and more easily store, access, and analyze a wide variety of data in a single location. With a data lake, you don't need to conform your data to fit an existing structure. Instead, you can store your data in its raw or native format, usually as files or as binary large objects (blobs).
 
-Azure Data Lake Storage converges the capabilities of [Azure Data Lake Storage Gen1](/previous-versions/azure/data-lake-store/data-lake-store-overview) with Azure Blob Storage. For example, Data Lake Storage provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+
+Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
 
 - [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
-
 - [Tutorial: Azure Data Lake Storage, Azure Databricks & Spark](/azure/storage/blobs/data-lake-storage-use-databricks-spark)
 
 
@@ -347,11 +375,10 @@ With Databricks Data Intelligence Platform, you can write code to create a machi
 - Model and feature serving endpoints are available with a single click and provide milliseconds of latency.
 - Data and model monitoring.
 
-You can also use [Mosaic AI Vector Search], which is optimized for storing and retrieving embeddings. Embeddings are crucial for applications that require similarity searches, such as RAG (Retrieval Augmented Generation), recommendation systems, and image recognition.
+You can also use [Mosaic AI Vector Search](/azure/databricks/generative-ai/vector-search), which is optimized for storing and retrieving embeddings. Embeddings are crucial for applications that require similarity searches, such as RAG (Retrieval Augmented Generation), recommendation systems, and image recognition.
 
 
 - [Azure Databricks - Serve data for ML and AI](/azure/databricks/machine-learning/serve-data-ai)
-
 - [Mosaic AI Vector Search](/azure/databricks/generative-ai/vector-search)
 
 ## Data connectors for AI
@@ -390,6 +417,15 @@ Azure Machine Learning offer the following capabilities:
 
 - **Automated machine learning (AutoML)** is the process of automating the time-consuming, iterative tasks of machine learning model development. It can significantly reduce the time it takes to get production-ready ML models. Automated ML can assist with model selection, hyperparameter tuning, model training, and other tasks, without requiring extensive programming or domain knowledge.
 
+    You can use automated ML when you want Azure Machine Learning to train and tune a model for you using a specified target metric. Automated ML can be used regardless of data science expertise to identify an end-to-end machine learning pipeline for any problem.
+    
+    ML professionals and developers across industries can use automated ML to:
+    
+    - Implement ML solutions without extensive programming or machine learning knowledge
+    - Save time and resources
+    - Apply data science best practices
+    - Provide agile problem-solving
+
     - [What is automated machine learning?](/azure/machine-learning/concept-automated-ml)
 
 - **Scoring** is also called *prediction* and is the process of generating values based on a trained machine learning model, given some new input data. The values, or scores, that are created can represent predictions of future values,  but they might also represent a likely category or outcome. 
@@ -399,6 +435,13 @@ Azure Machine Learning offer the following capabilities:
   - [Batch scoring of Spark models on Azure Databricks](/azure/architecture/ai-ml/architecture/batch-scoring-databricks)
 
 
+- **Feature engineering and featurization.** Training data consists of rows and columns. Each row is an observation or record, and the columns of each row are the features that describe each record. Typically, the features that best characterize the patterns in the data are selected to create predictive models.
+
+Although many of the raw data fields can be used directly to train a model, it's often necessary to create other (engineered) features that provide information that better differentiates patterns in the data. This process is called feature engineering, where the use of domain knowledge of the data is used to create features that, in turn, help machine learning algorithms to learn better.
+
+In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called featurization in automated machine learning (ML) experiments.
+
+  - [Data featurization in automated machine learning](/azure/machine-learning/how-to-configure-auto-features?view=azureml-api-1)
 
 ### Azure OpenAI
 
@@ -457,7 +500,7 @@ Custom Translator offers the following features:
 
 [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, prebuilt/pretrained, or your trained standalone custom models.
 
-[Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) now include [custom classification models](/azure/ai-services/document-intelligence/train/custom-classifier) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business. Standalone custom extraction models can be combined to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
+[Document Intelligence custom models](/azure/ai-services/document-intelligence/train/custom-model) now include custom classification models for scenarios where you need to identify the document type before invoking the extraction model.  A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business. Standalone custom extraction models can be combined to create [composed models](/azure/ai-services/document-intelligence/train/composed-models).
 
 
 ### Custom AI tools
