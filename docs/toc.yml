@@ -1615,8 +1615,6 @@ items:
         href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
       - name: Hybrid security monitoring
         href: hybrid/hybrid-security-monitoring.yml
-      - name: On-premises data gateway for Logic Apps
-        href: hybrid/gateway-logic-apps.yml
       - name: Public MEC compute deployment
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
@@ -1796,28 +1794,20 @@ items:
       items:
       - name: API Management landing zone architecture
         href: example-scenario/integration/app-gateway-internal-api-management-function.yml
-      - name: Basic enterprise integration on Azure
-        href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
       - name: Data integration with Logic Apps and SQL
         href: example-scenario/integration/logic-apps-data-integration.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Enterprise integration - queues and events
         href: example-scenario/integration/queues-events.yml
-      - name: On-premises data gateway for Logic Apps
-        href: hybrid/gateway-logic-apps.yml
       - name: Power Automate deployment at scale
         href: example-scenario/power-automate/power-automate.yml
       - name: Publish internal APIs to external users
         href: example-scenario/apps/publish-internal-apis-externally.yml
     - name: Solution ideas
       items:
-      - name: Custom business processes
-        href: solution-ideas/articles/custom-business-processes.yml
       - name: Elastic Enterprise Search on Azure
         href: solution-ideas/articles/elastic-workplace-search.yml
-      - name: Line of business extension
-        href: solution-ideas/articles/lob.yml
       - name: Protect backend APIs in Azure
         href: solution-ideas/articles/protect-backend-apis-azure-management.yml
   - name: Internet of Things
@@ -2120,8 +2110,6 @@ items:
         href: solution-ideas/articles/backup-archive-on-premises-applications.yml
       - name: Centralize app configuration and security
         href: solution-ideas/articles/appconfig-key-vault.yml
-      - name: Deploy AKS and API Management with mTLS
-        href: solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml
       - name: Enterprise-scale disaster recovery
         href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
       - name: High availability for BCDR
@@ -3126,8 +3114,6 @@ items:
           href: /azure/architecture/browse/?terms=travel
         - name: Build a delta lake in leisure and travel
           href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
-        - name: Custom business processes for airlines
-          href: solution-ideas/articles/custom-business-processes.yml
         - name: Migrate a travel web app with APIM
           href: example-scenario/apps/apim-api-scenario.yml
         - name: Predictive aircraft engine monitoring

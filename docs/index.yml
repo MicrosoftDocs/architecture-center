@@ -242,9 +242,6 @@ conceptualContent:
 
     - title: Enterprise integration
       links:
-        - text: Basic enterprise integration
-          itemType: architecture
-          url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
         - text: Enterprise BI with SQL Data Warehouse
           itemType: architecture
           url: ./example-scenario/analytics/enterprise-bi-synapse.yml

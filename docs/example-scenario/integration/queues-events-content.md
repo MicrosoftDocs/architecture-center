@@ -1,4 +1,4 @@
-This architecture is based on the [basic enterprise integration][basic-enterprise-integration] architecture but includes how to integrate enterprise back-end systems. This architecture uses message brokers and events to decouple services for greater scalability and reliability. Ensure that you're familiar with the design and components in the basic integration architecture. These elements provide foundational information about the core components of this architecture.
+This architecture is based on the basic enterprise integration architecture but includes how to integrate enterprise back-end systems. This architecture uses message brokers and events to decouple services for greater scalability and reliability. Ensure that you're familiar with the design and components in the basic integration architecture. These elements provide foundational information about the core components of this architecture.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ The back-end systems that this design references include software as a service (
 
 ### Scenario details
 
-The preceding architecture builds on the simpler [basic enterprise integration architecture][basic-enterprise-integration] that uses [Azure Logic Apps][logic-apps] to orchestrate workflows directly with back-end systems and uses [Azure API Management][apim] to create catalogs of APIs.
+The preceding architecture builds on the simpler basic enterprise integration architecture that uses [Azure Logic Apps][logic-apps] to orchestrate workflows directly with back-end systems and uses [Azure API Management][apim] to create catalogs of APIs.
 
 This version of the architecture adds two components that help make the system more reliable and scalable:
 
@@ -34,7 +34,7 @@ Many Azure services support sending events to Event Grid. For example, a logic a
 
 ## Recommendations
 
-Consider the following recommendations. For more recommendations, see [Basic enterprise integration architecture][basic-enterprise-integration].
+Consider the following recommendations.
 
 ### Service Bus
 
@@ -122,8 +122,6 @@ For more information, see [Event Grid pricing](https://azure.microsoft.com/prici
 
 Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The basic enterprise integration reference architecture provides [guidance about DevOps patterns](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops), which align to the Well-Architected Framework [Operational Excellence](/azure/well-architected/operational-excellence/checklist) pillar. 
-
 Automate recovery operations as much as possible to help improve operational excellence. With automation in mind, you can combine [Azure log monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. For an example of automation logic to initiate a failover, see [Failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow).
 
 ### Performance Efficiency
@@ -139,11 +137,9 @@ For more Service Bus recommendations, see [Best practices for performance improv
 - [Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept)
 - [Tutorial that uses messaging to integrate non-Microsoft systems via NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/3-integration/)
 
-## Related resources
+## Related resource
 
-- [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Enterprise business intelligence](../../example-scenario/analytics/enterprise-bi-synapse.yml)
-- [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)
 
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
@@ -158,4 +154,3 @@ For more Service Bus recommendations, see [Best practices for performance improv
 [sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus
 [service-bus]: /azure/service-bus-messaging
 [service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus
-[basic-enterprise-integration]: ../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml

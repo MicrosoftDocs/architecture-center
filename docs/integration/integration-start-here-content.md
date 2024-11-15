@@ -50,7 +50,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Microservice architectures
 
 - [Transactional Outbox pattern with Azure Cosmos DB][Transactional Outbox pattern with Azure Cosmos DB]: Implement the Transactional Outbox pattern for reliable messaging between services.
-- [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: Connect Spring microservices that are written in Java to on-premises data.
 - [Identify microservice boundaries][Identify microservice boundaries]: Derive microservices from a domain model when designing your application.
 - [Design interservice communication for microservices][Designing interservice communication for microservices]: Use service meshes to make communication between microservices efficient and robust.
 
@@ -84,7 +83,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### E-commerce
 
-- [Custom business processes][Custom business processes]: Automate workflows and connect to legacy airline systems.
 - [Migrate a web app using Azure APIM][Migrate a web app using Azure APIM]: Modernize the legacy browser-based software stack of an e-commerce company.
 
 #### Finance
@@ -96,7 +94,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 - [Elastic Workplace Search on Azure][Elastic Workplace Search on Azure]: Use Workplace Search to capture information from numerous heterogeneous sources and make it searchable.
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
-- [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
 
 #### Healthcare
 
@@ -128,7 +125,6 @@ These reference architectures provide baseline implementations for various scena
 
 - [Data analysis workloads for regulated industries][Data analysis workloads for regulated industries]: Run data analytics workloads that take into account regulatory requirements.
 - [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
-- [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
 - [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
 - [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Azure Synapse Analytics and transform the data for analysis.
 - [Web and mobile front ends][Web and mobile front ends]: Make third-party data available to web users.
@@ -171,11 +167,9 @@ The following resources provide practical recommendations and information for sp
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Azure security baseline for Logic Apps]: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Azure updates]: https://azure.microsoft.com/updates/?category=integration
-[Basic enterprise integration on Azure]: ../reference-architectures/enterprise-integration/basic-enterprise-integration.yml
 [Business continuity and disaster recovery for Azure Logic Apps]: /azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Choose between virtual network peering and VPN gateways]: ../reference-architectures/hybrid-networking/vnet-peering.yml
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
-[Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
 [Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
 [Data integration with Logic Apps and SQL Server]: ../example-scenario/integration/logic-apps-data-integration.yml
@@ -200,12 +194,10 @@ The following resources provide practical recommendations and information for sp
 [Integrate IBM mainframe and midrange message queues with Azure]: ../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
 [Integration design for Dynamics 365 solutions]: /training/modules/integration
 [Integration Services]: https://azure.microsoft.com/product-categories/integration
-[Line of business extension]: ../solution-ideas/articles/lob.yml
 [Mainframe access to Azure databases]: ../solution-ideas/articles/mainframe-access-azure-databases.yml
 [Messaging services on Azure and AWS]: ../aws-professional/messaging.md
 [Migrate a web app using Azure APIM]: ../example-scenario/apps/apim-api-scenario.yml
 [Monitor Azure Functions and Event Hubs]: ../serverless/event-hubs-functions/observability.yml
-[On-premises data gateway for Azure Logic Apps]: ../hybrid/gateway-logic-apps.yml
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
