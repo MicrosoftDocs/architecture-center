@@ -195,8 +195,7 @@ Azure Machine Learning workspaces are MLflow-compatible, which means that you ca
 - You can use an Azure Machine Learning workspace as your tracking server for any MLflow code, whether or not it runs in Azure Machine Learning. You only need to configure MLflow to point to the workspace where the tracking should occur.
 - You can run any training routine that uses MLflow in Azure Machine Learning without making any changes.
 
-
--[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?view=azureml-api-2)
+For more information, see [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?view=azureml-api-2&preserve-view=true)
 
 ### Generative AI tools
 
@@ -441,7 +440,7 @@ Although many of the raw data fields can be used directly to train a model, it's
 
 In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called featurization in automated machine learning (ML) experiments.
 
-  - [Data featurization in automated machine learning](/azure/machine-learning/how-to-configure-auto-features?view=azureml-api-1)
+  - [Data featurization in automated machine learning](/azure/machine-learning/how-to-configure-auto-features?view=azureml-api-1&preserve-view=true)
 
 ### Azure OpenAI
 
