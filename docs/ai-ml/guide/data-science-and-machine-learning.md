@@ -68,7 +68,7 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Data Preparation<br>Model training<br>Deployment<br>MLOps/Management<br>Responsible AI|
-|**Key benefits**           |Code first (SDK) and studio and drag-and-drop designer web interface authoring options. <br/>Central management of scripts and run history, making it easy to compare model versions.<br/>Easy deployment and management of models to the cloud or edge devices.<br/>Offers scalable training, deployment, and management of machine learning models|
+|**Key benefits**           |Code first (SDK) and studio and drag-and-drop designer web interface authoring options. <br/>Central management of scripts and run history, making it easy to compare model versions.<br/>Easy deployment and management of models to the cloud or edge devices.<br/>Offers scalable training, deployment, and management of machine learning models.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
 ## Azure AI services
