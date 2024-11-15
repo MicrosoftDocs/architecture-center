@@ -27,7 +27,7 @@ categories:
 - Verbally interact in natural ways.
 - Make predictions and generate new data.
 
-
+Architects design workloads that use artificial intelligence to perform functions or make decisions where traditional logic or processing would be prohibitive, or even nearly impossible, to implement. As an architect designing a solution, it's important to understand the AI and machine learning landscape and how Azure offers solutions to integration into your workload design.
 
 ## AI concepts
 
