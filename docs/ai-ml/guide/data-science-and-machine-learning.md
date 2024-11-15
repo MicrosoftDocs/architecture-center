@@ -93,7 +93,6 @@ Use Azure AI services to develop apps across devices and platforms. The APIs kee
 [SQL machine learning](/sql/machine-learning) adds statistical analysis, data visualization, and predictive analytics in Python and R for relational data, both on-premises and in the cloud. Current platforms and tools include:
 
 - [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)
-- [Machine Learning Services on SQL Server Big Data Clusters](/sql/big-data-cluster/machine-learning-services)
 - [Azure SQL Managed Instance Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview)
 - [Machine learning in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning)
 - [Machine Learning extension for Azure Data Studio](/sql/azure-data-studio/machine-learning-extension)
