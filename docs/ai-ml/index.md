@@ -42,7 +42,7 @@ When you design a workload, you'll need to select an algorithm family that is su
 
 ### Machine learning
 
-*Machine learning* is an AI technique that uses machine learning algorithms to create predictive models. The machine learning algorithm is used to parse data fields and to "learn" from that data by using patterns found within it to generate models. Those models are then used to make informed predictions or decisions about new data.
+*Machine learning* is an AI technique that uses algorithms to create predictive models. The algorithm is used to parse data fields and to "learn" from that data by using patterns found within it to generate models. Those models are then used to make informed predictions or decisions about new data.
 
 The predictive models are validated against known data, measured by performance metrics selected for specific business scenarios, and then adjusted as needed. This process of learning and validation is called *training*. Through periodic retraining, ML models are improved over time.
 
@@ -83,7 +83,7 @@ As a workload designer, this option requires a large investment in generating hi
 
 *Language models* are a subset of Generative AI that focuses on natural language processing (NLP) tasks, such as text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
 
-Conventional language models hare used in supervised settings for research purposes where the models are trained on well-labeled text datasets for specific tasks. Pretrained language models offer an accessible way to get started with AI and have become more widely used in recent years. These models are trained on large-scale text corpora from the internet using deep learning neural networks and can be fine-tuned on smaller datasets for specific tasks.
+Conventional language models have used in supervised settings for research purposes where the models are trained on well-labeled text datasets for specific tasks. Pretrained language models offer an accessible way to get started with AI and have become more widely used in recent years. These models are trained on large-scale text corpora from the internet using deep learning neural networks and can be fine-tuned on smaller datasets for specific tasks.
 
 The size of a language model is determined by its number of parameters, or weights, that determine how the model processes input data and generates output. Parameters are learned during the training process by adjusting the weights within layers of the model to minimize the difference between the model's predictions and the actual data. The more parameters a model has, the more complex and expressive it is, but also the more computationally expensive it is to train and use.
 
@@ -134,11 +134,11 @@ With [Azure AI services](https://azure.microsoft.com/services/ai-services/) deve
 
 ## AI Language models
 
-- *Large Language Models (LLMs)*, such as OpenAI's GPT models, are powerful tools that can generate natural language across various domains and tasks. However, they aren't perfect and have limitations and risks that need to be considered before deciding to use them for real-world use cases. For more information, see [Understanding LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
+- *Large Language Models (LLMs)*, such as OpenAI's GPT models, are powerful tools that can generate natural language across various domains and tasks. When considering using these models, consider factors such as data privacy, ethical use, accuracy, and bias. For more information, see [Understanding LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend).
 
 - [Phi open models](https://azure.microsoft.com/blog/new-models-added-to-the-phi-3-family-available-on-microsoft-azure/) are small, less compute-intensive models for generative AI solutions. A small language model (SLM) may be more efficient, interpretable, and explainable than a large language model. For more information, see [Smaller models might work better than LLMs](/ai/playbook/technology-guidance/generative-ai/getting-started/use-case-recommend#smaller-models-might-work-better-than-llms).
 
-When designing a workload, you can use language models both as a hosted solution, behind a metered API or for many small language models you can host those in process or at least on the same compute as the consumer. When using language models for utilitarian purposes within prompt engineering orchestration flows, such as making routing decisions or rewording prompts, consider your choice of language model and its available hosting options to ensure your using an optimized solution for your use case.
+When designing a workload, you can use language models both as a hosted solution, behind a metered API or for many small language models you can host those in process or at least on the same compute as the consumer. When using language models in your solution, consider your choice of language model and its available hosting options to ensure your using an optimized solution for your use case.
 
 ## AI development platforms and tools
 
@@ -166,7 +166,6 @@ Azure Machine Learning is a machine learning service to build and deploy models.
 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
-- [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
 ### Automated machine learning (AutoML)
 
@@ -202,7 +201,7 @@ For more information, see [MLflow and Azure Machine Learning](/azure/machine-lea
 - [Azure AI Studio](https://azure.microsoft.com/services/ai-studio/) helps you experiment, develop, and deploy generative AI apps and APIs responsibly with a comprehensive platform. With Azure AI Studio, you have access to Azure AI Services, foundation models, playground, and resources to help you build, train, fine-tune, and deploy AI models. 
 Also, you can evaluate model responses and orchestrate prompt application components with prompt flow for better performance. 
 
-- [Azure Copilot Studio](/microsoft-copilot-studio/)is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for internal and external scenarios. With Copilot Studio, makers can design, test, and publish copilots using the comprehensive authoring canvas. Makers can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
+- [Azure Copilot Studio](/microsoft-copilot-studio/) is used to extend Microsoft Copilot in Microsoft 365 and build custom copilots for internal and external scenarios. With Copilot Studio, users can design, test, and publish copilots using the comprehensive authoring canvas. Users can easily create generative AI-enabled conversations, provide greater control to responses for existing copilots, and accelerate productivity with specific automated workflows.
 
 
 
@@ -508,7 +507,7 @@ Although prebuilt AI models are useful and increasingly flexible, the best way t
 
 #### Azure Machine Learning studio
 
-[Azure Machine Learning studio](https://ml.azure.com/home) Azure Machine Learning is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).:
+[Azure Machine Learning studio](https://ml.azure.com/home) is a cloud service for accelerating and managing the machine learning (ML) project lifecycle. ML professionals, data scientists, and engineers can use it in their day-to-day workflows to train and deploy models and manage machine learning operations (MLOps).:
 
 - Build and train Azure Machine Learning model with any type of compute including Spark and GPUs for cloud-scale large AI workloads.
 - Run automated Azure Machine Learning (AutoML) and drag-and-drop UI for low-code Azure Machine Learning.
