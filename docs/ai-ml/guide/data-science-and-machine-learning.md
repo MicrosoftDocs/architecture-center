@@ -27,6 +27,7 @@ The following options are available for machine learning in the Azure cloud.
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
 | [Azure&nbsp;Machine&nbsp;Learning](#azure-machine-learning) | Managed platform for machine learning  | Use a pretrained model, or train, deploy, and manage models on Azure using Python and CLI. Includes features like automated machine learning (AutoML), prompt flow, model catalog, and Mlflow integration. Track and understand model performance during production |
+| [Microsoft Fabric](#microsoft-fabric) | Unified analytics platform | Manage the entire data lifecycle, from ingestion to insights, with a comprehensive platform that integrates various services and tools for data professionals, including data engineers, data scientists, and business analysts |
 | [Azure&nbsp;AI&nbsp;Services](#azure-ai-services) | Pre-built AI capabilities implemented through REST APIs and SDKs  | Build intelligent applications using standard programming languages which call APIs that provide inferencing. While machine learning and data science expertise is still ideal to have, this platform can also be adopted by engineering teams without such skills |
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service with machine learning | Train and deploy models inside Azure Synapse Analytics |
@@ -39,7 +40,6 @@ The following option is available for machine learning on-premises. On-premises 
 | On-premises | What it is | What you can do with it |
 |-|-|-|
 | [SQL Server Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside SQL Server using Python and R scripts |
-
 
 ## Development platforms and tools
 
@@ -70,8 +70,6 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 |**Machine learning phases**|Data Preparation<br>Model training<br>Deployment<br>MLOps/Management<br>Responsible AI|
 |**Key benefits**           |Code first (SDK) and studio and drag-and-drop designer web interface authoring options. <br/>Central management of scripts and run history, making it easy to compare model versions.<br/>Easy deployment and management of models to the cloud or edge devices.<br/>Offers scalable training, deployment, and management of machine learning models|
 |**Considerations**         |Requires some familiarity with the model management model.|
-
-<a name='azure-ai-services'></a>
 
 ## Azure AI services
 
@@ -149,6 +147,18 @@ For a compressive comparison of Azure Machine Learning Studio and Azure AI Studi
 | **Deployment**       | Real-time and batch serving     | Real-time (MaaS)                                | Batch endpoints, Azure Arc                  |
 | **Governance**       | Responsible AI tools            | No                                              | Yes (Responsible AI dashboard)              |
 
+## Microsoft Fabric
+
+[Microsoft Fabric](/fabric/overview) is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need. It integrates various services and tools to provide a seamless experience for data professionals, including data engineers, data scientists, and business analysts. Microsoft Fabric offers capabilities for data integration, data engineering, data warehousing, data science, real-time analytics, and business intelligence.
+
+Use Microsoft Fabric when you need a comprehensive platform to manage your entire data lifecycle, from ingestion to insights.
+
+|Item|Description|
+|--------|-----------|
+|**Type**                   |Unified analytics platform|
+|**Supported languages**    |Python, R, SQL, Scala|
+|**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Real-time analytics|
+|**Key benefits**           |Unified platform for all data and analytics needs.<br>Seamless integration with other Microsoft services.<br>Scalable and flexible.<br>Supports a wide range of data and analytics tools.<br>Facilitates collaboration across different roles in an organization.|
 
 ## Azure Data Science Virtual Machine
 
@@ -187,8 +197,6 @@ Use ML.NET when you want to integrate machine learning solutions into your .NET 
 |**Languages supported**    |C#, F#|
 |**Machine learning phases**    |Data preparation<br>Training<br>Deployment|
 |**Key benefits**            |Data science and machine learning experience not required<br>Use familiar tools (Visual Studio, Microsoft Visual Studio Code) and languages<br>Deploy where .NET runs<br>Extensible<br>Scalable<br>Local-first experience<br>AutoML for automated machine learning tasks|
-
-<a name='windows-ai'></a>
 
 ## Windows AI
 
@@ -231,11 +239,18 @@ Principal authors:
 
 ## Next steps
 
-- To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai).
-- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn training](/training/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).
+- Learn about all the Artificial Intelligence (AI) development products available from Microsoft: [Microsoft AI platform](https://www.microsoft.com/ai).
+- Get training in developing AI and Machine Learning solutions with Microsoft: [Microsoft Learn training](/training/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).
+- Explore more about Microsoft Fabric: [Microsoft Fabric](/fabric/overview).
+- Discover Azure AI services: [Azure AI services](/azure/ai-services/).
+- Explore Azure Machine Learning: [Azure Machine Learning](/azure/machine-learning/).
+- Learn about Azure Databricks: [Azure Databricks](/azure/azure-databricks/).
+- Discover Azure Synapse Analytics: [Azure Synapse Analytics](/azure/synapse-analytics/).
+- Explore Azure SQL Managed Instance Machine Learning Services: [Azure SQL Managed Instance Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview).
 
 ## Related resources
 
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/ai-services.md)
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)
+- [Microsoft Fabric](/fabric/)
