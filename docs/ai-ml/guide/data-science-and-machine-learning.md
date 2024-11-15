@@ -48,7 +48,7 @@ The following development platforms and tools are available for machine learning
 
 | Platforms/tools | What it is | What you can do with it |
 |-|-|-|
-| [Azure&nbsp;AI&nbsp;Studio](#azure-ai-studio) | Unified development environment for AI | Develop, evaluate, and deploy AI models and applications. Facilitates collaboration and project management across various Azure AI services.|
+| [Azure&nbsp;AI&nbsp;Studio](#azure-ai-studio) | Unified development environment for AI and ML scenarios | Develop, evaluate, and deploy AI models and applications. Facilitates collaboration and project management across various Azure AI services and can even be used as a common environment across multiple workload teams. |
 | [Azure&nbsp;Machine&nbsp;Learning&nbsp;Studio](/azure/machine-learning) | Collaborative, drag-and-drop tool for machine learning | Build, test, and deploy predictive analytics solutions with minimal coding. Supports a wide range of machine learning algorithms and tools for data preparation, model training, and evaluation.|
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop machine learning solutions in a pre-configured environment with tools like Jupyter, R, and Python.|
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
