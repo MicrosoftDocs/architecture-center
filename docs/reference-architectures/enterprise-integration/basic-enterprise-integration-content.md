@@ -24,11 +24,11 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ### Components
 
-- [Integration Services](/azure/logic-apps/azure-integration-services-choose-capabilities) is a collection of services that you can use to integrate applications, data, and processes.
-- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.
-- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests.
-- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains.
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources.
+- [Integration Services](/azure/logic-apps/azure-integration-services-choose-capabilities) is a collection of services that you can use to integrate applications, data, and processes.  In the solution, two of these services are used: Logic Apps and API Management.  Logic Apps is used to facilitate message based integration between systems and facilitate connectivity with through connectors.  API Management is used to provide a facade for the backend services, allowing for a consistent interface for clients to interact with.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.  In this solution, Logic Apps is used to orchestrate the calls to the backend services and provide easy connectivity through connectors reducing the need for custom code.
+- [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests.  In this solution, API Management provides additional capabilities such as rate limiting, authentication, and caching to the backend services.  Additionally, API Management provides a developer portal for clients to discover and interact with the APIs.
+- [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains.  Azure DNS is hosting the public DNS records for the API Management service.  This allows clients to resolve the DNS name to the IP address of the API Management service.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources.  Here Entra ID is used to secure the API Management service and the developer portal.
 
 ## Scenario details
 
