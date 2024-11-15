@@ -196,7 +196,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure the application to use a cache.* Production apps should use the Distributed Redis Cache because it improves performance by reducing database queries and it enables nonsticky sessions so that the load balancer can evenly distribute traffic. For example, the reference implementation uses distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis (*see the following code*).
+- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. Using this cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis:
 
     ```csharp
     private void AddAzureCacheForRedis(IServiceCollection services)
@@ -215,7 +215,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
     }
     ```
 
-- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern. For example, the reference implementation caches high-need data that supports the Upcoming Concerts page. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concerts data (*see following code*).
+- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to enhance its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after you apply the Cache-Aside pattern. For example, the reference implementation caches high-need data that supports the Upcoming Concerts page. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concert data:
 
     ```csharp
     public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
@@ -246,7 +246,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
     }
     ```
 
-- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information. For example, the reference implementation caches data only for one hour and uses the `CreateConcertAsync` method to clear the cache key when the data changes (*see the following code*).
+- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Use data volatility and user needs to determine the optimal refresh rate. This practice ensures that the application uses the Cache-Aside pattern to provide both rapid access and current information. For example, the reference implementation caches data only for one hour and uses the `CreateConcertAsync` method to clear the cache key when the data changes:
 
     ```csharp
     public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
@@ -258,7 +258,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
     }
     ```
 
-- *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern. For example, the reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
+- *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern. The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent:
 
     ```csharp
     public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
@@ -280,11 +280,11 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 - *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports applications that use a single Microsoft Entra directory, multiple Microsoft Entra directories from different organizations, and Microsoft identities or social accounts.
 
-- *Create an app registration.* Microsoft Entra ID requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant.
+- *Create an application registration.* Microsoft Entra ID requires an application registration in the primary tenant. The application registration helps ensure that users who get access to the web app have identities in the primary tenant.
 
-- *Use platform features.* Minimize the need for custom authentication code by using platform capabilities to authenticate users and access data. For example, [App Service](/azure/app-service/overview-authentication-authorization) provides built-in authentication support, so you can sign in users and access data by writing minimal or no code in your web app.
+- *Use platform features.* Minimize the need for custom authentication code by using platform capabilities to authenticate users and access data. For example, [App Service](/azure/app-service/overview-authentication-authorization) provides built-in authentication support, so you can sign in users and access data while writing minimal or no code in your web app.
 
-- *Enforce authorization in the application.* Use role-based access controls (RBAC) to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Define specific roles for different user actions to avoid overlap and ensure clarity. Map users to the appropriate roles and ensure they only have access to necessary resources and actions.
+- *Enforce authorization in the application.* Use RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Define specific roles for different user actions to avoid overlap and ensure clarity. Map users to the appropriate roles and ensure they have access to only necessary resources and actions.
 
 [!INCLUDE [User authN and authZ bullet points](../includes/authn-authz-notes.md)]
 
