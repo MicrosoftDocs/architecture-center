@@ -288,11 +288,11 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [!INCLUDE [User authN and authZ bullet points](../includes/authn-authz-notes.md)]
 
-### Implement managed identities
+### Use managed identities
 
 [!INCLUDE [Managed identity intro](../includes/managed-id.md)]
 
-For example, the reference implementation uses the `Authentication` argument in the SQL database connection string so App Service can [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`. It uses the `DefaultAzureCredential` to allow the web API to connect to Key Vault using a managed identity (*see the following code*).
+The reference implementation uses the `Authentication` argument in the SQL database connection string so that App Service can [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) by using a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`. It uses `DefaultAzureCredential` to allow the web API to connect to Key Vault by using a managed identity:
 
 ```csharp
     builder.Configuration.AddAzureAppConfiguration(options =>
@@ -301,7 +301,7 @@ For example, the reference implementation uses the `Authentication` argument in 
             .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
             .ConfigureKeyVault(kv =>
             {
-                // Some of the values coming from Azure App Configuration
+                // Some of the values coming from App Configuration
                 // are stored in Key Vault. Use the managed identity
                 // of this host for the authentication.
                 kv.SetCredential(new DefaultAzureCredential());
@@ -309,11 +309,11 @@ For example, the reference implementation uses the `Authentication` argument in 
     });
 ```
 
-### Right size environments
+### Rightsize environments
 
 [!INCLUDE [Right size environments intro](../includes/right-size.md)]
 
-For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
+For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment:
     
 ```bicep
     var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
