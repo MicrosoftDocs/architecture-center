@@ -1,6 +1,6 @@
 This solution uses [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) to help provide centralized protection for web applications that you deploy on a multitenant Azure Kubernetes Service (AKS) cluster. WAF helps safeguard against common exploits and vulnerabilities.
 
-You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway to help protect web applications from malicious attacks, like SQL injection and cross-site scripting. This method helps protect web applications that run on an [AKS cluster](/azure/aks/intro-kubernetes) and are exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). The WAF policy on Application Gateway is preconfigured with the Open Worldwide Application Security Project Core Rule Set (OWASP CRS) and supports other OWASP CRS versions. You can also create custom rules.
+You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway to help protect web applications from malicious attacks, like SQL injection and cross-site scripting. This method helps protect web applications that run on an [AKS cluster](/azure/aks/intro-kubernetes) and are exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). The WAF policy on Application Gateway is preconfigured with the Open Worldwide Application Security Project (OWASP) Core Rule Set (CRS) and supports other OWASP CRS versions. You can also create custom rules.
 
 ## Architecture
 
@@ -39,7 +39,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 - An Azure Bastion host provides secure and seamless Secure Shell (SSH) connectivity to the jumpbox VM, directly in the Azure portal via Secure Sockets Layer (SSL). This solution uses Azure Container Registry to build, store, and manage container images and artifacts, such as Helm charts.
 
 - The architecture includes an application gateway that the ingress controller uses. The application gateway is deployed to a dedicated subnet and exposed to the public internet via a public IP address that all tenant workloads share. A WAF policy helps protect tenant workloads from malicious attacks.
-  
+
   The WAF policy is associated with the application gateway at the root level and at the HTTP listener level. The policy is configured in prevention mode and uses [OWASP 3.1](https://owasp.org/www-project-application-security-verification-standard) to block intrusions and attacks that rules detect. The attacker receives a *403 unauthorized access* exception, and the connection is closed. Prevention mode records these attacks in the WAF logs.
 
 - Workloads that run on AKS use a key vault as a secret store to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure platform as a service (PaaS) solutions, such as Azure Key Vault, over a private endpoint in the virtual network.
@@ -96,7 +96,7 @@ You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-
 
 When you expose workloads that you host in an AKS cluster, you have several solutions to consider. Instead of using the AGIC, you can use [Application Gateway for Containers](/azure/application-gateway/for-containers/overview) or [managed NGINX ingress with the application routing add-on](/azure/aks/app-routing). These alternatives provide different capabilities to help manage and secure traffic to your AKS cluster.
 
-This architecture installs the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress) via the [AGIC add-on for AKS](/azure/application-gateway/tutorial-ingress-controller-add-on-new). You can also [install the AGIC via a Helm chart](/azure/application-gateway/ingress-controller-install-existing#install-ingress-controller-as-a-helm-chart). When you create a new setup, you can use one line in the Azure CLI to deploy a new application gateway and a new AKS cluster. This method enables AGIC as an add-on. The add-on is a fully managed service, which provides added benefits, such as automatic updates and increased support. It's also considered a first-class add-on, which provides better integration with AKS. Microsoft supports both deployment methods for the AGIC. 
+This architecture installs the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress) via the [AGIC add-on for AKS](/azure/application-gateway/tutorial-ingress-controller-add-on-new). You can also [install the AGIC via a Helm chart](/azure/application-gateway/ingress-controller-install-existing#install-ingress-controller-as-a-helm-chart). When you create a new setup, you can use one line in the Azure CLI to deploy a new application gateway and a new AKS cluster. This method enables AGIC as an add-on. The add-on is a fully managed service, which provides added benefits, such as automatic updates and increased support. It's also considered a first-class add-on, which provides better integration with AKS. Microsoft supports both deployment methods for the AGIC.
 
 The AGIC add-on is deployed as a pod in your AKS cluster. But there are a few differences between the Helm deployment version and the add-on version of the AGIC. The following list includes the differences between the two versions:
 
@@ -163,7 +163,7 @@ These availability and reliability considerations don't fully pertain to multite
 - Use Kubernetes health probes to check that your containers are alive and healthy:
 
   - The [livenessProbe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command) indicates whether the container is running. If the liveness probe fails, the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet) terminates the container, and the container is subjected to its restart policy.
-  
+
   - The [readinessProbe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes) indicates whether the container is ready to respond to requests. If the readiness probe fails, the endpoint controller removes the pod's IP address from the endpoints of all services that match the pod. The default state of readiness before the initial delay is *failure*.
   - The [startupProbe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes) indicates whether the application within the container is started. If you have a startup probe, all other probes are disabled until the startup probe succeeds. If the startup probe fails, the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet) terminates the container, and the container is subjected to its restart policy.
 
@@ -197,7 +197,7 @@ These availability and reliability considerations don't fully pertain to multite
 - Store your container images in [Container Registry](/azure/container-registry/container-registry-intro). Geo-replicate the registry to each AKS region. For more information, see [Geo-replication in Container Registry](/azure/container-registry/container-registry-geo-replication).
 - Avoid storing service state inside a container, where possible. Instead, use an Azure PaaS that supports multiregion replication.
 - Prepare and test how to migrate your storage from the primary region to the backup region if you use Azure Storage.
-- Consider using [GitOps](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks) to deploy the cluster configuration. GitOps provides uniformity between the primary and disaster-recovery clusters and also provides a quick way to rebuild a new cluster if you lose one.
+- Consider using [GitOps](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks) to deploy the cluster configuration. GitOps provides uniformity between the primary and disaster recovery clusters and also provides a quick way to rebuild a new cluster if you lose one.
 - Consider backup and restore of the cluster configuration by using tools, such as [AKS backup](/azure/backup/azure-kubernetes-service-backup-overview) or [Velero](https://github.com/vmware-tanzu/velero).
 
 #### Service mesh
@@ -218,7 +218,7 @@ The security considerations don't fully pertain to multitenancy in AKS, but they
 
 - Use logical isolation to separate teams and projects. Minimize the number of physical AKS clusters that you deploy to isolate teams or applications. The logical separation of clusters usually provides a higher pod density than physically isolated clusters.
 - Use dedicated node pools, or dedicated AKS clusters, whenever you need to implement a strict physical isolation. For example, you can dedicate a pool of worker nodes or an entire cluster to a team or a tenant in a multitenant environment.
-  
+
    Use a combination of [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to control the deployment of pods to a specific node pool. You can only taint a node in AKS at the time of node pool creation. Alternatively, you can use [labels and nodePool selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to deploy the workload to specific node pools only.
 
 #### Network security
@@ -290,7 +290,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Introduce A/B testing and canary deployments in your application lifecycle management to properly test an application before you introduce it to all users. There are several techniques that you can use to split the traffic across different versions of the same service.
 - As an alternative, you can use the traffic-management capabilities that a service mesh provides. For more information, see [Istio traffic management](https://istio.io/latest/docs/concepts/traffic-management/).
 
-- Use Container Registry or another container registry service, like Docker Hub, to store the private Docker images that you deploy to the cluster. AKS can use its Microsoft Entra identity to authenticate with Container Registry.
+- Use Container Registry or another registry store, like Docker Hub, to catalog and serve the private Docker images that you deploy to the cluster. AKS can use its Microsoft Entra identity to authenticate with Container Registry.
 - If you need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as using supported annotations. After you link an application gateway to the AGIC, the ingress controller synchronizes and controls nearly all configurations of that gateway. If you directly configure Application Gateway imperatively or through infrastructure as code, the ingress controller eventually overwrites those changes.
 
 #### Monitoring
@@ -368,4 +368,3 @@ Principal author:
 ## Related resources
 
 - [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
-
