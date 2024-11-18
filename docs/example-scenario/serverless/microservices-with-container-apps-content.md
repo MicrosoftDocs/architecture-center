@@ -113,7 +113,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability
 
-Container Apps allows you to more easily deploy, manage, maintain, and monitor the applications. You can ensure Availability through the following key features:
+Container Apps allows you to more easily deploy, manage, maintain, and monitor the applications. You can ensure availability through the following key features:
 
 - Revisions help you deploy application updates with zero downtime. You can use revisions to manage the deployment of application updates and split traffic between the revisions to support blue/green deployments and A/B testing (not currently used in this example workload).
 - With Container Apps end-to-end observability features, you have a holistic view of your running applications. Container Apps is integrated with Azure Monitor and Log Analytics, which allows you to track container app execution, and set alerts based on metrics and events.
