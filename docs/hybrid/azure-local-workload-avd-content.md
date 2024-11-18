@@ -12,8 +12,7 @@ For additional information review the [Azure Local Well-Architected Framework se
 |---|---|---|
 |&#9642; [Architecture](#architecture) <br>&#9642; [Workflow](#workflow) <br>&#9642;  [Components](#components) <br>&#9642; [Product Overview](#product-overview) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>&#9642; [ARM Templates](#arm-templates)|&#9642; [Workload design considerations](#workload-design-considerations)<br> &#9642; [User profiles and storage](#user-profiles-and-storage) <br> &#9642; [Session types](#session-types)  <br> &#9642; [Supported deployment configurations](#supported-deployment-configurations)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost optimization](#cost-optimization) <br> &#9642; [Operational excellence](#operational-excellence) <br> &#9642; [Performance efficiency](#performance-efficiency)|
 
-> [!TIP]
-> ![GitHub logo](../_images/github.svg) This [Azure Virtual Desktop on Azure Local template](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) demonstrates how to use an Azure Resource Management template (ARM template) and parameter file to deploy Azure Virtual Desktop session hosts deployed on Azure Local with simple configurations.
+
 
 ## Architecture
 
@@ -130,7 +129,7 @@ The Azure Virtual Desktop workload deployment can be streamlined significantly u
 
 An example ARM template and parameter file to deploy an Azure Local instance is [here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip).
 
-This [ARM template for Azure Virtual Desktop for Azure Local](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) serves as a foundation for automation. We do not anticipate further updates to this template unless necessary to address critical issues or integrate significant enhancements. Therefore, this template serves as a versatile starting point for building and managing your Azure Virtual Desktop deployments.
+This [ARM template for Azure Virtual Desktop for Azure Local](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) serves as a foundation for building and managing your Azure Virtual Desktop deployments.
 
 #### Terraform
 
@@ -263,7 +262,7 @@ For more information, see [Well-Architected Framework Reliability principles](/a
 
 Security is fundamental to protecting your Azure Virtual Desktop for Azure Local environment from deliberate threats and unauthorized access, safeguarding valuable data and user trust. By implementing robust identity protection, network controls, and data encryption, you can create a secure virtual desktop experience that mitigates risks of attacks and data breaches.
 
-#### Security considerations include.
+#### Security considerations include
 
 - **Enable multifactor authentication (MFA)**: Implementing Multi-Factor Authentication (MFA) adds an extra layer of security by requiring users to provide additional verification methods beyond just a password when accessing Azure Virtual Desktop resources. This significantly reduces the risk of unauthorized access due to compromised credentials. Microsoft Entra ID (formerly Azure Active Directory) offers built-in MFA capabilities that integrate seamlessly with Azure Virtual Desktop, including deployments on Azure Local. For more information, see [recommendations for identity and access management.](/azure/well-architected/security/identity-access)
 
