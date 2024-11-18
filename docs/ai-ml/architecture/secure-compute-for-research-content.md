@@ -49,7 +49,7 @@ Here are the core components that move and process research data.
 
 - [**Data Factory**](/azure/data-factory/introduction) automatically moves data between storage accounts of differing security levels to help ensure separation of duties.
 
-- [**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an analytical tool for big data and pipelines for data integration and extract, transform, and load workloads. Azure Synapse Analytics is also a preferred service to run Apache Spark workloads.
+- [**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an analytical tool for big data and pipelines for data integration and extract, transform, load workloads. Azure Synapse Analytics is also a preferred service to run Apache Spark workloads.
 
 - [**Virtual Desktop**](/azure/well-architected/azure-virtual-desktop/overview) is a service that you can use as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternatively, you can use [Azure Bastion](/azure/bastion/), but you should have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages, including:
 

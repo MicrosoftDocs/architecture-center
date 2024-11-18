@@ -15,7 +15,7 @@ products:
 
 # Compare storage on Azure and AWS
 
-The audience for this guide is organizations or individuals who are migrating from AWS to Azure or adopting a multicloud strategy. The goal of this guide is to help AWS architects understand the storage capabilities of Azure by comparing Azure services to AWS services.  
+The audience for this guide is organizations or individuals who are migrating from AWS to Azure or adopting a multicloud strategy. The goal of this guide is to help AWS architects understand the storage capabilities of Azure by comparing Azure services to AWS services.
 
 ## S3/EBS/EFS and Azure Storage
 
@@ -60,14 +60,14 @@ AWS customers often replicate their S3 buckets to another region by using cross-
 
 ## Comparing block storage choices
 
-Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher-performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration. 
+Both platforms provide different types of disks to meet particular performance needs. Although the performance characteristics don't match exactly, the following table provides a generalized comparison. You should always perform testing to determine which storage configurations best suit your application. For higher-performing disks, on both AWS and Azure you need to match the storage performance of the VM with the provisioned disk type and configuration.
 
 | AWS EBS volume type | Azure Managed disk | Use |
 | ----------- | ------------- | ----------- |
 | gp2/gp3 |  Standard SSD | Web servers and lightly used application servers or dev/test environments |
 | gp2/gp3 |  Premium SSD | Production and performance-sensitive workloads |
 | io1 |  Premium SSD v2 | Performance-sensitive workloads or workloads that require high IOPS and low latency |
-| io2 |  Ultra Disk | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS |
+| io2 |  Ultra Disk Storage | IO-intensive workloads, performance-demanding databases, and very high transaction workloads that demand high throughput and IOPS |
 | st1/sc1 |  Standard HDD | Non-critical or infrequent-access systems |
 
 On Azure, you can configure many VM types for host caching. When host caching is enabled, cache storage is made available to the VM and can be configured for read-only or read/write mode. For some workloads, the cache can improve storage performance.
@@ -87,7 +87,7 @@ Director, Partner Technology Strategist
 
 Other contributor:
 
-- [Yuri Baijnath](https://www.linkedin.com/in/yuri-baijnath-za) | Senior CSA Manager 
+- [Yuri Baijnath](https://www.linkedin.com/in/yuri-baijnath-za) | Senior CSA Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
