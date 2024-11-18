@@ -45,12 +45,12 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Containerization capability.* The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services.
     - *Autoscaling.* The web app can automatically scale in and out based on user traffic and configuration settings. The platform also supports scaling up or down to accommodate different hosting requirements.
     
-- *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Relecloud chose Entra ID for the following reasons:
+- *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Relecloud chose Microsoft Entra ID for the following reasons:
 
     - *Authentication and authorization.* The application needs to authenticate and authorize call center employees.
-    - *Scalable.* Entra ID scales to support larger scenarios.
+    - *Scalable.* Microsoft Entra ID scales to support larger scenarios.
     - *User-identity control.* Call center employees can use their existing enterprise identities.
-    - *Authorization protocol support.* Entra ID supports OAuth 2.0 for managed identities.
+    - *Authorization protocol support.* Microsoft Entra ID supports OAuth 2.0 for managed identities.
 
 - *Database:* Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) to guide your selection. Relecloud's web app used SQL Server on-premises. They wanted to use the existing database schema, stored procedures, and functions. Several SQL products are available on Azure, but Relecloud chose [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) for the following reasons:
 
