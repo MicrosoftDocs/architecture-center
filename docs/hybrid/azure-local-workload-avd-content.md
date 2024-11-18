@@ -12,8 +12,7 @@ For additional information review the [Azure Local Well-Architected Framework se
 |---|---|---|
 |&#9642; [Architecture](#architecture) <br>&#9642; [Workflow](#workflow) <br>&#9642;  [Components](#components) <br>&#9642; [Product Overview](#product-overview) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>&#9642; [ARM Templates](#arm-templates)|&#9642; [Workload design considerations](#workload-design-considerations)<br> &#9642; [User profiles and storage](#user-profiles-and-storage) <br> &#9642; [Session types](#session-types)  <br> &#9642; [Supported deployment configurations](#supported-deployment-configurations)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost optimization](#cost-optimization) <br> &#9642; [Operational excellence](#operational-excellence) <br> &#9642; [Performance efficiency](#performance-efficiency)|
 
-> [!TIP]
-> ![GitHub logo](../_images/github.svg) This [Azure Virtual Desktop on Azure Local template](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) demonstrates how to use an Azure Resource Management template (ARM template) and parameter file to deploy Azure Virtual Desktop session hosts deployed on Azure Local with simple configurations.
+
 
 ## Architecture
 
@@ -130,7 +129,7 @@ The Azure Virtual Desktop workload deployment can be streamlined significantly u
 
 An example ARM template and parameter file to deploy an Azure Local instance is [here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip).
 
-This [ARM template for Azure Virtual Desktop for Azure Local](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) serves as a foundation for automation. We do not anticipate further updates to this template unless necessary to address critical issues or integrate significant enhancements. Therefore, this template serves as a versatile starting point for building and managing your Azure Virtual Desktop deployments.
+This [ARM template for Azure Virtual Desktop for Azure Local](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/CreateHciHostpoolQuickDeployTemplate.json) serves as a foundation for building and managing your Azure Virtual Desktop deployments.
 
 #### Terraform
 
@@ -239,15 +238,15 @@ The following section outlines the key factors that organizations should conside
 
 While single-session Azure Virtual Desktop for Azure Local offers dedicated resources, performance isolation, and extensive user customization, these benefits come with higher resource demands. **Organizations that prioritize efficient scaling and cost savings should consider Windows 10/11 multi-session as the optimal choice.** By sharing resources across users, multi-session deployments provide a compelling solution for businesses seeking to maximize their virtual desktop environments while maintaining high performance.
 
-# Well-Architected Framework considerations
+## Well-Architected Framework considerations
 
 To help improve your Azure Virtual Desktop for Azure Local deployments, consider reviewing and implementing the recommendations from the five pillars of the Azure Well-Architected Framework. These are a set of guiding tenets that you can use to improve the reliability and quality of your workload solutions. For more information, see [Azure Well-Architected Framework perspective on Azure Stack HCI](/azure/well-architected/service-guides/azure-stack-hci).
 
-## Reliability
+### Reliability
 
 Reliability ensures that your Azure Virtual Desktop for Azure Local deployment can consistently meet performance commitments of your end users, while maintaining availability in the face of disruptions. By adopting best practices in high availability, backup, monitoring, and automated recovery, you can ensure reliable access to virtual desktops.
 
-### Reliability considerations include
+#### Reliability considerations include
 
 - **Implement multi-node clustering for high availability**: Ensuring high availability is crucial for Azure Virtual Desktop for Azure Local deployments. By deploying multiple nodes in a clustered environment, you can minimize downtime caused by individual node failures. Azure Local supports clustering across physical nodes, which means virtual desktops can continue to operate even if one node goes offline. For business-critical or mission-critical use cases, we recommend that you deploy multiple instances of a workload or service across two or more separate Azure Local instances, ideally in separate physical locations. This redundancy also enables load balancing, which distributes virtual desktop session hosts (_Arc VMs_) across available physical nodes within a single Azure Local instance. Refer to the following links for details on [recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy) and [recommendations for highly available multi-region design](/azure/well-architected/reliability/highly-available-multi-region-design).
 
@@ -259,11 +258,11 @@ Reliability ensures that your Azure Virtual Desktop for Azure Local deployment c
 
 For more information, see [Well-Architected Framework Reliability principles](/azure/well-architected/reliability/checklist).
 
-## Security
+### Security
 
 Security is fundamental to protecting your Azure Virtual Desktop for Azure Local environment from deliberate threats and unauthorized access, safeguarding valuable data and user trust. By implementing robust identity protection, network controls, and data encryption, you can create a secure virtual desktop experience that mitigates risks of attacks and data breaches.
 
-### Security considerations include
+#### Security considerations include
 
 - **Enable multifactor authentication (MFA)**: Implementing Multi-Factor Authentication (MFA) adds an extra layer of security by requiring users to provide additional verification methods beyond just a password when accessing Azure Virtual Desktop resources. This significantly reduces the risk of unauthorized access due to compromised credentials. Microsoft Entra ID (formerly Azure Active Directory) offers built-in MFA capabilities that integrate seamlessly with Azure Virtual Desktop, including deployments on Azure Local. For more information, see [recommendations for identity and access management.](/azure/well-architected/security/identity-access)
 
@@ -275,11 +274,11 @@ Security is fundamental to protecting your Azure Virtual Desktop for Azure Local
 
 For more information, see [Well-Architected Framework Security design principles.](/azure/well-architected/security/checklist)
 
-## Cost Optimization
+### Cost Optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. On Azure Virtual Desktop for Azure Local, this is crucial in minimizing hardware cost while maximizing the user experience and performance for each session.
 
-### Cost Optimization considerations include
+#### Cost Optimization considerations include
 
 - **Optimize VM sizing for cost efficiency**: Right-sizing VMs based on usage patterns helps ensure you maximize available physical resources. Monitoring CPU and memory usage over time enables you to adjust VM resources to best match the workload requirements. This optimization helps provide return on investment for your Azure Local hardware costs, by ensuring the VMs are using the allocated resources efficiently. See [recommendations for aligning usage to billing increments](/azure/well-architected/cost-optimization/align-usage-to-billing-increments) for more information.
 
@@ -295,11 +294,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 For more information, see [Well-Architected Framework Cost Optimization design principles](/azure/well-architected/cost-optimization/checklist).
 
-## Operational Excellence
+### Operational Excellence
 
 Operational excellence focuses on creating reliable processes to deploy, manage, and monitor Azure Virtual Desktop for Azure Local instances effectively, ensuring smooth operations in production environments. By building well-defined workflows, automating routine tasks, and setting up robust monitoring, you can streamline operations and reduce the risk of downtime.
 
-### Operational Excellence considerations include
+#### Operational Excellence considerations include
 
 - **Simplified provisioning and management experience integrated with Azure**: The cloud-based deployment in Azure provides a wizard-driven interface that shows you how to create an Azure Local instance. Similarly, Azure simplifies the process of managing Azure Local instances and Azure Arc VMs. You can automate the portal-based deployment of the Azure Local instance by using the ARM template. This template provides consistency and automation to deploy Azure Local at scale. This is crucial in retail stores or manufacturing sites that require an Azure Local instance to run business-critical workloads. See [recommendations for enabling automation](/azure/well-architected/operational-excellence/enable-automation) for more information.
 
@@ -311,11 +310,11 @@ Operational excellence focuses on creating reliable processes to deploy, manage,
 
 For more information, see [Well-Architected Framework Operational Excellence Design Principles](/azure/architecture/framework/operational-excellence/checklist).
 
-## Performance Efficiency
+### Performance Efficiency
 
 Performance efficiency ensures that your Azure Virtual Desktop for Azure Local deployment can handle user demand effectively, especially during peak usage times. Scaling resources to meet concurrent user needs while optimizing for cost and responsiveness is crucial in maintaining high performance.
 
-### Performance Efficiency considerations include
+#### Performance Efficiency considerations include
 
 - **Use load balancing for optimal performance**: Distributing network traffic evenly across Azure Virtual Desktop instances ensures that no single VM becomes a bottleneck. Load balancers help improve responsiveness by evenly distributing user sessions, which is especially important during peak times. Azure Virtual Desktop supports built-in load balancing algorithms that manage user session distribution effectively. Breadth-First Load Balancing assigns new user sessions to the session host with the least number of connections, promoting an even distribution. Depth-First Load Balancing fills up one session host before moving on to the next, which can be efficient during low usage periods. Learn how to [configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
