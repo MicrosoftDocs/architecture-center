@@ -1,4 +1,4 @@
-This article presents an example of a streaming solution that uses fully managed Azure data services. 
+This article presents an example of a streaming solution that uses fully managed Azure data services.
 
 ## Architecture
 
@@ -8,9 +8,9 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
 ### Workflow
 
-1. The Event Hubs for Apache Kafka feature streams events from Kafka producers.
+1. The event hubs for Apache Kafka feature streams events from Kafka producers.
 
-1. Apache Spark consumes events. AKS provides a managed environment for the Apache Spark jobs.
+1. Apache Spark consumes events. Azure Kubernetes Service (AKS) provides a managed environment for the Apache Spark jobs.
 
 1. An application that uses Azure Cosmos DB for Apache Cassandra writes events to Cassandra. This database serves as a storage platform for events. AKS hosts the microservices that write to Cassandra.
 
@@ -38,7 +38,7 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 - [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a fully managed NoSQL and relational database that offers multi-master replication. Azure Cosmos DB supports open-source APIs for many databases, languages, and platforms. Examples include:
 
   - [Apache Cassandra][Apache Cassandra].
-  - [Gremlin][The Gremlin Graph Traversal Machine and Language].
+  - [Gremlin]The [Gremlin Graph Traversal Machine and Language].
   - [MongoDB][MongoDB].
 
   Through the [Azure Cosmos DB for Apache Cassandra][Introduction to Azure Cosmos DB for Apache Cassandra], you can access Azure Cosmos DB data by using Apache Cassandra tools, languages, and drivers. Apache Cassandra is an open-source NoSQL database that's well suited for heavy write-intensive workloads.
@@ -111,7 +111,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Resiliency
 
-Consider using [Availability zones][Availability Zones] to protect business-critical applications from datacenter failures. This solution's services support availability zones for selected SKUs in [availability zone–enabled regions][Azure regions with Availability Zones]. For up-to-date information, review the [list of services that support availability zones][Azure Services that support Availability Zones].
+Consider using [Availability zones][Availability Zones] to protect business-critical applications from datacenter failures. This solution's services support availability zones for selected SKUs in [Availability zone–enabled regions][Azure regions with Availability Zones]. For up-to-date information, review the [list of services that support availability zones][Azure Services that support Availability Zones].
 
 ### Cost optimization
 
@@ -154,7 +154,7 @@ Keep these points in mind when you deploy this solution:
 
 - When you use the [Azure Cosmos DB change feed][Change feed in Azure Cosmos DB], refer to [Change feed in Azure Cosmos DB for Apache Cassandra][Change feed in Azure Cosmos DB for Apache Cassandra] for this information:
 
-  - How to use query predicates in [Cassandra Query Language (CQL)][The Cassandra Query Language (CQL)] to query the change feed API
+  - How to use query predicates in [Cassandra Query Language (CQL)]The [Cassandra Query Language (CQL)] to query the change feed API
   - Sample code for a Java application
 
 - For information on processing the events that you've stored in Cassandra, refer to [Tutorial: Query data from Azure Cosmos DB for Apache Cassandra][Tutorial: Query data from Azure Cosmos DB for Apache Cassandra]. This article also contains sample Java code for using CQL commands to retrieve data from tables.
@@ -212,8 +212,7 @@ To learn about related solutions, see the following information:
 [Azure regions with Availability Zones]: /azure/availability-zones/az-region#azure-regions-with-availability-zones
 [Azure Services that support Availability Zones]: /azure/availability-zones/az-region
 [Best practices for building an application with Azure Database for PostgreSQL]: /azure/postgresql/application-best-practices
-[Cache-Aside pattern]: ../../patterns/cache-aside.yml
-[The Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
+[Cache-Aside pattern]: ../../patterns/cache-aside.yml The [Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed
 [Change feed in Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-change-feed?tabs=java
 [Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores.md
@@ -222,8 +221,7 @@ To learn about related solutions, see the following information:
 [Create Azure Cosmos containers and databases with autoscale throughput]: /azure/cosmos-db/provision-throughput-autoscale
 [Data streaming with AKS]: ../../solution-ideas/articles/data-streaming-scenario.yml
 [Event Hubs pricing]: https://azure.microsoft.com/pricing/details/event-hubs
-[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq
-[The Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
+[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq The [Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
 [Introduction to Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-introduction
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Key rotation and regeneration]: /azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#key-rotation
