@@ -28,7 +28,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows that integrate applications, data, and services.  In this solution Logic Apps is used to orchestrate the calls to the backend services and provide easy connectivity through connectors reducing the need for custom code.
 - [API Management](/azure/well-architected/service-guides/api-management/reliability) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests. In this solution, API Management provides additional capabilities such as rate limiting, authentication, and caching to the backend services.  Additionally, API Management provides a developer portal for clients to discover and interact with the APIs.
 - [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains.  Azure DNS is hosting the public DNS records for the API Management service. This allows clients to resolve the DNS name to the IP address of the API Management service.
-- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad) and the developer portal using [Entra B2C](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-aad-b2c).
+- [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources. Here Entra ID is used to secure the API Management service using [OAuth 2.0](/azure/api-management/api-management-howto-protect-backend-with-aad) and the developer portal using [Entra B2C](/azure/api-management/api-management-howto-aad-b2c).
 
 ## Scenario details
 
@@ -50,7 +50,7 @@ Your specific requirements might differ from the generic architecture shown here
 
 Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier also supports scale out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
 
-The API Management Consumption tier is not recommended for this solution because it doesn't support the developer portal which is required for this architecture.  The Developer Tier is specifically for non-production environments and is not recommended for production workloads.  A feature matrix detailing the differences between the tiers can be found [here](https://learn.microsoft.com/en-us/azure/api-management/api-management-features).
+The API Management Consumption tier is not recommended for this solution because it doesn't support the developer portal which is required for this architecture.  The Developer Tier is specifically for non-production environments and is not recommended for production workloads.  A feature matrix detailing the differences between the tiers can be found [here](/azure/api-management/api-management-features).
 
 Each Azure API Management instance has a default domain name, which is a subdomain of `azure-api.net`, for example, `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
 
@@ -98,7 +98,7 @@ Although this list doesn't completely describe all security best practices, here
 
 - Secure public API endpoints in API Management by using OAuth or OpenID Connect. To secure public API endpoints, configure an identity provider, and add a JSON Web Token (JWT) validation policy. For more information, see [Protect an API by using OAuth 2.0 with Microsoft Entra ID and API Management][apim-oauth].
 
-- Connect to back-end services from API Management by using [mutual certificates](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).
+- Connect to back-end services from API Management by using [mutual certificates](/azure/api-management/api-management-howto-mutual-certificates).
 
 - Enforce HTTPS on the API Management APIs.
 
