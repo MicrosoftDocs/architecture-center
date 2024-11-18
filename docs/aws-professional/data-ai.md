@@ -138,7 +138,7 @@ These tools and platforms enable the development, training, and deployment of ma
 
 ## AI services
 
-AI services provide prebuilt, customizable AI capabilities to applications, including vision, speech, language, and decision making. (In Azure, these services were previously called Azure AI services. You might still see this name.)
+AI services provide prebuilt, customizable AI capabilities to applications, including vision, speech, language, and decision making. (In Azure, these services were previously called Azure Cognitive Services. You might still see this name.)
 
 | AWS service     | Azure service | Analysis   |
 |  -------  | ------  |--|
@@ -147,7 +147,7 @@ AI services provide prebuilt, customizable AI capabilities to applications, incl
 | [Amazon Transcribe](https://aws.amazon.com/transcribe/)    | [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech/)  | These services convert spoken language into text, which enables applications to transcribe audio streams.        |
 | [Amazon Translate](https://aws.amazon.com/translate/)                   | [Azure AI Translator](https://azure.microsoft.com/services/cognitive-services/translator/)| These services provide machine translation capabilities for translating text from one language to another. |
 | [Amazon Comprehend](https://aws.amazon.com/comprehend/)     | [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language)  | These services analyze text to extract insights like sentiment, key phrases, entities, and language detection.  |
-| [Amazon Lex](https://aws.amazon.com/lex/)   | [Azure AI Bot Service](https://azure.microsoft.com/services/bot-service/) | You can use these services to create conversational interfaces and chatbots that use natural language understanding. Azure provides a modular approach with separate services for the Bot Framework and language understanding. Amazon Lex provides an integrated solution for building conversational interfaces within AWS. |
+| [Amazon Lex](https://aws.amazon.com/lex/)   | [Azure AI Bot Service](https://azure.microsoft.com/services/bot-service/) | You can use these services to create conversational interfaces and chatbots that use natural language understanding. Azure provides a modular approach with separate services for the bot development framework and language understanding. Amazon Lex provides an integrated solution for building conversational interfaces within AWS. |
 | [Amazon Textract](https://aws.amazon.com/textract/) | [Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence/) | Both of these services automatically extract text and data from scanned documents and forms by using machine learning. Azure provides customizable models for specific document types, which enables tailored data extraction. Textract provides out-of-the-box extraction of complex data structures.  |
 | [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/) | [Azure AI Search (generative search)](https://azure.microsoft.com/products/ai-services/ai-search/)      |  OpenSearch and AI Search provide powerful search and analytics capabilities. You can use them for common AI patterns, like retrieval-augmented generation (RAG).   |
 
