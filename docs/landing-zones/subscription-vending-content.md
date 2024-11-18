@@ -59,7 +59,7 @@ The notification and data from the data collection tool should trigger the platf
 }
 ```
 
-*[See entire file](https://github.com/azure/bicep-lz-vending/wiki/Example-1-Hub-and-Spoke#arm-json-parameter-file). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest#example)*
+*[See entire file](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#example-1-using-only-defaults). For more examples, see [Bicep examples](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending#Usage-examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest#example)*
 
 **Use one file per subscription request.** The subscription is the unit of deployment in the subscription vending process, so each subscription request should have one dedicated subscription parameter file.
 
@@ -121,4 +121,5 @@ Subscription vending simplifies and standardizes the subscription creation proce
 - [Bicep modules](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/lz/sub-vending)
 - [Terraform modules](https://aka.ms/lz-vending/tf)
 - [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+- [Establish common subscription vending product lines](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending-product-lines)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)
