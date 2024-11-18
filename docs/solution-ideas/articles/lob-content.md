@@ -12,23 +12,23 @@ This example shows how you can modernize your legacy systems that can't support 
 
 The data flows through the solution as follows:
 
-1. Supplier data stored in CDS is moved to SQL via Data Factory.
+1. Supplier data stored in [Common Data Services (CDS)](https://learn.microsoft.com/en-us/business-applications-release-notes/april18/common-data-service-apps/) is moved to SQL via Data Factory.
 1. Purchase order (PO) data stored in ERP system is sent to Azure SQL database.
-1. Azure Functions uses API to surface PO data monthly and creates a task for users to review.
-1. Power Apps retrieves data from Azure SQL Database through API.
-1. User reviews and updates POs in Power Apps and sends this data to suppliers through CSV export.
+1. Azure API Management is used to expose an Azure function to the Power Platform.
+1. Power Apps retrieves data from Azure SQL Database through the Azure Function being exposed by Azure API Management.
+1. User reviews and updates POs in Power Apps and sends this data to suppliers through CSV exports.
 1. Power BI reports trends in supplier status.
 
 ### Components
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Power Apps](https://powerapps.microsoft.com): Increase agility across your organization by rapidly building low-code apps that modernize processes and solve tough challenges.
-- [Azure Functions](https://azure.microsoft.com/services/functions): Accelerate and simplify application development with serverless compute
-- [Azure API management](https://azure.microsoft.com/services/api-management): Hybrid, multicloud management platform for APIs across all environments
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration service that simplifies ETL at scale
-- [Power BI](/power-bi): a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Power Apps](/power-apps/): Increase agility across your organization by rapidly building low-code apps that modernize processes and solve tough challenges. In this architecture, this is the application development technology that provides the user interface for the solution.
+- [Azure Functions](https://azure.microsoft.com/services/functions): Accelerate and simplify application development with serverless compute. The Azure function hosts the custom code that performs lookup and retrieval of data from the Azure SQL Database.
+- [Azure API management](/azure/api-management/api-management-key-concepts): Hybrid, multicloud management platform for APIs across all environments.  In this architecture, The Power App interfaces with this service which provides gateway offloading of security, monitoring, and control.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud. Data from the ERP system and the supplier data from CDS is stored here for easy access.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration service that simplifies ETL at scale. Azure data factory is used to move and transform data from CDS to Azure SQL Database.
+- [Power BI](/power-bi): a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.  Power BI is used to deliver interactive reports and dashboards to the users.
 
 ## Scenario details
 
