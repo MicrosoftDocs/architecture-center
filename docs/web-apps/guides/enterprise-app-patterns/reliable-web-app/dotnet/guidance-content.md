@@ -333,9 +333,9 @@ For example, the reference implementation uses Bicep parameters to deploy more e
 
 [!INCLUDE [Monitoring](../includes/monitor.md)]
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
+- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring. You don't need to make any code changes to use this telemetry. 
 
-    The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core) (*see the following code*).
+    The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core):
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -348,7 +348,7 @@ For example, the reference implementation uses Bicep parameters to deploy more e
 
 - *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
 
-    The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
+    The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count`:
 
     ```csharp
     this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
@@ -357,19 +357,19 @@ For example, the reference implementation uses Bicep parameters to deploy more e
     });
     ```
 
-- *Monitor the platform.* Enable diagnostics for all supported services and send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
+- *Monitor the platform.* Enable diagnostics for all supported services. Send diagnostics to the same destination as the application logs for correlation. Azure services create platform logs automatically but only store them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
 ## Deploy the reference implementation
 
 The reference implementation guides developers through a simulated migration from an on-premises ASP.NET application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a concert-ticketing application for the fictional company Relecloud, which sells tickets through its on-premises web application. Relecloud set the following goals for their web application:
 
-- Implement low-cost, high-value code changes
-- Achieve a service level objective (SLO) of 99.9%
-- Adopt DevOps practices
-- Create cost-optimized environments
-- Enhance reliability and security
+- Implement low-cost, high-value code changes.
+- Achieve an SLO of 99.9%.
+- Adopt DevOps practices.
+- Create cost-optimized environments.
+- Enhance reliability and security.
 
-Relecloud determined that their on-premises infrastructure wasn't a cost-effective solution to meet these goals. They decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future goals. The following architecture represents the end-state of Relecloud's Reliable Web App pattern implementation.
+Relecloud determined that their on-premises infrastructure wasn't a cost-effective solution for meeting these goals. They decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future goals. The following architecture represents the end state of Relecloud's Reliable Web App pattern implementation.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
 *Figure 4. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
