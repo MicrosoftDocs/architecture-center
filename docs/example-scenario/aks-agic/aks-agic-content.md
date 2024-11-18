@@ -1,6 +1,6 @@
 This solution uses [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) to help provide centralized protection for web applications that you deploy on a multitenant Azure Kubernetes Service (AKS) cluster. WAF helps safeguard against common exploits and vulnerabilities.
 
-You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway to help protect web applications from malicious attacks, like SQL injection and cross-site scripting. This method helps protect web applications that run on an [AKS cluster](/azure/aks/intro-kubernetes) and are exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). The WAF policy on Application Gateway is preconfigured with the Open Worldwide Application Security Project (OWASP) Core Rule Set (CRS) (Open Worldwide Application Security Project (OWASP) Core Rule Set (CRS)) and supports other OWASP CRS versions. You can also create custom rules.
+You can use a [WAF policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway to help protect web applications from malicious attacks, like SQL injection and cross-site scripting. This method helps protect web applications that run on an [AKS cluster](/azure/aks/intro-kubernetes) and are exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). The WAF policy on Application Gateway is preconfigured with the Open Worldwide Application Security Project (OWASP) Core Rule Set (CRS) and supports other OWASP CRS versions. You can also create custom rules.
 
 ## Architecture
 
@@ -290,7 +290,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Introduce A/B testing and canary deployments in your application lifecycle management to properly test an application before you introduce it to all users. There are several techniques that you can use to split the traffic across different versions of the same service.
 - As an alternative, you can use the traffic-management capabilities that a service mesh provides. For more information, see [Istio traffic management](https://istio.io/latest/docs/concepts/traffic-management/).
 
-- Use Container Registry or another Container Registry service, like Docker Hub, to store the private Docker images that you deploy to the cluster. AKS can use its Microsoft Entra identity to authenticate with Container Registry.
+- Use Container Registry or another registry store, like Docker Hub, to catalog and serve the private Docker images that you deploy to the cluster. AKS can use its Microsoft Entra identity to authenticate with Container Registry.
 - If you need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as using supported annotations. After you link an application gateway to the AGIC, the ingress controller synchronizes and controls nearly all configurations of that gateway. If you directly configure Application Gateway imperatively or through infrastructure as code, the ingress controller eventually overwrites those changes.
 
 #### Monitoring

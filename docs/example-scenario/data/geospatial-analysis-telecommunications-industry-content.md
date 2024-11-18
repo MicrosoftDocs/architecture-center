@@ -82,7 +82,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 For better security, consider following this guidance:
 
 - [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
-- [Secure cluster connectivity (No Public IP (NPIP) / No Public IP (NPIP))](/azure/databricks/security/secure-cluster-connectivity)
+- [Secure cluster connectivity (No Public IP (NPIP))](/azure/databricks/security/secure-cluster-connectivity)
 - [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Consider using Azure Databricks Premium tier instead of Standard for more security features](https://azure.microsoft.com/pricing/details/databricks)
