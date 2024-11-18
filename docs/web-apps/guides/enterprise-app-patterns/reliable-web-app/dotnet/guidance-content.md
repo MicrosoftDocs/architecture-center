@@ -6,7 +6,7 @@ ms.custom: devx-track-dotnet
 
 ## Why the Reliable Web App pattern for .NET?
 
-The Reliable Web App pattern is a set of principles and implementation techniques that define how you should replatform web apps when you migrate them to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud. The following guidance uses the reference implementation as an example throughout and follows the replatform journey of the fictional company Relecloud to provide business context for your journey. Before implementing the Reliable Web App pattern for .NET, Relecloud had a monolithic on-premises ticketing web app that used the ASP.NET framework.
+The Reliable Web App pattern is a set of principles and implementation techniques that define how you should replatform web apps when you migrate them to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud. The following guidance uses a reference implementation as an example throughout. The guidance follows the replatform journey of the fictional company Relecloud to provide business context for your journey. Before implementing the Reliable Web App pattern for .NET, Relecloud had a monolithic on-premises ticketing web app that used the ASP.NET framework.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end state of the Reliable Web App implementation for a fictional company named Relecloud. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
@@ -35,7 +35,7 @@ Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach
 
 When you move a web app to the cloud, you should choose Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
 
-For example, before it was moved to the cloud, Relecloud's ticketing web app was an on-premises monolithic ASP.NET app. It ran on two virtual machines and had a SQL Server database. The web app suffered from common problems with scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
+For example, before it was moved to the cloud, Relecloud's ticketing web app was an on-premises monolithic ASP.NET app. It ran on two virtual machines and used a SQL Server database. The web app suffered from common problems with scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
 
 - *Application platform:* Use [Azure App Service](/azure/app-service/overview) as your application platform. Relecloud chose App Service as the application platform for the following reasons:
 
@@ -72,12 +72,12 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 - *Cache:* Choose whether to add a cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on Redis software. Relecloud's web app load is heavily skewed toward viewing concerts and venue details. Relecloud added Azure Cache for Redis for the following reasons:
 
     - *Reduced management overhead.* It's a fully managed service.
-    - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow changing data.
+    - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
     - *Diverse supportability.* It's a unified cache location for all instances of the web app to use.
     - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
     - *Nonsticky sessions.* Externalizing session state supports nonsticky sessions.
 
-- *Load balancer:* Web applications using PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+- *Load balancer:* Web applications that use PaaS solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. The company needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
     - *Global load balancing.* It's a layer-7 load balancer that can route traffic across multiple regions.
     - *Web application firewall.* It integrates natively with Azure Web Application Firewall.
@@ -118,7 +118,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 - *Endpoint security:* Use [Azure Private Link](/azure/private-link/private-link-overview) to access platform as a service (PaaS) solutions over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Relecloud chose Private Link for the following reasons:
 
     - *Enhanced-security communication.* Private Link lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
-    - *Minimal effort.* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
+    - *Minimal effort.* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
 - *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Relecloud adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
 
@@ -361,7 +361,7 @@ For example, the reference implementation uses Bicep parameters to deploy more e
 
 ## Deploy the reference implementation
 
-The reference implementation guides developers through a simulated migration from an on-premises ASP.NET application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a concert-ticketing application for the fictional company Relecloud, which sells tickets through its on-premises web application. Relecloud set the following goals for their web application:
+The reference implementation guides developers through a simulated migration from an on-premises ASP.NET application to Azure, highlighting changes that are necessary during the initial adoption phase. This example uses a concert-ticketing application for the fictional company Relecloud, which sells tickets through its on-premises web application. Relecloud set the following goals for their web application:
 
 - Implement low-cost, high-value code changes.
 - Achieve an SLO of 99.9%.
