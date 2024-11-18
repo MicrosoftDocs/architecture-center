@@ -1,4 +1,4 @@
-An event-driven architecture consists of event producers that generate a stream of events, event consumers that listen for these events, and event channels that transfer events from producers to consumers.
+An event-driven architecture consists of *event producers* that generate a stream of events, *event consumers* that listen for these events, and *event channels* that transfer events from producers to consumers.
 
 ![Diagram that shows an event-driven architecture style.](./images/event-driven.svg)
 
@@ -6,11 +6,11 @@ Events are delivered in near real time, so consumers can respond immediately to 
 
 An event-driven architecture can use a [publish-subscribe model](/azure/architecture/patterns/publisher-subscriber) or an event stream model.
 
-- **Publish-subscribe:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. An event can't be replayed after it's received, and new subscribers don't see the event.
+- **Pub/sub:** The publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. An event can't be replayed after it's received, and new subscribers don't see the event.
 
 - **Event streaming:** Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. The client is responsible for advancing their position in the stream. That means a client can join at any time and can replay events.
 
-On the consumer side, there are some typical variations:
+On the consumer side, there are some common variations:
 
 - **Simple event processing:** An event immediately triggers an action in the consumer. For example, you can use Azure Functions with an Azure Service Bus trigger so that a function runs whenever a message is published to a Service Bus topic.
 
@@ -24,11 +24,11 @@ The source of the events might be external to the system, such as physical devic
 
 There are two primary approaches to structure event payloads. When you have control over your event consumers, you can decide on the payload structure for each consumer. This strategy allows you to mix approaches as needed within a single workload.
 
-- **Include all required attributes in the payload:** Use this approach when you want consumers to have all available information without needing to query an external data source. However, it can lead to data consistency problems because of multiple [systems of record](https://wikipedia.org/wiki/System_of_record), specifically after updates. Contract management and versioning can also become complex.
+- **Include all required attributes in the payload:** Use this approach when you want consumers to have all available information without needing to query an external data source. However, it can lead to data consistency problems because of multiple [systems of record](https://wikipedia.org/wiki/System_of_record), particularly after updates. Contract management and versioning can also become complex.
 
-- **Include keys in the payload only:** In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. This method provides better data consistency because it has a single system of record. However, it can perform poorer than the first approach because consumers must query the data source frequently. You have fewer concerns regarding coupling, bandwidth, contract management, or versioning because smaller events and simpler contracts reduce complexity.
+- **Include only keys in the payload:** In this approach, consumers retrieve the necessary attributes, such as a primary key, to independently fetch the remaining data from a data source. This method provides better data consistency because it has a single system of record. However, it can perform poorer than the first approach because consumers must query the data source frequently. You have fewer concerns regarding coupling, bandwidth, contract management, or versioning because smaller events and simpler contracts reduce complexity.
 
-In the preceding diagram, each type of consumer is shown as a single box. To avoid having the consumer become a single point of failure in system, it's typical to have multiple instances of a consumer. Multiple instances might also be required to handle the volume and frequency of events. A single consumer can process events on multiple threads. This setup can create challenges if events must be processed in order or require exactly-once semantics. For more information, see [Minimize coordination][minimize-coordination].
+In the preceding diagram, each type of consumer is shown as a single box. To avoid having the consumer become a single point of failure in the system, it's typical to have multiple instances of a consumer. Multiple instances might also be required to handle the volume and frequency of events. A single consumer can process events on multiple threads. This setup can create challenges if events must be processed in order or require exactly-once semantics. For more information, see [Minimize coordination][minimize-coordination].
 
 There are two primary topologies within many event-driven architectures:
 
