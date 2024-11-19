@@ -50,23 +50,23 @@ Overall, this workflow involves building and deploying applications, load balanc
 
 ### Components
 
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web applications deployed on Stack HCI Cluster. You can also use a [web application firewall (WAF)](/azure/frontdoor/waf-overview) with Azure Front Door that protects the application from common exploits and vulnerabilities, and a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design to reduce latency and to improve content load time by caching the content at the edge locations.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web applications deployed on Stack HCI Cluster. You can also use a [web application firewall (WAF)](/azure/frontdoor/waf-overview) with Azure Front Door that protects the application from common exploits and vulnerabilities, and a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design to reduce latency and to improve content load time by caching the content at the edge locations.
 
-- [Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer and a viable load-balancing option. Use it to control the distribution of application traffic to service endpoints in different data centers. Here's how the Traffic Manager configuration works:
+- [Traffic Manager](/azure/well-architected/service-guides/traffic-manager/reliability) is a DNS-based traffic load balancer and a viable load-balancing option. Use it to control the distribution of application traffic to service endpoints in different data centers. Here's how the Traffic Manager configuration works:
 
   - Set up Traffic Manager, a global load-balancing solution in Azure, to distribute incoming traffic across your Azure Stack HCI clusters. Traffic Manager can be configured to use different load-balancing methods such as performance, failover, or weighted round-robin, depending on the requirements.
   - Create Traffic Manager endpoints that correspond to the endpoints of workloads deployed on Azure Stack HCI clusters. This allows Traffic Manager to direct traffic to the appropriate endpoint. In this scenario, direct traffic based on the weighted routing load-balancing method.
   - Based on the scaling policies calculated through an Azure function, when there's a need for extra capacity or high availability, Traffic Manager can dynamically route traffic to other instances based on the routing rules and their weighted percentages.
 
-- [Application Insights](https://azure.microsoft.com/products/monitor) collects telemetry data from various components deployed in this hybrid solution. It provides insights and analytics that can be used to identify issues, optimize performance, and improve user experience.
+- [Application Insights](/azure/well-architected/service-guides/application-insights/security) collects telemetry data from various components deployed in this hybrid solution. It provides insights and analytics that can be used to identify issues, optimize performance, and improve user experience.
 
-- [Azure Functions](https://azure.microsoft.com/products/functions) acts as an orchestrator for traffic distribution. It monitors the readiness conditions of each cluster, assessing factors such as resource utilization, latency, and health. Based on this assessment, the Function App decides where to direct incoming traffic.
+- [Azure Functions](/azure/well-architected/service-guides/azure-functions-security) acts as an orchestrator for traffic distribution. It monitors the readiness conditions of each cluster, assessing factors such as resource utilization, latency, and health. Based on this assessment, the Function App decides where to direct incoming traffic.
 
-- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid environment that combines on-premises infrastructure with Azure services.
+- [Azure Stack HCI](/azure/well-architected/service-guides/azure-stack-hci) is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid environment that combines on-premises infrastructure with Azure services.
 
   - The solution uses [Arc-Enabled Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)](/azure/aks/hybrid/) to host the web app or APIs, [Arc-Enabled Azure Servers](/azure/azure-arc/servers), and [Arc-Enabled Data Services](/azure/azure-arc/data/) in both environments.
 
-- [Azure DevOps Services](https://azure.microsoft.com/products/devops) serve as the backbone of this hybrid solution deployment strategy, providing the automation and orchestration necessary to streamline the entire software delivery lifecycle. It empowers development teams to focus on delivering high-quality code while the pipeline takes care of building, testing, and deploying applications.  
+- [Azure DevOps Services](/azure/devops/user-guide/services) serve as the backbone of this hybrid solution deployment strategy, providing the automation and orchestration necessary to streamline the entire software delivery lifecycle. It empowers development teams to focus on delivering high-quality code while the pipeline takes care of building, testing, and deploying applications.  
 
   - To deploy an AKS cluster on Azure Stack HCI, you can set up a build server within Azure Pipelines. The build server is responsible for executing the deployment process.
 
@@ -76,20 +76,20 @@ Overall, this workflow involves building and deploying applications, load balanc
 
     c. Configure authentication to Azure by setting up service principals or using managed identities.
 
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a service that provides CI/CD and manages hosted build and release agents and definitions. Development pipeline can use various code repositories, including GitHub, Bitbucket, Dropbox, OneDrive, and [Azure Repos](https://azure.microsoft.com/products/devops/repos).
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects telemetry data and monitors the performance of clusters and workloads. It also lets you configure alerts to trigger an Azure Function or to notify an administrator if any cluster becomes unhealthy or if predefined thresholds are exceeded. You can use Azure Automation or Azure Logic Apps to automate scaling actions based on the monitoring data.
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy/) acts as a governance and compliance enforcer, guaranteeing that Stack HCI clusters and associated SDN resources operate within the defined guidelines and standards. Here are some examples to enhance the security of the environment through Azure Policy:
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is a service that provides CI/CD and manages hosted build and release agents and definitions. Development pipeline can use various code repositories, including GitHub, Bitbucket, Dropbox, OneDrive, and [Azure Repos](/azure/devops/repos/get-started/what-is-repos).
+- [Azure Monitor](/azure/devops/repos/get-started/what-is-repos) collects telemetry data and monitors the performance of clusters and workloads. It also lets you configure alerts to trigger an Azure Function or to notify an administrator if any cluster becomes unhealthy or if predefined thresholds are exceeded. You can use Azure Automation or Azure Logic Apps to automate scaling actions based on the monitoring data.
+- [Azure Policy](/azure/governance/policy/overview) acts as a governance and compliance enforcer, guaranteeing that Stack HCI clusters and associated SDN resources operate within the defined guidelines and standards. Here are some examples to enhance the security of the environment through Azure Policy:
   - Enforcing Container Insight Addon
   - Installation of essential extensions within Stack HCI clusters
   - Enforcing resources tagging
   - Policy-based access control
   - Networking and Monitoring related Policies
 
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is a managed, private Docker registry service on Azure. Use the Container Registry to store private Docker images, which are deployed to the cluster.
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) extends Azure services to on-premises environments, allowing organizations to benefit from cloud capabilities while keeping sensitive data within their own infrastructure.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private Docker registry service on Azure. Use the Container Registry to store private Docker images, which are deployed to the cluster.
+- [Azure Arc](/azure/azure-arc/overview) extends Azure services to on-premises environments, allowing organizations to benefit from cloud capabilities while keeping sensitive data within their own infrastructure.
 - [Container insights](/azure/azure-monitor/containers/container-insights-overview) is a monitoring and observability solution provided by Azure Monitor that lets you gain insights into the performance and health of containers running in AKS clusters. With Azure Arc enabled for AKS, you can extend the capabilities of Container insights to monitor and manage your AKS clusters that are running outside of Azure, such as for on-premises or multicloud environments.
-- [Arc-Enabled SQL Managed Instances](https://azure.microsoft.com/products/azure-arc/hybrid-data-services/) is an Azure SQL data service that can be created on the Stack HCI infrastructure and managed by using Azure Arc.
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) lets you securely store and manage cryptographic keys, secrets, and certificates. While Azure Key Vault is primarily a cloud service, it can also be used with Azure Stack HCI deployments to store and manage sensitive information securely on-premises.
+- [Arc-Enabled SQL Managed Instances](/azure/azure-arc/data/managed-instance-overview) is an Azure SQL data service that can be created on the Stack HCI infrastructure and managed by using Azure Arc.
+- [Azure Key Vault](/azure/key-vault/general/overview) lets you securely store and manage cryptographic keys, secrets, and certificates. While Azure Key Vault is primarily a cloud service, it can also be used with Azure Stack HCI deployments to store and manage sensitive information securely on-premises.
 - [SDN Infrastructure](/azure-stack/hci/concepts/plan-software-defined-networking-infrastructure). In an AKS hybrid deployment on Azure Stack HCI, load balancing is achieved through the Software Load Balancer (SLB) SDN. SLB manages the AKS-HCI infrastructure and applications within the SDN (Software-Defined Networking) Virtual Network, including the necessary SDN network infrastructure resources like Mux load balancer VMs, Gateway VMs, and Network Controllers.
 
 Here's a breakdown of the components involved:
@@ -248,5 +248,4 @@ Other contributors:
 ## Related resources
 
 - [Cross-cloud scaling (on-premises data) pattern](/hybrid/app-solutions/pattern-cross-cloud-scale-onprem-data)
-- [Cross-cloud scaling pattern](/hybrid/app-solutions/pattern-cross-cloud-scale)
-- [Cross-cloud scaling with Azure Functions](/azure/architecture/solution-ideas/articles/cross-cloud-scaling)
+- [Cross-cloud scaling pattern](/azure/adaptive-cloud/app-solutions/pattern-cross-cloud-scale)

@@ -54,12 +54,12 @@ The following dataflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable object storage for unstructured data. It's optimized for storing files like binary files, activity logs, and files that don't adhere to a specific format.
-- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) is the storage foundation for creating cost-effective data lakes on Azure. It provides blob storage with a hierarchical folder structure and enhanced performance, management, and security. It services multiple petabytes of information while sustaining hundreds of gigabits of throughput.
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) is an analytics service that brings together the best of SQL and Spark technologies and a unified user experience for Azure Synapse data explorer and pipelines. It integrates with Power BI, Azure Cosmos DB, and Azure Machine Learning. The service supports both dedicated and serverless resource models and the ability to switch between those models.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is an always up-to-date, fully managed relational database that's built for the cloud.
-- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/) is a cloud service for managing machine learning project lifecycles. It provides an integrated environment for data exploration, model building and management, and deployment and supports code-first and low-code/no-code approaches to machine learning.
-- [Power BI](https://powerbi.microsoft.com/) is a visualization tool that provides easy integration with Azure resources.
+- [Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage) provides scalable object storage for unstructured data. It's optimized for storing files like binary files, activity logs, and files that don't adhere to a specific format.
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) is the storage foundation for creating cost-effective data lakes on Azure. It provides blob storage with a hierarchical folder structure and enhanced performance, management, and security. It services multiple petabytes of information while sustaining hundreds of gigabits of throughput.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is an analytics service that brings together the best of SQL and Spark technologies and a unified user experience for data exploration and pipelines. It integrates with Power BI, Azure Cosmos DB, and Azure Machine Learning. The service supports both dedicated and serverless resource models and the ability to switch between those models.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is an always up-to-date, fully managed relational database that's built for the cloud.
+- [Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a cloud service for managing machine learning project lifecycles. It provides an integrated environment for data exploration, model building and management, and deployment and supports code-first and low-code/no-code approaches to machine learning.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a visualization tool that provides easy integration with Azure resources.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure. Supported languages include .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python.
 
 ### Alternatives
@@ -139,7 +139,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Azure solutions provide defense in depth and a Zero Trust approach.
 
@@ -151,9 +151,9 @@ Consider implementing the following security features in this architecture:
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 - [Azure security baseline for Synapse Analytics Workspace](/security/benchmark/azure/baselines/synapse-analytics-workspace-security-baseline)
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost Optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -162,17 +162,17 @@ Also consider these resources:
 - [Plan and manage costs for Azure Synapse Analytics](/azure/synapse-analytics/plan-manage-costs)
 - [Plan and manage costs for Azure Machine Learning](/azure/machine-learning/concept-plan-manage-cost)
 
-### Operational excellence
+### Operational Excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational Excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Machine learning solutions need to be scalable and standardized for easier management and maintenance. Ensure that your solution supports ongoing inference with retraining cycles and automated redeployments of models.
 
 For more information, see [Azure MLOps v2 GitHub repository](https://github.com/Azure/mlops-v2).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/well-architected/scalability/performance-efficiency).
 - For information about regulated industries, see [Scale AI and machine learning initiatives in regulated industries](../../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml).

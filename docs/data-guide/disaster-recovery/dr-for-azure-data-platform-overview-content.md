@@ -6,7 +6,7 @@ This series provides an illustrative example of how an organization could design
 
 Azure provides a broad range of resiliency options that can provide service continuity in the event of a disaster. But higher service levels can introduce complexity and a cost premium. The trade-off of cost versus resiliency versus complexity is the key decision-making factor for most customers regarding DR.
 
-While occasional point failures do happen across the Azure platform, Microsoft's Azure data centers and Azure services have multiple layers of redundancy built-in. Any failure is normally limited in scope and is typically remediated within a matter of hours. Historically, it's far more likely that a key service such as identity management experiences a service issue rather than an entire Azure region going offline.
+While occasional point failures do happen across the Azure platform, Microsoft's Azure datacenters and Azure services have multiple layers of redundancy built-in. Any failure is normally limited in scope and is typically remediated within a matter of hours. Historically, it's far more likely that a key service such as identity management experiences a service issue rather than an entire Azure region going offline.
 
 It should also be acknowledged that cyber-attacks, particularly ransomware, now pose a tangible threat to any modern data ecosystem and can result in a data platform outage. While this is out-of-scope for this series, customers are advised to implement controls against such attacks as part of any data platform's security and resiliency design.
 

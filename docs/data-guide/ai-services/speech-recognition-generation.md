@@ -1,5 +1,5 @@
 ---
-title: Choose an Azure AI speech recognition and generation technology
+title: Choose an Azure AI Speech recognition and generation technology
 description: Learn about Azure AI speech recognition and generation capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
 author: robbagby
 ms.author: pnp
@@ -20,7 +20,7 @@ ms.custom:
 
 # Choose an Azure AI speech recognition and generation technology
 
-[Azure AI services](/azure/ai-services/what-are-ai-services) help workload designers and developers to create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
+[Azure AI services](/azure/ai-services/what-are-ai-services) help workload designers and developers to create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models.
 
 This article covers Azure AI services that offer speech recognition and generation capabilities such as speech-to-text and text-to-speech conversions, audio translation, speaker recognition, as well as reading support for people with learning differences.
 
@@ -31,7 +31,7 @@ This article covers Azure AI services that offer speech recognition and generati
 
 The following Azure AI services can provide speech recognition and generation capabilities for your workload.
 
-- [Azure AI Speech](#azure-ai-speech) provides natural language processing for text analysis. 
+- [Azure AI Speech](#azure-ai-speech) provides natural language processing for text analysis.
     - **Use** Speech service when you need to transcribe or translate spoken speech, identify speakers in a conversation. You can also use the service as a lower cost alternative for natural sounding speech generation to the higher quality [Whisper](/azure/ai-services/openai/concepts/models) in the OpenAI models.
     - **Don't use** Speech service for chat, content summarization, moderation, or guiding users through scripts. Use other models for those things instead.
 
@@ -45,12 +45,11 @@ The following Azure AI services can provide speech recognition and generation ca
 
 Speech is available for many languages and regions.
 
-
 #### Capabilities
 
 The following table provides a list of capabilities available in Azure AI Speech service.
 
-| Capability | Description | 
+| Capability | Description |
 |----------|-------------|
 |[Batch transcription](/azure/ai-services/speech-service/batch-transcription)| Transcribe a large amount of audio data in storage. Both the Speech to text REST API and Speech CLI support batch transcription.|
 |[Intent recognition](/azure/ai-services/speech-service/intent-recognition)|  An intent is something the user wants to do: book a flight, check the weather, or make a call. With intent recognition, your applications, tools, and devices can determine what the user wants to initiate or do based on options. You define user intent in the intent recognizer or conversational language understanding (CLU) model.|
@@ -76,7 +75,6 @@ The following table describes some of the ways that you can use Azure AI Speech.
 ### Immersive Reader
 
 [Immersive Reader](https://www.onenote.com/learningtools), part of Azure AI services, is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can use the same technology used in Microsoft Word and Microsoft OneNote to provide a great experience to your workload's users.
-
 
 #### Capabilities
 

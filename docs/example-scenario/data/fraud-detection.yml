@@ -6,6 +6,7 @@ metadata:
   author: josearper
   ms.author: joaria
   ms.date: 10/28/2022
+  ms.collection: ce-skilling-ai-copilot
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
@@ -26,4 +27,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-fraud-detection-thumbnail-new.png
 content: |
-   [!include[](fraud-detection-content.md)]
+   [!INCLUDE[](fraud-detection-content.md)]

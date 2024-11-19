@@ -196,7 +196,7 @@ Note that Data Factory does not limit you to SQL Data Warehouse and SQL stored p
 
 There are several tools that can help you implement parametric and non-parametric models. Your choice depends on your scalability and performance requirements.
 
-[Azure ML Studio](https://studio.azureml.net/?WT.mc_id=invopt-article-gmarchet) is a great tool for prototyping. It provides an easy way for you to build and run a training workflow with your code modules (in R or Python), or with pre-defined ML components (such as multi-class classifiers and boosted decision tree regression) in a graphical environment. It also makes it easy for you to publish a trained model as a web service for further consumption, generating a REST interface for you.
+[Azure Machine Learning Studio](https://ml.azure.com/) is a great tool for prototyping. It provides an easy way for you to build and run a training workflow with your code modules (in R or Python), or with pre-defined ML components (such as multi-class classifiers and boosted decision tree regression) in a graphical environment. It also makes it easy for you to publish a trained model as a web service for further consumption, generating a REST interface for you.
 
 However, the data size it can handle is currently limited to 10 GB and the number of cores available to each component is limited to two.
 
@@ -220,7 +220,7 @@ The following figure shows the Data Factory user interface, as accessed through 
 
 Figure 4: Example of a Data Factory pipeline with a Databricks notebook activity
 
-Also note that in our [inventory optimization solution](https://gallery.azure.ai/Solution/Inventory-Optimization-3?WT.mc_id=invopt-article-gmarchet) we propose a container-based implementation of solvers that's scaled via [Azure Batch](https://azure.microsoft.com/products/batch/?WT.mc_id=invopt-article-gmarchet). Specialist optimization libraries such as [pyomo](http://www.pyomo.org/about) make it possible for you to express an optimization problem by using the Python programming language, then invoking independent solvers such as [bonmin](https://projects.coin-or.org/Bonmin) (open source) or [gurobi](http://www.gurobi.com) (commercial) to find a solution.
+Also note that in our [inventory optimization solution](https://github.com/Azure/cortana-intelligence-inventory-optimization) we propose a container-based implementation of solvers that's scaled via [Azure Batch](https://azure.microsoft.com/products/batch/?WT.mc_id=invopt-article-gmarchet). Specialist optimization libraries such as [pyomo](http://www.pyomo.org/about) make it possible for you to express an optimization problem by using the Python programming language, then invoking independent solvers such as [bonmin](https://projects.coin-or.org/Bonmin) (open source) or [gurobi](http://www.gurobi.com) (commercial) to find a solution.
 
 The inventory optimization documentation deals with a different problem (order quantities) than assortment optimization, yet the implementation of solvers in Azure is similarly applicable.
 
@@ -289,7 +289,7 @@ Principal author:
 - [What is Azure Data Factory?](/azure/data-factory/introduction?WT.mc_id=invopt-article-gmarchet)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime?WT.mc_id=invopt-article-gmarchet)
 - [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is?WT.mc_id=invopt-article-gmarchet)
-- [Microsoft Machine Learning Studio (classic)](https://studio.azureml.net/?WT.mc_id=invopt-article-gmarchet)
+- [Azure Machine Learning Studio](https://ml.azure.com/)
 - [What is Machine Learning Server](/machine-learning-server/what-is-machine-learning-server?WT.mc_id=invopt-article-gmarchet)
 - [Pyomo optimization modeling language](http://www.pyomo.org)
 - [Bonmin solver](https://projects.coin-or.org/Bonmin)

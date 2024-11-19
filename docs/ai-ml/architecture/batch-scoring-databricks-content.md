@@ -91,10 +91,7 @@ Azure Databricks is a premium Spark offering with an associated cost. In additio
 
 For this scenario, the Standard pricing tier is sufficient. However, if your specific application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, the Premium tier could increase costs further.
 
-The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
-
-- [SQL Server R Services][sql-r]
-- [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
+The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages.
 
 ## Deploy this scenario
 
@@ -142,6 +139,4 @@ Principal author:
 [mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
 [notebooks]: https://docs.databricks.com/user-guide/notebooks/index.html
 [pricing]: https://azure.microsoft.com/pricing/details/databricks
-[py-dvsm]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-using-PySpark
-[sql-r]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1
 [workspace]: https://docs.databricks.com/user-guide/workspace.html

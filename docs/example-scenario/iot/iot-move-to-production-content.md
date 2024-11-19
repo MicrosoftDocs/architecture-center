@@ -12,7 +12,7 @@ If instead of adding stamps, you move a single instance of your IoT solution to 
 
 - **Separation of Customers:** You may need to keep certain customers' data isolated from other customers' data. Similarly, you may have some customers that require more system resources to service than others, and consider grouping them on different stamps.
 
-- **Single and multi-tenant instances:** You might have some large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multi-tenant deployment.
+- **Single and multitenant instances:** You might have some large customers who need their own independent instances of your solution. You might also have a pool of smaller customers who can share a multitenant deployment.
 
 - **Complex deployment requirements:** You might need to deploy updates to your service in a controlled manner and deploy to different stamps at different times.
 
@@ -21,10 +21,8 @@ If instead of adding stamps, you move a single instance of your IoT solution to 
 - **Geographical or geopolitical restrictions:** To reduce latency or comply with data sovereignty requirements, you can deploy some of your customers into specific regions.
 
 To avoid the preceding issues, consider grouping your service into multiple stamps. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region may contain a single stamp, or may contain multiple stamps to allow for horizontal scale-out within the region. Each stamp contains a subset of your customers.
-
 > [!div class="nextstepaction"]
-> [Scale IoT solutions with stamps](/azure/architecture/example-scenario/iot/application-stamps)
-
+> [Deployment stamps pattern](/azure/architecture/patterns/deployment-stamp)
 ## Use back-off when a transient fault occurs
 
 All applications that communicate with remote services and resources must be sensitive to transient faults. This is especially the case for applications that run in the cloud, where the nature of the environment and connectivity over the internet means these types of faults are likely to be encountered more often. Transient faults include:

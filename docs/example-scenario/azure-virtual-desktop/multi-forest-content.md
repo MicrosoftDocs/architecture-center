@@ -1,4 +1,4 @@
-Many organizations want to take advantage of Azure Virtual Desktop to create environments that have multiple on-premises Active Directory forests. 
+Many organizations want to take advantage of Azure Virtual Desktop to create environments that have multiple on-premises Active Directory forests.
 
 This article expands on the architecture that's described in the [Azure Virtual Desktop at enterprise scale](./azure-virtual-desktop.yml) article. It's intended to help you understand how to integrate multiple domains and Azure Virtual Desktop by using [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis).
 
@@ -10,7 +10,7 @@ This article expands on the architecture that's described in the [Azure Virtual 
 
 ### Dataflow
 
-In this architecture, the identity flow works as follows: 
+In this architecture, the identity flow works as follows:
 
 1. Microsoft Entra Connect syncs users from both CompanyA.com and CompanyB.com to a Microsoft Entra tenant (NewCompanyAB.onmicrosoft.com).
 1. Host pools, workspaces, and app groups are created in separate subscriptions and spoke virtual networks.
@@ -46,11 +46,11 @@ This architecture diagram represents a typical scenario that contains the follow
 - For Azure environments that still have dependency on-premises infrastructure, private connectivity ([Site-to-site VPN or Azure ExpressRoute](../../reference-architectures/hybrid-networking/index.yml)) is set up between on-premises and Azure.
 - The [Azure Virtual Desktop environment](/azure/virtual-desktop/environment-setup) consists of an Azure Virtual Desktop workspace for each business unit and two host pools per workspace.
 - The Azure Virtual Desktop session hosts are joined to domain controllers in Azure. That is, CompanyA session hosts join the CompanyA.local domain, and CompanyB session hosts join the CompanyB.local domain.
-- Azure storage accounts can use [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, CompanyA.local and CompanyB.local), and the account is joined to the corresponding domain.
+- Azure Storage accounts can use [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, CompanyA.local and CompanyB.local), and the account is joined to the corresponding domain.
 
 > [!NOTE]
 > Active Directory Domain Services is a self-managed, on-premises component in many hybrid environments, and Microsoft Entra Domain Services provides managed domain services with a subset of fully compatible, traditional AD DS features such as domain join, group policy, LDAP, and Kerberos/NTLM authentication. For a detailed comparison of these components, see [Compare self-managed AD DS, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
-> 
+>
 > The solution idea [Multiple Azure Virtual Desktop forests using Microsoft Entra Domain Services](./multi-forest-azure-managed.yml) discusses architecture that uses cloud-managed [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview).
 
 ### Potential use cases
@@ -83,7 +83,7 @@ The following design considerations apply to user profile containers, cloud cach
 
 - You can use both [Azure Files and Azure NetApp Files](/azure/virtual-desktop/store-FSLogix-profile#azure-platform-details) in this scenario. You choose the right solution based on factors such as expected performance, cost, and so on.
 
-- Both Azure storage accounts and Azure NetApp Files are limited to joining to one single AD DS at a time. In these cases, multiple Azure storage accounts or Azure NetApp Files instances are required.
+- Both Azure Storage accounts and Azure NetApp Files are limited to joining to one single AD DS at a time. In these cases, multiple Azure Storage accounts or Azure NetApp Files instances are required.
 
 <a name='azure-active-directory'></a>
 
@@ -107,7 +107,7 @@ For more details, see the [Staging server section of Microsoft Entra Connect top
 
 Principal author:
 
- * [Tom Maher](https://www.linkedin.com/in/tommaherlink) | Senior Security and Identity Engineer
+- [Tom Maher](https://www.linkedin.com/in/tommaherlink/) | Senior Security and Identity Engineer
 
 ## Next steps
 

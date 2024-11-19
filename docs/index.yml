@@ -239,9 +239,6 @@ conceptualContent:
         - text: Advanced ARM templates
           url: guide/azure-resource-manager/advanced-templates/index.md
           itemType: how-to-guide
-        - text: DevOps with containers
-          itemType: get-started
-          url:  guide/aks/aks-cicd-github-actions-and-gitops.yml
 
     - title: Enterprise integration
       links:
@@ -293,9 +290,6 @@ conceptualContent:
         - text: IoT architecture
           itemType: architecture
           url: reference-architectures/iot.yml
-        - text: Automotive IoT data
-          itemType: get-started
-          url:  example-scenario/data/realtime-analytics-vehicle-iot.yml
 
     - title: Microservices
       links:
@@ -335,9 +329,6 @@ conceptualContent:
         - text: Choose a hybrid network architecture
           itemType: architecture
           url: reference-architectures/hybrid-networking/index.yml
-        - text: ExpressRoute
-          itemType: architecture
-          url: reference-architectures/hybrid-networking/expressroute.yml
         - text: ExpressRoute with VPN failover
           itemType: architecture
           url: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml

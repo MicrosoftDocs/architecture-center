@@ -10,8 +10,8 @@ The first step in this process is to clearly define the business requirements fo
 
 The goal of document analysis is to gather enough information about your document corpus to help you understand:
 
-- The different classifications of documents - For example, do you have product specifications, quarterly reports, car insurance contracts, health insurance contracts, etc.
-- The different document types - For example, do you have PDFs, Markdown files, HTML files, DOCX files, etc.
+- The different classifications of documents - For example, do you have product specifications, quarterly reports, car insurance contracts, health insurance contracts, and so on.
+- The different document types - For example, do you have PDFs, Markdown files, HTML files, DOCX files, and so on.
 - The security constraints - For example, whether the documents are publicly accessible or not, or whether they require authentication and authorization to access them
 - The structure of the documents - For example, the length of documents, topic breaks, and whether they have contextually relevant images or tabular data
 
@@ -31,7 +31,7 @@ Understanding the different file formats in your corpus helps you determine the 
 
 Understanding security constraints is crucial for determining your loading and chunking strategies. For example, you need to identify whether some or all of your documents require authentication, authorization, or network visibility. If the documents are within a secure perimeter, ensure your code can access them, or implement a process to securely replicate the documents to an accessible location for your processing code.
 
-Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself.  If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
+Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself. If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
 
 If your workload requires that different users only have access to distinct documents or document segments, ensure you understand how you are going to retain those access permissions in your chunking solution.
 

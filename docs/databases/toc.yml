@@ -10,8 +10,12 @@ items:
           href: idea/intelligent-apps-using-azure-database-for-mysql.yml
         - name: Intelligent apps using PostgreSQL
           href: idea/intelligent-apps-using-azure-database-for-postgresql.yml
-        - name: Oracle migration to Azure
-          href: idea/reference-architecture-for-oracle-database-migration-to-azure.yml
+        - name: Migrate an Oracle database to Azure
+          href: idea/topic-migrate-oracle-azure.yml
+        - name: Migrate an Oracle database to an Azure virtual machine
+          href: idea/migrate-oracle-azure-iaas.yml
+        - name: Migrate an Oracle database to OD@A Exadata Database Service
+          href: idea/migrate-oracle-odaa-exadata.yml
       - name: NoSQL
         items:
         - name: Serverless apps using Azure Cosmos DB
@@ -70,10 +74,6 @@ items:
         items:
         - name: Big data architectures
           href: guide/big-data-architectures.yml
-      - name: Data transform
-        items:
-        - name: VantageCloud integration with Azure Data Factory
-          href: guide/teradata-vantage-data-factory.yml
       - name: Governance
         items:
         - name: Data obfuscation with Delphix

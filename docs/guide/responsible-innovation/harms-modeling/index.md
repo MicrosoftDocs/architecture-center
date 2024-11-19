@@ -23,16 +23,16 @@ Harms Modeling is a practice designed to help you anticipate the potential for h
 
 ## Why harms modeling?
 
-As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well.
+As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles deeply rooted in important and timeless values. In the process of designing and building your technologies, it's essential to evaluate not only ideal outcomes, but possible negative ones as well.
 
 ### Technology and human rights
 
-It is as important as ever to be aware of how digital technology could impact human rights. In addition to continuing to protect privacy and security, we must address the risks of AI and other emerging technologies, such as facial recognition. History teaches us that human rights violations not only result from the nefarious use of technology, but also from a lack of awareness amongst those who have good intentions. As a part of our company's dedication to the protection of human rights, Microsoft forged a partnership with important stakeholders outside of our industry, including the United Nations (UN).
+It's as important as ever to be aware of how digital technology could impact human rights. In addition to continuing to protect privacy and security, we must address the risks of AI and other emerging technologies, such as facial recognition. History teaches us that human rights violations not only result from the nefarious use of technology, but also from a lack of awareness amongst those who have good intentions. As a part of our company's dedication to the protection of human rights, Microsoft forged a partnership with important stakeholders outside of our industry, including the United Nations (UN).
 
 An important set of UN principles that our company firmly supports, which was ratified by over 250 nations, is the Universal Declaration of Human Rights (UDHR). The UDHR is a milestone document. Drafted by a diverse global group of legal and cultural experts, the Declaration was proclaimed by the United Nations General Assembly in 1948 as a common standard of achievements for all peoples and all nations. It sets out, for the first time, fundamental human rights to be universally protected. It has been translated into over 500 languages. Additionally, Microsoft is one of 4,700 corporate signatories to the UN Global Compact, an international business initiative designed to promote responsible corporate citizenship.
 
-[![Stakeholder process table](../images/stakeholder-process-table.png)](../images/stakeholder-process-table.png#lightbox)
-*Download in [Microsoft Word](../images/stakeholder-process-table.docx)*
+[![Table that shows the stakeholder process.](../images/stakeholder-process-table.png)](../images/stakeholder-process-table.png#lightbox)
+*Download a [Microsoft Word file](https://arch-center.azureedge.net/stakeholder-process-table.docx) of this table*
 
 ## Human understanding
 
@@ -70,18 +70,18 @@ These stakeholders are significantly impacted by the system. Those who are impac
 
 #### Marginalized populations
 
-This category is made up of the population frequently considered a minority, vulnerable, or stigmatized. This category includes children, the elderly, members of the LGBTQ+ community, ethnic minorities, and other populations who often experience unique and disproportionate consequences.
+This category is made up of the population frequently considered a minority, vulnerable, or stigmatized. This category includes children, older adults, members of the LGBTQ+ community, ethnic minorities, and other populations who often experience unique and disproportionate consequences.
 
-## Assessing Harm
+## Assessing harm
 
-Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you are building could result in negative outcomes for people and society.
+Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you're building could result in negative outcomes for people and society.
 
-[![Harms modeling overview](../images/harms-model-example.png)](../images/harms-model-example.png#lightbox)
-*Download in [Microsoft Word](../images/harms-modeling.docx)*
+[![Diagram that shows a harms modeling overview.](../images/harms-model-example.png)](../images/harms-model-example.png#lightbox)
+*Download a [Microsoft Word file](https://arch-center.azureedge.net/harms-modeling.docx) of this diagram.*
 
 The diagram above is an example of a harms evaluation. This model is a qualitative approach that's used to understand the potential magnitude of harm.
 
-You can complete this ideation activity individually, but ideally it is conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology.
+You can complete this ideation activity individually, but ideally it's conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology.
 
 Suggestions for harm description statements:
 - Intended use: If [feature] was used for [use case], then [stakeholder] could experience [harm description].
@@ -89,8 +89,8 @@ Suggestions for harm description statements:
 - System error: If [feature] failed to function properly when used for [use case], then [stakeholder] could experience [harm description].
 - Misuse: [Malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder].
 
-Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that are based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you.
+Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, which are based on common negative impact areas. Adapt and adopt additional categories that are relevant to you.
 
-## Next Steps
+## Next steps
 
 Read [Types of harm](./type-of-harm.md) for further harms analysis.

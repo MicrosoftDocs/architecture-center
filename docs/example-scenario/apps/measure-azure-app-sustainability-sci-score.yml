@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Measure Azure app sustainability by using the SCI score
+  title: Measure Azure App Sustainability by Using the SCI Score
   titleSuffix: Azure Architecture Center
   description: Create a sustainability model based on available proxies that scores the carbon impact of an application.
   author: pea-ms
   ms.author: paannis
-  ms.date: 11/21/2022
+  ms.date: 10/24/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
@@ -24,4 +24,4 @@ name: Measure Azure app sustainability by using the SCI score
 summary: Create a sustainability model based on available proxies that scores the carbon impact of an application.
 thumbnailUrl: /azure/architecture/browse/thumbs/measure-app-sci-score.png
 content: |
-  [!include[](measure-azure-app-sustainability-sci-score-content.md)]
+  [!INCLUDE[](measure-azure-app-sustainability-sci-score-content.md)]

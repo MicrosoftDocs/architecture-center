@@ -36,7 +36,7 @@ This solution uses the following components:
 
 ### Alternatives
 
-This solution uses GitHub Actions to automate deployment. You can use [Azure Pipelines](https://dev.azure.com) or any other CI/CD automation system as an alternative. The sample described in the deployment section of this document uses Azure CLI statements as much as possible, so you can easily translate this setup to another automation tool. Use a CI/CD tool to set up an environment and create an approval flow on it.
+This solution uses GitHub Actions to automate deployment. You can use [Azure Pipelines](https://dev.azure.com) or any other CI/CD automation system as an alternative. The sample described in the deployment section of this document uses the Azure CLI statements as much as possible, so you can easily translate this setup to another automation tool. Use a CI/CD tool to set up an environment and create an approval flow on it.
 
 This architecture uses Azure Spring Apps with Deployments as a target service. You can use Azure App Service staging slots as an alternative. A slot contains the new version of the application, which can be reloaded, warmed up, and tested before a slot swap is done. The slot swap puts the new version in production. This process is built into the service, so the setup is easy.
 
@@ -137,5 +137,4 @@ Principal author:
 ## Related resources
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
-- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
 - [Deploy Azure Spring Apps to multiple regions](../../reference-architectures/microservices/spring-apps-multi-region.yml)

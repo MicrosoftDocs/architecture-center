@@ -20,10 +20,10 @@ This reference architecture illustrates how to use Microsoft Defender for Cloud 
 
 ### Components
 
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
-- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel)
-- [Azure Stack](https://azure.microsoft.com/overview/azure-stack)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
+- [Microsoft Sentinel](/azure/sentinel/overview)
+- [Azure Stack](/azure-stack/)
+- [Azure Monitor](/azure/azure-monitor/overview)
 
 ## Scenario details
 

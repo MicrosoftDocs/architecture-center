@@ -3,7 +3,7 @@ title: Scale out an Azure IoT solution to support millions of devices
 description: Learn how to scale out your Azure IoT solution to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 06/17/2024
+ms.date: 10/14/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
@@ -25,6 +25,9 @@ This article describes how to scale an Internet of Things (IoT) solution with a 
 - [Azure IoT Hub device provisioning service (DPS)](/azure/iot-dps/)
 
 :::image type="content" source="media/iot-steps-high-res.png" alt-text="A diagram that shows the main steps you follow when scaling out your Azure IoT solution." lightbox="media/iot-steps-high-res.png" border="false":::
+
+> [!NOTE]
+> This document does not cover the [Azure IoT Operations](/azure/iot-operations/overview-iot-operations) platform, which scales based on the hosting Kubernetes platform configuration.
 
 ## Gather requirements
 
@@ -99,7 +102,7 @@ Because of the "many devices booting at once" scenario, cloud service concerns c
 
 Beyond network and quota issues, it’s also necessary to consider Azure service outages. They could be service outages or regional outages. Whereas some services (such as IoT Hub) are geo-redundant, other services (such as DPS) store their data in a single region. Although it might seem like it restricts regional redundancy, it’s important to realize that you can link a single IoT hub to multiple DPS instances.
 
-If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host a heterogeneous group of resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp). The article includes [IoT-specific examples](/azure/architecture/example-scenario/iot/application-stamps) for deployment stamps and references them in the [multitenant documentation](/azure/architecture/guide/multitenant/approaches/iot).
+If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host a heterogeneous group of resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp).
 
 **Understand device location impact.** When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography:~:text=Data%20storage%20for%20regional%20services), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#more-information:~:text=Data%20storage%20for%20non%2Dregional%20services) include [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) and Microsoft Entra ID. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
 

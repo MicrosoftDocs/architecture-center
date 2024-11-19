@@ -31,10 +31,10 @@ The Azure Storage platform includes the following data services:
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs): A massively scalable object store for text and binary data. Also includes support for big data analytics through Azure Data Lake Storage Gen2.
 - [Azure Files](https://azure.microsoft.com/services/storage/files): Managed file shares for cloud or on-premises deployments.
+- [Azure NetApp Files](https://azure.microsoft.com/products/netapp/): An Azure native, first-party, enterprise-class, high-performance file storage service.
 - [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues): A messaging store for reliable messaging between application components.
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables): A NoSQL store for schemaless storage of structured data.
 - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Block-level storage volumes for Azure VMs.
-- [Azure NetApp Files](https://azure.microsoft.com/products/netapp/): An Azure native, first-party, enterprise-class, high-performance file storage service.
 
 ## Introduction to storage on Azure
 If you're new to storage on Azure, the best way to learn more is [Microsoft Learn training](/training/?WT.mc_id=learnaka). This free online platform provides interactive learning for Microsoft products and more. Check out the [Store data in Azure](/training/paths/store-data-in-azure) learning path.

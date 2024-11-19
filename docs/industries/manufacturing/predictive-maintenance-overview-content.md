@@ -69,7 +69,7 @@ Whatever your PdM needs, Azure has the tools, the scale, and the capabilities to
 
 ## Getting started
 
-A lot of equipment found on the factory floor generates data. Start collecting it as soon as possible. As failures occur, have the data scientists analyze the data to create models to detect future failures. As knowledge builds about failure detection, move to predictive mode where you fix components during planned downtime. The [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) provides a solid walkthrough of building the machine learning pieces of the solution.
+A lot of equipment found on the factory floor generates data. Start collecting it as soon as possible. As failures occur, have the data scientists analyze the data to create models to detect future failures. As knowledge builds about failure detection, move to predictive mode where you fix components during planned downtime. [Predictive Maintenance Using PySpark](https://github.com/Azure/PySpark-Predictive-Maintenance) provides a  walkthrough of building the machine learning pieces of the solution.
 
 If you need to learn about building models, we recommend visiting [Foundations of data science for machine learning](/training/paths/machine-learning-foundations-using-data-science). The [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml) Learn module introduces you to Azure tools.
 
@@ -130,5 +130,4 @@ Principal author:
 - [Predictive maintenance solution](predictive-maintenance-solution.yml)
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
 - [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
-- [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
