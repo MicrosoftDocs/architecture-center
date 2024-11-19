@@ -6,26 +6,26 @@ ms.custom: devx-track-dotnet
 
 ## Why the Reliable Web App pattern for Java?
 
-The Reliable Web App pattern is a set of principles and implementation techniques that define how you should replatform web apps when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud. The following guidance uses the reference implementation as an example throughout and follows the replatform journey of the fictional company, Contoso Fiber, to provide business context for your journey. Before implementing the Reliable Web App pattern for Java, Contoso Fiber had a monolithic, on-premises Customer Account Management System (CAMS) that used the Spring Boot framework.
+The Reliable Web App pattern is a set of principles and implementation techniques that define how you should replatform web apps when you migrate them to the cloud. It focuses on the minimal code updates that you need to make to be successful in the cloud. The following guidance uses a reference implementation as an example throughout. It follows the replatform journey of the fictional company Contoso Fiber to provide business context for your journey. Before implementing the Reliable Web App pattern for Java, Contoso Fiber had a monolithic on-premises Customer Account Management System (CAMS) that used the Spring Boot framework.
 
 > [!TIP]
-> ![GitHub logo.](../../../../../_images/github.svg) There's a [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
+> ![GitHub logo.](../../../../../_images/github.svg) There's a [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
 
 [!INCLUDE [intro 2](../includes/intro-2.md)]
 
 ## Business context
 
-The first step in replatforming a web app is to define your business objectives. You should set immediate goals, such as service level objectives and cost optimization targets, as well as future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
+The first step in replatforming a web app is to define your business objectives. You should set immediate goals, such as service level objectives and cost optimization targets, and also future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
 
-For example, Contoso Fiber, wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
+For example, Contoso Fiber wanted to expand their on-premises CAMS web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
 
-- Apply low-cost, high-value code changes
-- Reach a service level objective (SLO) of 99.9%
-- Adopt DevOps practices
-- Create cost-optimized environments
-- Improve reliability and security
+- Apply low-cost, high-value code changes.
+- Reach a service level objective (SLO) of 99.9%.
+- Adopt DevOps practices.
+- Create cost-optimized environments.
+- Improve reliability and security.
 
-Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. So, they decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. They decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 ## Architecture guidance
 
@@ -33,33 +33,33 @@ Contoso Fiber determined that their on-premises infrastructure wasn't a cost-eff
 
 ### Pick the right Azure services
 
-When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
+When you move a web app to the cloud, you should choose Azure services that meet your business requirements and align with the features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
 
-For example, before the move to the cloud, Contoso Fiber's CAMS web app was an on-premises, monolithic Java web app. It's a Spring Boot app with a PostgreSQL database. The web app is a line-of-business support app. It's employee-facing. Contoso Fiber employees use the application to manage support cases from their customers. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
+For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was an on-premises monolithic Java web app. It's a Spring Boot app with a PostgreSQL database. The web app is a line-of-business support app. It's employee-facing. Contoso Fiber employees use the application to manage support cases from their customers. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
 
-- *Application platform:* Use [Azure App Service](/azure/app-service/overview) as your application platform. Contoso Fiber chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
+- *Application platform:* Use [Azure App Service](/azure/app-service/overview) as your application platform. Contoso Fiber chose Azure App Service as the application platform for the following reasons:
 
-    - *Natural progression:* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Container Apps is also an attractive alternative for this app. For more information, see [What is Azure Spring Apps?](/azure/container-apps/overview) and [Java on Azure Container Apps overview](/azure/container-apps/java-overview/).
-    - *High SLA:* It has a high SLA that meets the requirements for the production environment.
-    - *Reduced management overhead:* It's a fully managed hosting solution.
-    - *Containerization capability:* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
-    - *Autoscaling:* The web app can rapidly scale up, down, in, and out based on user traffic.
+    - *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Container Apps is also an attractive alternative for this app. For more information, see [What is Azure Spring Apps?](/azure/container-apps/overview) and [Java on Azure Container Apps overview](/azure/container-apps/java-overview/).
+    - *High SLA.* App Service has a high SLA that meets the requirements for the production environment.
+    - *Reduced management overhead.* App Service is a fully managed hosting solution.
+    - *Containerization capability.* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
+    - *Autoscaling.* The web app can rapidly scale up, down, in, and out based on user traffic.
 
 - *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Contoso Fiber chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
 
-    - *Authentication and authorization:* The application needs to authenticate and authorize call center employees.
-    - *Scalable:* It scales to support larger scenarios.
-    - *User-identity control:* Call center employees can use their existing enterprise identities.
-    - *Authorization protocol support:* It supports OAuth 2.0 for managed identities.
+    - *Authentication and authorization.* The application needs to authenticate and authorize call center employees.
+    - *Scalable.* Microsoft Entra ID scales to support larger scenarios.
+    - *User-identity control.* Call center employees can use their existing enterprise identities.
+    - *Authorization protocol support.* Microsoft Entra ID supports OAuth 2.0 for managed identities.
 
-- *Database:* Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree). Contoso Fiber chose Azure Database for PostgreSQL and the flexible-server option for the following reasons:
+- *Database:* Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) to guide your selection. Contoso Fiber chose Azure Database for PostgreSQL and the flexible server deployment model for the following reasons:
 
-    - *Reliability:* The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
-    - *Cross-region replication:* It has a read replica feature that allows you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
-    - *Performance:* It provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
+    - *Reliability.* The flexible server deployment model supports zone-redundant high availability across multiple availability zones. This configuration maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
+    - *Cross-region replication.* Azure Database for PostgreSQL has a read replica feature that enables you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
+    - *Performance.* Azure Database for PostgreSQL provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
     - *Reduced management overhead:* It's a fully managed Azure service that reduces management obligations.
-    - *Migration support:* It supports database migration from on-premises single-server PostgreSQL databases. They can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
-    - *Consistency with on-premises configurations:* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
+    - *Migration support.* It supports database migration from on-premises single-server PostgreSQL databases. They can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
+    - *Consistency with on-premises configurations.* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
     - *Resiliency.* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them using zone-redundant storage (ZRS) within the same region. They can restore their database to any point-in-time within the backup retention period. The backup and restoration capability creates a better RPO (acceptable amount of data loss) than Contoso Fiber could create on-premises.
 
 - *Application performance monitoring:* Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to analyze telemetry on your application. Contoso Fiber chose to use Application Insights for the following reasons:

@@ -8,7 +8,7 @@ ms.service: azure-architecture-center
 
 ## How to implement the Reliable Web App pattern
 
-This article includes architecture, code, and configuration guidance for implementing the Reliable Web App pattern. Use the following links to navigate to the specific guidance you need:
+This article includes architecture, code, and configuration guidance for implementing the Reliable Web App pattern. Use the following links to go to the specific guidance you need:
 
 - [***Business context.***](#business-context) Align this guidance with your business context and learn how to define immediate and long term goals that drive replatforming decisions.
 - [***Architecture guidance.***](#architecture-guidance) Learn how to select the right cloud services and design an architecture that meets your business requirements.
