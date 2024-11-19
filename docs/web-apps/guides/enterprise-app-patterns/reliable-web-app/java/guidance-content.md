@@ -15,17 +15,17 @@ The Reliable Web App pattern is a set of principles and implementation technique
 
 ## Business context
 
-The first step in replatforming a web app is to define your business objectives. You should set immediate goals, such as service level objectives and cost optimization targets, and also future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app, such as 99.9% uptime. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
+The first step in replatforming a web app is to define your business objectives. You should set immediate goals, such as service-level objectives (SLO) and cost optimization targets, and also future goals for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud. Define a target SLO for your web app (for example 99.9% uptime). Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
 
 For example, Contoso Fiber wanted to expand their on-premises CAMS web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
 
 - Apply low-cost, high-value code changes.
-- Reach a service level objective (SLO) of 99.9%.
+- Reach an SLO of 99.9%.
 - Adopt DevOps practices.
 - Create cost-optimized environments.
 - Improve reliability and security.
 
-Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. They decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. They decided that migrating their CAMS web application to Azure was the most cost-effective way to achieve their immediate and future objectives.
 
 ## Architecture guidance
 
@@ -33,14 +33,14 @@ Contoso Fiber determined that their on-premises infrastructure wasn't a cost-eff
 
 ### Pick the right Azure services
 
-When you move a web app to the cloud, you should choose Azure services that meet your business requirements and align with the features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
+When you move a web app to the cloud, you should choose Azure services that meet your business requirements and align with the features of the on-premises web app. This alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
 
 For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was an on-premises monolithic Java web app. It's a Spring Boot app with a PostgreSQL database. The web app is a line-of-business support app. It's employee-facing. Contoso Fiber employees use the application to manage support cases from their customers. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
 
 - *Application platform:* Use [Azure App Service](/azure/app-service/overview) as your application platform. Contoso Fiber chose Azure App Service as the application platform for the following reasons:
 
-    - *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Container Apps is also an attractive alternative for this app. For more information, see [What is Azure Spring Apps?](/azure/container-apps/overview) and [Java on Azure Container Apps overview](/azure/container-apps/java-overview/).
-    - *High SLA.* App Service has a high SLA that meets the requirements for the production environment.
+    - *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Container Apps is also an attractive alternative for this app. For more information, see [What is Azure Container Apps?](/azure/container-apps/overview) and [Java on Azure Container Apps overview](/azure/container-apps/java-overview/).
+    - *High SLA.* App Service provides a high SLA that meets the requirements for the production environment.
     - *Reduced management overhead.* App Service is a fully managed hosting solution.
     - *Containerization capability.* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
     - *Autoscaling.* The web app can rapidly scale up, down, in, and out based on user traffic.
@@ -55,7 +55,7 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
 - *Database:* Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) to guide your selection. Contoso Fiber chose Azure Database for PostgreSQL and the flexible server deployment model for the following reasons:
 
     - *Reliability.* The flexible server deployment model supports zone-redundant high availability across multiple availability zones. This configuration maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
-    - *Cross-region replication.* Azure Database for PostgreSQL has a read replica feature that enables you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
+    - *Cross-region replication.* Azure Database for PostgreSQL provides a read replica feature that enables you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
     - *Performance.* Azure Database for PostgreSQL provides predictable performance and intelligent tuning that improves your database performance by using real usage data.
     - *Reduced management overhead.* It's a fully managed Azure service that reduces management obligations.
     - *Migration support.* It supports database migration from on-premises single-server PostgreSQL databases. Contoso can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
@@ -67,17 +67,17 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
     - *Integration with Azure Monitor.* It provides the best integration with Azure Monitor.
     - *Anomaly detection.* It automatically detects performance anomalies.
     - *Troubleshooting.* It helps you diagnose problems in the running app.
-    - *Monitoring.* It collects information about how users are using the app and allows you to easily track custom events.
+    - *Monitoring.* It collects information about how users are using the app and enables you to easily track custom events.
     - *Visibility gap.* The on-premises solution didn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
-- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is Azure's primary cache solution. It's a managed in-memory data store that's based on the Redis software. Contoso Fiber added Azure Cache for Redis for the following reasons:
+- *Cache:* Choose whether to add a cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is the primary Azure cache solution. It's a managed in-memory data store that's based on the Redis software. Contoso Fiber added Azure Cache for Redis for the following reasons:
 
     - *Speed and volume.* It provides high-data throughput and low latency reads for commonly accessed, slow-changing data.
     - *Diverse supportability.* It's a unified cache location that all instances of the web app can use.
     - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
     - *Nonsticky sessions.* The cache allows the web app to externalize session state and use nonsticky sessions. Most Java web apps that run on-premises use in-memory client-side caching. In-memory client-side caching doesn't scale well and increases the memory footprint on the host. With Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve the scalability and performance of their applications. Contoso was using a cache abstraction framework (Spring Cache) and needed only minimal configuration changes to exchange the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
-- *Load balancer:* Web applications that use platform as a service (PaaS) solutions should use Azure Front Door, Azure Application Gateway, or both, based on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Contoso Fiber needed a layer-7 load balancer that could route traffic across multiple regions and a multi-region web app to meet the SLO of 99.9%. Contoso chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+- *Load balancer:* Web applications that use platform as a service (PaaS) solutions should use Azure Front Door, Azure Application Gateway, or both, depending on web app architecture and requirements. Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) to pick the right load balancer. Contoso Fiber needed a layer-7 load balancer that could route traffic across multiple regions and a multi-region web app to meet the SLO of 99.9%. Contoso chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
     - *Global load balancing.* It's a layer-7 load balancer that can route traffic across multiple regions.
     - *Web application firewall.* It integrates natively with Azure Web Application Firewall.
@@ -85,7 +85,7 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
     - *Traffic acceleration.* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
     - *Custom domains.* It supports custom domain names with flexible domain validation.
     - *Health probes.* The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
-    - *Monitoring support.* Azure Front Door supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. Azure Front Door lets the application log each request and failed health probes.
+    - *Monitoring support.* Azure Front Door supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. Azure Front Door lets the application log each request and failed health probes.
     - *DDoS protection.* It has built-in layer 3-4 DDoS protection.
     - *Content delivery network:* It positions Contoso Fiber to use a content delivery network. The content delivery network provides site acceleration.
 
@@ -105,7 +105,7 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
 
 - *Endpoint security:* Use [Azure Private Link](/azure/private-link/private-link-overview) to access PaaS solutions over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Contoso Fiber chose Private Link for the following reasons:
 
-    - *Enhanced security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
+    - *Enhanced-security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
     - *Minimal effort:* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
 - *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Contoso Fiber adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Contoso Fiber needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
@@ -175,7 +175,7 @@ Use [Spring Cloud Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbr
     </dependency>
     ```
 
-- *Create an app registration.* Microsoft Entra ID requires an application registration in the primary tenant. The application registration helps ensure the users who get access to the web app have identities in the primary tenant. The reference implementation uses Terraform to create a Microsoft Entra ID app registration together with an app-specific Account Manager role:
+- *Create an application registration.* Microsoft Entra ID requires an application registration in the primary tenant. The application registration helps ensure that users who get access to the web app have identities in the primary tenant. The reference implementation uses Terraform to create a Microsoft Entra ID app registration together with an app-specific Account Manager role:
 
     ```terraform
     resource "azuread_application" "app_registration" {
