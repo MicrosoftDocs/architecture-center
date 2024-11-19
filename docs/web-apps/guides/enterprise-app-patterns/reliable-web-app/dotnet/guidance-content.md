@@ -25,7 +25,7 @@ For example, Relecloud has a positive sales forecast and anticipates increased d
 - Create cost-optimized environments.
 - Improve reliability and security.
 
-Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach these goals. They decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach these goals. They decided that migrating their web application to Azure was the most cost-effective way to achieve their immediate and future objectives.
 
 ## Architecture guidance
 
@@ -33,7 +33,7 @@ Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach
 
 ### Pick the right Azure services
 
-When you move a web app to the cloud, you should choose Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
+When you move a web app to the cloud, you should choose Azure services that meet your business requirements and align with the current features of the on-premises web app. This alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
 
 For example, before it was moved to the cloud, Relecloud's ticketing web app was an on-premises monolithic ASP.NET app. It ran on two virtual machines and used a SQL Server database. The web app suffered from common problems with scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
 
@@ -43,7 +43,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Reduced management overhead.* It's a fully managed solution that handles scaling, health checks, and load balancing.
     - *.NET support.* It supports the version of .NET that the application is written in.
     - *Containerization capability.* The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services.
-    - *Autoscaling.* The web app can automatically scale in and out based on user traffic and configuration settings. The platform also supports scaling up or down to accommodate different hosting requirements.
+    - *Automatic scaling.* The web app can automatically scale in and out based on user traffic and configuration settings. The platform also supports scaling up or down to accommodate different hosting requirements.
     
 - *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Relecloud chose Microsoft Entra ID for the following reasons:
 
@@ -84,7 +84,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Routing flexibility.* It allows the application team to configure ingress needs to support future changes in the application.
     - *Traffic acceleration.* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
     - *Custom domains.* It supports custom domain names with flexible domain validation.
-    - *Health probes.* The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+    - *Health probes.* The application requires intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
     - *Monitoring support.* It supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. Azure Front Door enables the application to log each request and failed health probes.
     - *DDoS protection.* It has built-in layer 3-4 DDoS protection.
     - *Content delivery network.* It positions Relecloud to use a content delivery network. The content delivery network provides site acceleration.
@@ -120,7 +120,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
     - *Enhanced-security communication.* Private Link lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
     - *Minimal effort.* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
-- *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Relecloud adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
+- *Network security.* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Relecloud adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
 
 ## Code guidance
 
@@ -196,7 +196,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. Using this cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis:
+- *Configure the application to use a cache.* Production apps should use a distributed Redis cache. This cache improves performance by reducing database queries. It also enables nonsticky sessions so that the load balancer can evenly distribute traffic. The reference implementation uses a distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis:
 
     ```csharp
     private void AddAzureCacheForRedis(IServiceCollection services)
