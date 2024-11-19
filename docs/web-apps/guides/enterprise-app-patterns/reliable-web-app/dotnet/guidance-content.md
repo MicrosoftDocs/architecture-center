@@ -55,7 +55,7 @@ For example, before it was moved to the cloud, Relecloud's ticketing web app was
 - *Database:* Use a service that allows you to keep the same database engine. Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) to guide your selection. Relecloud's web app used SQL Server on-premises. They wanted to use the existing database schema, stored procedures, and functions. Several SQL products are available on Azure, but Relecloud chose [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) for the following reasons:
 
     - *Reliability.* The general-purpose tier provides a high SLA and multi-region redundancy. It can support a high user load.
-    - *Reduced management overhead.* It provides a managed SQL database instance.
+    - *Reduced management overhead.* SQL Database provides a managed SQL database instance.
     - *Migration support.* It supports database migration from on-premises SQL Server.
     - *Consistency with on-premises configurations.* It supports the existing stored procedures, functions, and views.
     - *Resiliency.* It supports backups and point-in-time restore.
