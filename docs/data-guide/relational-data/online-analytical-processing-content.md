@@ -98,11 +98,11 @@ To narrow the choices, start by answering these questions:
 
 - Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics.
 
-    *Real-time analytics* in this context applies to a single data source, such as an enterprise resource planning (ERP) application, that will run both an operational and an analytics workload. If you need to integrate data from multiple sources, or require extreme analytics performance by using pre-aggregated data such as cubes, you might still require a separate data warehouse.
+  *Real-time analytics* in this context applies to a single data source, such as an enterprise resource planning (ERP) application, that will run both an operational and an analytics workload. If you need to integrate data from multiple sources, or require extreme analytics performance by using pre-aggregated data such as cubes, you might still require a separate data warehouse.
 
 - Do you need to use pre-aggregated data, for example to provide semantic models that make analytics more business user friendly? If yes, choose an option that supports multidimensional cubes or tabular semantic models.
 
-    Providing aggregates can help users consistently calculate data aggregates. Pre-aggregated data can also provide a large performance boost when dealing with several columns across many rows. Data can be pre-aggregated in multidimensional cubes or tabular semantic models.
+  Providing aggregates can help users consistently calculate data aggregates. Pre-aggregated data can also provide a large performance boost when dealing with several columns across many rows. Data can be pre-aggregated in multidimensional cubes or tabular semantic models.
 
 - Do you need to integrate data from several sources, beyond your OLTP data store? If so, consider options that easily integrate multiple data sources.
 
@@ -133,14 +133,6 @@ The following tables summarize the key differences in capabilities.
 | Redundant regional servers for high availability |           Yes           |              No              |                 Yes                 |                     Yes                     |
 |             Supports query scale out             |           Yes           |              No              |                 Yes                 |                     Yes                      |
 |          Dynamic scalability (scale up)          |           Yes           |              No              |                 Yes                 |                     Yes                      |
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
 ## Next steps
 
