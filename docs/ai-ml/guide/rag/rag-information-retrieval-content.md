@@ -124,12 +124,37 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 - You want to control the reranking process yourself.
 - The query requires [multiple subqueries](#multiple-subqueries) to be run to retrieve grounding data from multiple sources.
 
-### Multiple subqueries
+### Query translation
 
-Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely require grounding data from multiple sources.
+Query translation is an optional step in the information retrieval phase of a RAG solution. In the translation step, a query is transformed or translated into a form that is optimized to retrieve better results. There are many forms of query translation including the three we detail in this article: augmentation, decomposition, and rewriting.
+
+#### Query augmentation
+
+Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: `Compare the earnings of Microsoft`. That query is vague. You have not mentioned what time frames, or time units to compare and have only specified earnings. Now consider an augmented version of the query: `Compare the earnings and revenue of Microsoft current year vs last year by quarter`. The new query is clear and specific.
+
+When you are augmenting a query, you maintain the original query, but add additional context. There is no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query. 
+
+You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there is information in your language model that can be useful in augmenting the query. For example, if you are using a large language model like one of the GPT models, you can determine if there is information readily available on the internet about the query. If so, you can use the language model to augment the query. Otherwise, you should not augment the query.
+
+The following is an example of a prompt that augments a query.
+
+```bash
+
+```
+
+Notice how the prompt includes examples for when context is and is not present.
+
+#### Decomposition
+
+Some queries are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to internal combustion engine (ICE) vehicles?" likely requires grounding data from multiple sources. One source might describe how electric cars work, where another compares them to ICE vehicles.
+
+Decomposition is the process of breaking down a complex query into multiple smaller and simpler sub-queries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as an accumulated context. You then run the original query, passing the accumulated context to the language model.
+
+TODO: Ritesh - do we still recommend to determine whether the query requires multiple searches before running any searches?
 
 It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
+TODO: Ritesh - Is this still valid?
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
 1. Simple, factual question
@@ -156,6 +181,7 @@ Example output:
 
 A large language model can also be used to extract subqueries from a complex query. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that converts a complex query into multiple subqueries.
 
+TODO: Ritesh - We need the updated prompt
 ```text
 Your task is to take a question as input and generate maximum 3 sub-questions that cover all aspects of the original question. The output should be in strict JSON format, with the sub-questions contained in an array.
 Here are the requirements:
@@ -167,6 +193,8 @@ Here are the requirements:
 6. The JSON output should be valid and strictly formatted.
 7. Ensure that the generated JSON is 100 percent structurally correct, with proper nesting, comma placement, and quotation marks. The JSON should be formatted with proper indentation for readability.
 8. There should not be any comma after last element in the array.
+
+TODO: Ritesh - We need the updated example
 
 Example input question:
 What are the main causes of deforestation, and how can it be mitigated?
@@ -187,6 +215,48 @@ Example output:
 }
 ```
 
+#### Rewriting
+
+An input query may not be in the optimal form to retrieve grounding data. Using a language model to rewrite the query is a common practice to achieve better results. The following are some challenges that can be addressed by rewriting a query:
+
+- Vagueness
+- Missing keywords
+- Unneeded words
+- Unclear semantically
+
+The following prompt, taken from the [RAG Experiment Accelerator GitHub repository](http://), addresses the listed challenges by using a language model to rewrite the query.
+
+```text
+Rewrite the given query to optimize it for both keyword-based and semantic similarity search methods. Follow these guidelines:
+
+Identify the core concepts and intent of the original query.
+Expand the query by including relevant synonyms, related terms, and alternate phrasings.
+Maintain the original meaning and intent of the query.
+Include specific keywords that are likely to appear in relevant documents.
+Incorporate natural language phrasing to capture semantic meaning.
+Include domain-specific terminology if applicable to the query's context.
+Ensure the rewritten query covers both broad and specific aspects of the topic.
+Remove any ambiguous or unnecessary words that might confuse the search.
+Combine all elements into a single, coherent paragraph that flows naturally.
+Aim for a balance between keyword richness and semantic clarity.
+
+Provide the rewritten query as a single paragraph that incorporates various search aspects (e.g. keyword-focused, semantically-focused, domain-specific).
+
+query: {original_query}
+
+```
+
+The following shows the results of a query being rewritten:
+
+```text
+
+TODO: Ritesh to provide example
+```
+
+#### HyDE
+
+[Hypothetical Document Embeddings (HyDE)](https://towardsdatascience.com/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is a alternate information retrieval technique used in RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are then converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding similarity searches.
+
 ### Passing images in queries
 
 Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you are using these models, you can choose whether you want to avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing additional context. You should also compare the difference in cost between the approaches and do a cost-benefit analysis.
@@ -194,6 +264,19 @@ Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you ar
 ### Filtering
 
 Fields in the search store that are configured as filterable can be used to filter queries. Consider filtering on keywords and entities for queries that use those fields to help narrow down the result. Filtering allows you to retrieve only the data that satisfies certain conditions from an index by eliminating irrelevant data. This improves the overall performance of the query with more relevant results. As with every decision, it's important to experiment and test. Queries might not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.
+
+### Weighting
+
+Some search platforms, such as Azure AI Search, support the ability to influence the ranking of results based on criteria, including weighting fields. 
+
+> [!NOTE]
+> This section discusses the weighting capabilities in Azure AI Search. If you are using a different platform, research the weighting capabilities of that platform.
+
+Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
+
+Choosing which fields to weight depends upon the type of query and the use case. For example, if you determine that the query is keyword-centric, such as "Where is Microsoft headquartered?", you would want a scoring profile that weights entity or keyword fields higher. You may also allow use different profiles for different users, allow users to choose their focus, or choose profiles based on the application.
+
+We recommend that in production systems, you only maintain profiles that you actively use in production.
 
 ### Reranking
 
