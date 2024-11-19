@@ -1,18 +1,16 @@
 This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-stack-hci-baseline.yml). To effectively deploy **Azure Virtual Desktop for Azure Local**, it's important to understand the baseline architecture. This process includes familiarizing yourself with the design choices for the physical machines that deliver the compute, storage, and networking capabilities.
 
-This workload reference architecture aims to provide guidance on selecting and setting up an Azure Virtual Desktop workload for Azure Local. By using this reference architecture, you can minimize the time and effort required to deploy and manage your Azure Virtual Desktop for Azure Local solution.
+This workload reference architecture provides guidance on how to select and set up an Azure Virtual Desktop workload for Azure Local. By using this reference architecture, you can minimize the time and effort required to deploy and manage your Azure Virtual Desktop for Azure Local solution.
 
 This guide looks at workload specific design considerations, requirements, and scale limitations, offering you a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) when designing an Azure Virtual Desktop for Azure Local solution.
 
-For additional information review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
+For additional information, review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
 
 ## Article layout
 
 | Architecture | Design decisions | Well-Architected Framework approach|
 |---|---|---|
 |&#9642; [Architecture](#architecture) <br>&#9642; [Workflow](#workflow) <br>&#9642;  [Components](#components) <br>&#9642; [Product Overview](#product-overview) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>&#9642; [ARM Templates](#arm-templates)|&#9642; [Workload design considerations](#workload-design-considerations)<br> &#9642; [User profiles and storage](#user-profiles-and-storage) <br> &#9642; [Session types](#session-types)  <br> &#9642; [Supported deployment configurations](#supported-deployment-configurations)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost optimization](#cost-optimization) <br> &#9642; [Operational excellence](#operational-excellence) <br> &#9642; [Performance efficiency](#performance-efficiency)|
-
-
 
 ## Architecture
 
@@ -133,7 +131,7 @@ This [ARM template for Azure Virtual Desktop for Azure Local](https://github.com
 
 #### Terraform
 
-Terraform can be used to deploy Azure Local instances, logical networks, and Arc VMs. However there is not a provider to deploy Azure Virtual Desktop at this time. Here are the links to the Terraform providers for Azure Local:
+Terraform can be used to deploy Azure Local instances, logical networks, and Arc VMs. However there isn't a provider that can deploy Azure Virtual Desktop at this time. Here are the links to the Terraform providers for Azure Local:
 
 - **Azure Local instance**: [Azure/avm-res-azurestackhci-cluster/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/avm-res-azurestackhci-cluster/azurerm)
 
@@ -145,7 +143,11 @@ For a consolidated list of recent feature updates, see [What's new in Azure Virt
 
 ## Workload design considerations
 
-When building an Azure Virtual Desktop for Azure Local solution, there are several key design elements to consider - workload types, user profile management, and session types.
+When building an Azure Virtual Desktop for Azure Local solution, there are three key design elements to consider:
+
+- [Workload types](#azure-virtual-desktop-workload-types)
+- [User profiles and storage management](#user-profiles-and-storage)
+- [Session types](#session-types)
 
 ### Azure Virtual Desktop workload types
 
@@ -158,9 +160,10 @@ Session host virtual machines in an Azure Virtual Desktop for Azure Local enviro
 | Heavy         | Software engineers, content creators | Database entry applications, command-line interfaces, Microsoft Word, static web pages, Microsoft Outlook, Microsoft PowerPoint, dynamic web pages, software development |
 | Power         | Graphic designers, 3D model makers, machine learning researchers | Database entry applications, command-line interfaces, Microsoft Word, static web pages, Microsoft Outlook, Microsoft PowerPoint, dynamic web pages, photo and video editing, computer-aided design (CAD), computer-aided manufacturing (CAM) |
 
-Note that workload types (light/medium/heavy/power) are indicative. We recommend you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Additionally, the information provided here is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates can change over time due to changes in these factors.
+>[!NOTE]
+>Workload types (light/medium/heavy/power) are indicative. We recommend that you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Also, the information provided here is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates can change over time due to changes in these factors.
 
-## User profiles and storage
+## User profiles and storage management
 
 In Azure Virtual Desktop, managing user profiles and storage efficiently is pivotal for ensuring a seamless user experience. A user profile contains data elements about the individual, including configuration information like desktop settings, persistent network connections, and application settings.
 
@@ -306,7 +309,7 @@ Operational excellence focuses on creating reliable processes to deploy, manage,
 
 - **Strict change control procedures**: These procedures require that all changes are tested and validated in a representative test environment before implementation in production. All changes submitted to the weekly change advisory board process must include an implementation plan or link to source code, risk level score, rollback plan, post-release tests, and clear success criteria for a change to be reviewed or approved. See [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 
-- **Configure robust monitoring and logging**: Using [Azure Local Insights](/azure-stack/hci/manage/monitor-hci-single-23h2) and [Azure Virtual Desktop Insights](/azure/virtual-desktop/whats-new-insights), you can capture detailed metrics and logs for the platform and workload. These insights help identify performance issues and improve operational response times.
+- **Configure robust monitoring and logging**: Use [Azure Local Insights](/azure-stack/hci/manage/monitor-hci-single-23h2) and [Azure Virtual Desktop Insights](/azure/virtual-desktop/whats-new-insights), to capture detailed metrics and logs for the platform and workload. These insights help identify performance issues and improve operational response times.
 
 For more information, see [Well-Architected Framework Operational Excellence Design Principles](/azure/architecture/framework/operational-excellence/checklist).
 
@@ -316,15 +319,15 @@ Performance efficiency ensures that your Azure Virtual Desktop for Azure Local d
 
 #### Performance Efficiency considerations include
 
-- **Use load balancing for optimal performance**: Distributing network traffic evenly across Azure Virtual Desktop instances ensures that no single VM becomes a bottleneck. Load balancers help improve responsiveness by evenly distributing user sessions, which is especially important during peak times. Azure Virtual Desktop supports built-in load balancing algorithms that manage user session distribution effectively. Breadth-First Load Balancing assigns new user sessions to the session host with the least number of connections, promoting an even distribution. Depth-First Load Balancing fills up one session host before moving on to the next, which can be efficient during low usage periods. Learn how to [configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
+- **Use load balancing for optimal performance**: To prevent any single VM from being a bottleneck, distribute network traffic evenly across Azure Virtual Desktop instances. Load balancers help improve responsiveness by evenly distributing user sessions, which is especially important during peak times. Azure Virtual Desktop supports built-in load balancing algorithms that manage user session distribution effectively. Breadth-First Load Balancing assigns new user sessions to the session host with the least number of connections, promoting an even distribution. Depth-First Load Balancing fills up one session host before moving on to the next, which can be efficient during low usage periods. To learn how to configure host pool load balancing in Azure Virtual Desktop, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
 - **Optimize performance for Azure Virtual Desktops**:
 
-  - **High-performance storage solutions**: Utilize high-speed storage options, such as NVMe or SSDs to reduce latency and improve input/output operations per second (IOPS) for your Azure Virtual Desktops for Azure Local. See [recommendations for selecting the right services](/azure/well-architected/performance-efficiency/select-services) for more information.
+  - **High-performance storage solutions**: Use high-speed storage options, such as NVMe or SSDs to reduce latency and improve input/output operations per second (IOPS) for your Azure Virtual Desktops for Azure Local. For more information, see [recommendations for selecting the right services](/azure/well-architected/performance-efficiency/select-services).
 
-  - **Storage Spaces Direct (S2D)**: Azure Local uses Storage Spaces Direct (S2D) to pool the available storage from all physical machines, providing high-performance and resilient storage for your workloads. Define performance targets that are numerical values based on your workload performance requirements. You should implement performance targets for all workload flows. See [recommendations for defining performance targets](/azure/well-architected/performance-efficiency/performance-targets)
+  - **Storage Spaces Direct (S2D)**: Azure Local uses Storage Spaces Direct (S2D) to pool the available storage from all physical machines, providing high-performance and resilient storage for your workloads. Define performance targets that are numerical values based on your workload performance requirements. You should implement performance targets for all workload flows. For more information, see [recommendations for defining performance targets](/azure/well-architected/performance-efficiency/performance-targets)
 
-  - **Performance testing**: Conduct regular performance testing in an environment that matches the production environment. Compare results against your performance targets and performance baselines values, to detect drift or degradation over time. Your tests should include network latency considerations, such as the network communication path of the remote users. Review [recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test) for more information.
+  - **Performance testing**: Conduct regular performance testing in an environment that matches the production environment. Compare results against your performance targets and performance baselines values, to detect drift or degradation over time. Your tests should include network latency considerations, such as the network communication path of the remote users. For more information, see [recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test).
 
 For more information, see [Well-Architected Framework Performance Efficiency Design Principles](/azure/architecture/framework/performance-efficiency/checklist).
 
