@@ -169,7 +169,6 @@ Principal authors:
 
 ## Related resources
 
-- [Expose Azure Spring Apps through a reverse proxy](../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
 - [Microservices architecture design](../../microservices/index.yml)
 - [Multicloud solutions with the Serverless Framework](../../example-scenario/serverless/serverless-multicloud.yml)
 
