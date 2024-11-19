@@ -20,7 +20,7 @@ For additional information review the [Azure Local Well-Architected Framework se
     Diagram that shows a reference architecture for deploying Azure Virtual Desktop on Azure Local.
 :::image-end:::
 
-Architecture diagram showing a high-level overview of the Azure Virtual Desktop for Azure Local solution.
+Architecture diagram showing a high-level overview of the Azure Virtual Desktop for Azure Local solution..
 
 ### Workflow
 
