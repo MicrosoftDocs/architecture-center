@@ -283,7 +283,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 #### Cost Optimization considerations include
 
-- **Optimize VM sizing for cost efficiency**: Right-sizing VMs based on usage patterns helps ensure you maximize available physical resources. Monitoring CPU and memory usage over time enables you to adjust VM resources to best match the workload requirements. This optimization helps provide return on investment for your Azure Local hardware costs, by ensuring the VMs are using the allocated resources efficiently. See [recommendations for aligning usage to billing increments](/azure/well-architected/cost-optimization/align-usage-to-billing-increments) for more information.
+- **Optimize VM sizing for cost efficiency**: To maximize available physical resources, right-size VMs based on usage patterns. Monitor CPU and memory usage over time so that you can adjust VM resources to best match the workload requirements. Efficient VM resource allocation provides a return on investment for your Azure Local hardware costs. For more information, see [recommendations for aligning usage to billing increments](/azure/well-architected/cost-optimization/align-usage-to-billing-increments).  
 
 - **Automatic VM guest OS patching for Azure Arc VMs**: This feature helps reduce the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation and contributes to overall cost efficiency. For more information, review [recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time)
 
