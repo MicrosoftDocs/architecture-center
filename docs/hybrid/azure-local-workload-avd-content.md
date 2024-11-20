@@ -4,7 +4,7 @@ This workload reference architecture provides guidance on how to select and set 
 
 This guide looks at workload specific design considerations, requirements, and scale limitations, offering you a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) when designing an Azure Virtual Desktop for Azure Local solution.
 
-For additional information, review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
+For more information, review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
 
 ## Article layout
 
@@ -163,7 +163,7 @@ Session host virtual machines in an Azure Virtual Desktop for Azure Local enviro
 >[!NOTE]
 >Workload types (light/medium/heavy/power) are indicative. We recommend that you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Also, the information provided here is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates can change over time due to changes in these factors.
 
-## User profiles and storage management
+## User profiles and storage
 
 In Azure Virtual Desktop, managing user profiles and storage efficiently is pivotal for ensuring a seamless user experience. A user profile contains data elements about the individual, including configuration information like desktop settings, persistent network connections, and application settings.
 
