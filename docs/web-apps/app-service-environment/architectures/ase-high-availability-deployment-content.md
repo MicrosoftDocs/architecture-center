@@ -52,9 +52,9 @@ When you implement zone redundancy, the platform automatically deploys the insta
 - You configure availability zones when you create your App Service Environment.
 - All App Service plans created in that App Service Environment require a minimum of three instances. They'll automatically be zone redundant.
 - You can specify availability zones only when you create a new App Service Environment. You can't convert a pre-existing App Service Environment to use availability zones.
-- Availability zones are supported only in a [subset of regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+- Availability zones are supported only in a [subset of regions](/azure/reliability/availability-zones-region-support).
 
-For more information, see [Migrate App Service Environment to availability zone support](/azure/reliability/migrate-app-service-environment).
+For more information, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service?pivots=isolated).
 
 ### Resiliency
 

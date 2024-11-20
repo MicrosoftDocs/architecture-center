@@ -92,7 +92,7 @@ Zone redundancy ensures that underlying virtual machine (VM) nodes are distribut
 
 If you enable your own resource in Azure Spring Apps, such as your own persistent storage, enable zone redundancy for the resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](/azure/spring-apps/how-to-custom-persistent-storage-with-standard-consumption).
 
-Availability zones aren't supported in all regions. To see which regions support availability zones, see [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+Availability zones aren't supported in all regions. To see which regions support availability zones, see [Azure regions with availability zone support](/azure/reliability/availability-zones-region-support).
 
 #### Scalability
 

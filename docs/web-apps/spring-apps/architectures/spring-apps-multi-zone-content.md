@@ -57,7 +57,7 @@ Azure Database for MySQL isn't the only option for a database. You can also use:
 
 Build redundancy in your workload to minimize single points of failure. In this architecture, you replicate components across zones within a region. In your architecture, ensure that you use availability zones for all components in your setup.
 
-Azure services aren't supported in all regions and not all regions support zones. Before you select a region, verify its [regional](https://azure.microsoft.com/global-infrastructure/services) and [zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support).
+Azure services aren't supported in all regions and not all regions support zones. Before you select a region, verify its [regional](https://azure.microsoft.com/global-infrastructure/services) and [zone support](/azure/reliability/availability-zones-service-support).
 
 Zone-redundant services automatically replicate or distribute resources across zones. Always-available services are always available across all Azure geographies and are resilient to zone-wide and region-wide outages.
 
