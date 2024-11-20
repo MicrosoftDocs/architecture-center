@@ -1,9 +1,10 @@
-This article is part of a series that builds on the [Azure Local baseline reference architecture](azure-stack-hci-baseline.yml). To effectively deploy **Azure Virtual Desktop for Azure Local**, it's important to understand the baseline architecture. This process includes familiarizing yourself with the design choices for the physical machines that deliver the compute, storage, and networking capabilities.
-
-This workload reference architecture provides guidance on how to select and set up an Azure Virtual Desktop workload for Azure Local. By using this reference architecture, you can minimize the time and effort required to deploy and manage your Azure Virtual Desktop for Azure Local solution.
-
+This workload reference architecture provides guidance on how to select and set up an **Azure Virtual Desktop for Azure Local**. By using this reference architecture, you can minimize the time and effort required to deploy and manage your Azure Virtual Desktop for Azure Local solution.
+ 
+ 
+Before you begin, it's important that you first read and understand the [Azure Local baseline reference architecture](azure-stack-hci-baseline.yml), so that you can get familiar with the design choices for the physical machines that deliver the compute, storage, and networking capabilities.
+ 
 This guide looks at workload specific design considerations, requirements, and scale limitations, offering you a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) when designing an Azure Virtual Desktop for Azure Local solution.
-
+ 
 For more information, review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
 
 ## Article layout
