@@ -1,6 +1,6 @@
 The articles in this series describe an approach for designing a disaster recovery (DR) strategy for an Azure-based data platform.
 
-Every organization's data needs are different, but the guidance provided will act as starting point, enabling the design of a DR strategy that fits your business requirements.
+Every organization's data needs are different, but the guidance provided acts as starting point, enabling the design of a DR strategy that fits your business requirements.
 
 <!-- docutune:disable -->
 
@@ -33,7 +33,7 @@ LRS|Locally Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/c
 MSEE|Microsoft Enterprise Edge| 
 MTO|Maximum Tolerable Outage|The maximum acceptable amount of time that dependent business processes can tolerate the platform being unavailable. </br>*MTO = RTO + WRT*
 MVP|Minimum Viable Product | 
-NFR|Non-Functional Requirement|Requirements on a solution or system related to usability, scalability, security and accessibility rather than functionality.
+NFR|Non-Functional Requirement|Requirements on a solution or system related to usability, scalability, security, and accessibility rather than functionality.
 NSG|Network Security Group|[Azure network security groups overview](/azure/virtual-network/network-security-groups-overview)
 OPEX|Operational Expenditure| 
 PaaS|Platform As A Service|[What is PaaS? Platform as a Service](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-paas/)
