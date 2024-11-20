@@ -313,7 +313,7 @@ Operational excellence focuses on creating reliable processes to deploy, manage,
 
   For more information, see [recommendations for using infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design).
 
-- **Strict change control procedures**: These procedures require that all changes are tested and validated in a representative test environment before implementation in production. All changes submitted to the weekly change advisory board process must include an implementation plan or link to source code, risk level score, rollback plan, post-release tests, and clear success criteria for a change to be reviewed or approved. See [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
+- **Strict change control procedures**:  Before implementation in production, change control procedures should require that all changes are tested and validated in a representative test environment. All changes that are submitted to the weekly change advisory board process must include an implementation plan or link to source code, risk level score, rollback plan, post-release tests, and clear success criteria for a change to be reviewed or approved. For more information, see [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).  
 
 - **Configure robust monitoring and logging**: Use [Azure Local Insights](/azure-stack/hci/manage/monitor-hci-single-23h2) and [Azure Virtual Desktop Insights](/azure/virtual-desktop/whats-new-insights), to capture detailed metrics and logs for the platform and workload. These insights help identify performance issues and improve operational response times.
 
