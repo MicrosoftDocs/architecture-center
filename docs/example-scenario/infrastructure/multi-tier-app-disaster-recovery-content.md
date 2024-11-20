@@ -52,7 +52,7 @@ Other relevant use cases include:
 
 ## Scenario details
 
-This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
+This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
 To route traffic between regions, you need a global load balancer. There are two main Azure offerings:
 

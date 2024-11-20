@@ -195,7 +195,7 @@ To learn about related solutions, see the following information:
 [Apache Kafka]: https://kafka.apache.org
 [Apache Kafka developer guide for Azure Event Hubs]: /azure/event-hubs/apache-kafka-developer-guide
 [Apache Spark]: https://spark.apache.org
-[Availability Zones]: /azure/availability-zones/az-overview#availability-zones
+[Availability Zones]: /azure/reliability/availability-zones-overview
 [Azure Cache for Redis FAQ]: /azure/azure-cache-for-redis/cache-faq
 [Azure Cache for Redis marketing page]: https://azure.microsoft.com/services/cache
 [Azure Cache for Redis pricing]: https://azure.microsoft.com/pricing/details/cache
