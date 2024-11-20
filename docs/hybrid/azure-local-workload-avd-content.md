@@ -1,17 +1,16 @@
 This workload reference architecture provides guidance on how to select and set up an **Azure Virtual Desktop for Azure Local**. By using this reference architecture, you can minimize the time and effort required to deploy and manage your Azure Virtual Desktop for Azure Local solution.
- 
- 
+
 Before you begin, it's important that you first read and understand the [Azure Local baseline reference architecture](azure-stack-hci-baseline.yml), so that you can get familiar with the design choices for the physical machines that deliver the compute, storage, and networking capabilities.
- 
+
 This guide looks at workload specific design considerations, requirements, and scale limitations, offering you a complementary tool to the existing [Azure Local catalog](https://aka.ms/hci-catalog#catalog) and [Azure Local Sizer](https://aka.ms/hci-catalog#sizer) when designing an Azure Virtual Desktop for Azure Local solution.
- 
+
 For more information, review the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci), which provides guidelines and recommendations for how to deploy highly available and resilient Azure Local instances.
 
 ## Article layout
 
 | Architecture | Design decisions | Well-Architected Framework approach|
 |---|---|---|
-|&#9642; [Architecture](#architecture) <br>&#9642; [Workflow](#workflow) <br>&#9642;  [Components](#components) <br>&#9642; [Product Overview](#product-overview) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>&#9642; [ARM Templates](#arm-templates)|&#9642; [Workload design considerations](#workload-design-considerations)<br> &#9642; [User profiles and storage](#user-profiles-and-storage) <br> &#9642; [Session types](#session-types)  <br> &#9642; [Supported deployment configurations](#supported-deployment-configurations)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost optimization](#cost-optimization) <br> &#9642; [Operational excellence](#operational-excellence) <br> &#9642; [Performance efficiency](#performance-efficiency)|
+|&#9642; [Architecture](#architecture) <br>&#9642; [Workflow](#workflow) <br>&#9642;  [Components](#components) <br>&#9642; [Product Overview](#product-overview) <br>&#9642; [Deploy this scenario](#deploy-this-scenario) <br>&#9642; [ARM Templates](#arm-templates)|&#9642; [Workload design considerations](#workload-design-considerations)<br> &#9642; [User profiles and storage management](#user-profiles-and-storage-management) <br> &#9642; [Session types](#session-types)  <br> &#9642; [Supported deployment configurations](#supported-deployment-configurations)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost optimization](#cost-optimization) <br> &#9642; [Operational excellence](#operational-excellence) <br> &#9642; [Performance efficiency](#performance-efficiency)|
 
 ## Architecture
 
@@ -147,7 +146,7 @@ For a consolidated list of recent feature updates, see [What's new in Azure Virt
 When building an Azure Virtual Desktop for Azure Local solution, there are three key design elements to consider:
 
 - [Workload types](#azure-virtual-desktop-workload-types)
-- [User profiles and storage management](#user-profiles-and-storage)
+- [User profiles and storage management](#user-profiles-and-storage-management)
 - [Session types](#session-types)
 
 ### Azure Virtual Desktop workload types
@@ -164,7 +163,7 @@ Session host virtual machines in an Azure Virtual Desktop for Azure Local enviro
 >[!NOTE]
 >Workload types (light/medium/heavy/power) are indicative. We recommend that you use simulation tools and industry benchmarks such as [LoginVSI](https://www.loginvsi.com/) to test your deployment with both stress tests and real-life usage simulations. Also, the information provided here is based on point-in-time hardware data from solution builders and the latest Azure Local OS specifications. Sizing estimates can change over time due to changes in these factors.
 
-## User profiles and storage
+## User profiles and storage management
 
 In Azure Virtual Desktop, managing user profiles and storage efficiently is pivotal for ensuring a seamless user experience. A user profile contains data elements about the individual, including configuration information like desktop settings, persistent network connections, and application settings.
 
