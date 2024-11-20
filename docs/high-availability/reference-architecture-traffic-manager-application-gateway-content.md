@@ -115,7 +115,7 @@ The following recommendations adhere to the pillars of the Azure Well-Architecte
 
 For more information, see:
 
-- [Regions and availability zones in Azure](/azure/availability-zones/az-overview)
+- [Regions and availability zones in Azure](/azure/reliability/availability-zones-overview)
 - [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions)
 
 ### Global routing

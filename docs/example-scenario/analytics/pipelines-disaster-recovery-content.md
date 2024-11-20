@@ -185,7 +185,7 @@ Other contributors:
 - [Business continuity management in Azure](/azure/availability-zones/business-continuity-management-program)
 - [Resiliency in Azure](/azure/availability-zones/overview)
 - [Azure resiliency terminology](/azure/availability-zones/glossary)
-- [Regions and availability zones](/azure/availability-zones/az-overview)
+- [Regions and availability zones](/azure/reliability/availability-zones-overview)
 - [Cross-region replication in Azure](/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
 - [Azure regions decision guide](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions)
 - [Azure services that support availability zones](/azure/availability-zones/az-region)

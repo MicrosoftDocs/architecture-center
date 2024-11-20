@@ -141,7 +141,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability and scalability
 
-The applications and services that make up the AGV fleet control solution are deployed to two Azure regions using [availability zones](/azure/availability-zones/az-overview), which are unique physical locations within Azure regions that help protect VMs, applications, and data from datacenter failures. Azure App Service and
+The applications and services that make up the AGV fleet control solution are deployed to two Azure regions using [availability zones](/azure/reliability/availability-zones-overview), which are unique physical locations within Azure regions that help protect VMs, applications, and data from datacenter failures. Azure App Service and
 [AKS](/azure/aks/availability-zones) can be deployed in availability zones, as well. IoT Hub provides intraregion high availability by implementing redundancies in almost all layers of the service.
 
 ### Security

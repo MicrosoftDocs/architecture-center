@@ -168,7 +168,7 @@ For the GPU machines, we recommend starting with the smallest node and scaling u
 > [!WARNING]
 > If you need GPU machines, you need OpenShift 4.8.22 as a minimum version to enable the GPUs through the NVIDIA GPU Operator.
 
-For all other machines, we recommend configuring VMs across [availability zones](/azure/availability-zones/az-overview) to support high availability. Configure the nodes as follows:
+For all other machines, we recommend configuring VMs across [availability zones](/azure/reliability/availability-zones-overview) to support high availability. Configure the nodes as follows:
 
 - **Control nodes**. A minimum of one VM per availability zone within the selected region. We recommended a vCPU count of at least 4. Our reference uses 3x [Standard_D8s_v4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series) nodes.
 

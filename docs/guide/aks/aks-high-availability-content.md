@@ -153,7 +153,7 @@ Other contributors:
 ## Next steps
 
 - [High availability Kubernetes cluster pattern](/hybrid/app-solutions/pattern-highly-available-kubernetes)
-- [Regions and availability zones](/azure/availability-zones/az-overview)
+- [Regions and availability zones](/azure/reliability/availability-zones-overview)
 - [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](/azure/aks/quotas-skus-regions)
 - [Orchestrating microservices and multi-container applications for high scalability and availability](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability)
 - [Azure Kubernetes Service (AKS) cluster architecture and operations](/training/paths/aks-cluster-architecture)

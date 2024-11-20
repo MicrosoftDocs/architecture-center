@@ -164,7 +164,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Contoso
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Single Zone - VpnGw1
-    - DR uplift options: A VPN gateway can be deployed into an [Availability Zone](/azure/availability-zones/az-overview) with the VpnGw#AZ SKUs to provide a [zone redundant service](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
+    - DR uplift options: A VPN gateway can be deployed into an [Availability Zone](/azure/reliability/availability-zones-overview) with the VpnGw#AZ SKUs to provide a [zone redundant service](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
 
 - **Azure Load Balancer**
     - Component recovery responsibility: Contoso
