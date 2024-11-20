@@ -27,4 +27,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-fraud-detection-thumbnail-new.png
 content: |
-   [!include[](fraud-detection-content.md)]
+   [!INCLUDE[](fraud-detection-content.md)]

@@ -1457,8 +1457,6 @@ items:
         href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: Enterprise monitoring with Azure Monitor
         href: example-scenario/monitoring/enterprise-monitoring.yml
-      - name: High-availability blue/green deployment
-        href: web-apps/spring-apps/guides/blue-green-spring.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + Multicloud
@@ -1625,16 +1623,6 @@ items:
         href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
       - name: Use file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
-    - name: Solution ideas
-      items:
-      - name: Azure VMware Solution foundations
-        items:
-        - name: Capacity planning considerations
-          href: solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml
-        - name: Landing zone considerations
-          href: solution-ideas/articles/azure-vmware-solution-foundation-landing-zone.yml
-        - name: Networking considerations
-          href: solution-ideas/articles/azure-vmware-solution-foundation-networking.yml
   - name: Identity
     items:
     - name: Get started
