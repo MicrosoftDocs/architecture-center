@@ -26,4 +26,4 @@ products:
   - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-hci-switchless-thumbnail.png
 content: |
-   [!include[](azure-stack-hci-switchless-content.md)]
+   [!INCLUDE[](azure-stack-hci-switchless-content.md)]
