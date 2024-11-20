@@ -311,7 +311,7 @@ Operational excellence focuses on creating reliable processes to deploy, manage,
   - Local Azure CLI commands from one of the Azure Local machines or remotely using Cloud Shell, or a management computer.
   - Integration with Azure Automation and Azure Arc facilitates a wide range of automation scenarios for VM workloads through Azure Arc extensions.
 
-For more information, see [recommendations for using infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design).
+  For more information, see [recommendations for using infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design).
 
 - **Strict change control procedures**: These procedures require that all changes are tested and validated in a representative test environment before implementation in production. All changes submitted to the weekly change advisory board process must include an implementation plan or link to source code, risk level score, rollback plan, post-release tests, and clear success criteria for a change to be reviewed or approved. See [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 
