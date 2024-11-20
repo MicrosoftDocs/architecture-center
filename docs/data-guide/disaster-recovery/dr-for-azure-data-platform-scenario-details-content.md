@@ -287,7 +287,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone failure: Contoso would need to validate availability and redeploy if necessary.
         - Azure regional failure: Contoso would need to redeploy the Data Share into the secondary region.
     - Notes
-        - Azure Data Share isn't currently supported by [Availability Zones](/azure/availability-zones/az-region).
+        - Azure Data Share isn't currently supported by [Availability Zones](/azure/reliability/availability-zones-overview).
         - Uplifting Data Share to a [HA deployment](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share) will address each of these outage risks.
 
 - **Purview**

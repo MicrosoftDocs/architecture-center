@@ -75,7 +75,7 @@ Either via the SDLC process or periodic reviews, customers should regularly revi
 While the end-to-end simulation of a DR event will be difficult across a modern data eco-system, efforts should be made to get as close as possible to a complete simulation across affected components. Regularly scheduled drills will build the "muscle memory" required by the organization to be able to execute the DR plan with confidence.
 
 - **Relying on Microsoft to do it all**
-Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/availability-zones/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
+Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/reliability/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
 ![Diagram showing the shared responsibility model.](../images/shared-responsibility-model.png) Even if a full [software as a service (SaaS) stack](https://azurecharts.com/overview/?f=saas) is used, the customer will still retain the responsibility to ensure the accounts, identities, and data is correct/up-to-date, along with the devices used to interact with the Azure services.
 
 ## Event scope and strategy

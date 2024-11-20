@@ -209,8 +209,8 @@ To learn about related solutions, see the following information:
 [Azure Kubernetes Service (AKS) marketing page]: https://azure.microsoft.com/services/kubernetes-service
 [Azure Kubernetes Service (AKS) pricing]: https://azure.microsoft.com/pricing/details/kubernetes-service
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure regions with Availability Zones]: /azure/availability-zones/az-region#azure-regions-with-availability-zones
-[Azure Services that support Availability Zones]: /azure/availability-zones/az-region
+[Azure regions with Availability Zones]: /azure/reliability/availability-zones-region-support
+[Azure Services that support Availability Zones]: /azure/reliability/availability-zones-service-support
 [Best practices for building an application with Azure Database for PostgreSQL]: /azure/postgresql/application-best-practices
 [Cache-Aside pattern]: ../../patterns/cache-aside.yml The [Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Cassandra Query Language]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html

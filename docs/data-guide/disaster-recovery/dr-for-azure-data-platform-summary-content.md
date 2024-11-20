@@ -14,7 +14,7 @@ ADLS|Azure Data Lake Storage|[Azure Data Lake Storage Gen2 Introduction](/azure/
 AKS|Azure Kubernetes Service|[Azure Kubernetes Service (AKS) documentation](/azure/aks/)
 ARM|Azure Resource Manager|[ARM template documentation](/en-us/azure/azure-resource-manager/templates/)
 BAU|Business As Usual| 
-BC|Business Continuity|[Business continuity management program in Azure](/azure/availability-zones/business-continuity-management-program)
+BC|Business Continuity|[Business continuity management program in Azure](/azure/reliability/business-continuity-management-program)
 BCDR|Business Continuity and Disaster Recovery|[Business continuity management in Azure](/azure/reliability/business-continuity-management-program)
 CI/CD|Continuous Integration & Continuous Deployment|[Azure DevOps - CI/CD Overview](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview?view=azure-devops#what-is-cicd) 
 DR|Disaster Recovery| 
