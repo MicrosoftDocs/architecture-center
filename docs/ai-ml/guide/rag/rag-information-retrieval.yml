@@ -4,7 +4,7 @@ metadata:
   description: Learn about key decision points when you're configuring a search index. Learn about the various types of search you can perform such as vector, full text, hybrid, and hybrid manual. Finally, learn about breaking queries into subqueries, and why and how to rerank queries.
   author: robbagby
   ms.author: robbag
-  ms.date: 04/18/2024 
+  ms.date: 11/22/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.collection: ce-skilling-ai-copilot
