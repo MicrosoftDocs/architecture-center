@@ -122,7 +122,7 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 - You're using a search platform that doesn't support hybrid searches. You would follow this option to perform your own hybrid search.
 - You want to run full text searches against different queries. For example, you might extract keywords from the query and run a full text search against your keywords metadata field. You might then extract entities and run a query against the entities metadata field.
 - You want to control the reranking process yourself.
-- The query requires [multiple subqueries](#multiple-subqueries) to be run to retrieve grounding data from multiple sources.
+- The query requires [decomposed subqueries](#decomposition) to be run to retrieve grounding data from multiple sources.
 
 ### Query translation
 
@@ -343,7 +343,7 @@ Some search platforms, such as Azure AI Search, support the ability to influence
 > [!NOTE]
 > This section discusses the weighting capabilities in Azure AI Search. If you're using a different platform, research the weighting capabilities of that platform.
 
-Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
+Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](/azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
 
 Choosing which fields to weight depends upon the type of query and the use case. For example, if you determine that the query is keyword-centric, such as "Where is Microsoft headquartered?", you would want a scoring profile that weights entity or keyword fields higher. You may also use different profiles for different users, allow users to choose their focus, or choose profiles based on the application.
 
