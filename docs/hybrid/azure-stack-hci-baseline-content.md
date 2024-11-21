@@ -43,7 +43,7 @@ The following sections provide more information about the scenarios and potentia
 
 #### Use Azure Arc with Azure Local
 
-Azure Local directly integrates with Azure by using Azure Arc to lower the TCO and operational overhead. Azure Local is deployed and managed through Azure, which provides built-in integration of Azure Arc through deployment of the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) component. This component is installed during the HCI cluster deployment process. Azure Stack HCI cluster nodes are enrolled with [Azure Arc for servers](/azure-stack/hci/deploy/deployment-arc-register-server-permissions) as a prerequisite to initiate the cloud-based deployment of the cluster. During deployment, mandatory extensions are installed on each cluster node, such as Lifecycle Manager, Microsoft Edge Device Management, and Telemetry and Diagnostics. You can use Azure Monitor and Log Analytics to monitor the HCI cluster after deployment by enabling Azure Stack HCI Insights. [Feature updates for Azure Local](/azure-stack/hci/release-information-23h2) are released periodically to enhance the customer experience. Updates are controlled and managed through [Azure Update Manager][azure-update-management].
+Azure Local directly integrates with Azure by using Azure Arc to lower the TCO and operational overhead. Azure Local is deployed and managed through Azure, which provides built-in integration of Azure Arc through deployment of the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) component. This component is installed during the HCI cluster deployment process. Azure Local cluster nodes are enrolled with [Azure Arc for servers](/azure-stack/hci/deploy/deployment-arc-register-server-permissions) as a prerequisite to initiate the cloud-based deployment of the cluster. During deployment, mandatory extensions are installed on each cluster node, such as Lifecycle Manager, Microsoft Edge Device Management, and Telemetry and Diagnostics. You can use Azure Monitor and Log Analytics to monitor the HCI cluster after deployment by enabling Insights for Azure Local. [Feature updates for Azure Local](/azure-stack/hci/release-information-23h2) are released periodically to enhance the customer experience. Updates are controlled and managed through [Azure Update Manager][azure-update-management].
 
 You can deploy workload resources such as [Azure Arc virtual machines (VMs)](/azure-stack/hci/manage/create-arc-virtual-machines), [Azure Arc-enabled Azure Kubernetes Service (AKS)][arc-enabled-aks], and [Azure Virtual Desktop session hosts](/azure/virtual-desktop/deploy-azure-virtual-desktop) that use the Azure portal by selecting an [Azure Local instance custom location](/azure-stack/hci/manage/azure-arc-vm-management-overview#components-of-azure-arc-vm-management) as the target for the workload deployment. These components provide centralized administration, management, and support. If you have active Software Assurance on your existing Windows Server Datacenter core licenses, you can reduce costs further by applying Azure Hybrid Benefit to Azure Local, Windows Server VMs, and AKS clusters. This optimization helps manage costs effectively for these services.
 
@@ -85,7 +85,7 @@ The architecture requires the following mandatory resources and components:
 
 - [Azure Key Vault][key-vault] is a cloud service that you can use to securely store and access secrets. A secret is anything that you want to tightly restrict access to, such as API keys, passwords, certificates, cryptographic keys, local admin credentials, and BitLocker recovery keys.
 
-- [Cloud witness][cloud-witness] is a feature of Azure Storage that acts as a failover cluster quorum. Azure Stack HCI cluster nodes use this quorum for voting, which ensures high availability for the cluster. The storage account and witness configuration are created during the Azure Local cloud deployment process.
+- [Cloud witness][cloud-witness] is a feature of Azure Storage that acts as a failover cluster quorum. Azure Local cluster nodes use this quorum for voting, which ensures high availability for the cluster. The storage account and witness configuration are created during the Azure Local cloud deployment process.
 
 - [Update Manager][azure-update-management] is a unified service designed to manage and govern updates for Azure Local. You can use Update Manager to manage workloads that are deployed on Azure Local, including guest OS update compliance for Windows and Linux VMs. This unified approach streamlines patch management across Azure, on-premises environments, and other cloud platforms through a single dashboard.
 
@@ -93,7 +93,7 @@ The architecture requires the following mandatory resources and components:
 
 The architecture includes the following optional supporting services to enhance the capabilities of the platform:
 
-- [Monitor][azure-monitor] is a cloud-based service for collecting, analyzing, and acting on diagnostic logs and telemetry from your cloud and on-premises workloads. You can use Monitor to maximize the availability and performance of your applications and services through a comprehensive monitoring solution. Deploy Azure Stack HCI Insights to simplify the creation of the Monitor data collection rule (DCR) and quickly enable monitoring of Azure Local instances.
+- [Monitor][azure-monitor] is a cloud-based service for collecting, analyzing, and acting on diagnostic logs and telemetry from your cloud and on-premises workloads. You can use Monitor to maximize the availability and performance of your applications and services through a comprehensive monitoring solution. Deploy Insights for Azure Local to simplify the creation of the Monitor data collection rule (DCR) and quickly enable monitoring of Azure Local instances.
 
 - [Azure Policy][azure-policy] is a service that evaluates Azure and on-premises resources. Azure Policy evaluates resources through integration with Azure Arc by using the properties of those resources to business rules, called _policy definitions_, to determine compliance or capabilities that you can use to apply VM Guest Configuration using policy settings.
 
@@ -228,7 +228,7 @@ A summarization of the logical setup for this multinode storage switched baselin
   
   - The _SMB1_ and _SMB2_ storage ports connect to two separate nonroutable (or Layer 2) networks. Each network has a specific VLAN ID configured that must match the switch ports configuration on the ToR switches' _default storage VLAN IDs: 711 and 712_.
   
-  - There's _no default gateway_ configured on the two storage intent network adapter ports within the Azure Stack HCI node OS.
+  - There's _no default gateway_ configured on the two storage intent network adapter ports within the Azure Stack HCI OS.
   
   - Each node can access Storage Spaces Direct capabilities of the cluster, such as remote physical disks that are used in the storage pool, virtual disks, and volumes. Access to these capabilities is facilitated through the SMB-Direct RDMA protocol over the two dedicated storage network adapter ports that are available in each node. SMB Multichannel is used for resiliency.
   
@@ -238,7 +238,7 @@ A summarization of the logical setup for this multinode storage switched baselin
 
 Your Ethernet switches must meet the different specifications required by Azure Local and set by the Institute of Electrical and Electronics Engineers Standards Association (IEEE SA). For example, for multinode storage switched deployments, the storage network is used for [RDMA via RoCE v2 or iWARP](/azure-stack/hci/concepts/host-network-requirements#rdma). This process requires IEEE 802.1Qbb PFC to ensure lossless communication for the [storage traffic class](/azure-stack/hci/concepts/host-network-requirements#rdma-traffic-class). Your ToR switches must provide support for IEEE 802.1Q for VLANs and IEEE 802.1AB for the Link Layer Discovery Protocol.
 
-If you plan to use existing network switches for an Azure Local deployment, review the [list of mandatory IEEE standards and specifications](/azure-stack/hci/concepts/physical-network-requirements#network-switch-requirements) that the network switches and configuration must provide. When purchasing new network switches, contact your switch vendor to ensure that the devices meet the Azure Stack HCI IEEE specification requirements, or review the [list of hardware vendor-certified switch models that support Azure Local network requirements](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci).
+If you plan to use existing network switches for an Azure Local deployment, review the [list of mandatory IEEE standards and specifications](/azure-stack/hci/concepts/physical-network-requirements#network-switch-requirements) that the network switches and configuration must provide. When purchasing new network switches, review the [list of hardware vendor-certified switch models that support Azure Local network requirements](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci).
 
 #### IP address requirements
 
@@ -250,7 +250,7 @@ When you design and plan IP address requirements for Azure Local, remember to ac
 
 To enhance monitoring and alerting, enable [Monitor Insights on Azure Local](/azure-stack/hci/concepts/monitoring-overview). Insights can scale to monitor and manage multiple on-premises clusters by using an Azure consistent experience. Insights uses cluster performance counters and event log channels to monitor key Azure Local features. Logs are collected by the DCR that's configured through Monitor and Log Analytics.
 
-Azure Stack HCI Insights is built using Monitor and Log Analytics, which ensures an always up-to-date, scalable solution that's highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Local. These components provide a near real-time monitoring solution and enable the creation of graphs, customization of visualizations through aggregation and filtering, and configuration of custom resource health alert rules.
+Insights for Azure Local is built using Monitor and Log Analytics, which ensures an always up-to-date, scalable solution that's highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Local. These components provide a near real-time monitoring solution and enable the creation of graphs, customization of visualizations through aggregation and filtering, and configuration of custom resource health alert rules.
 
 ### Update management
 
@@ -274,7 +274,7 @@ It's important to check for new driver and firmware updates regularly, such as e
 
 #### Workload guest OS patching
 
-You can enroll Azure Arc VMs that are deployed on Azure Local by using [Azure Update Manager (AUM)][azure-update-management] to provide a unified patch management experience by using the same mechanism used to update the Azure Stack HCI cluster physical nodes. You can use AUM to create [Guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest). These configurations control settings such as the Reboot setting _reboot if necessary_, the schedule (dates, times, and repeat options), and either a dynamic (subscription) or static list of the Azure Arc VMs for the scope. These settings control the configuration for when OS security patches are installed inside your workload VM's guest OS.
+You can enroll Azure Arc VMs that are deployed on Azure Local by using [Azure Update Manager (AUM)][azure-update-management] to provide a unified patch management experience by using the same mechanism used to update the Azure Local cluster physical nodes. You can use AUM to create [Guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest). These configurations control settings such as the Reboot setting _reboot if necessary_, the schedule (dates, times, and repeat options), and either a dynamic (subscription) or static list of the Azure Arc VMs for the scope. These settings control the configuration for when OS security patches are installed inside your workload VM's guest OS.
 
 ## Considerations
 
@@ -373,7 +373,7 @@ Cost optimization considerations include:
 
 - **Automatic VM Guest patching for Azure Arc VMs**: This feature helps reduce the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation and contributes to overall cost efficiency.
 
-- **Cost monitoring consolidation**: To consolidate monitoring costs, use [Azure Stack HCI Insights](/azure-stack/hci/concepts/monitoring-overview#insights) and patch using [Update Manager for Azure Local](/azure-stack/hci/update/about-updates-23h2). Insights uses Monitor to provide rich metrics and alerting capabilities. The lifecycle manager component of Azure Localintegrates with Update Manager to simplify the task of keeping your clusters up to date by consolidating update workflows for various components into a single experience. Use Monitor and Update Manager to optimize resource allocation and contribute to overall cost efficiency.
+- **Cost monitoring consolidation**: To consolidate monitoring costs, use [Insights for Azure Local](/azure-stack/hci/concepts/monitoring-overview#insights) and patch using [Update Manager for Azure Local](/azure-stack/hci/update/about-updates-23h2). Insights uses Monitor to provide rich metrics and alerting capabilities. The lifecycle manager component of Azure Localintegrates with Update Manager to simplify the task of keeping your clusters up to date by consolidating update workflows for various components into a single experience. Use Monitor and Update Manager to optimize resource allocation and contribute to overall cost efficiency.
 
   For more information, see [Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 

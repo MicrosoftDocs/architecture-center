@@ -12,7 +12,7 @@ The architecture shows the deployment of hybrid solutions by using Azure Arc-ena
 
 The architecture consists of the following steps:
 
-1. Two [Azure Local](https://azure.microsoft.com/products/azure-stack/hci) instances are set up in two different locations: Azure Stack HCI (HCI1) serves as primary on-premises infrastructure and Azure Stack HCI (HCI2) as secondary on-premises infrastructure for running workloads.
+1. Two [Azure Local](https://azure.microsoft.com/products/azure-stack/hci) instances are set up in two different locations: Azure Local serves as primary on-premises infrastructure.
 1. Azure Local instances connect to Azure via SD-WAN and are managed through Azure Arc and Windows Admin Center. As a result, you can extend Azure capabilities to on-premises infrastructure, and use Azure management tools and services to manage and monitor on-premises infrastructure and workload.
 1. [Azure Kubernetes Service (AKS)](/azure/aks), deployed on Azure Local, are comprised of the management cluster (AKS host), and Workload clusters (also known as target clusters) where containerized applications are deployed. See [Azure Kubernetes Service (AKS) baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) for AKS on Azure Local.
 1. Azure Kubernetes Service host on Azure Local and workload cluster is deployed using AksHci PowerShell modules. See [Use PowerShell to set up Kubernetes on Azure Local and Windows Server clusters](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
@@ -32,13 +32,13 @@ The architecture consists of the following steps:
    - Regarding DNS-based routing, the complexity reduces when dealing with load balancing at the application level. However, it's crucial to note that relying solely on DNS-based routing can lead to increased downtime during a failure, which could adversely affect your applications' Service Level Agreements (SLAs). The decision between Azure Front Door and Traffic Manager should consider your DNS solution's SLA and whether your application can accommodate the differing failover times between the two options.
 
 1. The deployed workload applications are monitored for load using Azure Arc-Enabled services, Azure Monitor, and Log Analytic Workspace.
-1. Under normal load conditions, the client request is routed to the instance of the app hosted on-premises in the Azure Stack HCI-1 environment (Primary cluster environment).
+1. Under normal load conditions, the client request is routed to the instance of the app hosted on-premises in the Primary cluster environment.
 1. Arc-enabled AKS cluster workloads are designed to scale horizontally to multiple instances by using built-in autoscaler, which automatically scales up or down the number of nodes in the deployed AKS cluster based on demand.
 1. Container insights is enabled to capture diagnostics and monitor workload performance on the Kubernetes cluster hosted on Azure Local.
-1. When there's an increase in traffic and the workload cluster on Azure Stack HCI-1 reaches its maximum node count with no further pod scaling options, it generates an alert to trigger an Azure Function app.
+1. When there's an increase in traffic and the workload cluster reaches its maximum node count with no further pod scaling options, it generates an alert to trigger an Azure Function app.
 1. An Alert rule is configured to monitor the result of a custom Kusto query, which checks for the maximum node count and pod readiness percentage from the KubeNodeInventory and KubePodInventory Azure Monitor tables. See [Create log alerts from Container insights](/azure/azure-monitor/containers/container-insights-log-alerts).
 1. Kubernetes monitoring can also be performed using preconfigured alert rules from the Kubernetes Container insights. You can also apply the KubePodNotReady or KubeHpaMaxedOut metrics rules from Container insights to configure alert rule conditions. See [Metric alert rules in Container insights (preview)](/azure/azure-monitor/containers/container-insights-metric-alerts) and invoke the Azure Function App through the Alert's Action Group.
-1. Azure Function App dynamically manages weighted traffic-routing rules based on the primary cluster’s condition, and redirects the traffic to the Azure Stack HCI-2 cluster.
+1. Azure Function App dynamically manages weighted traffic-routing rules based on the primary cluster’s condition, and redirects the traffic to the cluster.
 
    - You can use Azure Function to calculate the percentage of traffic that must be redirected based on predefined threshold limits of cluster readiness and traffic conditions. Doing so can help you adapt to changes quickly, automate tasks, scale resources efficiently, and save money.
    - Azure Function helps manage traffic routing rules dynamically. This functionality ensures high availability, scalability, and performance, and provides a seamless user experience even during peak traffic and failover scenarios. For example, initial Traffic Distribution begins with directing 100% of traffic to the primary cluster when it's performing well and is able to handle the load. When the primary cluster is almost full or experiences performance degradation, you can adjust traffic-routing rules within Azure Function. Doing so redirects some of the read-only traffic to the secondary cluster.
@@ -64,7 +64,7 @@ Overall, this workflow involves building and deploying applications, load balanc
 
 - [Azure Local](/azure/well-architected/service-guides/azure-stack-hci) is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid environment that combines on-premises infrastructure with Azure services.
 
-  - The solution uses [Arc-Enabled Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)](/azure/aks/hybrid/) to host the web app or APIs, [Arc-Enabled Azure Servers](/azure/azure-arc/servers), and [Arc-Enabled Data Services](/azure/azure-arc/data/) in both environments.
+  - The solution uses [Arc-Enabled Azure Kubernetes Service on Azure Local](/azure/aks/hybrid/) to host the web app or APIs, [Arc-Enabled Azure Servers](/azure/azure-arc/servers), and [Arc-Enabled Data Services](/azure/azure-arc/data/) in both environments.
 
 - [Azure DevOps Services](/azure/devops/user-guide/services) serve as the backbone of this hybrid solution deployment strategy, providing the automation and orchestration necessary to streamline the entire software delivery lifecycle. It empowers development teams to focus on delivering high-quality code while the pipeline takes care of building, testing, and deploying applications.  
 

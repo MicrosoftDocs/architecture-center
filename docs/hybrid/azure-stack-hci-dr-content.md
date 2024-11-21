@@ -2,7 +2,7 @@ The following reference architecture illustrates how to design and implement dis
 
 ## Architecture
 
-[![Diagram illustrating an active-active and an active-passive Azure Stack HCI stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Local VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Local VMs.](images/azure-stack-hci-dr.svg)](images/azure-stack-hci-dr.svg#lightbox)
+[![Diagram illustrating an active-active and an active-passive Azure Local stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Local VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Local VMs.](images/azure-stack-hci-dr.svg)](images/azure-stack-hci-dr.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -10,7 +10,7 @@ The following reference architecture illustrates how to design and implement dis
 
 The architecture incorporates the following components and capabilities:
 
-- **[Azure Stack HCI (22H2)][azs-hci]**. [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged infrastructure (HCI) cluster solution that you can use to host virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. You can configure the stretched cluster with 4 to 16 physical nodes.
+- **[Azure Stack HCI, version 22H2][azs-hci]**. [Azure Local](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged infrastructure (HCI) cluster solution that you can use to host virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. You can configure the stretched cluster with 4 to 16 physical nodes.
 - **[Storage Replica][storage-replica]**. Storage Replica is a Windows Server technology that enables volume replication between servers or clusters for the purpose of disaster recovery.
 - **[Live migration][live-migration]**. Live migration is a Hyper-V feature in Windows Server that allows you to seamlessly move running virtual machines (VMs) from one Hyper-V host to another without perceived downtime.
 - **[Cloud Witness][cloud-witness]**. Cloud Witness is a Failover Cluster quorum witness that uses Microsoft Azure Blob Storage to provide a vote on cluster quorum.
@@ -46,7 +46,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- **Site-level fault domains.** Each physical site of an Azure Stack HCI stretched cluster represents distinct fault domains that provide additional resiliency. A fault domain is a set of hardware components that share a single point of failure. To be fault tolerant to a particular level, you need multiple fault domains at that level.
+- **Site-level fault domains.** Each physical site of an Azure Local stretched cluster represents distinct fault domains that provide additional resiliency. A fault domain is a set of hardware components that share a single point of failure. To be fault tolerant to a particular level, you need multiple fault domains at that level.
 
 > [!NOTE]
 > If each location corresponds to a separate AD DS site, the cluster provisioning process automatically configures site assignment. If there are no separate AD DS sites representing the two locations, but the nodes are on two different subnets, the cluster provisioning process will identify sites based on the subnet assignments. If the nodes are on the same subnet, you must define site assignment explicitly.
@@ -77,7 +77,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - **Firewall-friendly configuration.** Storage Replica traffic requires [a limited number of open ports between the replicating nodes][sr-firewall-reqs].
 
 > [!CAUTION]
-> Storage Replica and Azure Stack HCI stretched clusters must operate within an AD DS environment. When planning your Azure Stack HCI stretched clusters deployment, ensure connectivity to AD DS domain controllers in each site hosting cluster nodes.
+> Storage Replica and Azure Local stretched clusters must operate within an AD DS environment. When planning your Azure Local stretched clusters deployment, ensure connectivity to AD DS domain controllers in each site hosting cluster nodes.
 
 ### Cost optimization
 
@@ -88,12 +88,12 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - **Cloud Witness versus File Share Witness.** A witness resource is a mandatory component within Azure Local instances. To implement it, choose either an Azure cloud witness or a file share witness. An Azure cloud witness relies on a blob in an Azure storage account that you designate as the arbitration point to prevent split-brain scenarios. A file share witness relies on a Server Message Block (SMB) file share to accomplish the same objective.
 
 > [!NOTE]
-> Azure Cloud Witness is the recommended choice for Azure Stack HCI stretched clusters, provided all server nodes in the cluster have reliable internet connections. The corresponding Azure charges are negligible; they are based on the price of a small blob with infrequent updates corresponding to changes to the cluster state. In scenarios that involve stretched clusters, a file share witness should reside in a third site, which can significantly raise implementation costs unless the third site is already available and has existing, reliable connections to the sites hosting the stretched cluster nodes.
+> Azure Cloud Witness is the recommended choice for Azure Local stretched clusters, provided all server nodes in the cluster have reliable internet connections. The corresponding Azure charges are negligible; they are based on the price of a small blob with infrequent updates corresponding to changes to the cluster state. In scenarios that involve stretched clusters, a file share witness should reside in a third site, which can significantly raise implementation costs unless the third site is already available and has existing, reliable connections to the sites hosting the stretched cluster nodes.
 
 - **Data Deduplication.** Azure Local and Storage Replica support data deduplication. Starting with Windows Server 2019, deduplication is available on volumes formatted with Resilient File System (ReFS), which is the recommended file system for Azure Local. Deduplication helps increase usable storage capacity by identifying duplicate portions of files and only storing them once.
 
 > [!CAUTION]
-> Although you should install the Data Deduplication server role service on both the source and destination servers, do not enable Data Deduplication on the destination nodes within an Azure Stack HCI stretched cluster. Because Data Deduplication manages writes, it should run only on source cluster nodes. Destination nodes always receive deduplicated copies of each volume.
+> Although you should install the Data Deduplication server role service on both the source and destination servers, do not enable Data Deduplication on the destination nodes within an Azure Local stretched cluster. Because Data Deduplication manages writes, it should run only on source cluster nodes. Destination nodes always receive deduplicated copies of each volume.
 
 ### Operational excellence
 
@@ -101,7 +101,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - **Automatic failover and recovery.** A primary-site failure triggers automatic failover. Following the failover, the process of establishing replication from the new primary/former secondary site back to the new secondary/former primary site is automatic as well. To prevent potential data loss, the cluster prevents failback until the replicated volumes fully synchronize.
 
-- **Simplified provisioning and management experience by using Windows Admin Center.** The Create Cluster wizard in [Windows Admin Center provides a wizard-driven interface that guides you through the process of creating an Azure Stack HCI stretched cluster][create-cluster-with-wac]. The wizard detects whether cluster nodes reside in two distinct Active Directory Domain Services (AD DS) sites or whether their IP addresses belong to two different subnets. If they reside in two different subnets,  the wizard automatically creates and configures the corresponding cluster sites with each representing a separate fault domain. It also allows you to designate the preferred site. Similarly, [Windows Admin Center simplifies the process of provisioning replicated volumes][create-stretched-volumes-with-wac].
+- **Simplified provisioning and management experience by using Windows Admin Center.** The Create Cluster wizard in [Windows Admin Center provides a wizard-driven interface that guides you through the process of creating an Azure Local stretched cluster][create-cluster-with-wac]. The wizard detects whether cluster nodes reside in two distinct Active Directory Domain Services (AD DS) sites or whether their IP addresses belong to two different subnets. If they reside in two different subnets,  the wizard automatically creates and configures the corresponding cluster sites with each representing a separate fault domain. It also allows you to designate the preferred site. Similarly, [Windows Admin Center simplifies the process of provisioning replicated volumes][create-stretched-volumes-with-wac].
 
 > [!NOTE]
 > Creating volumes and virtual disks for stretched clusters is more involved than for single-site clusters. Stretched clusters require a minimum of four volumes, comprised of two data volumes and two log volumes, with a data/log volume pair at each site. When you create a replicated data volume by using Windows Admin Center, the process automatically provisions the log volume in the primary site and both data and log replicated volumes in the secondary site, ensuring that each of them has the required size and configuration settings.
@@ -114,7 +114,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- **Optimized replication traffic.** When designing infrastructure for Azure Stack HCI stretched clusters, consider additional Storage Replica, Live Migration, and Storage Replica Cluster Performance History traffic flowing between the sites. Synchronous replication requires at least 1 Gb remote direct memory access (RDMA) or Ethernet/TCP connection between stretched cluster sites. However, depending on the volume of replication traffic, you might need a [faster RDMA connection][site-to-site-network-reqs]. You should also provision multiple connections between sites, which provides resiliency benefits and allows you to [separate Storage Replica traffic from Hyper-V live migration traffic][set-srnetworkconstraint].
+- **Optimized replication traffic.** When designing infrastructure for Azure Local stretched clusters, consider additional Storage Replica, Live Migration, and Storage Replica Cluster Performance History traffic flowing between the sites. Synchronous replication requires at least 1 Gb remote direct memory access (RDMA) or Ethernet/TCP connection between stretched cluster sites. However, depending on the volume of replication traffic, you might need a [faster RDMA connection][site-to-site-network-reqs]. You should also provision multiple connections between sites, which provides resiliency benefits and allows you to [separate Storage Replica traffic from Hyper-V live migration traffic][set-srnetworkconstraint].
 
 > [!CAUTION]
 > RDMA is enabled by default for all traffic between cluster nodes in the same site on the same subnet. RDMA is disabled and not supported between sites or between different subnets. You should either disable SMB Direct for cross-site traffic or implement [additional provisions][site-to-site-rdma-considerations] that separate it from cross-node traffic within the same site.

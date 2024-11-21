@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use Azure Stack HCI stretched clusters for disaster recovery
+  title: Use Azure Local stretched clusters for disaster recovery
   description: This reference architecture illustrates how to design and implement disaster recovery of Azure Local by using stretched clustering.
   author: NeilBird
   ms.author: nebird
@@ -12,7 +12,7 @@ metadata:
     - hybrid
     - management-and-governance
   ms.custom: arb-hybrid
-name: Use Azure Stack HCI stretched clusters for disaster recovery
+name: Use Azure Local stretched clusters for disaster recovery
 azureCategories:
   - hybrid
   - management-and-governance

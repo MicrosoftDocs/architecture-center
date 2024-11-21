@@ -137,7 +137,7 @@ Flexibility:
 
 ## AKS hybrid
 
-AKS hybrid is a set of predefined settings and configurations that is used to deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell modules) on a multi-node cluster running either Windows Server or Azure Stack HCI 20H2 or later.
+AKS hybrid is a set of predefined settings and configurations that is used to deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell modules) on a multi-node cluster running either Windows Server.
 
 ### Scenario
 

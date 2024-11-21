@@ -3,7 +3,7 @@ This scenario illustrates how to design and implement network concepts for deplo
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers. It's part of an architectural baseline guidance set of two articles. See the [baseline architecture recommendations here](aks-baseline.yml).
 
 > [!IMPORTANT]
-> The information in this article applies to [AKS on Azure Stack HCI version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI OS, version 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI OS, version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
+> The information in this article applies to [AKS on Azure Stack HCI, version 22H22, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI OS, version 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI OS, version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
 
 ## Architecture
 
@@ -32,7 +32,6 @@ The scenario consists of the following components and capabilities:
 
 ## Components
 
-- [Azure Stack HCI (20H2)][1]
 - [Windows Server 2019/2022 datacenter failover cluster][]
 - [Azure Kubernetes Service (AKS)][]
 - [Windows Admin Center][]
@@ -80,10 +79,10 @@ Kubernetes nodes are deployed as virtual machines in an AKS on Azure Local deplo
 
 ### Microsoft on-premises cloud service
 
-Plan IP address range for Microsoft on-premises cloud (MOC), that enables management stack so the VMs on Azure Local are managed in the cloud. The IP address allocation for the MOC service is on the underlying physical network, and the IP addresses configured for the Azure Stack HCI cluster nodes are in your data center. You can configure IP addresses for the physical nodes of your Azure Local in one of the following:
+Plan IP address range for Microsoft on-premises cloud (MOC), that enables management stack so the VMs on Azure Local are managed in the cloud. The IP address allocation for the MOC service is on the underlying physical network, and the IP addresses configured for the Azure Local cluster nodes are in your data center. You can configure IP addresses for the physical nodes of your Azure Local in one of the following:
 
-- Azure Stack HCI cluster nodes with a DHCP-based IP address allocation mode. MOC service gets an IP address from the DHCP service presented on the physical network.
-- Azure Stack HCI cluster nodes with a static IP allocation model. The IP address for the MOC cloud service must be explicitly specified as an IP range in Classless Inter-Domain Routing (CIDR) format and it must be in the same subnet as the IP addresses of Azure Stack HCI cluster nodes.
+- Azure Local cluster nodes with a DHCP-based IP address allocation mode. MOC service gets an IP address from the DHCP service presented on the physical network.
+- Azure Local cluster nodes with a static IP allocation model. The IP address for the MOC cloud service must be explicitly specified as an IP range in Classless Inter-Domain Routing (CIDR) format and it must be in the same subnet as the IP addresses of Azure Local cluster nodes.
 
 ### Load balancer in AKS on Azure Local
 
@@ -333,7 +332,7 @@ Other contributors:
 
 - [Baseline architecture for AKS on Azure Local](aks-baseline.yml)
 
-[Azure Stack HCI (22H2)]: /azure-stack/hci/overview
+[Azure Stack HCI, version 22H2]: /azure-stack/hci/overview
 [Azure Kubernetes Service on Azure Local]: /azure/aks/hybrid/aks-hybrid-options-overview
 [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
 [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
