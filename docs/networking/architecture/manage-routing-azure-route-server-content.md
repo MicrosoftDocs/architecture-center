@@ -184,7 +184,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Overview of the cost optimization pillar]: /azure/architecture/framework/cost/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Quickstart: Create and configure Route Server using the Azure portal]: /azure/route-server/quickstart-configure-route-server-portal
-[Regions and availability zones]: /azure/availability-zones/az-overview
+[Regions and availability zones]: /azure/reliability/availability-zones-overview
 [SLA for Azure Route Server]: https://azure.microsoft.com/support/legal/sla/route-server/v1_0
 [Virtual Network]: https://azure.microsoft.com/services/virtual-network
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview

@@ -1,6 +1,6 @@
 <!-- cSpell:ignore CNAME -->
 
-This article provides a comprehensive overview of a web app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services](/azure/availability-zones/az-region#azure-services-with-availability-zone-support) replicate your services and data across availability zones to protect them from single points of failure and provide high availability.
+This article provides a comprehensive overview of a web app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services](/azure/reliability/availability-zones-service-support) replicate your services and data across availability zones to protect them from single points of failure and provide high availability.
 
 Before you build a production environment with Azure Red Hat OpenShift, read [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator).
 
@@ -41,7 +41,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 This architecture describes how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures.
 
-Availability zones are separate physical locations in each Azure region. Availability zones spread a solution across multiple independent zones in a region, which allows an application to continue functioning when one zone fails. This architecture builds on the [availability zones infrastructure](https://azure.microsoft.com/explore/global-infrastructure/availability-zones/) that's found in many regions. For a list of regions that support Azure availability zones, see [Azure regions with availability zones](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+Availability zones are separate physical locations in each Azure region. Availability zones spread a solution across multiple independent zones in a region, which allows an application to continue functioning when one zone fails. This architecture builds on the [availability zones infrastructure](https://azure.microsoft.com/explore/global-infrastructure/availability-zones/) that's found in many regions. For a list of regions that support Azure availability zones, see [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 
 When hosting platforms are at scale, it's often difficult to keep them highly available. High availability has historically required complex and expensive multi-region deployments with data-consistency and high-performance tradeoffs. [Availability zones](https://azure.microsoft.com/explore/global-infrastructure/availability-zones/) resolve many of these issues. Most mainstream Azure services and many specialized Azure services provide support for availability zones. All Azure services in this architecture are zone-redundant, which simplifies the deployment and management. For more information, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
@@ -77,8 +77,8 @@ The following recommendations apply to most scenarios.
 
 ### Azure Red Hat OpenShift
 
-* Ensure that the Azure region where Azure Red Hat OpenShift is deployed supports availability zones. For more information, see [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
-* An Azure Red Hat OpenShift cluster depends on some services. Ensure that those services support and are configured for zone redundancy. For more information, see [Azure services with availability zone support](/azure/availability-zones/az-region#azure-services-with-availability-zone-support).
+* Ensure that the Azure region where Azure Red Hat OpenShift is deployed supports availability zones. For more information, see [Azure regions with availability zone support](/azure/reliability/availability-zones-region-support).
+* An Azure Red Hat OpenShift cluster depends on some services. Ensure that those services support and are configured for zone redundancy. For more information, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support).
 * Remove the state from containers, and use Azure storage or database services instead.
 * Set up multiple replicas in deployments with appropriate disruption budget configuration to continuously provide application service despite disruptions, like hardware failures in zones.
 * Secure access to Azure Red Hat OpenShift. To ensure that requests can't bypass the Azure Front Door WAF, allow only Azure Front Door traffic. For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door).
@@ -86,7 +86,7 @@ The following recommendations apply to most scenarios.
 ### Container Registry
 
 * Use the Premium Container Registry service tier, as it offers zone redundancy. For information about registry service tiers and limits, see [Container Registry service tiers](/azure/container-registry/container-registry-skus).
-* [The region where a container registry is deployed must support availability zones](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+* [The region where a container registry is deployed must support availability zones](/azure/reliability/availability-zones-region-support).
 * ACR Tasks doesn't support availability zones.
 
 For more information, see [Enable zone redundancy in Container Registry for resiliency and high availability](/azure/container-registry/zone-redundancy) and [Use Container Registry with Azure Red Hat OpenShift](/azure/openshift/howto-use-acr-with-aro).
@@ -221,7 +221,7 @@ Other contributors:
 ## Next steps
 
 * [Azure services that support availability zones](/azure/reliability/availability-zones-service-support)
-* [Azure regions with availability zones](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support)
+* [Azure regions with availability zones](/azure/reliability/availability-zones-region-support)
 * [Find an availability zone region near you](https://azure.microsoft.com/explore/global-infrastructure/geographies/)
 * [Azure Well-Architected Framework - Reliability training module](/training/modules/azure-well-architected-reliability/)
 
