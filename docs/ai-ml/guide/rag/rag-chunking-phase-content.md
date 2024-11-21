@@ -1,4 +1,4 @@
-Now that you gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized chunks, each containing semantically relevant content, is a key factor in the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a large language model that is irrelevant to the query can lead to hallucinations. You need to optimize the process of passing relevant information and removing irrelevant information. You do this optimization by using effective chunking and searching strategies to minimize false positives and false negatives, and maximize true positives and true negatives.
+Now that you gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized chunks, each containing semantically relevant content, is a key factor in the success of your Retrieval-Augmented Generation (RAG) implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to a language model that is irrelevant to the query can lead to hallucinations. You need to optimize the process of passing relevant information and removing irrelevant information. You do this optimization by using effective chunking and searching strategies to minimize false positives and false negatives, and maximize true positives and true negatives.
 
 Passing chunks that are too small and don't contain sufficient context to address the query also leads to poor results. Relevant context that exists across multiple chunks might not be captured. The art is implementing effective chunking approaches for your specific document types and their structures and content. There are a various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document they're applied to.
 
@@ -75,7 +75,7 @@ The following are some recommendations to consider when determining whether you 
 
 ## Chunking approaches
 
-This section gives you an overview of some common chunking approaches. This list isn't meant to be exhaustive, rather some common representative approaches. You can use multiple approaches in implementation, such as combining the use of a large language model to get a text representation of an image with many of the listed approaches.
+This section gives you an overview of some common chunking approaches. This list isn't meant to be exhaustive, rather some common representative approaches. You can use multiple approaches in implementation, such as combining the use of a language model to get a text representation of an image with many of the listed approaches.
 
 Each approach is accompanied by a summarized decision-making matrix that highlights the tools, associated costs, and more. The engineering effort and processing costs are subjective and are included for relative comparison.
 
@@ -111,11 +111,11 @@ This approach parses documents using custom code to create chunks. This approach
 **Use cases**: Semi-structured documents where structure can be inferred<br/>
 **Examples**: Patent filings, research papers, insurance policies, scripts, and screenplays
 
-### Large language model augmentation
+### Language model augmentation
 
-Large language models can be used to create chunks. Common use cases are to use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that can be used as chunks. Large language model augmentation is used with other chunking approaches such as custom code.
+Language models can be used to create chunks. Common use cases are to use a large language model, such as GPT-4, to generate textual representations of images or summaries of tables that can be used as chunks. Language model augmentation is used with other chunking approaches such as custom code.
 
-If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#questions-about-images) that the text before or after the image is required to answer some questions, you need to pass this additional context to the large language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
+If you determined in the [images portion of the document analysis section](./rag-preparation-phase.yml#questions-about-images) that the text before or after the image is required to answer some questions, you need to pass this additional context to the language model. It's important to experiment to determine whether this additional context does or doesn't improve the performance of your solution.
 
 If your chunking logic splits the image description into multiple chunks, make sure you include the image URL in each chunk. Including the image URL in each chunk ensures that metadata is returned for all queries that the image serves, especially for scenarios where the end user requires the ability to access the source image through that URL or wants to use raw images during inferencing time.
 

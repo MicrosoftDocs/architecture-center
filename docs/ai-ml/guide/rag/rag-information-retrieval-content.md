@@ -132,11 +132,11 @@ Query translation is an optional step in the information retrieval phase of a RA
 
 Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: `Compare the earnings of Microsoft`. That query is vague. You did not mention time frames, or time units to compare and only specified earnings. Now consider an augmented version of the query: `Compare the earnings and revenue of Microsoft current year vs last year by quarter`. The new query is clear and specific.
 
-When you are augmenting a query, you maintain the original query, but add more context. There is no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query.
+When you're augmenting a query, you maintain the original query, but add more context. There's no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query.
 
-You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there is information in your language model that can be useful in augmenting the query. For example, if you are using a large language model like one of the GPT models, you can determine if there is information readily available on the internet about the query. If so, you can use the language model to augment the query. Otherwise, you should not augment the query.
+You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there's information in your language model that can be useful in augmenting the query. For example, if you're using a large language model like one of the GPT models, you can determine if there's information readily available on the internet about the query. If so, you can use the language model to augment the query. Otherwise, you shouldn't augment the query.
 
-You can use a large language model to augment a query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that is used for query augmentation.
+You can use a language model to augment a query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that is used for query augmentation.
 
 ```text
 Input Processing:
@@ -188,7 +188,7 @@ Query: {query}
 Augmented Query:
 ```
 
-Notice there are examples for when context is and is not present.
+Notice there are examples for when context is and isn't present.
 
 #### Decomposition
 
@@ -196,7 +196,7 @@ Some queries are complex and require more than one collection of data to ground 
 
 Decomposition is the process of breaking down a complex query into multiple smaller and simpler subqueries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as an accumulated context. You then run the original query, passing the accumulated context to the language model.
 
-It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
+It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
@@ -222,7 +222,7 @@ Example output:
 }
 ```
 
-A large language model can also be used to decompose a complex query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that decomposes a complex query.
+A language model can also be used to decompose a complex query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that decomposes a complex query.
 
 ```text
 Analyze the following query:
@@ -310,7 +310,7 @@ query: {original_query}
 
 ### Combining query translations into a pipeline
 
-You are not limited to choosing one query translation. In practice, multiple, or even all of these translations can be used in conjunction. The following diagram illustrates an example of how these translations can be combined into a pipeline.
+You're not limited to choosing one query translation. In practice, multiple, or even all of these translations can be used in conjunction. The following diagram illustrates an example of how these translations can be combined into a pipeline.
 
 :::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline with query transformers.":::
     The diagram shows a pipeline with four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a foreach block. Behind the foreach block are three substeps: Query rewriter, query executor, and reranker. The output of step 3 is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step 4 is the final result.
@@ -326,11 +326,11 @@ The diagram is numbered for notable steps in this pipeline:
     1. The optional query rewriter rewrites the decomposed query.
     1. The rewritten query, if it was rewritten, or the original query is executed against the search index. The query can be executed using any of the search types: vector, full text, hybrid, or manual multiple. It can also be executed using advanced query capabilities such as HyDE.
     1. The results are reranked. The top N reranked results are added to the accumulated context.
-1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there is only one query run and the top N results are returned to the caller.
+1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there's only one query run and the top N results are returned to the caller.
 
 ### Passing images in queries
 
-Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you are using these models, you can choose whether you want to avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing additional context. You should also compare the difference in cost between the approaches and do a cost-benefit analysis.
+Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you're using these models, you can choose whether you want to avoid chunking your images and pass the image as part of the prompt to the multimodal model. You should experiment to determine how this approach performs compared to chunking the images with and without passing additional context. You should also compare the difference in cost between the approaches and do a cost-benefit analysis.
 
 ### Filtering
 
@@ -341,7 +341,7 @@ Fields in the search store that are configured as filterable can be used to filt
 Some search platforms, such as Azure AI Search, support the ability to influence the ranking of results based on criteria, including weighting fields. 
 
 > [!NOTE]
-> This section discusses the weighting capabilities in Azure AI Search. If you are using a different platform, research the weighting capabilities of that platform.
+> This section discusses the weighting capabilities in Azure AI Search. If you're using a different platform, research the weighting capabilities of that platform.
 
 Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
 
@@ -356,16 +356,16 @@ Reranking allows you to run one or more queries, aggregate the results, and rank
 - You performed [manual multiple searches](#manual-multiple) and you want to aggregate the results and rank them.
 - Vector and keyword searches aren't always accurate. You can increase the count of documents returned from your search, potentially including some valid results that would otherwise be ignored, and use reranking to evaluate the results.
 
-You can use a large language model or cross-encoder to perform reranking. Some platforms, like Azure AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
+You can use a language model or cross-encoder to perform reranking. Some platforms, like Azure AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
 
-#### Large language model reranking
+#### Language model reranking
 
-The following is a sample large language model prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that reranks results.
+The following is a sample language model prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that reranks results.
 
 ```text
 A list of documents is shown below. Each document has a number next to it along with a summary of the document. A question is also provided.
 Respond with the numbers of the documents you should consult to answer the question, in order of relevance, as well as the relevance score as json string based on json format as shown in the schema section. The relevance score is a number from 1–10 based on how relevant you think the document is to the question. The relevance score can be repetitive. Don't output any additional text or explanation or metadata apart from json string. Just output the json string and strip rest every other text. Strictly remove any last comma from the nested json elements if it's present.
-Don't include any documents that are not relevant to the question. There should exactly be one documents element.
+Don't include any documents that aren't relevant to the question. There should exactly be one documents element.
 Example format:
 Document 1:
 content of document 1
@@ -445,7 +445,7 @@ You should test both positive and negative examples. For the positive examples, 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Large language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
+> [Language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
 
 ## Related resources
 
