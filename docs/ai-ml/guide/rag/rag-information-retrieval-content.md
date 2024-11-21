@@ -132,17 +132,63 @@ Query translation is an optional step in the information retrieval phase of a RA
 
 Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: `Compare the earnings of Microsoft`. That query is vague. You have not mentioned what time frames, or time units to compare and have only specified earnings. Now consider an augmented version of the query: `Compare the earnings and revenue of Microsoft current year vs last year by quarter`. The new query is clear and specific.
 
-When you are augmenting a query, you maintain the original query, but add additional context. There is no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query. 
+When you are augmenting a query, you maintain the original query, but add additional context. There is no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query.
 
 You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there is information in your language model that can be useful in augmenting the query. For example, if you are using a large language model like one of the GPT models, you can determine if there is information readily available on the internet about the query. If so, you can use the language model to augment the query. Otherwise, you should not augment the query.
 
-The following is an example of a prompt that augments a query.
+You can use a large language model to augment a query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that is used for query augmentation.
 
-```bash
+```text
+Input Processing:
 
+Analyze the input query to identify the core concept or topic.
+Check if any context is provided with the query.
+If context is provided, use it as the primary basis for augmentation and explanation.
+If no context is provided, determine the likely domain or field (e.g., science, technology, history, arts, etc.) based on the query.
+
+Query Augmentation:
+If context is provided:
+
+Use the given context to frame the query more specifically.
+Identify any additional aspects of the topic not covered in the provided context that would enrich the explanation.
+
+If no context is provided, expand the original query by adding the following elements, as applicable:
+
+Include definitions about every word (adjective, noun etc) and meaning of each keyword, concept and phrase including synonyms and antonyms.
+Include historical context or background information if relevant.
+Identify key components or sub-topics within the main concept.
+Request information on practical applications or real-world relevance.
+Ask for comparisons with related concepts or alternatives, if applicable.
+Inquire about current developments or future prospects in the field.
+
+Additional Guidelines:
+
+Prioritize information from provided context when available.
+Adapt your language to suit the complexity of the topic, but aim for clarity.
+Define technical terms or jargon when first introduced.
+Use examples to illustrate complex ideas when appropriate.
+If the topic is evolving, mention that your information might not reflect the very latest developments.
+For scientific or technical topics, briefly mention the level of scientific consensus if relevant.
+Use markdown formatting for better readability when appropriate.
+
+Example Input-Output:
+Example 1 (With provided context):
+Input: "Explain the impact of the Gutenberg Press"
+Context provided: "The query is part of a discussion about revolutionary inventions in medieval Europe and their long-term effects on society and culture."
+Augmented Query: "Explain the impact of the Gutenberg Press in the context of revolutionary inventions in medieval Europe. Cover its role in the spread of information, its effects on literacy and education, its influence on the Reformation, and its long-term impact on European society and culture. Compare it to other medieval inventions in terms of societal influence."
+Example 2 (Without provided context):
+Input: "Explain CRISPR technology"
+Augmented Query: "Explain CRISPR technology in the context of genetic engineering and its potential applications in medicine and biotechnology. Cover its discovery, how it works at a molecular level, its current uses in research and therapy, ethical considerations surrounding its use, and potential future developments in the field."
+Now, provide a comprehensive explanation based on the appropriate augmented query.
+
+Context: {context}
+
+Query: {query}
+
+Augmented Query:
 ```
 
-Notice how the prompt includes examples for when context is and is not present.
+Notice there are examples for when context is and is not present.
 
 #### Decomposition
 
@@ -150,11 +196,8 @@ Some queries are complex and require more than one collection of data to ground 
 
 Decomposition is the process of breaking down a complex query into multiple smaller and simpler sub-queries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as an accumulated context. You then run the original query, passing the accumulated context to the language model.
 
-TODO: Ritesh - do we still recommend to determine whether the query requires multiple searches before running any searches?
-
 It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
-TODO: Ritesh - Is this still valid?
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
 1. Simple, factual question
@@ -179,52 +222,68 @@ Example output:
 }
 ```
 
-A large language model can also be used to extract subqueries from a complex query. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that converts a complex query into multiple subqueries.
+A large language model can also be used to decompose a complex query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that decomposes a complex query.
 
-TODO: Ritesh - We need the updated prompt
 ```text
-Your task is to take a question as input and generate maximum 3 sub-questions that cover all aspects of the original question. The output should be in strict JSON format, with the sub-questions contained in an array.
-Here are the requirements:
-1. Analyze the original question and identify the key aspects or components.
-2. Generate sub-questions that address each aspect of the original question.
-3. Ensure that the sub-questions collectively cover the entire scope of the original question.
-4. Format the output as a JSON object with a single key "questions" that contains an array of the generated sub-questions.
-5. Each sub-question should be a string within the "questions" array.
-6. The JSON output should be valid and strictly formatted.
-7. Ensure that the generated JSON is 100 percent structurally correct, with proper nesting, comma placement, and quotation marks. The JSON should be formatted with proper indentation for readability.
-8. There should not be any comma after last element in the array.
+Analyze the following query:
 
-TODO: Ritesh - We need the updated example
+For each query, follow these specific instructions:
+- Expand the query to be clear, complete, fully qualified and concise.
+- Identify the main elements of the sentence: typically a subject, an action or relationship, and an object or complement. Determine which element is being asked about or emphasized (usually the unknown or focus of the question). Invert the sentence structure: Make the original object or complement the new subject. Transform the original subject into a descriptor or qualifier. Adjust the verb or relationship to fit the new structure.
+- Break the query down into a set sub-queries with clear, complete, fully qualified, concise and self-contained propositions.
+- Include an addition sub-query using one more rule: Identify the main subject and object. Swap their positions in the sentence. Adjust the wording to make the new sentence grammatically correct and meaningful. Ensure the new sentence asks about the original subject.
+- Express each idea or fact as a standalone statement that can be understood with help of given context
+- Break down the query into ordered sub-questions, from least to most dependent.
+- The most independent sub-question does not requires or dependend on the answer to any other sub-question or prior knowledge.
+- Try having a complete sub-question having all information only from base query. There is no additional context or information available
+- Separate complex ideas into multiple simpler propositions when appropriate.
+- Decontextualize each proposition by adding necessary modifiers to nouns or entire sentences. Replace pronouns (e.g., "it", "he", "she", "they", "this", "that") with the full name of the entities they refer to.
+- if you still need more question, the sub-question is not relevant and should be removed.
 
-Example input question:
-What are the main causes of deforestation, and how can it be mitigated?
 
-Example output:
-{
-  "questions": [
-    "What are the primary human activities that contribute to deforestation?",
-    "How does agriculture play a role in deforestation?",
-    "What is the impact of logging and timber harvesting on deforestation?",
-    "How do urbanization and infrastructure development contribute to deforestation?",
-    "What are the environmental consequences of deforestation?",
-    "What are some effective strategies for reducing deforestation?",
-    "How can reforestation and afforestation help mitigate the effects of deforestation?",
-    "What role can governments and policies play in preventing deforestation?",
-    "How can individuals and communities contribute to reducing deforestation?"
-  ]
-}
+Provide your analysis in the following YAML format strictly adhering to the structure below and do not output anything extra including the language itself:
+
+type: interdependent
+queries:
+- [First query or sub-query]
+- [Second query or sub-query, if applicable]
+- [Third query or sub-query, if applicable]
+- ...
+
+Examples:
+
+1. Query: "What is the capital of France?"
+type: interdependent
+queries:
+    - What is the capital of France?
+
+2. Query: "Who is the current CEO of the company that created the iPhone?"
+type: interdependent
+queries:
+    - Which company created the iPhone?
+    - Who is the current CEO of the Apple(identified in the previous question) company ?
+
+3. Query: "What is the population of New York City and what is the tallest building in Tokyo?"
+type: multiple_independent
+queries:
+    - What is the population of New York City?
+    - What is the tallest building in Tokyo?
+
+Now, analyze the following query:
+
+{query}
 ```
 
 #### Rewriting
 
-An input query may not be in the optimal form to retrieve grounding data. Using a language model to rewrite the query is a common practice to achieve better results. The following are some challenges that can be addressed by rewriting a query:
+An input query may not be in the optimal form to retrieve grounding data. Using a language model to rewrite the query is a common practice to achieve better results. The following are some challenges that you can address by rewriting a query:
 
 - Vagueness
 - Missing keywords
 - Unneeded words
 - Unclear semantically
 
-The following prompt, taken from the [RAG Experiment Accelerator GitHub repository](http://), addresses the listed challenges by using a language model to rewrite the query.
+The following prompt, taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/), addresses the listed challenges by using a language model to rewrite the query.
 
 ```text
 Rewrite the given query to optimize it for both keyword-based and semantic similarity search methods. Follow these guidelines:
@@ -243,14 +302,6 @@ Aim for a balance between keyword richness and semantic clarity.
 Provide the rewritten query as a single paragraph that incorporates various search aspects (e.g. keyword-focused, semantically-focused, domain-specific).
 
 query: {original_query}
-
-```
-
-The following shows the results of a query being rewritten:
-
-```text
-
-TODO: Ritesh to provide example
 ```
 
 #### HyDE
