@@ -8,7 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
-custom:
+ms.custom:
   - arb-containers
   - arb-devops
 azureCategories:
