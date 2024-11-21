@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline.yml). To effectively deploy Azure Stack HCI by using a **three-node storage switchless** design, it's important to understand the baseline architecture. This process includes familiarizing yourself with the cluster design choices for the physical nodes that deliver local compute, storage, and networking capabilities. This knowledge helps you identify the necessary changes for a successful deployment. The guidance in this article also applies to a **two-node storage switchless** deployment and makes necessary adjustments for cases where the number of physical nodes decreases from three to two.
+This article is part of a series that builds on the [Azure Stack HCI baseline reference architecture](azure-local-baseline.yml). To effectively deploy Azure Stack HCI by using a **three-node storage switchless** design, it's important to understand the baseline architecture. This process includes familiarizing yourself with the cluster design choices for the physical nodes that deliver local compute, storage, and networking capabilities. This knowledge helps you identify the necessary changes for a successful deployment. The guidance in this article also applies to a **two-node storage switchless** deployment and makes necessary adjustments for cases where the number of physical nodes decreases from three to two.
 
 The storage switchless network design removes the requirement for storage class network switches to connect the network adapter ports that are used for storage traffic. Instead, nodes are directly connected by using interlink ethernet cables. This configuration is commonly used in retail, manufacturing, or remote office scenarios. This configuration is also suitable for smaller edge use cases that don't have or require extensive datacenter network switches for storage replication traffic.
 
@@ -25,7 +25,7 @@ For more information about these resources, see [Related resources](#related-res
 
 ## Potential use cases
 
-Use this design and the designs described in the [Azure Stack HCI baseline reference architecture](azure-stack-hci-baseline.yml) to address the following use case requirements:
+Use this design and the designs described in the [Azure Stack HCI baseline reference architecture](azure-local-baseline.yml) to address the following use case requirements:
 
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads that are deployed in a single location to enable business-critical applications and services to operate in a resilient, cost-effective, and scalable manner.
 
@@ -39,7 +39,7 @@ The architecture resources remain mostly unchanged from the baseline reference a
 
 ## Cluster design choices
 
-When you determine your cluster design options, refer to the [baseline reference architecture](azure-stack-hci-baseline.yml). Use these insights and the [Azure Stack HCI Sizer Tool](https://azurestackhcisolutions.azure.microsoft.com/#sizer) to appropriately scale an Azure Stack HCI cluster according to the workload requirements.
+When you determine your cluster design options, refer to the [baseline reference architecture](azure-local-baseline.yml). Use these insights and the [Azure Stack HCI Sizer Tool](https://azurestackhcisolutions.azure.microsoft.com/#sizer) to appropriately scale an Azure Stack HCI cluster according to the workload requirements.
 
 When you use the storage switchless design, it's crucial to remember that a three-node cluster is the maximum supported size. This limitation is a key consideration for your cluster design choices because you must ensure that your workload's capacity requirements don't exceed the physical capacity capabilities of the three-node cluster specifications. Because you can't perform an add-node gesture to expand a storage switchless cluster beyond three nodes, it's **critically important** to understand your workload capacity requirements beforehand and plan for future growth. This way you can ensure that your workload doesn't exceed the storage and compute capacity over the expected lifespan of the Azure Stack HCI cluster hardware.
 
@@ -183,7 +183,7 @@ Product documentation:
 
 - [Azure Stack HCI version 23H2 release information](/azure-stack/hci/release-information-23h2)
 - [AKS on Azure Stack HCI](/azure/aks/hybrid/aks-whats-new-23h2)
-- [Azure Virtual Desktop for Azure Stack HCI](/azure/virtual-desktop/azure-stack-hci-overview)
+- [Azure Virtual Desktop for Azure Stack HCI](/azure/virtual-desktop/azure-local-overview)
 - [What is Azure Stack HCI monitoring?](/azure-stack/hci/concepts/monitoring-overview)
 - [Protect VM workloads with Site Recovery on Azure Stack HCI](/azure-stack/hci/manage/azure-site-recovery)
 - [Azure Monitor overview](/azure/azure-monitor/overview)

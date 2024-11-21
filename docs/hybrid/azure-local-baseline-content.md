@@ -113,7 +113,7 @@ It's important to understand the workload performance and resiliency requirement
 
 - The memory per node, or the quantity of physical memory required to run the workload.
 
-- The number of physical nodes in the cluster that are 1 to 16 nodes in scale. The maximum number of nodes is three when you use the [storage switchless network architecture](/azure/architecture/hybrid/azure-stack-hci-switchless).
+- The number of physical nodes in the cluster that are 1 to 16 nodes in scale. The maximum number of nodes is three when you use the [storage switchless network architecture](/azure/architecture/hybrid/azure-local-switchless).
 
   - To maintain compute resiliency, you need to reserve at least N+1 nodes worth of capacity in the cluster. This strategy enables node draining for updates or recovery from sudden outages like power outages or hardware failures.
 
@@ -377,7 +377,7 @@ Cost optimization considerations include:
 
   For more information, see [Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
-- **Initial workload capacity and growth**: When you plan your Azure Stack HCI deployment, consider your initial workload capacity, resiliency requirements, and future growth considerations. Consider if using a two or three-node storage switchless architecture could reduce costs, such as removing the need to procure storage-class network switches. Procuring extra storage class network switches can be an expensive component of new Azure Stack HCI cluster deployments. Instead, you can use existing switches for management and compute networks, which simplifies the infrastructure. If your workload capacity and resiliency needs don't scale beyond a three-node configuration, consider if you can use existing switches for the management and compute networks, and use the [three-node storage switchless architecture](azure-stack-hci-switchless.yml) to deploy Azure Stack HCI.
+- **Initial workload capacity and growth**: When you plan your Azure Stack HCI deployment, consider your initial workload capacity, resiliency requirements, and future growth considerations. Consider if using a two or three-node storage switchless architecture could reduce costs, such as removing the need to procure storage-class network switches. Procuring extra storage class network switches can be an expensive component of new Azure Stack HCI cluster deployments. Instead, you can use existing switches for management and compute networks, which simplifies the infrastructure. If your workload capacity and resiliency needs don't scale beyond a three-node configuration, consider if you can use existing switches for the management and compute networks, and use the [three-node storage switchless architecture](azure-local-switchless.yml) to deploy Azure Stack HCI.
 
   For more information, see [Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
@@ -465,7 +465,7 @@ Product documentation:
 
 - [Azure Stack HCI, version 23H2 release information](/azure-stack/hci/release-information-23h2)
 - [AKS on Azure Stack HCI](/azure/aks/hybrid/aks-whats-new-23h2)
-- [Azure Virtual Desktop for Azure Stack HCI](/azure/virtual-desktop/azure-stack-hci-overview)
+- [Azure Virtual Desktop for Azure Stack HCI](/azure/virtual-desktop/azure-local-overview)
 - [What is Azure Stack HCI monitoring?](/azure-stack/hci/concepts/monitoring-overview)
 - [Protect VM workloads with Site Recovery on Azure Stack HCI](/azure-stack/hci/manage/azure-site-recovery)
 - [Monitor overview](/azure/azure-monitor/overview)

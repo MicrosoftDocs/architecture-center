@@ -16,7 +16,6 @@ azureCategories:
   - hybrid
 products:
   - azure-kubernetes-service
-  - azure-stack-hci
   - azure-arc
   - github
   - azure-pipelines
@@ -24,4 +23,4 @@ name: Deploy and operate apps with AKS enabled by Arc on Azure Stack HCI or Wind
 summary: Build an app deployment pipeline for containerized apps on AKS enabled by Arc that are running on Azure Stack HCI or Windows Server.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-stack-hci.png
 content: |
-  [!include[](aks-hybrid-stack-hci-content.md)]
+  [!INCLUDE[](aks-hybrid-azure-local-content.md)]

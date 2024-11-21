@@ -18,10 +18,9 @@ azureCategories:
   - management-and-governance
 summary: This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering.
 products:
-  - azure-stack-hci
   - azure-blob-storage
   - azure-backup
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/azure_stack_hci_dr.png
 content: |
-   [!include[](azure-stack-hci-dr-content.md)]
+   [!INCLUDE[](azure-stack-hci-dr-content.md)]

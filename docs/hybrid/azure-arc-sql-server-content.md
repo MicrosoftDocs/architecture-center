@@ -258,7 +258,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Introduction to Azure Arc-enabled data services - training content]: /training/modules/intro-to-arc-enabled-data-services
 [Introduction to Azure Arc-enabled Kubernetes - training content]: /training/modules/intro-to-arc-enabled-kubernetes
 [Introduction to Azure Arc - training content]: /training/modules/intro-to-azure-arc
-[Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases]: ./azure-stack-hci-switchless.yml
+[Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases]: ./azure-local-switchless.yml
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml
