@@ -72,7 +72,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Microsoft
     - Workload/configuration recovery responsibility: Microsoft
     - Contoso SKU selection: Default (geo-redundant storage (GRS))
-    - DR uplift options: Enabling [Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore) creates data restoration in the secondary, [paired region](/azure/availability-zones/cross-region-replication-azure).
+    - DR uplift options: Enabling [Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore) creates data restoration in the secondary, [paired region](/azure/reliability/cross-region-replication-azure).
     - Notes
         - While locally redundant storage (LRS) and zone-redundant storage (ZRS) are available, it requires configuration activities from the default setting.
 
@@ -164,7 +164,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component recovery responsibility: Contoso
     - Workload/configuration recovery responsibility: Contoso
     - Contoso SKU selection: Single Zone - VpnGw1
-    - DR uplift options: A VPN gateway can be deployed into an [Availability Zone](/azure/availability-zones/az-overview) with the VpnGw#AZ SKUs to provide a [zone redundant service](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
+    - DR uplift options: A VPN gateway can be deployed into an [Availability Zone](/azure/reliability/availability-zones-overview) with the VpnGw#AZ SKUs to provide a [zone redundant service](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
 
 - **Azure Load Balancer**
     - Component recovery responsibility: Contoso

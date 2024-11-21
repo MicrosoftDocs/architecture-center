@@ -174,7 +174,7 @@ Principal authors:
 - [Azure virtual machine extensions](/azure/virtual-machines/extensions/overview)
 - [What is Azure Firewall?](/azure/firewall/overview) 
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
-- [Availability zones](/azure/availability-zones/az-overview)
+- [Availability zones](/azure/reliability/availability-zones-overview)
 
 ## Related resources
 

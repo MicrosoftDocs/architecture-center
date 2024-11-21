@@ -68,7 +68,7 @@ Reliability ensures your application can meet the commitments you make to your c
 This solution's resiliency depends on the failure modes of individual services like Azure Virtual Machines, Azure Database for MySQL, and Azure Load Balancer. For more information, see these articles:
 
 - [Design for reliability](/azure/architecture/framework/resiliency/design-checklist)
-- [Resiliency in Azure](/azure/availability-zones/overview)
+- [Resiliency in Azure](/azure/reliability/overview)
 - [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)
 
 For information about disaster recovery, see
