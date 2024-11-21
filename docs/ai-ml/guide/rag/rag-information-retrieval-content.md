@@ -1,4 +1,4 @@
-Once you have generated the embeddings for your chunks, the next step is to generate the index in the vector database and experiment to determine the optimal searches to perform. When you're experimenting with information retrieval, there are several areas to consider, including configuration options for the search index, the types of searches you should perform, and your reranking strategy. This article covers these three topics.
+Once you generate the embeddings for your chunks, the next step is to generate the index in the vector database and experiment to determine the optimal searches to perform. When you're experimenting with information retrieval, there are several areas to consider, including configuration options for the search index, the types of searches you should perform, and your reranking strategy. This article covers these three topics.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
@@ -43,7 +43,7 @@ Search platforms generally support full text and vector searches. Some platforms
 > You should perform the same [cleaning operations](./rag-enrichment-phase.yml#cleaning) you performed on chunks before embedding the query. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
 > [!NOTE]
-> You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. For more information see that section.
+> You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. For more information, see that section.
 
 ```python
 embedding = embedding_model.generate_embedding(
@@ -130,9 +130,9 @@ Query translation is an optional step in the information retrieval phase of a RA
 
 #### Query augmentation
 
-Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: `Compare the earnings of Microsoft`. That query is vague. You have not mentioned what time frames, or time units to compare and have only specified earnings. Now consider an augmented version of the query: `Compare the earnings and revenue of Microsoft current year vs last year by quarter`. The new query is clear and specific.
+Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: `Compare the earnings of Microsoft`. That query is vague. You did not mention time frames, or time units to compare and only specified earnings. Now consider an augmented version of the query: `Compare the earnings and revenue of Microsoft current year vs last year by quarter`. The new query is clear and specific.
 
-When you are augmenting a query, you maintain the original query, but add additional context. There is no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query.
+When you are augmenting a query, you maintain the original query, but add more context. There is no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query.
 
 You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there is information in your language model that can be useful in augmenting the query. For example, if you are using a large language model like one of the GPT models, you can determine if there is information readily available on the internet about the query. If so, you can use the language model to augment the query. Otherwise, you should not augment the query.
 
@@ -194,7 +194,7 @@ Notice there are examples for when context is and is not present.
 
 Some queries are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to internal combustion engine (ICE) vehicles?" likely requires grounding data from multiple sources. One source might describe how electric cars work, where another compares them to ICE vehicles.
 
-Decomposition is the process of breaking down a complex query into multiple smaller and simpler sub-queries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as an accumulated context. You then run the original query, passing the accumulated context to the language model.
+Decomposition is the process of breaking down a complex query into multiple smaller and simpler subqueries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as an accumulated context. You then run the original query, passing the accumulated context to the language model.
 
 It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
@@ -306,21 +306,21 @@ query: {original_query}
 
 #### HyDE
 
-[Hypothetical Document Embeddings (HyDE)](https://towardsdatascience.com/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is a alternate information retrieval technique used in RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are then converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding similarity searches.
+[Hypothetical Document Embeddings (HyDE)](https://towardsdatascience.com/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is an alternate information retrieval technique used in RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are then converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding similarity searches.
 
 ### Combining query translations into a pipeline
 
-You are not limited to choosing one query translation. In practice, multiple, or even all of these can be used in conjunction. The following diagram illustrates an example of how these translations can be combined into a pipeline.
+You are not limited to choosing one query translation. In practice, multiple, or even all of these translations can be used in conjunction. The following diagram illustrates an example of how these translations can be combined into a pipeline.
 
 :::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline with query transformers.":::
-    The diagram shows a pipeline with four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a foreach block. Behind the foreach block are three substeps: Query rewriter, query executor, and reranker. The output of step three is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step four is the final result.
+    The diagram shows a pipeline with four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a foreach block. Behind the foreach block are three substeps: Query rewriter, query executor, and reranker. The output of step 3 is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step 4 is the final result.
 :::image-end:::
 *Figure 1: RAG pipeline with query transformers*
 
 The diagram is numbered for notable steps in this pipeline:
 
 1. The original query is passed to the optional query augmenter step. This step outputs the original query and the augmented query.
-1. The augmented query is passed to the optional query decomposer step. This step outputs the outputs the original query, the augmented query, and the decomposed queries.
+1. The augmented query is passed to the optional query decomposer step. This step outputs the original query, the augmented query, and the decomposed queries.
 1. Each decomposed query is passed through three substeps. Once all of the decomposed queries are run through the substeps, the step outputs the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context is the aggregation of the top N results from all of the decomposed queries being processed through the substeps.
 
     1. The optional query rewriter rewrites the decomposed query.
@@ -334,7 +334,7 @@ Some multimodal models such as GPT-4V and GPT-4o can interpret images. If you ar
 
 ### Filtering
 
-Fields in the search store that are configured as filterable can be used to filter queries. Consider filtering on keywords and entities for queries that use those fields to help narrow down the result. Filtering allows you to retrieve only the data that satisfies certain conditions from an index by eliminating irrelevant data. This improves the overall performance of the query with more relevant results. As with every decision, it's important to experiment and test. Queries might not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.
+Fields in the search store that are configured as filterable can be used to filter queries. Consider filtering on keywords and entities for queries that use those fields to help narrow down the result. Filtering allows you to retrieve only the data that satisfies certain conditions from an index by eliminating irrelevant data. Filtering improves the overall performance of the query with more relevant results. As with every decision, it's important to experiment and test. Queries might not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.
 
 ### Weighting
 
@@ -345,7 +345,7 @@ Some search platforms, such as Azure AI Search, support the ability to influence
 
 Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
 
-Choosing which fields to weight depends upon the type of query and the use case. For example, if you determine that the query is keyword-centric, such as "Where is Microsoft headquartered?", you would want a scoring profile that weights entity or keyword fields higher. You may also allow use different profiles for different users, allow users to choose their focus, or choose profiles based on the application.
+Choosing which fields to weight depends upon the type of query and the use case. For example, if you determine that the query is keyword-centric, such as "Where is Microsoft headquartered?", you would want a scoring profile that weights entity or keyword fields higher. You may also use different profiles for different users, allow users to choose their focus, or choose profiles based on the application.
 
 We recommend that in production systems, you only maintain profiles that you actively use in production.
 
