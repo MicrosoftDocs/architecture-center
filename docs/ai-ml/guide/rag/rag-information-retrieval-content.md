@@ -126,7 +126,7 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 
 ### Query translation
 
-Query translation is an optional step in the information retrieval phase of a RAG solution. In the translation step, a query is transformed or translated into a form that is optimized to retrieve better results. There are many forms of query translation including the three we detail in this article: augmentation, decomposition, and rewriting.
+Query translation is an optional step in the information retrieval phase of a RAG solution. In the translation step, a query is transformed or translated into a form that is optimized to retrieve better results. There are many forms of query translation including the four we detail in this article: augmentation, decomposition, rewriting, and Hypothetical Document Embeddings (HyDE).
 
 #### Query augmentation
 
@@ -256,6 +256,26 @@ TODO: Ritesh to provide example
 #### HyDE
 
 [Hypothetical Document Embeddings (HyDE)](https://towardsdatascience.com/how-to-use-hyde-for-better-llm-rag-retrieval-a0aa5d0e23e8) is a alternate information retrieval technique used in RAG solutions. Rather than converting a query into embeddings and using those embeddings to find the closest matches in a vector database, HyDE uses a language model to generate answers from the query. These answers are then converted into embeddings, which are used to find the closest matches. This process enables HyDE to perform answer-to-answer embedding similarity searches.
+
+### Combining query translations into a pipeline
+
+You are not limited to choosing one query translation. In practice, multiple, or even all of these can be used in conjunction. The following diagram illustrates an example of how these translations can be combined into a pipeline.
+
+:::image type="complex" source="./_images/rag-query-transformation.svg" lightbox="./_images/rag-query-transformation.svg" alt-text="Diagram that shows a RAG pipeline with query transformers.":::
+    The diagram shows a pipeline with four steps. The original query is passed to the first step, a box called query augmenter. The query augmenter outputs the original query and an augmented query. The augmented query is passed to the second step, a box called query decomposer. The query decomposer outputs the original query, an augmented query, and four decomposed queries. The decomposed queries are passed to the third step. The third step has a foreach block. Behind the foreach block are three substeps: Query rewriter, query executor, and reranker. The output of step three is the original query, an augmented query, four decomposed queries, and the accumulated context. The original query and the accumulated context are passed to the fourth step. The fourth step has three substeps: Query rewriter, query executor, and reranker. The result of step four is the final result.
+:::image-end:::
+*Figure 1: RAG pipeline with query transformers*
+
+The diagram is numbered for notable steps in this pipeline:
+
+1. The original query is passed to the optional query augmenter step. This step outputs the original query and the augmented query.
+1. The augmented query is passed to the optional query decomposer step. This step outputs the outputs the original query, the augmented query, and the decomposed queries.
+1. Each decomposed query is passed through three substeps. Once all of the decomposed queries are run through the substeps, the step outputs the original query, the augmented query, the decomposed queries, and an accumulated context. The accumulated context is the aggregation of the top N results from all of the decomposed queries being processed through the substeps.
+
+    1. The optional query rewriter rewrites the decomposed query.
+    1. The rewritten query, if it was rewritten, or the original query is executed against the search index. The query can be executed using any of the search types: vector, full text, hybrid, or manual multiple. It can also be executed using advanced query capabilities such as HyDE.
+    1. The results are reranked. The top N reranked results are added to the accumulated context.
+1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there is only one query run and the top N results are returned to the caller.
 
 ### Passing images in queries
 
