@@ -31,8 +31,37 @@ This article describes an architecture that you can use to replace the manual an
 - [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) (formerly SQL DW) is a collection of analytics resources that are provisioned when you use Azure Synapse SQL.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
 
+## Architecture
+
+:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/XXXX) of this architecture.*
+
+### Workflow
+
+1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
+2. A preconfigured logic app that monitors Blob Storage detects that new videos are being uploaded. It starts a workflow.
+3. The logic app calls the Azure AI Vision Video Retrieval API to create an index using the PUT method.
+4. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index using the PUT method.
+5. A preconfigured logic app that monitors the ingestion, check when the indexing is complete with the GET method.
+6. The logic app calls Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric that is currently in preview.
+8. Power BI provides data visualization.
+
+### Components
+
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) provides object storage for cloud-native workloads and machine learning stores. In this architecture, it stores the uploaded video files.
+- [Video Retrieval API](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/video-retrieval) is part of [Azure AI Vision](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview). It's used to retrieve information directly from the video.
+- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
+- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview) is an end-to-end analytics and data platform designed for enterprises that require a unified solution.
+- [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
+
+
+
 ### Alternatives
 
+- [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/) is a solution that analyzes and comprehends various media content—such as audio, video, text, and images—transforming it into structured, organized, and searchable data. It was annonced as a new AI service at Ignite 2024, it is currenly in preview.
 - [Azure Video Indexer](https://azure.microsoft.com/products/ai-video-indexer) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
 - [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
