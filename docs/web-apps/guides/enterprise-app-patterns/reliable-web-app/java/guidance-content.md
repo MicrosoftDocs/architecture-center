@@ -48,7 +48,7 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
 - *Identity management:* Use [Microsoft Entra ID](/entra/fundamentals/whatis) as your identity and access management solution. Contoso Fiber chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
 
     - *Authentication and authorization.* The application needs to authenticate and authorize call center employees.
-    - *Scalable.* Microsoft Entra ID scales to support larger scenarios.
+    - *Scalability.* Microsoft Entra ID scales to support larger scenarios.
     - *User-identity control.* Call center employees can use their existing enterprise identities.
     - *Authorization protocol support.* Microsoft Entra ID supports OAuth 2.0 for managed identities.
 
@@ -87,13 +87,13 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
     - *Health probes.* The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
     - *Monitoring support.* Azure Front Door supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. Azure Front Door lets the application log each request and failed health probes.
     - *DDoS protection.* It has built-in layer 3-4 DDoS protection.
-    - *Content delivery network:* It positions Contoso Fiber to use a content delivery network. The content delivery network provides site acceleration.
+    - *Content delivery network.* It positions Contoso Fiber to use a content delivery network. The content delivery network provides site acceleration.
 
 - *Web application firewall:* Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to provide centralized protection from common web exploits and vulnerabilities. Contoso Fiber used Azure Web Application Firewall for the following reasons:
 
     - *Global protection.* It provides improved global web app protection without sacrificing performance.
     - *Botnet protection.* The team can monitor and configure settings to address security concerns related to botnets.
-    - *Parity with on-premises.* The on-premises solution was running behind a web application firewall managed by IT.
+    - *Parity with on-premises.* The on-premises solution ran behind a web application firewall that IT managed.
     - *Ease of use.* Web Application Firewall integrates with Azure Front Door.
 
 - *Secrets manager:* Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure. Contoso Fiber used Key Vault for the following reasons:
@@ -105,8 +105,8 @@ For example, before it was moved to the cloud, Contoso Fiber's CAMS web app was 
 
 - *Endpoint security:* Use [Azure Private Link](/azure/private-link/private-link-overview) to access PaaS solutions over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Contoso Fiber chose Private Link for the following reasons:
 
-    - *Enhanced-security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
-    - *Minimal effort:* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
+    - *Enhanced-security communication.* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
+    - *Minimal effort.* The private endpoints support the web app platform and database platform that the web app uses. Both platforms mirror existing on-premises configurations, so minimal change is required.
 
 - *Network security:* Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. Use [Azure Bastion](/azure/bastion/bastion-overview) to connect to virtual machines with enhanced security, without exposing RDP/SSH ports. Contoso Fiber adopted a hub-and-spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Contoso Fiber needed Azure Bastion for enhanced-security deployments from a jump host in the DevOps subnet.
 
