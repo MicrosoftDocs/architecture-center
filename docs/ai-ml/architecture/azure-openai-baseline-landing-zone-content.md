@@ -221,7 +221,7 @@ We recommend that you familiarize yourself with how the platform team manages DN
 
 ### Egress traffic
 
-In the baseline architecture, internet egress control is available only through the network configuration on Azure AI Foundry workspaces and App Service, combined with using NSGs on the various subnets.
+In the baseline architecture, internet egress control is available only through the network configuration on the Azure AI Foundry hub and App Service, combined with using NSGs on the various subnets.
 
 *Change from the baseline:* The egress controls are further augmented. All traffic that leaves the spoke virtual network is rerouted through the peered hub network via an egress firewall. Traffic that originates inside the managed virtual network for Azure AI Foundry computes isn't subject to this egress route.
 
@@ -257,7 +257,7 @@ For components or component features where egress control through hub routing is
 
 Apply the platform-provided internet route to all subnets, even if the subnet isn't expected to have outgoing traffic. This approach ensures that any unexpected deployments into that subnet are subjected to routine egress filtering. Ensure subnets that contain private endpoints have network policy enabled for full routing and NSG control.
 
-When you apply this route configuration to the architecture, all outbound connections from App Service, a Azure AI Foundry workspace, or any other services that originated on the workload's virtual network are scrutinized and controlled.
+When you apply this route configuration to the architecture, all outbound connections from App Service, the Azure AI Foundry hub and its projects, or any other services that originated on the workload's virtual network are scrutinized and controlled.
 
 <a name='private-dns-zones'></a>
 
@@ -277,7 +277,7 @@ In this architecture, the platform team must ensure reliable and timely DNS host
 
 ## Data scientist and prompt flow authorship access
 
-Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-machine-learning), public ingress access to the Azure AI Foundry workspace and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
+Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-machine-learning), public ingress access to the Azure AI Foundry portal and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
 
 When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see whether private access to the various browser-based AI studios can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN Gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
 
