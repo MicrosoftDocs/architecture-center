@@ -52,6 +52,7 @@ The following articles provide detailed analysis of solutions that feature integ
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Citizen AI with Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to use Azure Machine Learning and Power Platform to quickly create a machine learning proof of concept and a production version.|AI|
+|[Custom business processes](../solution-ideas/articles/custom-business-processes.yml)|Deploy portals that use Power Apps to automate manual or paper-based processes and provide rich user experiences. Use Power BI to generate reports.|Integration|
 |[Modern data warehouse for small and medium businesses](../example-scenario/data/small-medium-data-warehouse.yml)|Use Azure Synapse Analytics, Azure SQL Database, and Azure Data Lake Storage to modernize legacy and on-premises data. This solution integrates easily with Power Platform.| Analytics|
 |[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml)| Develop a virtual health solution by using Microsoft Cloud for Healthcare. This solution uses Power Apps to host a patient portal and store data, Power BI for reporting, and Power Automate to trigger notifications.|Web|
 
@@ -61,7 +62,9 @@ The following articles provide detailed analysis of solutions that feature integ
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
+|[Custom business processes](../solution-ideas/articles/custom-business-processes.yml)|Deploy portals that use Power Apps to automate manual or paper-based processes and provide rich user experiences. | Integration|
 [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps.| Web|
+[Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data. Power Apps retrieves the data, and Power BI provides reporting.| Integration|
 [Web and mobile front ends](../solution-ideas/articles/front-end.yml) |Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors.|Integration|
 
 [Browse all our Power Apps solutions](/azure/architecture/browse/?expanded=power-platform&products=power-apps).
@@ -86,6 +89,7 @@ The following articles provide detailed analysis of solutions that feature integ
 |[HIPAA-compliant and HITRUST-compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)|Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with a high level of built-in security. Power BI provides data visualization.| Serverless|
 |[Intelligent apps using Azure Database for MySQL](../databases/idea/intelligent-apps-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on. Power BI provides visualization and data analysis.| Databases|
 |[Intelligent apps using Azure Database for PostgreSQL](../databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on. Power BI provides visualization and data analysis.| Databases|
+|[Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data by using Power BI.| Integration|
 |[Loan charge-off prediction with HDInsight Spark](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)|Learn how lending institutions can use Azure HDInsight and machine learning to predict the likelihood of loans getting charged off. Power BI provides a visualization dashboard.| Databases|
 |[Loan credit risk and default modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)|Learn how SQL Server 2016 R Services can help lenders issue fewer unprofitable loans by predicting borrower credit risk and default probability. Power BI provides a dashboard to help lenders make decisions based on the predictions.| Databases|
 |[Medical data storage solutions](../solution-ideas/articles/medical-data-storage.yml)|Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. Power BI provides data analysis.| Storage|

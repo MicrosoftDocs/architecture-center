@@ -141,7 +141,7 @@ In AI Search, availability is achieved through multiple replicas, whereas busine
 
 In AI Search, replicas are copies of your index. Having multiple replicas allows Azure AI Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](/azure/search/search-capacity-planning#adjust-capacity). 
 
-You can utilize [Availability Zones](/azure/availability-zones/az-overview) with Azure AI Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
+You can utilize [Availability Zones](/azure/reliability/availability-zones-overview) with Azure AI Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
 
 For BCDR considerations, refer to the [Multiple services in separate geographic regions](/azure/search/search-performance-optimization#multiple-services-in-separate-geographic-regions) documentation.
 

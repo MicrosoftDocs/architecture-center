@@ -62,7 +62,7 @@ For the backend services that the API Management instance connects to, several a
 
 - [**Azure App Service**](/azure/app-service/overview) is a fully managed HTTP-based service that builds, deploys, and scales web apps. .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python are all supported. Applications can run and scale in either Windows or Linux-based environments. 
 - [**Azure Kubernetes Service**](/azure/aks/intro-kubernetes) offers fully managed Kubernetes clusters for an integrated continuous integration and continuous delivery (CI/CD) experience, governance, and security.
-- [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview) is a cloud-based platform that creates and runs automated workflows.
+- [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview) is a cloud-based platform that creates and runs automated workflows. An example reference architecture can be found at [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 - [**Azure Container Apps**](/azure/container-apps/overview) enables you to run microservices and containerized applications on a serverless platform. 
 
 For multi-region deployments, consider using [**Azure Front Door**](/azure/frontdoor/front-door-overview) to provide fast, reliable, and secure access between your users and your applications' static and dynamic web content.
@@ -152,4 +152,5 @@ Learn more about these key services:
 
 - [Use API Gateways in microservices](/azure/architecture/microservices/design/gateway)
 - [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+- [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
 - [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
