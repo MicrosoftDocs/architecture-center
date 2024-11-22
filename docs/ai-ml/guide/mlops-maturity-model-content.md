@@ -22,7 +22,7 @@ The MLOps maturity model encompasses five levels of technical capability:
 | 3 | [Automated Model Deployment](#level-3-automated-model-deployment) | <ul><li>Releases are low friction and automatic<li>Full traceability from deployment back to original data<li>Entire environment managed: train > test > production </ul>| <ul><li>Integrated A/B testing of model performance for deployment<li>Automated tests for all code<li>Centralized tracking of model training performance</ul> |
 | 4 | [Full MLOps Automated Operations](#level-4-full-mlops-automated-retraining) | <ul><li>Full system automated and easily monitored<li>Production systems are providing information on how to improve and, in some cases, automatically improve with new models<li>Approaching a zero-downtime system </ul>| <ul><li>Automated model training and testing<li>Verbose, centralized metrics from deployed model</ul> |
 
-The tables that follow identify the detailed characteristics for that level of process maturity. The model will continue to evolve. This version was last updated in January 2020.
+The tables that follow identify the detailed characteristics for that level of process maturity. The model will continue to evolve.
 
 ## Level 0: No MLOps
 
@@ -60,6 +60,7 @@ The tables that follow identify the detailed characteristics for that level of p
 - [Training module: Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops)
 - [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
+- [Machine Learning registries for MLOps](/azure/machine-learning/concept-machine-learning-registries-mlops)
 
 ## Related resources
 

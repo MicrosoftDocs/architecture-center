@@ -1,6 +1,6 @@
 <!-- cSpell:ignore CNAME -->
 
-This article provides a comprehensive overview of a web app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services](/azure/availability-zones/az-region#azure-services-with-availability-zone-support) replicate your services and data across availability zones to protect them from single points of failure and provide high availability.
+This article provides a comprehensive overview of a web app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services](/azure/reliability/availability-zones-service-support) replicate your services and data across availability zones to protect them from single points of failure and provide high availability.
 
 Before you build a production environment with Azure Red Hat OpenShift, read [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator).
 
@@ -19,15 +19,15 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 ### Components
 
-* [Microsoft Entra ID](/entra/) or [Azure AD B2C](/azure/active-directory-b2c/) authenticates users. In this architecture, Microsoft Entra ID provides secure, granular access to external resources.
+* [Microsoft Entra ID](/entra/fundamentals/whatis) or [Azure AD B2C](/azure/active-directory-b2c/) authenticates users. In this architecture, Microsoft Entra ID provides secure, granular access to external resources.
 * [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is the public interface for all internet requests. It acts as a global HTTP reverse proxy and cache for back-end services. Azure Front Door enhances the security and performance of this architecture, like adding protection from layer 4 distributed denial-of-service (DDoS) attacks.
-* [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift/) is the Kubernetes-based container orchestrator that hosts the API applications and services, and provides an interface for back-end services. Azure Red Hat OpenShift serves as the primary compute platform in this architecture. 
-* [Container Registry](https://azure.microsoft.com/products/container-registry/) supports Docker and Open Container Initiative (OCI) compliant container images. Container Registry supports zone redundancy, which makes it highly available and resilient to zone failure. It also supports [geo-replication](/azure/container-registry/container-registry-geo-replication), which replicates the service across multiple regions. In this architecture, Container Registry provides the ARO cluster private access to locally managed container images that are part of the workload.
+* [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) is the Kubernetes-based container orchestrator that hosts the API applications and services, and provides an interface for back-end services. Azure Red Hat OpenShift serves as the primary compute platform in this architecture. 
+* [Container Registry](/azure/container-registry/container-registry-intro) supports Docker and Open Container Initiative (OCI) compliant container images. Container Registry supports zone redundancy, which makes it highly available and resilient to zone failure. It also supports [geo-replication](/azure/container-registry/container-registry-geo-replication), which replicates the service across multiple regions. In this architecture, Container Registry provides the ARO cluster private access to locally managed container images that are part of the workload.
 * Azure Red Hat OpenShift uses virtual network integration to connect to back-end services over a private virtual network. Virtual network integration provides a secure network with Azure Red Hat OpenShift and other Azure services in this architecture.
 * [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) provides NoSQL document databases for front-end services. Azure Cosmos DB is used by the workload in this architecture to store user data.
 * [Private endpoints](/azure/private-link/private-endpoint-overview) enable connections to PaaS Azure services from private virtual networks and allow you to disable the public endpoints on these services. In this architecture, private endpoints with virtual network integration keep network traffic from Azure Red Hat OpenShift private while communicating with PaaS services.
 * [Azure Private DNS](/azure/dns/private-dns-overview) configures and updates the DNS records that the private endpoint services require. In this architecture, Azure Private DNS is used for name resolution in private networks.
-* [Key Vault](https://azure.microsoft.com/products/key-vault/) securely stores secrets and certificates that are accessed by Azure services. In this architecture, Azure Key Vault securely stores secrets for the applications running on Azure Red Hat OpenShift.
+* [Key Vault](/azure/key-vault/general/overview) securely stores secrets and certificates that are accessed by Azure services. In this architecture, Azure Key Vault securely stores secrets for the applications running on Azure Red Hat OpenShift.
 * [Azure Monitor](/azure/well-architected/service-guides/azure-log-analytics) and [Application Insights](/azure/well-architected/service-guides/application-insights/security) collect service logs and application performance metrics for observability. In this architecture, Azure Monitor is the log sync for both platform and workload logs. Application insights is specifically for logs and metrics originating in the workload code.
 
 ### Alternatives
@@ -41,7 +41,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 This architecture describes how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures.
 
-Availability zones are separate physical locations in each Azure region. Availability zones spread a solution across multiple independent zones in a region, which allows an application to continue functioning when one zone fails. This architecture builds on the [availability zones infrastructure](https://azure.microsoft.com/explore/global-infrastructure/availability-zones/) that's found in many regions. For a list of regions that support Azure availability zones, see [Azure regions with availability zones](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+Availability zones are separate physical locations in each Azure region. Availability zones spread a solution across multiple independent zones in a region, which allows an application to continue functioning when one zone fails. This architecture builds on the [availability zones infrastructure](https://azure.microsoft.com/explore/global-infrastructure/availability-zones/) that's found in many regions. For a list of regions that support Azure availability zones, see [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 
 When hosting platforms are at scale, it's often difficult to keep them highly available. High availability has historically required complex and expensive multi-region deployments with data-consistency and high-performance tradeoffs. [Availability zones](https://azure.microsoft.com/explore/global-infrastructure/availability-zones/) resolve many of these issues. Most mainstream Azure services and many specialized Azure services provide support for availability zones. All Azure services in this architecture are zone-redundant, which simplifies the deployment and management. For more information, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
@@ -77,8 +77,8 @@ The following recommendations apply to most scenarios.
 
 ### Azure Red Hat OpenShift
 
-* Ensure that the Azure region where Azure Red Hat OpenShift is deployed supports availability zones. For more information, see [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
-* An Azure Red Hat OpenShift cluster depends on some services. Ensure that those services support and are configured for zone redundancy. For more information, see [Azure services with availability zone support](/azure/availability-zones/az-region#azure-services-with-availability-zone-support).
+* Ensure that the Azure region where Azure Red Hat OpenShift is deployed supports availability zones. For more information, see [Azure regions with availability zone support](/azure/reliability/availability-zones-region-support).
+* An Azure Red Hat OpenShift cluster depends on some services. Ensure that those services support and are configured for zone redundancy. For more information, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support).
 * Remove the state from containers, and use Azure storage or database services instead.
 * Set up multiple replicas in deployments with appropriate disruption budget configuration to continuously provide application service despite disruptions, like hardware failures in zones.
 * Secure access to Azure Red Hat OpenShift. To ensure that requests can't bypass the Azure Front Door WAF, allow only Azure Front Door traffic. For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door).
@@ -86,7 +86,7 @@ The following recommendations apply to most scenarios.
 ### Container Registry
 
 * Use the Premium Container Registry service tier, as it offers zone redundancy. For information about registry service tiers and limits, see [Container Registry service tiers](/azure/container-registry/container-registry-skus).
-* [The region where a container registry is deployed must support availability zones](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+* [The region where a container registry is deployed must support availability zones](/azure/reliability/availability-zones-region-support).
 * ACR Tasks doesn't support availability zones.
 
 For more information, see [Enable zone redundancy in Container Registry for resiliency and high availability](/azure/container-registry/zone-redundancy) and [Use Container Registry with Azure Red Hat OpenShift](/azure/openshift/howto-use-acr-with-aro).
@@ -221,7 +221,7 @@ Other contributors:
 ## Next steps
 
 * [Azure services that support availability zones](/azure/reliability/availability-zones-service-support)
-* [Azure regions with availability zones](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support)
+* [Azure regions with availability zones](/azure/reliability/availability-zones-region-support)
 * [Find an availability zone region near you](https://azure.microsoft.com/explore/global-infrastructure/geographies/)
 * [Azure Well-Architected Framework - Reliability training module](/training/modules/azure-well-architected-reliability/)
 

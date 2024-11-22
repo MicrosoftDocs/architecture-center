@@ -36,8 +36,6 @@ items:
         items:
         - name: Use Azure Databricks to orchestrate MLOps
           href: idea/orchestrate-machine-learning-azure-databricks.yml
-        - name: Deploy AI and ML at the edge
-          href: idea/deploy-ai-ml-azure-stack-edge.yml
         - name: Many models ML with Spark
           href: idea/many-models-machine-learning-azure-spark.yml
         - name: Many models with Machine Learning
@@ -108,6 +106,8 @@ items:
           href: guide/rag/rag-information-retrieval.yml
         - name: LLM end-to-end evaluation phase
           href: guide/rag/rag-llm-evaluation-phase.yml
+      - name: Designing secure multitenant RAG inferencing solutions
+        href: guide/secure-multitenant-rag.yml
       - name: MLOps
         items:
         - name: Machine learning operations (MLOps) v2
@@ -192,6 +192,8 @@ items:
             href: guide/rag/rag-information-retrieval.yml
           - name: LLM end-to-end evaluation phase
             href: guide/rag/rag-llm-evaluation-phase.yml
+        - name: Designing secure multitenant RAG inferencing solutions
+          href: guide/secure-multitenant-rag.yml
         - name: Proxy Azure OpenAI usage
           items:
           - name: Use a gateway in front of Azure OpenAI

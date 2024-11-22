@@ -37,7 +37,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
    - Azure Data Lake Storage
    - Azure Data Explorer
 
-1. As a data share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
+1. As a Data Share producer, the consortium invites members to receive data. Members can accept either snapshot data or in-place sharing data.
 
 1. As data consumers, members receive the shared data. The data enters member data stores for research and analysis.
 
@@ -80,7 +80,7 @@ This solution uses the following components:
 
 - [Azure Databricks](https://azure.microsoft.com/free/databricks) is a data analytics platform. Based on the latest Apache Spark distributed processing system, Azure Databricks supports seamless integration with open-source libraries. This solution uses Azure Databricks notebooks to transform all member data into a common format.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based identity and access management service.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service.
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
@@ -141,7 +141,7 @@ Because of the sensitivity of medical information, several components play a rol
 
   - Encrypting data at rest, where the underlying data store supports at-rest encryption.
   - Encrypting data in transit by using Transport Layer Security (TLS) 1.2.
-  - Encrypting metadata about a data share at rest and in transit.
+  - Encrypting metadata about a Data Share at rest and in transit.
   - Not storing contents of shared customer data.
 
 - [Azure Synapse Analytics offers a comprehensive security model][Securing your Data Warehouse with Azure Synapse Analytics]. You can use its fine-grained controls to secure your data at every level, from single cells to entire databases.

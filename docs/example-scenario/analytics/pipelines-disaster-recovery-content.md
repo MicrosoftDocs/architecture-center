@@ -56,7 +56,7 @@ With automated recovery provided Azure Backup and disaster recovery, when there 
 
 In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
 
-The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/availability-zones/business-continuity-management-program#testing-of-services).
+The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/reliability/business-continuity-management-program#testing-of-services).
 
 ### User-managed redundancy with CI/CD
 
@@ -182,13 +182,13 @@ Other contributors:
 
 ## Next steps
 
-- [Business continuity management in Azure](/azure/availability-zones/business-continuity-management-program)
-- [Resiliency in Azure](/azure/availability-zones/overview)
-- [Azure resiliency terminology](/azure/availability-zones/glossary)
-- [Regions and availability zones](/azure/availability-zones/az-overview)
-- [Cross-region replication in Azure](/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
+- [Business continuity management in Azure](/azure/reliability/business-continuity-management-program)
+- [Resiliency in Azure](/azure/reliability/overview)
+- [Azure resiliency terminology](/azure/reliability/glossary)
+- [Regions and availability zones](/azure/reliability/availability-zones-overview)
+- [Cross-region replication in Azure](/azure/reliability/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
 - [Azure regions decision guide](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions)
-- [Azure services that support availability zones](/azure/availability-zones/az-region)
+- [Azure services that support availability zones](/azure/reliability/availability-zones-region-support)
 - [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility)
 - [Azure Data Factory data redundancy](/azure/data-factory/concepts-data-redundancy)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)

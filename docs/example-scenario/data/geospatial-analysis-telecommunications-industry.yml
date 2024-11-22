@@ -26,4 +26,4 @@ name: Geospatial analysis for the telecommunications industry
 summary: Learn about an architecture that provides a solution for the telecommunications industry that uses Azure Cloud services to process large volumes of geospatial data.
 thumbnailUrl: /azure/architecture/browse/thumbs/geospatial-analysis-telecommunications-industry.png
 content: |
-   [!include[](geospatial-analysis-telecommunications-industry-content.md)]
+   [!INCLUDE[](geospatial-analysis-telecommunications-industry-content.md)]

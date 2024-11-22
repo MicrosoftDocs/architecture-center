@@ -25,9 +25,9 @@ The architecture consists of the following:
 
 Key technologies used to implement this architecture:
 
-- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) is a fully managed service for Spring developers. Manage the lifecycle of your Spring Boot applications with comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, and blue-green deployments.
-- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a leading integration platform as a service (iPaaS) built on a containerized runtime. Deploy and run Logic Apps anywhere to increase scale and portability while automating business-critical workflows anywhere.
-- [Azure Queue storage](https://azure.microsoft.com/products/storage/queues) is a simple, cost-effective, durable message queueing for large workloads.
+- [Azure Spring Apps](/azure/spring-apps/enterprise/overview) is a fully managed service for Spring developers. Manage the lifecycle of your Spring Boot applications with comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, and blue-green deployments.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) is a leading integration platform as a service (iPaaS) built on a containerized runtime. Deploy and run Logic Apps anywhere to increase scale and portability while automating business-critical workflows anywhere.
+- [Azure Queue storage](/azure/well-architected/service-guides/queue-storage/reliability) is a simple, cost-effective, durable message queueing for large workloads.
 
 ## Scenario details
 

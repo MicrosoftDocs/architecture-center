@@ -19,19 +19,19 @@ This article describes an architecture that you can use to process various docum
 
 ### Components
 
-- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](https://azure.microsoft.com/products/functions/) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a storage queue triggers a durable functions instance, which initiates and orchestrates the document-processing pipeline.
+- [Durable functions](/azure/azure-functions/durable/durable-functions-overview) is a feature of [Azure Functions](/azure/azure-functions/functions-overview) that you can use to write stateful functions in a serverless compute environment. In this architecture, a message in a storage queue triggers a durable functions instance, which initiates and orchestrates the document-processing pipeline.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/) is a globally distributed, multi-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Azure Cosmos DB as the metadata store for the document classification information.
-- [Azure Storage](https://azure.microsoft.com/products/category/storage/) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](https://azure.microsoft.com/products/storage/blobs/), [Azure Files](https://azure.microsoft.com/products/storage/files/), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables/), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues/). This architecture uses Blob Storage to store the document files that the user uploads and that the durable functions pipeline processes.
-- [Azure App Service](https://azure.microsoft.com/products/app-service/) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
-- [AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) is a service that you can use to extract insights from your documents, forms, and images. This architecture uses AI Document Intelligence to analyze the document files and extract the embedded documents along with content and metadata information.
-- [AI Search](https://azure.microsoft.com/products/ai-services/ai-search/) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search to index the extracted document content and metadata information so that users can search and retrieve documents.
+- [Azure Cosmos DB](/azure/well-architected/service-guides/cosmos-db) is a globally distributed, multi-model database that you can use in your solutions to scale throughput and storage capacity across any number of geographic regions. Comprehensive service-level agreements (SLAs) guarantee throughput, latency, availability, and consistency. This architecture uses Azure Cosmos DB as the metadata store for the document classification information.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](/azure/well-architected/service-guides/azure-blob-storage), [Azure Files](/azure/well-architected/service-guides/azure-files), [Azure Table Storage](/azure/storage/tables/table-storage-overview), and [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This architecture uses Blob Storage to store the document files that the user uploads and that the durable functions pipeline processes.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework to build, deploy, and scale web apps. The Web Apps feature of App Service is an HTTP-based tool that you can use to host web applications, REST APIs, and mobile back ends. Use Web Apps to develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications can easily run and scale in Windows and Linux-based environments. In this architecture, users interact with the document-processing system through an App Service-hosted web app.
+- [AI Document Intelligence](/azure/ai-services/document-intelligence/overview) is a service that you can use to extract insights from your documents, forms, and images. This architecture uses AI Document Intelligence to analyze the document files and extract the embedded documents along with content and metadata information.
+- [AI Search](/azure/search/search-what-is-azure-search) provides a rich search experience for private, diverse content in web, mobile, and enterprise applications. This architecture uses AI Search to index the extracted document content and metadata information so that users can search and retrieve documents.
 
 ### Alternatives
 
-- To facilitate global distribution, this solution stores metadata in Azure Cosmos DB. [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is another persistent storage option for document metadata and information.
+- To facilitate global distribution, this solution stores metadata in Azure Cosmos DB. [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework) is another persistent storage option for document metadata and information.
 
-- To trigger durable functions instances, you can use other messaging platforms, including [Azure Service Bus](https://azure.microsoft.com/products/service-bus).
+- To trigger durable functions instances, you can use other messaging platforms, including [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 
 ### Scenario details
 
@@ -66,9 +66,9 @@ A reliable workload has both resiliency and availability. Resiliency is the abil
 
 For reliability information about solution components, see [SLA information for Azure online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
-### Cost optimization
+### Cost Optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
+Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 The most significant costs for this architecture include storing images in the storage account, processing the Azure AI services image, and index capacity requirements in AI Search.
 
@@ -85,9 +85,9 @@ To optimize costs:
 - Consider opportunity costs in your architecture and balance a first-mover advantage strategy versus a fast-follow strategy. To estimate the initial cost and operational costs, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator).
 - Establish [budgets and controls](/azure/well-architected/cost-optimization/collect-review-cost-data) that set cost limits for your solution. To set up forecasting and actual cost alerts, use [budget alerting](/azure/cost-management-billing/costs/tutorial-acm-create-budgets).
 
-### Performance efficiency
+### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 This solution can expose performance bottlenecks when you process high volumes of data. To ensure proper performance efficiency for your solution, make sure that you understand and plan for [Azure Functions scaling options](/azure/azure-functions/functions-scale#scale), [Azure AI services autoscaling](/azure/ai-services/autoscale), and [Azure Cosmos DB partitioning](/azure/cosmos-db/partitioning-overview).
 

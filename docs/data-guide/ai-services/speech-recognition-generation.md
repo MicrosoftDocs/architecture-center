@@ -1,5 +1,5 @@
 ---
-title: Choose an Azure AI speech recognition and generation technology
+title: Choose an Azure AI Speech recognition and generation technology
 description: Learn about Azure AI speech recognition and generation capabilities such as speech-to-text, and speech translation, and text-to-speech capabilities.
 author: robbagby
 ms.author: pnp

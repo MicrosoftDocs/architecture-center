@@ -25,23 +25,7 @@ items:
         - name: Standard deployment
           href: app-service-environment/architectures/ase-standard-deployment.yml
         - name: High availability deployment
-          href: app-service-environment/architectures/ase-high-availability-deployment.yml            
-      - name: Host web apps with Azure Spring Apps
-        items:
-        - name: Get started
-          href: spring-apps/index.md
-        - name: Baseline
-          href: spring-apps/architectures/spring-apps-multi-zone.yml
-        - name: Baseline in multiple regions
-          href: spring-apps/architectures/spring-apps-multi-region.yml
-        - name: Baseline in landing zones
-          href: spring-apps/architectures/spring-apps-landing-zone.yml
-        - name: Guides
-          items:
-          - name: Spring Apps through a reverse proxy
-            href: spring-apps/guides/spring-cloud-reverse-proxy.yml
-          - name: Blue/green deployments for applications
-            href: spring-apps/guides/blue-green-spring.yml         
+          href: app-service-environment/architectures/ase-high-availability-deployment.yml             
       - name: Manage your APIs with Azure API Management (APIM)
         items:
         - name: Protect APIs with Application Gateway and APIM
@@ -82,7 +66,13 @@ items:
             items:
             - name: .NET
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
+            - name: Java
+              href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
 
+      - name: Disaster recovery for web apps
+        items:
+        - name: Multi-region App Service apps for disaster recovery
+          href: guides/multi-region-app-service/multi-region-app-service.yml
     - name: Hosting Wordpress on Azure
       items:
       - name: Overview
