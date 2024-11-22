@@ -82,7 +82,6 @@ For information about solutions in which Azure services integrate with the other
 |[Enable VM protection in Azure Site Recovery](/azure-stack/operator/protect-virtual-machines)|Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SharePoint workloads.| Hybrid|
 |[Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml) |Deploy a highly available SharePoint farm for intranet capabilities that uses Microsoft Entra ID, a SQL Server Always On instance, and SharePoint resources.|Web|
 |[Multitier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) |Learn how to create a resilient multitier web application that's built for high availability and disaster recovery on Azure. Applies to applications like SharePoint.|Networking|
-|[On-premises data gateway for Logic Apps](../hybrid/gateway-logic-apps.yml) |Review a reference architecture that illustrates a logic app that runs in Azure and connects to on-premises resources like SharePoint Server.|Hybrid|
 
 ## SQL Server
 
@@ -95,7 +94,6 @@ For information about solutions in which Azure services integrate with the other
 |[Loan credit risk and default modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml) |Learn how SQL Server 2016 with R Services can help lenders issue fewer unprofitable loans by predicting borrower credit risk and default probability.|Databases|
 |[Mainframe access to Azure databases](../solution-ideas/articles/mainframe-access-azure-databases.yml) |Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.|Mainframe|
 |[Micro Focus Enterprise Server on Azure VMs](../example-scenario/mainframe/micro-focus-server.yml)|Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs. This solution uses a SQL Server IaaS database in an Always On cluster.| Mainframe|
-|[On-premises data gateway for Logic Apps](../hybrid/gateway-logic-apps.yml)|Review a reference architecture that illustrates a logic app that runs in Azure and connects to on-premises resources like SQL Server.| Hybrid|
 |[Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml) |Learn how to use Azure Arc for the management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.|Databases|
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for Windows Server Update Services (WSUS). SQL Server is the recommended database for servers that support a high number of client computers.|Management|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. |Databases|

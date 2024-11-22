@@ -147,9 +147,8 @@ Principal authors:
 - [Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions][Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions]
 - [Automate workflows for a SQL database by using Azure Logic Apps][Automate workflows for a SQL database by using Azure Logic Apps]
 - [On-premises data gateway documentation][On-premises data gateways documentation]
-- Similar architectures:
+- Similar architecture:
 
-  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Apps that connects to an on-premises SQL Server instance.
   - [Enterprise integration using queues and events][Enterprise integration using queues and events]: Logic apps that respond to API calls by integrating backend systems.
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
@@ -187,7 +186,6 @@ Principal authors:
 [Monthly cost profile - standard]: https://azure.com/e/afa93fbed30749cab64db4d2779837ee
 [On-premises data gateway]: /data-integration/gateway/service-gateway-onprem
 [On-premises data gateways documentation]: /data-integration/gateway/
-[On-premises data gateway for Azure Logic Apps]: ../../hybrid/gateway-logic-apps.yml
 [Restrict access by IP address range]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#restrict-access-by-ip-address-range
 [Restrict inbound IP addresses]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses
 [Secure data in run history by using obfuscation]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#secure-data-in-run-history-by-using-obfuscation

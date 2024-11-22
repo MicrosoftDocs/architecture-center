@@ -946,7 +946,7 @@ For more information, see the following resources:
 [Apache ZooKeeper general information]: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
 [Application Gateway health monitoring overview]: /azure/application-gateway/application-gateway-probe-overview
-[Availability Zones]: /azure/availability-zones/az-overview#availability-zones
+[Availability Zones]: /azure/reliability/availability-zones-overview
 [Microsoft Entra ID]: https://azure.microsoft.com/services/active-directory
 [Azure Application Gateway documentation]: /azure/application-gateway
 [Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
