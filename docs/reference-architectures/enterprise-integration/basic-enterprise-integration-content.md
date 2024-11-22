@@ -259,5 +259,4 @@ You might also be interested in these articles from the Azure Architecture Cente
 [logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app#access-to-parameter-inputs
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
-[rbac]: /azure/role-based-access-control/overview
-	
+[rbac]: /azure/role-based-access-control/overview	
