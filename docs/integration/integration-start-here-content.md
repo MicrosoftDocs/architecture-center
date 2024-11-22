@@ -50,7 +50,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Microservice architectures
 
 - [Transactional Outbox pattern with Azure Cosmos DB][Transactional Outbox pattern with Azure Cosmos DB]: Implement the Transactional Outbox pattern for reliable messaging between services.
-- [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: Connect Spring microservices that are written in Java to on-premises data.
 - [Identify microservice boundaries][Identify microservice boundaries]: Derive microservices from a domain model when designing your application.
 - [Design interservice communication for microservices][Designing interservice communication for microservices]: Use service meshes to make communication between microservices efficient and robust.
 
@@ -205,7 +204,6 @@ The following resources provide practical recommendations and information for sp
 [Messaging services on Azure and AWS]: ../aws-professional/messaging.md
 [Migrate a web app using Azure APIM]: ../example-scenario/apps/apim-api-scenario.yml
 [Monitor Azure Functions and Event Hubs]: ../serverless/event-hubs-functions/observability.yml
-[On-premises data gateway for Azure Logic Apps]: ../hybrid/gateway-logic-apps.yml
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
