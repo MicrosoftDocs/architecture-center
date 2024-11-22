@@ -8,19 +8,19 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ### Workflow
 
-1. **Backend systems**. The right-hand side of the diagram shows the various backend systems that the enterprise relies on. These systems might include SaaS systems, other Azure services, or web services that expose REST or SOAP endpoints.
+1. **Application**. The application is a client that calls the API gateway after authenticating with Microsoft Entra. The application can be a web app, mobile app, or any other client that can make HTTP requests.
 
-1. **Azure Logic Apps**. In this architecture, HTTP requests trigger logic apps. You can also nest workflows for more complex orchestration. Logic Apps use [connectors][logic-apps-connectors] to integrate with commonly used services. Logic Apps offers hundreds of connectors, and you can create custom connectors.
+1. **Microsoft Entra ID**. Is used to authenticate the client application. The client application obtains an access token from Microsoft Entra ID and includes it in the request to the API gateway.
 
 1. **Azure API Management**. API Management consists of two related components:
 
-  - **API gateway**. The API gateway accepts HTTP calls and routes them to the backend.
+  - **API gateway**. The API gateway accepts HTTP call from the client application, validates the token from Microsoft Entra ID, and forwards the request to the backend service. The API gateway can also transform requests and responses, and cache responses.
 
-  - **Developer portal**. Each instance of Azure API Management provides access to a [developer portal][apim-dev-portal]. This portal gives your developers access to documentation and code samples for calling the APIs. You can also test APIs in the developer portal.
+  - **Developer portal**. The [developer portal][apim-dev-portal] is used by developers to discover and interact with the APIs. The developer portal can be customized to match your organization's branding.
 
-1. **Azure DNS**. Azure DNS provides name resolution by using the Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing that you use for your other Azure services. To use a custom domain name, such as contoso.com, create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in API Management][apim-domain].
+1. **Azure Logic Apps**.  Logic Apps are used to orchestrate the calls to the backend services.  Logic Apps can be triggered by a variety of events and can call a variety of services.  In this solution, Logic Apps is used to call the backend services and provide easy connectivity through [connectors][logic-apps-connectors] reducing the need for custom code.
 
-1. **Microsoft Entra ID**. Use [Microsoft Entra ID][aad] to authenticate clients that call the API gateway. Microsoft Entra ID supports the OpenID Connect (OIDC) protocol. Clients obtain an access token from Microsoft Entra ID, and API Gateway [validates the token][apim-jwt] to authorize the request. If you use the Standard or Premium tier of API Management, Microsoft Entra ID can also help secure access to the developer portal.
+1. **Backend services**. The backend services can be any service or line of business application, such as a database, a web service, or a SaaS application. The backend services can be hosted in Azure or on-premises.
 
 ### Components
 
