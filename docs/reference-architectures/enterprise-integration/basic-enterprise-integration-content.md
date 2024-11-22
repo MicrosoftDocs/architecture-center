@@ -217,6 +217,7 @@ For greater reliability and scalability, use message queues and events to decoup
 
 > [!div class="nextstepaction"]
 > [Enterprise integration using message queues and events](../../example-scenario/integration/queues-events.yml)
+
 You might also be interested in these articles from the Azure Architecture Center:
 
 - [Azure API Management landing zone accelerator](../../example-scenario/integration/app-gateway-internal-api-management-function.yml)
