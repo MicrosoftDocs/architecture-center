@@ -139,7 +139,7 @@ This scenario relies on the availability of the Event Hubs and Azure Data Explor
 
 If there's an Event Hubs outage, you could lose data. To avoid data loss, choose the right Event Hubs tier for your needs. As a backup mechanism, you could insert collected log data into blob storage and ingest the blob storage data to a Kusto cluster. For more information, see [Ingest multi-lined JSON records](/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language#ingest-multi-lined-json-records).
 
-[Azure availability zones](/azure/availability-zones/az-overview#availability-zones) are unique physical locations within an Azure region that can help protect Azure Data Explorer compute clusters and data from partial region failure.
+[Azure availability zones](/azure/reliability/availability-zones-overview) are unique physical locations within an Azure region that can help protect Azure Data Explorer compute clusters and data from partial region failure.
 
 ### Security
 
