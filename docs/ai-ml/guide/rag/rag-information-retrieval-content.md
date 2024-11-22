@@ -126,17 +126,17 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 
 ### Query translation
 
-Query translation is an optional step in the information retrieval phase of a RAG solution. In the translation step, a query is transformed or translated into a form that is optimized to retrieve better results. There are many forms of query translation including the four we detail in this article: augmentation, decomposition, rewriting, and Hypothetical Document Embeddings (HyDE).
+Query translation is an optional step in the information retrieval phase of a RAG solution. In the translation step, a query is transformed or translated into a form that is optimized to retrieve better results. There are many forms of query translation including the four addressed in this article: augmentation, decomposition, rewriting, and Hypothetical Document Embeddings (HyDE).
 
 #### Query augmentation
 
-Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: `Compare the earnings of Microsoft`. That query is vague. You did not mention time frames, or time units to compare and only specified earnings. Now consider an augmented version of the query: `Compare the earnings and revenue of Microsoft current year vs last year by quarter`. The new query is clear and specific.
+Query augmentation is a translation step where the goal is to make the query simpler, more usable, and to enhance the context. You should consider augmentation if your query is too small or vague. For example, consider the query: "Compare the earnings of Microsoft." That query is vague. You did not mention time frames, or time units to compare and only specified earnings. Now consider an augmented version of the query: "Compare the earnings and revenue of Microsoft current year vs last year by quarter." The new query is clear and specific.
 
 When you're augmenting a query, you maintain the original query, but add more context. There's no harm in augmenting a query as long as you don't remove or alter the original query and you don't change the nature of the query.
 
-You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there's information in your language model that can be useful in augmenting the query. For example, if you're using a large language model like one of the GPT models, you can determine if there's information readily available on the internet about the query. If so, you can use the language model to augment the query. Otherwise, you shouldn't augment the query.
+You can use a language model to augment your query. Not all queries can be augmented, however. If you have a context, you can pass it along to your language model to augment the query. If you don't have a context, you have to determine if there's information in your language model that can be useful in augmenting the query. For example, if you're using a large language model like one of the GPT models, you can determine if there's information readily available on the internet about the query. If so, you can use the model to augment the query. Otherwise, you shouldn't augment the query.
 
-You can use a language model to augment a query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that is used for query augmentation.
+The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that shows a language model being used to augment a query.
 
 ```text
 Input Processing:
@@ -192,11 +192,11 @@ Notice there are examples for when context is and isn't present.
 
 #### Decomposition
 
-Some queries are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to internal combustion engine (ICE) vehicles?" likely requires grounding data from multiple sources. One source might describe how electric cars work, where another compares them to ICE vehicles.
+Some queries are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely requires grounding data from multiple sources. One source might describe how electric cars work, where another compares them to internal combustion engine (ICE) vehicles.
 
 Decomposition is the process of breaking down a complex query into multiple smaller and simpler subqueries. You run each of the decomposed queries independently and aggregate the top results of all the decomposed queries as an accumulated context. You then run the original query, passing the accumulated context to the language model.
 
-It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
+It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a language model to determine whether multiple subqueries are recommended. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompt/prompt.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
@@ -222,7 +222,7 @@ Example output:
 }
 ```
 
-A language model can also be used to decompose a complex query. The following prompt is taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that decomposes a complex query.
+A language model can also be used to decompose a complex query. The following prompt is taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/) that decomposes a complex query.
 
 ```text
 Analyze the following query:
@@ -232,10 +232,10 @@ For each query, follow these specific instructions:
 - Identify the main elements of the sentence: typically a subject, an action or relationship, and an object or complement. Determine which element is being asked about or emphasized (usually the unknown or focus of the question). Invert the sentence structure: Make the original object or complement the new subject. Transform the original subject into a descriptor or qualifier. Adjust the verb or relationship to fit the new structure.
 - Break the query down into a set sub-queries with clear, complete, fully qualified, concise and self-contained propositions.
 - Include an addition sub-query using one more rule: Identify the main subject and object. Swap their positions in the sentence. Adjust the wording to make the new sentence grammatically correct and meaningful. Ensure the new sentence asks about the original subject.
-- Express each idea or fact as a standalone statement that can be understood with help of given context
+- Express each idea or fact as a standalone statement that can be understood with help of given context.
 - Break down the query into ordered sub-questions, from least to most dependent.
 - The most independent sub-question does not requires or dependend on the answer to any other sub-question or prior knowledge.
-- Try having a complete sub-question having all information only from base query. There is no additional context or information available
+- Try having a complete sub-question having all information only from base query. There is no additional context or information available.
 - Separate complex ideas into multiple simpler propositions when appropriate.
 - Decontextualize each proposition by adding necessary modifiers to nouns or entire sentences. Replace pronouns (e.g., "it", "he", "she", "they", "this", "that") with the full name of the entities they refer to.
 - if you still need more question, the sub-question is not relevant and should be removed.
@@ -283,7 +283,7 @@ An input query may not be in the optimal form to retrieve grounding data. Using 
 - Unneeded words
 - Unclear semantically
 
-The following prompt, taken from an upcoming release of the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/), addresses the listed challenges by using a language model to rewrite the query.
+The following prompt, taken from the [RAG Experiment Accelerator GitHub repository](https://github.com/microsoft/rag-experiment-accelerator/), addresses the listed challenges by using a language model to rewrite the query.
 
 ```text
 Rewrite the given query to optimize it for both keyword-based and semantic similarity search methods. Follow these guidelines:
@@ -325,8 +325,8 @@ The diagram is numbered for notable steps in this pipeline:
 
     1. The optional query rewriter rewrites the decomposed query.
     1. The rewritten query, if it was rewritten, or the original query is executed against the search index. The query can be executed using any of the search types: vector, full text, hybrid, or manual multiple. It can also be executed using advanced query capabilities such as HyDE.
-    1. The results are reranked. The top N reranked results are added to the accumulated context.
-1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there's only one query run and the top N results are returned to the caller.
+    1. The results are reranked. The top *N* reranked results are added to the accumulated context.
+1. The original query, along with the accumulated context, are run through the same three substeps as each decomposed query was. The only difference is that there's only one query run and the top *N* results are returned to the caller.
 
 ### Passing images in queries
 
@@ -341,7 +341,7 @@ Fields in the search store that are configured as filterable can be used to filt
 Some search platforms, such as Azure AI Search, support the ability to influence the ranking of results based on criteria, including weighting fields. 
 
 > [!NOTE]
-> This section discusses the weighting capabilities in Azure AI Search. If you're using a different platform, research the weighting capabilities of that platform.
+> This section discusses the weighting capabilities in Azure AI Search. If you're using a different data platform, research the weighting capabilities of that platform.
 
 Azure AI Search supports scoring profiles that contain [parameters for weighted fields and functions for numeric data](/azure/search/index-add-scoring-profiles#key-points-about-scoring-profiles). Currently, scoring profiles only apply to nonvector fields, while support for vector and hybrid search is in preview. You can create multiple scoring profiles on an index and optionally choose to use one on a per-query basis.
 

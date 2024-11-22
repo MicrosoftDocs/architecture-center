@@ -1,6 +1,6 @@
 By the time you reach this phase, you have already generated your search index and determined what searches you want to perform. This phase addresses the process of evaluating of your Retrieval-Augmented Generation (RAG) solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the language model. Before you reach this phase, you should complete the preparation phase where you collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. You should evaluate each of these phases and be happy with the results. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
 
-This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers *some* common language model evaluation metrics, and some specific similarity and evaluation metrics that can be used in the language model evaluation calculations or as stand alone metrics.
+This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers *some* common language model evaluation metrics, and some specific similarity and evaluation metrics that can be used in model evaluation calculations or as stand alone metrics.
 
 This article doesn't attempt to provide an exhaustive list of either language model metrics or similarity and evaluation metrics. The number of these metrics are growing every day. What is important for you to take away from this article is that there are various metrics, each with their own distinct use case. You're the only one with a holistic understand your workload. You and your data scientists must determine what it is that you want to measure and which metrics help you accomplish that task.
 
@@ -12,7 +12,7 @@ There are several metrics you can use to evaluate the language model's response,
 
 > [!IMPORTANT]
 > 
-language model responses are non-deterministic, meaning the same prompt to a language model can and will often return different results. This is important to understand when using a language model as part of your evaluation process. Consider using a target range over a single target when evaluating using a language model.
+Language model responses are non-deterministic, meaning the same prompt to a language model can and will often return different results. This is important to understand when using a language model as part of your evaluation process. Consider using a target range over a single target when evaluating using a language model.
 
 ### Groundedness
 
