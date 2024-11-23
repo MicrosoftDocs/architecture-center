@@ -62,7 +62,7 @@ IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise a
 - **Safety**. Collect and analyze data from sensors, provide contextual data, and derive meaningful analytics.
 - **Civil**. Integrate inspection, defect tracking, and maintenance activities to help improve asset life, keep critical systems operating, and lower total costs of ownership of civil infrastructure.
 
-These applications and MAS 8.*x* and up are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* and up on Azure for customers who have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview).
+These applications and MAS 8.*x* and up are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* and up on Azure for customers who have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (bring your own license (BYOL))](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview). This guide details how to install Maximo manually.
 
 ### Potential use cases
 
@@ -298,7 +298,7 @@ For a step-by-step guide for installing OpenShift and MAS on Azure, including ho
 
 It's best to deploy workloads by using infrastructure as code (IaC) rather than manually deploying workloads, because manual deployment can result in misconfiguration. Container-based workloads can be sensitive to misconfiguration, which can reduce productivity.
 
-Before building your environment, review the [quickstart guide](https://github.com/azure/maximo#getting-started) to develop an understanding of the design parameters. The quickstart guide isn't intended for a production-ready deployment, but you can use the guide's assets to get to a production-grade mechanism for deployment.
+Before building your environment, review the [planning for Azure documentation provided by IBM](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=planning-install-microsoft-azure) to develop an understanding of the design parameters. The quickstart guide isn't intended for a production-ready deployment, but you can use the guide's assets to get to a production-grade mechanism for deployment.
 
 IBM offers specialist services to help you with installation. Contact your IBM team for support.
 
