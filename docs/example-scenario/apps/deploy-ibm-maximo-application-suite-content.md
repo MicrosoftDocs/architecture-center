@@ -80,9 +80,9 @@ Find more information about use cases for MAS on IBM's website at [IBM Maximo Ap
 
 We recommend installing the latest stable version of MAS because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary with the specific version of MAS.
 
-Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend using the quickstart guide to deploy MAS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo).
+Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend to thoroughly read through the [installing on Azure ](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=templates-installing) and [planning for Azure](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=planning-install-microsoft-azure) documentation so that you understand how the deployment and configuration works. Knowing the installation details speeds up the creation of the design requirements for your implementation. 
 
-We work closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). Contact your IBM account team for support beyond this documentation.
+We work closely with IBM and other partners to ensure that the documentation, architecture and guidance you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). Contact your IBM account team for support beyond this documentation.
 
 Before you proceed with your deployment, you need to answer the following questions about design:
 
