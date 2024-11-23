@@ -1,4 +1,4 @@
-IBM Maximo Application Suite (MAS) 8.*x* and up runs on OpenShift, and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for installation on Azure. For more information, see [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on how to install MAS. To learn more about the installation process, see [Installing Maximo Application Suite](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploying-applications).
+IBM Maximo Application Suite (MAS) 8.*x* and up runs on OpenShift, and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for installation on Azure. For more information, see [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.16/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on how to install MAS. To learn more about the installation process, see [Installing Maximo Application Suite](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploying-applications).
 
 ## Architecture
 
@@ -23,7 +23,7 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) to host the OpenShift platform and run the Maximo containers. Virtual Machines is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources.
 
-- [Red Hat Enterprise Linux CoreOS](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html) to provide a custom VM image for OpenShift.
+- [Red Hat Enterprise Linux CoreOS](https://docs.openshift.com/container-platform/4.16/architecture/architecture-rhcos.html) to provide a custom VM image for OpenShift.
 
 - [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) to provide connectivity into the cluster. Azure Load Balancer is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
@@ -132,7 +132,7 @@ Before you install OpenShift, you need to determine which method you'll be using
 We recommend using IPI whenever possible, because it significantly reduces the amount of work that's required to complete installation of OpenShift.
 
 > [!NOTE]
-> After you install OpenShift, the owner of the control plane is responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size by using machine sets in the admin console, not through the Azure portal. For more information, see [Creating a machine set on Azure](https://docs.openshift.com/container-platform/4.6/machine_management/creating_machinesets/creating-machineset-azure.html).
+> After you install OpenShift, the owner of the control plane is responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size by using machine sets in the admin console, not through the Azure portal. For more information, see [Creating a machine set on Azure](https://docs.openshift.com/container-platform/4.16/machine_management/creating_machinesets/creating-machineset-azure.html).
 
 When installing OpenShift, you must resolve the following considerations:
 
@@ -152,8 +152,8 @@ In some cases, such as for regulatory compliance, you might require an air-gappe
 We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
 
 For more information about air-gapped installations, see the following OpenShift documentation:
-- [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.11/installing/disconnected_install/installing-mirroring-installation-images.html)
-- [Installing a private cluster on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-private.html)
+- [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.16/installing/disconnected_install/installing-mirroring-installation-images.html)
+- [Installing a private cluster on Azure](https://docs.openshift.com/container-platform/4.16/installing/installing_azure/installing-azure-private.html)
 
 After you've installed OpenShift, see the MAS documentation for similar guidance.
 
@@ -182,7 +182,7 @@ If you need a jump box to use the OpenShift command-line interface (oc) or to in
 
 ### Network
 
-With OpenShift, we use the default container network interface (CNI) provider of OpenShift's software-defined networking (SDN). For more information about the default OpenShift CNI, see [Cluster Network Operator in OpenShift Container Platform](https://docs.openshift.com/container-platform/4.8/networking/cluster-network-operator.html). You must size your network for the number of OpenShift control and worker nodes that you need, and also for any other requirements, such as databases and storage accounts.
+With OpenShift, we use the default container network interface (CNI) provider of OpenShift's software-defined networking (SDN). For more information about the default OpenShift CNI, see [Understanding Networking in OpenShift Container Platform](https://docs.openshift.com/container-platform/4.16/networking/understanding-networking.html). You must size your network for the number of OpenShift control and worker nodes that you need, and also for any other requirements, such as databases and storage accounts.
 
 For a standard MAS production installation, we recommend a virtual network with the address space that a classless inter-domain routing (CIDR) prefix of /24 provides. The virtual network has three or four subnets (for Azure Bastion). For OpenShift, the subnet for the worker nodes has a CIDR prefix of /25, and the control nodes have a prefix of /27. A subnet for endpoints and an optional external database server should have a prefix of /27. If you're deploying Azure Bastion, which is optional, you need a subnet named *AzureBastionSubnet* with a prefix of /26. For more information about the requirements for Azure Bastion, see [Architecture](/azure/bastion/bastion-overview#architecture).
 
@@ -243,7 +243,7 @@ MAS currently supports single sign-on (SSO) with Security Assertion Markup Langu
 
 Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
 
-You should also configure Open Authorization (OAuth) for OpenShift. For more information, see [Overview of authentication and authorization](https://docs.openshift.com/container-platform/4.8/authentication/index.html) in the OpenShift documentation.
+You should also configure Open Authorization (OAuth) for OpenShift. For more information, see [Overview of authentication and authorization](https://docs.openshift.com/container-platform/4.16/authentication/index.html) in the OpenShift documentation.
 
 #### Protect your infrastructure
 
@@ -321,7 +321,7 @@ Other contributor:
 
 For help with getting started, see the following resources:
 
-- [Installing OpenShift on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html)
+- [Installing OpenShift on Azure](https://docs.openshift.com/container-platform/4.16/installing/installing_azure/preparing-to-install-on-azure.html)
 - [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo)
 - [OpenShift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
 - [Requirements for Maximo](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements)
