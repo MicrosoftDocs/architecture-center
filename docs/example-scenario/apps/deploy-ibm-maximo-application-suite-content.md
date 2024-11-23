@@ -96,7 +96,7 @@ Before you proceed with your deployment, you need to answer the following questi
 
 ### Maximo Application Suite
 
-Microsoft has tested MAS versions 8.5 and later on Azure. Our recommendation is to use the latest version of MAS, which is version 8.7.
+Microsoft has tested MAS versions 8.7 and later on Azure. Our recommendation is to use the latest version of MAS, which currently is version 9.0. If you are on earlier versions of Maximo Application Suite, it is recommended to upgrade to benefit from better integration with Azure. 
 
 Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
