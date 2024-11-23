@@ -1,4 +1,4 @@
-IBM Maximo Application Suite (MAS) 8.*x* and up runs on OpenShift, and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for installation on Azure. For more information, see [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on how to install MAS. To learn more about the installation process, see [Installing Maximo Application Suite from OperatorHub](https://www.ibm.com/docs/en/mas87/8.7.0?topic=installing-maximo-application-suite-from-operatorhub).
+IBM Maximo Application Suite (MAS) 8.*x* and up runs on OpenShift, and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for installation on Azure. For more information, see [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on how to install MAS. To learn more about the installation process, see [Installing Maximo Application Suite](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploying-applications).
 
 ## Architecture
 
@@ -98,10 +98,10 @@ Before you proceed with your deployment, you need to answer the following questi
 
 Microsoft has tested MAS versions 8.7 and later on Azure. Our recommendation is to use the latest version of MAS, which currently is version 9.0. If you are on earlier versions of Maximo Application Suite, it is recommended to upgrade to benefit from better integration with Azure. 
 
-Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
+Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/) version 2019 using Windows or Linux
-- IBM [Db2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
+- IBM [Db2 Warehouse on Cloud Pak for Data 5](https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x?topic=services-db2-warehouse)
 
 You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database, Azure SQL Managed Instance, and Azure Cosmos DB aren't supported.
 
@@ -277,7 +277,7 @@ Because human error is common, you should deploy MAS by using as much automation
 
 ## Deploy this scenario
 
-Before you start, we recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/ibm-maximo-application-suite-system-requirements). Be sure that you have the following resources available before starting the deployment:
+Before you start, we recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-system-requirements). Be sure that you have the following resources available before starting the deployment:
 
 - Access to an Azure Subscription with *Reader* permission
 - Application Registration or service principal name that has *Contributor* and *User Access Administrator* permissions to the subscription
@@ -324,7 +324,7 @@ For help with getting started, see the following resources:
 - [Installing OpenShift on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html)
 - [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo)
 - [OpenShift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
-- [Requirements for Maximo](https://www.ibm.com/support/pages/node/6538166)
+- [Requirements for Maximo](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements)
 - [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview)
 
 To learn more about the featured technologies, see the following resources:
