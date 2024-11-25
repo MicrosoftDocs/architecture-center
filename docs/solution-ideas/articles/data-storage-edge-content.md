@@ -68,7 +68,3 @@ For more information, see the following articles:
 ## Related resources
 
 The related resources provide further information on edge solutions, including information on relevant Azure components, and on specific architectures.
-
-### Architecture
-
-- [IoT using Azure Cosmos DB](iot-using-cosmos-db.yml)
