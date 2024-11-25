@@ -15,10 +15,10 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel infrastructur
    - The Azure Git repository stores the scripts and the permits to manage Microsoft Sentinel artifacts in the infrastructure as code.
    - Artifacts and source control maintain the extensions and update packages or components of the DevSecOps workflow that are used in the solution, such as Azure Resource Manager template Toolkit and PowerShell Pester.
 2. Microsoft Sentinel artifacts:
-   - Policies. security information and event management (SIEM) engineers use Azure policies in the reference architecture, to configure and scale the diagnostic settings of the Azure services. The policies help automate deployment of the Microsoft Sentinel data connectors, such as Azure Key Vault. The policies are dependent on the OMSIntegration API.
+   - Policies. Security information and event management (SIEM) engineers use Azure policies in the reference architecture, to configure and scale the diagnostic settings of the Azure services. The policies help automate deployment of the Microsoft Sentinel data connectors, such as Azure Key Vault. The policies are dependent on the OMSIntegration API.
    - Connectors. Microsoft Sentinel uses logical connectors, the Azure Data Connectors, to ingest security data, as in audits or metrics, from supported data sources, such as Microsoft Entra ID, Azure resources, Microsoft Defender for Cloud, or third-party solutions. The main list of data connectors is managed by the SecurityInsights API. Others rely on the OMSIntegration API and are managed with the Azure Policy diagnostic settings.
    - Managed identity. Microsoft Sentinel uses managed identity to act on behalf of the Managed service identity (MSI) while interacting with playbooks, logic apps, or automation runbooks and the key vault.
-   - Automation. security operations center (SOC) teams use automation during investigations. SOC teams run digital forensics data acquisition procedures with Azure Automation, such as Azure virtual machine (VM) chain of custody or eDiscovery (Premium) for Microsoft Defender for Cloud.
+   - Automation. Security operations center (SOC) teams use automation during investigations. SOC teams run digital forensics data acquisition procedures with Azure Automation, such as Azure virtual machine (VM) chain of custody or eDiscovery (Premium) for Microsoft Defender for Cloud.
    - Analytics. SOC analysts or threat hunters use built-in or custom analytics rules to analyze and correlate data in Microsoft Sentinel or to trigger playbooks if a threat and incident are identified.
    - Playbooks. Logic apps run the SecOps repeatable actions, such as assigning an incident, updating an incident, or taking remediation actions, like isolating or containing a VM, revoking a token, or resetting a user password.
    - Threat hunting. Threat hunters use proactive threat hunting capabilities that can be coupled with Jupyter notebooks for advanced use cases, such as data processing, data manipulation, data visualization, machine learning, or deep learning.
@@ -340,7 +340,7 @@ The objective of your build process is to ensure that you generate the highest q
   - Validate your ARM templates by using [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit).
   - Validate your YAML and JSON files for custom models by using PowerShell.
 * Validate your watchlist settings and be sure that the classless inter-domain routing (CIDR) records that you define follow the correct schema, for example, 10.1.0.0/16.
-* Use keyword query language (Kusto Query Language (KQL) (Keyword Query Language (Kusto Query Language (KQL))) (Keyword Query Language (Kusto Query Language (KQL))) (Keyword Query Language (Kusto Query Language (KQL))) (Keyword Query Language (Kusto Query Language (KQL))) (Keyword Query Language (Kusto Query Language (KQL))) (Keyword Query Language (Kusto Query Language (KQL))) (Keyword Query Language (Kusto Query Language (KQL)))) queries, which you can validate at the level of the syntax, for analytic rules, hunting rules, and live stream rules, which you can validate at the level of the syntax.
+* Use Kusto Query Language queries, which you can validate at the level of the syntax, for analytic rules, hunting rules, and live stream rules, which you can validate at the level of the syntax.
 * Make the [KQL local validation](https://github.com/Azure/Azure-Sentinel#run-kql-validation-locally) one option.
 * Integrate the [KQL inline validation](https://github.com/Azure/Azure-Sentinel/blob/master/.azure-pipelines/kqlValidations.yaml) tool in the DevOps pipeline.
 * If you're implementing logic that's based on PowerShell for Azure Automation, you can include syntax validation and unit testing by using the following elements:
@@ -393,8 +393,8 @@ Depending on the automation language you choose, some automation capabilities mi
 
 ![Diagram of the supported automation capabilities chart.](./media/supported-automation-capabilities.png)
 
-* Features in development that are not yet documented<br>
-** Automation methods that are supported by [Microsoft Operational Insights](/rest/api/loganalytics/workspaces) or [Microsoft Insights Resource Provider APIs](/azure/templates/microsoft.insights/workbooks?tabs=bicep)
+\* Features in development that are not yet documented<br>
+\** Automation methods that are supported by [Microsoft Operational Insights](/rest/api/loganalytics/workspaces) or [Microsoft Insights Resource Provider APIs](/azure/templates/microsoft.insights/workbooks?tabs=bicep)
 
 #### Azure Automation
 
