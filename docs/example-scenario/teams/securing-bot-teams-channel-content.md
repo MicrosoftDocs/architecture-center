@@ -368,8 +368,6 @@ Principal author:
 
 - Review the [Bot Framework SDK Documentation](/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0) to start building bots.
 
-- See [Bots Secured Behind a Firewall & Teams](https://blog.botframework.com/2020/11/23/bots-secured-behind-a-firewall-teams).
-
 ## Related resources
 
 - Visit the [Azure Architecture Center](../../browse/index.yml) to review related architectures and guides.
