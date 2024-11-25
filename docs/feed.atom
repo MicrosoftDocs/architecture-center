@@ -1425,7 +1425,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Modern data warehouses for small and midsize-sized businesses]]></title>
+        <title type="html"><![CDATA[Modern data warehouses for small and midsized businesses]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/small-medium-data-warehouse</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/small-medium-data-warehouse"/>
         <updated>2024-09-03T17:10:21.000Z</updated>
