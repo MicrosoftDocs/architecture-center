@@ -26,9 +26,7 @@ Organizations often have a variety of data sources simultaneously emitting messa
 
 # Streaming Data Characteristics
 
-- Imperfect Data Integrity
-
-  Temporary errors at the source may result in  missing data elements. Guaranteeing data consistency is challenging due to the continuous nature of the stream, so stream processing and analytics systems typically include logic for data validation to mitigate these errors.
+- *Imperfect Data Integrity* - Temporary errors at the source may result in missing data elements. Guaranteeing data consistency is challenging due to the continuous nature of the stream, so stream processing and analytics systems typically include logic for data validation to mitigate these errors.
 
 - Continuous data flow
   
