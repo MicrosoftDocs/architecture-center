@@ -138,7 +138,7 @@ These tools and platforms enable the development, training, and deployment of ma
 
 ## AI services
 
-AI services provide prebuilt, customizable AI capabilities to applications, including vision, speech, language, and decision making. (In Azure, these services were previously called Azure Cognitive Services. You might still see this name.)
+AI services provide prebuilt, customizable AI capabilities to applications, including vision, speech, language, and decision making. (In Azure, these services were previously called Azure AI services. You might still see this name.)
 
 | AWS service     | Azure service | Analysis   |
 |  -------  | ------  |--|

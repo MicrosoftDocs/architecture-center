@@ -70,7 +70,7 @@ For more information on how to view and edit the Microsoft Sentinel Threat Intel
 
 - Threat indicators provide useful context in other Microsoft Sentinel experiences like hunting and notebooks. For more information about using CTI in notebooks, see [Jupyter notebooks in Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239).
 - Any organization that has a custom TIP can use the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator?view=graph-rest-beta) to send threat indicators to other Microsoft security solutions like [Defender ATP](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp).
-- Microsoft Sentinel provides many other built-in data connectors to solutions like Microsoft Threat Protection, Microsoft 365 sources, and Microsoft Defender for Cloud Apps. There are also built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog, or REST API to connect your data sources with Microsoft Sentinel. For more information, see [Connect data sources](/azure/sentinel/connect-data-sources).
+- Microsoft Sentinel provides many other built-in data connectors to solutions like Microsoft Defender for Cloud Microsoft 365, Microsoft 365 sources, and Microsoft Defender for Cloud Apps. There are also built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog, or REST API to connect your data sources with Microsoft Sentinel. For more information, see [Connect data sources](/azure/sentinel/connect-data-sources).
 
 ## Scenario details
 
@@ -91,7 +91,7 @@ This form of threat intelligence is often called *tactical threat intelligence* 
 ## Considerations
 
 - The Microsoft Sentinel Threat Intelligence data connectors are currently in public preview. Certain features might not be supported or might have constrained capabilities.
-- Microsoft Sentinel uses *Azure role-based access control (Azure RBAC)* to assign the built-in roles Contributor, Reader, and Responder to users, groups, and Azure services. These roles can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom roles and use advanced Azure RBAC on the data you store in Microsoft Sentinel. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
+- Microsoft Sentinel uses *Azure role-based access control (RBAC) (Azure RBAC)* to assign the built-in roles Contributor, Reader, and Responder to users, groups, and Azure services. These roles can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom roles and use advanced Azure RBAC on the data you store in Microsoft Sentinel. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
 - Microsoft Sentinel is free for the first 31 days on any Azure Monitor Log Analytics workspace. Afterward, you can use pay-as-you-go or Capacity Reservations models for the data you ingest and store. For more information, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
 ## Deploy this scenario
@@ -226,7 +226,7 @@ To add a new chart that shows threat indicators by threat type:
    | summarize count() by ThreatType
    ```
 
-1. Select **Bar chart** in the **Visualization** dropdown and select **Done editing**.
+1. Select **Bar chart** in the **Visualization** dropdown list and select **Done editing**.
 1. At the top of the page, select **Done editing**. Select the **Save** icon to save your new chart and workbook.
 
    ![Screenshot that shows a new workbook chart.](media/sentinel-threat-intelligence/workbook-chart.png)
