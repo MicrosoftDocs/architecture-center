@@ -26,4 +26,4 @@ products:
   - azure-cache-redis
 thumbnailUrl: /azure/architecture/browse/thumbs/open-source-data-engine-stream-processing-architecture-thumbnail.png
 content: |
-   [!include[](open-source-data-engine-stream-processing-content.md)]
+   [!INCLUDE[](open-source-data-engine-stream-processing-content.md)]
