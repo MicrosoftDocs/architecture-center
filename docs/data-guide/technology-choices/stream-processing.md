@@ -28,9 +28,7 @@ Organizations often have a variety of data sources simultaneously emitting messa
 
 - *Imperfect Data Integrity* - Temporary errors at the source may result in missing data elements. Guaranteeing data consistency is challenging due to the continuous nature of the stream, so stream processing and analytics systems typically include logic for data validation to mitigate these errors.
 
-- Continuous data flow
-  
-  A data stream has no beginning or end, collecting data constantly is required. For example, server activity logs accumulate as long as the server runs
+- *Continuous data flow* - A data stream has no beginning or end, collecting data constantly is required. For example, server activity logs accumulate as long as the server runs.
 
 - Nonhomogeneous Data Formats
   
