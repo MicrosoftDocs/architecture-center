@@ -22,7 +22,7 @@ This article compares technology choices for real-time stream processing in Azur
 
 # What is streaming data
 
-Organizations often have variety of data sources simultaneously emitting messages, records, or data ranging from a few bytes to several megabytes (MB). Streaming data is emitted at high volume in a continuous, incremental manner with the goal of low-latency processing. This type of data includes changes coming from applications, locations, events, and sensor information that companies use for real-time analytics and visibility into various aspects of their business.
+Organizations often have a variety of data sources simultaneously emitting messages, records, or data ranging from a few bytes to several megabytes (MB). Streaming data is emitted at high volume in a continuous, incremental manner that can be processed in near real-time. This type of data includes changes coming from applications, locations, events, and sensor information that companies use for real-time analytics and visibility into various aspects of their business.
 
 # Streaming Data Characteristics
 
