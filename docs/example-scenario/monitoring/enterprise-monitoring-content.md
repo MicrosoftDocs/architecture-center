@@ -128,7 +128,7 @@ The following considerations apply to this solution.
 
 ### Availability
 
-[Azure availability zones](/azure/availability-zones/az-overview) protect applications and data from datacenter failures by relying on the availability of other zones in the region. Availability zones help provide resilience for Monitor features like Application Insights that rely on a Log Analytics workspace. Workspaces linked to availability zones remain active and operational even if a specific datacenter isn't available.
+[Azure availability zones](/azure/reliability/availability-zones-overview) protect applications and data from datacenter failures by relying on the availability of other zones in the region. Availability zones help provide resilience for Monitor features like Application Insights that rely on a Log Analytics workspace. Workspaces linked to availability zones remain active and operational even if a specific datacenter isn't available.
 
 See [Regions and Availability Zones in Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for the Azure regions that support availability zones. Monitor currently supports availability zones in regions East US 2 and West US 2.
 

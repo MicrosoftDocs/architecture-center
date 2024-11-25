@@ -44,7 +44,7 @@ Determine your [VM size][vm-windows-sizes] requirements based on the expected vo
 
 Create a separate virtual data disk for storing the database, logs, and sysvol folder for Active Directory. Don't store these items on the same disk as the operating system. By default, data disks are attached to a VM using write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
 
-Deploy at least two VMs running AD DS as domain controllers and add them to different [availability zones](/azure/availability-zones/az-overview). If not available in the region, deploy in an [availability set][availability-set].
+Deploy at least two VMs running AD DS as domain controllers and add them to different [availability zones](/azure/reliability/availability-zones-overview). If not available in the region, deploy in an [availability set][availability-set].
 
 ### Networking recommendations
 
@@ -86,7 +86,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet your commitments to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Deploy the VMs running AD DS into at least two [availability zones](/azure/availability-zones/az-overview). If availability zones aren't available in the region, use [availability sets][availability-set]. Also, consider assigning the role of [standby operations master][ad-ds-operations-masters] to at least one server, and possibly more, depending on your requirements. A standby operations master is an active copy of the operations master that can replace the primary operations master's server during failover.
+Deploy the VMs running AD DS into at least two [availability zones](/azure/reliability/availability-zones-overview). If availability zones aren't available in the region, use [availability sets][availability-set]. Also, consider assigning the role of [standby operations master][ad-ds-operations-masters] to at least one server, and possibly more, depending on your requirements. A standby operations master is an active copy of the operations master that can replace the primary operations master's server during failover.
 
 ### Security 
 

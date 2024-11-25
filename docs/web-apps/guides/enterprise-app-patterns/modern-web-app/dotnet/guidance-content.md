@@ -118,7 +118,7 @@ Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/q
 
 - *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that can't be processed successfully. If failures persist, these messages should be removed from the queue. For example, Service Bus has built-in retry and dead-letter queue features.
 
-- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases where a message might be processed more than once. For example, the reference implementation uses `ServiceBusClient.CreateProcessor` with `AutoCompleteMessages = true` and `ReceiveMode = ServiceBusReceiveMode.PeekLock` to ensure that messages are only processed once and can be reprocessed on failure. The following code illustrates this logic.
+- *Configure idempotent message processing.* The logic that processes messages from the queue must be [idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing) to handle cases where a message might be processed more than once. For example, the reference implementation uses `ServiceBusClient.CreateProcessor` with `AutoCompleteMessages = true` and `ReceiveMode = ServiceBusReceiveMode.PeekLock` to ensure that messages are only processed once and can be reprocessed on failure. The following code illustrates this logic. 
   
     ```csharp
     // Create a processor for idempotent message processing.

@@ -21,7 +21,7 @@ This article describes how to create a data store to search and filter medical d
 
 ### Components
 
-- [Data Factory](https://azure.microsoft.com/products/data-factory) is a cloud-based platform for workloads that use the extract, transform, and load (ETL) process and store large amounts of data in data stores.
+- [Data Factory](https://azure.microsoft.com/products/data-factory) is a cloud-based platform for workloads that use the extract, transform, load (ETL) process and store large amounts of data in data stores.
 - [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer) is a managed-data analytics service that performs real-time analysis of large volumes of data. In this scenario, Azure Data Explorer stores and queries large datasets that require a high data retrieval speed and a large index set.
 - [Azure Files](https://azure.microsoft.com/products/storage/files) provides fully managed file shares in the cloud. In this scenario, medical image files that are to be ingested go in the file share.
 - An [Azure Automation runbook](/azure/automation/overview) handles large volumes of files, up to 30 terabytes (TB). In this scenario, use `AzCopy` with an Azure Automation runbook for better performance.
@@ -32,7 +32,7 @@ This article describes how to create a data store to search and filter medical d
 
 To store data, you can use [Azure SQL](https://azure.microsoft.com/products/azure-sql) instead of Azure Data Explorer. In this scenario, you use Azure Data Explorer to store data, which is selected based on the data size, large index set, and the performance needs of this scenario. For a smaller dataset, you can store DICOM metadata and clinical data in Azure SQL tables.
 
-In this scenario, an automation hybrid runbook worker runs `AzCopy` on a virtual machine that's optimized for the copy task. For smaller datasets, you can use an `AzCopy` activity.
+In this scenario, an automation Hybrid Runbook Worker runs `AzCopy` on a virtual machine that's optimized for the copy task. For smaller datasets, you can use an `AzCopy` activity.
 
 ## Scenario details
 
@@ -50,11 +50,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can recover from failures and continue to function as designed. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-In Data Factory, avoid data loss by [storing and replicating your data](/azure/data-factory/concepts-data-redundancy) in paired regions. This method is called zone redundancy. You can’t use zone redundancy in some regions due to data residency requirements. Zone redundancy with availability zones incurs extra costs. If a deployment doesn’t have zone redundancy, data isn’t protected. For example, an Azure datacenter outage also results in a cluster outage.
+In Data Factory, avoid data loss by [storing and replicating your data](/azure/data-factory/concepts-data-redundancy) in paired regions. This method is called zone redundancy. You can't use zone redundancy in some regions due to data residency requirements. Zone redundancy with availability zones incurs extra costs. If a deployment doesn't have zone redundancy, data isn't protected. For example, an Azure datacenter outage also results in a cluster outage.
 
 Azure Functions supports [zone redundancy and zonal instances](/azure/reliability/reliability-functions). In the primary region, data in Blob Storage is replicated three times. Azure Storage offers two options to replicate data in the primary region: locally redundant storage and zone-redundant storage.
 
-Zone redundancy provides your solution with [high availability](/azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer). High availability refers to the fault-tolerance of Azure Data Explorer, its components, and underlying dependencies within a region. High availability includes the persistence layer, compute layer, and a leader-follower configuration.  
+Zone redundancy provides your solution with [high availability](/azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer). High availability refers to the fault-tolerance of Azure Data Explorer, its components, and underlying dependencies within a region. High availability includes the persistence layer, compute layer, and a leader-follower configuration.
 
 Sometimes when failures occur, the pipeline run must be paused. Sometimes the pipelines can continue. For example, the data validation pipeline pauses if a failure occurs. In other scenarios, failures are logged in a separate Azure Data Explorer table. The batch details of the ingestion are recorded for troubleshooting. The ingestion validation pipeline ensures that there's no data loss during ingestion by validating the DICOM and clinical data row counts. Enable [telemetry](/azure/data-factory/monitor-using-azure-monitor) to gather log metrics and pipeline run data.
 

@@ -1,6 +1,6 @@
 Enterprise chat applications can empower employees through conversational interaction. This is especially true due to the continuous advancement of language models, such as OpenAI's GPT models and Meta's LLaMA models. These chat applications consist of a chat user interface (UI), data repositories that contain domain-specific information pertinent to the user's queries, language models that reason over the domain-specific data to produce a relevant response, and an orchestrator that oversees the interaction between these components.
 
-This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture employs prompt flow to create executable flows. These executable flows orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language models, along with other required Python logic. The executable flow is deployed to a deployed to a managed online endpoint with managed compute.
+This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture employs prompt flow to create executable flows. These executable flows orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language models, along with other required Python logic. The executable flow is deployed to a managed online endpoint with managed compute.
 
 The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture, App Service communicates to the Azure platform as a service (PaaS) solution through virtual network integration over private endpoints. The chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint. Public access to Azure AI Studio is disabled.
 
@@ -69,7 +69,7 @@ This section addresses reliability from the perspective of the components in thi
 
 #### Zonal redundancy for flow deployments
 
-Enterprise deployments usually require zonal redundancy. To achieve zonal redundancy in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least three instances of the resource or enable the platform support when instance control isn't available. Currently, Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on Machine Learning components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You can use health checks to help ensure that calls are only routed to clusters that are functioning properly.
+Enterprise deployments usually require zonal redundancy. To achieve zonal redundancy in Azure, resources must support [availability zones](/azure/reliability/availability-zones-overview) and you must deploy at least three instances of the resource or enable the platform support when instance control isn't available. Currently, Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on Machine Learning components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You can use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
 There are some alternatives to Machine Learning compute clusters such as Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps, and Azure App Service. Each of those services supports availability zones. To achieve zonal redundancy for prompt flow execution, without the added complexity of a multi-region deployment, you should deploy your flows to one of those services.
 
@@ -95,7 +95,7 @@ Azure OpenAI doesn't currently support availability zones. To mitigate the poten
 
 To support multiple instances effectively, we recommend that you externalize fine-tuning files, such as to a geo-redundant Storage account. This approach minimizes the state that's stored in the Azure OpenAI for each region. You must still fine tune files for each instance to host the model deployment.
 
-It's important to monitor the required throughput in terms of tokens per minute (TPM) and requests per minute (RPM). Ensure that sufficient TPM assigned from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management can be deployed in front of your OpenAI service or services and can be configured for retry if there are transient errors and throttling. API Management can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding its quota.
+It's important to monitor the required throughput in terms of tokens per minute (TPM) and requests per minute (RPM). Ensure that sufficient TPM assigned from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management can be deployed in front of your Azure OpenAI service or services and can be configured for retry if there are transient errors and throttling. API Management can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding its quota. To learn more about adding a gateway for reliability concerns, see [Access Azure OpenAI and other language models through a gateway](../guide/azure-openai-gateway-multi-backend.yml).
 
 #### AI Search - reliability
 
@@ -377,6 +377,8 @@ Evaluate building custom alerts for the resources in this architecture such as t
 - [Container Registry alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/ContainerRegistry/registries/)
 - [Machine Learning and Azure OpenAI alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/CognitiveServices/accounts/)
 - [Azure Web Apps alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Web/serverFarms/)
+
+Be sure to track usage of tokens against your Azure OpenAI model deployments. In this architecture, Prompt flow tracks [token usage](/azure/ai-studio/how-to/monitor-quality-safety) through its integration with Azure Application Insights.
 
 #### Language model operations
 

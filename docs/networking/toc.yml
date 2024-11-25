@@ -27,9 +27,7 @@ items:
         - name: Azure DNS Private Resolver
           href: architecture/azure-dns-private-resolver.yml
       - name: Network security
-        items: 
-        - name: Implement an open-source jump server
-          href: architecture/apache-guacamole.yml        
+        items:        
         - name: TIC 3.0 compliance
           href: architecture/trusted-internet-connections.yml          
     - name: Apply guidance

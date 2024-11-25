@@ -151,7 +151,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how you spread pods across your AKS cluster among failure domains like regions, availability zones, and nodes.
 - Use the Standard or Premium tier for your production AKS clusters. These tiers include the [uptime service-level agreement (SLA) feature](/azure/aks/uptime-sla), which guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [availability zones](/azure/aks/availability-zones) and 99.9% availability for clusters that don't use availability zones. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers).
-- Enable [zone redundancy](/azure/availability-zones/az-overview#availability-zones) if you use Container Registry to store container images and Oracle Cloud Infrastructure (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
+- Enable [zone redundancy](/azure/reliability/availability-zones-overview) if you use Container Registry to store container images and Oracle Cloud Infrastructure (OCI) artifacts. Container Registry supports optional zone redundancy and [geo-replication](/azure/container-registry/container-registry-geo-replication). Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region. Geo-replication replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations.
 
 #### Disaster recovery and business continuity
 
@@ -207,7 +207,7 @@ Operational Excellence covers the operations processes that deploy an applicatio
 - Use a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline to deploy your workloads to AKS.
 
 - Use A/B testing and canary deployments in your application lifecycle management to properly test an application before you make it available to users.
-- Use [Azure Container Registry](/azure/container-registry/container-registry-intro) or a non-Microsoft container registry, such as [Harbor](https://goharbor.io/) or [Docker Hub](https://hub.docker.com/), to store private container images that are deployed to the cluster.
+- Use [Azure Container Registry](/azure/container-registry/container-registry-intro) or a non-Microsoft registry, such as [Harbor](https://goharbor.io/) or [Docker Hub](https://hub.docker.com/), to store private container images that are deployed to the cluster.
 - Test ingress and egress on your workloads in a separate preproduction environment that mirrors the network topology and firewall rules of your production environment.
 
 #### Monitoring
