@@ -10,7 +10,7 @@ metadata:
   ms.subservice: example-scenario
   ms.category:
     - web
-  ms.custom: 
+  ms.custom:
     - arb-healthcare
     - arb-web
 name: Consumer health portal on Azure
@@ -23,4 +23,4 @@ products:
   - azure-web-application-firewall
 thumbnailUrl: /azure/architecture/browse/thumbs/consumer-health-portal-thumbnail.png
 content: |
-   [!include[](health-portal-content.md)]
+   [!INCLUDE[](health-portal-content.md)]
