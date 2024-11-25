@@ -5532,6 +5532,11 @@
     },
     {
       "source_path": "docs/example-scenario/iot/cloud-to-device.yml",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false  
+    },
+    {
+      "source_path": "docs/example-scenario/iot/devices-platform-application.yml",
       "redirect_url": "/azure/iot-hub/iot-hub-devguide-c2d-guidance",
       "redirect_document_id": false  
     },
