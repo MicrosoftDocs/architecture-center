@@ -80,9 +80,9 @@ Find more information about use cases for MAS on IBM's website at [IBM Maximo Ap
 
 We recommend installing the latest stable version of MAS because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary with the specific version of MAS.
 
-Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend to thoroughly read through the [installing on Azure ](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=templates-installing) and [planning for Azure](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=planning-install-microsoft-azure) documentation so that you understand how the deployment and configuration works. Knowing the installation details speeds up the creation of the design requirements for your implementation. 
+Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend to thoroughly read through the [installing on Azure](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=templates-installing) and [planning for Azure](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=planning-install-microsoft-azure) documentation so that you understand how the deployment and configuration works. Knowing the installation details speeds up the creation of the design requirements for your implementation.
 
-We work closely with IBM and other partners to ensure that the documentation, architecture and guidance you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). Contact your IBM account team for support beyond this documentation.
+Microsoft works with IBM and other partners to ensure that the documentation, architecture, and guidance gives you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/well-architected/). Contact your IBM account team for support beyond this documentation.
 
 Before you proceed with your deployment, you need to answer the following questions about design:
 
@@ -96,7 +96,7 @@ Before you proceed with your deployment, you need to answer the following questi
 
 ### Maximo Application Suite
 
-Microsoft has tested MAS versions 8.7 and later on Azure. Our recommendation is to use the latest version of MAS, which currently is version 9.0. If you are on earlier versions of Maximo Application Suite, it is recommended to upgrade to benefit from better integration with Azure. 
+Microsoft has tested MAS versions 8.7 and later on Azure. Our recommendation is to use the latest version of MAS, which currently is version 9.0. If you are on earlier versions of Maximo Application Suite, it is recommended to upgrade to benefit from better integration with Azure.
 
 Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deploy-system-requirements). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
