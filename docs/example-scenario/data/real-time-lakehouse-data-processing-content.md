@@ -30,7 +30,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. Power BI uses the data exposed through the dedicated SQL pool to build enterprise-grade dashboards and reports.
 
-1. You can also use captured raw data in the data lake Store landing zone and validated data in the Delta format for:
+1. You can also use captured raw data in the data lake store landing zone and validated data in the Delta format for:
 
    - Further ad hoc and exploratory analysis through Azure Synapse SQL serverless pools.
    - Machine learning through Azure Machine Learning.
@@ -43,9 +43,9 @@ This article describes an end-to-end solution for near real-time data processing
 
 This solution uses the following Azure components:
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The event hubs Capture feature can write messages to Data Lake Storage in Avro format as they arrive. This ability enables easy micro-batch processing and long-term retention scenarios. Event Hubs also offers a Kafka-compatible API and supports schema registry.
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The capture feature can write messages to Data Lake Storage in Avro format as they arrive. This ability enables easy micro-batch processing and long-term retention scenarios. Event Hubs also offers a Kafka-compatible API and supports schema registry.
 
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) forms the storage subsystem that stores all data in raw and validated formats. Data Lake Storage can handle transactions at scale, and supports different file formats and sizes. Hierarchical namespaces help organize data into a familiar folder structure and support Portable Operating System Interface (POSIX) for Unix (Portable Operating System Interface (POSIX)) permissions. The Azure Blob Filesystem (ABFS) driver offers a Hadoop-compatible API.
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) forms the storage subsystem that stores all data in raw and validated formats. Data Lake Storage can handle transactions at scale, and supports different file formats and sizes. Hierarchical namespaces help organize data into a familiar folder structure and support Portable Operating System Interface for Unix (POSIX) permissions. The Azure Blob Filesystem (ABFS) driver offers a Hadoop-compatible API.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. This solution uses the following features of the Azure Synapse Analytics ecosystem:
 

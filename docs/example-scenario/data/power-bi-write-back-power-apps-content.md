@@ -96,11 +96,11 @@ For information about service-level agreements (SLAs), see [Service-level agreem
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
+
 [Row-level security (RLS)](/power-bi/enterprise/service-admin-rls) is the best way to restrict data access for individual users or groups in Power BI. RLS models persist in this solution. If a user's permissions in Power BI are set to view only a subset of the overall data model, only that subset can be passed to the Power Apps layer. However, you need to configure the Power Apps layer so that end users are able to access only certain data.
 
 You configure data security for Power Apps by using [role-based security](/power-platform/admin/wp-security-cds) in the Dataverse back end. You can apply roles to teams, groups, or individual users to specify which records are available for manipulation in this solution. This functionality enables you to use a single canvas app for users who have different levels of access to the back end. To ensure consistency across the solution, be sure the role-based security configurations match the permissions outlined in the Power BI row-level security model for each team, group, or user.
-
-For more information on how to implement a Well-Architected Framework, see the [Microsoft security pillar](/azure/architecture/framework/security/overview).
 
 ### Cost optimization
 

@@ -91,7 +91,7 @@ This form of threat intelligence is often called *tactical threat intelligence* 
 ## Considerations
 
 - The Microsoft Sentinel Threat Intelligence data connectors are currently in public preview. Certain features might not be supported or might have constrained capabilities.
-- Microsoft Sentinel uses *Azure role-based access control (RBAC) (Azure RBAC)* to assign the built-in roles Contributor, Reader, and Responder to users, groups, and Azure services. These roles can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom roles and use advanced Azure RBAC on the data you store in Microsoft Sentinel. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
+- Microsoft Sentinel uses *Azure role-based access control (RBAC)* to assign the built-in roles Contributor, Reader, and Responder to users, groups, and Azure services. These roles can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom roles and use advanced Azure RBAC on the data you store in Microsoft Sentinel. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
 - Microsoft Sentinel is free for the first 31 days on any Azure Monitor Log Analytics workspace. Afterward, you can use pay-as-you-go or Capacity Reservations models for the data you ingest and store. For more information, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
 ## Deploy this scenario
