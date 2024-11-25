@@ -18,7 +18,6 @@ azureCategories:
   - management-and-governance
 summary: Learn how to design Azure Stack hyperconverged infrastructure (HCI) for highly available virtualized and containerized workloads.
 products:
-  - azure-local
   - azure-arc
   - azure-key-vault
   - azure-blob-storage
