@@ -1593,7 +1593,7 @@ items:
           - name: Azure Stack HCI Hybrid cross cluster scaling
             href: hybrid/hybrid-cross-cluster-scaling.yml
           - name: Azure Virtual Desktop for Azure Local
-            href: hybrid/azure-local-workload-avd.yml
+            href: hybrid/azure-local-workload-virtual-desktop.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
         maintainContext: true

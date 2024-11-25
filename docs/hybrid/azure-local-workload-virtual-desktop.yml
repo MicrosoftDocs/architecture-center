@@ -4,7 +4,7 @@ metadata:
   description: Learn how to design Azure Virtual Desktop for Azure Local to provide a secure and productive remote desktop experience for users.
   author: seechanmsft
   ms.author: seecha
-  ms.date: 11/19/2024
+  ms.date: 11/25/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: example-workload
@@ -23,4 +23,4 @@ products:
   - azure-virtual-desktop
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-hci-baseline-thumbnail.png
 content: |
-   [!include[](azure-local-workload-avd-content.md)]
+   [!include[](azure-local-workload-virtual-desktop-content.md)]
