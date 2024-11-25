@@ -53,7 +53,7 @@ Inorder to choose the right technology lets start exploring te different options
 - Key Considerations:
 
   - Capturing Real-time Data: Producers continuously collect data from sources such as IoT devices, user interactions, and application logs, streaming it into Azure services like Event Hubs or IoT Hub.
-  - Optimizing Throughput with Batching & Compression: Producers enhance efficiency by batching messages and applying compression to minimize data size during transmission.
+- *Optimize throughput with batching and compression* - Producers can enhance efficiency by batching messages and applying compression to minimize data size during transmission.
    - Ensuring Reliable Transmission with Error Handling & Retries: Producers in Azure Event Hubs are equipped to manage network disruptions or broker failures through automatic retries, ensuring dependable data delivery.
   - Guaranteeing Data Integrity with Idempotence: Producers can be configured to support exactly-once delivery, preventing duplicate messages and ensuring consistent data flow.
 
