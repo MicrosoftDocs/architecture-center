@@ -1814,12 +1814,6 @@ items:
         href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Industry-specific example solutions
         href: reference-architectures/iot/industry-iot-hub-page.md
-      - name: IoT concepts
-        items:
-        - name: Devices, platform, and applications
-          href: example-scenario/iot/devices-platform-application.yml
-        - name: Attestation, authentication, provisioning
-          href: example-scenario/iot/attestation-provisioning.yml
       - name: Computer vision with Azure IoT Edge
         items:
         - name: Overview
