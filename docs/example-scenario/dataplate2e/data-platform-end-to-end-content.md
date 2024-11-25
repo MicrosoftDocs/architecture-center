@@ -18,9 +18,9 @@ The solution described in this article combines a range of Azure services that w
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
 > [!NOTE]
-> In the following sections, Azure Data Lake is used as the home for data throughout the various stages of the data lifecycle.  Azure Data Lake is organized by different layers and containers as follows:
+> In the following sections, Azure Data Lake is used as the home for data throughout the various stages of the data lifecycle. Azure Data Lake is organized by different layers and containers as follows:
 >
-> - The Raw layer is the landing area for data coming in from source systems.  As the name implies, data in this layer is in raw, unfiltered, and unpurified form.
+> - The Raw layer is the landing area for data coming in from source systems. As the name implies, data in this layer is in raw, unfiltered, and unpurified form.
 > - In the next stage of the lifecycle, data moves to the Enriched layer where data is cleaned, filtered, and possibly transformed.
 > - Data then moves to the Curated layer, which is where consumer-ready data is maintained.
 >
@@ -38,7 +38,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ##### Store
 
-1. The resulting datasets from your [SQL Serverless queries](/azure/synapse-analytics/sql/create-external-table-as-select) can be persisted in your data lake.  If you are using [Spark notebooks](/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export), the resulting datasets can be persisted either in your data lake or data warehouse (SQL pool).
+1. The resulting datasets from your [SQL Serverless queries](/azure/synapse-analytics/sql/create-external-table-as-select) can be persisted in your data lake. If you are using [Spark notebooks](/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export), the resulting datasets can be persisted either in your data lake or data warehouse (SQL pool).
 
 ##### Serve
 
@@ -159,7 +159,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. For real-time insights, use a [Stream Analytics job](/azure/stream-analytics/stream-analytics-introduction) to implement the "Hot Path" of the [Lambda architecture pattern](/azure/architecture/data-guide/big-data/#lambda-architecture) and derive insights from the stream data in transit. Define at least one input for the data stream coming from your [Event Hubs](/azure/event-hubs/process-data-azure-stream-analytics) or [IoT Hub](/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi), one query to process the input data stream and one Power BI output to where the query results will be sent to.
 
-   1. As part of your data processing with Stream Analytics, you can invoke machine-learning models to enrich your stream datasets and drive business decisions based on the predictions generated. These machine-learning models can be consumed from Azure Cognitive Services or from [custom ML models in Azure Machine learning](/azure/stream-analytics/machine-learning-udf).
+   1. As part of your data processing with Stream Analytics, you can invoke machine-learning models to enrich your stream datasets and drive business decisions based on the predictions generated. These machine-learning models can be consumed from Azure AI services or from [custom ML models in Azure Machine learning](/azure/stream-analytics/machine-learning-udf).
 
 1. Use other Stream Analytics job outputs to send processed events to Azure Synapse [SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics) or [Data Explorer pools](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/adx-is-now-supported-as-output-for-azure-stream-analytics-job/ba-p/2923654) for further analytics use cases.
 
@@ -207,7 +207,7 @@ The following Azure services have been used in the architecture:
 
 - [Azure HDInsight Kafka](https://azure.microsoft.com/services/hdinsight) clusters can also be used to ingest streaming data and provide the right level of performance and scalability required by large streaming workloads.
 
-- You also can make use of [Azure Functions](https://azure.microsoft.com/services/functions) to invoke Azure Cognitive Services or Azure Machine Learning custom ML models from an Azure Synapse pipeline.
+- You also can make use of [Azure Functions](https://azure.microsoft.com/services/functions) to invoke Azure AI services or Azure Machine Learning custom ML models from an Azure Synapse pipeline.
 
 - For comparisons of other alternatives, see:
 
