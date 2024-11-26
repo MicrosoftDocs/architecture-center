@@ -161,7 +161,7 @@ To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle out-of-order messages.* Design consumers to process messages that arrive out of sequence. If you have multiple parallel consumers, they might process messages out of order.
 
-- *Scale based on queue length.* Services that consume messages from a queue should autoscale based on queue length. Queue-based autoscaling allows for efficient processing of spikes of incoming messages.
+- *Scale based on queue length.* Services consuming messages from a queue should consider autoscaling based on queue length or using [additional scaling criteria](/azure/architecture/best-practices/auto-scaling#additional-scaling-criteria) to better process spikes of incoming messages.
 
 - *Use a message-reply queue.* If the system requires notifications for post-message processing, set up a dedicated reply or response queue. This setup divides operational messaging from notification processes.
 
