@@ -11,7 +11,7 @@ The following image shows the network architecture for Azure Kubernetes Service 
 
 :::image type="content" source="media/aks-network.svg" alt-text="Conceptual graphic showing network baseline architecture." lightbox="media/aks-network.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-azurestackhci-arch2-networking-v5.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-azure-local-architecture-2-networking-v5.vsdx) of this architecture.*
 
 The scenario consists of the following components and capabilities:
 
