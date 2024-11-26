@@ -1,155 +1,109 @@
-This article describes how to use Model9 Manager to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
+In today's rapidly evolving technological landscape, modernizing mainframe systems is crucial for organizations to leverage the benefits of cloud computing. The integration of mainframe data with cloud platforms offers enhanced scalability, performance, and cost efficiency
 
-You can use Model9 Shield together with Azure Blob Storage as an alternative to a virtual tape library (VTL) to back up data in a faster and more cost-effective way.
-
-Model9 Gravity transforms mainframe data that's transferred to Azure Blob Storage into open formats that can be used by other Azure services.
+BMC AMI Cloud provides a robust solution for transferring mainframe data directly to Azure Blob Storage, facilitating a seamless migration and modernization journey.
 
 *Apache®, [Kafka](https://kafka.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
-## Architecture
+### Key Benefits
+
+- **Cost-Effective Backup:** Utilize BMC AMI Cloud and Azure Blob Storage as an efficient alternative to virtual tape libraries (VTL), ensuring faster and more economical data backups. This shift not only reduces costs but also improves backup and recovery times, essential for business continuity.
+- **Data Transformation:** BMC AMI Cloud Analytics converts mainframe data into open formats compatible with various Azure services, enhancing data usability and integration. This transformation is vital for organizations aiming to employ advanced analytics, AI, and machine learning tools on their legacy data.
+- **Data Protection:** BMC AMI Cloud vault provides immutable copies of mainframe data in Azure storage and air gapped. It protects data by versioning, locking, immutability and encryption. It provides cyber threat protection and complies with regulatory requirements for data retention.
+
+### Architecture
 
 :::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.png" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." lightbox="media/model9-mainframe-midrange-data-archive-azure.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midrange-data-archive-azure.vsdx) of this architecture.*
 
-### Workflow
+### Architecture Workflow
 
-1. The Model9 agent is a z/OS started task that sends mainframe data directly to Azure Blob Storage.
-2. The Model9 agent sends the data, which is encrypted, to Azure Blob Storage over TCP/IP.
-3. Model9 management server manages Model9 policies, activities, and storage.
-4. Model9 Gravity transforms mainframe data in Azure Blob Storage into open formats that can be used by Azure services.
+The architecture of BMC AMI Cloud integration with Azure encompasses several components, each playing a pivotal role in the data migration and transformation process. Understanding these components is essential for effective implementation and optimization.
+
+1.	**BMC AMI Cloud Agent:** This is a z/OS started task that sends encrypted and compressed mainframe data to Azure Blob Storage over TCP/IP. It ensures secure and efficient data transfer without the need for intermediate storage, thus reducing latency and potential points of failure.
+2.	**BMC AMI Cloud Management Server:** This server manages policies, activities, and storage, ensuring seamless data management. It is a Docker-based web application that facilitates the administration of multiple agents and policies from a centralized interface.
+3.	**BMC AMI Cloud Analytics:** This component transforms mainframe data stored in Azure Blob Storage into formats suitable for AI, business intelligence, and machine learning applications. It supports conversion to CSV, JSON, or direct integration with Azure Databases, enabling a wide range of analytical and operational use cases.
+
 
 ### Components
 
-This solution uses the following components.
+Each component of the BMC AMI Cloud Data is designed to optimize various aspects of the data migration and management process:
 
-#### Model9 cloud data platform components
+- **BMC AMI Cloud Agent:** A Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly to and from Azure Blob Storage over TCP/IP. The BMC AMI Cloud Agent utilizes the zIIP engines, which dramatically reduces general CPU consumption, thereby optimizing mainframe performance and cost.
 
-The main components of Model9 cloud data platform are:
+- **BMC AMI Cloud Management Server:** A web application running in a Docker container that manages the web UI and communication with z/OS agents. It provides a way to define policies for data protection, migration, and archival, ensuring that data management aligns with organizational requirements and compliance standards.
 
-- **Model9 agent**. A Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly from and to Azure Blob Storage over TCP/IP. The Model9 agent can run on zIIP engines, which dramatically reduces general CPU consumption.
+- **Lifecycle management engine:** A Java-based application that runs on-premises on a z/OS LPAR. It deletes expired data from both object storage and z/OS, automating data lifecycle management and ensuring that storage resources are used efficiently.
 
-- **Model9 management server**. A web application that runs in a Docker container. It manages the web UI and the communication with z/OS agents. It provides a way for you to define several types of policies for data protection, migration, and data archival.
+- **Data management command-line interface (CLI):** This command-line interface runs on z/OS LPARs and allows users to perform backup, restore, archive, recall, and delete actions to and from Azure Blob Storage. The CLI provides flexibility and control over data management tasks, enabling integration with existing workflows and scripts.
 
-- **Lifecycle management engine**. A Java-based application that runs on-premises on a z/OS LPAR and deletes expired data both from the object storage and from z/OS.
+- **BMC AMI Cloud Analytics:** A Docker-based application that transforms BMC AMI Cloud-managed objects into open formats that can be processed by AI, business intelligence, and machine learning applications. This capability allows organizations to unlock the value of their mainframe data by making it accessible to modern analytical tools.
 
-- **Data management command-line interface (CLI)**. A CLI that runs on z/OS LPAR. You can use it to perform backup, restore, archive, recall, and delete resource-based actions to and from Azure Blog Storage.
+### Networking and identity
 
-- **Gravity**. A Docker-based application that supports the transformation of Model9 managed objects into an open format that gets processed by AI, business intelligence, and machine learning applications. The data can be transformed either to a CSV or JSON file, or directly to Azure Database for SQL.
+Ensuring secure and reliable connectivity between on-premises mainframe systems and Azure cloud services is crucial for the success of any modernization effort:
 
-#### Networking and identity
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) provides a private, reliable connection to Azure services, offering superior performance and security compared to public internet connections. It is ideal for organizations with stringent data sovereignty and compliance requirements.
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into cloud services that are offered by Microsoft over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to cloud components such as Azure services and Microsoft 365.
+- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) sends encrypted traffic between Azure Virtual Network and on-premises locations over the public internet. This solution is suitable for scenarios where a dedicated private connection is not feasible.
 
-- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a specific type of virtual network gateway that sends encrypted traffic between Azure Virtual Network and an on-premises location over the public internet.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) synchronizes with on-premises Active Directory for identity and access management. Azure AD supports single sign-on (SSO) and multi-factor authentication (MFA), enhancing security and user experience.
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with an on-premises active directory.
+### Storage
 
-#### Application
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database): A fully managed, scalable database service with AI-powered features for performance and durability optimization. It supports serverless compute and Hyperscale storage options, automatically scaling resources on demand.
 
-- [Apache Kafka](https://kafka.apache.org) is an open-source distributed event-streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and business-critical applications.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql): A fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
-#### Storage
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql): A fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is part of the Azure SQL family and is built on the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service (PaaS). Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance): An intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics): A fast and flexible cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 
-- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
+- [Azure Storage](https://azure.microsoft.com/product-categories/storage): A comprehensive cloud storage solution that includes object, file, disk, queue, and table storage. Azure Storage supports hybrid storage solutions and offers tools for data transfer, sharing, and backup.
 
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
+### Analysis and monitoring
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast and flexible cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
+Effective monitoring and analysis are essential for maintaining the health and performance of cloud-based systems:
 
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
+- [Power BI](https://powerbi.microsoft.com): A suite of business analytics tools that connect to hundreds of data sources, simplifying data preparation and driving ad hoc analysis. Power BI allows users to create interactive reports and dashboards, providing insights throughout the organization.
+  
+- [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor): Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes features such as Application Insights, Azure Monitor Logs, and Azure Log Analytics, enabling proactive monitoring and issue resolution.
 
-#### Analysis and reporting
+### Implementation Alternatives
 
-- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis. You can produce beautiful reports, then publish them for your organization to consume on the web, and across mobile devices.
+Organizations can choose between on-premises and cloud deployment options based on their specific needs and constraints:
 
-#### Monitoring
+- **On-Premises Deployment:** BMC AMI Cloud Management Server can be installed on-premises on z/OS Container Extensions (zCX) or on a Linux virtual instance, offering flexibility for organizations with regulatory or latency requirements.
+ 
+- **Data Transformation Service:** AMI Cloud Analytics service can run externally to the mainframe in an on-premises environment or be deployed in the cloud using server instances or container services, optimizing resource usage and performance.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
+### Use Cases
 
-- Model9 supports monitoring the status and results of all activities via the **Activities** page in the Model9 UI. For more information, see [Monitoring Activities](https://docs.model9.io/user-and-administrator-guide/monitoring-activities).
+BMC AMI Cloud offers a suite of services that are suitable for various use cases:
 
-### Alternatives
+- **Mainframe Data Accessibility:** Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
+  
+- **Data Protection:** Backup and archive mainframe data to Azure Blob Storage, ensuring data availability and durability.
+  
+- **Direct Data Integration:** Enable mainframe applications to write and read data directly to and from Blob Storage, streamlining workflows and reducing latency.
+  
+- **Cybersecurity:** Protect mainframe data against cyberattacks by creating an immutable third copy in Azure, enhancing data security and compliance.
 
-- Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. On a Linux or z/Linux OS, you can also install the management server on z/OS Container Extensions (zCX).
+### Considerations
 
-- Model9 data transformation service runs externally to the mainframe in an on-premises environment. This setup saves expensive mainframe resources. You can also deploy on the cloud by using either a server instance or container services.
+Implementing BMC AMI Cloud solutions involves several key considerations aligned with the Azure Well-Architected Framework:
 
-- ExpressRoute provides a private and efficient connection to Azure from on-premises, but you can also use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
+- **Cost Optimization:** Use the Azure pricing calculator to estimate the cost of implementing this solution, focusing on reducing unnecessary expenses and improving operational efficiencies.
+  
+- **Reliability:** Deploy BMC AMI Cloud Server on Azure Virtual Machines and on the customer's virtual network for superior availability. Use multiple agents and Analytics instances to increase scalability and resilience.
+  
+- **Security:** Authenticate Azure resources using Azure AD and manage permissions with role-based access control (RBAC). Ensure encrypted data transmission between the BMC AMI Cloud agent and Azure Blob Storage.
+  
+- **Performance Efficiency:** Scale operations with multiple agents and transformation instances, and leverage Azure Blob Storage for scalable backup and archival solutions.
 
-## Scenario details
-
-Mainframe data that's stored in physical or virtual tape libraries is critical for customers. As this data grows, its volume can require a significant amount of storage. The data can then become more demanding to maintain on-premises. You can easily migrate this data to Azure storage and use it for AI, business intelligence, machine learning, and analytics applications. Azure storage carries several unique benefits over traditional on-premises storage approaches, and includes data management services, scalability, performance, reliability, and security.
-
-Model9 provides an end-to-end suite of cloud data management solutions for mainframes that solves the migration problem — elegantly, cost effectively, and with no application changes. Based on a unique, proven technology, Model9 solutions migrate mainframe data by using secure and expedited technology to access the Azure cloud.
-
-Model9 solutions are designed to save expensive mainframe CPU resources by using the mainframe zIIP engines and to connect the mainframe data to Azure cloud storage. Cloud applications can use the migrated data in Azure storage services. This article outlines a solution for migrating mainframe data to the cloud. Besides Model9, the solution's core components include Azure storage and database services.
-
-### Potential use cases
-
-Model9 offers a suite of services that are based on the Model9 cloud data platform. These services are suitable for the following use cases:
-
-- Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
-
-- Protect mainframe data with backup and archive to Azure Blob Storage.
-
-- Have mainframe applications write and read data directly to and from Blob Storage.
-
-- Provide protection for mainframe data against cyberattacks by creating an immutable third copy in Azure.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
-
-### Cost optimization
-
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
-
-### Reliability
-
-Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-- Deploy Model9 cloud data manager in the cloud on Azure Virtual Machines, and on the customer's virtual network for superior availability.
-
-- Deploy an agent in each z/OS LPAR to allow better availability across the systems complex (*sysplex*), or the mainframe cluster.
-
-- Combine the Application Insights and Log Analytics features of Monitor to stay informed about the health of Azure resources.
-
-- For guidance on resiliency in Azure, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-- Authenticate Azure resources by using Microsoft Entra ID. Manage permissions by using role-based access control (RBAC).
-
-- Model9 uses the z/OS Security Authorization Facility (SAF) for authentication of actions. Traffic between the Model9 agent and Azure Blob Storage is encrypted.
-
-- The security options in Azure database services are:
-
-  - Data encryption at rest.
-  - Dynamic data masking.
-  - Always-encrypted database.
-
-- For general guidance on designing secure solutions, see [Azure security documentation](/azure/security).
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-- Use multiple agents to increase scalability and throughput on all the LPARs within the same sysplex.
-
-- Use multiple transformation instances behind a load balancer to increase scalability and performance.
-
-- Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.
-
-## Contributors
+### Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
@@ -164,9 +118,9 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+### Next steps
 
-- [Model9 Cloud data management for Mainframe](https://model9.io)
+- [BMC AMI Cloud data management for Mainframe](https://www.bmc.com/it-solutions/bmc-ami-cloud.html)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Introduction to Azure data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
@@ -178,7 +132,7 @@ Other contributors:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - For more information, contact [Mainframe Modernization](mailto:mainframedatamod@microsoft.com)
 
-## Related resources
+### Related resources
 
 - [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
