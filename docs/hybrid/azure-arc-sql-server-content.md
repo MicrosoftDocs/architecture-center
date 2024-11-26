@@ -191,7 +191,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - [Azure Arc hybrid management and deployment for Kubernetes clusters][Azure Arc hybrid management and deployment for Kubernetes clusters]
 - [Azure hybrid options][Azure hybrid options]
 
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-sql-server.vsdx
 [azure-well-architected-framerwork]: /azure/well-architected/
 [sql-server]: /sql/sql-server/
 [azure-arc]: /azure/azure-arc/overview
