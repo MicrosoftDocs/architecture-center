@@ -142,7 +142,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-dr.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-local-dr.vsdx
 [azure-well-architected-framework]: /azure/well-architected/
 [microsoft-component]: /
 [azs-hci]: /azure/well-architected/service-guides/azure-stack-hci
