@@ -1850,8 +1850,6 @@ items:
         href: solution-ideas/articles/data-storage-edge.yml
       - name: IoT private file upload to Azure Storage
         href: example-scenario/iot/iot-private-file-upload.yml
-      - name: Light and power for emerging markets
-        href: solution-ideas/articles/iot-power-management.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
   - name: Mainframe + Midrange

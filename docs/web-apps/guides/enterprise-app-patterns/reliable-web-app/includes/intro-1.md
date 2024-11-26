@@ -5,4 +5,4 @@ ms.date: 10/15/2024
 ms.topic: include
 ms.service: azure-architecture-center
 ---
-This article provides guidance on implementing the Reliable Web App pattern. This pattern outlines how to modify (replatform) web apps for cloud migration. It offers prescriptive architecture, code, and configuration guidance aligned with the principles of the [Well-Architected Framework](/azure/well-architected/).
+This article provides guidance for implementing the Reliable Web App pattern. This pattern describes how to modify (replatform) web apps for cloud migration. It provides prescriptive architecture, code, and configuration guidance that's aligned with the principles of the [Azure Well-Architected Framework](/azure/well-architected/).
