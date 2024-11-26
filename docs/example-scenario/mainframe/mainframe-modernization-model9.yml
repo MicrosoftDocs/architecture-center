@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modernize mainframe workloads by using Model9
+  title: Modernize mainframe workloads by using BMC AMI Cloud
   titleSuffix: Azure Architecture Center
-  description: Use Model9 Manager to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
-  author: PratimDasgupta
-  ms.author: prdasgu
-  ms.date: 05/15/2023
+  description: Use BMC AMI Cloud to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
+  author: SeetharamanSankaran
+  ms.author: sesankar
+  ms.date: 11/26/2024
   ms.topic: example-scenario
   ms.service: azure-architecture-center
   ms.subservice: example-scenario
@@ -13,10 +13,10 @@ metadata:
     - migration
   ms.custom:
     - fcp
-name: Modernize mainframe workloads by using Model9
+name: Modernize mainframe workloads by using BMC AMI Cloud
 azureCategories:
   - migration
-summary: Use Model9 Manager to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
+summary: Use BMC AMI Cloud to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
 products:
   - azure-blob-storage
   - azure-expressroute
