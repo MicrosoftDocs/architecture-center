@@ -27,7 +27,7 @@ The steps in this workflow provide an overview of the end-to-end service, starti
 1. **Microsoft Entra ID authenticates the user:**
    - *User authentication:* The Azure Virtual Desktop service in Azure interacts with [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) to authenticate the user and perform a token exchange during sign in.
 
-   - *Hybrid identity synchronization:* A hybrid identity synchronization occurs between the on-premises Active Directory Domain Services (AD DS) server and cloud-based Microsoft Entra ID. This process helps ensure that user identities are available for local authentication (for session hosts on Azure Local) and cloud access. This process operates continuously in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
+   - *Hybrid identity synchronization:* A hybrid identity synchronization occurs between the on-premises Active Directory Domain Services (AD DS) server and cloud-based Microsoft Entra ID. This process helps ensure that user identities are available for local authentication (for session hosts on Azure Local) and cloud access. This operation continuously runs in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
 
    - *The session host connects to on-premises AD DS:* The selected Azure Virtual Desktop session host connects to the on-premises AD DS server for user credential validation and applies any necessary group policies to configure the user's environment appropriately.
 
@@ -88,7 +88,7 @@ Consider the following key points when you deploy Azure Virtual Desktop for Azur
 
 When you build an Azure Virtual Desktop for Azure Local solution, consider these key design elements:
 
-- [Workload types](#virtual-desktop-workload-types)
+- [Workload types](#azure-virtual-desktop-workload-types)
 - [User profiles and storage management](#manage-user-profiles-and-storage)
 - [Session types](#session-types)
 
@@ -136,9 +136,9 @@ When you deploy Azure Virtual Desktop for Azure Local, you can install FSLogix i
 
 In Azure Virtual Desktop, user sessions can be classified into single-session and multi-session modes. Each mode offers different performance and user experience options.
 
-- **Single-session mode:** Each VM hosts one user session, which is similar to a traditional VDI model in which each user has their own desktop experience. Single-session mode is ideal for [workloads that demand high performance](#virtual-desktop-workload-types) and custom configurations or for applications that don't work well in shared environments.
+- **Single-session mode:** Each VM hosts one user session, which is similar to a traditional VDI model in which each user has their own desktop experience. Single-session mode is ideal for [workloads that demand high performance](#azure-virtual-desktop-workload-types) and custom configurations or for applications that don't work well in shared environments.
 
-- **Multi-session mode:** A single VM hosts multiple user sessions simultaneously. This mode optimizes cost efficiency and scalability because users share resources like CPU, memory, and storage. Multi-session mode is ideal for scenarios in which users need access to standard applications or [lighter workloads](#virtual-desktop-workload-types), like task workers or shared workstations, because it consolidates resources across many users.
+- **Multi-session mode:** A single VM hosts multiple user sessions simultaneously. This mode optimizes cost efficiency and scalability because users share resources like CPU, memory, and storage. Multi-session mode is ideal for scenarios in which users need access to standard applications or [lighter workloads](#azure-virtual-desktop-workload-types), like task workers or shared workstations, because it consolidates resources across many users.
 
 ### Session type considerations
 
