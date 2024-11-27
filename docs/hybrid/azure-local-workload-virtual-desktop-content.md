@@ -27,9 +27,9 @@ The steps in this workflow provide an overview of the end-to-end service, starti
 1. **Microsoft Entra ID authenticates the user:**
    - *User authentication:* The Azure Virtual Desktop service in Azure interacts with [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) to authenticate the user and perform a token exchange during sign in.
 
-   - *Hybrid identity synchronization:* A hybrid identity synchronization occurs between the on-premises Active Directory Domain Services (AD DS) server and cloud-based Microsoft Entra ID. This process helps ensure that user identities are available for local authentication (for session hosts on Azure Local) and cloud access. This step operates continuously in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
+   - *Hybrid identity synchronization:* A hybrid identity synchronization occurs between the on-premises Active Directory Domain Services (AD DS) server and cloud-based Microsoft Entra ID. This process helps ensure that user identities are available for local authentication (for session hosts on Azure Local) and cloud access. This process operates continuously in the background to keep the on-premises AD DS and Microsoft Entra ID in sync.
 
-   - *Session host connects to on-premises AD DS:* The selected Azure Virtual Desktop session host connects to the on-premises AD DS server for user credential validation and applies any necessary group policies to configure the user's environment appropriately.
+   - *The session host connects to on-premises AD DS:* The selected Azure Virtual Desktop session host connects to the on-premises AD DS server for user credential validation and applies any necessary group policies to configure the user's environment appropriately.
 
 1. **The Azure Virtual Desktop agent communicates with Azure Virtual Desktop in Azure:** The Azure Virtual Desktop agent that's installed on the session host virtual machine (VM) communicates with the Azure Virtual Desktop service in Azure to manage session brokering, handle user sessions, and provide metering and diagnostics data.
 
@@ -67,7 +67,7 @@ Use Azure Virtual Desktop for Azure Local to take advantage of the following ben
 - **Meet data locality requirements** by keeping application and user data on-premises.
 - **Improve access to legacy on-premises apps and data sources** by keeping desktops and apps in the same location.
 - **Reduce cost and improve user experience** by using Windows 10 and Windows 11 Enterprise multi-session, which provides multiple concurrent interactive sessions.
-- **Simplify your virtual desktop infrastructure (VDI) deployment and management** compared to traditional on-premises VDI solutions by using the Azure portal.
+- **Simplify your virtual desktop infrastructure (VDI) deployment and management**, compared to traditional on-premises VDI solutions, by using the Azure portal.
 - **Achieve the best performance** by using [RDP Shortpath](/azure/virtual-desktop/rdp-shortpath) for low-latency user access.
 - **Deploy the latest fully patched images quickly and easily** by using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 
@@ -122,7 +122,7 @@ When you deploy Azure Virtual Desktop for Azure Local, you can install FSLogix i
 
   - **Considerations:** Network performance and latency are crucial. The file share must be highly accessible and have minimal latency to ensure quick sign-in times and seamless user experience. A robust network infrastructure helps support this setup.
 
-  - **Recommendation for large deployments:** If you want to scale beyond on-premises storage capacities, you can use cloud-based storage solutions like [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). These options provide high availability, robust performance, and simplified management. They also alleviate storage constraints on the Azure Local instance. They can offer better scalability and flexibility compared to on-premises file share solutions. When you use a cloud based storage solution, consider network latency and bandwidth and throughput requirements and considerations.
+  - **Recommendation for large deployments:** If you want to scale beyond on-premises storage capacities, you can use cloud-based storage solutions like [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). These options provide high availability, robust performance, and simplified management. They also alleviate storage constraints on the Azure Local instance. They can offer better scalability and flexibility compared to on-premises file share solutions. When you use a cloud-based storage solution, consider network latency and bandwidth and throughput requirements and considerations.
 
 ### Use the same Azure Local instance
 
@@ -130,7 +130,7 @@ When you deploy Azure Virtual Desktop for Azure Local, you can install FSLogix i
 
 - **Benefits:** This setup benefits from the high performance and low latency of local storage resources. This approach can provide faster access to profile data, which can improve the user experience. It also consolidates resources, which simplifies the deployment architecture.
 
-- **Considerations:** This approach offers simplicity and performance benefits, but it might limit scalability compared to using a separate file share. This option is more appropriate for smaller deployments or environments. In smaller deployments, the storage capacity and performance of the Azure Local instance can manage the extra load of the profile share without affecting the performance of the session hosts. If you use this option, the Azure Local storage capacity and performance requirements increase. So consider using all-flash storage, such as all solid-state drive (SSD) or all Non-Volatile Memory Express (NVMe), to improve storage performance compared to hybrid storage.
+- **Considerations:** This approach offers simplicity and performance benefits, but it might limit scalability compared to using a separate file share. This option is more appropriate for smaller deployments or environments. In smaller deployments, the storage capacity and performance of the Azure Local instance can manage the extra load of the profile share without affecting the performance of the session hosts. If you use this option, the Azure Local storage capacity and performance requirements increase. So consider using all-flash storage, such as all solid-state drive (SSD) or all Non-Volatile Memory Express (NVMe), rather than hybrid storage to improve storage performance.
 
 ## Session types
 
@@ -231,7 +231,7 @@ Use this guidance to help minimize hardware cost while optimizing the user exper
 
 - **Use automatic VM guest operating system patching for Azure Arc VMs:** This feature helps reduce the overhead of manual patching and the associated maintenance costs. This approach helps make the system more secure and optimizes resource allocation, which contributes to overall cost efficiency. For more information, see [Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
-- **Choose a single-session or multi-session setup:** Azure Virtual Desktop offers single-session or multi-session setups, where each VM hosts either one or multiple user sessions respectively. You can choose the setup that best suits your needs. Single-session Azure Virtual Desktop for Azure Local can be resource-intensive because it requires dedicated resources for each individual user. In contrast, multi-session allows multiple users to share the same VM and its resources, which makes it a more cost-effective option. Windows 10 and Windows 11 multi-session are available exclusively through Azure Virtual Desktop. For more information, see [Recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs).
+- **Choose a single-session or multi-session setup:** Azure Virtual Desktop offers single-session or multi-session setups, where each VM hosts either one or multiple user sessions. You can choose the setup that best suits your needs. Single-session Azure Virtual Desktop for Azure Local can be resource-intensive because it requires dedicated resources for each individual user. In contrast, multi-session allows multiple users to share the same VM and its resources, which makes it a more cost-effective option. Windows 10 and Windows 11 multi-session are available exclusively through Azure Virtual Desktop. For more information, see [Recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs).
 
 - **Consolidate cost monitoring:** Use Azure Local Insights to consolidate monitoring costs, and use Update Manager for Azure Local to do patching. Insights uses Azure Monitor to provide rich metrics and alerting capabilities. To simplify the task of keeping your instances up to date, the lifecycle manager integrates with Update Manager to consolidate update workflows for various components into a single experience. To optimize resource allocation and contribute to overall cost efficiency, use Azure Monitor and Update Manager. For more information, see [Recommendations for consolidation](/azure/well-architected/cost-optimization/consolidation).
 
@@ -247,7 +247,7 @@ Use this guidance to create reliable processes to deploy, manage, and monitor Az
 
 - **Take advantage of simplified provisioning and management in Azure:** The cloud-based deployment in Azure provides a wizard-driven interface that explains how to create an Azure Local instance. Similarly, Azure simplifies the process of managing Azure Local instances and Azure Arc VMs. You can use the Azure Resource Manager template (ARM template) to automate the portal-based deployment of the Azure Local instance. This template provides consistency and automation to deploy Azure Local at scale. The template is crucial for business-critical workloads, such as retail stores or manufacturing sites, that require an Azure Local instance. For more information, see [Recommendations for enabling automation](/azure/well-architected/operational-excellence/enable-automation).
 
-- **Create strict change control procedures:**  Before you implement changes to production, change control procedures require that you test and validate all changes in a representative test environment. All changes that are submitted to the weekly change advisory board process must include specific criteria for a change to be reviewed or approved. The submitted changes must include an implementation plan or link to source code, a risk level score, a rollback plan, post-release tests, and clear success criteria. For more information, see [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
+- **Create strict change control procedures:**  Change control procedures require that you test and validate all changes in a representative test environment before you implement changes to production. All changes that are submitted to the weekly change advisory board process must include specific criteria for a change to be reviewed or approved. The submitted changes must include an implementation plan or link to source code, a risk level score, a rollback plan, post-release tests, and clear success criteria. For more information, see [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 
 - **Use automation capabilities for VMs:** Azure Local provides a wide range of automation capabilities to manage workloads.
 
@@ -262,7 +262,7 @@ Use this guidance to create reliable processes to deploy, manage, and monitor Az
 
 ### Performance Efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+Performance Efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - **Use load balancing for optimal performance:** To prevent any single VM from being a bottleneck, distribute network traffic evenly across Azure Virtual Desktop instances. Load balancers help improve responsiveness by evenly distributing user sessions, which is especially important during peak times. Azure Virtual Desktop supports built-in load balancing algorithms that manage user session distribution effectively. *Breadth-first* load balancing assigns new user sessions to the session host that has the least number of connections, which helps create an even distribution. *Depth-first* load balancing fills up one session host before moving on to the next, which can provide efficiency during low-usage periods. For more information, see [Configure host pool load balancing in Azure Virtual Desktop](/azure/virtual-desktop/configure-host-pool-load-balancing).
 
@@ -272,7 +272,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
   - *Take advantage of Storage Spaces Direct (S2D):* Azure Local uses S2D to pool the available storage from all physical machines, which provides high-performance and resilient storage for your workloads. Define performance targets that are numerical values based on your workload performance requirements. You should implement performance targets for all workload flows. For more information, see [Recommendations for defining performance targets](/azure/well-architected/performance-efficiency/performance-targets).
 
-  - *Do performance testing:* Conduct regular performance testing in an environment that matches the production environment. To detect drift or degradation over time, compare results against your performance targets and performance baselines values. Your tests should include network latency considerations, such as the network communication path of the remote users. For more information, see [Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test).
+  - *Do performance testing:* Conduct regular performance testing in an environment that matches the production environment. To detect drift or degradation over time, compare results against your performance targets and performance baseline values. Your tests should include network latency considerations, such as the network communication path of the remote users. For more information, see [Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test).
 
 ## Deploy this scenario
 
@@ -329,12 +329,6 @@ You can use Terraform to deploy Azure Local instances, logical networks, and Azu
 
 For a consolidated list of recent feature updates, see [What's new in Azure Virtual Desktop](/azure/virtual-desktop/whats-new).
 
-## Related resources
-
-- [Hybrid architecture design](hybrid-start-here.md)
-- [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
-- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
-
 ## Next steps
 
 - [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
@@ -342,4 +336,10 @@ For a consolidated list of recent feature updates, see [What's new in Azure Virt
 - [Protect VM workloads with Site Recovery on Azure Local](/azure-stack/hci/manage/azure-site-recovery)
 - [Training: Introduction to Azure Arc-enabled servers](/training/modules/intro-to-arc-for-servers)
 - [Training: Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
+
+## Related resources
+
+- [Hybrid architecture design](hybrid-start-here.md)
+- [Azure hybrid options](../guide/technology-choices/hybrid-considerations.yml)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](azure-arc-sql-server.yml)
 
