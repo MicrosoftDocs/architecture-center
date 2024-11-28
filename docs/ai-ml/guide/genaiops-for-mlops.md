@@ -1,6 +1,6 @@
 ---
-title: Generative AI Ops for Organizations with Existing MLOps Investments
-description: Guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload.
+title: Generative AI Ops for Organizations with MLOps Investments
+description: Extend existing MLOps investements to include Generative AI Ops. Learn where you can apply existing investments and where you need to extend those investments.
 author: robbagby
 ms.author: robbag
 ms.date: 09/25/2024
@@ -17,43 +17,44 @@ categories:
 
 # GenAIOps for MLOps practitioners
 
-This article provides guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload. To operationalize a generative AI workload, you need to extend your MLOps investments with GenAIOps (sometimes narrowly known as LLMOps). This article outlines technical patterns that are common between traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you're able to apply existing investments in operationalization and where you need to extend those investments.
+This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI in their workload. To operationalize a generative AI workload, you need to extend your MLOps investments with Generative AI Ops (GenAIOps, sometimes known as LLMOps). This article outlines technical patterns that are common between traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
 
 ## Generative AI technical patterns
 
 Generative AI workloads differ from traditional machine learning workloads in a few ways:
 
-- **Focus on generative models** - Traditional machine learning workloads center on training new models that are trained to perform specific tasks. Generative AI workloads consume generative models that can be used to address a wider variety of use cases, and in some cases are multi-modal.
+- **Focus on generative models.** Traditional machine learning workloads focus on training new models that are trained to perform specific tasks. Generative AI workloads consume generative models that can be used to address a wider variety of use cases, and in some cases are multi-modal.
 
-- **Focus on extending the models** - The key asset in traditional machine learning is the deployed model. Access to the model is provided to client code in one or more workloads, but the workload is not part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt that is provided to the generative model. The prompt must be composed and can contain data from one or more data stores. The system that orchestrates the logic, calls to the various back ends, generates the prompt, and calls to the generative model is part of the generative AI system that you must govern with GenAIOps.
+- **Focus on extending the models.** The key asset in traditional machine learning is the deployed model. Access to the model is provided to client code in one or more workloads, but the workload isn't part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt that's provided to the generative model. The prompt must be composed and can contain data from one or more data stores. The system that orchestrates the logic, calls to the various back ends, generates the prompt, and calls to the generative model is part of the generative AI system that you must govern with GenAIOps.
 
-While some generative AI solutions use traditional machine learning practices such as model training and fine tuning, they all introduce new patterns that you should standardize. This section provides an overview of the three broad categories of technical patterns for generative AI solutions:
+Although some generative AI solutions use traditional machine learning practices like model training and fine-tuning, they all introduce new patterns that you should standardize. This section provides an overview of the three broad categories of technical patterns for generative AI solutions:
 
-- Pre-training and fine tuning
+- Pre-training and fine-tuning
 - Prompt engineering
 - Retrieval-augmented generation (RAG)
 
 ### Training and fine-tuning language models
 
-Currently, many generative AI solutions use existing foundation language models that don't require fine-tuning before use. That said, there are use cases that can and do benefit from either fine-tuning a foundation model or training a new generative AI model, such as a small language model (SLM).
+Currently, many generative AI solutions use existing foundation language models that don't require fine-tuning before use. That said, some use cases can benefit from either fine-tuning a foundation model or training a new generative AI model, like a small language model (SLM).
 
-Training a new SLM or fine-tuning a generative foundation model are logically the same processes as training traditional machine learning models. These processes should use your existing MLOps investments.
+Training a new SLM and fine-tuning a generative foundation model are logically the same processes as training traditional machine learning models. These processes should use your existing MLOps investments.
 
 ### Prompt engineering
 
-Prompt engineering includes all the processes involved in generating a prompt that is sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores to gather information, such as grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that is accessed by client code in an intelligent application.
+Prompt engineering includes all the processes involved in generating a prompt that's sent as input to a generative model. There's generally an orchestrator that controls a workflow that generates the prompt. The orchestrator can call into any number of data stores to gather information, like grounding data, and apply the required logic to generate the most effective prompt. The orchestrator is then deployed as an API endpoint that's accessed by client code in an intelligent application.
 
-:::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.png" alt-text="Diagram showing prompt engineering architecture." border="false":::
-   The diagram shows a series of boxes pointing to other boxes, illustrating a flow. There's user icon pointing to a box called intelligent application. Along with the intelligent application box, is another box called headless intelligent applications. Both the intelligent application and the headless intelligent application boxes are pointing to box called orchestrator. The orchestrator box points to two boxes: a data stores box and the Azure OpenAI service box. The arrow from the orchestrator to the Azure OpenAI service box is annotated with the word 'Prompt.'
+The following diagram shows an architecture for prompt engineering.
+
+:::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.png" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
+   The diagram illustrates a flow. The flow starts with a user. From there it goes to an intelligent application. The intellegent application and a headless intelligent application flow to an orchistrator. The orchestrator flows to data stores and, by way of a prompt, to Azure OpenI Service. 
 :::image-end:::
-*Figure 1. Prompt engineering architecture*
 
 This category of technical patterns can address many use cases, including:
 
-- Classification
-- Translation
-- Summarization
-- Retrieval-augmented generation which is discussed in the next section
+- Classification.
+- Translation.
+- Summarization.
+- Retrieval-augmented generation, which is discussed in the next section.
 
 ### Retrieval-augmented generation
 
