@@ -30,4 +30,4 @@ products:
   - azure-event-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |
-   [!include[](data-platform-end-to-end-content.md)]
+   [!INCLUDE[](data-platform-end-to-end-content.md)]

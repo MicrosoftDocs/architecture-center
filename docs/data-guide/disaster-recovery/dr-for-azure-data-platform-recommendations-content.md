@@ -69,7 +69,7 @@ Ensuring that Business stakeholders are engaged across all DR activities will pr
 
 - **"Set and forget" DR plans**
 Azure is constantly evolving, as are individual customer's use of various components and services. A "fit for purpose" DR process must evolve with them.
-Either via the software development lifecycle (SDLC) process or periodic reviews, customers should regularly revisit their DR plan. The goal is to ensure the validity of the service recovery plan and that any deltas across components, services or solutions have been accounted for.
+Either via the software development life cycle (SDLC) process or periodic reviews, customers should regularly revisit their DR plan. The goal is to ensure the validity of the service recovery plan and that any deltas across components, services or solutions have been accounted for.
 
 - **Paper-based assessments**
 While the end-to-end simulation of a DR event will be difficult across a modern data eco-system, efforts should be made to get as close as possible to a complete simulation across affected components. Regularly scheduled drills will build the "muscle memory" required by the organization to be able to execute the DR plan with confidence.

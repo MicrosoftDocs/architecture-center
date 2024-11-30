@@ -5532,6 +5532,11 @@
     },
     {
       "source_path": "docs/example-scenario/iot/cloud-to-device.yml",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false  
+    },
+    {
+      "source_path": "docs/example-scenario/iot/devices-platform-application.yml",
       "redirect_url": "/azure/iot-hub/iot-hub-devguide-c2d-guidance",
       "redirect_document_id": false  
     },
@@ -5776,6 +5781,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/hybrid/gateway-logic-apps.yml",
+      "redirect_url": "/azure/logic-apps/connect-on-premises-data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml",
+      "redirect_url": "/azure/api-management/api-management-howto-mutual-certificates-for-clients",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/web-apps/spring-apps/index.md",
       "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
       "redirect_document_id": false
@@ -5818,6 +5833,11 @@
     {
       "source_path": "docs/solution-ideas/articles/azure-vmware-solution-foundation-networking.yml",
       "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/architecture/apache-guacamole.yml",
+      "redirect_url": "/azure/bastion/bastion-overview",
       "redirect_document_id": false
     }
   ]

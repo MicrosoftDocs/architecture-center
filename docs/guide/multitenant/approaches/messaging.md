@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches for messaging in a multitenant solution.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 05/18/2022
+ms.date: 11/27/2024
 ms.topic: conceptual
 ms.service: azure-architecture-center
 ms.subservice: architecture-guide
