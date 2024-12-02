@@ -1575,11 +1575,11 @@ items:
         - name: Azure Local infrastructure
           items:
           - name: Azure Local baseline
-            href: hybrid/azure-stack-hci-baseline.yml
+            href: hybrid/azure-local-baseline.yml
           - name: Azure Local storage switchless configuration
-            href: hybrid/azure-stack-hci-switchless.yml
+            href: hybrid/azure-local-switchless.yml
           - name: Azure Local stretched clusters for DR
-            href: hybrid/azure-stack-hci-dr.yml
+            href: hybrid/azure-local-dr.yml
         - name: Azure Local workloads
           items:
           - name: AKS on Azure Local (AKS hybrid)
@@ -1589,7 +1589,7 @@ items:
             - name: AKS on Azure Local network architecture
               href: example-scenario/hybrid/aks-network.yml
             - name: Deploy apps with AKS hybrid on Azure Stack ACI
-              href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
+              href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Local cross cluster scaling
             href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Azure VMware Solution in hub-and-spoke
