@@ -4676,7 +4676,7 @@
     },
     { 
       "source_path": "docs/hybrid/azure-stack-hci-dr.yml",
-      "redirect_url": "/azure/architecture/hybrid/azure-local-baseline",
+      "redirect_url": "/azure/architecture/hybrid/azure-local-dr",
       "redirect_document_id": false  
     },
     {
