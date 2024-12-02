@@ -4011,9 +4011,14 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/hybrid/aks-hybrid-stack-hci.yml",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-guide/big-data/real-time-processing.yml",
       "redirect_url": "/azure/architecture/databases",
-      "redirect_document_id": false
+      "redirect_document_id": false      
     },
     {
       "source_path": "docs/data-guide/relational-data/data-warehousing.yml",
