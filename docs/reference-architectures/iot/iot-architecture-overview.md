@@ -66,8 +66,6 @@ IoT architecture patterns are reusable building blocks that address key IoT solu
 
 IoT architectural guides provide insights into IoT concepts, architectures, and workstreams.
 
-- [IoT solution architecture](../../example-scenario/iot/devices-platform-application.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
-
 - [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml). Learn best practices and what to avoid when moving an IoT solution from a test environment to a production environment.
 
 ## Next steps

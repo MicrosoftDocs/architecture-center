@@ -385,7 +385,7 @@ For help getting started, see the following resources:
 - [Ebsv5 series VMs](/azure/virtual-machines/ebdsv5-ebsv5-series)
 - [Lsv3 series VMs](/azure/virtual-machines/lsv3-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
-- [Azure availability zones](/azure/availability-zones/az-overview)
+- [Azure availability zones](/azure/reliability/availability-zones-overview)
 - [Improve NFS Azure file share performance](/azure/storage/files/nfs-performance)
 
 For help with the automation process, see the following templates that SAS provides:

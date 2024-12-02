@@ -156,7 +156,7 @@ Principal authors:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
-- [Availability zones](/azure/availability-zones/az-overview)
+- [Availability zones](/azure/reliability/availability-zones-overview)
 - [Azure virtual machine extensions](/azure/virtual-machines/extensions/overview)
 
 ## Related resources

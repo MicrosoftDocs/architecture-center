@@ -1,6 +1,6 @@
-This article describes several ways that small and medium-sized businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skill sets. These comprehensive data warehousing solutions seamlessly integrate with Azure Machine Learning, Azure AI services, Microsoft Power Platform, Microsoft Dynamics 365, and other Microsoft technologies. These solutions provide an easy entry point to the fully managed software as a service (SaaS) data platform on Microsoft Fabric that can expand as your needs grow.
+This article describes several ways that small and midsize-sized businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities without overextending current budgets and skill sets. These comprehensive data warehousing solutions seamlessly integrate with Azure Machine Learning, Azure AI services, Microsoft Power Platform, Microsoft Dynamics 365, and other Microsoft technologies. These solutions provide an easy entry point to the fully managed software as a service (SaaS) data platform on Microsoft Fabric that can expand as your needs grow.
 
-SMBs that use on-premises SQL Server for data warehousing solutions under 500 GB might benefit from using this pattern. They use various tools for data ingestion into their data warehousing solution, including SQL Server Integration Services (SSIS), SQL Server Analysis Services (SSAS), SQL Server Reporting Services (SSRS), common SQL stored procedures, external extract, transform, and load (ETL) and extract, load, transform (ELT) tools, SQL Server Agent jobs, and SQL snapshot replication. Data synchronization operations are typically snapshot-based, performed once a day, and don't have real-time reporting requirements.
+SMBs that use on-premises SQL Server for data warehousing solutions under 500 GB might benefit from using this pattern. They use various tools for data ingestion into their data warehousing solution, including SQL Server Integration Services (SSIS), SQL Server Analysis Services (SSAS), SQL Server Reporting Services (SSRS), common SQL stored procedures, external extract, transform, load (ETL) and extract, load, transform (ELT) tools, SQL Server Agent jobs, and SQL snapshot replication. Data synchronization operations are typically snapshot-based, performed once a day, and don't have real-time reporting requirements.
 
 ## Simplified architecture
 
@@ -84,7 +84,7 @@ This article describes several strategies for SMBs to modernize legacy data stor
 
 - Use innovative techniques to interact with centralized Azure Data Lake Storage Gen2 data. These techniques include serverless analysis, knowledge mining, data fusion between domains, and end-user data exploration, including Fabric Copilot.
 
-- Set up e-commerce companies to adopt a data warehouse to optimize their operations.
+- Set up e-Commerce companies to adopt a data warehouse to optimize their operations.
 
 This solution isn't recommended for:
 
@@ -134,5 +134,5 @@ Principal author:
 
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Data warehousing and analytics](data-warehouse.yml)
-- [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)  
+- [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
 - [Enterprise business intelligence](../analytics/enterprise-bi-synapse.yml)

@@ -1,32 +1,33 @@
-By the time you reach this phase, you have already generated your search index and determined what searches you want to perform. This phase addresses the process of evaluating of your Retrieval-Augmented Generation (RAG) solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the large language model. Before you reach this phase, you should complete the preparation phase where you collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. You should evaluate each of these phases and be happy with the results. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
+By the time you reach this phase, you have already generated your search index and determined what searches you want to perform. This phase addresses the process of evaluating of your Retrieval-Augmented Generation (RAG) solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the language model. Before you reach this phase, you should complete the preparation phase where you collect your test documents and queries, chunk your test documents, enrich the chunks, embed the chunks, create a search index, and implement a search strategy. You should evaluate each of these phases and be happy with the results. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
 
-This grounding data forms the context for the prompt that you send to the large language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the large language model from the perspective of the grounding data. This article covers *some* common large language model evaluation metrics, and some specific similarity and evaluation metrics that can be used in the large language model evaluation calculations or as stand alone metrics.
+This grounding data forms the context for the prompt that you send to the language model to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the language model from the perspective of the grounding data. This article covers *some* common language model evaluation metrics, and some specific similarity and evaluation metrics that can be used in model evaluation calculations or as stand alone metrics.
 
-This article doesn't attempt to provide an exhaustive list of either large language model metrics or similarity and evaluation metrics. The number of these metrics are growing every day. What is important for you to take away from this article is that there are various metrics, each with their own distinct use case. You're the only one with a holistic understand your workload. You and your data scientists must determine what it is that you want to measure and which metrics help you accomplish that task.
+This article doesn't attempt to provide an exhaustive list of either language model metrics or similarity and evaluation metrics. The number of these metrics are growing every day. What is important for you to take away from this article is that there are various metrics, each with their own distinct use case. You're the only one with a holistic understand your workload. You and your data scientists must determine what it is that you want to measure and which metrics help you accomplish that task.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
-## Large language model evaluation metrics
+## Language model evaluation metrics
 
-There are several metrics you can use to evaluate the large language model's response, including groundedness, completeness, utilization, and relevancy.
+There are several metrics you can use to evaluate the language model's response, including groundedness, completeness, utilization, and relevancy.
 
 > [!IMPORTANT]
-> Large language model responses are non-deterministic, meaning the same prompt to a large language model can and will often return different results. This is important to understand when using a large language model as part of your evaluation process. Consider using a target range over a single target when evaluating using a large language model.
+> 
+Language model responses are non-deterministic, meaning the same prompt to a language model can and will often return different results. This is important to understand when using a language model as part of your evaluation process. Consider using a target range over a single target when evaluating using a language model.
 
 ### Groundedness
 
-Groundedness, sometimes referred to as faithfulness, measures whether the response is completely based on the context. It validates that the response isn't using information other than what exists in the context. A low groundedness metric indicates that the large language model might be drifting into imaginative or nonsensical territory known as hallucinations.
+Groundedness, sometimes referred to as faithfulness, measures whether the response is completely based on the context. It validates that the response isn't using information other than what exists in the context. A low groundedness metric indicates that the language model might be drifting into imaginative or nonsensical territory known as hallucinations.
 
 **Calculating**
 
 - [Azure AI Content Safety Service (AACS) based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#aacs-based-groundedness) is a custom model that uses Natural Language Inference (NLI) to determine whether claims, in this case chunks, are entailed or not entailed by a source document.
-- [Large language model based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a large language model to determine the level of groundedness of the response.
+- [Large language model based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a language model to determine the level of groundedness of the response.
 - [Ragas faithfulness library](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/)
 - [MLflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 **Evaluating**
 
-If groundedness is low, it indicates that the large language model doesn't see the chunks as relevant. You should evaluate whether you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
+If groundedness is low, it indicates that the language model doesn't see the chunks as relevant. You should evaluate whether you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
 
 ### Completeness
 
@@ -35,8 +36,8 @@ Completeness measures whether the response is answering all parts of the query. 
 **Calculating**
 
 - [AI-assisted: Retrieval Score prompting](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score)
-- A large language model can help you measure the quality of the large language model response. You need the question, context, and generated answer to perform this measurement. The following outlines the high level process:
-  1. Use the large language model to rephrase, summarize, or simplify the question. This step identifies the intent.
+- A language model can help you measure the quality of the language model response. You need the question, context, and generated answer to perform this measurement. The following outlines the high level process:
+  1. Use the language model to rephrase, summarize, or simplify the question. This step identifies the intent.
   2. Ask the model to check if the intent or the answer to the intent is found or can be derived from retrieved documents where the answer can be "No," or "Yes" for each document. Answers that start with "Yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
   3. Calculate the ratio of the intents that have an answer beginning with "Yes".
   4. Square the score to highlight the errors.
@@ -51,7 +52,7 @@ Utilization measures the extent to which the response is made up of information 
 
 **Calculating**
 
-You can use a large language model to calculate the utilization. You can pass the response and the context containing the chunks to the large language model. You can ask the large language model to determine the number of chunks that entail the answer.
+You can use a language model to calculate the utilization. You can pass the response and the context containing the chunks to the language model. You can ask the language model to determine the number of chunks that entail the answer.
 
 **Evaluating**
 
@@ -64,7 +65,7 @@ The following table provides guidance, taking both completeness and utilization 
 
 ### Relevance
 
-Measures the extent to which the large language model's response is pertinent and related to the query.
+Measures the extent to which the language model's response is pertinent and related to the query.
 
 **Calculating**
 
@@ -76,7 +77,7 @@ Measures the extent to which the large language model's response is pertinent an
 
 When relevance is low, evaluate the following:
 
-- Ensure that the chunks provided to the large language model are relevant.
+- Ensure that the chunks provided to the language model are relevant.
   - Determine whether there are viable chunks that are relevant that weren't returned. If there are, evaluate your embedding model.
   - If there aren't viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
 - If relevant chunks were returned, evaluate your prompt.
@@ -123,7 +124,7 @@ These articles walk you through all the phases and design choices involved in de
 
 With its CLI based interface, you can effortlessly experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development while abstracting away the complexities of hyper-parameter tuning using simple configuration.
 
-Moreover, the framework provides comprehensive support for large language model configuration, enabling you to strike the perfect balance between model complexity and generation quality. This tool allows you to streamline the experimentation process, save valuable time, and significantly improve the performance of your RAG models.
+Moreover, the framework provides comprehensive support for language model configuration, enabling you to strike the perfect balance between model complexity and generation quality. This tool allows you to streamline the experimentation process, save valuable time, and significantly improve the performance of your RAG models.
 
 Whether you're a seasoned researcher pushing the boundaries of natural language understanding or an industry professional seeking to enhance text generation capabilities, this experimentation framework is the ultimate solution to accelerate your RAG development journey. Embrace the future of RAG experimentation and unlock the true potential of your models with this cutting-edge tool.
 
