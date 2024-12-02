@@ -90,7 +90,7 @@ Design and plan your Log Analytics workspace deployment. It will be the containe
 
 Use Azure RBAC to control and manage the permission for Azure Arc-enabled servers managed identities and perform periodic access reviews for these identities. Control privileged user roles to avoid system-managed identities being misused to gain unauthorized access to Azure resources.
 
-Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage certificates on your Azure Arc-enabled servers. The key vault VM extension allows you to manage the certificate lifecycle on Windows and Linux machines.
+- Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage certificates on your Azure Arc-enabled servers. With the key vault VM extension you can manage the certificate lifecycle on Windows and Linux machines.
 
 [Connect Azure Arc-enabled servers to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-machines).This helps you start collecting security-related configurations and event logs so you can recommend actions and improve your overall Azure security posture.
 
