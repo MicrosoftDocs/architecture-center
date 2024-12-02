@@ -26,4 +26,4 @@ products:
   - microsoft-sentinel
 thumbnailUrl: /azure/architecture/browse/thumbs/sentinel-data-flow.png
 content: |
-   [!include[](sentinel-threat-intelligence-content.md)]
+   [!INCLUDE[](sentinel-threat-intelligence-content.md)]

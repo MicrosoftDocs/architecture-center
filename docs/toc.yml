@@ -110,13 +110,13 @@ items:
       - name: Compare Azure, Stack Hub, and Stack HCI
         href: /azure-stack/operator/compare-azure-azure-stack
         maintainContext: true
-      - name: Compare Azure Stack HCI and Stack Hub
+      - name: Compare Azure Local and Stack Hub
         href: /azure-stack/hci/concepts/compare-azure-stack-hub
         maintainContext: true
       - name: Compare Stack HCI and Windows Server
         href: /azure-stack/hci/concepts/compare-windows-server
         maintainContext: true
-      - name: Choose drives for Azure Stack HCI
+      - name: Choose drives for Azure Local
         href: /azure-stack/hci/concepts/choose-drives
         maintainContext: true
       - name: FSLogix in Azure Virtual Desktop
@@ -1457,8 +1457,6 @@ items:
         href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: Enterprise monitoring with Azure Monitor
         href: example-scenario/monitoring/enterprise-monitoring.yml
-      - name: High-availability blue/green deployment
-        href: web-apps/spring-apps/guides/blue-green-spring.yml
     - name: "Solution idea: DevSecOps for infrastructure as code"
       href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + Multicloud
@@ -1480,13 +1478,13 @@ items:
         - name: Compare Azure, Stack Hub, Stack HCI
           href: /azure-stack/operator/compare-azure-azure-stack
           maintainContext: true
-        - name: Compare Azure Stack HCI and Stack Hub
+        - name: Compare Azure Local and Stack Hub
           href: /azure-stack/hci/concepts/compare-azure-stack-hub
           maintainContext: true
         - name: Compare Stack HCI to Windows Server
           href: /azure-stack/hci/concepts/compare-windows-server
           maintainContext: true
-        - name: Choose drives for Azure Stack HCI
+        - name: Choose drives for Azure Local
           href: /azure-stack/hci/concepts/choose-drives
           maintainContext: true
       - name: Azure Arc guidance
@@ -1572,10 +1570,11 @@ items:
         href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
       - name: Azure Functions in a hybrid environment
         href: hybrid/azure-functions-hybrid.yml
-      - name: Azure Stack HCI solutions
+      - name: Azure Local solutions
         items:
-        - name: Azure Stack HCI infrastructure
+        - name: Azure Local infrastructure
           items:
+<<<<<<< HEAD
           - name: Azure Stack HCI baseline
             href: hybrid/azure-local-baseline.yml
           - name: Azure Stack HCI storage switchless configuration
@@ -1583,16 +1582,30 @@ items:
           - name: Azure Stack HCI stretched clusters for DR
             href: hybrid/azure-local-dr.yml
         - name: Azure Stack HCI workloads
+=======
+          - name: Azure Local baseline
+            href: hybrid/azure-stack-hci-baseline.yml
+          - name: Azure Local storage switchless configuration
+            href: hybrid/azure-stack-hci-switchless.yml
+          - name: Azure Local stretched clusters for DR
+            href: hybrid/azure-stack-hci-dr.yml
+        - name: Azure Local workloads
+>>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de
           items:
-          - name: AKS on Azure Stack HCI (AKS hybrid)
+          - name: AKS on Azure Local (AKS hybrid)
             items:
-            - name: AKS on Azure Stack HCI baseline architecture
+            - name: AKS on Azure Local baseline architecture
               href: example-scenario/hybrid/aks-baseline.yml
-            - name: AKS on Azure Stack HCI network architecture
+            - name: AKS on Azure Local network architecture
               href: example-scenario/hybrid/aks-network.yml
             - name: Deploy apps with AKS hybrid on Azure Stack ACI
+<<<<<<< HEAD
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Stack HCI Hybrid cross cluster scaling
+=======
+              href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
+          - name: Azure Local cross cluster scaling
+>>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de
             href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
@@ -1615,24 +1628,12 @@ items:
         href: example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml
       - name: Hybrid security monitoring
         href: hybrid/hybrid-security-monitoring.yml
-      - name: On-premises data gateway for Logic Apps
-        href: hybrid/gateway-logic-apps.yml
       - name: Public MEC compute deployment
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
         href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
       - name: Use file shares in a hybrid environment
         href: hybrid/azure-file-share.yml
-    - name: Solution ideas
-      items:
-      - name: Azure VMware Solution foundations
-        items:
-        - name: Capacity planning considerations
-          href: solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml
-        - name: Landing zone considerations
-          href: solution-ideas/articles/azure-vmware-solution-foundation-landing-zone.yml
-        - name: Networking considerations
-          href: solution-ideas/articles/azure-vmware-solution-foundation-networking.yml
   - name: Identity
     items:
     - name: Get started
@@ -1804,8 +1805,6 @@ items:
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Enterprise integration - queues and events
         href: example-scenario/integration/queues-events.yml
-      - name: On-premises data gateway for Logic Apps
-        href: hybrid/gateway-logic-apps.yml
       - name: Power Automate deployment at scale
         href: example-scenario/power-automate/power-automate.yml
       - name: Publish internal APIs to external users
@@ -1830,30 +1829,6 @@ items:
         href: guide/iot/machine-learning-inference-iot-edge.yml
       - name: Industry-specific example solutions
         href: reference-architectures/iot/industry-iot-hub-page.md
-      - name: IoT concepts
-        items:
-        - name: Devices, platform, and applications
-          href: example-scenario/iot/devices-platform-application.yml
-        - name: Attestation, authentication, provisioning
-          href: example-scenario/iot/attestation-provisioning.yml
-      - name: Computer vision with Azure IoT Edge
-        items:
-        - name: Overview
-          href: guide/iot-edge-vision/index.md
-        - name: Camera selection
-          href: guide/iot-edge-vision/camera.md
-        - name: Hardware acceleration
-          href: guide/iot-edge-vision/hardware.md
-        - name: Image storage
-          href: guide/iot-edge-vision/image-storage.md
-        - name: User interface and scenarios
-          href: guide/iot-edge-vision/user-interface.md
-      - name: IoT patterns
-        items:
-        - name: Analyze and optimize loop
-          href: example-scenario/iot/analyze-optimize-loop.yml
-        - name: Event routing
-          href: example-scenario/iot/event-routing.yml
       - name: Migration to Azure IoT best practices
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
@@ -1872,8 +1847,6 @@ items:
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: IoT using Azure Cosmos DB
-        href: solution-ideas/articles/iot-using-cosmos-db.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
       - name: Automotive connected fleets
@@ -1892,12 +1865,8 @@ items:
         href: solution-ideas/articles/data-storage-edge.yml
       - name: IoT private file upload to Azure Storage
         href: example-scenario/iot/iot-private-file-upload.yml
-      - name: Light and power for emerging markets
-        href: solution-ideas/articles/iot-power-management.yml
       - name: Project 15 IoT sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Real-time asset tracking and management
-        href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
   - name: Mainframe + Midrange
     items:
     - name: Get started
@@ -2120,8 +2089,6 @@ items:
         href: solution-ideas/articles/backup-archive-on-premises-applications.yml
       - name: Centralize app configuration and security
         href: solution-ideas/articles/appconfig-key-vault.yml
-      - name: Deploy AKS and API Management with mTLS
-        href: solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml
       - name: Enterprise-scale disaster recovery
         href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
       - name: High availability for BCDR
@@ -2839,8 +2806,13 @@ items:
           maintainContext: true
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
+<<<<<<< HEAD
       - name: AVD for Azure Stack HCI
         href: /azure/virtual-desktop/azure-local-overview
+=======
+      - name: AVD for Azure Local
+        href: /azure/virtual-desktop/azure-stack-hci-overview
+>>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de
         maintainContext: true
       - name: FSLogix guidance
         items:
