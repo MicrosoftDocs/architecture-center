@@ -181,7 +181,6 @@ Use the following deployment automation template as an example of how to deploy 
 
 Product documentation:
 
-- [Azure Stack HCI version 23H2 release information](/azure-stack/hci/release-information-23h2)
 - [Azure Stack HCI OS, version 23H2 release information](/azure-stack/hci/release-information-23h2)
 - [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
 - [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
