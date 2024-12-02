@@ -77,7 +77,10 @@ It's important that you adopt an update management process for Arc-enabled serve
 
 ### Monitor Azure Arc-enabled servers
 
-You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale. Azure Monitor analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
+Use Azure Monitor to monitor your VMs, Virtual Machine Scale Sets, and Azure Arc machines at scale. With Azure Monitor, you can:
+ - Analyze the performance and health of your Windows and Linux VMs.
+ - Monitor VM processes and dependencies on other resources and external processes. 
+ - Monitor performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
 The Azure Monitor agent should be automatically deployed to Azure Arc-enabled Windows and Linux servers, through [Azure Policy](/azure/azure-monitor/best-practices). Review and understand how the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) operates and collects data before deployment.
 
