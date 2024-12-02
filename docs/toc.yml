@@ -1574,7 +1574,6 @@ items:
         items:
         - name: Azure Local infrastructure
           items:
-<<<<<<< HEAD
           - name: Azure Stack HCI baseline
             href: hybrid/azure-local-baseline.yml
           - name: Azure Stack HCI storage switchless configuration
@@ -1590,7 +1589,6 @@ items:
           - name: Azure Local stretched clusters for DR
             href: hybrid/azure-stack-hci-dr.yml
         - name: Azure Local workloads
->>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de
           items:
           - name: AKS on Azure Local (AKS hybrid)
             items:
@@ -1599,13 +1597,10 @@ items:
             - name: AKS on Azure Local network architecture
               href: example-scenario/hybrid/aks-network.yml
             - name: Deploy apps with AKS hybrid on Azure Stack ACI
-<<<<<<< HEAD
               href: example-scenario/hybrid/aks-hybrid-azure-local.yml
           - name: Azure Stack HCI Hybrid cross cluster scaling
-=======
               href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
           - name: Azure Local cross cluster scaling
->>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de
             href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
@@ -2806,13 +2801,10 @@ items:
           maintainContext: true
       - name: Multiregion BCDR for AVD
         href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
-<<<<<<< HEAD
       - name: AVD for Azure Stack HCI
         href: /azure/virtual-desktop/azure-local-overview
-=======
       - name: AVD for Azure Local
         href: /azure/virtual-desktop/azure-stack-hci-overview
->>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de
         maintainContext: true
       - name: FSLogix guidance
         items:
