@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Stack HCI baseline reference architecture
-  description: Learn how to design Azure Stack hyperconverged infrastructure (HCI) for highly available virtualized and containerized workloads
+  title: Azure Local baseline reference architecture
+  description: Learn how to design Azure Local for highly available virtualized and containerized workloads
   author: neilbird
   ms.author: nebird
   ms.date: 07/24/2024
@@ -12,15 +12,14 @@ metadata:
     - hybrid
     - management-and-governance
   ms.custom: arb-hybrid
-name: Azure Stack HCI baseline reference architecture
+name: Azure Local baseline reference architecture
 azureCategories:
   - hybrid
   - management-and-governance
-summary: Learn how to design Azure Stack hyperconverged infrastructure (HCI) for highly available virtualized and containerized workloads.
+summary: Learn how to design Azure Local for highly available virtualized and containerized workloads.
 products:
   - azure-stack-hci
   - azure-arc
-  - azure-key-vault
   - azure-blob-storage
   - azure-monitor
   - defender-for-cloud
