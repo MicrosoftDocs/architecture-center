@@ -63,7 +63,16 @@ There are several [Azure Policy built-in definitions for Azure Arc][arc-built-in
 
 ### Enable Azure Update Manager and Change Tracking
 
-It is important to adopt an update management process for Arc-enabled servers. [Update manager](/azure/update-manager/overview) is recommended to manage operating system updates and assess the status of available updates on all agent machines. Update manager should also be used to manage the process of installing required updates for servers.
+It's important that you adopt an update management process for Arc-enabled servers by enabling the following features:
+
+- **[Azure Update Manager](/azure/update-manager/overview)**. With Update Manager, you can manage, assess, and govern the process of installing Windows and Linux updates across all servers.
+
+- **[Change tracking and inventory](/azure/automation/change-tracking/enable-vms-monitoring-agent)**. With change tracking and inventory for Arc-enabled servers you can:
+   - Determine what software is installed in your environment. 
+   - Collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. 
+   - Track the configurations of your machines to pinpoint operational issues across your environment and better understand the state of your machines.
+
+
 
 [Change Tracking and Inventory](/azure/automation/change-tracking/enable-vms-monitoring-agent) for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
