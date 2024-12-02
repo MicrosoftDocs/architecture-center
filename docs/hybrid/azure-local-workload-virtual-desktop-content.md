@@ -18,6 +18,8 @@ The following architecture shows a high-level overview of the Azure Virtual Desk
 
 :::image type="content" source="images/azure-local-workload-virtual-desktop.svg" alt-text="Diagram that shows a reference architecture to deploy Azure Virtual Desktop on Azure Local." lightbox="images/azure-local-workload-virtual-desktop.svg" border="false":::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/virtual-desktop-azure-local.pptx) of this architecture.*
+
 ### Workflow
 
 The steps in this workflow provide an overview of the end-to-end service, starting with the communication from the client device to the Azure Virtual Desktop cloud service. This workflow corresponds to the preceding diagram.
