@@ -16,10 +16,10 @@ name: Azure Local baseline reference architecture
 azureCategories:
   - hybrid
   - management-and-governance
-summary: Learn how to design Azure Stack hyperconverged infrastructure (HCI) for highly available virtualized and containerized workloads.
+summary: Learn how to design Azure Local for highly available virtualized and containerized workloads.
 products:
+  - azure-stack-hci
   - azure-arc
-  - azure-key-vault
   - azure-blob-storage
   - azure-monitor
   - defender-for-cloud
