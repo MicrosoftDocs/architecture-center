@@ -74,7 +74,6 @@ It's important that you adopt an update management process for Arc-enabled serve
 
 
 
-[Change Tracking and Inventory](/azure/automation/change-tracking/enable-vms-monitoring-agent) for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
 ### Monitor Azure Arc-enabled servers
 
