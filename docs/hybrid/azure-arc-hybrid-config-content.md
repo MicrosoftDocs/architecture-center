@@ -94,7 +94,7 @@ Use Azure RBAC to control and manage the permission for Azure Arc-enabled server
 
 - [Connect Azure Arc-enabled servers to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-machines). With Defender, you can collect the security-related configurations and event logs that you need to recommend actions and improve your overall Azure security posture.
 
-[Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/azure-arc/servers/scenario-onboard-azure-sentinel). This enables you to start collecting security-related events and start correlating them with other data sources.
+- [Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/azure-arc/servers/scenario-onboard-azure-sentinel). With Sentinel, you can collect security-related events and correlate them with other data sources.
 
 ### Validate network topology
 
