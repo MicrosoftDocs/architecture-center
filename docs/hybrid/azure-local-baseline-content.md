@@ -377,11 +377,7 @@ Cost optimization considerations include:
 
   For more information, see [Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
-<<<<<<< HEAD:docs/hybrid/azure-local-baseline-content.md
-- **Initial workload capacity and growth**: When you plan your Azure Stack HCI deployment, consider your initial workload capacity, resiliency requirements, and future growth considerations. Consider if using a two or three-node storage switchless architecture could reduce costs, such as removing the need to procure storage-class network switches. Procuring extra storage class network switches can be an expensive component of new Azure Stack HCI cluster deployments. Instead, you can use existing switches for management and compute networks, which simplifies the infrastructure. If your workload capacity and resiliency needs don't scale beyond a three-node configuration, consider if you can use existing switches for the management and compute networks, and use the [three-node storage switchless architecture](azure-local-switchless.yml) to deploy Azure Stack HCI.
-=======
 - **Initial workload capacity and growth**: When you plan your Azure Local deployment, consider your initial workload capacity, resiliency requirements, and future growth considerations. Consider if using a two or three-node storage switchless architecture could reduce costs, such as removing the need to procure storage-class network switches. Procuring extra storage class network switches can be an expensive component of new Azure Local instance deployments. Instead, you can use existing switches for management and compute networks, which simplifies the infrastructure. If your workload capacity and resiliency needs don't scale beyond a three-node configuration, consider if you can use existing switches for the management and compute networks, and use the [three-node storage switchless architecture](azure-stack-hci-switchless.yml) to deploy Azure Local.
->>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de:docs/hybrid/azure-stack-hci-baseline-content.md
 
   For more information, see [Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
@@ -467,19 +463,11 @@ The following section provides an example list of the high-level tasks or typica
 
 Product documentation:
 
-<<<<<<< HEAD:docs/hybrid/azure-local-baseline-content.md
-- [Azure Stack HCI, version 23H2 release information](/azure-stack/hci/release-information-23h2)
-- [AKS on Azure Stack HCI](/azure/aks/hybrid/aks-whats-new-23h2)
-- [Azure Virtual Desktop for Azure Stack HCI](/azure/virtual-desktop/azure-local-overview)
-- [What is Azure Stack HCI monitoring?](/azure-stack/hci/concepts/monitoring-overview)
-- [Protect VM workloads with Site Recovery on Azure Stack HCI](/azure-stack/hci/manage/azure-site-recovery)
-=======
 - [Azure Stack HCI OS, version 23H2 release information](/azure-stack/hci/release-information-23h2)
 - [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
 - [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
 - [What is Azure Local monitoring?](/azure-stack/hci/concepts/monitoring-overview)
 - [Protect VM workloads with Site Recovery on Azure Local](/azure-stack/hci/manage/azure-site-recovery)
->>>>>>> 2e0673e29f2a772335be5b64a0eee391b0f116de:docs/hybrid/azure-stack-hci-baseline-content.md
 - [Monitor overview](/azure/azure-monitor/overview)
 - [Change tracking and inventory overview](/azure/automation/change-tracking/overview)
 - [Update Manager overview](/azure/update-manager/overview)
