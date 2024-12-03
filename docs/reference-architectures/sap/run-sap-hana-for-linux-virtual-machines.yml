@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAP HANA for Linux VMs in scale-up systems
+  title: SAP HANA for Linux VMs in Scale-up Systems
   description: Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.
   author: robiro
   ms.author: robiro
