@@ -118,7 +118,7 @@ Azure also supports high availability in a [multi-SID installation](/azure/virtu
 
 #### Proximity placement groups
 
-This example architecture also uses a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them.  This article has updated guidance regarding the use of PPGs, so it's important to have a good understanding of this information before a production deployment. 
+This example architecture also uses a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them. This article has updated guidance regarding the use of proximity placement groups, so it's important to have a good understanding of this information before a production deployment. 
 
 
 ### Database
