@@ -17,7 +17,7 @@ categories:
 
 # GenAIOps for MLOps practitioners
 
-This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI in their workload. To operationalize a generative AI workload, you need to extend your MLOps investments with Generative AI Ops (GenAIOps, sometimes known as LLMOps). This article outlines technical patterns that are common between traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
+This article provides guidance to workload teams that have existing machine learning operations (MLOps) investments and want to extend those investments to include generative AI in their workload. To operationalize a generative AI workload, you need to extend your MLOps investments with Generative AI Ops (GenAIOps, sometimes known as LLMOps). This article outlines technical patterns that are common to both traditional machine learning and generative AI workloads, and specific patterns for generative AI. The article helps you understand where you can apply existing investments in operationalization and where you need to extend those investments.
 
 ## Generative AI technical patterns
 
@@ -108,7 +108,7 @@ When you fine-tune an existing language model or train a small language model, y
 
 Experimentation with prompt engineering and RAG workloads requires extending your MLOps investments. For these technical patterns, the workload doesn't end with the model. The workload requires an orchestrator, which is a system that can run logic, call data stores for required information like grounding data, generate prompts, call language models, and more. The data stores and the indexes in the stores are also part of the workload. You need to extend your operations to govern these aspects of the workload.
 
-You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide), you can experiment additional areas:
+You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide), you can experiment with additional areas:
 
 - Chunking strategy
 - What and how to enrich chunks
@@ -146,11 +146,11 @@ The experimentation process is the same regardless of the use case for your gene
 
 In general, generative AI solutions extend the responsibilities of the machine learning team from training models to prompt engineering and managing grounding data. Because prompt engineering and RAG experimentation and evaluation don't necessarily require data scientists, you might be tempted to use other roles, like software engineers and data engineers, to perform these functions. You'll experience challenges if you omit data scientists from the process of experimenting with prompt engineering and RAG solutions. Other roles aren't commonly trained on scientifically evaluating the results, as many data scientists are. Read the seven-part article series [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide) to get an understanding of the complexity of designing generative AI solutions.
 
-Investing in generative AI solutions enables you to take some pressure off your data science resources. The role of software engineers grows in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics in tools like prompt flow. It's important data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
+Investing in generative AI solutions enables you to take some pressure off your data science resources. The role of software engineers expands in these solutions. For example, software engineers are great resources for managing the orchestration responsibility in generative AI solutions, and they're adept at setting up the evaluation metrics in tools like prompt flow. It's important to have data scientists review this work. They have the training and experience to understand how to properly evaluate the experiments.
 
 ### Deployment
 
-Some generative AI solutions involve deploying custom-trained models or fine-tuning existing models, but others don't. For generative AI solutions you need to include the additional responsibilities of deploying the orchestrators and any data stores. The following sections discuss deployment for common generative AI technical patterns.
+Some generative AI solutions involve deploying custom-trained models or fine-tuning existing models, but others don't. For generative AI solutions, you need to include the additional tasks of deploying the orchestrators and any data stores. The following sections discuss deployment for common generative AI technical patterns.
 
 #### Training and fine-tuning
 
@@ -160,17 +160,17 @@ You should use your existing MLOps investments, with some possible adjustments, 
 
 For RAG and prompt engineering, there are additional concerns, including orchestration logic, changes to data stores like indexes and schemas, and changes to data pipeline logic. Orchestration logic is typically encapsulated in frameworks like prompt flow, Semantic Kernel, or LangChain. You can deploy the orchestrator to different compute resources, including resources that you might currently deploy custom models to. See [Azure OpenAI end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat) for examples of deploying prompt flow to either online endpoints managed by Azure Machine Learning or to Azure App Service. To deploy to App Service, the Azure OpenAI chat architecture packages the flow and its dependencies as a container, a practice that increases portability and consistency across different environments.
 
-Deployments of changes to database resources, like changes to data models or indexes, are new responsibilities that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the LLM](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide).
+Deployments of changes to database resources, like changes to data models or indexes, are new tasks that need to be handled in GenAIOps. A common practice when working with large language models is to [use a gateway in front of the LLM](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide).
 
 Many generative AI architectures that consume platform-hosted language models, like those served from Azure OpenAI, include a [gateway like Azure API Management](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide). The gateway use cases include load balancing, authentication, and monitoring. The gateway can play a role in deployment of newly trained or fine-tuned models, allowing you to progressively roll out new models. The use of a gateway, along with model versioning, enables you to minimize risk when you deploy changes and to roll back to previous versions when problems occur.
 
 Deployments of elements that are specific to generative AI, such as the orchestrator, should follow proper operational procedures, like:
 
-- Rigorous testing, including unit tests
-- Integration tests
-- A/B tests
-- End-to-end tests
-- Roll-out strategies, like canary or blue/green deployments
+- Rigorous testing, including unit tests.
+- Integration tests.
+- A/B tests.
+- End-to-end tests.
+- Roll-out strategies, like canary or blue/green deployments.
 
 Because the deployment responsibilities for generative AI applications extend beyond model deployment, you might need additional job roles to manage the deployment and monitoring of things like the user interface, the orchestrator, and the data stores. These roles are often aligned to DevOps engineer skill sets.
 
