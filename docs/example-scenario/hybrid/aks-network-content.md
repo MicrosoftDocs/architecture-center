@@ -15,7 +15,7 @@ The following image shows the network architecture for Azure Kubernetes Service 
 
 The scenario consists of the following components and capabilities:
 
-- [Azure Stack HCI (22H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Local instance is implemented as a 2-4 node cluster.
+- [Azure Stack HCI (22H2)][1] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Local instance is implemented as a 2-4 node cluster.
 - Windows Server 2019/2022 datacenter failover cluster is a group of independent computers that work together to increase the availability and scalability of clustered roles.
 - [Azure Kubernetes Service on Azure Local][] is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale.
 - [Active Directory Domain Services][] is a hierarchical structure that stores information about objects on the network. It provides identity and access solution for identities associated with users, computers, applications, or other resources that are included in a security boundary.
