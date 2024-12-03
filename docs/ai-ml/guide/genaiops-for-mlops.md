@@ -1,6 +1,6 @@
 ---
 title: Generative AI Ops for Organizations with MLOps Investments
-description: Extend existing MLOps investements to include Generative AI Ops. Learn where you can apply existing investments and where you need to extend those investments.
+description: Extend existing MLOps investments to include Generative AI Ops. Learn where you can apply existing investments and where you need to extend those investments.
 author: robbagby
 ms.author: robbag
 ms.date: 09/25/2024
@@ -46,7 +46,7 @@ Prompt engineering includes all the processes involved in generating a prompt th
 The following diagram shows an architecture for prompt engineering.
 
 :::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.png" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
-   The diagram illustrates a flow. The flow starts with a user. From there it goes to an intelligent application. The intellegent application and a headless intelligent application flow to an orchistrator. The orchestrator flows to data stores and, by way of a prompt, to Azure OpenI Service. 
+   The diagram illustrates a flow. The flow starts with a user. From there it goes to an intelligent application. The intelligent application and a headless intelligent application flow to an orchestrator. The orchestrator flows to data stores and, by way of a prompt, to Azure OpenI Service. 
 :::image-end:::
 
 This category of technical patterns can address many use cases, including:
@@ -150,7 +150,7 @@ Investing in generative AI solutions enables you to take some pressure off your 
 
 ### Deployment
 
-Some generative AI solutions involve deploying custom-trained models or fine-tuning existing models, but others don't. For generative AI solutions you need to include the additional responsbilities of deploying the orchestrators and any data stores. The following sections discuss deployment for common generative AI technical patterns.
+Some generative AI solutions involve deploying custom-trained models or fine-tuning existing models, but others don't. For generative AI solutions you need to include the additional responsibilities of deploying the orchestrators and any data stores. The following sections discuss deployment for common generative AI technical patterns.
 
 #### Training and fine-tuning
 
@@ -192,7 +192,7 @@ A critical aspect to monitoring during the inferencing stage is learning from pr
 
 Solutions that use generative models to reason over grounding data use [metrics like groundedness, completeness, utilization, and relevancy](/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase#large-language-model-evaluation-metrics). The goal is to ensure that the model is fully answering the query and is basing the response on its context. Here, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
 
-Solutions that use generative models for non-predictive tasks, like RAG solutions, often benefit from human feedback from end users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down, and you can use this data to periodically evaluate the responses.
+Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from end users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down, and you can use this data to periodically evaluate the responses.
 
 A common pattern for generative AI solutions is to [deploy a gateway in front of the generative models](/azure/architecture/ai-ml/guide/azure-openai-gateway-guide). One of the [use cases for the gateway is for monitoring the foundational models](/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai). You can use the gateway to log input prompts and output.
 
@@ -232,7 +232,7 @@ As you start extending your MLOps investments to include generative AI, it's imp
 
 ## Related resources
 
-- [Azure OpenAI](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
-- [Designing and developing a RAG solution](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
-- [Baseline OpenAI end-to-end chat reference architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat)
-- [Machine learning operations](/azure/architecture/ai-ml/guide/machine-learning-operations-v2)
+- [Azure OpenAI](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)
+- [Designing and developing a RAG solution](../../ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)
+- [Baseline OpenAI end-to-end chat reference architecture](../../ai-ml/architecture/baseline-openai-e2e-chat.yml)
+- [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)
