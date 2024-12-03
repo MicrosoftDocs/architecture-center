@@ -49,5 +49,5 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See [Charon-SSP](https://www.stromasys.com/solutions/charon-ssp) on the Stromasys website.
-- Read the [Charon-SSP Azure Setup Guide](https://azure.microsoft.com/resources/stromasys-charon-ssp-solaris-emulator-azure-setup-guide).
+- See [Charon-SSP](https://www.stromasys.com/solution/charon-ssp-sun-sparc-virtualization/) on the Stromasys website.
+- Read the [Charon-SSP Azure Setup Guide](https://stromasys.atlassian.net/wiki/spaces/KBP/pages/814121242/CHARON-SSP+for+Azure+Cloud).
