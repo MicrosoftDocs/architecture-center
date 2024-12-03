@@ -14,9 +14,9 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 1. **Azure API Management**. API Management consists of two related components:
 
-  - **API gateway**. The API gateway accepts HTTP call from the client application, validates the token from Microsoft Entra ID, and forwards the request to the backend service. The API gateway can also transform requests and responses, and cache responses.
+   - **API gateway**. The API gateway accepts HTTP call from the client application, validates the token from Microsoft Entra ID, and forwards the request to the backend service. The API gateway can also transform requests and responses, and cache responses.
 
-  - **Developer portal**. The [developer portal][apim-dev-portal] is used by developers to discover and interact with the APIs. The developer portal can be customized to match your organization's branding.
+   - **Developer portal**. The [developer portal][apim-dev-portal] is used by developers to discover and interact with the APIs. The developer portal can be customized to match your organization's branding.
 
 1. **Azure Logic Apps**.  Logic Apps are used to orchestrate the calls to the backend services.  Logic Apps can be triggered by a variety of events and can call a variety of services.  In this solution, Logic Apps is used to call the backend services and provide easy connectivity through [connectors][logic-apps-connectors] reducing the need for custom code.
 
