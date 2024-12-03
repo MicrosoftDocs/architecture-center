@@ -30,13 +30,9 @@ Organizations often have a variety of data sources simultaneously emitting messa
 
 - *Continuous data flow* - A data stream has no beginning or end, collecting data constantly is required. For example, server activity logs accumulate as long as the server runs.
 
-- Nonhomogeneous Data Formats
-  
-  Data may be streamed in multiple formats, such as JSON, Avro, and CSV, with various data types including strings, numbers, dates, and binary types. Stream processing systems must handle these data variations.
+- *Nonhomogeneous Data Formats* - Data may be streamed in multiple formats, such as JSON, Avro, and CSV, with various data types including strings, numbers, dates, and binary types. Stream processing systems must handle these data variations.
 
-- Data Order 
-  
-  Individual elements in a data stream contain timestamps, and the data stream itself may be time-sensitive with diminished significance after a specific interval. In certain cases, there would be a need to preserve the order in which data gets processed.
+- *Data Order* - Individual elements in a data stream contain timestamps, and the data stream itself may be time-sensitive with diminished significance after a specific interval. In certain cases, there would be a need to preserve the order in which data gets processed.
 
 ## What are your options when choosing a technology for real-time processing?
 
@@ -53,13 +49,19 @@ Inorder to choose the right technology lets start exploring te different options
 - Key Considerations:
 
   - Capturing Real-time Data: Producers continuously collect data from sources such as IoT devices, user interactions, and application logs, streaming it into Azure services like Event Hubs or IoT Hub.
-- *Optimize throughput with batching and compression* - Producers can enhance efficiency by batching messages and applying compression to minimize data size during transmission.
-- *Ensure reliable transmission with error handling and retries* - Producers can manage network disruptions or broker failures through automatic retries to ensure dependable data delivery.
-- *Guarantee data integrity with idempotence* - Producers can be configured to support exactly-once delivery, preventing duplicate messages and ensuring consistent data flow.
+  - Optimize throughput with batching and compression - Producers can enhance efficiency by batching messages and applying compression to minimize data size during transmission.
+  - Ensure reliable transmission with error handling and retries - Producers can manage network disruptions or broker failures through automatic retries to ensure dependable data delivery.
+  - Guarantee data integrity with idempotence - Producers can be configured to support exactly-once delivery, preventing duplicate messages and ensuring consistent data flow.
 
-*Azure databases such as SQLDB and CosmosDB support Change data capture. This data has to be read using connectors such as debezium  or change feed for CosmosDB hosted on functions or App service environments. If you are using Fabric event Streams (discussed in the next section) there is no need to have a separate applications such as debezium to connect producers with downstream consumers
+## Services
 
-** Debezium can be hosted as stand alone applications on managed services such as (AKS, Azure App service environments)
+- *[Azure IoT Hub](/azure/azure/iot-hub/iot-concepts-and-iot-hub)* is focused on IoT data ingestion, IoT Hub provides features like bi-directional communication, device authentication, and offline message buffering, making it ideal for managing IoT devices and their data streams
+
+- *[CDC Producers](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-ver16)* - Azure databases such as [SQLDB](/azure/azure-sql/database/change-data-capture-overview?view=azuresql
+) and [CosmosDB](/azure/cosmos-db/change-feed) support Change data capture. This data has to be read using connectors such as debezium  or change feed for CosmosDB hosted on functions or App service environments. If you are using Fabric event Streams (discussed in the next section) there is no need to have a separate applications such as Debezium to connect producers with downstream consumers
+
+
+- *[Custom Applications](/azure/well-architected/service-guides/iot-hub/reliability)* - Debezium can be hosted as stand alone applications on managed services such as (AKS, Azure App service environments).
 
 ### General capabilities
 
@@ -79,6 +81,28 @@ Inorder to choose the right technology lets start exploring te different options
     - Data Velocity: High-frequency data arrival from multiple sources, format compatibility and size
     - Scalability: Ability to scale ingestion buffer as data volume, variety and velocity grows.
     - Data Integrity & Reliability: Ensuring data is not lost or duplicated during transmission.
+
+## Services
+
+- *[Event Hubs](/azure/event-hubs/event-hubs-about)* - 
+Azure Event Hubs is a real-time data ingestion service designed to handle millions of events per second, making it ideal for high-throughput scenarios. 
+It can scale dynamically and process massive volumes of data with low latency.
+Event Hubs supports features like partitioning for parallel processing, data retention policies, 
+and integration with Azure services like Stream Analytics, Fabric, Databricks and Azure Functions.
+Event Hubs is compatible with Apache Kafka and allows you to run existing Kafka workloads without any code changes.
+
+- *[Kafka on HdInsight](/azure/hdinsight/kafka/apache-kafka-introduction)* - 
+Azure HDInsight Kafka is a managed Apache Kafka service optimized for real-time data ingestion and p
+rocessing at scale. It enables the capture and storage of streaming data from various sources, such as IoT devices, application logs, and social media feeds. 
+Use this option if you would like to have more control on Kakfa configuration on a managed infrastructure
+
+- *[Confluent Kafka](/azure/partner-solutions/apache-kafka-confluent-cloud/overview)* - 
+Confluent Kafka on partner solution Azure and is a fully managed Apache Kafka service 
+designed for real-time data ingestion. It's integration
+with Azure simplifies deployment and scaling, and includes features like schema registry, 
+ksqlDB for stream queries, and enterprise-grade security. Use this option if you
+leverage Confluent's extended ecosystem of connectors and stream processing tools. 
+
 
 ### General capabilities
 
@@ -102,7 +126,17 @@ Inorder to choose the right technology lets start exploring te different options
   - Windowing: Managing time-based aggregations and analytics using sliding or tumbling windows.
   - Fault Tolerance: Ensuring the system can recover from failures without losing data or processing steps.
 
-  ### General capabilities
+## Services
+
+- *[Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)* - It is a managed service for real-time analytics using a SQL-based query language. It is designed for simple processing tasks like filtering, aggregating, and joining data streams. Integrates seamlessly with Event Hubs, IoT Hub, and Azure Blob Storage for input and output. Use Stream Analytics for low-complexity, real-time tasks where a simple, managed solution with SQL-based queries would suffice.
+
+- *[Spark structured streaming](https://spark.apache.org/streaming/)* - Azure Services such as [Fabric](/azure/well-architected/service-guides/iot-hub/reliability) ,  [Databricks](/azure/well-architected/service-guides/iot-hub/reliability) and [Synapse](/azure/well-architected/service-guides/iot-hub/reliability) support processing data using spark structured streaming. Use these options for a unified analytics platform built on Apache Spark, capable of handling complex data transformations, machine learning pipelines, and big data workloads. Spark streaming apis support deep integration with Delta Lake for data versioning and consistency.
+
+- *[Fabric Event Streams](/azure/well-architected/service-guides/iot-hub/reliability)* -Microsoft Fabric Event Streams is a real-time data streaming capability within Microsoft Fabric, a unified analytics platform. Event Streams is designed to enable seamless ingestion, processing, and integration of streaming data for real-time analytics and applications.Event Streams is designed to be accessible to users with minimal technical expertise, offering drag-and-drop interfaces for setting up data pipelines.
+
+- *[Azure Functions](/azure/well-architected/service-guides/iot-hub/reliability)* - Azure functions is a  serverless compute service for event-driven processing, useful for lightweight tasks like transforming data or triggering workflows based on real-time events. Azure Functions are stateless by design. Durable Functions extends its capabilities to support stateful workflows for complex event coordination.
+
+### General capabilities
 
 | Capability |Stream Analytics | * Spark Structured Streaming (Fabric, Databricks, Synapse) | Fabric Event Streams| Azure Functions|
 | --- | --- | --- | --- | --- | 
@@ -123,6 +157,33 @@ Inorder to choose the right technology lets start exploring te different options
   - Data Consumption and Usage: For real-time analytics or reporting dashboards, Power BI is highly integrated and allows live visualizations of data streams.
   - Low-Latency Requirements: Many systems will need to efficiently provide analytics over real-time data streams such as device telemetry, application logs. There may be other applications that need ultra-low latency reads and writes, suitable for operational analytics or real-time applications.
   - Scalability & Volume: Requirements for ingesting large volume of data, providing compatibility for various formats and need to scale cost-effectively.
+
+## Services
+
+- *[Azure Datalake Storage](/azure/storage/blobs/data-lake-storage-introduction)* 
+is a scalable, distributed and a cost-effective storage for unstructured and semi-structured data.
+It supports  petabyte-scale storage and high-throughput workloads for storing large volumes of
+streaming data. It also is ideal for analytics over streaming data, ensuring fast read/write operations for data pipelines.
+
+
+- *[Fabric Eventhouse](/learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse)* is a KQL database that is ideal for 
+real-time analytics and exploration on vent-based data, for example, telemetry and log data, time series and IoT data.
+It supports ingestion of millions of events per second with low latency, 
+enabling near-instantaneous access to streaming data. It is deeply integrated with the Microsoft Fabric ecosystem and enables immediate querying 
+and analysis of streaming data using tools like Power BI.
+
+- *[CosmosDB](/azure/cosmos-db/introduction)* is a NoSQL database designed for low-latency, globally distributed, and highly scalable data storage.
+it is compatible with multiple APIs—such as SQL, MongoDB, Cassandra, Table, and Gremlin
+providing flexibility for diverse applications.  It delivers high throughput and is capable of 
+handling large volumes of streaming data with consistent performance.
+
+- *[Azure SQLDB](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)* - 
+is a fully managed, cloud-based relational database service provided by Microsoft Azure. 
+It is built on the SQL Server engine, offering the capabilities of a traditional 
+SQL Server database 
+with the benefits of cloud-based scalability, reliability, and reduced management overhead. 
+
+
 
 ### General capabilities
 
