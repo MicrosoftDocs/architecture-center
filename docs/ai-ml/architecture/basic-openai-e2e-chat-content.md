@@ -46,27 +46,27 @@ You can implement the flow orchestrator in any number of languages and deploy it
 
 Many of the components of this architecture are the same as the resources in the [basic App Service web application architecture](../../web-apps/app-service/architectures/basic-web-app.yml) because the chat UI is based on that architecture. This section highlights the components that you can use to build and orchestrate chat flows, data services, and the services that expose the language models.
 
-- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. AI Foundry is used in this architecture to build, test, and deploy the prompt flow orchestration logic for the chat application.
+- [Azure AI Foundry](/azure/ai-studio/what-is-ai-studio) is a platform that you can use to build, test, and deploy AI solutions. This architecture uses AI Foundry to build, test, and deploy the prompt flow orchestration logic for the chat application.
 
-  - [AI Foundry hub](/azure/ai-studio/concepts/ai-resources) is the top-level resource for AI Foundry. It's the central resource where you can govern security, connectivity, and compute resources for use in your AI Foundry projects. You define connections to resources such as Azure OpenAI in the AI Foundry hub. The AI Foundry projects inherit these connections.
+  - [AI Foundry hub](/azure/ai-studio/concepts/ai-resources) is the top-level resource for AI Foundry. It's the central place where you can govern security, connectivity, and compute resources for use in your AI Foundry projects. You define connections to resources like Azure OpenAI in the AI Foundry hub. The AI Foundry projects inherit these connections.
 
-  - [AI Foundry projects](/azure/ai-studio/how-to/create-projects) are the environments used to collaborate while developing, deploying, and evaluating AI models and solutions.
+  - [AI Foundry projects](/azure/ai-studio/how-to/create-projects) are the environments that you use to collaborate while you develop, deploy, and evaluate AI models and solutions.
 
-- [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. Prompt flow is used in this architecture as the layer that orchestrates flows between the prompt, different data stores, and the language model. For development, you can host your prompt flows in two types of runtimes.
+- [Prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that you can use to build, evaluate, and deploy flows that link user prompts, actions through Python code, and calls to language learning models. This architecture uses prompt flow as the layer that orchestrates flows between the prompt, different data stores, and the language model. For development, you can host your prompt flows in two types of runtimes.
 
-  - **Automatic runtime:** A serverless compute option that manages the lifecycle and performance characteristics of the compute and allows flow-driven customization of the environment. This architecture uses the automatic runtime for simplicity.
+  - **Automatic runtime** is a serverless compute option that manages the lifecycle and performance characteristics of the compute. It also facilitates flow-driven customization of the environment. This architecture uses the automatic runtime for simplicity.
 
-  - **Compute instance runtime:** An always-on compute option in which the workload team must select the performance characteristics. This runtime offers more customization and control of the environment.
+  - **Compute instance runtime** is an always-on compute option in which the workload team must select the performance characteristics. This runtime provides more customization and control of the environment.
 
-- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses a feature of Machine Learning that is used to deploy and host executable flows for AI applications that are powered by language models. This feature is [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference) that let you deploy a flow for real-time inferencing. In this architecture, they're used as a PaaS endpoint for the chat UI to invoke the prompt flows hosted by the Machine Learning automatic runtime.
+- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference), a feature of Machine Learning that deploys and hosts executable flows for AI applications that are powered by language models. Use managed online endpoints to deploy a flow for real-time inferencing. This architecture uses them as a platform as a service (PaaS) endpoint for the chat UI to invoke the prompt flows that the Machine Learning automatic runtime hosts.
 
-- [Storage](/azure/storage/common/storage-introduction) is used to persist the prompt flow source files for prompt flow development.
+- [Azure Storage](/azure/storage/common/storage-introduction) is a storage solution that you can use to persist the prompt flow source files for prompt flow development.
 
-- [Container Registry](/azure/container-registry/container-registry-intro) lets you build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this architecture, flows are packaged as container images and stored in Container Registry.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service that you can use to build, store, and manage container images and artifacts in a private registry for all types of container deployments. This architecture packages flows as container images and stores them in Container Registry.
 
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. In this architecture, in addition to model access, it's used to add common enterprise features such as [managed identity](/azure/ai-services/openai/how-to/managed-identity) support, and content filtering.
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. This architecture uses Azure OpenAI, in addition to model access, to add common enterprise features like [managed identity](/azure/ai-services/openai/how-to/managed-identity) support and content filtering.
 
-- [AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). AI Search is included in the architecture because it's a common service used in the flows behind chat applications. AI Search can be used to retrieve and index data that's relevant for user queries. The prompt flow implements the RAG [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
+- [AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/hybrid-search-overview). The architecture includes AI Search because it's a common service to use in the flows that support chat applications. You can use AI Search to retrieve and index data that's relevant for user queries. The prompt flow implements the [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
 ## Recommendations and considerations
 
@@ -111,7 +111,7 @@ The following guidance extends the [identity and access management guidance in t
 
 If you choose to use user-assigned managed identities, you should create separate identities for each of the above resources.
 
-AI Foundry projects are intended to be isolated from one another. In order to allow multiple projects to write to the same Azure Storage account, but keep the projects isolated, conditions are applied to their role assignments for blob storage. These conditions grant access to only certain containers within the storage account. If you use user-assigned managed identities, you'll need to follow a similar approach in order to maintain least privilege.
+AI Foundry projects are intended to be isolated from one another. In order to allow multiple projects to write to the same Storage account, but keep the projects isolated, conditions are applied to their role assignments for blob storage. These conditions grant access to only certain containers within the storage account. If you use user-assigned managed identities, you'll need to follow a similar approach in order to maintain least privilege.
 
 Currently, the chat UI is using keys to connect to the deployed managed online endpoint. The keys are stored in Azure Key Vault. When moving to production, you should use Managed Identity to authenticate the chat UI to the managed online endpoint.
 
@@ -124,14 +124,14 @@ A summary of the permissions automatically granted for the system-assigned ident
 | Identity | Privilege | Resource |
 | --- | --- | --- |
 | AI Foundry hub | read/write | Key Vault |
-| AI Foundry hub | read/write | Azure Storage |
-| AI Foundry hub | read/write | Azure Container Registry |
+| AI Foundry hub | read/write | Storage |
+| AI Foundry hub | read/write | Container Registry |
 | AI Foundry project | read/write | Key Vault |
-| AI Foundry project | read/write | Azure Storage |
-| AI Foundry project | read/write | Azure Container Registry |
+| AI Foundry project | read/write | Storage |
+| AI Foundry project | read/write | Container Registry |
 | AI Foundry project | write | Application Insights |
-| Managed online endpoint | read | Azure Container Registry |
-| Managed online endpoint | read/write | Azure Storage |
+| Managed online endpoint | read | Container Registry |
+| Managed online endpoint | read/write | Storage |
 | Managed online endpoint | read | AI Foundry hub (configurations) |
 | Managed online endpoint | write | AI Foundry project (metrics) |
 
