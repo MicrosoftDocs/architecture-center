@@ -17,7 +17,7 @@ This architecture is a starting point for a [three-node Azure Local instance tha
 
 ## Architecture
 
-:::image type="complex" source="images/azure-stack-hci-switchless.png" lightbox="images/azure-stack-hci-switchless.png" alt-text="Diagram that shows a three-node Azure Local instance that uses a switchless storage architecture and has dual ToR switches for external connectivity." border="false":::
+:::image type="complex" source="images/azure-local-switchless.png" lightbox="images/azure-local-switchless.png" alt-text="Diagram that shows a three-node Azure Local instance that uses a switchless storage architecture and has dual ToR switches for external connectivity." border="false":::
    Diagram that illustrates a three-node Azure Local instance that uses a switchless storage architecture and has dual Top-of-Rack (ToR) switches for external (north-south) connectivity. The cluster uses several Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Manager, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates, and Azure Site Recovery.
 :::image-end:::
 
@@ -91,7 +91,7 @@ The physical network topology shows the actual physical connections between node
   
   - The two ToR switches handle the north-south traffic for the Azure Local instance, including traffic related to management and compute intents.
 
-    :::image type="content" source="images/three-node-physical-network.png" alt-text="Diagram of a three-node Azure Local instance with switchless storage architecture and dual ToR switches for external connectivity." lightbox="images/three-node-physical-network.png" border="false":::
+    :::image type="content" source="images/azure-local-3-node-physical-network.png" alt-text="Diagram of a three-node Azure Local instance with switchless storage architecture and dual ToR switches for external connectivity." lightbox="images/azure-local-3-node-physical-network.png" border="false":::
 
 #### Logical network topology
 
@@ -127,7 +127,7 @@ The logical network topology provides an overview for how the network data flows
   
   - This configuration ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 
-    :::image type="complex" source="images/three-node-logical-network.png" lightbox="images/three-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Local instance." border="false":::
+    :::image type="complex" source="images/azure-local-3-node-logical-network.png" lightbox="images/azure-local-3-node-logical-network.png" alt-text="Diagram that shows the logical networking topology for a three-node Azure Local instance." border="false":::
        Diagram that shows the logical networking topology for a three-node Azure Local instance. It uses a switchless storage architecture with dual ToR switches for external (or north-south) connectivity.
     :::image-end:::
 

@@ -2,7 +2,7 @@ The following reference architecture illustrates how to design and implement dis
 
 ## Architecture
 
-[![Diagram illustrating an active-active and an active-passive Azure Local stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Local VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Local VMs.](images/azure-stack-hci-dr.svg)](images/azure-stack-hci-dr.svg#lightbox)
+[![Diagram illustrating an active-active and an active-passive Azure Local stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Local VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Local VMs.](images/azure-local-dr.svg)](images/azure-local-dr.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 

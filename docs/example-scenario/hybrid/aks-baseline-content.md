@@ -9,13 +9,13 @@ This article includes recommendations for networking, security, identity, manage
 
 The following image shows the baseline architecture for Azure Kubernetes Service on Azure Local or Windows Server 2019/2022 datacenter failover clusters:
 
-:::image type="content" source="media/aks-azure-stack-hci-baseline-v8.svg" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Local." lightbox="media/aks-azure-stack-hci-baseline-v8.svg":::
+:::image type="content" source="media/aks-azure-local-baseline-v8.svg" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Local" lightbox="media/aks-azure-local-baseline-v8.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-azure-local-baseline-v8.vsdx) of this architecture.*
 
 The architecture consists of the following components and capabilities:
 
-- [Azure Stack HCI, version 22H2][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Local instance is implemented as a 2-8 node cluster.
+- [Azure Stack HCI, version 22H2][1]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Local instance is implemented as a 2-8 node cluster.
 - [Azure Kubernetes Service (AKS) on Azure Local][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
 - [Azure Arc][]. A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - [Azure Policy](/azure/governance/policy/overview). A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. These standards also include [Azure Policy for Kubernetes][], which applies policies to the workloads running inside the cluster.
@@ -202,7 +202,7 @@ Other contributors:
 
 - [AKS overview](/azure/aks/hybrid/overview)
 
-  [Azure Stack HCI (22H2)]: /azure-stack/hci/overview
+  [Azure Stack HCI, version 22H2]: /azure-stack/hci/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service (AKS) on Azure Local]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview

@@ -22,6 +22,6 @@ products:
   - azure-blob-storage
   - azure-backup
   - azure-monitor
-thumbnailUrl: /azure/architecture/browse/thumbs/azure_stack_hci_dr.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-dr.png
 content: |
-   [!include[](azure-stack-hci-dr-content.md)]
+   [!INCLUDE[](azure-stack-hci-dr-content.md)]
