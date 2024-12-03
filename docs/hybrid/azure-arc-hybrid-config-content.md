@@ -82,7 +82,7 @@ Use Azure Monitor to monitor your VMs, Virtual Machine Scale Sets, and Azure Arc
  - Monitor VM processes and dependencies on other resources and external processes. 
  - Monitor performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
-The Azure Monitor agent should be automatically deployed to Azure Arc-enabled Windows and Linux servers, through [Azure Policy](azure/azure-monitor/monitor-at-scale). Review and understand how the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) operates and collects data before deployment.
+The Azure Monitor agent should be automatically deployed to Azure Arc-enabled Windows and Linux servers, through [Azure Policy](/azure/azure-monitor/monitor-at-scale). Review and understand how the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) operates and collects data before deployment.
 
 Design and plan your Log Analytics workspace deployment. The workspace is the container where data is collected, aggregated, and analyzed. A Log Analytics workspace represents a geographical location of your data, data isolation, and scope for configurations like data retention. Use a single Azure Monitor Log Analytics workspace as described in the [management and monitoring best practices](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management) of Cloud Adoption Framework.
 
