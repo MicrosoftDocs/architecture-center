@@ -23,7 +23,7 @@ This article provides guidance to workload teams that have existing machine lear
 
 Generative AI workloads differ from traditional machine learning workloads in a few ways:
 
-- **Focus on generative models.** Traditional machine learning workloads focus on training new models that are trained to perform specific tasks. Generative AI workloads consume generative models that can be used to address a wider variety of use cases, and in some cases are multi-modal.
+- **Focus on generative models.** Traditional machine learning workloads focus on training new models that are trained to perform specific tasks. Generative AI workloads consume generative models that can address a wider variety of use cases, and in some cases are multi-modal.
 
 - **Focus on extending the models.** The key asset in traditional machine learning is the deployed model. Access to the model is provided to client code in one or more workloads, but the workload isn't part of the MLOps process. With generative AI solutions, a key facet of the solution is the prompt that's provided to the generative model. The prompt must be composed and can contain data from one or more data stores. The system that orchestrates the logic, calls to the various back ends, generates the prompt, and calls to the generative model is part of the generative AI system that you must govern with GenAIOps.
 
@@ -35,7 +35,7 @@ Although some generative AI solutions use traditional machine learning practices
 
 ### Training and fine-tuning language models
 
-Currently, many generative AI solutions use existing foundation language models that don't require fine-tuning before use. That said, some use cases can benefit from either fine-tuning a foundation model or training a new generative AI model, like a small language model (SLM).
+Currently, many generative AI solutions use existing foundation language models that don't require fine-tuning before use. However, some use cases can benefit from fine-tuning a foundation model or training a new generative AI model, like a small language model (SLM).
 
 Training a new SLM and fine-tuning a generative foundation model are logically the same processes as training traditional machine learning models. These processes should use your existing MLOps investments.
 
@@ -46,7 +46,7 @@ Prompt engineering includes all the processes involved in generating a prompt th
 The following diagram shows an architecture for prompt engineering.
 
 :::image type="complex" source="_images/prompt-engineering-architecture.svg" lightbox="_images/prompt-engineering-architecture.png" alt-text="Diagram that shows an architecture for prompt engineering." border="false":::
-   The diagram illustrates a flow. The flow starts with a user. From there it goes to an intelligent application. The intelligent application and a headless intelligent application flow to an orchestrator. The orchestrator flows to data stores and, by way of a prompt, to Azure OpenI Service. 
+   The diagram illustrates a flow. The flow starts with a user. From there, it goes to an intelligent application. The intelligent application and a headless intelligent application flow to an orchestrator. The orchestrator flows to data stores and, by way of a prompt, to Azure OpenI Service. 
 :::image-end:::
 
 This category of technical patterns can address many use cases, including:
@@ -58,7 +58,7 @@ This category of technical patterns can address many use cases, including:
 
 ### Retrieval-augmented generation
 
-Retrieval-augmented generation (RAG) is an architectural pattern that uses prompt engineering to incorporate domain-specific data as the grounding data for a language model. The language model is trained against a specific set of data. Your workload might require reasoning over data that's specific to your company, customers, or domain. With RAG solutions, your data is queried, and the results are provided to the language model as part of the prompt, usually through an orchestration layer.
+Retrieval-augmented generation (RAG) is an architectural pattern that uses prompt engineering to incorporate domain-specific data as the grounding data for a language model. The language model is trained against a specific set of data. Your workload might require reasoning over data that's specific to your company, customers, or domain. In RAG solutions, your data is queried, and the results are provided to the language model as part of the prompt, usually through an orchestration layer.
 
 A common RAG implementation is to break up your documents into chunks and store them in a vector store along with metadata. Vector stores, such as Azure AI Search, allow you to perform both textual and vector similarity searches to return contextually relevant results. RAG solutions can also [use other data stores](/azure/architecture/guide/technology-choices/vector-search) to return grounding data.
 
@@ -84,7 +84,7 @@ This section describes the following key aspects of the inner and outer loop pha
 
 ### DataOps
 
-Both MLOps and GenAIOps employ the fundamentals of DataOps to create extensible and reproducible workflows that ensure that data is cleaned, transformed, and formatted correctly for experimentation and evaluation. Workflow reproducibility and data versioning are important features of DataOps for all technical patterns. The sources, types, and intent of the data are pattern dependent.
+Both MLOps and GenAIOps apply the fundamentals of DataOps to create extensible and reproducible workflows that ensure that data is cleaned, transformed, and formatted correctly for experimentation and evaluation. Workflow reproducibility and data versioning are important features of DataOps for all technical patterns. The sources, types, and intent of the data are pattern dependent.
 
 #### Training and fine-tuning
 
@@ -106,7 +106,7 @@ When you fine-tune an existing language model or train a small language model, y
 
 #### RAG and prompt engineering
 
-Experimentation with prompt engineering and RAG workloads requires extending your MLOps investments. For these technical patterns, the workload doesn't end with the model. The workload requires an orchestrator, which is a system that can run logic, call data stores for required information like grounding data, generate prompts, call language models, and more. The data stores and the indexes in the stores are also part of the workload. You need to extend your operations to govern these aspects of the workload.
+Experimentation with prompt engineering and RAG workloads requires you to extend your MLOps investments. For these technical patterns, the workload doesn't end with the model. The workload requires an orchestrator, which is a system that can run logic, call data stores for required information like grounding data, generate prompts, call language models, and more. The data stores and the indexes in the stores are also part of the workload. You need to extend your operations to govern these aspects of the workload.
 
 You can experiment on multiple dimensions for prompt engineering solutions, including different instructions, personas, examples, constraints, and advanced techniques like prompt chaining. When you [experiment with RAG solutions](/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide), you can experiment with additional areas:
 
@@ -116,9 +116,9 @@ You can experiment on multiple dimensions for prompt engineering solutions, incl
 - Configuration of your search index
 - What searches to perform (vector, full text, hybrid, and so on)
 
-As discussed in [DataOps](#dataops), reproducibility and data versioning are key to experimentation. A good experimentation framework enables you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when [evaluating the experiment](#evaluation-and-experimentation).
+As discussed in [DataOps](#dataops), reproducibility and data versioning are key to experimentation. A good experimentation framework enables you to store inputs, such as changes to hyperparameters or prompts, along with outputs to be used when you [evaluate the experiment](#evaluation-and-experimentation).
 
-As in your existing MLOps environment, you can take advantage of frameworks like Azure Machine Learning pipelines. Azure Machine Learning pipelines have features that support indexing by integrating with vector stores like AI Search. Your GenAIOps environment can take advantage of these features of pipelines and combine them with prompt flow features that manage prompt engineering and custom preprocessing logic.
+As in your existing MLOps environment, you can take advantage of frameworks like Azure Machine Learning pipelines. Azure Machine Learning pipelines have features that support indexing by integrating with vector stores like AI Search. Your GenAIOps environment can take advantage of these pipeline features and combine them with prompt flow features that manage prompt engineering and custom preprocessing logic.
 
 ### Evaluation and experimentation
 
@@ -134,7 +134,7 @@ You need to extend your existing MLOps investments to evaluate generative AI sol
 
 Jobs in prompt flow automatically capture input and output data throughout the experimentation process to create a comprehensive trial record. You can gain insights and identify promising configurations that can inform future iterations by analyzing this data. You can accelerate the development of your generative AI solutions by using prompt flows to conduct efficient and systematic experimentation.
 
-The experimentation process is the same regardless of the use case for your generative AI solution, including classification, summarization, translation, and even RAG. The important difference is the metrics that you use to evaluate the different use cases. Following are some metrics, based on use case, to consider.
+The experimentation process is the same regardless of the use case for your generative AI solution. These use cases include classification, summarization, translation, and even RAG. The important difference is the metrics that you use to evaluate the different use cases. Following are some metrics, based on use case, to consider.
 
 - Translation: BLEU
 - Summarization: ROUGE. BLEU, BERTScore, METEOR
@@ -190,7 +190,7 @@ For prompt engineering in generative AI solutions, you have additional monitorin
 
 A critical aspect to monitoring during the inferencing stage is learning from production. Monitoring for traditional machine learning models tracks metrics like accuracy, precision, and recall. A key goal is to avoid prediction drift. Solutions that use generative models to make predictions, for example, using a GPT model for classification, should take advantage of your existing MLOps monitoring investments.
 
-Solutions that use generative models to reason over grounding data use [metrics like groundedness, completeness, utilization, and relevancy](/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase#large-language-model-evaluation-metrics). The goal is to ensure that the model is fully answering the query and is basing the response on its context. Here, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
+Solutions that use generative models to reason over grounding data use [metrics like groundedness, completeness, utilization, and relevancy](/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase#large-language-model-evaluation-metrics). The goal is to ensure that the model fully answers the query and bases the response on its context. Here, you need to try to prevent problems like data drift. You want to ensure that the grounding data and the prompt that you provide to the model are maximally relevant to the user query.
 
 Solutions that use generative models for nonpredictive tasks, like RAG solutions, often benefit from human feedback from end users to evaluate usefulness sentiments. User interfaces can capture feedback like thumbs up or down, and you can use this data to periodically evaluate the responses.
 
