@@ -118,11 +118,8 @@ Azure also supports high availability in a [multi-SID installation](/azure/virtu
 
 #### Proximity placement groups
 
-This example architecture also uses a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them. The group's placement varies as follows:
+This example architecture also uses a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them.  This article has updated guidance regarding the use of PPGs, so it's important to have a good understanding of this information before a production deployment. 
 
-- In a single SID installation, you should place all Central Services and application servers in the proximity placement group anchored by the SAP HANA database.
-
-- In a multi-SID installation, you have the freedom to associate the Central Services and application servers with any single proximity placement group that's anchored by SAP HANA containers of different SIDs.
 
 ### Database
 
@@ -130,7 +127,9 @@ SAP BW/4HANA is designed for the SAP HANA database platform. Azure provides thre
 
 - [In a scale-up SAP HANA deployment](./run-sap-hana-for-linux-virtual-machines.yml), the database tier uses two or more Linux virtual machines in a cluster to achieve high availability.
 
-- A [scale-out deployment of SAP HANA](/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#sap-hana-scale-out-scenarios) is supported for some virtual machine types.
+- A [scale-out deployment of SAP HANA](/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#sap-hana-scale-out-scenarios) is supported for some virtual machine types.  
+  
+- The [Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=ve:24;v:deCertified;v:deTdi&sort=Latest%20Certification&sortDesc=true&search=&id=s:2966) has an inclusive lists of VM SKUs that support both OLAP and OLTP workloads for both scale-up and scale-out configurations.
 
 ### Storage
 
@@ -158,7 +157,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/well-architected/performance-efficiency/principles).
 
 SAP BW/4HANA is designed for real-time data warehousing tasks. SAP application servers carry on constant communications with the database servers, so minimizing latency from the application virtual machines to the database contributes to better application performance. Disk caching and server placement are two strategies that help reduce latency between these two components.
 
