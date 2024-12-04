@@ -80,7 +80,7 @@ You can also optimize your costs by following the process to right-size the capa
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://www.unisys.com/offerings/clearpath-forward/clearpath-forward-products).
+To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://stealthsecurity.unisys.com/solutions/clearpath-forward/).
 
 ## Contributors
 
@@ -99,9 +99,9 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 - [Azure Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Unisys CloudForte for Azure in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
-- [Unisys Cloud Migration Services](https://www.unisys.com/offerings/cloud-services/cloud-migration)
+- [Unisys Cloud Migration Services](https://www.unisys.com/solutions/cloud-management/)
 - [Unisys Stealth](https://stealthsecurity.unisys.com)
-- [Unisys Documentation Libraries](https://www.unisys.com/about-us/support/documentation-libraries)
+- [Unisys Documentation Libraries](https://public.support.unisys.com/common/epa/documentationlibraries.aspx)
 - [Azure Virtual Network documentation](/azure/virtual-network)
 - [Manage Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
