@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Overview of SAP guidance and resources
+  title: Overview of SAP Guidance and Resources
   description: Overview of SAP guidance and resources
   author: stephen-sumner
   ms.author: ssumner
-  ms.date: 1/12/2023
+  ms.date: 11/18/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
