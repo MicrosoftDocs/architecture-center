@@ -4,7 +4,7 @@ For more information about workload architecture patterns that are optimized to 
 
 This architecture is a starting point for how to use the storage switched network design to deploy a multinode Azure Local instance. The workload applications deployed on an Azure Local instance should be well architected. Well-architected workload applications must be deployed using multiple instances or high availability of any critical workload services and have appropriate business continuity and disaster recovery (BCDR) controls in place. These BCDR controls include regular backups and disaster recovery failover capabilities. To focus on the HCI infrastructure platform, these workload design aspects are intentionally excluded from this article.
 
-For more information about guidelines and recommendations for the five pillars of the Azure Well-Architected Framework, see the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci).
+For more information about guidelines and recommendations for the five pillars of the Azure Well-Architected Framework, see the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-local).
 
 ## Article layout
 
@@ -331,7 +331,7 @@ This section describes an example scenario. A fictitious customer called _Contos
 
   For more information, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
 
-- **The operational processes and procedures** described previously in the article, and the recommendations in the [Well-Architected Framework service guide for Azure Local](/azure/well-architected/service-guides/azure-stack-hci), enable Contoso Manufacturing to meet their 99.8% SLO target and effectively scale and manage Azure Local and workload deployments across multiple manufacturing sites that are distributed around the world.
+- **The operational processes and procedures** described previously in the article, and the recommendations in the [Well-Architected Framework service guide for Azure Local](/azure/well-architected/service-guides/azure-local), enable Contoso Manufacturing to meet their 99.8% SLO target and effectively scale and manage Azure Local and workload deployments across multiple manufacturing sites that are distributed around the world.
 
   For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
@@ -513,7 +513,7 @@ Microsoft Learn modules:
 [azs-hci-automate-aks-update]: /azure/aks/hybrid/cluster-upgrade
 [azs-hci-automate-arc-aks]: /azure/aks/hybrid/aks-create-clusters-cli?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json
 [azs-hci-automate-arc-vms]: /azure-stack/hci/manage/create-arc-virtual-machines?tabs=azurecli
-[azs-hci]: /azure/well-architected/service-guides/azure-stack-hci
+[azs-hci]: /azure/well-architected/service-guides/azure-local
 [azs-hci-basic-security]: /azure-stack/hci/concepts/security-features
 [azs-hci-billing]: /azure-stack/hci/concepts/billing
 [azs-hci-csv-cache]: /azure-stack/hci/manage/use-csv-cache#planning-considerations

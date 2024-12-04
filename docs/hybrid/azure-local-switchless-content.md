@@ -4,7 +4,7 @@ The storage switchless network design removes the requirement for storage class 
 
 This reference architecture provides workload-agnostic guidance and recommendations for configuring Azure Local as a resilient infrastructure platform to deploy and manage virtualized workloads. For more information about workload architecture patterns that are optimized to run on Azure Local, see the content located under the **Azure Local workloads** navigation menu.
 
-This architecture is a starting point for a [three-node Azure Local instance that uses a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). Workload applications that are deployed on an Azure Local instance should be well architected. This approach includes deploying multiple instances for high availability of any critical workload services and implementing appropriate business continuity and disaster recovery (BCDR) controls, such as regular backups and DR failover capabilities. To focus on the HCI infrastructure platform, these workload design aspects are intentionally excluded from this article. For more information about guidelines and recommendations for the five pillars of the Azure Well-Architected Framework, see the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-stack-hci).
+This architecture is a starting point for a [three-node Azure Local instance that uses a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). Workload applications that are deployed on an Azure Local instance should be well architected. This approach includes deploying multiple instances for high availability of any critical workload services and implementing appropriate business continuity and disaster recovery (BCDR) controls, such as regular backups and DR failover capabilities. To focus on the HCI infrastructure platform, these workload design aspects are intentionally excluded from this article. For more information about guidelines and recommendations for the five pillars of the Azure Well-Architected Framework, see the [Azure Local Well-Architected Framework service guide](/azure/well-architected/service-guides/azure-local).
 
 ## Article layout
 
@@ -183,7 +183,7 @@ Product documentation:
 
 - [Azure Stack HCI OS, version 23H2 release information](/azure-stack/hci/release-information-23h2)
 - [AKS on Azure Local](/azure/aks/hybrid/aks-whats-new-23h2)
-- [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-stack-hci-overview)
+- [Azure Virtual Desktop for Azure Local](/azure/virtual-desktop/azure-local-overview)
 - [What is Azure Local monitoring?](/azure-stack/hci/concepts/monitoring-overview)
 - [Protect VM workloads with Site Recovery on Azure Local](/azure-stack/hci/manage/azure-site-recovery)
 - [Azure Monitor overview](/azure/azure-monitor/overview)

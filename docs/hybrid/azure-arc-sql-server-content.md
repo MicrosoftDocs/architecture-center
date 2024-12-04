@@ -241,7 +241,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [azure-arc-enabled-servers-service-page]: /azure/azure-arc/servers/overview
 [azure-arc-enabled-sql-server-service-page]: /sql/sql-server/azure-arc/overview
 [azure-kubernetes-service-service-page]: /azure/well-architected/service-guides/azure-kubernetes-service
-[azs-hci-service-page]: /azure/well-architected/service-guides/azure-stack-hci
+[azs-hci-service-page]: /azure/well-architected/service-guides/azure-local
 [azure-kubernetes-service-on-azs-hci-service-page]: /azure/aks/hybrid/overview
 [azure-arc-enabled-kubernetes-service-page]: /azure/azure-arc/kubernetes/overview
 [azure-arc-enabled-data-services-service-page]: /azure/azure-arc/data/overview

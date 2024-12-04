@@ -145,7 +145,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-local-dr.vsdx
 [azure-well-architected-framework]: /azure/well-architected/
 [microsoft-component]: /
-[azs-hci]: /azure/well-architected/service-guides/azure-stack-hci
+[azs-hci]: /azure/well-architected/service-guides/azure-local
 [storage-replica]: /windows-server/storage/storage-replica/storage-replica-overview
 [cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
 [live-migration]: /windows-server/virtualization/hyper-v/manage/live-migration-overview
