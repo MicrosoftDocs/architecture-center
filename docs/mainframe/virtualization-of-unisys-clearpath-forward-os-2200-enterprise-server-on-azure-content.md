@@ -89,7 +89,7 @@ You can also optimize your costs by following the process to right-size the capa
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-To learn more about Unisys CPF offerings and pricing, visit [Unisys CPF products](https://www.unisys.com/offerings/clearpath-forward/clearpath-forward-products).
+To learn more about Unisys CPF offerings and pricing, visit [Unisys CPF products](https://stealthsecurity.unisys.com/solutions/clearpath-forward/).
 
 ### Operational excellence
 

@@ -86,7 +86,7 @@ The Siemens Industrial Edge components include:
 
 - [AIIS](https://www.dex.siemens.com/edge/manufacturing-process-industries/ai-inference-server) runs on Siemens Industrial Edge devices and uses the built-in Python Interpreter to run deployed AI models for inference purposes.
 
-- Use the [AI Software Development Kit](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-enabled-operations/software-development-kit.html) to package your model, including preprocessing logic and post-processing logic, into a standard inference pipeline that runs on the AIIS. Use these Python tools and keep your existing coding and training environment.
+- Use the [AI Software Development Kit](https://www.siemens.com/global/en/products/automation/topic-areas/artificial-intelligence-in-industry/industrial-ai-suite/software-development-kit.html) to package your model, including preprocessing logic and post-processing logic, into a standard inference pipeline that runs on the AIIS. Use these Python tools and keep your existing coding and training environment.
 
 - Siemens Data Collector collects inference data from the Siemens AIIS for further processing.
 
