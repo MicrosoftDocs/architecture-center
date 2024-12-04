@@ -34,7 +34,7 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 |[Telecommunications](telecommunications.md)     |     Telecommunications organizations use AI, automation, and advanced analytics to realize efficiencies, avoid service disruptions, and reduce costs.      |
 |[Automotive, mobility, and transportation](automotive.md)     |     Powerful technologies like cloud computing, IoT, AI, and machine learning can help organizations in the automotive, mobility, and transportation industries move people and things safely, quickly, and efficiently.    |
 |[Education](education.md)     |      Azure provides tools to enable, elevate, and enhance remote learning, connect teachers to students, help organizations create models of smart campus buildings, deploy virtual labs, and more.   |
-|[Nonprofit](/azure/industry/training-services/microsoft-community-training/infrastructure-management/install-your-platform-instance/setup-platform-instance-on-azure-subscription-for-nonprofits?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Nonprofit organizations can apply for an Azure credit grant of $3,500 per year to set up and run an instance of the Microsoft Community Training platform.      |
+|[Nonprofit](/azure/industry/training-services/microsoft-community-training/public-preview-version/infrastructure-management/install-your-platform-instance/setup-platform-instance-on-azure-subscription-for-nonprofits?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Nonprofit organizations can apply for an Azure credit grant of $3,500 per year to set up and run an instance of the Microsoft Community Training platform.      |
 
 ## Additional verticals
 
