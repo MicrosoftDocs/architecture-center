@@ -171,7 +171,7 @@ To learn about related solutions, see this information:
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure Data Lake Storage Gen2]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
-[Azure Databricks SQL Warehouses]: https://learn.microsoft.com/en-us/azure/databricks/sql/
+[Azure Databricks SQL Warehouses]: /azure/databricks/sql/
 [Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
 [Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
@@ -183,26 +183,26 @@ To learn about related solutions, see this information:
 [Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
 [Event Hubs]: https://azure.microsoft.com/services/event-hubs
 [Key Vault]: https://azure.microsoft.com/services/key-vault
-[Medallion model]: https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion
+[Medallion model]: /azure/databricks/lakehouse/medallion
 [MLflow]: https://mlflow.org
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
 [Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
 [Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
 [Observability patterns and metrics for performance tuning]: ../../databricks-monitoring/databricks-observability.yml
-[Photon improves performance]: https://learn.microsoft.com/en-us/azure/databricks/compute/photon
+[Photon improves performance]: /azure/databricks/compute/photon
 [Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
 [Spark SQL pools]: /azure/synapse-analytics/spark/apache-spark-overview
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops
 [What is Microsoft Purview?]: /azure/purview/overview
-[Databricks mirroring in Fabric]: https://learn.microsoft.com/en-us/fabric/database/mirrored-database/azure-databricks
+[Databricks mirroring in Fabric]: /fabric/database/mirrored-database/azure-databricks
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
-[Databricks Unity Catalog]: https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/
-[Get-Started with Databricks pipelines]: https://learn.microsoft.com/en-us/azure/databricks/getting-started/data-pipeline-get-started/
-[Run your first DLT pipeline]:https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/tutorial-pipelines/
-[SCIM]: https://learn.microsoft.com/en-us/azure/databricks/admin/users-groups/scim/aad
-[Azure Databricks Delta Live Tables]: https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/
-[Microsoft Fabric]: https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview
-[Data Factory in Microsoft Fabric]: https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview
-[Direct Lake]: https://learn.microsoft.com/en-us/fabric/get-started/direct-lake-overview
+[Databricks Unity Catalog]: /azure/databricks/data-governance/unity-catalog/
+[Get-Started with Databricks pipelines]: /azure/databricks/getting-started/data-pipeline-get-started/
+[Run your first DLT pipeline]: /azure/databricks/delta-live-tables/tutorial-pipelines/
+[SCIM]: /azure/databricks/admin/users-groups/scim/aad
+[Azure Databricks Delta Live Tables]: /azure/databricks/delta-live-tables/
+[Microsoft Fabric]: /fabric/get-started/microsoft-fabric-overview
+[Data Factory in Microsoft Fabric]: /fabric/data-factory/data-factory-overview
+[Direct Lake]: /fabric/get-started/direct-lake-overview
 
