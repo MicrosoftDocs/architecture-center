@@ -88,6 +88,10 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 You can use this solution when you work with multiple environments, multiple workloads, or multiple teams. You can configure the validation process so that experts need to approve each workload. You can also extend the solution to deploy to multiple tenants for scenarios, including development, test, acceptance, and production scenarios, or for multiple organizations.
 
+## Deploy this scenario
+
+The Microsoft 365 DSC whitepaper, [Managing Microsoft 365 in true DevOps style with Microsoft365DSC and Azure DevOps](https://m365dscwhitepaper.azurewebsites.net/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf), provides detailed steps to deploy this scenario.
+
 ## Contributors
 
 *This article is being maintained by Microsoft. It was originally written by the following contributors.*
@@ -98,6 +102,7 @@ Principal author:
 
 ## Next steps
 
+- [Managing Microsoft 365 in true DevOps style with Microsoft365DSC and Azure DevOps](https://m365dscwhitepaper.azurewebsites.net/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf)
 - [Microsoft365DSC source code](https://github.com/microsoft/Microsoft365DSC)
 - [Microsoft365DSC YouTube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
 - [Microsoft365DSC site](https://microsoft365dsc.com)
