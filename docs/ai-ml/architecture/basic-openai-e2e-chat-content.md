@@ -68,17 +68,17 @@ Many of the components of this architecture are the same as the resources in the
 
 - [AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/hybrid-search-overview). The architecture includes AI Search because it's a common service to use in the flows that support chat applications. You can use AI Search to retrieve and index data that's relevant for user queries. The prompt flow implements the [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
-## Recommendations and considerations
+## Considerations
 
-The [components](#components) listed in this architecture link to Azure Well-Architected service guides where they exist. Service guides detail recommendations and considerations for specific services. This section extends that guidance by highlighting key Azure Well-Architected Framework recommendations and considerations that apply to this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-This *basic* architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality to allow you to evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The following sections outline some deficiencies of this basic architecture, along with recommendations and considerations.
+This basic architecture isn't intended for production deployments. The architecture favors simplicity and cost efficiency over functionality so that you can evaluate and learn how to build end-to-end chat applications with Azure OpenAI. The following sections outline some deficiencies of this basic architecture, along with recommendations and considerations.
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Because this architecture isn't designed for production deployments, the following outlines some of the critical reliability features that are omitted in this architecture:
+Because this architecture isn't designed for production deployments, the following list outlines some of the critical reliability features that this architecture omits:
 
 - The app service Plan is configured for the `Basic` tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. The app service becomes unavailable in the event of any issue with the instance, the rack, or the datacenter hosting the instance. As you move toward production, follow guidance in the [reliability section of the baseline highly available zone-redundant web application](https://learn.microsoft.com/en-us/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-services).
 - Autoscaling for the client UI isn't enabled in this basic architecture. To prevent reliability issues due to lack of available compute resources, you'd need to overprovision to always run with enough compute to handle max concurrent capacity.
@@ -103,45 +103,45 @@ In addition to content filtering, Azure OpenAI implements abuse monitoring featu
 
 ### Identity and access management
 
-The following guidance extends the [identity and access management guidance in the App Service baseline](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management). This architecture uses system-assigned managed identities. Separate identities are created for the following resources:
+The following guidance extends the [identity and access management guidance in the App Service baseline](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management). This architecture uses system-assigned managed identities and creates separate identities for the following resources:
 
 - AI Foundry hub
 - AI Foundry project for flow authoring and management
 - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
 
-If you choose to use user-assigned managed identities, you should create separate identities for each of the above resources.
+If you choose to use user-assigned managed identities, you should create separate identities for each of the preceding resources.
 
-AI Foundry projects are intended to be isolated from one another. In order to allow multiple projects to write to the same Storage account, but keep the projects isolated, conditions are applied to their role assignments for blob storage. These conditions grant access to only certain containers within the storage account. If you use user-assigned managed identities, you'll need to follow a similar approach in order to maintain least privilege.
+AI Foundry projects should be isolated from one another. Apply conditions to project role assignments for blob storage to allow multiple projects to write to the same Storage account and keep the projects isolated. These conditions grant access only to specific containers within the storage account. If you use user-assigned managed identities, you need to follow a similar approach to maintain least privilege access.
 
-Currently, the chat UI is using keys to connect to the deployed managed online endpoint. The keys are stored in Azure Key Vault. When moving to production, you should use Managed Identity to authenticate the chat UI to the managed online endpoint.
+Currently, the chat UI uses keys to connect to the deployed managed online endpoint. Azure Key Vault stores the keys. When you move your workload to production, you should use Microsoft Entra managed identities to authenticate the chat UI to the managed online endpoint.
 
 ### Role-based access roles
 
-The system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know what features of the hub and projects you may use, it create role assignments support all of the potential features. For example, the system creates the role assignment `Storage File Data Privileged Contributor' to the storage account for AI Foundry. If you aren't using prompt flow, your workload might not require this assignment.
+The system automatically creates role assignments for the system-assigned managed identities. Because the system doesn't know what features of the hub and projects you might use, it creates role assignments to support all of the potential features. For example, the system creates the role assignment `Storage File Data Privileged Contributor` to the storage account for AI Foundry. If you aren't using prompt flow, your workload might not require this assignment.
 
-A summary of the permissions automatically granted for the system-assigned identities is as follows:
+The following table summarizes the permissions that the system automatically grants for system-assigned identities:
 
 | Identity | Privilege | Resource |
 | --- | --- | --- |
-| AI Foundry hub | read/write | Key Vault |
-| AI Foundry hub | read/write | Storage |
-| AI Foundry hub | read/write | Container Registry |
-| AI Foundry project | read/write | Key Vault |
-| AI Foundry project | read/write | Storage |
-| AI Foundry project | read/write | Container Registry |
-| AI Foundry project | write | Application Insights |
-| Managed online endpoint | read | Container Registry |
-| Managed online endpoint | read/write | Storage |
-| Managed online endpoint | read | AI Foundry hub (configurations) |
-| Managed online endpoint | write | AI Foundry project (metrics) |
+| AI Foundry hub | Read/write | Key Vault |
+| AI Foundry hub | Read/write | Storage |
+| AI Foundry hub | Read/write | Container Registry |
+| AI Foundry project | Read/write | Key Vault |
+| AI Foundry project | Read/write | Storage |
+| AI Foundry project | Read/write | Container Registry |
+| AI Foundry project | Write | Application Insights |
+| Managed online endpoint | Read | Container Registry |
+| Managed online endpoint | Read/write | Storage |
+| Managed online endpoint | Read | AI Foundry hub (configurations) |
+| Managed online endpoint | Write | AI Foundry project (metrics) |
 
-The created role assignments might be fine for your security requirements, or you might want to constrain them. If you want to follow the principle of least privilege and constrain your role assignments to only what is required, you need to create user-assigned managed identities and create your constrained role assignments.
+The role assignments that the system creates might meet your security requirements, or you might want to constrain them. If you want to follow the principle of least privilege, you need to create user-assigned managed identities and create your own constrained role assignments.
 
 #### Network security
 
-In order to make it easy for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as AI Search, Azure Key Vault, Azure OpenAI, the deployed managed online endpoint, and App Service are all reachable from the internet. The Azure key vault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
+To make it easier for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as AI Search, Key Vault, Azure OpenAI, the deployed managed online endpoint, and App Service are all reachable from the internet. The Azure key vault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
 
-To learn how to include network as an additional perimeter in your architecture, see the [networking section of the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking).
+To learn how to include network as an extra perimeter in your architecture, see the [networking section of the baseline architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking).
 
 ### Cost optimization
 
