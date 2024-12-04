@@ -24,4 +24,4 @@ products:
   - azure-sql-managed-instance
 thumbnailUrl: /azure/architecture/browse/thumbs/administer-sql-server-azure-arc.png
 content: |
-   [!include[](azure-arc-sql-server-content.md)]
+   [!INCLUDE[](azure-arc-sql-server-content.md)]
