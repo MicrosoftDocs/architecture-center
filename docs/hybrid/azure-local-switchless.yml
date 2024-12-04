@@ -23,6 +23,6 @@ products:
   - azure-blob-storage
   - azure-monitor
   - defender-for-cloud
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-hci-switchless-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-switchless-thumbnail.png
 content: |
    [!INCLUDE[](azure-local-switchless-content.md)]
