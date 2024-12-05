@@ -43,9 +43,6 @@ A standard IoT solution architecture consists of five basic elements.
 - *Business integration* takes actions based on insights from device data. You can use services like [Power BI](https://powerbi.microsoft.com) to inspect and visualize data, or [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) or [Microsoft Power Automate](https://powerautomate.microsoft.com) to set up automated actions.
 - *Security monitoring*. [Microsoft Defender for IoT](https://azure.microsoft.com/services/iot-defender) provides an end-to-end security solution for IoT workloads.
 
-> [!div class="nextstepaction"]
-> [Azure IoT reference architecture](../iot.yml)
-
 ## IoT architecture patterns and guides
 
 This section lists useful patterns and guides for building IoT solutions. For industry-specific example solutions, see [Industry specific Azure IoT reference architectures](industry-iot-hub-page.md).

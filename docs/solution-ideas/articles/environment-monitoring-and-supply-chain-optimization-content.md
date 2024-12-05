@@ -46,8 +46,6 @@ This article describes a warehouse management scenario that monitors environment
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. These sources can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the Supply Chain and Logistics Solution can reroute trucks.
 
-For more detailed discussions, see the [Azure IoT reference architecture](../../reference-architectures/iot.yml) to understand and explore the various implementation choices available.
-
 ## Scenario details
 
 Environmental monitoring has become an important activity in the global supply chain. It provides key signals that help drive real-time decisions that can impact suppliers and logistics. Air quality, temperature, wind, humidity, and carbon dioxide (CO2) are some of the indicators that warehouse operators are interested in monitoring during natural disasters. More advanced scenarios can include the fusion of real-time and historical data from weather stations, air quality sensors, and other sources. Machine learning (ML) models can then be used to help predict the effect of these conditions and their possible impact on supply chain operations.
@@ -123,4 +121,4 @@ Principal author:
 
 ## Related resources
 
-- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [Azure IoT reference architecture](../../reference-architectures/iot/iot-architecture-overview.md)
