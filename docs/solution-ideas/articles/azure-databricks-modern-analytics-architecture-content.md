@@ -79,27 +79,27 @@ The solution uses the following components.
 
 #### Core components
 
-- [Azure Databricks][Azure Databricks] is a data analytics platform. Its fully managed Spark clusters process large streams of data from multiple sources. Azure Databricks cleans and transforms structureless data sets. It combines the processed data with structured data from operational databases or data warehouses. Azure Databricks also trains and deploys scalable machine learning and deep learning models.
+- [Azure Databricks][Azure Databricks] is a data analytics platform that uses Spark clusters to process large data streams. It cleans and transforms unstructured data, combines it with structured data, and can train and deploy machine learning models. In this architecture, Databricks serves as the central tool for data ingestion, processing, and serving, providing a unified environment for managing the entire data lifecycle.
 
-- [Azure Databricks SQL Warehouse][Azure Databricks SQL Warehouses] runs queries on data lakes. This service also visualizes data in dashboards.
+- [Azure Databricks SQL Warehouse][Azure Databricks SQL Warehouses] are compute resources that let you query and explore data on Databricks. In this architecture, you can leverage SQL Endpoints to connect directly to your data from Power BI.
 
-- [Azure Databricks Delta Live Tables][Azure Databricks Delta Live Tables] is a declarative framework for building reliable, maintainable, and testable data processing pipelines. You define the transformations to perform on your data and Delta Live Tables manages task orchestration, cluster management, monitoring, data quality, and error handling. 
+- [Azure Databricks Delta Live Tables][Azure Databricks Delta Live Tables] is a declarative framework for building reliable, maintainable, and testable data processing pipelines. In this architecture, Delta Live Tables helps you define transformations to perform on your data and manage task orchestration, cluster management, monitoring, data quality, and error handling within Databricks. 
 
-- [Microsoft Fabric][Microsoft Fabric] is an end-to-end analytics and data platform designed for enterprises that require a unified solution. It encompasses data movement, processing, ingestion, transformation, real-time event routing, and report building. It offers a comprehensive suite of services including Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases.
+- [Microsoft Fabric][Microsoft Fabric] is an end-to-end analytics and data platform designed for enterprises needing a unified solution. The platform offers services like Data Engineering, Data Factory, Data Science, Real-Time Analytics, Data Warehouse, and Databases. In this architecture, we mirror Unity Catalog tables into Fabric and use Direct Lake in Power BI for better performance.
 
-- [Data Factory in Microsoft Fabric][Data Factory in Microsoft Fabric] empowers you with a modern data integration experience to ingest, prepare and transform data from a rich set of data sources.
+- [Data Factory in Microsoft Fabric][Data Factory in Microsoft Fabric] empowers you with a modern data integration experience to ingest, prepare, and transform data from a rich set of data sources in Fabric. In this architecture, we are leveraging built-in connectors to several data sources for quick ingestion into ADLS or OneLake, where Databricks will later retrieve and further transform the batch data.
 
-- [Event Hubs][Event Hubs] is a big data streaming platform. As a platform as a service (PaaS), this event ingestion service is fully managed.
+- [Event Hubs][Event Hubs] is a fully managed, big data streaming platform. As a Platform as a Service (PaaS), it provides event ingestion capabilities. In this architecture, Event Hubs is utilized for streaming data, which Databricks can connect to and process using Spark Streaming or Delta Live Tables.
 
-- [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data may be structured, semi-structured, or unstructured. It typically comes from multiple, heterogeneous sources like logs, files, and media.
+- [Data Lake Storage Gen2][Azure Data Lake Storage Gen2] is a scalable and secure data lake for high-performance analytics. It handles multiple petabytes of data and supports hundreds of gigabits of throughput. ADLS can store structured, semi-structured, and unstructured data. In this architecture, we use ADLS to store both batch and streaming data.
 
-- [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
+- [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends. In this architecture, AML can leverage data transformed by Databricks for training and inferring models.
 
-- [AKS][Azure Kubernetes Service] is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
+- [AKS][Azure Kubernetes Service] is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications. In this architecture, AKS is leveraged to host machine learning models in a containerized environment for scalable inferencing.
 
-- [Delta Lake][Databricks Delta Lake] is a storage layer that uses an open file format. This layer runs on top of cloud storage such as Data Lake Storage Gen2. Delta Lake supports data versioning, rollback, and transactions for updating, deleting, and merging data.
+- [Delta Lake][Databricks Delta Lake] is a storage layer that uses an open file format. This layer runs on top of cloud storage such as Data Lake Storage Gen2. Delta Lake supports data versioning, rollback, and transactions for updating, deleting, and merging data. In this architecture, Delta works as the primary file format for writing and reading data from ADLS.
 
-- [MLflow][MLflow] is an open-source platform for the machine learning lifecycle. Its components monitor machine learning models during training and running. MLflow also stores models and loads them in production.
+- [MLflow][MLflow] is an open-source platform for managing the machine learning lifecycle. Its components monitor machine learning models during training and running. In this architecture, similar to AML, you can leverage MLflow in Databricks to manage your ML lifecycle, including training and inferring using the Unity Catalog data you just transformed within Databricks.
 
 #### Reporting and governing components
 
