@@ -111,15 +111,15 @@ The solution uses the following components.
 
 - [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments for building, deploying, and collaborating on applications. In this architecture, Azure DevOps is used for automating the deployment of Azure infrastructure. Additionally, you could leverage GitHub for automation and version control of Databricks code, for better collaboration, tracking of changes, and integration with CI/CD pipelines.
 
-- [Azure Key Vault][Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. 
+- [Azure Key Vault][Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. In this architecure, AKV is used to store SAS keys from ADLS. These keys are then used in Databricks and other services for authentication.
 
-- [Microsoft Entra ID][Azure Active Directory] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
+- [Microsoft Entra ID][Azure Active Directory] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources. In this architecure, Entra Id is used for authenticating and authorizing users and services in Azure.
 
 - [SCIM][SCIM] allows you to set up provisioning to the Azure Databricks account using Microsoft Entra ID. In this architecture, it’s used for managing users accessing Databricks workspaces. 
   
-- [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
+- [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs. In this architecture, Azure monitor is used for monitoring the health of compute resources in Databricks and Azure Machine Learning, as well as other components that send logs to Azure Monitor.
 
-- [Microsoft Cost Management][Microsoft Cost Management] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Microsoft Cost Management][Microsoft Cost Management] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs. In this architecture, Microsoft Cost Management is used for monitoring and controlling the cost of the entire solution.
 
 ## Scenario details
 
