@@ -48,7 +48,7 @@ One of the first steps in migration is to analyze your IoT solution.
 
 - Understand and audit your existing IoT solution
 
-  It's essential to understand the business and technical requirements, performance, long-term growth, and important factors of your operation. This knowledge helps establish the minimum base of requirements for your platform.Use the [Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview) to understand the best practices when designing a solution.
+  It's essential to understand the business and technical requirements, performance, long-term growth, and important factors of your operation. This knowledge helps establish the minimum base of requirements for your platform. Use the [Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview) to understand the best practices when designing a solution.
 
 - Obtain key information about your IoT solution
 
