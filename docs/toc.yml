@@ -372,6 +372,8 @@ items:
         - name: Differential privacy
           href: /azure/machine-learning/concept-differential-privacy
           maintainContext: true
+    - name: Measure Azure app sustainability
+      href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml          
   - name: Architecture for SaaS and multitenancy
     href: guide/saas-multitenant-solution-architecture/index.md 
   - name: Mission-critical applications
@@ -830,6 +832,10 @@ items:
         href: reference-architectures/data/stream-processing-stream-analytics.yml
       - name: Stream processing with open-source data
         href: example-scenario/data/open-source-data-engine-stream-processing.yml
+      - name: Modern data warehouse for small business
+        href: example-scenario/data/small-medium-data-warehouse.yml
+      - name: Power BI data write-back
+        href: example-scenario/data/power-bi-write-back-power-apps.yml
     - name: Solution ideas
       items:
       - name: Azure Data Explorer solutions
@@ -1158,139 +1164,8 @@ items:
       href: data-guide/azure-dataops-architecture-design.md
     - name: Guides
       items:
-      - name: Analytics and reporting
-        href: data-guide/technology-choices/analysis-visualizations-reporting.md
       - name: Build a scalable system for massive data
         href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-      - name: Microsoft Purview guidance
-        items:
-        - name: Collection structure for a federated catalog
-          href: guide/data/collection-structure-federated-catalog.md
-        - name: Accounts architectures and best practices
-          href: /azure/purview/concept-best-practices-accounts
-          maintainContext: true
-        - name: Managing data effectively
-          href: /azure/purview/concept-best-practices-asset-lifecycle
-          maintainContext: true
-        - name: Automation best practices
-          href: /azure/purview/concept-best-practices-automation
-          maintainContext: true
-        - name: Backup and recovery for migration
-          href: /azure/purview/concept-best-practices-migration
-          maintainContext: true
-        - name: Classification best practices
-          href: /azure/purview/concept-best-practices-classification
-          maintainContext: true
-        - name: Collections architectures and practices
-          href: /azure/purview/concept-best-practices-collections
-          maintainContext: true
-        - name: Deployment best practices
-          href: /azure/purview/deployment-best-practices
-          maintainContext: true
-        - name: Glossary best practices
-          href: /azure/purview/concept-best-practices-glossary
-          maintainContext: true
-        - name: Labeling best practices
-          href: /azure/purview/concept-best-practices-sensitivity-labels
-          maintainContext: true
-        - name: Data lineage best practices
-          href: /azure/purview/concept-best-practices-lineage-azure-data-factory
-          maintainContext: true
-        - name: Network architecture and best practices
-          href: /azure/purview/concept-best-practices-network
-          maintainContext: true
-        - name: Pricing guidelines
-          href: /azure/purview/concept-guidelines-pricing
-          maintainContext: true
-        - name: Scanning best practices
-          href: /azure/purview/concept-best-practices-scanning
-          maintainContext: true
-        - name: Security best practices
-          href: /azure/purview/concept-best-practices-security
-          maintainContext: true
-      - name: Azure Data Factory guidance
-        items:
-        - name: Continuous integration in Data Factory
-          href: /azure/data-factory/continuous-integration-delivery
-          maintainContext: true
-        - name: Automated publishing for CI/CD
-          href: /azure/data-factory/continuous-integration-delivery-improvements
-          maintainContext: true
-      - name: Azure Databricks guidance
-        items:
-        - name: Repos for Git integration
-          href: /azure/databricks/repos/index
-          maintainContext: true
-        - name: GitHub version control
-          href: /azure/databricks/notebooks/github-version-control
-          maintainContext: true
-        - name: Azure DevOps version control
-          href: /azure/databricks/notebooks/azure-devops-services-version-control
-          maintainContext: true
-        - name: Bitbucket Cloud version control
-          href: /azure/databricks/notebooks/bitbucket-cloud-version-control
-          maintainContext: true
-        - name: GitLab version control
-          href: /azure/databricks/repos/gitlab-version-control
-          maintainContext: true
-        - name: CI/CD with Azure DevOps
-          href: /azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops
-          maintainContext: true
-        - name: CI/CD with Jenkins
-          href: /azure/databricks/dev-tools/ci-cd/ci-cd-jenkins
-          maintainContext: true
-      - name: Power BI guidance
-        items:
-        - name: Power BI security
-          href: /power-bi/guidance/whitepaper-powerbi-security
-          maintainContext: true
-        - name: Power BI enterprise deployment
-          href: /power-bi/guidance/whitepaper-powerbi-enterprise-deployment
-          maintainContext: true
-        - name: Power BI Premium deployment
-          href: /power-bi/guidance/whitepaper-powerbi-premium-deployment
-          maintainContext: true
-        - name: Deployment pipelines
-          items:
-          - name: Overview
-            href: /power-bi/create-reports/deployment-pipelines-overview
-            maintainContext: true
-          - name: The deployment process
-            href: /power-bi/create-reports/deployment-pipelines-process
-            maintainContext: true
-          - name: Best practices
-            href: /power-bi/create-reports/deployment-pipelines-best-practices
-            maintainContext: true
-          - name: Automate your deployment pipeline
-            href: /power-bi/create-reports/deployment-pipelines-automation
-            maintainContext: true
-      - name: Continuous integration for Azure Synapse
-        href: /azure/synapse-analytics/cicd/continuous-integration-delivery
-        maintainContext: true
-    - name: Architectures
-      items:
-      - name: Apache NiFi on Azure
-        href: example-scenario/data/azure-nifi.yml
-      - name: Automated enterprise BI
-        href: reference-architectures/data/enterprise-bi-adf.yml
-      - name: DataOps for modern data warehouse
-        href: databases/architecture/dataops-mdw.yml
-      - name: Greenfield lakehouse on Microsoft Fabric
-        href: example-scenario/data/greenfield-lakehouse-fabric.yml
-      - name: Disaster recovery for data analytics pipelines
-        href: example-scenario/analytics/pipelines-disaster-recovery.yml
-      - name: Helm-based deployments
-        href: guide/data/helm-deployments-apache-nifi.yml
-      - name: Measure Azure app sustainability
-        href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
-      - name: Modern data warehouse for small business
-        href: example-scenario/data/small-medium-data-warehouse.yml
-      - name: Modernize mainframe and midrange data
-        href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
-      - name: Power BI data write-back
-        href: example-scenario/data/power-bi-write-back-power-apps.yml
-      - name: Replicate and sync mainframe data
-        href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
     - name: Solution ideas
       items:
       - name: Azure Data Explorer monitoring
