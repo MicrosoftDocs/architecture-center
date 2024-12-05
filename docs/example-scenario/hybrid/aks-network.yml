@@ -15,6 +15,7 @@ azureCategories:
   - hybrid
   - compute
 products:
+  - azure-stack-hci
   - windows-server
 name: Network architecture for AKS on Azure Local
 summary: Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.
