@@ -1,7 +1,7 @@
-This article provides a basic architecture that you can use to learn about how to run chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture includes a client user interface (UI) that runs in Azure App Service and uses prompt flow to orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language model. The executable flow deploys to a managed online endpoint that has managed compute. The architecture is designed to operate out of a single region.
+This article provides a basic architecture to help you learn how to run chat applications that use [Azure OpenAI Service language models](/azure/ai-services/openai/concepts/models). The architecture includes a client user interface (UI) that runs in Azure App Service and uses prompt flow to orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the language model. The executable flow deploys to a managed online endpoint that has managed compute. The architecture is designed to operate out of a single region.
 
 > [!IMPORTANT]
-> This architecture isn't meant to be used for production applications. It's intended to be an introductory architecture that you can use for learning and proof of concept (POC) purposes. When you design your production enterprise chat applications, see the [Baseline OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml), which adds production design decisions to this basic architecture.
+> This architecture isn't meant for production applications. It's intended to be an introductory architecture that you can use for learning and proof of concept (POC) purposes. When you design your production enterprise chat applications, see the [Baseline OpenAI end-to-end chat reference architecture](./baseline-openai-e2e-chat.yml), which adds production design decisions to this basic architecture.
 
 > [!IMPORTANT]
 > :::image type="icon" source="../../_images/github.svg"::: The guidance is backed by an [example implementation](https://github.com/Azure-Samples/openai-end-to-end-basic) that includes deployment steps for this basic end-to-end chat implementation. You can use this implementation as a foundation for your POC to experience working with chat applications that use Azure OpenAI.
@@ -16,7 +16,7 @@ This article provides a basic architecture that you can use to learn about how t
 
 ### Workflow
 
-1. A user issues an HTTPS request to the app service default domain on azurewebsites.net. This domain automatically points to the App Service built-in public IP address. The Transport Layer Security (TLS) connection is established from the client directly to App Service. Azure completely manages the certificate.
+1. A user issues an HTTPS request to the app service default domain on azurewebsites.net. This domain automatically points to the App Service built-in public IP address. The Transport Layer Security connection is established from the client directly to App Service. Azure completely manages the certificate.
 1. Easy Auth, a feature of App Service, helps ensure that the user who accesses the site is authenticated by using Microsoft Entra ID.
 1. The client application code that's deployed to App Service handles the request and presents the user a chat UI. The chat UI code connects to APIs that are also hosted in that same App Service instance. The API code connects to an Azure Machine Learning managed online endpoint to handle user interactions.
 1. The managed online endpoint routes the request to Machine Learning managed compute where the prompt flow orchestration logic is deployed.
@@ -27,7 +27,7 @@ This article provides a basic architecture that you can use to learn about how t
 
 ### Prompt flow
 
-The preceding workflow describes the flow for the chat application, but the following list outlines a typical prompt flow in a more detail.
+The preceding workflow describes the flow for the chat application, but the following list outlines a typical prompt flow in more detail.
 
 > [!NOTE]
 > The numbers in this flow don't correspond to the numbers in the architecture diagram.
@@ -56,15 +56,15 @@ Many of the components of this architecture are the same as the resources in the
 
   - **Automatic runtime** is a serverless compute option that manages the lifecycle and performance characteristics of the compute. It also facilitates flow-driven customization of the environment. This architecture uses the automatic runtime for simplicity.
 
-  - **Compute instance runtime** is an always-on compute option in which the workload team must select the performance characteristics. This runtime provides more customization and control of the environment.
+  - **Compute instance runtime** is an always-on compute option in which the workload team must choose the performance characteristics. This runtime provides more customization and control of the environment.
 
-- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference), a feature of Machine Learning that deploys and hosts executable flows for AI applications that are powered by language models. Use managed online endpoints to deploy a flow for real-time inferencing. This architecture uses them as a platform as a service (PaaS) endpoint for the chat UI to invoke the prompt flows that the Machine Learning automatic runtime hosts.
+- [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference), a feature of Machine Learning that deploys and hosts executable flows for AI applications that are powered by language models. Use managed online endpoints to deploy a flow for real-time inferencing. This architecture uses them as a platform as a service endpoint for the chat UI to invoke the prompt flows that the Machine Learning automatic runtime hosts.
 
 - [Azure Storage](/azure/storage/common/storage-introduction) is a storage solution that you can use to persist the prompt flow source files for prompt flow development.
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service that you can use to build, store, and manage container images and artifacts in a private registry for all types of container deployments. This architecture packages flows as container images and stores them in Container Registry.
 
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. This architecture uses Azure OpenAI, in addition to model access, to add common enterprise features like [managed identity](/azure/ai-services/openai/how-to/managed-identity) support and content filtering.
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. This architecture uses Azure OpenAI and model access to add common enterprise features like [managed identity](/azure/ai-services/openai/how-to/managed-identity) support and content filtering.
 
 - [AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/hybrid-search-overview). The architecture includes AI Search because it's a common service to use in the flows that support chat applications. You can use AI Search to retrieve and index data that's relevant for user queries. The prompt flow implements the [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
@@ -80,9 +80,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 This architecture isn't designed for production deployments, so the following list outlines some of the critical reliability features that this architecture omits:
 
-- The app service plan is configured for the Basic tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. The app service becomes unavailable if there are any problems with the instance, the rack, or the datacenter that hosts the instance. As you move toward production, follow the [reliability guidance for App Service instances](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-services).
+- The app service plan is configured for the Basic tier, which doesn't have [Azure availability zone](/azure/reliability/availability-zones-overview) support. The app service becomes unavailable if there are any problems with the instance, the rack, or the datacenter that hosts the instance. Follow the [reliability guidance for App Service instances](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-services) as you move toward production.
 
-- Autoscaling for the client UI isn't enabled in this basic architecture. To prevent reliability problems that the lack of available compute resources causes, you need to overprovision resources to always run with enough compute to handle maximum concurrent capacity.
+- Autoscaling for the client UI isn't enabled in this basic architecture. To prevent reliability problems caused by a lack of available compute resources, you need to overprovision resources to always run with enough compute to handle maximum concurrent capacity.
 
 - Machine Learning compute doesn't support [availability zones](/azure/reliability/availability-zones-overview). The orchestrator becomes unavailable if there are any problems with the instance, the rack, or the datacenter that hosts the instance. To learn how to deploy the orchestration logic to infrastructure that supports availability zones, see [zonal redundancy for flow deployments](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) in the baseline architecture.
 
@@ -98,13 +98,13 @@ For more information, see [Baseline Azure OpenAI end-to-end chat reference archi
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
 
-This section describes some of the key recommendations that this architecture implements. These recommendations include content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section also discusses network security, a key security feature that this architecture doesn't implement.
+This section describes some of the key recommendations that this architecture implements. These recommendations include content filtering and abuse monitoring, identity and access management, and role-based access controls. Because this architecture isn't designed for production deployments, this section also discusses network security. Network security is a key security feature that this architecture doesn't implement.
 
 #### Content filtering and abuse monitoring
 
-Azure OpenAI includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in both input prompts and output completions. This potentially harmful content includes hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model) categories. You can configure the strictness of what you want to filter from the content for each category by using the low, medium, or high options. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
+Azure OpenAI includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in input prompts and output completions. This potentially harmful content includes hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of a language model) categories. You can configure the strictness of what you want to filter from the content for each category by using the low, medium, or high options. This reference architecture adopts a stringent approach. Adjust the settings according to your requirements.
 
-In addition to content filtering, Azure OpenAI implements abuse monitoring features. Abuse monitoring is an asynchronous operation that detects and mitigates instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/cognitive-services/openai/code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
+Azure OpenAI implements content filtering and abuse monitoring features. Abuse monitoring is an asynchronous operation that detects and mitigates instances of recurring content or behaviors that suggest the use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/cognitive-services/openai/code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
 
 #### Identity and access management
 
@@ -144,7 +144,7 @@ The role assignments that the system creates might meet your security requiremen
 
 #### Network security
 
-To make it easier for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as AI Search, Key Vault, Azure OpenAI, the deployed managed online endpoint, and App Service are all reachable from the internet. The Azure key vault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
+To make it easier for you to learn how to build an end-to-end chat solution, this architecture doesn't implement network security. This architecture uses identity as its perimeter and uses public cloud constructs. Services such as AI Search, Key Vault, Azure OpenAI, the deployed managed online endpoint, and App Service are all reachable from the internet. The Key Vault firewall is configured to allow access from all networks. These configurations add surface area to the attack vector of the architecture.
 
 To learn how to include network as an extra perimeter in your architecture, see the [networking](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#networking) section of the baseline architecture.
 
@@ -152,15 +152,15 @@ To learn how to include network as an extra perimeter in your architecture, see 
 
 Cost Optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the Cost Optimization pillar](/azure/architecture/framework/cost/overview).
 
-This basic architecture doesn't represent the costs for a production-ready solution. The architecture also doesn't have controls in place to guard against cost overruns. The following considerations outline some of the critical features that affect cost and that this architecture omits:
+This basic architecture doesn't represent the costs for a production-ready solution. The architecture also doesn't have controls in place to guard against cost overruns. The following considerations outline some of the crucial features that affect cost and that this architecture omits:
 
-- This architecture assumes that there are limited calls to Azure OpenAI. For this reason, we recommend that you use pay-as-you-go pricing instead of provisioned throughput. As you move toward a production solution, follow the [Azure OpenAI cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture.
+- This architecture assumes that there are limited calls to Azure OpenAI. For this reason, we recommend that you use pay-as-you-go pricing instead of provisioned throughput. Follow the [Azure OpenAI cost optimization guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#azure-openai) in the baseline architecture as you move toward a production solution.
 
-- The app service plan is configured for the Basic pricing tier on a single instance, which doesn't provide protection from an availability zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends that you use Premium plans with three or more worker instances for high availability, which affects your costs.
+- The app service plan is configured for the Basic pricing tier on a single instance, which doesn't provide protection from an availability zone outage. The [baseline App Service architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) recommends that you use Premium plans with three or more worker instances for high availability. This approach affects your costs.
 
 - Scaling isn't configured for the managed online endpoint managed compute. For production deployments, you should configure autoscaling. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#zonal-redundancy-for-flow-deployments) recommends that you deploy to App Service in a zonal redundant configuration. Both of these architectural changes affect your costs when you move to production.
 
-- AI Search is configured for the Basic pricing tier with no added replicas. This topology can't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#ai-search---reliability) recommends that you deploy the workload with the Standard pricing tier or higher and deploy three or more replicas, which affect your costs as you move toward production.
+- AI Search is configured for the Basic pricing tier with no added replicas. This topology can't withstand an Azure availability zone failure. The [baseline end-to-end chat architecture](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#ai-search---reliability) recommends that you deploy the workload with the Standard pricing tier or higher and deploy three or more replicas. This approach can affect your costs as you move toward production.
 
 - There are no cost governance or containment controls in place in this architecture. Make sure that you guard against ungoverned processes or usage that might incur high costs for pay-as-you-go services like Azure OpenAI.
 
@@ -174,11 +174,11 @@ This architecture uses system-assigned managed identities for AI Foundry hubs, A
 
 #### Built-in prompt flow runtimes
 
-To minimize operational burdens, this architecture uses **Automatic Runtime**, a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. The automatic runtime is low maintenance, ephemeral, and application driven.
+To minimize operational burdens, this architecture uses **Automatic Runtime**. Automatic Runtime is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. The automatic runtime is low maintenance, ephemeral, and application driven.
 
 #### Monitoring
 
-Diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs`. During the proof-of-concept phase, it's important to understand which logs and metrics are available for capture. When you move to production, you should eliminate log sources that aren't adding value and are adding noise and cost to your workload's log sink.
+Diagnostics are configured for all services. All services except App Service are configured to capture all logs. App Service is configured to capture `AppServiceHTTPLogs`, `AppServiceConsoleLogs`, `AppServiceAppLogs`, and `AppServicePlatformLogs`. During the POC phase, it's important to understand which logs and metrics are available for capture. When you move to production, remove log sources that don't add value and only create noise and cost for your workload's log sink.
 
 We also recommend that you [collect data from deployed managed online endpoints](/azure/machine-learning/concept-data-collection) to provide observability to your deployed flows. When you choose to collect this data, the inference data is logged to Azure Blob Storage. Blob Storage logs both the HTTP request and the response payloads. You can also choose to log custom data.
 
@@ -198,13 +198,13 @@ We recommend that you use the serverless compute option when you develop and tes
 
 ##### Evaluation
 
-You can conduct an evaluation of your Azure OpenAI model deployment by using user experience in AI Foundry. We recommend that you become familiar with how to [evaluate generative AI applications](/azure/ai-studio/concepts/evaluation-approach-gen-ai) to ensure that your model selection meets customer and workload design requirements.
+You can conduct an evaluation of your Azure OpenAI model deployment by using user experience in AI Foundry. We recommend that you become familiar with how to [evaluate generative AI applications](/azure/ai-studio/concepts/evaluation-approach-gen-ai) to help ensure that the model that you choose meets customer and workload design requirements.
 
-One important evaluation tool that you should familiarize yourself with during your workload's development phase is the [Responsible AI dashboards in Machine Learning](/azure/machine-learning/how-to-responsible-ai-dashboard?view=azureml-api-2). This tool helps you evaluate the fairness, model interpretability, and other key assessments of your deployments and is useful in establishing an early baseline to prevent future regressions.
+One important evaluation tool that you should familiarize yourself with during your workload's development phase is the [Responsible AI dashboards in Machine Learning](/azure/machine-learning/how-to-responsible-ai-dashboard?view=azureml-api-2). This tool helps you evaluate the fairness, model interpretability, and other key assessments of your deployments and is useful to help establish an early baseline to prevent future regressions.
 
 ##### Deployment
 
-This basic architecture implements a single instance for the deployed orchestrator. When you deploy changes, the new deployment takes the place of the existing deployment. When you start moving toward production, read the [deployment flow](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) and [deployment guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-guidance) in the baseline architecture. This guidance helps you understand and implement more advanced deployment approaches, such as blue/green deployments.
+This basic architecture implements a single instance for the deployed orchestrator. When you deploy changes, the new deployment takes the place of the existing deployment. When you start moving toward production, read the [deployment flow](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) and [deployment guidance](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-guidance) in the baseline architecture. This guidance helps you understand and implement more advanced deployment approaches, such as blue-green deployments.
 
 ### Performance Efficiency
 
@@ -212,11 +212,11 @@ Performance Efficiency is the ability of your workload to scale to meet the dema
 
 Because this architecture isn't designed for production deployments, this section outlines some of the critical performance efficiency features that the architecture omits.
 
-One outcome of your proof of concept should be the selection of a product that suits the workload for both your app service and your Machine Learning compute. You should design your workload to efficiently meet demand through horizontal scaling. Horizontal scaling allows you to adjust the number of compute instances that are deployed in the app service plan and in instances that are deployed behind the online endpoint. Don't design a system that depends on changing the compute product to align with demand.
+One outcome of your POC should be the selection of a product that suits the workload for your app service and your Machine Learning compute. You should design your workload to efficiently meet demand through horizontal scaling. Horizontal scaling allows you to adjust the number of compute instances that are deployed in the app service plan and in instances that are deployed behind the online endpoint. Don't design a system that depends on changing the compute product to align with demand.
 
-- This architecture uses the consumption or pay-as-you-go model for most components. The consumption model is a best-effort model and might be subject to noisy neighbor problems or other stressors on the platform. As you move toward production, you should determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput). Provisioned throughput helps ensure that processing capacity is reserved for your Azure OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models.
+- This architecture uses the consumption or pay-as-you-go model for most components. The consumption model is a best-effort model and might be subject to noisy neighbor problems or other stressors on the platform. Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) as you move toward production. Provisioned throughput helps ensure that processing capacity is reserved for your Azure OpenAI model deployments. Reserved capacity provides predictable performance and throughput for your models.
 
-- The Machine Learning online endpoint doesn't have automatic scaling implemented, so you need to provision a product and instance quantity that can handle peak load. The service, as configured, doesn't dynamically scale in to efficiently keep supply aligned with demand. As you move toward production, follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints).
+- The Machine Learning online endpoint doesn't have automatic scaling implemented, so you need to provision a product and instance quantity that can handle peak load. Because of how the service is configured, it doesn't dynamically scale in to efficiently keep supply aligned with demand. Follow the guidance about how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints) as you move toward production.
 
 ## Deploy this scenario
 
