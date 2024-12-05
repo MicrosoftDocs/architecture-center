@@ -1,6 +1,6 @@
-In today's rapidly evolving technological landscape, modernizing mainframe systems is crucial for organizations to leverage the benefits of cloud computing. The integration of mainframe data with cloud platforms offers enhanced scalability, performance, and cost efficiency
+Modernizing mainframe systems is crucial for organizations leverage the benefits of cloud computing. The integration of mainframe data with cloud platforms offers enhanced scalability, performance, and cost efficiency.
 
-BMC AMI Cloud provides a robust solution for transferring mainframe data directly to Azure Blob Storage, facilitating a seamless migration and modernization journey.
+BMC AMI Cloud provides a solution for transferring mainframe data directly to Azure Blob Storage, facilitating a migration and modernization journey.
 
 *Apache®, [Kafka](https://kafka.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -20,12 +20,12 @@ BMC AMI Cloud provides a robust solution for transferring mainframe data directl
 
 The architecture of BMC AMI Cloud integration with Azure encompasses several components, each playing a pivotal role in the data migration and transformation process. Understanding these components is essential for effective implementation and optimization.
 
-1.	**BMC AMI Cloud Agent:** This is a z/OS started task that sends encrypted and compressed mainframe data to Azure Blob Storage over TCP/IP. It ensures secure and efficient data transfer without the need for intermediate storage, thus reducing latency and potential points of failure.
-2.	**BMC AMI Cloud Management Server:** This server manages policies, activities, and storage, ensuring seamless data management. It is a Docker-based web application that facilitates the administration of multiple agents and policies from a centralized interface.
-3.	**BMC AMI Cloud Analytics:** This component transforms mainframe data stored in Azure Blob Storage into formats suitable for AI, business intelligence, and machine learning applications. It supports conversion to CSV, JSON, or direct integration with Azure Databases, enabling a wide range of analytical and operational use cases.
+1. **BMC AMI Cloud Agent:** This is a z/OS started task that sends encrypted and compressed mainframe data to Azure Blob Storage over TCP/IP. It ensures secure and efficient data transfer without the need for intermediate storage, thus reducing latency and potential points of failure.
+2. **BMC AMI Cloud Management Server:** This server manages policies, activities, and storage, ensuring seamless data management. It is a Docker-based web application that facilitates the administration of multiple agents and policies from a centralized interface.
+3. **BMC AMI Cloud Analytics:** This component transforms mainframe data stored in Azure Blob Storage into formats suitable for AI, business intelligence, and machine learning applications. It supports conversion to CSV, JSON, or direct integration with Azure Databases, enabling a wide range of analytical and operational use cases.
 
 
-### Components
+## Components
 
 Each component of the BMC AMI Cloud Data is designed to optimize various aspects of the data migration and management process:
 
@@ -49,7 +49,7 @@ Ensuring secure and reliable connectivity between on-premises mainframe systems 
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) synchronizes with on-premises Active Directory for identity and access management. Azure AD supports single sign-on (SSO) and multi-factor authentication (MFA), enhancing security and user experience.
 
-### Storage
+### Databases and storage
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database): A fully managed, scalable database service with AI-powered features for performance and durability optimization. It supports serverless compute and Hyperscale storage options, automatically scaling resources on demand.
 
@@ -75,19 +75,19 @@ Effective monitoring and analysis are essential for maintaining the health and p
 
 Organizations can choose between on-premises and cloud deployment options based on their specific needs and constraints:
 
-- **On-Premises Deployment:** BMC AMI Cloud Management Server can be installed on-premises on z/OS Container Extensions (zCX) or on a Linux virtual instance, offering flexibility for organizations with regulatory or latency requirements.
+- **On-premises deployment:** BMC AMI Cloud Management Server can be installed on-premises on z/OS Container Extensions (zCX) or on a Linux virtual instance, offering flexibility for organizations with regulatory or latency requirements.
  
-- **Data Transformation Service:** AMI Cloud Analytics service can run externally to the mainframe in an on-premises environment or be deployed in the cloud using server instances or container services, optimizing resource usage and performance.
+- **Data transformation service:** AMI Cloud Analytics service can run externally to the mainframe in an on-premises environment or be deployed in the cloud using server instances or container services, optimizing resource usage and performance.
 
-### Use Cases
+## Use Cases
 
-BMC AMI Cloud offers a suite of services that are suitable for various use cases:
+This architecture is suitable for various use cases:
 
-- **Mainframe Data Accessibility:** Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
+- **Mainframe data accessibility:** Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
   
-- **Data Protection:** Backup and archive mainframe data to Azure Blob Storage, ensuring data availability and durability.
+- **Data protection:** Backup and archive mainframe data to Azure Blob Storage, ensuring data availability and durability.
   
-- **Direct Data Integration:** Enable mainframe applications to write and read data directly to and from Blob Storage, streamlining workflows and reducing latency.
+- **Direct data integration:** Enable mainframe applications to write and read data directly to and from Blob Storage, streamlining workflows and reducing latency.
   
 - **Cybersecurity:** Protect mainframe data against cyberattacks by creating an immutable third copy in Azure, enhancing data security and compliance.
 
@@ -103,7 +103,7 @@ Implementing BMC AMI Cloud solutions involves several key considerations aligned
   
 - **Performance Efficiency:** Scale operations with multiple agents and transformation instances, and leverage Azure Blob Storage for scalable backup and archival solutions.
 
-### Contributors
+## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
@@ -118,7 +118,7 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-### Next steps
+## Next steps
 
 - [BMC AMI Cloud data management for Mainframe](https://www.bmc.com/it-solutions/bmc-ami-cloud.html)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
