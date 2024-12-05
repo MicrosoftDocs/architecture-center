@@ -24,4 +24,4 @@ name: Deploy and operate apps with AKS enabled by Arc on Azure Local or Windows 
 summary: Build an app deployment pipeline for containerized apps on AKS enabled by Arc that are running on Azure Local or Windows Server.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-stack-hci.png
 content: |
-  [!include[](aks-hybrid-stack-hci-content.md)]
+  [!INCLUDE[](aks-hybrid-azure-local-content.md)]
