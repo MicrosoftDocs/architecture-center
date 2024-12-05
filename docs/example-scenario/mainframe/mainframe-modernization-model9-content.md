@@ -10,7 +10,7 @@ BMC AMI Cloud provides a solution for transferring mainframe data directly to Az
 - **Data Transformation:** BMC AMI Cloud Analytics converts mainframe data into open formats compatible with various Azure services, enhancing data usability and integration. This transformation is vital for organizations aiming to employ advanced analytics, AI, and machine learning tools on their legacy data.
 - **Data Protection:** BMC AMI Cloud vault provides immutable copies of mainframe data in Azure storage and air gapped. It protects data by versioning, locking, immutability and encryption. It provides cyber threat protection and complies with regulatory requirements for data retention.
 
-### Architecture
+## Architecture
 
 :::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.png" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." lightbox="media/model9-mainframe-midrange-data-archive-azure.png" border="false":::
 
