@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "docs/industries/healcare.md",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/digital-health/health-portal.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mch-health/medical-data-insights.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/data/azure-health-data-services.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/security/security-log-retention-azure-data-explorer.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-service-bus",
       "redirect_document_id": false
