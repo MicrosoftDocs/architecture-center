@@ -340,7 +340,6 @@ Other contributor:
 [Azure Functions]: /azure/digital-twins/how-to-create-azure-function?tabs=cli
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
-[Azure IoT reference architecture]: ../../reference-architectures/iot.yml
 [Azure IoT SDKs]: /azure/iot-hub/iot-hub-devguide-sdks
 [Azure Key Vault]: https://azure.microsoft.com/services/key-vault
 [Azure Logic Apps]: https://azure.microsoft.com/services/logic-apps
