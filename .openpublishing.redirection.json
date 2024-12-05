@@ -1,7 +1,7 @@
 {
   "redirections": [
     {
-      "source_path": "docs/industries/healcare.md",
+      "source_path": "docs/industries/healthcare.md",
       "redirect_url": "/industry/healthcare/index",
       "redirect_document_id": false
     },
