@@ -289,7 +289,7 @@ conceptualContent:
       links:
         - text: IoT architecture design
           itemType: architecture
-          url: reference-architectures/iot/iot-architecture-overview.yml
+          url: reference-architectures/iot/iot-architecture-overview.md
 
     - title: Microservices
       links:
