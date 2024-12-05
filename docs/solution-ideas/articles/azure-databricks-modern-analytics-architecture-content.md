@@ -103,19 +103,19 @@ The solution uses the following components.
 
 #### Reporting and governing components
 
-- [Databricks Unity Catalog][Databricks Unity Catalog] provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces.
+- [Databricks Unity Catalog][Databricks Unity Catalog] provides centralized access control, auditing, lineage, and data discovery capabilities across Azure Databricks workspaces. In this architecture, Unity Catalog works as the primary tool within Databricks to manage and secure data access. 
 
-- [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis.
+- [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis. In this architecture, Power BI is used for creating dashboards and reports that provide insights into the data processed by Databricks and Fabric.
 
-- [Microsoft Purview][What is Microsoft Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Features include automated data discovery, sensitive data classification, and data lineage.
+- [Microsoft Purview][What is Microsoft Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Features include automated data discovery, sensitive data classification, and data lineage. In this architecture, Purview is used to scan and keep track of data ingested in Unity Catalog, Fabric, Power BI and ADLS. 
 
-- [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments for building, deploying, and collaborating on applications.
+- [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments for building, deploying, and collaborating on applications. In this architecture, Azure DevOps is used for automating the deployment of Azure infrastructure. Additionally, you could leverage GitHub for automation and version control of Databricks code, for better collaboration, tracking of changes, and integration with CI/CD pipelines.
 
-- [Azure Key Vault][Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Azure Key Vault][Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. 
 
 - [Microsoft Entra ID][Azure Active Directory] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
-- [SCIM][SCIM] allows you to set up provisioning to the Azure Databricks account using Microsoft Entra ID.
+- [SCIM][SCIM] allows you to set up provisioning to the Azure Databricks account using Microsoft Entra ID. In this architecture, it’s used for managing users accessing Databricks workspaces. 
   
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
