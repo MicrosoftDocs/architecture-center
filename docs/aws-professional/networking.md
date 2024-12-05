@@ -17,8 +17,8 @@ products:
 
 This article compares the core networking services Microsoft Azure and Amazon Web Services (AWS) offer.
 
-- For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](https://learn.microsoft.com/en-us/azure/architecture/aws-professional/).
-- For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](https://learn.microsoft.com/en-us/azure/architecture/aws-professional/services).
+- For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
+- For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
 
 
 
