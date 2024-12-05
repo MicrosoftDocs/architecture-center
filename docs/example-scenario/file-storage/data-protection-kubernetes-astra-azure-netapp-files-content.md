@@ -202,7 +202,7 @@ Other contributors:
 [Start managing apps]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html
 [Manage disaster recovery using cross-region replication]: /azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery
 [Monitor Astra Trident]: https://docs.netapp.com/us-en/trident/trident-use/monitor-trident.html
-[NetApp Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.netapp-astra-acs
+[NetApp Astra Control Service]: https://docs.netapp.com/us-en/astra-control-service/
 [NetApp BlueXP pricing]: https://bluexp.netapp.com/pricing
 [Products available by region]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service%2Cnetapp&regions=all
 [Protect apps with snapshots and backups]: https://docs.netapp.com/us-en/astra-control-service/use/protect-apps.html
