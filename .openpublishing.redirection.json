@@ -4013,12 +4013,12 @@
     {
       "source_path": "docs/example-scenario/hybrid/aks-hybrid-stack-hci.yml",
       "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/data-guide/big-data/real-time-processing.yml",
       "redirect_url": "/azure/architecture/databases",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/data-guide/relational-data/data-warehousing.yml",
@@ -4662,7 +4662,7 @@
     {
       "source_path": "docs/hybrid/azure-stack-hci-switchless.yml",
       "redirect_url": "/azure/architecture/hybrid/azure-local-switchless",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {  
       "source_path": "docs/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md",
@@ -4677,7 +4677,7 @@
     { 
       "source_path": "docs/hybrid/azure-stack-hci-dr.yml",
       "redirect_url": "/azure/architecture/hybrid/azure-local-dr",
-      "redirect_document_id": false  
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/example-scenario/iot/vertical-buy-online-pickup-in-store.yml",
@@ -4707,7 +4707,7 @@
     {
       "source_path": "docs/hybrid/azure-stack-hci-baseline.yml",
       "redirect_url": "/azure/architecture/hybrid/azure-local-baseline",
-      "redirect_document_id": false  
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/iiot-patterns/iiot-patterns-overview.yml",
