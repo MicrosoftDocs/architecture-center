@@ -59,7 +59,6 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#c7c3fa8621](https://github.com/MicrosoftDocs/architecture-center/commit/c7c3fa8621))
 - [Automate Sentinel integration with Azure DevOps](./example-scenario/devops/automate-sentinel-integration.yml)  ([#f9e86f0dd7](https://github.com/MicrosoftDocs/architecture-center/commit/f9e86f0dd7))
 - [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#f9e86f0dd7](https://github.com/MicrosoftDocs/architecture-center/commit/f9e86f0dd7))
-- [Analyze observational patient data by using OHDSI with the OMOP CDM](./example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml)  ([#f9e86f0dd7](https://github.com/MicrosoftDocs/architecture-center/commit/f9e86f0dd7))
 - [Map requests to tenants in a multitenant solution](./guide/multitenant/considerations/map-requests.yml)  ([#824332ce7e](https://github.com/MicrosoftDocs/architecture-center/commit/824332ce7e))
 - [Security Considerations for Mission-Critical Workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-security.md)  ([#c1fbb7bcb2](https://github.com/MicrosoftDocs/architecture-center/commit/c1fbb7bcb2))
 - [Microservices CI/CD pipeline on Kubernetes with Azure DevOps and Helm](./microservices/ci-cd-kubernetes.yml)  ([#e7fce8fed3](https://github.com/MicrosoftDocs/architecture-center/commit/e7fce8fed3))

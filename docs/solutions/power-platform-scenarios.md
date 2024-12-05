@@ -83,7 +83,6 @@ The following articles provide detailed analysis of solutions that feature integ
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)|Gather insights from clinical and medical data by using Microsoft Cloud for Healthcare. Power BI reports provide insights on healthcare metrics.| Web|
 |[Data analysis for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)|Learn about an architecture that you can use for data analysis workloads in regulated industries. The architecture includes ETL/ELT and Power BI.| Analytics|
 |[Forecast energy and power demand](../solution-ideas/articles/forecast-energy-power-demand.yml)|Forecast spikes in demand for energy products and services by using Azure Machine Learning and Power BI.| AI|
 |[HIPAA-compliant and HITRUST-compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)|Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with a high level of built-in security. Power BI provides data visualization.| Serverless|

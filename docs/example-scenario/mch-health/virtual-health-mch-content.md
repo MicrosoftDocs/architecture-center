@@ -175,6 +175,4 @@ Principal authors:
 
 ## Related resources
 
-- [Clinical and medical insights using Microsoft Cloud for Healthcare](./medical-data-insights.yml)
-- [Consumer health portal on Azure](../../example-scenario/digital-health/health-portal.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)

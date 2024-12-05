@@ -194,6 +194,5 @@ Other contributor:
 
 ## Related resources
 
-- [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

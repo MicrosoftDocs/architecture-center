@@ -87,7 +87,6 @@ Azure Active Directory is now Microsoft Entra ID. For more information, see [New
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)|Learn about an architecture that you can use to gather insights from clinical and medical data by using Microsoft Cloud for Healthcare. Dynamics 365 components include an application that stores a list of patients together with scores that indicate the urgency of their cases.| Web|
 |[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) |Learn about an architecture that you can use to develop a virtual health solution by using Microsoft Cloud for Healthcare. One component of the solution is an application deployed via Dynamics 365 that presents an aggregated view of patient data in Teams.|Web|
 
 ### Dynamics 365 Customer Insights
@@ -95,12 +94,6 @@ Azure Active Directory is now Microsoft Entra ID. For more information, see [New
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Enhanced customer dimension with Dynamics 365 Customer Insights](../solution-ideas/articles/customer-insights-synapse.yml) |Use Customer Insights to create an enhanced customer dataset and make it available in Azure Data Lake for consumption by Azure Synapse Analytics.|Analytics|
-
-### Dynamics 365 Sales
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)|Learn about an architecture that you can use to gather insights from clinical and medical data by using Microsoft Cloud for Healthcare. Dynamics 365 components include an application that stores a list of patients together with scores that indicate the urgency of their cases.|Web|
 
 ### Service
 

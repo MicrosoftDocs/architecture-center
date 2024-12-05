@@ -80,8 +80,6 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Healthcare
 
-- [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)
-- [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml)
 - [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml)
 
 ### Modernization
