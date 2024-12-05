@@ -5839,6 +5839,11 @@
       "source_path": "docs/networking/architecture/apache-guacamole.yml",
       "redirect_url": "/azure/bastion/bastion-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance.md",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
     }
   ]
 }

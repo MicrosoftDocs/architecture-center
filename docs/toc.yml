@@ -2848,8 +2848,6 @@ items:
         href: solution-ideas/articles/video-analytics.yml
   - name: Financial Services
     items:
-    - name: Overview
-      href: industries/finance.md
     - name: Architectures
       items:
       - name: Location-based conditional access control
