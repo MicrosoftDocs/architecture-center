@@ -8,7 +8,7 @@ This article provides a basic architecture that you can use to learn about how t
 
 ## Architecture
 
-:::image type="complex" source="./_images/openai-end-to-end-basic.svg" lightbox="./_images/openai-end-to-end-basic.png" alt-text="Diagram that shows a basic end-to-end chat architecture." border= "false":::
+:::image type="complex" source="./_images/openai-end-to-end-basic.svg" lightbox="./_images/openai-end-to-end-basic.svg" alt-text="Diagram that shows a basic end-to-end chat architecture." border= "false":::
     The diagram shows an Azure app service that connects directly to a managed online endpoint that sits in front of managed compute. Two arrows point from the managed compute to Azure AI Search and to Azure OpenAI respectively. The diagram also shows Application Insights, Azure Monitor, Azure Key Vault, Azure Container Registry, and Azure Storage.
 :::image-end:::
 
