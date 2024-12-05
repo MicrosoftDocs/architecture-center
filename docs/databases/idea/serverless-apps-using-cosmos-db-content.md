@@ -71,5 +71,4 @@ See the following architectures that feature Functions:
 
 See the following architectures that feature Azure Cosmos DB:
 
-- [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
 - [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)

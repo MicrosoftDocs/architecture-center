@@ -5839,6 +5839,41 @@
       "source_path": "docs/networking/architecture/apache-guacamole.yml",
       "redirect_url": "/azure/bastion/bastion-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail.md",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/sku-optimization-solution-guide.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/migrate-ecommerce-solution.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/visual-search-use-case-overview.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-price-analytics.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/magento/magento-azure.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/idea/video-analytics.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
     }
   ]
 }

@@ -2180,8 +2180,6 @@ items:
         items:
         - name: Migrate a monolith app to microservices
           href: microservices/migrate-monolith.yml
-        - name: Migrate an e-commerce solution
-          href: industries/retail/migrate-ecommerce-solution.md
         - name: Migrate with Azure VMware Solution
           href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
           maintainContext: true
@@ -2822,28 +2820,14 @@ items:
     href: industries/overview.md
   - name: Retail
     items:
-    - name: Overview
-      href: industries/retail.md
-    - name: Guides
-      items:
-      - name: Migrate your e-commerce solution to Azure
-        href: industries/retail/migrate-ecommerce-solution.md
-      - name: SKU optimization for consumer brands
-        href: industries/retail/sku-optimization-solution-guide.yml
-      - name: Visual search in retail with Azure Cosmos DB
-        href: industries/retail/visual-search-use-case-overview.yml
     - name: Architectures
       items:
       - name: All retail architectures
         href: /azure/architecture/browse/?terms=retail
       - name: Analyze MongoDB Atlas data
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Interactive price analytics
-        href: solution-ideas/articles/interactive-price-analytics.yml
       - name: Intelligent search engine for e-commerce
         href: example-scenario/apps/ecommerce-search.yml
-      - name: Magento e-commerce platform in AKS
-        href: example-scenario/magento/magento-azure.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
   - name: Financial Services
