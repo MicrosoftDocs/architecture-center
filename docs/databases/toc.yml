@@ -90,8 +90,6 @@ items:
           href: ../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
           href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
-        - name: Replicate and sync mainframe data
-          href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 
     - name: Apply guidance
       items:
@@ -117,5 +115,5 @@ items:
           href: guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
         - name: Data scrambling for SAP with Delphix
           href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
-        - name: Collection structure for a federated catalog
+        - name: Collection structure for a federated Purview catalog
           href: ../guide/data/collection-structure-federated-catalog.md
