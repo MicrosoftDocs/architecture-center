@@ -1,8 +1,8 @@
-This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
+This reference architecture illustrates how you can use Azure Arc to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios. It's based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro) implementation. ArcBox is a solution that provides an easy-to-deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
 
 ## Architecture
 
-:::image type="content" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." source="./images/azure-arc-hybrid-config.svg" lightbox="./images/azure-arc-hybrid-config.svg":::
+:::image type="content" alt-text="An Azure Arc hybrid server topology diagram that has Arc-enabled servers that are connected to Azure." source="./images/azure-arc-hybrid-config.svg" lightbox="./images/azure-arc-hybrid-config.svg":::
 
 *Download a [PowerPoint file][architectural-diagram-ppt-source] of this architecture.*
 
