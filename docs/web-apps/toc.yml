@@ -39,7 +39,7 @@ items:
         - name: Serverless code walkthrough
           href: serverless/architectures/code.yml
         - name: CI/CD for a serverless frontend
-          href: serverless/guide/serverless-app-cicd-best-practices.yml          
+          href: ../serverless/guide/serverless-app-cicd-best-practices.yml          
     - name: Apply guidance
       items:
       - name: Networking guidance for web apps
