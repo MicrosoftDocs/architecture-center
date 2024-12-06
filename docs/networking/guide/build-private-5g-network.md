@@ -36,7 +36,7 @@ Microsoft offers a different approach to help operators take advantage of the  o
 
 [Azure private multiaccess edge compute](https://azure.microsoft.com/solutions/private-multi-access-edge-compute-mec) is a solution for integrating edge compute, networking, and applications on a range of edge platforms. It's designed to help operators and partners deliver high-performance MEC solutions to enterprises.
 
-:::image type="content" source="media/private-multiaccess-edge-compute.png " alt-text="Diagram that shows the Azure private multiaccess edge compute stack." lightbox="media/private-multiaccess-edge-compute.png":::
+:::image type="content" source="images/private-multiaccess-edge-compute.png " alt-text="Diagram that shows the Azure private multiaccess edge compute stack." lightbox="images/private-multiaccess-edge-compute.png":::
 
 ## Azure Stack platform for the edge 
 
@@ -48,7 +48,7 @@ Private multiaccess edge compute can be deployed across multiple platforms power
 
 The final component of the Microsoft architecture for private 5G networks is the 4G/5G mobile core, which is deployed as a standalone 5G core with an optional 4G interworking function to enable support for 4G LTE RAN. Private 5G Core is a fully virtualized, cloud-native solution that includes standard 5G core network functions.
 
-:::image type="content" source="media/private-5g-core.png" alt-text="Diagram that shows the key components of Private 5G Core.":::
+:::image type="content" source="images/private-5g-core.png" alt-text="Diagram that shows the key components of Private 5G Core.":::
 
 Azure automates the deployment and configuration of Private 5G Core on Azure Stack Edge. To deploy and update network configuration, the network operator can use any or all of these tools: 
 
@@ -92,7 +92,7 @@ The solution is managed remotely via Azure cloud. It's a multitenant solution th
 
 Automation provides a better user experience and simplifies deployment. Automation can reduce solution deployment from weeks to hours, whether the deployment is managed by the operator, a managed services provider (MSP), or a partner. Without automation, the scale needed to deploy a solution to thousands of enterprises and consumers is unattainable. [Azure Automation](/azure/automation/overview) provides cloud-based automation, operating system updates, and a configuration service that supports consistent management across Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
 
-:::image type="content" source="media/azure-monitor.png" alt-text="Diagram that describes Azure Monitor." lightbox="media/azure-monitor.png" :::
+:::image type="content" source="images/azure-monitor.png" alt-text="Diagram that describes Azure Monitor." lightbox="images/azure-monitor.png" :::
 
 The single-pane-of-glass approach doesn't just enable operators to deploy the service. It also quickly instantiates the private 5G network service at scale for its enterprises. The portal can then be used for full-service assurance and automation, including configuration, fault, and performance management.  
 
@@ -102,7 +102,7 @@ The single-pane-of-glass approach doesn't just enable operators to deploy the se
 
 This solution enables an ecosystem of applications for operators and enterprise customers. These applications include business intelligence and analytics applications and AI and machine learning applications from Microsoft and others. Azure private multiaccess edge compute combines Private 5G Core and the Azure-managed edge compute environment in a single architecture. This colocation enables enterprises to move data in and out of their mobile networks for processing and choose which data should be processed on-site and which should be sent to the cloud.  
 
-:::image type="content" source="media/integration.png " alt-text="Diagram that shows some of the integrated applications." lightbox="media/integration.png " :::
+:::image type="content" source="images/integration.png " alt-text="Diagram that shows some of the integrated applications." lightbox="images/integration.png " :::
 
 ### MEC for networking and applications
 

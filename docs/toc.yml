@@ -2631,14 +2631,6 @@ items:
     items:
     - name: Overview
       href: industries/telecommunications.md
-    - name: Guides
-      items:
-      - name: Deploy private 5G networks
-        items:
-        - name: Overview
-          href: industries/telecommunications/deploy-private-mobile-network.md
-        - name: Build a private 5G network
-          href: industries/telecommunications/build-private-5g-network.md
     - name: Architectures
       items:
       - name: All telecommunications architectures

@@ -5949,6 +5949,16 @@
       "source_path": "docs/networking/idea/video-analytics.yml",
       "redirect_url": "/industry/retail/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/telecommunications/deploy-private-mobile-network.md",
+      "redirect_url": "/networking/guide/deploy-private-mobile-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/industries/telecommunications/build-private-5g-network.md",
+      "redirect_url": "/networking/guide/build-private-5g-network",
+      "redirect_document_id": true
     }
   ]
 }

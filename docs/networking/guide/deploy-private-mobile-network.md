@@ -125,7 +125,7 @@ When considering how to deploy private 5G networks, many enterprises will look f
 
 Some network operators might view private 5G networks as a natural extension of their public mobile networks. They could take advantage of their existing network assets and use network slicing to securely partition enterprise mobile traffic from public networks. However, enterprises want a dedicated network with localized connectivity and more control than they can get with that approach. And public networks are built primarily to serve the mobile broadband market. They're highly optimized for that purpose. Enterprise applications will place new and different demands on the network, which won't provide the flexibility that's required. The industry is adopting an edge-based private wireless network that also allows deep integration with the operator network. Enterprises should take advantage of the flexibility of 5G.
 
-:::image type="content" source="media/telcos-provide-edge-networks-apps.png " alt-text="Diagram that shows how telcos provide Azure managed-edge networks and applications to global enterprises." lightbox="media/telcos-provide-edge-networks-apps.png ":::
+:::image type="content" source="images/telcos-provide-edge-networks-apps.png " alt-text="Diagram that shows how telcos provide Azure managed-edge networks and applications to global enterprises." lightbox="images/telcos-provide-edge-networks-apps.png ":::
 
 A private 5G network solution that operators and enterprises can feel confident about requires three key attributes:
 
