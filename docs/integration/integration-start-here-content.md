@@ -96,10 +96,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
 - [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
 
-#### Healthcare
-
-[Health data consortium][Health data consortium]: Share data among members of a healthcare consortium.
-
 #### High-performance computing
 
 [HPC risk analysis template][HPC risk analysis template]: Use Azure CycleCloud in a risk analysis application to expand on-premises TIBCO GridServer compute to Azure.

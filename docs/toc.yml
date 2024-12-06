@@ -2545,14 +2545,6 @@ items:
         href: /azure/architecture/browse/?terms=healthcare
       - name: Analysis using text analytics for health and Azure OpenAI
         href: example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml
-      - name: Donor-patient cross matching
-        href: example-scenario/machine-learning/donor-patient-cross-match.yml
-      - name: Health data consortium
-        href: example-scenario/data/azure-health-data-consortium.yml
-      - name: Implement risk prediction for surgeries
-        href: example-scenario/ai/risk-stratification-surgery.yml
-      - name: Ingest and store medical data
-        href: example-scenario/data/medical-data-ingestion.yml
       - name: Predict hospital readmissions with ML
         href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
       - name: Predict patient length of stay and flow
