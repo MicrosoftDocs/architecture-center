@@ -40,7 +40,37 @@ items:
     - name: Event-driven architecture
       href: guide/architecture-styles/event-driven.yml
     - name: Microservices
-      href: guide/architecture-styles/microservices.yml
+      items:
+      - name: Microservice architecture style
+        href: guide/architecture-styles/microservices.yml
+      - name: Guides
+        items:
+          - name: Domain modeling for microservices
+            items:
+            - name: Domain analysis
+              href: microservices/model/domain-analysis.md
+            - name: Tactical DDD
+              href: microservices/model/tactical-ddd.yml
+            - name: Identify microservice boundaries
+              href: microservices/model/microservice-boundaries.yml
+          - name: Design a microservices architecture
+            items:
+            - name: Introduction
+              href: microservices/design/index.yml
+            - name: Choose a compute option
+              href: microservices/design/compute-options.md
+            - name: Interservice communication
+              href: microservices/design/interservice-communication.yml
+            - name: API design
+              href: microservices/design/api-design.yml
+            - name: API gateways
+              href: microservices/design/gateway.yml
+            - name: Data considerations
+              href: microservices/design/data-considerations.yml
+            - name: Container orchestration
+              href: microservices/design/orchestration.yml
+            - name: Design patterns for microservices
+              href: microservices/design/patterns.yml
     - name: N-tier application
       href: guide/architecture-styles/n-tier.yml
     - name: Web-queue-worker
@@ -262,9 +292,8 @@ items:
       maintainContext: true
     - name: Development tools
       items:
-      - name: Choose a mobile development framework
-        href: /azure/developer/mobile-apps/choose-mobile-framework
-        maintainContext: true
+      - name: Compare Java application hosting options
+        href: guide/technology-choices/service-for-java-comparison.yml        
   - name: Best practices for cloud applications
     items:
     - name: Overview
@@ -1076,6 +1105,8 @@ items:
             href: reference-architectures/containers/aks/windows-containers-on-aks.yml
           - name: Use Azure Red Hat OpenShift in the financial services industry  
             href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml    
+          - name: CI/CD for microservices on Kubernetes
+            href: microservices/ci-cd-kubernetes.yml
       - name: Guides
         items:
         - name: Application
@@ -1180,100 +1211,30 @@ items:
         items:
         - name: Microservices assessment and readiness
           href: guide/technology-choices/microservices-assessment.md
-        - name: Compare Java application hosting options
-          href: guide/technology-choices/service-for-java-comparison.yml
-        - name: Domain modeling for microservices
-          items:
-          - name: Domain analysis
-            href: microservices/model/domain-analysis.md
-          - name: Tactical DDD
-            href: microservices/model/tactical-ddd.yml
-          - name: Identify microservice boundaries
-            href: microservices/model/microservice-boundaries.yml
-        - name: Design a microservices architecture
-          items:
-          - name: Introduction
-            href: microservices/design/index.yml
-          - name: Choose a compute option
-            href: microservices/design/compute-options.md
-          - name: Interservice communication
-            href: microservices/design/interservice-communication.yml
-          - name: API design
-            href: microservices/design/api-design.yml
-          - name: API gateways
-            href: microservices/design/gateway.yml
-          - name: Data considerations
-            href: microservices/design/data-considerations.yml
-          - name: Container orchestration
-            href: microservices/design/orchestration.yml
-          - name: Design patterns for microservices
-            href: microservices/design/patterns.yml
         - name: Operate microservices in production
           items:
           - name: Monitor microservices in AKS
             href: microservices/logging-monitoring.yml
           - name: CI/CD for microservices
             href: microservices/ci-cd.yml
-          - name: CI/CD for microservices on Kubernetes
-            href: microservices/ci-cd-kubernetes.yml
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate monolith to microservices
             href: microservices/migrate-monolith.yml
-        - name: .NET microservices
-          items:
-          - name: Design a microservice-oriented app
-            href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design
-            maintainContext: true
-          - name: Create a  CRUD microservice
-            href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/data-driven-crud-microservice
-            maintainContext: true
-          - name: Event-based communication
-            href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/integration-event-based-microservice-communications
-            maintainContext: true
-          - name: Implement API Gateways with Ocelot
-            href: /dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-api-gateways-with-ocelot
-            maintainContext: true
       - name: Architectures
         items:
         - name: Enterprise-grade logging on Azure
           href: reference-architectures/logging/enterprise-grade-logging.yml
         - name: Microservices on Azure Service Fabric
           href: reference-architectures/microservices/service-fabric.yml
-        - name: Microservices with Container Apps
-          href: example-scenario/serverless/microservices-with-container-apps.yml
-        - name: Microservices with Dapr and KEDA
-          href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
     - name: Serverless applications
       items:
       - name: Guides
         items:
-        - name: Develop and deploy serverless apps
-          items:
-          - name: Code walkthrough
-            href: web-apps/serverless/architectures/code.yml
-          - name: CI/CD for a serverless frontend
-            href: serverless/guide/serverless-app-cicd-best-practices.yml
+        - name: CI/CD for a serverless frontend
+          href: serverless/guide/serverless-app-cicd-best-practices.yml
         - name: Monitor a distributed system
           href: guide/devops/monitor-with-opencensus-application-insights.yml
-        - name: Security baseline for Azure Functions
-          href: /security/benchmark/azure/baselines/functions-security-baseline
-          maintainContext: true
-        - name: Serverless with Azure Logic Apps
-          href: /azure/logic-apps/logic-apps-serverless-overview
-          maintainContext: true
-        - name: Event Hubs with Azure Functions
-          items:
-          - name: Overview
-            href: serverless/event-hubs-functions/event-hubs-functions.yml
-          - name: Performance and scale
-            href: serverless/event-hubs-functions/performance-scale.yml
-          - name: Resilient design
-            href: serverless/event-hubs-functions/resilient-design.md
-          - name: Security
-            href: serverless/event-hubs-functions/security.md
-          - name: Observability
-            href: serverless/event-hubs-functions/observability.yml
       - name: Architectures
         items:
         - name: Multicloud with Serverless Framework
@@ -1284,14 +1245,10 @@ items:
           href: reference-architectures/serverless/event-processing.yml
       - name: Solution ideas
         items:
-        - name: AKS in event stream processing
-          href: solution-ideas/articles/serverless-event-processing-aks.yml
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: Serverless applications using Event Grid
           href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
-        - name: Serverless apps using Azure Cosmos DB
-          href: databases/idea/serverless-apps-using-cosmos-db.yml
         - name: Serverless computing LOB apps
           href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
         - name: Serverless event stream processing
