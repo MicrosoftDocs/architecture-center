@@ -124,4 +124,4 @@ Try the learning path:
 
 ## Related resources
 
-- [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
+- [Intelligent product search engine for e-commerce](../../databases/architecture/ecommerce-search.yml)

@@ -5959,6 +5959,11 @@
       "source_path": "docs/industries/telecommunications/build-private-5g-network.md",
       "redirect_url": "/networking/guide/build-private-5g-network",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/apps/ecommerce-search.yml",
+      "redirect_url": "/databases/architecture/ecommerce-search",
+      "redirect_document_id": true
     }
   ]
 }

@@ -2531,10 +2531,6 @@ items:
       items:
       - name: All retail architectures
         href: /azure/architecture/browse/?terms=retail
-      - name: Analyze MongoDB Atlas data
-        href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Intelligent search engine for e-commerce
-        href: example-scenario/apps/ecommerce-search.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
   - name: Healthcare

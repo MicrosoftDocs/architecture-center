@@ -8,7 +8,7 @@ This article presents a solution for deriving insights from MongoDB Atlas operat
 
 The following diagram shows how to sync MongoDB Atlas data to Azure Synapse Analytics in real time.
 
-:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" border="false":::
+:::image type="content" source="./_images/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./_images/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-synapse-analytics-integrate-mongodb-atlas.pptx) of all diagrams in this article.*
 
@@ -67,7 +67,7 @@ In Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises ins
 
 With historical data, you can retrieve all the data at once. You can also retrieve data incrementally for specific periods by using a filter in batch mode. Then you can use SQL pools and Apache Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
 
-:::image type="content" source="./media/azure-synapse-analytics-mongodb-connectors.svg" alt-text="Architecture diagram that shows the source and sink connectors that connect data from consumers to Azure Synapse Analytics and MongoDB data storage." lightbox="./media/azure-synapse-analytics-mongodb-connectors.svg" border="false":::
+:::image type="content" source="./_images/azure-synapse-analytics-mongodb-connectors.svg" alt-text="Architecture diagram that shows the source and sink connectors that connect data from consumers to Azure Synapse Analytics and MongoDB data storage." lightbox="./_images/azure-synapse-analytics-mongodb-connectors.svg" border="false":::
 
 For more information about how to set up and configure the connectors, see these resources:
 
@@ -150,7 +150,7 @@ Both sets of data are migrated to an Azure Synapse Analytics dedicated SQL pool 
 
 The following Power BI charts show the affinity between the products and sales patterns. The affinity of the pen and ink-based refill is high. The sales data shows that the pen has a high sales volume in the specified area.
 
-:::image type="content" source="./media/product-bundling-use-case-visualization.png" alt-text="Diagram that shows pipeline stages and charts that show pen sales by product, year, region, and affinity. Pen sales are highest in 2022 in the South." lightbox="./media/product-bundling-use-case-visualization.png" border="false":::
+:::image type="content" source="./_images/product-bundling-use-case-visualization.png" alt-text="Diagram that shows pipeline stages and charts that show pen sales by product, year, region, and affinity. Pen sales are highest in 2022 in the South." lightbox="./_images/product-bundling-use-case-visualization.png" border="false":::
 
 The analysis makes two suggestions for yielding better sales:
 
@@ -165,7 +165,7 @@ By using Azure Synapse Analytics, you can develop AI and machine learning models
 
 The following diagrams show the use of various types of data to create a model to determine alternate product recommendations. The data includes customer buying patterns, profits, product affinities, the sales volume of the products, and product catalog parameters.
 
-:::image type="content" source="./media/product-promotion-use-case-visualization.png" alt-text="Diagrams that show pipeline stages and a workflow for an AI model. Data fields include the customer ID, price, sales, and profit." lightbox="./media/product-promotion-use-case-visualization.png" border="false":::
+:::image type="content" source="./_images/product-promotion-use-case-visualization.png" alt-text="Diagrams that show pipeline stages and a workflow for an AI model. Data fields include the customer ID, price, sales, and profit." lightbox="./_images/product-promotion-use-case-visualization.png" border="false":::
 
 If your model achieves high accuracy, it provides a list of products that you can recommend to the customer.
 
