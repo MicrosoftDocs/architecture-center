@@ -18,7 +18,7 @@ The architecture consists of the following components:
 - **[Microsoft Defender for Cloud][Microsoft Defender for Cloud]** is a cloud security posture management (CSPM) and cloud workload protection (CWP) solution. Microsoft Defender for Cloud finds weak spots across your cloud configuration, helps strengthen the overall security posture of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats.
 - **[Microsoft Sentinel][Microsoft Sentinel]** is a scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 - **[Azure Arc-enabled servers][Azure Arc-enabled servers]** enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc-enabled server and is treated as a resource in Azure. Each Arc-enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc-enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
-- **[Hyper-V nested virtualization][Hyper-V nested virtualization]** is used by Jumpstart ArcBox for IT Pros to host Windows Server virtual machines inside of an Azure virtual machine. This provides the same experience as using physical Windows Server machines, but without the hardware requirements.
+- **[Hyper-V nested virtualization][Hyper-V nested virtualization]** is used by Jumpstart ArcBox for IT Pros to host Windows and Linux Server virtual machines inside of an Azure virtual machine. This provides the same experience as using physical Windows Server machines, but without the hardware requirements.
 - **[Azure Virtual Network][Azure Virtual Network]** provides a private network that enables components within the Azure Resource Group to communicate, such as the virtual machines.
 
 ## Scenario details
@@ -42,9 +42,9 @@ You can connect any other physical or virtual machine running Windows or Linux t
 
 Once configured, the Connected Machine agent sends a regular heartbeat message every five minutes to Azure. When the heartbeat isn't received, Azure assigns the machine Offline status, which is reflected in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically change to Connected.
 
-There are several options available in Azure to connect your Windows and Linux machines:
+There are several options available in Azure to connect your Windows and Linux machines including:
 
-- Manual installation: Azure Arc-enabled servers can be enabled for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually.
+- Manual installation: Azure Arc-enabled servers can be enabled for one or more Windows or Linux machines in your environment by using the Windows Admin Center or by performing a set of steps manually.
 - Script-based installation: You can perform automated agent installation by running a template script that you download from the Azure portal.
 - Connect machines at scale using a service principal: To onboard at scale, use a service principal and deploy via your organizations existing automation.
 - Installation using Windows PowerShell DSC
@@ -61,29 +61,40 @@ Azure Arc-enabled servers support [Azure Policy](/azure/governance/policy/overvi
 
 There are several [Azure Policy built-in definitions for Azure Arc][arc-built-in-policies]. These policies provide auditing and configuration settings for both Windows and Linux-based machines.
 
-### Enable Azure Update Manager
+### Enable Azure Update Manager and Change Tracking
 
-Update Manager. You need to adopt an update management for Arc-enabled servers. [Update manager](/azure/update-manager/overview) is recommended to manage operating system updates and assess the status of available updates on all agent machines. Update manager should also be used to manage the process of installing required updates for servers.
+It's important that you adopt an update management process for Arc-enabled servers by enabling the following features:
 
-Change Tracking and Inventory. [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview) for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
+- **[Azure Update Manager](/azure/update-manager/overview)**. With Update Manager, you can manage, assess, and govern the process of installing Windows and Linux updates across all servers.
+
+- **[Change tracking and inventory](/azure/automation/change-tracking/enable-vms-monitoring-agent)**. With change tracking and inventory for Arc-enabled servers you can:
+   - Determine what software is installed in your environment. 
+   - Collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. 
+   - Track the configurations of your machines to pinpoint operational issues across your environment and better understand the state of your machines.
+
+
+
 
 ### Monitor Azure Arc-enabled servers
 
-You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale. Azure Monitor analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
+Use Azure Monitor to monitor your VMs, Virtual Machine Scale Sets, and Azure Arc machines at scale. With Azure Monitor, you can:
+ - Analyze the performance and health of your Windows and Linux VMs.
+ - Monitor VM processes and dependencies on other resources and external processes. 
+ - Monitor performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
-The Azure Monitor agents should be automatically deployed to Azure Arc-enabled Windows and Linux servers, through [Azure Policy](/azure/azure-monitor/best-practices). Review and understand how the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) operates and collects data before deployment.
+The Azure Monitor agent should be automatically deployed to Azure Arc-enabled Windows and Linux servers, through [Azure Policy](/azure/azure-monitor/monitor-at-scale). Review and understand how the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) operates and collects data before deployment.
 
-Design and plan your Log Analytics workspace deployment. It will be the container where data is collected, aggregated, and later analyzed. A Log Analytics workspace represents a geographical location of your data, data isolation, and scope for configurations like data retention. Use a single Azure Monitor Log Analytics workspace as described in the [management and monitoring best practices](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management) of Cloud Adoption Framework.
+Design and plan your Log Analytics workspace deployment. The workspace is the container where data is collected, aggregated, and analyzed. A Log Analytics workspace represents a geographical location of your data, data isolation, and scope for configurations like data retention. Use a single Azure Monitor Log Analytics workspace as described in the [management and monitoring best practices](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management) of Cloud Adoption Framework.
 
 ### Secure Azure Arc-enabled servers
 
 Use Azure RBAC to control and manage the permission for Azure Arc-enabled servers managed identities and perform periodic access reviews for these identities. Control privileged user roles to avoid system-managed identities being misused to gain unauthorized access to Azure resources.
 
-Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage certificates on your Azure Arc-enabled servers. The key vault VM extension allows you to manage the certificate lifecycle on Windows and Linux machines.
+- Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage certificates on your Azure Arc-enabled servers. With the key vault VM extension you can manage the certificate lifecycle on Windows and Linux machines.
 
-[Connect Azure Arc-enabled servers to Microsoft Defender for Cloud](/azure/cloud-adoption-framework/manage/hybrid/server/best-practices/arc-security-center).This helps you start collecting security-related configurations and event logs so you can recommend actions and improve your overall Azure security posture.
+- [Connect Azure Arc-enabled servers to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-machines). With Defender, you can collect the security-related configurations and event logs that you need to recommend actions and improve your overall Azure security posture.
 
-[Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/cloud-adoption-framework/manage/hybrid/server/best-practices/arc-azure-sentinel). This enables you to start collecting security-related events and start correlating them with other data sources.
+- [Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/azure-arc/servers/scenario-onboard-azure-sentinel). With Sentinel, you can collect security-related events and correlate them with other data sources.
 
 ### Validate network topology
 
@@ -101,7 +112,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Reliability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be available.
-- If you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region for resilience in the event of a regional outage.
 - If the Azure connected machine agent stops sending heartbeats to Azure, or goes offline, you will not be able to perform operational tasks on it. Hence, it's necessary to [develop a plan for notifications and responses](/azure/azure-arc/servers/plan-at-scale-deployment#phase-3-manage-and-operate).
 - Set up [resource health alerts](/azure/service-health/resource-health-alert-monitor-guide) to get notified in near real-time when resources have a change in their health status. And define a monitoring and alerting policy in [Azure Policy](/azure/governance/policy) that identifies unhealthy Azure Arc-enabled servers.
 - Extend your current backup solution to Azure, or easily configure our application-aware replication and application-consistent backup that scales based on your business needs. The centralized management interface for [Azure Backup](https://azure.microsoft.com/services/backup/) and [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) makes it simple to define policies to natively protect, monitor, and manage your Arc-enabled Windows and Linux servers.
@@ -111,7 +121,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Security
 
 - Appropriate Azure role-based access control (Azure RBAC) should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
-- Microsoft Defender for Cloud can monitor on-premises systems, Azure VMs, Azure Monitor resources, and even VMs hosted by other cloud providers. Enable Microsoft Defender for servers for all subscriptions containing Azure Arc-enabled servers for security baseline monitoring, security posture management, and threat protection.
+- Microsoft Defender for Cloud can monitor on-premises systems, Azure VMs, and even VMs hosted by other cloud providers. Enable Microsoft Defender for servers for all subscriptions containing Azure Arc-enabled servers for security baseline monitoring, security posture management, and threat protection.
 - Microsoft Sentinel can help simplify data collection across different sources, including Azure, on-premises solutions, and across clouds using built-in connectors.
 - You can use Azure Policy to manage security policies across your Arc-enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
 - To limit which extensions can be installed on your Arc-enabled server, you can configure the lists of extensions you wish to allow and block on the server. The extension manager will evaluate all requests to install, update, or upgrade extensions against the allowlist and blocklist to determine if the extension can be installed on the server.
@@ -140,7 +150,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - Before configuring your machines with Azure Arc-enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
 - A phased deployment approach as described in the [deployment guide](/azure/azure-arc/servers/plan-at-scale-deployment) can help you determine the resource capacity requirements for your implementation.
-- Use Azure Monitor to collect data directly from your Azure Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment) for the Azure Monitor agents.
+- Use Azure Monitor to collect data directly from your Azure Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment) for the Azure Monitor agent.
 - Additional performance efficiency considerations for your solution are described in the [Performance efficiency principles][waf-principles-performance-efficiency] section in the Microsoft Azure Well-Architected Framework.
 
 ## Deploy this scenario
@@ -174,7 +184,7 @@ Principal author:
 
 Explore related architectures:
 
-- [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
+- [Optimize SQL Server with Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
 
 [agent-prerequisites]: /azure/azure-arc/servers/prerequisites#azure-resource-providers
