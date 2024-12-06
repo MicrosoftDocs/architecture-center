@@ -2109,115 +2109,24 @@ items:
     items:
     - name: Get started
       href: solution-ideas/articles/oracle-on-azure-start-here.md
-    - name: Guides
-      items:
-      - name: Connectivity to Oracle Cloud Infrastructure
-        href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
-        maintainContext: true
-      - name: Oracle solutions on Azure
-        href: /azure/virtual-machines/workloads/oracle/oracle-overview
-        maintainContext: true
-      - name: Design an Oracle database in Azure
-        href: /azure/virtual-machines/workloads/oracle/oracle-design
-        maintainContext: true
-      - name: Oracle Database backup
-        items:
-        - name: Oracle Database backup strategies
-          href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies
-          maintainContext: true
-        - name: Oracle backup using Azure Storage
-          href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-storage
-          maintainContext: true
-        - name: Oracle backup using Azure Backup
-          href: /azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup
-          maintainContext: true
-      - name: Oracle disaster recovery options
-        href: /azure/virtual-machines/workloads/oracle/oracle-disaster-recovery
-        maintainContext: true
-      - name: Oracle WebLogic Server
-        items:
-        - name: Oracle WebLogic Server on Azure VMs
-          href: /azure/virtual-machines/workloads/oracle/oracle-weblogic
-          maintainContext: true
-        - name: Oracle WebLogic Server on AKS
-          href: /azure/virtual-machines/workloads/oracle/weblogic-aks
-          maintainContext: true
-        - name: Migrate WebLogic to Azure
-          items:
-          - name: WebLogic to Azure VMs
-            href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
-            maintainContext: true
-          - name: WebLogic with Microsoft Entra ID via LDAP
-            href: /azure/developer/java/migration/migrate-weblogic-with-aad-ldap
-            maintainContext: true
-          - name: WebLogic with App Gateway
-            href: /azure/developer/java/migration/migrate-weblogic-with-app-gateway
-            maintainContext: true
-          - name: WebLogic with Elastic on Azure
-            href: /azure/developer/java/migration/migrate-weblogic-with-elk
-            maintainContext: true
-          - name: WebLogic to JBoss EAP
-            href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service
-            maintainContext: true
-    - name: Architectures
-      items:
-      - name: Oracle application architectures
-        href: /azure/virtual-machines/workloads/oracle/oracle-oci-applications
-        maintainContext: true
-      - name: Oracle Cloud Infrastructure solutions
-        href: /azure/virtual-machines/workloads/oracle/oracle-oci-overview
-        maintainContext: true
-      - name: Oracle database architectures
-        href: /azure/virtual-machines/workloads/oracle/oracle-reference-architecture
-        maintainContext: true
-      - name: Oracle database migration to Azure
-        href: databases/idea/topic-migrate-oracle-azure.yml
-      - name: Oracle Database with Azure NetApp Files
-        href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-      - name: SAP deployment using an Oracle database
-        href: example-scenario/apps/sap-production.yml
   - name: SAP
     items:
     - name: Get started
       href: reference-architectures/sap/sap-overview.yml
     - name: Guides
       items:
-      - name: SAP checklist
-        href: /azure/virtual-machines/workloads/sap/sap-deployment-checklist
-        maintainContext: true
       - name: SAP landscape architecture
         href: guide/sap/sap-whole-landscape.yml
-      - name: SAP HANA infrastructure configurations
-        href: /azure/virtual-machines/workloads/sap/hana-vm-operations
-        maintainContext: true
       - name: Inbound and outbound internet connections for SAP on Azure
         href: guide/sap/sap-internet-inbound-outbound.yml
-      - name: SAP workload configurations with availability zones
-        href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
-        maintainContext: true
-      - name: Supported scenarios for HLI
-        href: /azure/virtual-machines/workloads/sap/hana-supported-scenario
-        maintainContext: true
-      - name: ANF volume group for SAP HANA
-        href: /azure/azure-netapp-files/application-volume-group-introduction
-        maintainContext: true
     - name: Architectures
       items:
-      - name: SAP BusinessObjects BI platform
-        href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide
-        maintainContext: true
-      - name: SAP BusinessObjects BI platform for Linux
-        href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide-linux
-        maintainContext: true
       - name: SAP BW/4HANA in Linux on Azure
         href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
       - name: SAP deployment using an Oracle DB
         href: example-scenario/apps/sap-production.yml
       - name: SAP HANA on HLI
         href: reference-architectures/sap/hana-large-instances.yml
-      - name: SAP HANA scale-out with standby node
-        href: /azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel
-        maintainContext: true
       - name: SAP HANA scale-up on Linux
         href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
       - name: SAP NetWeaver in Windows on Azure
