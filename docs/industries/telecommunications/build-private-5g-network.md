@@ -179,6 +179,5 @@ Other contributor:
 
 ## Related resources
 
-- [Solutions for the telecommunications industry](../../industries/telecommunications.md)
 - [Edge Workload Configuration pattern](../../patterns/edge-workload-configuration.md)
 - [Deploy a private 5G network](deploy-private-mobile-network.md)

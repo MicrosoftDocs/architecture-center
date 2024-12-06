@@ -2918,16 +2918,6 @@ items:
     items:
     - name: Overview
       href: industries/government.md
-  - name: Manufacturing
-    items:
-    - name: Overview
-      href: industries/manufacturing.md
-    - name: Guides
-      items:
-      - name: AI and ML scenarios
-        items:
-        - name: Predictive maintenance in manufacturing
-          href: industries/manufacturing/predictive-maintenance-overview.yml
     - name: Architectures
       items:
       - name: All manufacturing architectures
@@ -2938,22 +2928,10 @@ items:
           href: example-scenario/manufacturing/teamcenter-baseline.yml
         - name: Teamcenter with Azure NetApp Files
           href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
-        - name: Industrial Edge with Azure AI
-          href: example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml
-      - name: Anomaly detection for conveyor belts
-        href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
-      - name: Automated fab scheduling and dispatching
-        href: example-scenario/manufacturing/fab-scheduling-azure.yml
-      - name: CAE simulations for manufacturing
-        href: example-scenario/hpc/hpc-run-cae-simulations.yml
-      - name: Quality assurance
-        href: solution-ideas/articles/quality-assurance.yml
     - name: Solution ideas
       items:
       - name: Customer order forecasting
         href: solution-ideas/articles/next-order-forecasting.yml
-      - name: Azure 5G split core shop floor network
-        href: solution-ideas/articles/private-network-split-core-manufacture.yml
   - name: Energy and Environment
     items:
     - name: Overview
@@ -2970,8 +2948,6 @@ items:
         href: solution-ideas/articles/forecast-energy-power-demand.yml
   - name: Telecommunications
     items:
-    - name: Overview
-      href: industries/telecommunications.md
     - name: Guides
       items:
       - name: Deploy private 5G networks
@@ -2984,8 +2960,6 @@ items:
       items:
       - name: All telecommunications architectures
         href: /azure/architecture/browse/?terms=telecommunications
-      - name: Geospatial analysis for telecommunications
-        href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
   - name: Automotive, Mobility, and Transportation
     items:
     - name: Overview
