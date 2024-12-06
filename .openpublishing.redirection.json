@@ -5901,7 +5901,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/example-scenario/apps/capture-the-flag-platform-on-paas.yml",
+      "source_path": "docs/example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml",
       "redirect_url": "/azure/architecture/guide/security/security-start-here",
       "redirect_document_id": false
     },
@@ -5999,6 +5999,7 @@
       "source_path": "docs/networking/idea/video-analytics.yml",
       "redirect_url": "/industry/retail/",
       "redirect_document_id": false
-    }
+    },
+    
   ]
 }
