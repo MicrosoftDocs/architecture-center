@@ -81,7 +81,7 @@ items:
         - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
           href: ../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
         - name: Modernize mainframe midrange data
-          href: ../example-scenario/mainframe/modernize-mainframe-data-to-azure
+          href: ../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
         - name: Re-engineer mainframe batch apps
           href: ../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
