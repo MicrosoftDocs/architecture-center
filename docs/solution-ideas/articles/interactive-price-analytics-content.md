@@ -145,5 +145,4 @@ Learn more about pricing solutions:
 Explore related architectures:
 
 - [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
-- [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
 - [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

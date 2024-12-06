@@ -5839,6 +5839,56 @@
       "source_path": "docs/networking/architecture/apache-guacamole.yml",
       "redirect_url": "/azure/bastion/bastion-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/energy-environment.md",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/energy-supply-optimization.yml",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/forecast-energy-power-demand.yml",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/automotive.md",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/education.md",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/student-attrition-prediction.yml",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/capture-the-flag-platform-on-paas.yml",
+      "redirect_url": "/azure/architecture/guide/security/security-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml",
+      "redirect_url": "/azure/architecture/guide/security/security-start-here",
+      "redirect_document_id": false
     }
   ]
 }
