@@ -16,9 +16,9 @@ categories:
 - iot
 ---
 
-# Scale out an Azure IoT solution to support millions of devices
+# Scale out an Azure IoT Hub solution to support millions of devices
 
-This article describes how to scale an Internet of Things (IoT) solution with a scale-out pattern. The scale-out pattern solves scaling challenges by adding instances to a deployment, rather than increasing instance size. The implementation guidance here shows you how to scale an IoT solution with millions of devices and account for the service and subscription limits in Azure. The article outlines the low-touch and zero-touch deployment models of the scale-out pattern that you can adopt depending on your needs. For more information, see these articles:
+This article describes how to scale an Internet of Things (IoT) solution with a scale-out pattern on the Azure IoT Hub platform. The scale-out pattern solves scaling challenges by adding instances to a deployment, rather than increasing instance size. The implementation guidance here shows you how to scale an IoT solution with millions of devices and account for the service and subscription limits in Azure. The article outlines the low-touch and zero-touch deployment models of the scale-out pattern that you can adopt depending on your needs. For more information, see these articles:
 
 - [Best practices for large-scale Microsoft Azure IoT device deployments](/azure/iot-dps/concepts-deploy-at-scale)
 - [Azure IoT Hub](/azure/iot-hub/)
