@@ -186,5 +186,4 @@ Other contributors:
 ## Related resources
 
 - [Many models machine learning at scale with Azure Machine Learning](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)
-- [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

@@ -86,7 +86,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### Finance
 
-- [SWIFT Alliance Connect Virtual in Azure][SWIFT Alliance Connect Virtual in Azure]: See an article series on connecting to the SWIFT network by using the Alliance Connect Virtual component.
 - [Patterns and implementations for a banking cloud transformation][Patterns and implementations for a banking cloud transformation]: Apply patterns that implement a banking system cloud transformation.
 
 #### Internal business solutions
@@ -208,6 +207,5 @@ The following resources provide practical recommendations and information for sp
 [Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
-[SWIFT Alliance Connect Virtual in Azure]: ../example-scenario/finance/swift-on-azure-vsrx.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

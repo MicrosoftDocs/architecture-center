@@ -241,7 +241,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [azure-arc-enabled-servers-service-page]: /azure/azure-arc/servers/overview
 [azure-arc-enabled-sql-server-service-page]: /sql/sql-server/azure-arc/overview
 [azure-kubernetes-service-service-page]: /azure/well-architected/service-guides/azure-kubernetes-service
-[azs-hci-service-page]: /azure/well-architected/service-guides/azure-stack-hci
+[azs-hci-service-page]: /azure/well-architected/service-guides/azure-local
 [azure-kubernetes-service-on-azs-hci-service-page]: /azure/aks/hybrid/overview
 [azure-arc-enabled-kubernetes-service-page]: /azure/azure-arc/kubernetes/overview
 [azure-arc-enabled-data-services-service-page]: /azure/azure-arc/data/overview
@@ -257,7 +257,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Introduction to Azure Arc-enabled data services - training content]: /training/modules/intro-to-arc-enabled-data-services
 [Introduction to Azure Arc-enabled Kubernetes - training content]: /training/modules/intro-to-arc-enabled-kubernetes
 [Introduction to Azure Arc - training content]: /training/modules/intro-to-azure-arc
-[Azure Local switchless storage for retail, manufacturing or remote office use cases]: ./azure-stack-hci-switchless.yml
+[Azure Local switchless storage for retail, manufacturing or remote office use cases]: ./azure-local-switchless.yml
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml
