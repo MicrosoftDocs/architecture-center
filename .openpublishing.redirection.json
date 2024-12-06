@@ -5952,17 +5952,22 @@
     },
     {
       "source_path": "docs/industries/telecommunications/deploy-private-mobile-network.md",
-      "redirect_url": "/networking/guide/deploy-private-mobile-network",
+      "redirect_url": "azure/architecture/networking/guide/deploy-private-mobile-network",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/industries/telecommunications/build-private-5g-network.md",
-      "redirect_url": "/networking/guide/build-private-5g-network",
+      "redirect_url": "azure/architecture/networking/guide/build-private-5g-network",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/example-scenario/apps/ecommerce-search.yml",
-      "redirect_url": "/databases/architecture/ecommerce-search",
+      "redirect_url": "azure/architecture/databases/architecture/ecommerce-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml",
+      "redirect_url": "azure/architecture/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas",
       "redirect_document_id": true
     }
   ]
