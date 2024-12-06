@@ -101,7 +101,6 @@ Get the latest updates on [Azure migration services and features](https://azure.
 
 Following are some additional migration architectures to consider:
 
-- [Migrate an e-commerce solution to Azure](../../industries/retail/migrate-ecommerce-solution.md)
 - [Lift and shift to containers with AKS](/azure/cloud-adoption-framework/migrate/)
 - [Migrate a monolithic application to microservices using domain-driven design](../../microservices/migrate-monolith.yml)
 - [Support matrix for migration of physical servers, AWS VMs, and GCP VMs](/azure/migrate/migrate-support-matrix-physical-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

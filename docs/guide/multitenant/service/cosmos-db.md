@@ -219,5 +219,4 @@ Refer to some of our other Azure Cosmos DB architectural scenarios:
 - [Storage and data approaches for multitenancy](../approaches/storage-data.yml)
 - [Serverless apps using Azure Cosmos DB](../../../databases/idea/serverless-apps-using-cosmos-db.yml)
 - [Transactional Outbox pattern with Azure Cosmos DB](../../../databases/guide/transactional-outbox-cosmos.yml)
-- [Visual search in retail with Azure Cosmos DB](../../../industries/retail/visual-search-use-case-overview.yml)
 - [Gaming using Azure Cosmos DB](../../../solution-ideas/articles/gaming-using-cosmos-db.yml)

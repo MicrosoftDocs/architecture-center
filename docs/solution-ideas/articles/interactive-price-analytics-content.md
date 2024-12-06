@@ -146,3 +146,4 @@ Explore related architectures:
 
 - [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
 - [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
+

@@ -68,12 +68,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Power Automate deployment at scale](../example-scenario/power-automate/power-automate.yml)|Learn how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows. This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites.| Integration|
 |[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) |Learn how to develop a virtual health solution by using Microsoft Cloud for Healthcare. Microsoft Cloud for Healthcare brings together capabilities from Microsoft 365, Azure, and other technologies to help healthcare organizations create fast, efficient, and highly secure healthcare solutions.|Web|
 
-### Excel
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Interactive price analytics](../solution-ideas/articles/interactive-price-analytics.yml) |Use transaction history data to develop a pricing strategy that shows how the demand for your products responds to your prices.|Analytics|
-
 ### Exchange Online
 
 |Architecture|Summary|Technology focus|
