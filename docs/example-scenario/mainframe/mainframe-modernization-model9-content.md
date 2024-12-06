@@ -6,7 +6,7 @@ BMC AMI Cloud provides a solution for transferring mainframe data directly to Az
 
 ### Key Benefits
 
-- **Cost-Effective Backup:** Utilize BMC AMI Cloud and Azure Blob Storage as an efficient alternative to virtual tape libraries (VTL), ensuring faster and more economical data backups. This shift not only reduces costs but also improves backup and recovery times, essential for business continuity.
+- **Cost-Effective Backup:** Utilize BMC AMI Cloud and Azure Blob Storage as an efficient alternative to virtual tape libraries (VTL), ensuring faster and more economical data backups. This shift reduces costs and improves backup and recovery times, essential for business continuity.
 - **Data Transformation:** BMC AMI Cloud Analytics converts mainframe data into open formats compatible with various Azure services, enhancing data usability and integration. This transformation is vital for organizations aiming to employ advanced analytics, AI, and machine learning tools on their legacy data.
 
 1. **Data Protection:** BMC AMI Cloud vault provides immutable, air-gapped copies of mainframe data in Azure storage. It protects data by versioning, locking, immutability and encryption. It provides cyber threat protection and complies with regulatory requirements for data retention.
