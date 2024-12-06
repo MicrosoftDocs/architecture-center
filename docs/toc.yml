@@ -2832,36 +2832,6 @@ items:
         href: example-scenario/apps/ecommerce-search.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
-  - name: Financial Services
-    items:
-    - name: Overview
-      href: industries/finance.md
-    - name: Architectures
-      items:
-      - name: Location-based conditional access control
-        href: example-scenario/financial/location-based-access.yml
-      - name: Murex MX.3 on Azure
-        items:
-        - name: Host a Murex MX.3 workload on Azure using Oracle
-          href: example-scenario/finance/murex-mx3-azure.yml
-        - name: Host a Murex MX.3 workload on Azure using SQL
-          href: example-scenario/finance/murex-mx3-sql.yml
-      - name: Scale regulated AI and ML in finance
-        href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
-      - name: SWIFT on Azure
-        items:
-        - name: SWIFT Alliance Connect Virtual
-          href: example-scenario/finance/swift-on-azure-vsrx.yml
-        - name: SWIFT Alliance Lite2
-          href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
-        - name: SWIFT Alliance Cloud
-          href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
-        - name: SWIFT Alliance Access
-          href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-        - name: SWIFT Alliance Message Hub
-          href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
-        - name: SWIFT Alliance Remote Gateway with Alliance Connect Virtual
-          href: example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml
   - name: Healthcare
     items:
     - name: Overview

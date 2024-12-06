@@ -5861,6 +5861,61 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/industries/finance.md",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/financial/location-based-access.yml.",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/murex-mx3-azure.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/murex-mx3-sql.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-on-azure-vsrx.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-lite2-on-azure.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-cloud-on-azure.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml",
+      "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/industries/retail.md",
       "redirect_url": "/industry/retail/",
       "redirect_document_id": false
