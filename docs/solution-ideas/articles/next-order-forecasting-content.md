@@ -189,5 +189,4 @@ Other contributors:
 - [Solutions for the energy and environment industries](../../industries/energy-environment.md)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
 - [Forecast energy and power demand with machine learning](../../solution-ideas/articles/forecast-energy-power-demand.yml)
-- [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
 - [Machine learning operations](../../ai-ml/guide/machine-learning-operations-v2.md)

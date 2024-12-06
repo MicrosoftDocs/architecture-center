@@ -130,8 +130,6 @@ To find out more about other Azure components, see these resources:
 
 ## Related resources
 
-- [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
-- [Migrate your e-commerce solution to Azure](/azure/architecture/industries/retail/migrate-ecommerce-solution)
 - [Build a content-based recommendation system](/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system)
 
 <!-- links -->

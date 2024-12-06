@@ -10,7 +10,7 @@ metadata:
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
   ms.custom: arb-iot
-name: IoT analytics with Azure Data Explorer
+name: IoT analytics with Azure Data Explorer and Azure IoT Hub
 azureCategories:
   - analytics
   - iot
