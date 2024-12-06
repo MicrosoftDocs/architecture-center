@@ -22,7 +22,7 @@ The architecture of BMC AMI Cloud integration with Azure encompasses several com
 
 1. A z/OS task is started by BMC AMI Cloud Agent that sends encrypted and compressed mainframe data to Azure Blob Storage over TCP/IP. It ensures secure and efficient data transfer without the need for intermediate storage, thus reducing latency and potential points of failure.
 2. The cloud agents are administered by BMC AMI Cloud Management Server which is a Docker-based web application. It manages policies, activities, and storage, ensuring seamless data management.
-3. The mainframe data stored in Azure Blob Storage is converted by BMC AMI Cloud Analytics into formats suitable for AI, business intelligence, and machine learning applications . It supports conversion to CSV, JSON, or direct integration with Azure Databases, enabling a wide range of analytical and operational use cases.
+3. The mainframe data stored in Azure Blob Storage is converted by BMC AMI Cloud Analytics into formats suitable for AI, business intelligence, and machine learning applications. It supports conversion to CSV, JSON, or direct integration with Azure Databases, enabling a wide range of analytical and operational use cases.
 
 
 ## Components
@@ -43,37 +43,37 @@ Each component of the BMC AMI Cloud Data is designed to optimize various aspects
 
 Ensuring secure and reliable connectivity between on-premises mainframe systems and Azure cloud services is crucial for the success of any modernization effort:
 
-- [Azure ExpressRoute](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-expressroute) provides a private, reliable connection to Azure services, offering superior performance and security compared to public internet connections. It help users to transfer the mainframe data from on-premise to Azure using a private connection. It is ideal for organizations with stringent data sovereignty and compliance requirements.
+- [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) provides a private, reliable connection to Azure services, offering superior performance and security compared to public internet connections. It helps users to transfer the mainframe data from on-premises to Azure using a private connection. It is ideal for organizations with stringent data sovereignty and compliance requirements.
 
-- [Azure VPN Gateway](https://azure.microsoft.com/en-us/products/vpn-gateway) sends encrypted traffic between Azure Virtual Network and on-premises locations over the public internet. Users can deploy this solution for scenarios where a dedicated private connection is not feasible to transfer the mainframe data to Azure.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) sends encrypted traffic between Azure Virtual Network and on-premises locations over the public internet. Users can deploy this solution for scenarios where a dedicated private connection is not feasible to transfer the mainframe data to Azure.
 
-- [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) synchronizes with on-premises Active Directory for identity and access management. Azure AD supports single sign-on (SSO) and multi-factor authentication (MFA), enhancing security and user experience. It ensures encrypted data transmission between the BMC AMI Cloud agent and Azure Blob Storage. The permissions are managed and adminstered using role-based access control.
+- [Microsoft Entra ID](/entra/fundamentals/whatis) synchronizes with on-premises Active Directory for identity and access management. Azure AD supports single sign-on (SSO) and multi-factor authentication (MFA), enhancing security and user experience. It ensures encrypted data transmission between the BMC AMI Cloud agent and Azure Blob Storage. The permissions are managed and administered using role-based access control.
 
 ### Databases and storage
 
 The mainframe data is migrated to Azure Storage through the BMC AMI Cloud Agent. The data in Azure Storage can be integrated to any of the below Azure database services using BMC AMI Cloud Analytics.
 
-- [Azure SQL Database](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-sql-database-well-architected-framework): A fully managed, scalable database service with AI-powered features for performance and durability optimization. It supports serverless compute and Hyperscale storage options, automatically scaling resources on demand.
+- [Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework): A fully managed, scalable database service with AI-powered features for performance and durability optimization. It supports serverless compute and Hyperscale storage options, automatically scaling resources on demand.
 
-- [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/postgresql): A fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
+- [Azure Database for PostgreSQL](/azure/well-architected/service-guides/postgresql): A fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
 
-- [Azure Database for MySQL](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-db-mysql-cost-optimization): A fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
+- [Azure Database for MySQL](/azure/well-architected/service-guides/azure-db-mysql-cost-optimization): A fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
-- [Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-sql-managed-instance/reliability): An intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
+- [Azure SQL Managed Instance](/azure/well-architected/service-guides/azure-sql-managed-instance/reliability): An intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics): A fast and flexible cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): A fast and flexible cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 
-- [Azure Storage](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/storage-accounts/reliability): A comprehensive cloud storage solution that includes object, file, disk, queue, and table storage. Azure Storage supports hybrid storage solutions and offers tools for data transfer, sharing, and backup. It also provides scalable backup and archival solutions for the migrated mainframe data.
+- [Azure Storage](/azure/well-architected/service-guides/storage-accounts/reliability): A comprehensive cloud storage solution that includes object, file, disk, queue, and table storage. Azure Storage supports hybrid storage solutions and offers tools for data transfer, sharing, and backup. It also provides scalable backup and archival solutions for the migrated mainframe data.
 
 ### Analysis and monitoring
 
 Effective monitoring and analysis are essential for maintaining the health and performance of cloud-based systems:
 
-- [Power BI](https://www.microsoft.com/en-us/power-platform/products/power-bi): A suite of business analytics tools that connect to hundreds of data sources, simplifying data preparation and driving ad hoc analysis. The migrated data in Azure Storage or Azure databases can be accessed by Power BI to create interactive reports, providing insights and dashboards.
+- [Power BI](/power-bi/fundamentals/power-bi-overview): A suite of business analytics tools that connect to hundreds of data sources, simplifying data preparation and driving ad hoc analysis. The migrated data in Azure Storage or Azure databases can be accessed by Power BI to create interactive reports, providing insights and dashboards.
   
-- [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor): Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes features such as Application Insights, Azure Monitor Logs, and Azure Log Analytics, enabling proactive monitoring and issue resolution. The metrics during data migration from mainframe to Azure Storage can be monitored and analyzed using Azure Monitor. 
+- [Azure Monitor](/azure/azure-monitor/): Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes features such as Application Insights, Azure Monitor Logs, and Azure Log Analytics, enabling proactive monitoring and issue resolution. The metrics during data migration from mainframe to Azure Storage can be monitored and analyzed using Azure Monitor. 
 
-### Implementation Alternatives
+### Implementation alternatives
 
 Organizations can choose between on-premises and cloud deployment options based on their specific needs and constraints:
 
