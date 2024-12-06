@@ -5969,6 +5969,11 @@
       "source_path": "docs/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml",
       "redirect_url": "/azure/architecture/databases/architecture/azure-synapse-analytics-integrate-mongodb-atlas",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/next-order-forecasting.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/next-order-forecasting",
+      "redirect_document_id": true
     }
   ]
 }

@@ -20,6 +20,8 @@ items:
           href: idea/process-audio-files.yml
       - name: Predictive analytics
         items:
+        - name: Customer order forecasting
+          href: idea/next-order-forecasting.yml
         - name: Personalized offers
           href: idea/personalized-offers.yml
       - name: AI at the edge

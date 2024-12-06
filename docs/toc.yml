@@ -1005,6 +1005,10 @@ items:
         href: virtual-machines/baseline.yml
       - name: VM baseline in Azure landing zones
         href: virtual-machines/baseline-landing-zone.yml
+      - name: Teamcenter baseline architecture
+        href: example-scenario/manufacturing/teamcenter-baseline.yml
+      - name: Teamcenter with Azure NetApp Files
+        href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
       - name: Multi-region N-tier application
         href: reference-architectures/n-tier/multi-region-sql-server.yml       
       - name: Multi-region load balancing
@@ -2589,10 +2593,6 @@ items:
         href: /azure/architecture/browse/?terms=manufacturing
       - name: Siemens
         items:
-        - name: Teamcenter baseline architecture
-          href: example-scenario/manufacturing/teamcenter-baseline.yml
-        - name: Teamcenter with Azure NetApp Files
-          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
         - name: Industrial Edge with Azure AI
           href: example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml
       - name: Anomaly detection for conveyor belts
@@ -2605,8 +2605,6 @@ items:
         href: solution-ideas/articles/quality-assurance.yml
     - name: Solution ideas
       items:
-      - name: Customer order forecasting
-        href: solution-ideas/articles/next-order-forecasting.yml
       - name: Azure 5G split core shop floor network
         href: solution-ideas/articles/private-network-split-core-manufacture.yml
   - name: Energy and Environment
