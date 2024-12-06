@@ -77,7 +77,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 #### AI
 
 - [Forecast energy and power demand with machine learning][Forecast energy and power demand with machine learning]: Forecast spikes in demand for energy products and services.
-- [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
 - [Energy supply optimization][Energy supply optimization]: Accommodate external tools like Pyomo and CBC to solve large-scale numerical optimization problems.
 - [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
@@ -203,7 +202,6 @@ The following resources provide practical recommendations and information for sp
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
-[Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml

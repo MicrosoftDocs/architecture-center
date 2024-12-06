@@ -41,5 +41,4 @@ This solution is ideal for the automotive, manufacturing, and insurance/finance 
 ## Related resources
 
 * [Oil and gas tank level forecasting](./oil-and-gas-tank-level-forecasting.yml)
-* [Predicting Length of Stay in Hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 * [Predictive Aircraft Engine Monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
