@@ -2541,18 +2541,8 @@ items:
     items:
     - name: Architectures
       items:
-      - name: All healthcare architectures
-        href: /azure/architecture/browse/?terms=healthcare
       - name: Analysis using text analytics for health and Azure OpenAI
         href: example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml
-      - name: Predict hospital readmissions with ML
-        href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
-      - name: Predict patient length of stay and flow
-        href: example-scenario/digital-health/predict-patient-length-of-stay.yml
-      - name: Remote patient monitoring
-        href: example-scenario/digital-health/remote-patient-monitoring.yml
-      - name: Virtual visits with Cloud for Healthcare
-        href: example-scenario/mch-health/virtual-health-mch.yml
   - name: Government
     items:
     - name: Overview

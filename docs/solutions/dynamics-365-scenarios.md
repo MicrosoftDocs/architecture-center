@@ -83,12 +83,6 @@ Azure Active Directory is now Microsoft Entra ID. For more information, see [New
 |[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml) |Review a set of guiding tenets that you can use to help ensure the quality of SAP workloads that run on Azure. A recommended identity management system, Microsoft Entra ID, integrates with Dynamics CRM Online.|SAP|
 |[Serverless computing solution for LOB apps](../solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)|Build and run customer onboarding applications without managing or maintaining infrastructure. Customer information is stored in Dynamics 365. |Serverless|
 
-### Dynamics 365 Customer Engagement
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) |Learn about an architecture that you can use to develop a virtual health solution by using Microsoft Cloud for Healthcare. One component of the solution is an application deployed via Dynamics 365 that presents an aggregated view of patient data in Teams.|Web|
-
 ### Dynamics 365 Customer Insights
 
 |Architecture|Summary|Technology focus|

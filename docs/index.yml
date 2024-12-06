@@ -199,9 +199,6 @@ conceptualContent:
         - text: Real-time fraud detection
           itemType: architecture
           url: example-scenario/data/fraud-detection.yml
-        - text: Predict the length of stay in hospitals
-          itemType: architecture
-          url: ./example-scenario/digital-health/predict-patient-length-of-stay.yml
           
     - title: Databases
       links:

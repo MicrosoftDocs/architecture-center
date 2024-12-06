@@ -127,7 +127,6 @@ The following new and updated articles have recently been published in the Azure
 - [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [News feeds with near real-time analytics](./example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
-- [Predict hospital readmissions with machine learning](./example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Real-time anomaly detection for conveyor belts](./example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
 - [Predict student attrition](./example-scenario/ai/student-attrition-prediction.yml)  ([#a1342dca07](https://github.com/MicrosoftDocs/architecture-center/commit/a1342dca07))
