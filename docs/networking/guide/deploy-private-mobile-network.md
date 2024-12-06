@@ -47,7 +47,7 @@ The combination of 5G, MEC, and the cloud makes it possible to create private wi
 
 Here are some of the industry use cases that private 5G networks can help deliver:  
 
-:::image type="content" source="media/industry-use-cases.png" alt-text="Diagram showing industry use cases that are powered by private 5G networks." lightbox="media/industry-use-cases.png":::
+:::image type="content" source="images/industry-use-cases.png" alt-text="Diagram showing industry use cases that are powered by private 5G networks." lightbox="images/industry-use-cases.png":::
 
 Private 5G networks represent a strong use case for 5G enterprise services because these capabilities will underpin the more sophisticated services, like smart spaces and Industry 4.0 applications. Yet, despite the advantages of a 5G private network, challenges remain for operators and enterprises. The biggest challenge is the complexity of deploying and managing a 5G network in an enterprise environment. 5G networks involve considerations that lie outside the traditional enterprise skill set, from radio frequency (RF) design to 5G mobile core architectures. Also, telco operators might lack the technology portfolio or minimal footprint needed to cost-effectively deploy 5G networks and cloud-managed edge computing in an enterprise environment.
 

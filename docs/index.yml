@@ -421,7 +421,7 @@ conceptualContent:
           url:  example-scenario/apps/apim-api-scenario.yml
         - text: E-commerce product search
           itemType: get-started
-          url:  /databases/architectures/ecommerce-search.yml
+          url:  /databases/architecture/ecommerce-search.yml
         - text: Publish internal APIs externally
           itemType: get-started
           url:  example-scenario/apps/publish-internal-apis-externally.yml
