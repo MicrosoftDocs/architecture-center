@@ -1,4 +1,4 @@
-Modernizing mainframe systems is crucial for organizations leverage the benefits of cloud computing. The integration of mainframe data with cloud platforms offers enhanced scalability, performance, and cost efficiency.
+Modernizing mainframe systems allows organizations to take advantage of the benefits of cloud computing. The integration of mainframe data with cloud platforms offers enhanced scalability, performance, and cost efficiency.
 
 BMC AMI Cloud provides a solution for transferring mainframe data directly to Azure Blob Storage, facilitating a migration and modernization journey.
 
@@ -8,7 +8,9 @@ BMC AMI Cloud provides a solution for transferring mainframe data directly to Az
 
 - **Cost-Effective Backup:** Utilize BMC AMI Cloud and Azure Blob Storage as an efficient alternative to virtual tape libraries (VTL), ensuring faster and more economical data backups. This shift not only reduces costs but also improves backup and recovery times, essential for business continuity.
 - **Data Transformation:** BMC AMI Cloud Analytics converts mainframe data into open formats compatible with various Azure services, enhancing data usability and integration. This transformation is vital for organizations aiming to employ advanced analytics, AI, and machine learning tools on their legacy data.
-- **Data Protection:** BMC AMI Cloud vault provides immutable copies of mainframe data in Azure storage and air gapped. It protects data by versioning, locking, immutability and encryption. It provides cyber threat protection and complies with regulatory requirements for data retention.
+
+1. **Data Protection:** BMC AMI Cloud vault provides immutable, air-gapped copies of mainframe data in Azure storage. It protects data by versioning, locking, immutability and encryption. It provides cyber threat protection and complies with regulatory requirements for data retention.
+
 
 ## Architecture
 
@@ -20,7 +22,7 @@ BMC AMI Cloud provides a solution for transferring mainframe data directly to Az
 
 The architecture of BMC AMI Cloud integration with Azure encompasses several components, each playing a pivotal role in the data migration and transformation process. 
 
-1. A z/OS task is started by BMC AMI Cloud Agent that sends encrypted and compressed mainframe data to Azure Blob Storage over TCP/IP. It ensures secure and efficient data transfer without the need for intermediate storage, thus reducing latency and potential points of failure.
+1. A z/OS task is started by BMC AMI Cloud Agent that sends encrypted and compressed mainframe data to Azure Blob Storage over TCP/IP. It ensures secure and efficient data transfer without the need for intermediate storage, reducing latency and potential points of failure.
 2. The cloud agents are administered by BMC AMI Cloud Management Server which is a Docker-based web application. It manages policies, activities, and storage, ensuring seamless data management.
 3. The mainframe data stored in Azure Blob Storage is converted by BMC AMI Cloud Analytics into formats suitable for AI, business intelligence, and machine learning applications. It supports conversion to CSV, JSON, or direct integration with Azure Databases, enabling a wide range of analytical and operational use cases.
 
@@ -29,9 +31,9 @@ The architecture of BMC AMI Cloud integration with Azure encompasses several com
 
 Each component of the BMC AMI Cloud Data is designed to optimize various aspects of the data migration and management process:
 
-- **BMC AMI Cloud Agent:** A Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly to and from Azure Blob Storage over TCP/IP. The BMC AMI Cloud Agent utilizes the zIIP engines, which dramatically reduces general CPU consumption, thereby optimizing mainframe performance and cost. Multiple agents can be used to increase scalability and resilience.
+- **BMC AMI Cloud Agent:** A Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly to and from Azure Blob Storage over TCP/IP. The BMC AMI Cloud Agent utilizes the zIIP engine, which dramatically reduces general CPU consumption, thereby optimizing mainframe performance and cost. Multiple agents can be used to increase scalability and resilience.
 
-- **BMC AMI Cloud Management Server:** A web application running in a Docker container that manages the web UI and communication with z/OS agents. It provides a way to define policies for data protection, migration, and archival, ensuring that data management aligns with organizational requirements and compliance standards. For superior availability, deploy on Azure Virtual Machines and on the customer's virtual network.
+- **BMC AMI Cloud Management Server:** A web application running in a Docker container that manages the web UI and communication with z/OS agents. It provides a way to define policies for data protection, migration, and archival, ensuring that data management aligns with organizational requirements and compliance standards. For superior availability, deploy this application on Azure Virtual Machines within your virtual network.
 
 - **Lifecycle management engine:** A Java-based application that runs on-premises on a z/OS LPAR. It deletes expired data from both object storage and z/OS, automating data lifecycle management and ensuring that storage resources are used efficiently.
 
