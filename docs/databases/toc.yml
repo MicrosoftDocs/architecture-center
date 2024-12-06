@@ -73,21 +73,21 @@ items:
         - name: Replicate and sync mainframe data
           href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
         - name: Mainframe data replication with Connect
-          href: example-scenario/mainframe/mainframe-replication-precisely-connect.yml
+          href: ../example-scenario/mainframe/mainframe-replication-precisely-connect.yml
         - name: Mainframe data replication with Qlik
-          href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
+          href: ../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
         - name: Mainframe data replication with RDRS
-          href: example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml
+          href: ../example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml
         - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
-          href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
+          href: ../example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
         - name: Modernize mainframe midrange data
-          href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
+          href: ../example-scenario/mainframe/modernize-mainframe-data-to-azure
         - name: Re-engineer mainframe batch apps
-          href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
+          href: ../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
         - name: Rehost IMS DC and IMS DB
-          href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
+          href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
         - name: Replicate and sync mainframe data
-          href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+          href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 
     - name: Apply guidance
       items:
