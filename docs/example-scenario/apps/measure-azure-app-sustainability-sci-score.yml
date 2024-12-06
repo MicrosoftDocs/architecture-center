@@ -3,8 +3,8 @@ metadata:
   title: Measure Azure App Sustainability by Using the SCI Score
   titleSuffix: Azure Architecture Center
   description: Create a sustainability model based on available proxies that scores the carbon impact of an application.
-  author: pea-ms
-  ms.author: paannis
+  author: kyleburnsdev
+  ms.author: kyburns
   ms.date: 10/24/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center

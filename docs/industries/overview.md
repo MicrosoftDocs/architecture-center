@@ -25,7 +25,6 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 
 |Industry  |Opportunities  |
 |---------|---------|
-|[Retail](retail.md)   |   Retailers can enhance or reimagine customer journeys by using Azure services.      |
 |[Healthcare](healthcare.md)     |     With Azure and other Microsoft services, healthcare organizations can create highly efficient and resilient healthcare systems that improve patient/provider interactions and provide clinical and data insights.    |
 |[Government](government.md)     |   Azure provides a mission-critical cloud platform, Azure Government, that delivers breakthrough innovation to US government customers and their partners.      |
 |[Manufacturing](manufacturing.md)     |     Cloud computing is transforming manufacturing IT infrastructures and processes to the highly available, highly secure, and efficient cloud, in addition to providing cutting edge Internet of Things (IoT), AI / machine learning, and analytics solutions.    |

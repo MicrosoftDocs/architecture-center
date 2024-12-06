@@ -4011,6 +4011,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/hybrid/aks-hybrid-stack-hci.yml",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-hybrid-azure-local",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/data-guide/big-data/real-time-processing.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
@@ -4655,6 +4660,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/hybrid/azure-stack-hci-switchless.yml",
+      "redirect_url": "/azure/architecture/hybrid/azure-local-switchless",
+      "redirect_document_id": true
+    },
+    {  
       "source_path": "docs/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md",
       "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
       "redirect_document_id": false
@@ -4663,6 +4673,11 @@
       "source_path": "docs/example-scenario/hybrid/hybrid-tiered-data-analytics.yml",
       "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
       "redirect_document_id": false
+    },
+    { 
+      "source_path": "docs/hybrid/azure-stack-hci-dr.yml",
+      "redirect_url": "/azure/architecture/hybrid/azure-local-dr",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/example-scenario/iot/vertical-buy-online-pickup-in-store.yml",
@@ -4688,6 +4703,11 @@
       "source_path": "docs/guide/iiot-patterns/iiot-connectivity-patterns.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-stack-hci-baseline.yml",
+      "redirect_url": "/azure/architecture/hybrid/azure-local-baseline",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/guide/iiot-patterns/iiot-patterns-overview.yml",
@@ -5893,6 +5913,41 @@
     {
       "source_path": "docs/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml",
       "redirect_url": "/industry/financial-services/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail.md",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/sku-optimization-solution-guide.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/migrate-ecommerce-solution.md",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/visual-search-use-case-overview.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-price-analytics.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/magento/magento-azure.yml",
+      "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/idea/video-analytics.yml",
+      "redirect_url": "/industry/retail/",
       "redirect_document_id": false
     }
   ]

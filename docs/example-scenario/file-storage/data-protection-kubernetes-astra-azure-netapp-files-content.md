@@ -175,7 +175,6 @@ Other contributors:
 ## Related resources
 
 - [Enterprise file shares with disaster recovery][Enterprise file shares with disaster recovery]
-- [Magento e-commerce platform in Azure Kubernetes Service][Magento e-commerce platform in Azure Kubernetes Service]
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster][Baseline architecture for an Azure Kubernetes Service (AKS) cluster]
 
 [AKS]: https://azure.microsoft.com/products/kubernetes-service
@@ -199,12 +198,11 @@ Other contributors:
 [Enterprise file shares with disaster recovery]: ./enterprise-file-shares-disaster-recovery.yml
 [Guidelines for Azure NetApp Files network planning - Subnets]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#subnets
 [How Azure NetApp Files snapshots work]: /azure/azure-netapp-files/snapshots-introduction
-[Magento e-commerce platform in Azure Kubernetes Service]: ../magento/magento-azure.yml
 [Manage apps]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html#manage-apps
 [Start managing apps]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html
 [Manage disaster recovery using cross-region replication]: /azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery
 [Monitor Astra Trident]: https://docs.netapp.com/us-en/trident/trident-use/monitor-trident.html
-[NetApp Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.netapp-astra-acs
+[NetApp Astra Control Service]: https://docs.netapp.com/us-en/astra-control-service/
 [NetApp BlueXP pricing]: https://bluexp.netapp.com/pricing
 [Products available by region]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service%2Cnetapp&regions=all
 [Protect apps with snapshots and backups]: https://docs.netapp.com/us-en/astra-control-service/use/protect-apps.html

@@ -93,4 +93,3 @@ Principle author:
 
 - [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)

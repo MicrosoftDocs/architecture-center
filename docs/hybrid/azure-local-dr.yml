@@ -24,4 +24,4 @@ products:
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-local-dr.png
 content: |
-   [!INCLUDE[](azure-stack-hci-dr-content.md)]
+   [!INCLUDE[](azure-local-dr-content.md)]
