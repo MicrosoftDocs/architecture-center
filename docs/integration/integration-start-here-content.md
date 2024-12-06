@@ -186,7 +186,6 @@ The following resources provide practical recommendations and information for sp
 [Forecast energy and power demand with machine learning]: ../solution-ideas/articles/forecast-energy-power-demand.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
-[Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml
 [HPC risk analysis template]: ../solution-ideas/articles/hpc-risk-analysis.yml
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
 [Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
