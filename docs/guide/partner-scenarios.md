@@ -158,8 +158,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability. Oracle is one recommended database.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|Oracle|
 |[Security considerations for highly sensitive IaaS apps in Azure](../reference-architectures/n-tier/high-security-iaas.yml)|Learn about VM security, encryption, NSGs, perimeter networks (also known as DMZs), access control, and other security considerations for highly sensitive IaaS and hybrid apps. A common replication scenario for IaaS architectures uses Oracle Active Data Guard. |Security|
-|[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure. An Alliance Access component contains an embedded Oracle database.|Networking|
-|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market. A key component, the AMH node, runs an Oracle database.|Networking|
 
 ## Qlik
 
@@ -213,16 +211,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Stromasys Charon-SSP Solaris emulator on Azure VMs](../solution-ideas/articles/solaris-azure.yml)|Learn how the Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.|Mainframe|
-
-## SWIFT
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
-|[SWIFT Alliance Cloud on Azure](../example-scenario/finance/swift-alliance-cloud-on-azure.yml)|Deploy Azure infrastructure for SWIFT Alliance Cloud.|Networking|
-|[SWIFT Alliance Connect Virtual on Azure](../example-scenario/finance/swift-on-azure-vsrx.yml)|View a series of articles about SWIFT Alliance Connect Virtual components that can be deployed on Azure.|Security|
-|[SWIFT Alliance Lite2 on Azure](../example-scenario/finance/swift-alliance-lite2-on-azure.yml)|Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment.|Networking|
-|[SWIFT\'s AMH with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure.|Networking|
 
 ## Syncier
 

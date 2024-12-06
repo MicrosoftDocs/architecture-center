@@ -197,5 +197,4 @@ Principal author:
 ## Related resources
 
 - [Compare Microsoft machine learning products and technologies](../guide/data-science-and-machine-learning.md)
-- [Scale AI and machine learning initiatives in regulated industries](../../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)
 - [Many models machine learning at scale with Machine Learning](../idea/many-models-machine-learning-azure-machine-learning.yml)
