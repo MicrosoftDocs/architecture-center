@@ -18,13 +18,13 @@ This article describes a warehouse management scenario that monitors environment
 
 1. Device data is sent to Azure IoT Central. Customers use the solution for controlling and monitoring the devices.
 
-1. Modeling of the supply chain and warehouse facilities using Azure Digital Twins. This is a live executing environment where applications can ingest data to gain visibility on the status of the supply chain. Digital Twins integrates natively with Azure Event Hub, which other applications interact with to retrieve data from the twin.
+1. Modeling of the supply chain and warehouse facilities using Azure Digital Twins. This is a live executing environment where applications can ingest data to gain visibility on the status of the supply chain. Digital Twins integrates natively with Azure Event Hubs, which other applications interact with to retrieve data from the twin.
 
 1. Temporal and spatial data required by ML models is obtained from the external data sources.
 
 1. Key data is stored in Azure data solutions. Blob storage is used for ML training data. Azure Cosmos DB is used for scored data and key performance indexes.
 
-1. Telemetry data is ingested from IoT Central via Event Hub to ensure decoupling of the data ingestion and consumption. Azure Functions is used to combine external data sources and telemetry data, and then analyze this data set for any anomalies. The data is surfaced through Digital Twins.
+1. Telemetry data is ingested from IoT Central via Event Hubs to ensure decoupling of the data ingestion and consumption. Azure Functions is used to combine external data sources and telemetry data, and then analyze this data set for any anomalies. The data is surfaced through Digital Twins.
 
 1. Azure Databricks performs data transformations required for training the ML models.
 
