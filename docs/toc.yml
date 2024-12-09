@@ -2585,7 +2585,6 @@ items:
       items:
       - name: Customer order forecasting
         href: solution-ideas/articles/next-order-forecasting.yml
-    - name: Overview
     - name: Guides
       items:
       - name: Deploy private 5G networks
