@@ -14,7 +14,7 @@ BMC AMI Cloud provides a solution that transfers mainframe data directly to Azur
 
 ## Architecture
 
-:::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.svg" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." lightbox="media/model9-mainframe-midrange-data-archive-azure.svg" border="false":::
+:::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.svg" lightbox="media/model9-mainframe-midrange-data-archive-azure.svg" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midrange-data-archive-azure.vsdx) of this architecture.*
 
@@ -72,7 +72,7 @@ The mainframe data is migrated to Azure Storage through the BMC AMI Cloud Agent.
 
 Effective monitoring and analysis are essential for maintaining the health and performance of cloud-based systems:
 
-- **[Power BI](/power-bi/fundamentals/power-bi-overview)** is a suite of business analytics tools that connect to hundreds of data sources, which simplifies data preparation and drives improvised analysis. Power BI can access the migrated data in Storage or Azure databases to create interactive reports, which provides insights and dashboards.
+- **[Power BI](/power-bi/fundamentals/power-bi-overview)** is a suite of business analytics tools that connect to hundreds of data sources, which simplifies data preparation and drives improvised analysis. Power BI can access the migrated data in Storage or Azure databases to create interactive reports that provide insights and dashboards.
   
 - **[Azure Monitor](/azure/azure-monitor/)** provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes features such as Application Insights, Azure Monitor Logs, and Azure Log Analytics. These features enable proactive monitoring and issue resolution. You can monitor and analyze the metrics during data migration from the mainframe to Storage using Azure Monitor.
 
