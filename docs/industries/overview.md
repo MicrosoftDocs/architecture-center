@@ -25,7 +25,6 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 
 |Industry  |Opportunities  |
 |---------|---------|
-|[Healthcare](healthcare.md)     |     With Azure and other Microsoft services, healthcare organizations can create highly efficient and resilient healthcare systems that improve patient/provider interactions and provide clinical and data insights.    |
 |[Government](government.md)     |   Azure provides a mission-critical cloud platform, Azure Government, that delivers breakthrough innovation to US government customers and their partners.      |
 |[Nonprofit](/azure/industry/training-services/microsoft-community-training/public-preview-version/infrastructure-management/install-your-platform-instance/setup-platform-instance-on-azure-subscription-for-nonprofits?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Nonprofit organizations can apply for an Azure credit grant of $3,500 per year to set up and run an instance of the Microsoft Community Training platform.      |
 

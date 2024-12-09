@@ -1,6 +1,71 @@
 {
   "redirections": [
     {
+      "source_path": "docs/industries/healthcare.md",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/data/azure-health-data-services.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mch-health/virtual-health-mch.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/mch-health/medical-data-insights.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/machine-learning/donor-patient-cross-match.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/digital-health/remote-patient-monitoring.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/digital-health/predict-patient-length-of-stay.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/digital-health/health-portal.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/medical-data-ingestion.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/azure-health-data-consortium.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/predict-hospital-readmissions-machine-learning.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/risk-stratification-surgery.yml",
+      "redirect_url": "/industry/healthcare/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/iot.yml",
       "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false

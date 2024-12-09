@@ -2533,40 +2533,10 @@ items:
         href: solution-ideas/articles/video-analytics.yml
   - name: Healthcare
     items:
-    - name: Overview
-      href: industries/healthcare.md
-    - name: Guides
-      items:
-      - name: Azure Health Data Services architecture
-        href: guide/data/azure-health-data-services.yml
     - name: Architectures
       items:
-      - name: All healthcare architectures
-        href: /azure/architecture/browse/?terms=healthcare
       - name: Analysis using text analytics for health and Azure OpenAI
         href: example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml
-      - name: Analyze observational patient data
-        href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
-      - name: Clinical insights with Cloud for Healthcare
-        href: example-scenario/mch-health/medical-data-insights.yml
-      - name: Consumer health portal on Azure
-        href: example-scenario/digital-health/health-portal.yml
-      - name: Donor-patient cross matching
-        href: example-scenario/machine-learning/donor-patient-cross-match.yml
-      - name: Health data consortium
-        href: example-scenario/data/azure-health-data-consortium.yml
-      - name: Implement risk prediction for surgeries
-        href: example-scenario/ai/risk-stratification-surgery.yml
-      - name: Ingest and store medical data
-        href: example-scenario/data/medical-data-ingestion.yml
-      - name: Predict hospital readmissions with ML
-        href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
-      - name: Predict patient length of stay and flow
-        href: example-scenario/digital-health/predict-patient-length-of-stay.yml
-      - name: Remote patient monitoring
-        href: example-scenario/digital-health/remote-patient-monitoring.yml
-      - name: Virtual visits with Cloud for Healthcare
-        href: example-scenario/mch-health/virtual-health-mch.yml
   - name: Government
     items:
     - name: Overview
