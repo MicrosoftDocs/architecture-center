@@ -47,5 +47,4 @@ See product documentation:
 
 ## Related resources
 
-* [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 
