@@ -74,4 +74,4 @@ The following are other ideas that you can use as a starting point for your manu
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-- [Predictive insights with vehicle telematics](/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics)
+

@@ -113,14 +113,6 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
-
 ## Next steps
 
 See the following relevant Azure services:
@@ -132,7 +124,6 @@ See the following relevant Azure services:
 
 ## Related resources
 
-- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
 

@@ -76,9 +76,7 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### AI
 
-- [Forecast energy and power demand with machine learning][Forecast energy and power demand with machine learning]: Forecast spikes in demand for energy products and services.
 - [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
-- [Energy supply optimization][Energy supply optimization]: Accommodate external tools like Pyomo and CBC to solve large-scale numerical optimization problems.
 - [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
 #### E-commerce
@@ -181,13 +179,11 @@ The following resources provide practical recommendations and information for sp
 [Design data integration]: /training/modules/design-data-integration
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
 [Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
-[Energy supply optimization]: ../solution-ideas/articles/energy-supply-optimization.yml
 [Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
 [Explore Event Grid integration]: /training/browse/?products=azure&terms=event%20grid
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
-[Forecast energy and power demand with machine learning]: ../solution-ideas/articles/forecast-energy-power-demand.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
 [Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml
