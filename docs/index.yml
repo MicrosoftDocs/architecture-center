@@ -174,8 +174,6 @@ conceptualContent:
           url: /azure/architecture/reference-architectures/n-tier/windows-vm
         - text: Azure VM baseline architecture
           itemType: architecture
-          url: example-scenario/data/fraud-detection.yml
-          
           url: /azure/architecture/virtual-machines/baseline
         - text: Understand multi-region compute balancing
           itemType: concept
@@ -201,9 +199,6 @@ conceptualContent:
         - text: Deploy microservices with Azure Container Apps
           itemType: architecture
           url: /azure/architecture/example-scenario/serverless/microservices-with-container-apps
-        - text: Deploy microservices with Azure Container Apps and Dapr
-          itemType: architecture
-          url: /architecture/example-scenario/serverless/microservices-with-container-apps-dapr
 
     - title: Databases
       links:
