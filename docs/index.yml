@@ -9,8 +9,8 @@ metadata:
   author: RobBagby
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
-title: Azure Architecture Center # < 60 chars
-summary: Guidance for architecting solutions on Azure using established patterns and practices # < 400 chars
+title: Azure Architecture Center
+summary: Design solutions on Azure using established patterns and practices. Azure Architecture Center is a catalog of solution ideas, example workloads, reference architectures, technology decision guides, and architecture guides for Azure workloads.
 brand: azure
 
 # Ref: https://review.learn.microsoft.com/en-us/help/platform/navigation-how-create-hub-page?branch=main#hub-page-template
@@ -20,7 +20,7 @@ highlightedContent:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
-    - title: Explore cloud best practices 
+    - title: Use application architecture fundamentals
       itemType: concept
       url: guide/index.md
     - title: Make technology choices
@@ -326,7 +326,7 @@ tools:
   summary: Build a strong cloud adoption strategy and a consistent approach to workload design.
   items:
     - title: Cloud Adoption Framework for Azure
-      imageSrc: ./_images/cloud-adoption-framework.png
+      imageSrc: /media/common/i_architecture.svg
       url: /azure/cloud-adoption-framework
     - title: Azure Well-Architected Framework pillars
       imageSrc: ./_images/i-best-practices.png
@@ -335,5 +335,5 @@ tools:
       imageSrc: ./_images/cloud-design-patterns.svg
       url: /azure/well-architected/workloads
     - title: Well-architected service guides
-      imageSrc: _images/reference-architectures.svg
+      imageSrc: /media/common/i_reference.svg
       url: /azure/well-architected/service-guides/
