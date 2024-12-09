@@ -86,7 +86,7 @@ Organizations can choose between on-premises and cloud deployment options based 
 
 ## Use cases
 
-This architecture is suitable for various use cases:
+This architecture is suitable for various use cases.
 
 - **Mainframe data accessibility:** Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
   
