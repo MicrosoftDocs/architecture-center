@@ -78,12 +78,6 @@ The following sections, organized by category, provide links to sample web app a
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
 
-### Healthcare
-
-- [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)
-- [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml)
-- [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml)
-
 ### Modernization
 
 - [Choose between traditional web apps and single-page apps](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)

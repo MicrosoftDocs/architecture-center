@@ -76,7 +76,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### AI
 
-- [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
 - [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
 #### E-commerce
@@ -93,10 +92,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Elastic Workplace Search on Azure][Elastic Workplace Search on Azure]: Use Workplace Search to capture information from numerous heterogeneous sources and make it searchable.
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
 - [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
-
-#### Healthcare
-
-[Health data consortium][Health data consortium]: Share data among members of a healthcare consortium.
 
 #### High-performance computing
 
@@ -186,7 +181,6 @@ The following resources provide practical recommendations and information for sp
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
-[Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml
 [HPC risk analysis template]: ../solution-ideas/articles/hpc-risk-analysis.yml
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
 [Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
@@ -204,7 +198,6 @@ The following resources provide practical recommendations and information for sp
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
-[Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
