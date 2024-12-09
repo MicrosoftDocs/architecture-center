@@ -297,7 +297,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of an IoT solution.
 
 - For other cost considerations, see [Principles of cost optimization][Principles of cost optimization] in the Microsoft Azure Well-Architected Framework documentation.
-- For a discussion about optimizing the cost of services that IoT solutions commonly use, see [Azure IoT Reference Architecture][Azure IoT reference architecture].
 
 ## Contributors
 
@@ -341,7 +340,6 @@ Other contributor:
 [Azure Functions]: /azure/digital-twins/how-to-create-azure-function?tabs=cli
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
-[Azure IoT reference architecture]: ../../reference-architectures/iot.yml
 [Azure IoT SDKs]: /azure/iot-hub/iot-hub-devguide-sdks
 [Azure Key Vault]: https://azure.microsoft.com/services/key-vault
 [Azure Logic Apps]: https://azure.microsoft.com/services/logic-apps
