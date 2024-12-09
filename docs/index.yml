@@ -20,7 +20,7 @@ highlightedContent:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
-    - title: Use application architecture fundamentals
+    - title: Build using application architecture fundamentals
       itemType: concept
       url: guide/index.md
     - title: Make technology choices
@@ -29,7 +29,7 @@ highlightedContent:
     - title: Learn cloud design patterns
       itemType: concept
       url: patterns/index.md
-    - title: See what's new
+    - title: See what's new and updated
       url: ./changelog.md
       itemType: whats-new
 
@@ -74,6 +74,8 @@ productDirectory:
           text: Terraform-based landing zones
         - url: /azure/architecture/landing-zones/subscription-vending
           text: Automate through subscription vending
+        - url: /azure/architecture/landing-zones/landing-zone-deploy#application
+          text: Application landing zone solutions
     - title: Specialized scenarios
       imageSrc: /media/common/i_best-practices.svg
       links:
@@ -330,7 +332,7 @@ tools:
       url: /azure/cloud-adoption-framework
     - title: Azure Well-Architected Framework pillars
       imageSrc: ./_images/i-best-practices.png
-      url: /azure/well-architected/
+      url: /azure/well-architected/pillars
     - title: Well-architected workloads
       imageSrc: ./_images/cloud-design-patterns.svg
       url: /azure/well-architected/workloads
