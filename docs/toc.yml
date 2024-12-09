@@ -1898,8 +1898,6 @@ items:
         href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
       - name: SMB disaster recovery with Double-Take DR
         href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
-      - name: Training and procedural guidance
-        href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
   - name: Media
@@ -2092,8 +2090,6 @@ items:
       items:
       - name: Design review with mixed reality
         href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
-      - name: Training powered by mixed reality
-        href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
   - name: Mobile
     items:
     - name: Get started
@@ -2611,20 +2607,6 @@ items:
         href: solution-ideas/articles/next-order-forecasting.yml
       - name: Azure 5G split core shop floor network
         href: solution-ideas/articles/private-network-split-core-manufacture.yml
-  - name: Energy and Environment
-    items:
-    - name: Overview
-      href: industries/energy-environment.md
-    - name: Architectures
-      items:
-      - name: Oil and gas tank level forecasting
-        href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-    - name: Solution ideas
-      items:
-      - name: Energy supply optimization
-        href: solution-ideas/articles/energy-supply-optimization.yml
-      - name: Energy demand forecasting
-        href: solution-ideas/articles/forecast-energy-power-demand.yml
   - name: Telecommunications
     items:
     - name: Overview
@@ -2645,8 +2627,6 @@ items:
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
   - name: Automotive, Mobility, and Transportation
     items:
-    - name: Overview
-      href: industries/automotive.md
     - name: Guides
       items:
       - name: Autonomous Vehicle Operations design guide
@@ -2655,8 +2635,6 @@ items:
         href: /azure/architecture/solution-ideas/articles/avops-architecture
     - name: Architectures
       items:
-      - name: Predictive insights with vehicle telematics
-        href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
       - name: Software-defined vehicle DevOps toolchain
         href: industries/automotive/software-defined-vehicle-reference-architecture.yml
       - name: DataOps for autonomous vehicle operations
@@ -2665,18 +2643,6 @@ items:
         href: example-scenario/automotive/autonomous-vehicle-validation-operations.yml   
       - name: Automotive messaging, data, and analytics
         href: industries/automotive/automotive-messaging-data-analytics.yml
-  - name: Education
-    items:
-    - name: Overview
-      href: industries/education.md
-    - name: Architectures
-      items:
-      - name: Predict student attrition
-        href: example-scenario/ai/student-attrition-prediction.yml
-      - name: Scalable secure open source Capture the Flag (CTF)
-        href: example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml
-      - name: Training and guidance with mixed reality
-        href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
   - name: Additional verticals
     items:
     - name: Game Development
@@ -2717,8 +2683,6 @@ items:
           items:
           - name: Design review
             href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
-          - name: Training and procedural guidance
-            href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
         - name: Real-time monitoring and observable systems for media
           href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Travel and Hospitality
