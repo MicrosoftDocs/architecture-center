@@ -15,43 +15,33 @@ brand: azure
 
 # Ref: https://review.learn.microsoft.com/en-us/help/platform/navigation-how-create-hub-page?branch=main#hub-page-template
 
-# highlightedContent section (optional)
-# Maximum of 8 items
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
-    # Card
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
-    # Card
     - title: Explore cloud best practices 
       itemType: concept
       url: guide/index.md
-    # Card
     - title: Make technology choices
       itemType: reference
       url: guide/technology-choices/technology-choices-overview.md
-    # Card
     - title: Learn cloud design patterns
       itemType: concept
       url: patterns/index.md
-    # Card
     - title: See what's new
       url: ./changelog.md
       itemType: whats-new
 
-# productDirectory section (optional)
 productDirectory:
-  title: Architecting applications on Azure # < 60 chars (optional)
-  summary: Explore best practices and patterns for building applications on Microsoft Azure. # < 160 chars (optional)
+  title: Architecting applications on Azure
+  summary: Explore best practices and patterns for building applications on Microsoft Azure.
   items:
-    # Card
     - title: Design for the cloud
       imageSrc: /media/common/i_design.svg
       links:
         - url: /azure/architecture/guide/architecture-styles/
-          text: Learn fundimental architecture styles
+          text: Learn fundamental architecture styles
         - url: ./best-practices/index-best-practices.md
           text: Use best practices in cloud applications
         - url: /azure/architecture/antipatterns/
@@ -60,7 +50,6 @@ productDirectory:
           text: Use responsible engineering practices
         - url: ./patterns/index.md
           text: Use cloud design patterns
-    # Card
     - title: Choose the right technology
       imageSrc: /media/common/i_overview.svg
       links:
@@ -100,12 +89,9 @@ productDirectory:
           text: Azure for Google Cloud professionals
 
 
-# conceptualContent section (optional)
 conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
-  # Supports up to 3 subsections
-  title: Technology areas # < 60 chars (optional)
-  summary: Explore architectures and guides for different technologies. # < 160 chars (optional)
+  title: Technology areas
+  summary: Explore architectures and guides for different technologies.
   items:
     - title: Popular articles
       links:
@@ -340,16 +326,14 @@ tools:
   summary: Build a strong cloud adoption strategy and a consistent approach to workload design.
   items:
     - title: Cloud Adoption Framework for Azure
-      # imageSrc should be square in ratio with no white space
-      imageSrc: ./media/index/image1.svg
+      imageSrc: ./_images/cloud-adoption-framework.png
       url: /azure/cloud-adoption-framework
-    # Card
     - title: Azure Well-Architected Framework pillars
-      imageSrc: ./media/index/image2.svg
+      imageSrc: ./_images/i-best-practices.png
       url: /azure/well-architected/
     - title: Well-architected workloads
-      imageSrc: ./media/index/image2.svg
+      imageSrc: ./_images/cloud-design-patterns.svg
       url: /azure/well-architected/workloads
     - title: Well-architected service guides
-      imageSrc: ./media/index/image2.svg
+      imageSrc: _images/reference-architectures.svg
       url: /azure/well-architected/service-guides/
