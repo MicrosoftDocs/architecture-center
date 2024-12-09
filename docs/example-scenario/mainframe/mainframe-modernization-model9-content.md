@@ -10,7 +10,7 @@ BMC AMI Cloud provides a solution that transfers mainframe data directly to Azur
 
 - **Data transformation.** BMC AMI Cloud Analytics converts mainframe data into open formats that are compatible with various Azure services. Open formats enhance data usability and integration. This process is crucial for organizations that aim to use advanced analytics, AI, and machine learning tools on their legacy data.
 
-1. **Data protection.** BMC AMI Cloud vault provides immutable, air-gapped copies of mainframe data in Azure storage. It protects data by versioning, locking, immutability, and encryption. It also provides threat protection and complies with regulatory requirements for data retention.
+- **Data protection.** BMC AMI Cloud vault provides immutable, air-gapped copies of mainframe data in Azure storage. It protects data by versioning, locking, immutability, and encryption. It also provides threat protection and complies with regulatory requirements for data retention.
 
 ## Architecture
 
@@ -80,11 +80,11 @@ Effective monitoring and analysis are essential for maintaining the health and p
 
 Organizations can choose between on-premises and cloud deployment options based on their specific needs and constraints:
 
-- **On-premises deployment:** You can install BMC AMI Cloud Management Server on-premises on z/OS Container Extensions (zCX) or on a Linux virtual instance. This installation provides flexibility for organizations that have regulatory or latency requirements.
+- **On-premises deployment.** You can install BMC AMI Cloud Management Server on-premises on z/OS Container Extensions (zCX) or on a Linux virtual instance. This installation provides flexibility for organizations that have regulatory or latency requirements.
 
-- **Data transformation service:** AMI Cloud Analytics service can operate externally to the mainframe in an on-premises environment. It can also be deployed in the cloud by using server instances or container services, which enhances resource usage and performance.
+- **Data transformation service.** AMI Cloud Analytics service can operate externally to the mainframe in an on-premises environment. It can also be deployed in the cloud by using server instances or container services, which enhances resource usage and performance.
 
-## Use Cases
+## Use cases
 
 This architecture is suitable for various use cases:
 
@@ -124,7 +124,7 @@ Other contributors:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - For more information, contact [Mainframe Modernization](mailto:mainframedatamod@microsoft.com)
 
-### Related resources
+## Related resources
 
 - [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
