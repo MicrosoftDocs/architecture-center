@@ -123,7 +123,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Access management in Dataverse and other Azure services helps ensure that only authorized users can access the environment, data, and reports. This solution uses Azure Key Vault to manage passwords and secrets. Storage is encrypted using [customer-managed keys](/azure/storage/common/customer-managed-keys-overview).
 
-For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security) and the [Azure IoT reference architecture](../iot.yml#security).
+For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security).
 
 ### Cost optimization
 
@@ -165,4 +165,3 @@ Principal Author:
 ## Related resources
 
 - [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
-- [Azure IoT reference architecture](../iot.yml)
