@@ -199,6 +199,9 @@ conceptualContent:
         - text: Deploy microservices with Azure Container Apps
           itemType: architecture
           url: /azure/architecture/example-scenario/serverless/microservices-with-container-apps
+        - text: Deploy microservices with Azure Container Apps and Dapr
+          itemType: architecture
+          url: /architecture/example-scenario/serverless/microservices-with-container-apps-dapr
 
     - title: Databases
       links:
