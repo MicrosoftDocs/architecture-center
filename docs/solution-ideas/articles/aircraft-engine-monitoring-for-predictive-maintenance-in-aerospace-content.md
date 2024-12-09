@@ -45,6 +45,5 @@ See product documentation:
 * [Azure Data Factory](/azure/data-factory/data-factory-introduction)
 * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 
-## Related resources
 
 
