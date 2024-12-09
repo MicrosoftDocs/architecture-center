@@ -1762,8 +1762,6 @@ items:
         href: example-scenario/iot/iot-move-to-production.yml
     - name: Architectures
       items:
-      - name: Azure IoT reference architecture
-        href: reference-architectures/iot.yml
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
       - name: Batch integration with Azure Digital Twins

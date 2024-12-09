@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/reference-architectures/iot.yml",
+      "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/security/security-log-retention-azure-data-explorer.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-service-bus",
       "redirect_document_id": false
