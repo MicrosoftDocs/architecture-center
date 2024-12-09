@@ -76,12 +76,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### AI
 
-<<<<<<< HEAD
-- [Forecast energy and power demand with machine learning][Forecast energy and power demand with machine learning]: Forecast spikes in demand for energy products and services.
-- [Energy supply optimization][Energy supply optimization]: Accommodate external tools like Pyomo and CBC to solve large-scale numerical optimization problems.
-=======
-- [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
->>>>>>> b52372c08e75664909092532cd1139c81d28f905
 - [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
 #### E-commerce
