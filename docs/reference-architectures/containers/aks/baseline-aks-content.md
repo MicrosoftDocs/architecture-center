@@ -47,7 +47,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
       [Scalability](#node-and-pod-scalability)\
       [Cluster and node availability](#business-continuity-decisions)\
       [Availability and multi-region support](#availability-zones-and-multi-region-support)
-    :::column-end:::  
+    :::column-end:::
     :::column:::
 
       #### Operations
@@ -370,7 +370,7 @@ spec:
         backend:
           service:
             name: aspnetapp-service
-            port: 
+            port:
               number: 80
 ```
 
@@ -637,6 +637,8 @@ For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overvi
 ## Monitor and collect metrics
 
 We recommend Azure Monitor [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the performance of container workloads because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from the metrics API about memory and CPU usage to monitor the health of running resources and workloads. You can also use container insights to monitor performance as the pods scale. It includes telemetry that's critical for monitoring, analysis, and visualization of the collected data. Container insights identifies trends and enables you to configure alerting to receive proactive notifications about critical problems.
+
+Enabling Container Logs V2 provides with a streamlined schema specifically designed to capture container logs from Kubernetes pods. This feature consolidates log entries into the 'ContainerLogV2` table in an Azure Log Analytics workspace.  To optimize costs, this reference architecture configures the `ContainerLogV2` table with the `Basic` plan as a starting point. Since Microsoft Defender for Containers and other existing alerts do not query this table, the `Basic` plan effectively reduces ingestion costs during initial usage.  As your log volume and query requirements evolve, analyzing data usage is key to selecting the most cost-effective table plan. If the solution becomes read-intensive where queries frequently scan table data, the default `Analytics` plan may be more suitable. The `Analytics` plan eliminates query charges, making it ideal for scenarios where query activity outweighs ingestion costs.  By monitoring usage patterns and adjusting table plans as needed, you can achieve a balance between cost and functionality for your monitoring solution.
 
 Most workloads hosted in pods emit Prometheus metrics. Container insights can integrate with Prometheus. You can view the application and workload metrics collected from nodes and Kubernetes.
 
