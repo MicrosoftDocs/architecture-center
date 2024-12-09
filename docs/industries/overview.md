@@ -27,10 +27,7 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 |---------|---------|
 |[Government](government.md)     |   Azure provides a mission-critical cloud platform, Azure Government, that delivers breakthrough innovation to US government customers and their partners.      |
 |[Manufacturing](manufacturing.md)     |     Cloud computing is transforming manufacturing IT infrastructures and processes to the highly available, highly secure, and efficient cloud, in addition to providing cutting edge Internet of Things (IoT), AI / machine learning, and analytics solutions.    |
-|[Energy and environment](energy-environment.md)     |   Rising energy needs and sustainability targets are pushing companies to explore innovative solutions and architectures. Innovations like IoT, AI, and machine learning can help address these critical needs.      |
 |[Telecommunications](telecommunications.md)     |     Telecommunications organizations use AI, automation, and advanced analytics to realize efficiencies, avoid service disruptions, and reduce costs.      |
-|[Automotive, mobility, and transportation](automotive.md)     |     Powerful technologies like cloud computing, IoT, AI, and machine learning can help organizations in the automotive, mobility, and transportation industries move people and things safely, quickly, and efficiently.    |
-|[Education](education.md)     |      Azure provides tools to enable, elevate, and enhance remote learning, connect teachers to students, help organizations create models of smart campus buildings, deploy virtual labs, and more.   |
 |[Nonprofit](/azure/industry/training-services/microsoft-community-training/public-preview-version/infrastructure-management/install-your-platform-instance/setup-platform-instance-on-azure-subscription-for-nonprofits?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Nonprofit organizations can apply for an Azure credit grant of $3,500 per year to set up and run an instance of the Microsoft Community Training platform.      |
 
 ## Additional verticals
