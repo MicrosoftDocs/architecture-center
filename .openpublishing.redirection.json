@@ -2336,6 +2336,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/industries/manufacturing.md",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/manufacturing/predictive-maintenance-overview.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/manufacturing/fab-scheduling-azure.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/hpc/hpc-run-cae-simulations.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/quality-assurance.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/private-network-split-core-manufacture.yml",
+      "redirect_url": "/industry/manufacturing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/telecommunications.md",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/geospatial-analysis-telecommunications-industry.yml",
+      "redirect_url": "/industry/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/presence-microsoft-365-power-platform.yml",
       "redirect_url": "/azure/architecture/solutions/microsoft-365-scenarios",
       "redirect_document_id": false
