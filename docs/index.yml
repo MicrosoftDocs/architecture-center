@@ -100,6 +100,9 @@ conceptualContent:
       - text: Baseline OpenAI end-to-end chat architecture
         url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
         itemType: architecture
+      - text: Develop and optimize a RAG implementation
+        url: /azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide
+        itemType: concept
       - text: Cloud design patterns
         url: ./patterns/index.md
         itemType: concept
