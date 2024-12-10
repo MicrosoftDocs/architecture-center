@@ -71,7 +71,7 @@ Native support for vector data types, approximate nearest neighbor (ANN) vector 
 1. <span id="a6">Embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For [Azure AI Vision multimodal embedding models](/azure/ai-services/computer-vision/concept-image-retrieval), 1024 for both image and text.</span>
 1. <span id="a7">Vectors can have up to [16,000 dimensions](https://github.com/pgvector/pgvector?tab=readme-ov-file#vector-type). But index using "IVFFlat" and "HNSW" supports vectors with up to 2,000 dimensions.</span>
 1. <span id="a8">Vectors indexed with the flat index type can be at most 505 dimensions. Vectors indexed with the quantizedFlat or DiskANN index type can be at most 4,096 dimensions.</span>
-1. <span id="a9">SQL Database [Vector Data Type](https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type?view=azuresqldb-current&tabs=csharp-sample)</span>
+1. <span id="a9">SQL Database [Vector Data Type](/sql/t-sql/data-types/vector-data-type?view=azuresqldb-current&tabs=csharp-sample)</span>
 
 ### Search methods
 
