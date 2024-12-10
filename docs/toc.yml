@@ -1744,8 +1744,6 @@ items:
         href: solution-ideas/articles/protect-backend-apis-azure-management.yml
   - name: Internet of Things
     items:
-    - name: Get started
-      href: reference-architectures/iot/iot-architecture-overview.md
     - name: Guides
       items:
       - name: Enable machine learning inference
@@ -1764,12 +1762,6 @@ items:
       items:
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-      - name: Batch integration with Azure Digital Twins
-        href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
-      - name: Efficient Docker image deployment
-        href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: Smart places with Azure Digital Twins
-        href: example-scenario/iot/smart-places.yml
       - name: Automotive connected fleets
         href: industries/automotive/automotive-connected-fleets.yml
       - name: Automotive test data analytics
@@ -1782,8 +1774,6 @@ items:
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: IoT analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
-      - name: IoT Edge data storage and processing
-        href: solution-ideas/articles/data-storage-edge.yml
       - name: IoT private file upload to Azure Storage
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Project 15 IoT sustainability
@@ -1918,8 +1908,6 @@ items:
       - name: High availability with video on demand
         href: /azure/media-services/latest/architecture-high-availability-encoding-concept
         maintainContext: true
-      - name: Offline audio dubbing
-        href: guide/media/offline-audio-dubbing.yml
       - name: Monitor Media Services
         href: /azure/media-services/latest/monitoring/monitor-media-services
         maintainContext: true
@@ -2659,8 +2647,6 @@ items:
           href: /azure/architecture/browse/?terms=facilities
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
-        - name: Smart places with Azure Digital Twins
-          href: example-scenario/iot/smart-places.yml
     - name: Aerospace
       items:
       - name: Overview
@@ -2725,8 +2711,6 @@ items:
         items:
         - name: All sports architectures
           href: /azure/architecture/browse/?terms=sports
-        - name: Create smart stadiums
-          href: example-scenario/iot/smart-places.yml
 - name: Microsoft Azure Well-Architected Framework
   href: /azure/well-architected/
 - name: Cloud Adoption Framework for Azure
