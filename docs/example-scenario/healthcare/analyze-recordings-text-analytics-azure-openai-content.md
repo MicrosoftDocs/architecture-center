@@ -150,5 +150,4 @@ Principal authors:
 
 ## Related resources
 
-- [Clinical insights with Microsoft Cloud for Healthcare](../mch-health/medical-data-insights.yml)
 - [Other healthcare architectures](../../browse/index.yml?terms=healthcare)
