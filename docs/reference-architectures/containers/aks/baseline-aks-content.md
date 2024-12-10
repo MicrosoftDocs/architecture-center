@@ -47,7 +47,7 @@ You can use an implementation of this architecture on [GitHub: AKS baseline refe
       [Scalability](#node-and-pod-scalability)\
       [Cluster and node availability](#business-continuity-decisions)\
       [Availability and multi-region support](#availability-zones-and-multi-region-support)
-    :::column-end:::  
+    :::column-end:::
     :::column:::
 
       #### Operations
@@ -370,7 +370,7 @@ spec:
         backend:
           service:
             name: aspnetapp-service
-            port: 
+            port:
               number: 80
 ```
 
@@ -634,9 +634,13 @@ Test your solution's reliability through forced failover testing with simulated 
 
 For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
-## Monitor and collect metrics
+<a name='monitor-and-collect-metrics'></a>
+
+## Monitor and collect logs and metrics
 
 We recommend Azure Monitor [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the performance of container workloads because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from the metrics API about memory and CPU usage to monitor the health of running resources and workloads. You can also use container insights to monitor performance as the pods scale. It includes telemetry that's critical for monitoring, analysis, and visualization of the collected data. Container insights identifies trends and enables you to configure alerting to receive proactive notifications about critical problems.
+
+The [ContainerLogV2 log schema](/azure/azure-monitor/containers/container-insights-logs-schema) is designed to capture container logs from Kubernetes pods in a streamlined approach. Log entries are consolidated into the `ContainerLogV2` table in an Azure Log Analytics workspace.
 
 Most workloads hosted in pods emit Prometheus metrics. Container insights can integrate with Prometheus. You can view the application and workload metrics collected from nodes and Kubernetes.
 
@@ -663,7 +667,15 @@ Basic, cluster-level networking metrics are available through native [platform a
 
 The reference implementation uses Azure Monitor container insights, which also collects some network-related metrics. The reference implementation disables collection of metrics from Azure Monitor container insights, and instead collects the network observability metrics by using an Azure Monitor workspace with [managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
 
-For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced  network observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+For workloads that are highly sensitive to Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) packet loss, latency, or DNS pressure, the pod-level network metrics are important. In AKS, you can find that level of detail with the [advanced network observability](/azure/aks/advanced-network-observability-concepts) feature. Most workloads don't require this depth of network observability. You shouldn't enable advanced network observability unless your pods demand a highly optimized network, with sensitivity down to the packet level.
+
+### Cost optimization for logging
+
+The reference implementation configures the `ContainerLogV2` table to use the Basic plan as a starting point. Microsoft Defender for Containers and the alerts created for the reference implementation don't query this table, so the Basic plan is likely to be cost effective because it reduces ingestion costs.
+
+As your log volume and query requirements evolve, select the most cost-effective table plan for your needs. If the solution becomes read-intensive, where queries frequently scan table data, the default Analytics plan might be more suitable. The Analytics plan eliminates query charges, which optimizes for scenarios where query activity outweighs ingestion costs. By monitoring usage patterns and adjusting table plans as needed, you can achieve a balance between cost and functionality for your monitoring solution.
+
+For more information, see [Select a table plan based on data usage in a Log Analytics workspace](/azure/azure-monitor/logs/logs-table-plans).
 
 ### Enable self-healing
 

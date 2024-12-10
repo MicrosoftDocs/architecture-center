@@ -2,12 +2,108 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-12-02T13:44:18.497Z</updated>
+    <updated>2024-12-09T14:55:17.218Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Desktop for Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-local-workload-virtual-desktop</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-local-workload-virtual-desktop"/>
+        <updated>2024-12-05T22:18:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design Azure Virtual Desktop for Azure Local to provide a more secure and productive remote desktop experience for users.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of SAP Guidance and Resources]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview"/>
+        <updated>2024-12-05T21:59:22.000Z</updated>
+        <summary type="html"><![CDATA[Overview of SAP guidance and resources]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic OpenAI End-to-End Chat Reference Architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
+        <updated>2024-12-05T21:43:41.000Z</updated>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern analytics architecture with Azure Databricks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture"/>
+        <updated>2024-12-05T21:00:18.000Z</updated>
+        <summary type="html"><![CDATA[Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Stromasys Charon-SSP Solaris emulator on Azure VMs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/solaris-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/solaris-azure"/>
+        <updated>2024-12-05T14:07:07.000Z</updated>
+        <summary type="html"><![CDATA[Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generative AI Ops for Organizations with MLOps Investments]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
+        <updated>2024-12-04T18:46:19.000Z</updated>
+        <summary type="html"><![CDATA[Extend existing MLOps investments to include Generative AI Ops. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP BW/4HANA with Linux VMs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
+        <updated>2024-12-04T17:31:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP HANA for Linux VMs in Scale-up Systems]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines"/>
+        <updated>2024-12-04T17:31:18.000Z</updated>
+        <summary type="html"><![CDATA[Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-baseline</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-baseline"/>
+        <updated>2024-12-02T16:14:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Local.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) network architecture for AKS on Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-network"/>
+        <updated>2024-12-02T16:14:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Administer SQL Server with Azure Arc]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server"/>
+        <updated>2024-12-02T16:14:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Local]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/hybrid-cross-cluster-scaling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-cross-cluster-scaling"/>
+        <updated>2024-12-02T16:14:22.000Z</updated>
+        <summary type="html"><![CDATA[Perform cross-cluster scaling of on-premises workloads by using Azure Arc, Traffic Manager, or Front Door and then deploy by using Azure Pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Modern Web App Pattern for Java]]></title>
         <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/java/guidance</id>
@@ -625,7 +721,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI]]></title>
+        <title type="html"><![CDATA[Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Local]]></title>
         <id>https://learn.microsoft.com/azure/architecture/hybrid/hybrid-cross-cluster-scaling</id>
         <link href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-cross-cluster-scaling"/>
         <updated>2024-11-08T19:38:18.000Z</updated>
@@ -721,7 +817,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SAP HANA for Linux VMs in scale-up systems]]></title>
+        <title type="html"><![CDATA[SAP HANA for Linux VMs in Scale-up Systems]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines"/>
         <updated>2024-11-08T19:38:18.000Z</updated>
@@ -814,14 +910,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/risk-stratification-surgery"/>
         <updated>2024-11-08T18:47:07.000Z</updated>
         <summary type="html"><![CDATA[Enable a risk stratification model for surgeries.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scale AI and machine learning initiatives in regulated industries]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries"/>
-        <updated>2024-11-08T18:47:07.000Z</updated>
-        <summary type="html"><![CDATA[Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1041,7 +1129,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SAP HANA for Linux VMs in scale-up systems]]></title>
+        <title type="html"><![CDATA[SAP HANA for Linux VMs in Scale-up Systems]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines"/>
         <updated>2024-10-30T15:56:38.000Z</updated>
@@ -1113,11 +1201,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Basic OpenAI end-to-end chat reference architecture]]></title>
+        <title type="html"><![CDATA[Basic OpenAI End-to-End Chat Reference Architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
         <updated>2024-10-21T22:20:14.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1217,11 +1305,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Generative AI ops for organizations with existing MLOps investments]]></title>
+        <title type="html"><![CDATA[Generative AI Ops for Organizations with MLOps Investments]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
         <updated>2024-10-14T13:03:40.000Z</updated>
-        <summary type="html"><![CDATA[Guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload.]]></summary>
+        <summary type="html"><![CDATA[Extend existing MLOps investments to include Generative AI Ops. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1441,19 +1529,19 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Generative AI ops for organizations with existing MLOps investments]]></title>
+        <title type="html"><![CDATA[Generative AI Ops for Organizations with MLOps Investments]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/genaiops-for-mlops"/>
         <updated>2024-09-24T18:41:06.000Z</updated>
-        <summary type="html"><![CDATA[Guidance to workload teams that have existing MLOps investments and are interested in extending those investments to include generative AI in their workload.]]></summary>
+        <summary type="html"><![CDATA[Extend existing MLOps investments to include Generative AI Ops. Learn where you can apply existing investments and where you need to extend those investments.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Basic OpenAI end-to-end chat reference architecture]]></title>
+        <title type="html"><![CDATA[Basic OpenAI End-to-End Chat Reference Architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/basic-openai-e2e-chat"/>
         <updated>2024-09-23T21:48:28.000Z</updated>
-        <summary type="html"><![CDATA[Establish foundational knowledge and experience for building and deploying enterprise chat applications with Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[Establish foundational knowledge for how to build and deploy enterprise chat applications by using Azure OpenAI, Azure AI Studio, and Azure App Service.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1734,14 +1822,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/risk-stratification-surgery"/>
         <updated>2024-09-09T13:17:40.000Z</updated>
         <summary type="html"><![CDATA[Enable a risk stratification model for surgeries.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scale AI and machine learning initiatives in regulated industries]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries"/>
-        <updated>2024-09-09T13:17:40.000Z</updated>
-        <summary type="html"><![CDATA[Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
