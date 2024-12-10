@@ -634,6 +634,8 @@ Test your solution's reliability through forced failover testing with simulated 
 
 For more information, see [Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
+<a name='monitor-and-collect-metrics'></a>
+
 ## Monitor and collect logs and metrics
 
 We recommend Azure Monitor [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the performance of container workloads because you can view events in real time. It captures container logs from the running pods and aggregates them for viewing. It also collects information from the metrics API about memory and CPU usage to monitor the health of running resources and workloads. You can also use container insights to monitor performance as the pods scale. It includes telemetry that's critical for monitoring, analysis, and visualization of the collected data. Container insights identifies trends and enables you to configure alerting to receive proactive notifications about critical problems.
