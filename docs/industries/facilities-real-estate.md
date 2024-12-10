@@ -38,11 +38,10 @@ Watch this short video to get a sense of some of the things smart buildings can 
 > [!VIDEO https://www.youtube.com/embed/CEAyzkuuAQ8]
 
 ## Architectures for facilities and real estate
-The following articles provide detailed analysis of architectures created and recommended for the facilities and real-estate industries.
+The following article provides detailed analysis of an architecture created and recommended for the facilities and real-estate industries.
 
 |Architecture|Summary|Technology focus|
 |---|---|---|
-|[Azure IoT reference architecture](../reference-architectures/iot.yml) |Learn about a recommended architecture for IoT applications that use Azure platform as a service (PaaS) components. Apply this architecture to smart buildings and other facilities scenarios.|IoT|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml) |Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.|IoT|
 
 ## Solution ideas for facilities and real estate 
@@ -51,4 +50,3 @@ The following are other ideas that you can use as a starting point for your faci
 - [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml) 
 - [Low-latency network connections for industry](../networking/idea/low-latency-network.yml)
-- [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

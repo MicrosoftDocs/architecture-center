@@ -45,10 +45,6 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml). Industries use computer vision and ML for safety and quality assurance applications. This example shows an end-to-end approach to IoT computer vision that improves processes over time.
 
-## Retail
-
-- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml). Retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. On-premises IoT Edge devices analyze video data in real time to detect and address issues like empty shelf space or long customer queues.
-
 ## Next steps
 
 - [Implement the Azure Industrial IoT reference solution architecture](/azure/iot/tutorial-iot-industrial-solution-architecture)

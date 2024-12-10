@@ -71,7 +71,7 @@ Consider whether you need to combine or aggregate data from multiple tenants. Fo
 
 It's important that you understand whether you need to meet any compliance standards. Compliance requirements might be introduced in several situations, including:
 
-- You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the [healthcare industry](../../../industries/healthcare.md), you might need to comply with the HIPAA standard.
+- You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the healthcare industry, you might need to comply with the HIPAA standard.
 - You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr).
 - You purchase a cyberinsurance policy to mitigate the risk of breaches. Cyberinsurance providers might require that you follow their standards and apply specific controls for your policy to be valid.
 

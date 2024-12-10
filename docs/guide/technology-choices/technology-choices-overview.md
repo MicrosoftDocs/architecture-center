@@ -61,10 +61,10 @@ Many organizations need a hybrid approach to analytics, automation, and services
 |---------|---------|
 |[Azure hybrid options](hybrid-considerations.yml)     |    Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.     |
 |[Compare Azure Stack Hub to Azure](/azure-stack/user/azure-stack-considerations?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn the differences between Azure and Azure Stack Hub.     |
-|[Compare Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)   |    Learn the differences between Azure, Azure Stack Hub, and Azure Stack HCI.     |
-|[Compare Azure Stack HCI to Azure Stack Hub](/azure-stack/hci/concepts/compare-azure-stack-hub?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Determine whether Azure Stack HCI or Azure Stack Hub is right for your organization.     |
-|[Compare Azure Stack HCI to Windows Server](/azure-stack/hci/concepts/compare-windows-server?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)|     Determine whether Azure Stack HCI or Windows Server is right for your organization.    |
-|[Choose drives for Azure Stack HCI and Windows Server clusters](/azure-stack/hci/concepts/choose-drives?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn how to choose drives for Azure Stack HCI and Windows Server clusters to meet performance and capacity requirements.     |
+|[Compare Azure, Azure Stack Hub, and Azure Local](/azure-stack/operator/compare-azure-azure-stack?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)   |    Learn the differences between Azure, Azure Stack Hub, and Azure Local.     |
+|[Compare Azure Local to Azure Stack Hub](/azure-stack/hci/concepts/compare-azure-stack-hub?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Determine whether Azure Local or Azure Stack Hub is right for your organization.     |
+|[Compare Azure Local to Windows Server](/azure-stack/hci/concepts/compare-windows-server?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)|     Determine whether Azure Local or Windows Server is right for your organization.    |
+|[Choose drives for Azure Local and Windows Server clusters](/azure-stack/hci/concepts/choose-drives?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn how to choose drives for Azure Local and Windows Server clusters to meet performance and capacity requirements.     |
 
 ## Choose an identity service
 

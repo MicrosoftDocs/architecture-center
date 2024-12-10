@@ -1,8 +1,8 @@
 ---
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
-author: amattas
-ms.author: amattas
+author: hz4dkr
+ms.author: ambers
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: azure-architecture-center
@@ -11,8 +11,7 @@ categories:
   - databases
 products:
   - azure-sql-database
-ms.custom:
-  - guide
+ms.custom: arb-data
 ---
 
 # Online transaction processing (OLTP)

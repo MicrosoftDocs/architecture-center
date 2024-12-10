@@ -5,7 +5,7 @@ metadata:
   description: Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.
   author: Venkat-Github-Account
   ms.author: vramakrishna
-  ms.date: 06/14/2022
+  ms.date: 12/04/2024
   ms.topic: solution-idea
   ms.service: azure-architecture-center
   ms.subservice: solution-idea
