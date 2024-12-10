@@ -1976,8 +1976,8 @@ items:
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
         - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
           href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
-        - name: Model9 mainframe modernization
-          href: example-scenario/mainframe/mainframe-modernization-model9.yml
+        - name: BCM AMI Cloud mainframe modernization
+          href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Modernize mainframe midrange data
           href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
         - name: Move mainframe archive data to Azure

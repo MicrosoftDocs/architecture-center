@@ -14,15 +14,15 @@ BMC AMI Cloud provides a solution that transfers mainframe data directly to Azur
 
 ## Architecture
 
-:::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.svg" lightbox="media/model9-mainframe-midrange-data-archive-azure.svg" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." border="false":::
+:::image type="content" source="media/bmc-ami-cloud-mainframe-midrange-data-archive-azure.svg" lightbox="media/bmc-ami-cloud-mainframe-midrange-data-archive-azure.svg" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midrange-data-archive-azure.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/bmc-ami-cloud-mainframe-midrange-data-archive-azure.vsdx) of this architecture.*
 
 ### Workflow
 
 The architecture of BMC AMI Cloud integration with Azure includes several components. Each component plays an important role in the data migration and transformation process.
 
-1. BMC AMI Cloud Agent starts a z/OS task that sends encrypted and compressed mainframe data to Blob Storage over Transmission Control Protocol/Internet Protocol (TCP/IP). It helps ensure secure and efficient data transfer without the need for intermediate storage, which reduces latency and potential points of failure.
+1. The BMC AMI Cloud agent starts a z/OS task that sends encrypted and compressed mainframe data to Blob Storage over Transmission Control Protocol/Internet Protocol (TCP/IP). This process helps ensure secure and efficient data transfer without the need for intermediate storage, which reduces latency and potential points of failure.
 
 1. BMC AMI Cloud Management Server, a Docker-based web application, administers the cloud agents. It manages policies, activities, and storage, which helps ensure seamless data management.
 
@@ -32,7 +32,7 @@ The architecture of BMC AMI Cloud integration with Azure includes several compon
 
 Each component of BMC AMI Cloud Data is designed to optimize various aspects of the data migration and management process:
 
-- **BMC AMI Cloud Agent** is a Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly to and from Blob Storage over TCP/IP. The BMC AMI Cloud Agent uses the zIIP engine, which significantly reduces general CPU consumption. This optimization enhances mainframe performance and lowers cost. You can use multiple agents to increase scalability and resilience.
+- **BMC AMI Cloud agent** is a Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly to and from Blob Storage over TCP/IP. The BMC AMI Cloud agent uses the zIIP engine, which significantly reduces general CPU consumption. This optimization enhances mainframe performance and lowers cost. You can use multiple agents to increase scalability and resilience.
 
 - **BMC AMI Cloud Management Server** is a web application that runs in a Docker container that manages the web UI and communication with z/OS agents. It provides a way to define policies for data protection, data migration, and data archival. These policies help ensure that data management aligns with organizational requirements and compliance standards. For superior availability, deploy this application on Azure Virtual Machines within your virtual network.
 
@@ -54,7 +54,7 @@ Secure and reliable connectivity between on-premises mainframe systems and Azure
 
 ### Databases and storage
 
-The mainframe data is migrated to Azure Storage through the BMC AMI Cloud Agent. You can integrate the data in Storage with any of the following Azure database services by using BMC AMI Cloud Analytics.
+The mainframe data is migrated to Azure Storage through the BMC AMI Cloud agent. You can integrate the data in Storage with any of the following Azure database services by using BMC AMI Cloud Analytics.
 
 - **[Azure SQL Database](/azure/well-architected/service-guides/azure-sql-database-well-architected-framework)** is a fully managed, scalable database service that has AI-powered features for performance and durability optimization. It supports serverless compute and Hyperscale storage options, automatically scaling resources on demand.
 
@@ -122,7 +122,7 @@ Other contributors:
 - [What is Azure Database for MySQL?](/azure/mysql/overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
-- For more information, contact [Mainframe Modernization](mailto:mainframedatamod@microsoft.com)
+- For more information, contact the [Mainframe Data Modernization team](mailto:mainframedatamod@microsoft.com)
 
 ## Related resources
 
