@@ -5781,6 +5781,32 @@
       "redirect_document_id": false
     },
     {
+    },
+    {
+      "source_path": "docs/example-scenario/iot/efficient-docker-image-deployment.yml",
+      "redirect_url": "/azure/iot-edge/iot-edge-runtime?view=iotedge-1.5"
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/data-storage-edge.yml",
+      "redirect_url": ""
+    },
+    {
+      "source_path": "docs/example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml",
+      "redirect_url": "/azure/digital-twins/"
+    },
+    {
+      "source_path": "docs/example-scenario/iot/smart-places.yml",
+      "redirect_url": "/azure/digital-twins/"
+    },
+    {
+      "source_path": "docs/reference-architectures/iot/iot-architecture-overview.md",
+      "redirect_url": "/azure/iot/iot-introduction/"
+    },
+    {
+      "source_path": "docs/guide/media/offline-audio-dubbing.yml",
+      "redirect_url": "/azure/ai-services/speech-service/video-translation-overview"
+    },
+    {  
       "source_path": "docs/example-scenario/iot/analyze-optimize-loop.yml",
       "redirect_url": "/azure/iot/iot-overview-analyze-visualize",
       "redirect_document_id": false
