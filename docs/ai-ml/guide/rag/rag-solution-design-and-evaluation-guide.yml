@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Design and develop a RAG solution
+  title: Design and Develop a RAG Solution
   description: Learn about what to consider when you design a large language model RAG solution, including each step of the development process and how to evaluate those steps.
   author: robbagby
   ms.author: robbag

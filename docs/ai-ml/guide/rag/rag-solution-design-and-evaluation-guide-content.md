@@ -42,7 +42,7 @@ You must make various implementation decisions as you design your RAG solution. 
 
 :::image type="content" source="_images/rag-high-level-architecture-questions.svg" border="false" lightbox="_images/rag-high-level-architecture-questions.png" alt-text="Diagram that shows the high-level architecture of a RAG solution, including the questions that you should ask as you design the solution.":::
 
-The following list describes each phase of RAG solution development.
+The following list provides a brief description of what you should do during each phase of RAG solution development.
 
 - During the preparation phase, you should:
 
