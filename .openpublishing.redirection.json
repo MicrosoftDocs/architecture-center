@@ -6124,6 +6124,11 @@
       "source_path": "docs/guide/hpc/netapp-files-sas.yml",
       "redirect_url": "/azure/architecture/guide/sas/sas-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/multi-region-sql-server.yml",
+      "redirect_url": "/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway",
+      "redirect_document_id": false
     }
-  ]
+   ]
 }

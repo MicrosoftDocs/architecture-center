@@ -178,9 +178,6 @@ conceptualContent:
         - text: Understand multi-region compute balancing
           itemType: concept
           url: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
-        - text: Traditional N-tier architecture
-          itemType: architecture
-          url: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
 
     - title: Containers
       links:
