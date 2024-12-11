@@ -1035,8 +1035,6 @@ items:
       items:
       - name: DFS failover cluster
         href: solution-ideas/articles/dfs-failover-cluster-vms.yml
-      - name: HPC risk analysis
-        href: solution-ideas/articles/hpc-risk-analysis.yml
       - name: HPC system and big compute
         href: solution-ideas/articles/big-compute-with-azure-batch.yml
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
