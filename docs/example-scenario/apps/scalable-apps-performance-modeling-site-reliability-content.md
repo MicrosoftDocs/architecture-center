@@ -228,7 +228,7 @@ Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework
 
 Principal author:
 
-* [Subhajit Chatterjee](https://in.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
+- [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
 
 ## Next steps
 
@@ -237,7 +237,6 @@ Principal author:
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
 - [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
-- [Design and implementation patterns](/azure/architecture/patterns/category/design-implementation)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 - [About API Management](/azure/api-management/api-management-key-concepts)
