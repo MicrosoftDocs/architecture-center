@@ -877,8 +877,6 @@ items:
         href: solution-ideas/articles/analytics-service-bus.yml
   - name: Blockchain + Multiparty Compute
     items:
-    - name: Get started
-      href: guide/blockchain/multiparty-compute.yml
     - name: Guides
       items:
       - name: Azure Confidential Ledger guidance
@@ -917,12 +915,6 @@ items:
       - name: Azure SQL Database ledger
         href: /sql/relational-databases/security/ledger/ledger-overview
         maintainContext: true
-      - name: Decentralized trust between banks
-        href: example-scenario/apps/decentralized-trust.yml
-    - name: Solution ideas
-      items:
-      - name: Supply chain management with Kaleido
-        href: guide/blockchain/blockchain-service.yml
   - name: Compute
     items:
     - name: Get started
@@ -1275,12 +1267,6 @@ items:
     href: databases/index.yml
   - name: DataOps
     items:
-    - name: Get started
-      href: data-guide/azure-dataops-architecture-design.md
-    - name: Guides
-      items:
-      - name: Build a scalable system for massive data
-        href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
     - name: Solution ideas
       items:
       - name: Azure Data Explorer monitoring
