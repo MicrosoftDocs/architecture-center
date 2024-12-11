@@ -95,5 +95,4 @@ Principal author:
 
 ## Related resources
 
-- [Data management patterns](../../patterns/category/data-management.md)
 - [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)

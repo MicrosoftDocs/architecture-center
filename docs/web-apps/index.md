@@ -53,7 +53,6 @@ Consider these patterns, guidelines, and architectures as you plan and implement
 - [Multi-region active-passive web application](app-service/architectures/multi-region.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
-- [Design and implementation patterns - Cloud Design Patterns](../patterns/category/design-implementation.md)
 - [Enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
 - [High availability enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 
