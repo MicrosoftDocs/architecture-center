@@ -6169,6 +6169,11 @@
       "source_path": "docs/solution-ideas/articles/big-compute-with-azure-batch.yml",
       "redirect_url": "/azure/batch",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
     }
    ]
 }

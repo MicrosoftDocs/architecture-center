@@ -386,4 +386,3 @@ These tutorials will provide you with details on running applications on Microso
 ## Related resources
 
 - [Big compute architecture style](../guide/architecture-styles/big-compute.yml)
-- [Hybrid HPC in Azure with HPC Pack](../solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml)
