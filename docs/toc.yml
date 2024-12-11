@@ -957,8 +957,6 @@ items:
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
-      - name: Host FSI workloads using Azure Batch
-        href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Manage virtual machine compliance
         href: example-scenario/security/virtual-machine-compliance.yml
       - name: Move Azure resources across regions
