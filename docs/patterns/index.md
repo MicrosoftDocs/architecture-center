@@ -22,7 +22,7 @@ categories:
 
 Architects design workloads by combining platform services, functionality, and code to fulfill functional and nonfunctional requirements in workloads. Designing workloads requires understanding of those workload requirements and then choosing topologies and approaches the solve for the challenges presented by the constraints of the workload. Cloud design patterns that address many common challenges.
 
-Systems design is heavily steeped in design patterns. Infrastructure, code, distributed systems all are designed around a combination of design patterns. These design patterns are useful for building reliable, secure, cost optimized, operationally sound, and performant applications in the cloud.
+Systems design is heavily steeped in design patterns. Infrastructure, code, and distributed systems are all designed around a combination of design patterns. These design patterns are useful for building reliable, secure, cost optimized, operationally sound, and performant applications in the cloud.
 
 These design patterns aren't specific to any technology and are relevant to any distributed system, whether hosted on Azure, other cloud platforms, and some can even extend to on-premises or hybrid workloads.
 
@@ -54,16 +54,16 @@ Each pattern in this catalog describes the problem that the pattern addresses, c
 | [Asynchronous Request-Reply](./async-request-reply.yml) | Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response. | <ul><li>Performance&nbsp;Efficiency </ul> |
 | [Backends for Frontends](./backends-for-frontends.yml) | Create separate backend services to be used by specific frontend applications or interfaces. | <ul><li>Reliability <li> Security <li> Performance&nbsp;Efficiency </ul> |
 | [Bulkhead](./bulkhead.yml) | Isolate elements of an application into pools so that if one fails, the others continue to function. | <ul><li>Reliability <li> Security <li> Performance&nbsp;Efficiency </ul> |
-| [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
-| [Choreography](./choreography.yml)| Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.| <ul><li>Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
+| [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
+| [Choreography](./choreography.yml)| Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator. | <ul><li>Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
 | [Circuit Breaker](./circuit-breaker.yml) | Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
 | [Claim Check](./claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | <ul><li>Reliability <li> Security <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 | [Compensating Transaction](./compensating-transaction.yml) | Undo the work performed by a series of steps, which together define an eventually consistent operation. | <ul><li>Reliability </ul> |
 | [Competing Consumers](./competing-consumers.yml) | Enable multiple concurrent consumers to process messages received on the same messaging channel. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
-| [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit | <ul><li>Cost&nbsp;Optimization <li> Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
+| [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit. | <ul><li>Cost&nbsp;Optimization <li> Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
 | [CQRS](./cqrs.yml) | Segregate operations that read data from operations that update data by using separate interfaces. | <ul><li>Performance&nbsp;Efficiency </ul> |
 | [Deployment Stamps](./deployment-stamp.yml) | Deploy multiple independent copies of application components, including data stores. | <ul><li>Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
-| [Edge Workload Configuration](./edge-workload-configuration.md) | The great variety of systems and devices on the shop floor can make workload configuration a difficult problem. |  </ul> |
+| [Edge Workload Configuration](./edge-workload-configuration.md) | Centralize configuration to address the challenge of configuring multiple systems and devices on the shop floor. |  </ul> |
 | [Event Sourcing](./event-sourcing.yml) | Use an append-only store to record the full series of events that describe actions taken on data in a domain. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
 | [External Configuration Store](./external-configuration-store.yml) | Move configuration information out of the application deployment package to a centralized location. | <ul><li>Operational&nbsp;Excellence </ul> |
 | [Federated Identity](./federated-identity.yml) | Delegate authentication to an external identity provider. | <ul><li>Reliability <li> Security <li> Performance&nbsp;Efficiency </ul> |
@@ -80,7 +80,7 @@ Each pattern in this catalog describes the problem that the pattern addresses, c
 | [Pipes and Filters](./pipes-and-filters.yml) | Break down a task that performs complex processing into a series of separate elements that can be reused. | <ul><li>Reliability </ul> |
 | [Priority Queue](./priority-queue.yml) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. | <ul><li>Reliability <li> Performance&nbsp;Efficiency </ul> |
 | [Publisher/Subscriber](./publisher-subscriber.yml) | Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers. | <ul><li>Reliability <li> Security <li> Cost&nbsp;Optimization <li> Operational&nbsp;Excellence <li> Performance&nbsp;Efficiency </ul> |
-| [Quarantine](./quarantine.yml) | Ensures external assets meet a team-agreed quality level before being authorized to consume them in the workload. | <ul><li>Security <li> Operational&nbsp;Excellence </ul> |
+| [Quarantine](./quarantine.yml) | Ensure external assets meet a team-agreed quality level before being authorized to consume them in the workload. | <ul><li>Security <li> Operational&nbsp;Excellence </ul> |
 | [Queue-Based Load Leveling](./queue-based-load-leveling.yml) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. | <ul><li>Reliability <li> Cost&nbsp;Optimization <li> Performance&nbsp;Efficiency </ul> |
 | [Rate Limit Pattern](./rate-limiting-pattern.yml) | Limiting pattern to help you avoid or minimize throttling errors related to these throttling limits and to help you more accurately predict throughput. | <ul><li>Reliability </ul> |
 | [Retry](./retry.yml) | Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed. | <ul><li>Reliability </ul> |
