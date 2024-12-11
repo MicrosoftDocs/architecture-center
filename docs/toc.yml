@@ -1035,8 +1035,8 @@ items:
       items:
       - name: DFS failover cluster
         href: solution-ideas/articles/dfs-failover-cluster-vms.yml
-      - name: HPC system and big compute
-        href: solution-ideas/articles/big-compute-with-azure-batch.yml
+      # - name: HPC system and big compute
+      #   href: solution-ideas/articles/big-compute-with-azure-batch.yml
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
     - name: SAP

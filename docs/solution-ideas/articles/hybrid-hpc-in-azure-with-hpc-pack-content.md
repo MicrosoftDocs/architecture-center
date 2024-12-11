@@ -43,4 +43,3 @@ The following link provides documentation on deploying and managing the Azure pr
 ## Related resources
 
 - [High-performance computing (HPC) on Azure](../../topics/high-performance-computing.md)
-- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
