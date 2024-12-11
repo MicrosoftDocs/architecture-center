@@ -3076,6 +3076,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/patterns/category/data-management.md",
+      "redirect_url": "/azure/architecture/patterns/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/management-monitoring.md",
+      "redirect_url": "/azure/architecture/patterns/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/messaging.md",
+      "redirect_url": "/azure/architecture/patterns/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/design-implementation.md",
+      "redirect_url": "/azure/architecture/patterns/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/microservices/spring-apps-multi-zone.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone",
       "redirect_document_id": true
