@@ -71,7 +71,7 @@ There are many infrastructure components that are necessary to build an HPC syst
 
 There are many different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud-native solution.
 
-The following scenarios outline a few of the common ways HPC solutions are built.
+The following scenario outlines one common way HPC solutions are built.
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -91,24 +91,6 @@ The following scenarios outline a few of the common ways HPC solutions are built
                     </div>
                 </div>
             </article>
-    </li>
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <article class="card has-outline-hover is-relative is-fullheight">
-          <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-              <a class="is-undecorated is-full-height is-block"
-              href="/azure/architecture/example-scenario/infrastructure/video-rendering">
-                 <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.svg">
-            </a>
-          </figure>
-          <div class="card-content has-text-overflow-ellipsis">
-             <div class="has-padding-bottom-none">
-                   <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">3D video rendering on Azure</h3>
-             </div>
-             <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                   <p>Run native HPC workloads in Azure using the Azure Batch service</p>
-             </div>
-          </div>
-       </article>
     </li>
 </ul>
 

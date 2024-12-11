@@ -6129,6 +6129,11 @@
       "source_path": "docs/reference-architectures/n-tier/multi-region-sql-server.yml",
       "redirect_url": "/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/video-rendering.yml",
+      "redirect_url": "/azure/batch",
+      "redirect_document_id": false
     }
    ]
 }
