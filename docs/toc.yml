@@ -959,8 +959,6 @@ items:
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
       - name: Manage virtual machine compliance
         href: example-scenario/security/virtual-machine-compliance.yml
-      - name: Move Azure resources across regions
-        href: solution-ideas/articles/move-azure-resources-across-regions.yml
       - name: Quantum computing solutions
         items:
         - name: Quantum computing integration with classical apps

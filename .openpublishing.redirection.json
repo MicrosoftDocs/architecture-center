@@ -6144,6 +6144,11 @@
       "source_path": "docs/example-scenario/batch/fsi-workloads-using-batch.yml",
       "redirect_url": "/azure/batch",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/move-azure-resources-across-regions.yml",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
+      "redirect_document_id": false
     }
    ]
 }
