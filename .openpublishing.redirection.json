@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "docs/data-guide/azure-dataops-architecture-design.md",
+      "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/build-scalable-database-solutions-azure-services.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/data-store-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/decentralized-trust.yml",
+      "redirect_url": "/training/paths/ethereum-blockchain-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/blockchain/blockchain-service.yml",
+      "redirect_url": "/training/paths/ethereum-blockchain-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/blockchain/multiparty-compute.yml",
+      "redirect_url": "/training/paths/ethereum-blockchain-development",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/industries/healthcare.md",
       "redirect_url": "/industry/healthcare/index",
       "redirect_document_id": false
