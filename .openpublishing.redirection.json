@@ -6149,6 +6149,11 @@
       "source_path": "docs/solution-ideas/articles/move-azure-resources-across-regions.yml",
       "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/reservoir-simulation.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
     }
    ]
 }

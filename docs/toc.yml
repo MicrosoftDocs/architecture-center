@@ -967,8 +967,6 @@ items:
         href: reference-architectures/n-tier/linux-vm.yml
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.yml
-      - name: Run reservoir simulations
-        href: example-scenario/infrastructure/reservoir-simulation.yml
       - name: Mainframe
         items:
         - name: AIX UNIX to Azure Linux migration
