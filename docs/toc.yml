@@ -953,8 +953,6 @@ items:
         href: high-availability/reference-architecture-traffic-manager-application-gateway.yml    
       - name: Multi-tier web application built for HA/DR
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml             
-      - name: Computer-aided engineering
-        href: example-scenario/apps/hpc-saas.yml
       - name: Deploy IBM Maximo Application Suite
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management

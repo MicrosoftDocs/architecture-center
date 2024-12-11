@@ -98,7 +98,6 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 - Read the [HPC: Oil and Gas in Azure][blog] blog.
 - Get an overview of [Avere vFXT for Azure][avere-vfxt].
 - Review the [Azure Storage performance and scalability checklist][checklist].
-- Explore an example workload for [computer-aided engineering (CAE) on Azure][cae].
 - Learn about [HPC on Azure][hpc].
 
 <!-- links -->
@@ -108,7 +107,6 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 [avere-vfxt]: /azure/avere-vfxt/avere-vfxt-overview
 [azure-naf]: /azure/azure-netapp-files/azure-netapp-files-introduction
 [blog]: https://techcommunity.microsoft.com/t5/azurecat/high-performance-computing-hpc-oil-and-gas-in-azure/ba-p/824926
-[cae]: ../apps/hpc-saas.yml
 [checklist]: /azure/storage/common/storage-performance-checklist
 [disk]: /azure/virtual-machines/windows/disks-types#premium-ssd
 [hc-series]: /azure/virtual-machines/hc-series
