@@ -695,14 +695,6 @@ items:
   items:
   - name: Overview
     href: patterns/index.md
-  - name: Categories
-    items:
-    - name: Data management
-      href: patterns/category/data-management.md
-    - name: Design and implementation
-      href: patterns/category/design-implementation.md
-    - name: Messaging
-      href: patterns/category/messaging.md
   - name: Pattern implementations
     items:
     - name: Network secure global ingress

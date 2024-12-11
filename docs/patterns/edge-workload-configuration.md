@@ -18,7 +18,6 @@ products:
   - azure-cosmos-db
   - azure-iot-edge
 pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [availability, design-implementation, management-monitoring]
 ---
 
 # Edge Workload Configuration pattern
