@@ -376,7 +376,6 @@ Here are some architectures that use AKS as the orchestrator.
 | Architecture | Description |
 |----|----|
 | [HIPAA and HITRUST-compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) | Manage HIPAA and HITRUST-compliant health data and medical records with the highest level of built-in security. |
-| [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering) | Optimize the media rendering process with a step-by-step HPC solution architecture from Azure that combines Azure CycleCloud and HPC Cache. |
 | [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage) | Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security. |
 
 [view all](/azure/architecture/browse/#storage)

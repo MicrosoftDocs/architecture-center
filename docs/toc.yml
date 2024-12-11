@@ -1035,8 +1035,6 @@ items:
       items:
       - name: DFS failover cluster
         href: solution-ideas/articles/dfs-failover-cluster-vms.yml
-      - name: HPC media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
       - name: HPC risk analysis
         href: solution-ideas/articles/hpc-risk-analysis.yml
       - name: HPC system and big compute
@@ -1824,8 +1822,6 @@ items:
         href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
       - name: High availability for BCDR
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
-      - name: HPC media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
       - name: SMB disaster recovery with Site Recovery
         href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
       - name: SMB disaster recovery with Double-Take DR
@@ -1885,10 +1881,6 @@ items:
             href: reference-architectures/media-services/gridwich-message-formats.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
-    - name: Solution ideas
-      items:
-      - name: HPC media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
   - name: Migration
     items:
     - name: Get started
@@ -2375,8 +2367,6 @@ items:
       items:
       - name: HIPAA/HITRUST Health Data and AI
         href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-      - name: Media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
       - name: Medical data storage
         href: solution-ideas/articles/medical-data-storage.yml
       - name: Two-region app with Table storage failover
@@ -2541,8 +2531,6 @@ items:
           href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
         - name: Gridwich cloud media system
           href: reference-architectures/media-services/gridwich-architecture.yml
-        - name: HPC media rendering
-          href: solution-ideas/articles/azure-batch-rendering.yml
         - name: Image classification on Azure
           href: ai-ml/idea/intelligent-apps-image-processing.yml
         - name: Mixed reality solutions

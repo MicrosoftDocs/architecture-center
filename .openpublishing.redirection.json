@@ -6154,6 +6154,11 @@
       "source_path": "docs/example-scenario/infrastructure/reservoir-simulation.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-batch-rendering.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
     }
    ]
 }

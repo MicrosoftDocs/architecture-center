@@ -54,7 +54,3 @@ The following articles provide detailed analysis of architectures developed and 
 | ------- | ------- | ------- |
 | [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml) | Quickly build an architecture to process, classify, and analyze images, using Azure Computer Vision API. | AI/ML |
 | [Analyze news feeds with near real-time analytics](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml) | Build a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds using Azure services. | Analytics |
-
-## Solution idea for media and entertainment
-
-You can use [HPC media rendering](../solution-ideas/articles/azure-batch-rendering.yml) as a starting point for your media and entertainment solution.
