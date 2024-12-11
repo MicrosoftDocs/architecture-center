@@ -6159,6 +6159,11 @@
       "source_path": "docs/solution-ideas/articles/azure-batch-rendering.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hpc-risk-analysis.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
     }
    ]
 }
