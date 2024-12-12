@@ -1,8 +1,18 @@
 {
   "redirections": [
     {
+      "source_path": "docs/reference-architectures/sap/sap-overview.yml",
+      "redirect_url": "https://azure.microsoft.com/en-us/solutions/sap/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/oracle-on-azure-start-here.md",
+      "redirect_url": "/azure/oracle/oracle-azure-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/monitor-azure-data-explorer.yml",
-      "redirect_url": "/azure/data-explorer/index ",
+      "redirect_url": "/azure/data-explorer/index",
       "redirect_document_id": false
     },
     {
