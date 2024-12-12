@@ -5782,7 +5782,7 @@
     },
     {
       "source_path": "docs/example-scenario/iot/efficient-docker-image-deployment.yml",
-      "redirect_url": "/azure/iot-edge/iot-edge-runtime?view=iotedge-1.5"
+      "redirect_url": "/azure/iot-edge/iot-edge-runtime"
     },
     {
       "source_path": "docs/solution-ideas/articles/data-storage-edge.yml",
