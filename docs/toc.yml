@@ -1204,8 +1204,8 @@ items:
       items:
       - name: Mainframe
         items:
-      - name: SMA OpCon in Azure
-        href: solution-ideas/articles/sma-opcon-azure.yml
+        - name: SMA OpCon in Azure
+          href: solution-ideas/articles/sma-opcon-azure.yml
   - name: Developer Options
     items:
     - name: Microservices
