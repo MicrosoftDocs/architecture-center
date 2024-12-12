@@ -300,8 +300,6 @@ Azure Search removes the overhead of performing complex data searches from the p
 
 ## Related resources
 
-- [Multi-region N-tier application](../../../reference-architectures/n-tier/multi-region-sql-server.yml) is a similar scenario. It shows an N-tier application running in multiple Azure regions
-
 - [Design principles for Azure applications][Design-principles-for-Azure-Application]
 
 <!-- links -->

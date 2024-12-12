@@ -178,9 +178,9 @@ conceptualContent:
         - text: Understand multi-region compute balancing
           itemType: concept
           url: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
-        - text: Traditional N-tier architecture
-          itemType: architecture
-          url: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
+        - text: Build workloads on spot virtual machines
+          itemType: concept
+          url: /azure/architecture/guide/spot/spot-eviction
 
     - title: Containers
       links:
@@ -201,7 +201,7 @@ conceptualContent:
           url: /azure/architecture/example-scenario/serverless/microservices-with-container-apps
         - text: Deploy microservices with Azure Container Apps and Dapr
           itemType: architecture
-          url: /architecture/example-scenario/serverless/microservices-with-container-apps-dapr
+          url: /azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr
 
     - title: Databases
       links:
