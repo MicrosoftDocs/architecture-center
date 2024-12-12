@@ -158,6 +158,7 @@ Principal authors:
 ## Related resources
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot)
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
 
 [API Apps]: https://azure.microsoft.com/services/app-service/api
