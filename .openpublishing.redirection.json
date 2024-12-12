@@ -11,16 +11,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/microservices/index.yml",
-      "redirect_url": " ",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/guide/technology-choices/microservices-assessment.md",
-      "redirect_url": " ",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/data-guide/azure-dataops-architecture-design.md",
       "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
       "redirect_document_id": false
