@@ -200,7 +200,6 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)
 

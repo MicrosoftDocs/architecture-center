@@ -193,6 +193,5 @@ The following resources provide practical recommendations and information for sp
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
-[Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

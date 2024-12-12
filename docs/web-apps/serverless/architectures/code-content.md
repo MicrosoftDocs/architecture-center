@@ -77,7 +77,6 @@ Web app:
 
 This application is based on two reference architectures, corresponding to the two functional blocks described above:
 
-- [Serverless event processing using Azure Functions](../../../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](./web-app.yml)
 
 You can read those articles to learn more about the high-level architecture, the Azure services that are used in the solution, and considerations for scalability, security, and reliability.
@@ -565,10 +564,7 @@ For more information about authentication and authorization in this application,
 
 ## Next steps
 
-Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
-
-- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../../../reference-architectures/serverless/event-processing.yml).
-- For a serverless web app, see [Serverless web application on Azure](./web-app.yml).
+Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions. For a serverless web app, see [Serverless web application on Azure](./web-app.yml).
 
 Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../../../guide/technology-choices/compute-decision-tree.yml).
 
