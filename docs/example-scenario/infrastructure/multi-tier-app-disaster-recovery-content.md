@@ -114,7 +114,6 @@ Principal author:
 
 For additional high availability and disaster recovery reference architectures, see:
 
-- [Multi-region N-tier application][Multi-region-N-tier-application]
 - [Multi-region load balancing][Multi-region-load-balancing]
 - [Enterprise-scale disaster recovery][Enterprise-scale-disaster-recovery]
 
@@ -132,7 +131,6 @@ For additional high availability and disaster recovery reference architectures, 
 [docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart
 [docs-availability-sets]: /azure/virtual-machines/windows/manage-availability
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
-[Multi-region-N-tier-application]: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
 [Enterprise-scale-disaster-recovery]: /azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication

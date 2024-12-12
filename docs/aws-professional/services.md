@@ -300,7 +300,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Architecture | Description |
 |----|----|
 | [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app) | The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure. |
-| [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) | Deploy an application on Azure Virtual Machines in multiple regions for high availability and resiliency. |
 | [Serverless web application](/azure/architecture/web-apps/serverless/architectures/web-app) | This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API by using Azure Functions. |
 
 [view all](../browse/index.yml?azure_categories=web)

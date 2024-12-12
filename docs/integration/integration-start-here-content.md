@@ -93,10 +93,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
 - [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
 
-#### High-performance computing
-
-[HPC risk analysis template][HPC risk analysis template]: Use Azure CycleCloud in a risk analysis application to expand on-premises TIBCO GridServer compute to Azure.
-
 ## Best practices
 
 These resources can help you spot-check your design against current recommended best practices:
@@ -181,7 +177,6 @@ The following resources provide practical recommendations and information for sp
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
-[HPC risk analysis template]: ../solution-ideas/articles/hpc-risk-analysis.yml
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
 [Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
 [Integrate Event Hubs with serverless functions on Azure]: ../serverless/event-hubs-functions/event-hubs-functions.yml
