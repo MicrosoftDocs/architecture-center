@@ -41,10 +41,14 @@ items:
       href: guide/architecture-styles/event-driven.yml
     - name: Microservices
       items:
+      - name: Get started
+        href: microservices/index.yml
       - name: Microservice architecture style
         href: guide/architecture-styles/microservices.yml
       - name: Guides
         items:
+          - name: Microservices assessment and readiness
+            href: guide/technology-choices/microservices-assessment.md
           - name: Domain modeling for microservices
             items:
             - name: Domain analysis
@@ -1269,12 +1273,8 @@ items:
     items:
     - name: Microservices
       items:
-      - name: Get started
-        href: microservices/index.yml
       - name: Guides
         items:
-        - name: Microservices assessment and readiness
-          href: guide/technology-choices/microservices-assessment.md
         - name: Operate microservices in production
           items:
           - name: CI/CD for microservices
