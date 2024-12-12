@@ -194,6 +194,5 @@ Learn more about the key Azure services in this solution:
 ## Related resources
 
 - [Extract, transform, load](/azure/architecture/data-guide/relational-data/etl)
-- [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
 - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
