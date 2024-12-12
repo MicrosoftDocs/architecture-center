@@ -1201,14 +1201,7 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-    items:
-    - name: Architectures
-      items:
-      - name: Mainframe
-        items:
-        - name: SMA OpCon in Azure
-          href: solution-ideas/articles/sma-opcon-azure.yml
-  - name: Developer Options
+  - name: Developer options
     items:
     - name: Microservices
       items:
@@ -1766,9 +1759,7 @@ items:
         - name: Manage configurations for Azure Arc
           href: hybrid/azure-arc-hybrid-config.yml
       - name: Line-of-business app with ASEv3
-        href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
-      - name: Mainframe access to Azure databases
-        href: solution-ideas/articles/mainframe-access-azure-databases.yml
+        href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml 
     - name: Solution ideas
       items:
       - name: Archive on-premises data to cloud

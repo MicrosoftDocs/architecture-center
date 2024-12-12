@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "docs/reference-architectures/sap/sap-overview.yml",
-      "redirect_url": "https://azure.microsoft.com/en-us/solutions/sap/",
+      "redirect_url": "https://azure.microsoft.com/solutions/sap/",
       "redirect_document_id": false
     },
     {
