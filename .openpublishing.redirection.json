@@ -64,7 +64,7 @@
       "source_path": "docs/aws-professional/services.md",
       "redirect_url": "/azure/architecture/aws-professional/",
       "redirect_document_id": true
-    }
+    },
     {
       "source_path": "docs/example-scenario/ai/risk-stratification-surgery.yml",
       "redirect_url": "/industry/healthcare/index",
