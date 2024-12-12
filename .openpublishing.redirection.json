@@ -6132,7 +6132,7 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/video-rendering.yml",
-      "redirect_url": "/azure/batch",
+      "redirect_url": "/azure/batch/",
       "redirect_document_id": false
     },
     {
@@ -6142,7 +6142,7 @@
     },
     {
       "source_path": "docs/example-scenario/batch/fsi-workloads-using-batch.yml",
-      "redirect_url": "/azure/batch",
+      "redirect_url": "/azure/batch/",
       "redirect_document_id": false
     },
     {
@@ -6167,7 +6167,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/big-compute-with-azure-batch.yml",
-      "redirect_url": "/azure/batch",
+      "redirect_url": "/azure/batch/",
       "redirect_document_id": false
     },
     {
@@ -6175,5 +6175,5 @@
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
     }
-   ]
+  ]
 }
