@@ -49,6 +49,8 @@ items:
         items:
           - name: Microservices assessment and readiness
             href: guide/technology-choices/microservices-assessment.md
+          - name: CI/CD for microservices
+            href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
             - name: Domain analysis
@@ -1049,6 +1051,8 @@ items:
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate HP-UX workloads
           href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
+        - name: Migrate IBM apps with TmaxSoft
+          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
         - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
@@ -1077,6 +1081,8 @@ items:
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
         - name: Replatform AIX workloads
           href: example-scenario/mainframe/replatform-aix-workloads.yml
+        - name: Solaris emulator on Azure VMs
+          href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
@@ -1269,16 +1275,18 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
+    - name: Architectures
+      items:
+      - name: Mainframe
+        items:
+      - name: SMA OpCon in Azure
+        href: solution-ideas/articles/sma-opcon-azure.yml
   - name: Developer Options
     items:
     - name: Microservices
       items:
       - name: Guides
         items:
-        - name: Operate microservices in production
-          items:
-          - name: CI/CD for microservices
-            href: microservices/ci-cd.yml
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate monolith to microservices
@@ -1762,24 +1770,6 @@ items:
     items:
     - name: Get started
       href: mainframe/mainframe-midrange-architecture.md
-    - name: App modernization
-      items:
-      - name: Solution ideas
-        items:
-        - name: Migrate IBM apps with TmaxSoft
-          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-        - name: Solaris emulator on Azure VMs
-          href: solution-ideas/articles/solaris-azure.yml
-    - name: Data modernization
-      items:
-      - name: Solution ideas
-        items:
-        - name: Mainframe access to Azure databases
-          href: solution-ideas/articles/mainframe-access-azure-databases.yml
-        - name: Mainframe file replication on Azure
-          href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: SMA OpCon in Azure
-          href: solution-ideas/articles/sma-opcon-azure.yml
   - name: Management + Governance
     items:
     - name: Get started
@@ -1850,6 +1840,8 @@ items:
           href: hybrid/azure-arc-hybrid-config.yml
       - name: Line-of-business app with ASEv3
         href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
+      - name: Mainframe access to Azure databases
+        href: solution-ideas/articles/mainframe-access-azure-databases.yml
     - name: Solution ideas
       items:
       - name: Archive on-premises data to cloud
@@ -2407,6 +2399,8 @@ items:
         items:
         - name: Mainframe file and tape backup to Azure using Luminex
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
+        - name: Mainframe file replication on Azure
+          href: solution-ideas/articles/mainframe-azure-file-replication.yml
         - name: Model9 mainframe modernization
           href: example-scenario/mainframe/mainframe-modernization-model9.yml
         - name: Move mainframe archive data to Azure
