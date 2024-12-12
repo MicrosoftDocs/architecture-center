@@ -5786,7 +5786,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/data-storage-edge.yml",
+      "source_path": "docs/example-scenario/iot/efficient-docker-image-deployment.yml",
       "redirect_url": "/azure/azure-sql-edge/overview?toc=%2Fazure%2Fiot-edge%2Ftoc.json&bc=%2Fazure%2Fiot-edge%2Fbreadcrumb%2Ftoc.json&view=iotedge-1.5"
       "redirect_document_id": false
     },
