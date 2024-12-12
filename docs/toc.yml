@@ -1265,12 +1265,6 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-  - name: DataOps
-    items:
-    - name: Solution ideas
-      items:
-      - name: Azure Data Explorer monitoring
-        href: solution-ideas/articles/monitor-azure-data-explorer.yml
   - name: Developer Options
     items:
     - name: Microservices
@@ -1283,8 +1277,6 @@ items:
           href: guide/technology-choices/microservices-assessment.md
         - name: Operate microservices in production
           items:
-          - name: Monitor microservices in AKS
-            href: microservices/logging-monitoring.yml
           - name: CI/CD for microservices
             href: microservices/ci-cd.yml
         - name: Migrate to a microservices architecture
@@ -2665,8 +2657,6 @@ items:
               href: /azure/architecture/microservices/design/api-design
             - name: Data considerations
               href: /azure/architecture/microservices/design/data-considerations
-          - name: Monitor drone delivery in production
-            href: microservices/logging-monitoring.yml
           - name: Performance tuning for drones
             items:
             - name: Distributed business transactions

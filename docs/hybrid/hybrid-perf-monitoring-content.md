@@ -198,10 +198,7 @@ Learn more about the component technologies:
 
 ## Related resources
 
-Explore related architectures:
-
 - [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
-- [Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)
 
 [architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx
