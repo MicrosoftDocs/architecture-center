@@ -1029,6 +1029,8 @@ items:
         href: solution-ideas/articles/dfs-failover-cluster-vms.yml
     - name: SAP
       items:
+      - name: Get started
+        href: reference-architectures/sap/sap-overview.yml
       - name: Guides
         items:
         - name: SAP landscape architecture
@@ -2051,10 +2053,6 @@ items:
     items:
     - name: Get started
       href: solution-ideas/articles/oracle-on-azure-start-here.md
-  - name: SAP
-    items:
-    - name: Get started
-      href: reference-architectures/sap/sap-overview.yml
   - name: Security
     items:
     - name: Get started
