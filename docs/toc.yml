@@ -519,26 +519,8 @@ items:
         href: aws-professional/security-identity.md
       - name: Storage
         href: aws-professional/storage.md
-    - name: Services comparison
-      href: aws-professional/services.md
     - name: Guidance
       items:
-      - name: Automation for AWS
-        items:
-        - name: Authenticate runbooks with AWS
-          href: /azure/automation/automation-config-aws-account
-          maintainContext: true
-        - name: Deploy an AWS VM with a runbook
-          href: /azure/automation/automation-scenario-aws-deployment
-          maintainContext: true
-      - name: Cost management for AWS
-        items:
-        - name: Set up AWS for Cost Management
-          href: /azure/cost-management-billing/costs/aws-integration-set-up-configure
-          maintainContext: true
-        - name: Manage AWS costs in Azure
-          href: /azure/cost-management-billing/costs/aws-integration-manage
-          maintainContext: true
       - name: Identity management for AWS
         items:
         - name: Microsoft Entra identity management for AWS
