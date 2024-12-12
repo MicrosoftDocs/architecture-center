@@ -351,6 +351,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 ## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.yml)
 - [Microservices architecture on AKS](./aks-microservices.yml)
 - [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml)
 - [Building a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml)

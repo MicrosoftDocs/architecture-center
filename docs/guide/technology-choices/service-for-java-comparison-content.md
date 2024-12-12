@@ -169,6 +169,7 @@ Principal authors:
 
 ## Related resources
 
+- [Microservices architecture design](../../microservices/index.yml)
 - [Multicloud solutions with the Serverless Framework](../../example-scenario/serverless/serverless-multicloud.yml)
 
 <!-- reference links, for use with tables -->
