@@ -44,10 +44,10 @@ After you configure the Connected Machine agent, it sends a regular heartbeat me
 
 There are several options available in Azure to connect your Windows and Linux machines, including:
 
-- Manual installation: You can enable Azure Arc-enabled servers for one or more Windows or Linux machines in your environment by using the Windows Admin Center or by performing a set of steps manually.
-- Script-based installation: You can perform automated agent installation by running a template script that you download from the Azure portal.
-- Connect machines at scale using a service principal: To onboard at scale, use a service principal and deploy via your organizations existing automation.
-- Installation using Windows PowerShell DSC
+- Install manually: You can enable Azure Arc-enabled servers for one or more Windows or Linux machines in your environment by using the Windows Admin Center or by performing a set of steps manually.
+- Install by using a script: You can perform automated agent installation by running a template script that you download from the Azure portal.
+- Connect machines at scale by using a service principal: To onboard at scale, use a service principal and deploy via your organizations existing automation.
+- Install by using Windows PowerShell DSC.
 
 Consult the [Azure Connected Machine agent deployment options](/azure/azure-arc/servers/deployment-options) for comprehensive documentation on the various deployment options available.
 
