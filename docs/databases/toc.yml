@@ -75,7 +75,7 @@ items:
       - name: Mainframe
         items:
         - name: Mainframe access to Azure databases
-          href: solution-ideas/articles/mainframe-access-azure-databases.yml
+          href: ../solution-ideas/articles/mainframe-access-azure-databases.yml
         - name: Replicate and sync mainframe data
           href: ../reference-architectures/migration/sync-mainframe-data-with-azure.yml
         - name: Mainframe data replication with Connect
@@ -93,7 +93,7 @@ items:
         - name: Rehost IMS DC and IMS DB
           href: ../example-scenario/mainframe/rehost-ims-raincode-imsql.yml
         - name: SMA OpCon in Azure
-          href: solution-ideas/articles/sma-opcon-azure.yml
+          href: ../solution-ideas/articles/sma-opcon-azure.yml
 
     - name: Apply guidance
       items:
