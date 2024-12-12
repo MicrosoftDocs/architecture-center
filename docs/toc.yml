@@ -2018,14 +2018,6 @@ items:
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml
   - name: Networking
     href: networking/index.md        
-  - name: Oracle
-    items:
-    - name: Get started
-      href: solution-ideas/articles/oracle-on-azure-start-here.md
-  - name: SAP
-    items:
-    - name: Get started
-      href: reference-architectures/sap/sap-overview.yml
   - name: Security
     items:
     - name: Get started
