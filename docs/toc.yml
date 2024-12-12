@@ -695,14 +695,6 @@ items:
   items:
   - name: Overview
     href: patterns/index.md
-  - name: Categories
-    items:
-    - name: Data management
-      href: patterns/category/data-management.md
-    - name: Design and implementation
-      href: patterns/category/design-implementation.md
-    - name: Messaging
-      href: patterns/category/messaging.md
   - name: Pattern implementations
     items:
     - name: Network secure global ingress
@@ -2437,8 +2429,8 @@ items:
         items:
         - name: Mainframe file and tape backup to Azure using Luminex
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
-        - name: Model9 mainframe modernization
-          href: example-scenario/mainframe/mainframe-modernization-model9.yml
+        - name: BMC AMI Cloud mainframe modernization
+          href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Move mainframe archive data to Azure
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
     - name: Solution ideas
