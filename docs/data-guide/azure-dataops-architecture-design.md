@@ -116,5 +116,5 @@ DataOps uses many tools and techniques to deliver data. The following resources 
 
 These articles provide service mapping and comparison between Azure and other cloud services. This reference can help you ramp up quickly on Azure.
 
-- [AWS to Azure services comparison](../aws-professional/services.md#big-data-and-analytics)
+- [AWS to Azure services comparison](../aws-professional/index.md#primary-topics)
 - [Google Cloud to Azure services comparison](../gcp-professional/services.md#big-data-and-analytics)

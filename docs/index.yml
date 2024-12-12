@@ -85,7 +85,7 @@ productDirectory:
           text: Architecture for SaaS and multitenant applications
         - url: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro
           text: Build mission-critical workloads
-        - url: ./aws-professional/services.md
+        - url: ./aws-professional/
           text: Azure for AWS professionals
         - url: ./gcp-professional/services.md
           text: Azure for Google Cloud professionals
