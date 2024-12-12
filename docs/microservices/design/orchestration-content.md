@@ -86,12 +86,10 @@ Principal author:
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)
 - [Use API gateways in microservices](gateway.yml)
-- [Monitor a microservices architecture in AKS](../logging-monitoring.yml)
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
 
 ## Related resources
 
-- [Build microservices on Azure](../index.yml)
 - [Design a microservices architecture](index.yml)
 - [Design patterns for microservices](patterns.yml)
 - [Microservices architectural style](../../guide/architecture-styles/microservices.yml)

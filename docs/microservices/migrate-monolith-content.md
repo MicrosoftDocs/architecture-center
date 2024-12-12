@@ -112,6 +112,4 @@ When the application has been decomposed into constituent microservices, it beco
 ## Related resources
 
 - [Using tactical DDD to design microservices](model/tactical-ddd.yml)
-- [Microservices architecture design](index.yml)
-- [Microservices assessment and readiness](../guide/technology-choices/microservices-assessment.md)
 - [Design patterns for microservices](design/patterns.yml)
