@@ -7,6 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
