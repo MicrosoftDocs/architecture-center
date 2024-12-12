@@ -2099,6 +2099,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/mainframe/mainframe-modernization-model9.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud",
+      "redirect_document_id": true
+    },
+    {  
       "source_path": "docs/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing.md",
       "redirect_url": "/azure/architecture/example-scenario/ai/intelligent-apps-image-processing",
       "redirect_document_id": false
@@ -6173,6 +6178,61 @@
     {
       "source_path": "docs/networking/idea/video-analytics.yml",
       "redirect_url": "/industry/retail/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/hpc/netapp-files-sas.yml",
+      "redirect_url": "/azure/architecture/guide/sas/sas-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/multi-region-sql-server.yml",
+      "redirect_url": "/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/video-rendering.yml",
+      "redirect_url": "/azure/batch/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/hpc-saas.yml",
+      "redirect_url": "/azure/high-performance-computing/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/batch/fsi-workloads-using-batch.yml",
+      "redirect_url": "/azure/batch/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/move-azure-resources-across-regions.yml",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/reservoir-simulation.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-batch-rendering.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hpc-risk-analysis.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/big-compute-with-azure-batch.yml",
+      "redirect_url": "/azure/batch/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
     }
   ]

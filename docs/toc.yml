@@ -931,62 +931,6 @@ items:
         href: guide/technology-choices/compute-decision-tree.yml
       - name: SAS on Azure architecture
         href: guide/sas/sas-overview.yml
-      - name: SAS Grid on Azure NetApp Files
-        href: guide/hpc/netapp-files-sas.yml
-      - name: VM security baselines
-        items:
-        - name: Security baseline for scale sets
-          href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
-          maintainContext: true
-        - name: Security baseline for Linux VMs
-          href: /security/benchmark/azure/baselines/virtual-machines-linux-security-baseline
-          maintainContext: true
-        - name: Security baseline for Windows VMs
-          href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline
-          maintainContext: true
-      - name: SQL Server on Azure VMs
-        items:
-        - name: SQL Server on Windows VMs
-          href: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
-          maintainContext: true
-        - name: SQL Server on Linux VMs
-          href: /azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview
-          maintainContext: true
-        - name: BC and HADR
-          href: /azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
-          maintainContext: true
-        - name: Best practices checklist
-          href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist
-          maintainContext: true
-        - name: VM size
-          href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size
-          maintainContext: true
-        - name: Storage
-          href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage
-          maintainContext: true
-        - name: Security
-          href: /azure/azure-sql/virtual-machines/windows/security-considerations-best-practices
-          maintainContext: true
-        - name: HADR configuration
-          href: /azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices
-          maintainContext: true
-        - name: Application patterns
-          href: /azure/azure-sql/virtual-machines/windows/application-patterns-development-strategies
-          maintainContext: true
-        - name: Performance baseline
-          href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-collect-baseline
-          maintainContext: true
-      - name: Red Hat on Azure guidance
-        items:
-        - name: Red Hat workloads on Azure
-          href: /azure/virtual-machines/workloads/redhat/overview
-          maintainContext: true
-        - name: Red Hat OpenShift in Azure
-          href: /azure/virtual-machines/linux/openshift-get-started
-          maintainContext: true
-        - name: Red Hat JBoss EAP on Azure
-          href: /azure/developer/java/ee/jboss-on-azure
-          maintainContext: true
       - name: Building on spot VMs
         href: guide/spot/spot-eviction.yml
     - name: Architectures
@@ -995,26 +939,16 @@ items:
         href: virtual-machines/baseline.yml
       - name: VM baseline in Azure landing zones
         href: virtual-machines/baseline-landing-zone.yml
-      - name: Multi-region N-tier application
-        href: reference-architectures/n-tier/multi-region-sql-server.yml       
       - name: Multi-region load balancing
         href: high-availability/reference-architecture-traffic-manager-application-gateway.yml    
       - name: Multi-tier web application built for HA/DR
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml             
-      - name: 3D video rendering
-        href: example-scenario/infrastructure/video-rendering.yml
-      - name: Computer-aided engineering
-        href: example-scenario/apps/hpc-saas.yml
       - name: Deploy IBM Maximo Application Suite
         href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
       - name: Deploy IBM Sterling Order Management
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
-      - name: Host FSI workloads using Azure Batch
-        href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Manage virtual machine compliance
         href: example-scenario/security/virtual-machine-compliance.yml
-      - name: Move Azure resources across regions
-        href: solution-ideas/articles/move-azure-resources-across-regions.yml
       - name: Quantum computing solutions
         items:
         - name: Quantum computing integration with classical apps
@@ -1023,8 +957,6 @@ items:
         href: reference-architectures/n-tier/linux-vm.yml
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.yml
-      - name: Run reservoir simulations
-        href: example-scenario/infrastructure/reservoir-simulation.yml
       - name: Mainframe
         items:
         - name: AIX UNIX to Azure Linux migration
@@ -1097,14 +1029,6 @@ items:
       items:
       - name: DFS failover cluster
         href: solution-ideas/articles/dfs-failover-cluster-vms.yml
-      - name: HPC media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
-      - name: HPC risk analysis
-        href: solution-ideas/articles/hpc-risk-analysis.yml
-      - name: HPC system and big compute
-        href: solution-ideas/articles/big-compute-with-azure-batch.yml
-      - name: Hybrid HPC with HPC Packwindows-containers-on-aks
-        href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
     - name: SAP
       items:
       - name: Guides
@@ -1854,8 +1778,6 @@ items:
         href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
       - name: High availability for BCDR
         href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
-      - name: HPC media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
       - name: SMB disaster recovery with Site Recovery
         href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
       - name: SMB disaster recovery with Double-Take DR
@@ -1893,8 +1815,6 @@ items:
         maintainContext: true
     - name: Architectures
       items:
-      - name: 3D video rendering
-        href: example-scenario/infrastructure/video-rendering.yml
       - name: Gridwich media processing system
         items:
         - name: Gridwich architecture
@@ -1917,10 +1837,6 @@ items:
             href: reference-architectures/media-services/gridwich-message-formats.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
-    - name: Solution ideas
-      items:
-      - name: HPC media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
   - name: Migration
     items:
     - name: Get started
@@ -2401,16 +2317,14 @@ items:
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
         - name: Mainframe file replication on Azure
           href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: Model9 mainframe modernization
-          href: example-scenario/mainframe/mainframe-modernization-model9.yml
+        - name: BMC AMI Cloud mainframe modernization
+          href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Move mainframe archive data to Azure
           href: example-scenario/mainframe/move-archive-data-mainframes.yml
     - name: Solution ideas
       items:
       - name: HIPAA/HITRUST Health Data and AI
         href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-      - name: Media rendering
-        href: solution-ideas/articles/azure-batch-rendering.yml
       - name: Medical data storage
         href: solution-ideas/articles/medical-data-storage.yml
       - name: Two-region app with Table storage failover
@@ -2563,10 +2477,6 @@ items:
           items:
           - name: Gaming using Azure Cosmos DB
             href: solution-ideas/articles/gaming-using-cosmos-db.yml
-        - name: Rendering
-          items:
-          - name: 3D video rendering
-            href: example-scenario/infrastructure/video-rendering.yml
     - name: Media and Entertainment
       items:
       - name: Overview
@@ -2575,14 +2485,10 @@ items:
         items:
         - name: All media and entertainment architectures
           href: /azure/architecture/browse/?terms=media
-        - name: 3D video rendering
-          href: example-scenario/infrastructure/video-rendering.yml
         - name: Analyze news feeds
           href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
         - name: Gridwich cloud media system
           href: reference-architectures/media-services/gridwich-architecture.yml
-        - name: HPC media rendering
-          href: solution-ideas/articles/azure-batch-rendering.yml
         - name: Image classification on Azure
           href: ai-ml/idea/intelligent-apps-image-processing.yml
         - name: Mixed reality solutions
