@@ -44,4 +44,4 @@ The following Azure IoT solutions and example scenarios address unique business 
 ## Next steps
 
 - [Implement the Azure Industrial IoT reference solution architecture](/azure/iot/tutorial-iot-industrial-solution-architecture)
-- [IoT architectures](/azure/architecture/browse/?azure_categories=iot).
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
