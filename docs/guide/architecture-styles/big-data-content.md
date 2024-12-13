@@ -109,12 +109,12 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
-> This section has presented a very high-level view of IoT, and there are many subtleties and challenges to consider. For more details, see [Internet of things (IoT) architecture design](../../reference-architectures/iot/iot-architecture-overview.md).
+> This section has presented a very high-level view of IoT, and there are many subtleties and challenges to consider. For more details, see [IoT architectures](/azure/architecture/browse/?azure_categories=iot).
 
 ## Next steps
 
 - Learn more about [big data architectures](../../databases/guide/big-data-architectures.yml).
-- Learn more about [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview).
+- Learn more about [IoT architectures](/azure/architecture/browse/?azure_categories=iot).
 
  <!-- links -->
 

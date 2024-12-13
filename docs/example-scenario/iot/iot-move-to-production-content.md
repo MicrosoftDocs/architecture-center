@@ -80,5 +80,4 @@ Principal authors:
 
 ## Next steps
 
-- [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
