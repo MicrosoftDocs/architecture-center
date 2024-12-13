@@ -41,10 +41,16 @@ items:
       href: guide/architecture-styles/event-driven.yml
     - name: Microservices
       items:
+      - name: Get started
+        href: microservices/index.yml
       - name: Microservice architecture style
         href: guide/architecture-styles/microservices.yml
       - name: Guides
         items:
+          - name: Microservices assessment and readiness
+            href: guide/technology-choices/microservices-assessment.md
+          - name: CI/CD for microservices
+            href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
             - name: Domain analysis
@@ -877,8 +883,6 @@ items:
         href: solution-ideas/articles/analytics-service-bus.yml
   - name: Blockchain + Multiparty Compute
     items:
-    - name: Get started
-      href: guide/blockchain/multiparty-compute.yml
     - name: Guides
       items:
       - name: Azure Confidential Ledger guidance
@@ -917,12 +921,6 @@ items:
       - name: Azure SQL Database ledger
         href: /sql/relational-databases/security/ledger/ledger-overview
         maintainContext: true
-      - name: Decentralized trust between banks
-        href: example-scenario/apps/decentralized-trust.yml
-    - name: Solution ideas
-      items:
-      - name: Supply chain management with Kaleido
-        href: guide/blockchain/blockchain-service.yml
   - name: Compute
     items:
     - name: Get started
@@ -985,6 +983,8 @@ items:
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate HP-UX workloads
           href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
+        - name: Migrate IBM apps with TmaxSoft
+          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
         - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
@@ -1013,6 +1013,8 @@ items:
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
         - name: Replatform AIX workloads
           href: example-scenario/mainframe/replatform-aix-workloads.yml
+        - name: Solaris emulator on Azure VMs
+          href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
@@ -1029,8 +1031,6 @@ items:
         href: solution-ideas/articles/dfs-failover-cluster-vms.yml
     - name: SAP
       items:
-      - name: Get started
-        href: reference-architectures/sap/sap-overview.yml
       - name: Guides
         items:
         - name: SAP landscape architecture
@@ -1199,34 +1199,12 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-  - name: DataOps
-    items:
-    - name: Get started
-      href: data-guide/azure-dataops-architecture-design.md
-    - name: Guides
-      items:
-      - name: Build a scalable system for massive data
-        href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-    - name: Solution ideas
-      items:
-      - name: Azure Data Explorer monitoring
-        href: solution-ideas/articles/monitor-azure-data-explorer.yml
-  - name: Developer Options
+  - name: Developer options
     items:
     - name: Microservices
       items:
-      - name: Get started
-        href: microservices/index.yml
       - name: Guides
         items:
-        - name: Microservices assessment and readiness
-          href: guide/technology-choices/microservices-assessment.md
-        - name: Operate microservices in production
-          items:
-          - name: Monitor microservices in AKS
-            href: microservices/logging-monitoring.yml
-          - name: CI/CD for microservices
-            href: microservices/ci-cd.yml
         - name: Migrate to a microservices architecture
           items:
           - name: Migrate monolith to microservices
@@ -1710,24 +1688,6 @@ items:
     items:
     - name: Get started
       href: mainframe/mainframe-midrange-architecture.md
-    - name: App modernization
-      items:
-      - name: Solution ideas
-        items:
-        - name: Migrate IBM apps with TmaxSoft
-          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-        - name: Solaris emulator on Azure VMs
-          href: solution-ideas/articles/solaris-azure.yml
-    - name: Data modernization
-      items:
-      - name: Solution ideas
-        items:
-        - name: Mainframe access to Azure databases
-          href: solution-ideas/articles/mainframe-access-azure-databases.yml
-        - name: Mainframe file replication on Azure
-          href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: SMA OpCon in Azure
-          href: solution-ideas/articles/sma-opcon-azure.yml
   - name: Management + Governance
     items:
     - name: Get started
@@ -2049,10 +2009,6 @@ items:
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml
   - name: Networking
     href: networking/index.md        
-  - name: Oracle
-    items:
-    - name: Get started
-      href: solution-ideas/articles/oracle-on-azure-start-here.md
   - name: Security
     items:
     - name: Get started
@@ -2343,6 +2299,8 @@ items:
         items:
         - name: Mainframe file and tape backup to Azure using Luminex
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
+        - name: Mainframe file replication on Azure
+          href: solution-ideas/articles/mainframe-azure-file-replication.yml
         - name: BMC AMI Cloud mainframe modernization
           href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Move mainframe archive data to Azure
@@ -2583,8 +2541,6 @@ items:
               href: /azure/architecture/microservices/design/api-design
             - name: Data considerations
               href: /azure/architecture/microservices/design/data-considerations
-          - name: Monitor drone delivery in production
-            href: microservices/logging-monitoring.yml
           - name: Performance tuning for drones
             items:
             - name: Distributed business transactions
