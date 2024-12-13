@@ -16,7 +16,7 @@ This article describes an architecture that you can use to replace the manual an
 4. The inference cluster sends the images to Azure Data Lake Storage.
 5. A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
 6. The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition (OCR)) model to identify textual information in the images.
-7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric that is currently in preview.
 8. Power BI provides data visualization.
 
 ### Components
@@ -27,12 +27,41 @@ This article describes an architecture that you can use to replace the manual an
 - [Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) is part of [Azure AI services](https://azure.microsoft.com/products/cognitive-services). It's used to retrieve information about each image.
 - [Custom Vision](https://azure.microsoft.com/products/cognitive-services/custom-vision-service) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
 - [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
-- [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) (formerly SQL DW) is a collection of analytics resources that are provisioned when you use Azure Synapse SQL.
+- [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an end-to-end unified analytics platform to streamline data integraion.  It is designed to simplify the process of managing and analyzing data across various domains by providing a comprehensive suite of tools and services within a single platform.
+- [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
+
+## Architecture
+
+:::image type="content" source="_images/analyze-video-content-video-retrieval-api.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content-video-retrieval-api.png":::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/XXXX) of this architecture.*
+
+### Workflow
+
+1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
+2. A preconfigured logic app that monitors Blob Storage detects that new videos are being uploaded. It starts a workflow.
+3. The logic app calls the Azure AI Vision Video Retrieval API to create an index using the PUT method.
+4. The logic app calls the Azure AI Vision Video Retrieval API to add video documents to the index using the PUT method.
+5. A preconfigured logic app that monitors the ingestion, check when the indexing is complete with the GET method.
+6. The logic app calls Video Retrieval API to search with natural language, identify objects, features, or qualities in the images.
+7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in SQL Database in Fabric that is currently in preview.
+8. Power BI provides data visualization.
+
+### Components
+
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) provides object storage for cloud-native workloads and machine learning stores. In this architecture, it stores the uploaded video files.
+- [Video Retrieval API](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/video-retrieval) is part of [Azure AI Vision](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview). It's used to retrieve information directly from the video.
+- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time.
+- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview) is an end-to-end analytics and data platform designed for enterprises that require a unified solution.
+- [SQL database in Fabric](https://blog.fabric.microsoft.com/en-us/blog/announcing-sql-database-in-microsoft-fabric-public-preview?ft=All) is a preview feature annonced at Ignite 2024, centered on three themes: simple, autonomous and secure, and optimized for AI.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
+
+
 
 ### Alternatives
 
+- [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/) is a solution that analyzes and comprehends various media content—such as audio, video, text, and images—transforming it into structured, organized, and searchable data. It was annonced as a new AI service at Ignite 2024, it is currenly in preview.
 - [Azure Video Indexer](https://azure.microsoft.com/products/ai-video-indexer) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed serverless data integration service that helps you construct extract, transform, load (ETL) and extract, load, transform (ELT) processes.
 - [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure.
@@ -141,10 +170,4 @@ Other contributors:
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [What is Power BI Embedded analytics?](/power-bi/developer/embedded/embedded-analytics-power-bi)
-- [Business Process Accelerator](https://github.com/Azure/business-process-automation)
-
-## Related resources
-
-- [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
-- [Image classification on Azure](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
-- [MLOps framework to upscale machine learning lifecycle](../../ai-ml/guide/mlops-technical-paper.yml)
+- See the [Business process automation solution](https://github.com/Azure/business-process-automation) on GitHub
