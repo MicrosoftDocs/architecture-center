@@ -226,7 +226,6 @@ Principal author:
 
 - [DevTest and DevOps for IaaS solutions][DevTest and DevOps for IaaS solutions]
 - [DevSecOps on AKS][DevSecOps on AKS]
-- [A computer-aided engineering service][A computer-aided engineering service]
 
 [Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Azure VM Image Builder]: /azure/virtual-machines/image-builder-overview
@@ -237,7 +236,6 @@ Principal author:
 [Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
 [Azure VM Image Builder - pricing]: https://azure.microsoft.com/pricing/details/image-builder
 [Bulkhead pattern]: ../../patterns/bulkhead.yml
-[A computer-aided engineering service]: ../apps/hpc-saas.yml#considerations
 [Control and audit your resources by using Azure Policy]: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml

@@ -123,7 +123,7 @@ To deploy more applications, you can use a [hub-spoke network topology](../../ne
 
 ## Multi-region deployment
 
-Business continuity and disaster recovery might require deploying your application across multiple Azure regions, which can impact data residency and security. For a reference architecture for multi-region deployments, see [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml).
+Business continuity and disaster recovery might require deploying your application across multiple Azure regions, which can impact data residency and security.
 
 ### Regional pairs
 

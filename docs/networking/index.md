@@ -91,7 +91,6 @@ The following sections, organized by category, provide links to sample networkin
 - [Hub-and-spoke network topology with Azure Virtual WAN](../networking/architecture/hub-spoke-vwan-architecture.yml)
 
 ### Multi-region networking
-- [Multi-region N-tier application](../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Multi-region load balancing with Azure Traffic Manager and Application Gateway](../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
 
 ## Stay current with networking

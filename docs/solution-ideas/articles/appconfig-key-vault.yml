@@ -23,6 +23,6 @@ products:
   - entra-id
   - azure-app-configuration
   - azure-key-vault
-thumbnailUrl: /azure/architecture/browse/thumbs/appconfig-development.png
+thumbnailUrl: /azure/architecture/browse/thumbs/app-configuration-development.png
 content: |
    [!include[](appconfig-key-vault-content.md)]
