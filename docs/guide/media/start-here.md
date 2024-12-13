@@ -85,6 +85,3 @@ Here are some additional articles about Azure media solutions:
 - [Monitor Media Services](/azure/media-services/latest/monitoring/monitor-media-services?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Content protection with dynamic encryption and key delivery](/azure/media-services/latest/drm-content-protection-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
-### AWS professionals
-
-- [AWS to Azure services comparison - Media Services](../../aws-professional/services.md#miscellaneous)

@@ -128,5 +128,5 @@ Following are a few more management and governance architectures to consider:
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - Management and governance](../../aws-professional/services.md#management-and-governance)
+- [AWS to Azure services comparison - Management and governance](../../aws-professional/index.md#management-and-governance)
 - [Google Cloud to Azure services comparison - Management](../../gcp-professional/services.md#management)

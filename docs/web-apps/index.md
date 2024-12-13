@@ -124,5 +124,5 @@ Here are some additional implementations to consider:
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - Web applications](/azure/architecture/aws-professional/services#web-applications)
+- [AWS to Azure services comparison - Web applications](/azure/architecture/aws-professional/index#web-applications)
 - [Google Cloud to Azure services comparison - Application services](/azure/architecture/gcp-professional/services#application-services)
