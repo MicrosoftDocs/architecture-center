@@ -275,9 +275,11 @@
 			<stop offset="0.55" stop-color="#6dad2a" stop-opacity="1"/>
 			<stop offset="1" stop-color="#76bc2d" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-967" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.454718861693 0.5 0.5)">
 		<linearGradient id="grad0-964" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.454718861693 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="0.12" stop-color="#d7d7d7" stop-opacity="1"/>
 			<stop offset="0.42" stop-color="#ebebeb" stop-opacity="1"/>
+			<stop offset="0.72" stop-color="#f8f8f8" stop-opacity="1"/>
 			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
 		</linearGradient>
 	</defs>
