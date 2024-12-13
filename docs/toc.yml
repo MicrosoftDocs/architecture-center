@@ -921,15 +921,10 @@ items:
         href: virtual-machines/baseline.yml
       - name: VM baseline in Azure landing zones
         href: virtual-machines/baseline-landing-zone.yml
-<<<<<<< HEAD
       - name: Teamcenter baseline architecture
         href: example-scenario/manufacturing/teamcenter-baseline.yml
       - name: Teamcenter with Azure NetApp Files
         href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
-      - name: Multi-region N-tier application
-        href: reference-architectures/n-tier/multi-region-sql-server.yml       
-=======
->>>>>>> 9b74eae7d184b1e479eae9fdd6e00fc09861bac6
       - name: Multi-region load balancing
         href: high-availability/reference-architecture-traffic-manager-application-gateway.yml    
       - name: Multi-tier web application built for HA/DR
@@ -2382,30 +2377,6 @@ items:
       items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
-      - name: Siemens
-        items:
-        - name: Industrial Edge with Azure AI
-          href: example-scenario/manufacturing/azure-ai-siemens-industrial-edge.yml
-      - name: Anomaly detection for conveyor belts
-        href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
-      - name: Automated fab scheduling and dispatching
-        href: example-scenario/manufacturing/fab-scheduling-azure.yml
-      - name: CAE simulations for manufacturing
-        href: example-scenario/hpc/hpc-run-cae-simulations.yml
-      - name: Quality assurance
-        href: solution-ideas/articles/quality-assurance.yml
-    - name: Solution ideas
-      items:
-      - name: Azure 5G split core shop floor network
-        href: solution-ideas/articles/private-network-split-core-manufacture.yml
-  - name: Telecommunications
-    items:
-    - name: Overview
-      href: industries/telecommunications.md
-        - name: Teamcenter baseline architecture
-          href: example-scenario/manufacturing/teamcenter-baseline.yml
-        - name: Teamcenter with Azure NetApp Files
-          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
     - name: Solution ideas
       items:
       - name: Customer order forecasting
@@ -2422,8 +2393,6 @@ items:
       items:
       - name: All telecommunications architectures
         href: /azure/architecture/browse/?terms=telecommunications
-      - name: Geospatial analysis for telecommunications
-        href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
   - name: Additional verticals
     items:
     - name: Game Development
