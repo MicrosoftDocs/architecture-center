@@ -41,10 +41,16 @@ items:
       href: guide/architecture-styles/event-driven.yml
     - name: Microservices
       items:
+      - name: Get started
+        href: microservices/index.yml
       - name: Microservice architecture style
         href: guide/architecture-styles/microservices.yml
       - name: Guides
         items:
+          - name: Microservices assessment and readiness
+            href: guide/technology-choices/microservices-assessment.md
+          - name: CI/CD for microservices
+            href: microservices/ci-cd.yml
           - name: Domain modeling for microservices
             items:
             - name: Domain analysis
@@ -519,26 +525,8 @@ items:
         href: aws-professional/security-identity.md
       - name: Storage
         href: aws-professional/storage.md
-    - name: Services comparison
-      href: aws-professional/services.md
     - name: Guidance
       items:
-      - name: Automation for AWS
-        items:
-        - name: Authenticate runbooks with AWS
-          href: /azure/automation/automation-config-aws-account
-          maintainContext: true
-        - name: Deploy an AWS VM with a runbook
-          href: /azure/automation/automation-scenario-aws-deployment
-          maintainContext: true
-      - name: Cost management for AWS
-        items:
-        - name: Set up AWS for Cost Management
-          href: /azure/cost-management-billing/costs/aws-integration-set-up-configure
-          maintainContext: true
-        - name: Manage AWS costs in Azure
-          href: /azure/cost-management-billing/costs/aws-integration-manage
-          maintainContext: true
       - name: Identity management for AWS
         items:
         - name: Microsoft Entra identity management for AWS
@@ -875,8 +863,6 @@ items:
         href: solution-ideas/articles/analytics-service-bus.yml
   - name: Blockchain + Multiparty Compute
     items:
-    - name: Get started
-      href: guide/blockchain/multiparty-compute.yml
     - name: Guides
       items:
       - name: Azure Confidential Ledger guidance
@@ -915,12 +901,6 @@ items:
       - name: Azure SQL Database ledger
         href: /sql/relational-databases/security/ledger/ledger-overview
         maintainContext: true
-      - name: Decentralized trust between banks
-        href: example-scenario/apps/decentralized-trust.yml
-    - name: Solution ideas
-      items:
-      - name: Supply chain management with Kaleido
-        href: guide/blockchain/blockchain-service.yml
   - name: Compute
     items:
     - name: Get started
@@ -983,6 +963,8 @@ items:
           href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
         - name: Migrate HP-UX workloads
           href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
+        - name: Migrate IBM apps with TmaxSoft
+          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
         - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
@@ -1011,6 +993,8 @@ items:
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
         - name: Replatform AIX workloads
           href: example-scenario/mainframe/replatform-aix-workloads.yml
+        - name: Solaris emulator on Azure VMs
+          href: solution-ideas/articles/solaris-azure.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
@@ -1195,24 +1179,10 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
     href: databases/index.yml
-  - name: DataOps
-    items:
-    - name: Get started
-      href: data-guide/azure-dataops-architecture-design.md
-    - name: Guides
-      items:
-      - name: Build a scalable system for massive data
-        href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-    - name: Solution ideas
-      items:
-      - name: Azure Data Explorer monitoring
-        href: solution-ideas/articles/monitor-azure-data-explorer.yml
-  - name: Developer Options
+  - name: Developer options
     items:
     - name: Microservices
       items:
-      - name: Get started
-        href: microservices/index.yml
       - name: Guides
         items:
         - name: Microservices assessment and readiness
@@ -1627,8 +1597,6 @@ items:
         href: solution-ideas/articles/protect-backend-apis-azure-management.yml
   - name: Internet of Things
     items:
-    - name: Get started
-      href: reference-architectures/iot/iot-architecture-overview.md
     - name: Guides
       items:
       - name: Enable machine learning inference
@@ -1647,12 +1615,6 @@ items:
       items:
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
-      - name: Batch integration with Azure Digital Twins
-        href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
-      - name: Efficient Docker image deployment
-        href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: Smart places with Azure Digital Twins
-        href: example-scenario/iot/smart-places.yml
       - name: Automotive connected fleets
         href: industries/automotive/automotive-connected-fleets.yml
       - name: Automotive test data analytics
@@ -1665,8 +1627,6 @@ items:
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: IoT analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
-      - name: IoT Edge data storage and processing
-        href: solution-ideas/articles/data-storage-edge.yml
       - name: IoT private file upload to Azure Storage
         href: example-scenario/iot/iot-private-file-upload.yml
       - name: Project 15 IoT sustainability
@@ -1675,24 +1635,6 @@ items:
     items:
     - name: Get started
       href: mainframe/mainframe-midrange-architecture.md
-    - name: App modernization
-      items:
-      - name: Solution ideas
-        items:
-        - name: Migrate IBM apps with TmaxSoft
-          href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-        - name: Solaris emulator on Azure VMs
-          href: solution-ideas/articles/solaris-azure.yml
-    - name: Data modernization
-      items:
-      - name: Solution ideas
-        items:
-        - name: Mainframe access to Azure databases
-          href: solution-ideas/articles/mainframe-access-azure-databases.yml
-        - name: Mainframe file replication on Azure
-          href: solution-ideas/articles/mainframe-azure-file-replication.yml
-        - name: SMA OpCon in Azure
-          href: solution-ideas/articles/sma-opcon-azure.yml
   - name: Management + Governance
     items:
     - name: Get started
@@ -1799,8 +1741,6 @@ items:
       - name: High availability with video on demand
         href: /azure/media-services/latest/architecture-high-availability-encoding-concept
         maintainContext: true
-      - name: Offline audio dubbing
-        href: guide/media/offline-audio-dubbing.yml
       - name: Monitor Media Services
         href: /azure/media-services/latest/monitoring/monitor-media-services
         maintainContext: true
@@ -2012,14 +1952,6 @@ items:
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml
   - name: Networking
     href: networking/index.md        
-  - name: Oracle
-    items:
-    - name: Get started
-      href: solution-ideas/articles/oracle-on-azure-start-here.md
-  - name: SAP
-    items:
-    - name: Get started
-      href: reference-architectures/sap/sap-overview.yml
   - name: Security
     items:
     - name: Get started
@@ -2310,6 +2242,8 @@ items:
         items:
         - name: Mainframe file and tape backup to Azure using Luminex
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
+        - name: Mainframe file replication on Azure
+          href: solution-ideas/articles/mainframe-azure-file-replication.yml
         - name: BMC AMI Cloud mainframe modernization
           href: example-scenario/mainframe/mainframe-modernization-bmc-ami-cloud.yml
         - name: Move mainframe archive data to Azure
@@ -2522,8 +2456,6 @@ items:
           href: /azure/architecture/browse/?terms=facilities
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
-        - name: Smart places with Azure Digital Twins
-          href: example-scenario/iot/smart-places.yml
     - name: Aerospace
       items:
       - name: Overview
@@ -2550,8 +2482,6 @@ items:
               href: /azure/architecture/microservices/design/api-design
             - name: Data considerations
               href: /azure/architecture/microservices/design/data-considerations
-          - name: Monitor drone delivery in production
-            href: microservices/logging-monitoring.yml
           - name: Performance tuning for drones
             items:
             - name: Distributed business transactions
@@ -2584,12 +2514,8 @@ items:
       items:
       - name: Overview
         href: industries/sports.md
-      - name: Architectures
-        items:
-        - name: All sports architectures
-          href: /azure/architecture/browse/?terms=sports
-        - name: Create smart stadiums
-          href: example-scenario/iot/smart-places.yml
+      - name: All sports architectures
+        href: /azure/architecture/browse/?terms=sports
 - name: Microsoft Azure Well-Architected Framework
   href: /azure/well-architected/
 - name: Cloud Adoption Framework for Azure

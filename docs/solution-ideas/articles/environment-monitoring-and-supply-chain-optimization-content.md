@@ -121,4 +121,4 @@ Principal author:
 
 ## Related resources
 
-- [Azure IoT reference architecture](../../reference-architectures/iot/iot-architecture-overview.md)
+- [IoT architectures](/azure/architecture/browse/?azure_categories=iot)

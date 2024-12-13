@@ -59,11 +59,10 @@ Principal author:
 
 - [Michael Yen-Chi Ho](https://www.linkedin.com/in/yenchiho/) | Senior Program Manager
 
-## Next Steps
+## Next steps
 
 ### SAP
 
-- [SAP on Azure Architecture Guide](../../reference-architectures/sap/sap-overview.yml)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
 - [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
 - [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)

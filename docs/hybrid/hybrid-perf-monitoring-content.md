@@ -198,8 +198,6 @@ Learn more about the component technologies:
 
 ## Related resources
 
-Explore related architectures:
-
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)
 
