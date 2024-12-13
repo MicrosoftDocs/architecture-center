@@ -55,3 +55,4 @@ Principal author:
 ## Related resources
 
 - [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
+- [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot)

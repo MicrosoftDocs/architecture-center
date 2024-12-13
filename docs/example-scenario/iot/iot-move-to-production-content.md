@@ -78,6 +78,7 @@ Principal authors:
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next step
+## Next steps
 
+- [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot)
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)

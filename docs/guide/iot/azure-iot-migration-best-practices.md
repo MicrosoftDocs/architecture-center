@@ -150,3 +150,4 @@ Other contributors:
 ## Related resources
 
 - [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md)
+- [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot)

@@ -118,3 +118,7 @@ Principal author:
 - [myDevices](https://mydevices.com) provides LoRa connectivity and devices that enable solutions to be deployed quickly in locations where connectivity is a challenge and broad network coverage is needed.
 - [C.H. Robinson Navisphere](https://news.microsoft.com/2020/07/14/c-h-robinson-announces-alliance-with-microsoft-to-digitally-transform-the-supply-chain-of-the-future) works with Microsoft Azure and Azure IoT to provide real-time visibility into the supply chain and for more predictability and proactive decision making.
 - [EPA AirNow API](https://docs.airnowapi.org) provides access to real-time air quality and wildfire data from [AirNow](https://www.airnow.gov), a service maintained by the US Environmental Protection Agency (EPA) and other federal, tribal, state, and local agencies.
+
+## Related resources
+
+- [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot)
