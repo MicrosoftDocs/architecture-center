@@ -1759,7 +1759,7 @@ items:
         - name: Manage configurations for Azure Arc
           href: hybrid/azure-arc-hybrid-config.yml
       - name: Line-of-business app with ASEv3
-        href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml 
+        href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
     - name: Solution ideas
       items:
       - name: Archive on-premises data to cloud

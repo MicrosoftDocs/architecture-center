@@ -12,7 +12,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/monitor-azure-data-explorer.yml",
-      "redirect_url": "/azure/data-explorer/index",
+      "redirect_url": "/azure/data-explorer/",
       "redirect_document_id": false
     },
     {
@@ -32,17 +32,17 @@
     },
     {
       "source_path": "docs/example-scenario/apps/decentralized-trust.yml",
-      "redirect_url": "/training/paths/ethereum-blockchain-development",
+      "redirect_url": "/training/paths/ethereum-blockchain-development/",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/blockchain/blockchain-service.yml",
-      "redirect_url": "/training/paths/ethereum-blockchain-development",
+      "redirect_url": "/training/paths/ethereum-blockchain-development/",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/blockchain/multiparty-compute.yml",
-      "redirect_url": "/training/paths/ethereum-blockchain-development",
+      "redirect_url": "/training/paths/ethereum-blockchain-development/",
       "redirect_document_id": false
     },
     {
