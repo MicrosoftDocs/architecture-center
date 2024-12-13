@@ -12,7 +12,7 @@ In the development environment, the app uses an identity via Visual Studio or ve
 
 :::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a development environment." source="../media/app-configuration-development.svg" lightbox="../media/app-configuration-development.svg" border="false":::
 
-[Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
+[Download a Visio file](https://arch-center.azureedge.net/app-configuration-development.vsdx) of this architecture.
 
 ### Azure staging or production environment
 
@@ -20,7 +20,7 @@ The Azure staging and production environments use a [managed identity](/azure/ac
 
 :::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a staging or production environment." source="../media/app-configuration-azure.svg" lightbox="../media/app-configuration-azure.svg" border="false":::
 
-[Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
+[Download a Visio file](https://arch-center.azureedge.net/app-configuration-development.vsdx) of this architecture.
 
 ### Dataflow
 
