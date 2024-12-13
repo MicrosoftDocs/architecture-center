@@ -4340,7 +4340,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/transit-hub.yml",
-      "redirect_url": "/azure/azure-functions/"
+      "redirect_url": "/azure/azure-functions/",
     },
     {
       "source_path": "docs/ai-ml/architecture/speech-to-text-transcription-analytics.yml",
