@@ -4291,54 +4291,52 @@
       "redirect_document_id": false
     },
     {
-    },
-    {
       "source_path": "docs/microservices/migrate-monolith.yml",
-      "redirect_url": "/azure/architecture/guide/architecture-styles/microservices"
+      "redirect_url": "/azure/architecture/guide/architecture-styles/microservices",
     },
     {
       "source_path": "docs/reference-architectures/logging/enterprise-grade-logging.yml",
-      "redirect_url": "/azure/azure-monitor/"
+      "redirect_url": "/azure/azure-monitor/",
     },
     {
       "source_path": "docs/reference-architectures/microservices/service-fabric.yml",
-      "redirect_url": "/azure/service-fabric/service-fabric-overview"
+      "redirect_url": "/azure/service-fabric/service-fabric-overview",
     },
     {
       "source_path": "docs/serverless/guide/serverless-app-cicd-best-practices.yml",
-      "redirect_url": "/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp%2Cwindows&pivots=v1"
+      "redirect_url": "/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp%2Cwindows&pivots=v1",
     },
     {
       "source_path": "docs/guide/devops/monitor-with-opencensus-application-insights.yml",
-      "redirect_url": "/azure/azure-monitor/app/distributed-trace-data"
+      "redirect_url": "/azure/azure-monitor/app/distributed-trace-data",
     },
     {
       "source_path": "docs/example-scenario/serverless/serverless-multicloud.yml",
-      "redirect_url": "/azure/azure-functions/"
+      "redirect_url": "/azure/azure-functions/",
     },
     {
       "source_path": "docs/example-scenario/signalr/index.yml",
-      "redirect_url": "/azure/azure-signalr/signalr-overview"
+      "redirect_url": "/azure/azure-signalr/signalr-overview",
     },
     {
       "source_path": "docs/reference-architectures/serverless/event-processing.yml",
-      "redirect_url": "/azure/azure-functions/event-messaging-bindings"
+      "redirect_url": "/azure/azure-functions/event-messaging-bindings",
     },
     {
       "source_path": "docs/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml",
-      "redirect_url": "/azure/architecture/ai-ml/"
+      "redirect_url": "/azure/architecture/ai-ml/",
     },
     {
       "source_path": "docs/solution-ideas/articles/serverless-application-architectures-using-event-grid.yml",
-      "redirect_url": "/azure/event-grid/"
+      "redirect_url": "/azure/event-grid/",
     },
     {
       "source_path": "docs/solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml",
-      "redirect_url": "/azure/azure-functions/"
+      "redirect_url": "/azure/azure-functions/",
     },
     {
       "source_path": "docs/solution-ideas/articles/serverless-event-processing-private-link.yml",
-      "redirect_url": "/azure/azure-functions/event-messaging-bindings"
+      "redirect_url": "/azure/azure-functions/event-messaging-bindings",
     },
     {
       "source_path": "docs/solution-ideas/articles/transit-hub.yml",
