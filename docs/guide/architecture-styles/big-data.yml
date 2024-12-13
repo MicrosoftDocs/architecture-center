@@ -4,7 +4,7 @@ metadata:
   description: Explore the benefits, challenges, and best practices for Big Data architectures on Azure. Examine IoT architecture, a specialized subset of big data solutions.
   author: gurkamaldeep
   ms.author: grakhra
-  ms.date: 012/12/2024
+  ms.date: 12/12/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.subservice: architecture-guide
