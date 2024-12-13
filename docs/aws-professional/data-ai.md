@@ -19,8 +19,7 @@ products:
 
 This article compares the core Azure data and AI services to the corresponding Amazon Web Services (AWS) services.
 
-- For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](/azure/architecture/aws-professional/).
-- For a complete comparison of Azure services with AWS services, see [AWS to Azure services comparison](/azure/architecture/aws-professional/services).
+For comparison of other AWS and Azure services, see [Azure for AWS professionals](./index.md).
 
 ## Data governance, management, and platforms
 

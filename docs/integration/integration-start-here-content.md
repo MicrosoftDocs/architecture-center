@@ -76,7 +76,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### AI
 
-- [Remote patient monitoring solutions][Remote patient monitoring solutions]: Remotely monitor patients and analyze the large volume of data that medical devices generate.
 - [Quality assurance][Quality assurance]: Implement quality assurance in an assembly line by using analytics and machine learning to predict problems.
 
 #### E-commerce
@@ -93,14 +92,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 - [Elastic Workplace Search on Azure][Elastic Workplace Search on Azure]: Use Workplace Search to capture information from numerous heterogeneous sources and make it searchable.
 - [Power Automate deployment at scale][Power Automate deployment at scale]: Use a hub-and-spoke model to deploy Power Automate parent and child flows.
 - [Line-of-business extension][Line of business extension]: Retrieve data from legacy systems on an ongoing basis and make it available in Power BI.
-
-#### Healthcare
-
-[Health data consortium][Health data consortium]: Share data among members of a healthcare consortium.
-
-#### High-performance computing
-
-[HPC risk analysis template][HPC risk analysis template]: Use Azure CycleCloud in a risk analysis application to expand on-premises TIBCO GridServer compute to Azure.
 
 ## Best practices
 
@@ -148,7 +139,6 @@ The following resources provide practical recommendations and information for sp
 ### Information for Amazon Web Services (AWS)
 
 - [Messaging services on Azure and AWS][Messaging services on Azure and AWS]
-- [AWS to Azure services comparison—miscellaneous back-end process logic][AWS to Azure services comparison—Miscellaneous backend process logic]
 
 ### Information for Google Cloud professionals
 
@@ -156,12 +146,10 @@ The following resources provide practical recommendations and information for sp
 - [Google Cloud to Azure services comparison—miscellaneous workflow][Google Cloud to Azure services comparison—Miscellaneous workflow]
 
 [About connectors in Azure Logic Apps]: /azure/connectors/apis-list?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Apache NiFi on Azure]: ../example-scenario/data/azure-nifi.yml
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
 [Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
-[AWS to Azure services comparison—Miscellaneous backend process logic]: ../aws-professional/services.md#miscellaneous
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
 [Azure Logic Apps ACOM page]: https://azure.microsoft.com/services/logic-apps
 [Azure Policy Regulatory Compliance controls for Azure Logic Apps]: /azure/logic-apps/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
@@ -186,8 +174,6 @@ The following resources provide practical recommendations and information for sp
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Google Cloud to Azure services comparison—Messaging and eventing]: ../gcp-professional/services.md#messaging-and-eventing
 [Google Cloud to Azure services comparison—Miscellaneous workflow]: ../gcp-professional/services.md#miscellaneous
-[Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml
-[HPC risk analysis template]: ../solution-ideas/articles/hpc-risk-analysis.yml
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
 [Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
 [Integrate Event Hubs with serverless functions on Azure]: ../serverless/event-hubs-functions/event-hubs-functions.yml
@@ -203,8 +189,6 @@ The following resources provide practical recommendations and information for sp
 [Performance and scale for Event Hubs and Azure Functions]: ../serverless/event-hubs-functions/performance-scale.yml
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
-[Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
-[Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml

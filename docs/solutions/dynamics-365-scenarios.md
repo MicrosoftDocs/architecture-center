@@ -75,31 +75,16 @@ Azure Active Directory is now Microsoft Entra ID. For more information, see [New
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Architectural approaches for the deployment and configuration of multitenant solutions](../guide/multitenant/approaches/deployment-configuration.yml)|Learn about deploying and configuring a multitenant solution. Use Dynamics 365 to trigger an onboarding process when a sale is made to a new customer.| Multitenancy|
-|[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)|Use Azure Digital Twins to create models of smart places from IoT device data. You can use this data to inform Dynamics 365 applications.| IoT|
 |[Enterprise-scale disaster recovery](../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml) |Review a large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers that runs on an on-premises datacenter and fails over to Azure infrastructure.|Management|
 |[Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps. Includes information about replicating data between Dynamics 365 instances.|Web|
 |[Multitenancy and identity management](../multitenant-identity/index.yml) |Learn authentication, authorization, and identity management best practices for multitenant applications. In these architectures, Dynamics CRM tenants store user profiles in Microsoft Entra ID. |Identity|
-|[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml) |Review a set of guiding tenets that you can use to help ensure the quality of SAP workloads that run on Azure. A recommended identity management system, Microsoft Entra ID, integrates with Dynamics CRM Online.|SAP|
 |[Serverless computing solution for LOB apps](../solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)|Build and run customer onboarding applications without managing or maintaining infrastructure. Customer information is stored in Dynamics 365. |Serverless|
-
-### Dynamics 365 Customer Engagement
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)|Learn about an architecture that you can use to gather insights from clinical and medical data by using Microsoft Cloud for Healthcare. Dynamics 365 components include an application that stores a list of patients together with scores that indicate the urgency of their cases.| Web|
-|[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml) |Learn about an architecture that you can use to develop a virtual health solution by using Microsoft Cloud for Healthcare. One component of the solution is an application deployed via Dynamics 365 that presents an aggregated view of patient data in Teams.|Web|
 
 ### Dynamics 365 Customer Insights
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Enhanced customer dimension with Dynamics 365 Customer Insights](../solution-ideas/articles/customer-insights-synapse.yml) |Use Customer Insights to create an enhanced customer dataset and make it available in Azure Data Lake for consumption by Azure Synapse Analytics.|Analytics|
-
-### Dynamics 365 Sales
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)|Learn about an architecture that you can use to gather insights from clinical and medical data by using Microsoft Cloud for Healthcare. Dynamics 365 components include an application that stores a list of patients together with scores that indicate the urgency of their cases.|Web|
 
 ### Service
 

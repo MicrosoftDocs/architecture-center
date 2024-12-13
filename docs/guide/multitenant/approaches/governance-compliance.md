@@ -47,7 +47,7 @@ Whichever isolation approaches you implement, be prepared for tenants to request
 
 Understand whether there are any restrictions on the physical location for your tenants' data that's to be stored or processed. Your tenants might require you store their data in specific geographic locations. They might also require that you *don't* store their data in certain locations. Although these requirements are commonly based on legislation, they can also be based on cultural values and norms.
 
-For more information about data residency and sovereignty, see the whitepaper [Enabling Data Residency and Data Protection in Microsoft Azure Regions](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure).
+For more information about data residency and sovereignty, see the whitepaper [Enabling Data Residency and Data Protection in Microsoft Azure Regions](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Enabling_Data_Residency_and_Data_Protection_in_Azure_Regions-2021.pdf).
 
 ### Tenants' access to data that you store
 
@@ -71,7 +71,7 @@ Consider whether you need to combine or aggregate data from multiple tenants. Fo
 
 It's important that you understand whether you need to meet any compliance standards. Compliance requirements might be introduced in several situations, including:
 
-- You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the [healthcare industry](../../../industries/healthcare.md), you might need to comply with the HIPAA standard.
+- You, or any of your tenants, work within certain industries. For example, if any of your tenants work in the healthcare industry, you might need to comply with the HIPAA standard.
 - You, or any of your tenants, are located in geographic or geopolitical regions that require compliance with local laws. For example, if any of your tenants are located in Europe, you might need to comply with [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr).
 - You purchase a cyberinsurance policy to mitigate the risk of breaches. Cyberinsurance providers might require that you follow their standards and apply specific controls for your policy to be valid.
 

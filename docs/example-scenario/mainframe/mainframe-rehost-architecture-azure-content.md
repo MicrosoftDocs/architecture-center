@@ -158,5 +158,5 @@ For more information, contact **legacy2azure@microsoft.com**.
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe and midrange data replication to Azure using Qlik](mainframe-midrange-data-replication-azure-qlik.yml)
-- [Mainframe modernization using Model9](mainframe-modernization-model9.yml)
+- [Mainframe modernization by using BMC AMI Cloud](mainframe-modernization-bmc-ami-cloud.yml)
 - [Rehost mainframe applications by using NTT DATA UniKix](rehost-mainframe-ntt-data-unikix.yml)

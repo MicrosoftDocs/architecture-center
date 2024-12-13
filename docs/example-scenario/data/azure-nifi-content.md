@@ -934,7 +934,6 @@ For more information, see the following resources:
 ## Related resources
 
 - [Helm-based deployments for Apache NiFi][Helm-based deployments for Apache NiFi]
-- [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
 - [DataOps for the modern data warehouse](/azure/architecture/databases/architecture/dataops-mdw)
 - [Data warehousing and analytics][Data warehousing and analytics]
 
@@ -949,7 +948,6 @@ For more information, see the following resources:
 [Availability Zones]: /azure/reliability/availability-zones-overview
 [Microsoft Entra ID]: https://azure.microsoft.com/services/active-directory
 [Azure Application Gateway documentation]: /azure/application-gateway
-[Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Azure DevOps]: https://azure.microsoft.com/services/devops
 [Azure Key Vault]: /azure/key-vault
 [Azure Monitor and Azure Data Explorer query differences]: /azure/azure-monitor/log-query/data-explorer-difference

@@ -126,7 +126,6 @@ Here are a few sample implementations of storage on Azure:
 - [Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
 - [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)
-- [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering)
 
 [See more storage examples in the Azure Architecture Center.](/azure/architecture/browse/?azure_categories=storage)
 

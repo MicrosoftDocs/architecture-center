@@ -281,5 +281,5 @@ Principal author:
 ## Related resources
 
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
-- [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
+
 
