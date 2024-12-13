@@ -16,7 +16,7 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 ### HTTP(S) vs. non-HTTP(S)
 
 - **HTTP(S)**: These load-balancing services are [Layer 7](https://www.iso.org/ics/35.100.70/x/) load balancers that only accept HTTP(S) traffic. They're intended for web applications or other HTTP(S) endpoints. They might have features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
-- **Non-HTTP(S)**: These load-balancing services are [Layer 4](https://www.iso.org/ics/35.100.40/x/) load balancers that can handle non-HTTP(S) traffic, primarily TCP or UDP services.
+- **Non-HTTP(S)**: These load-balancing services are either [Layer 4](https://www.iso.org/ics/35.100.40/x/) TCP or UDP services, or DNS Load Balancing.
 
 The following table summarizes the Azure load-balancing services.
 
@@ -28,7 +28,7 @@ The following table summarizes the Azure load-balancing services.
 | Azure Load Balancer       | Regional or Global | Non-HTTP(S)      |
 
 > [!NOTE]
-> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute HTTP(S) traffic, but do not have any specific features to route based on protocol data unit information higher than Layer 4. They both support HTTP(S) traffic, but only at Layer 4 functionality levels.
+> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute any traffic, including HTTP(S). However, they do not have specific Layer 7 features. Azure Load Balancer supports HTTP(S) traffic at Layer 4, while Azure Traffic Manager doesn’t handle the traffic directly, as it uses DNS to direct clients to the appropriate endpoints.
 
 ## Azure load-balancing services
 
