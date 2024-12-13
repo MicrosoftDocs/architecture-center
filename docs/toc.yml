@@ -2695,14 +2695,14 @@ items:
           href: web-apps/serverless/architectures/web-app.yml
         - name: Spaceborne data analysis
           href: industries/aerospace/geospatial-processing-analytics.yml
-      - name: Agriculture
+    - name: Agriculture
+      items:
+      - name: Architectures
         items:
-        - name: Architectures
-          items:
-          - name: All agriculture architectures
-            href: /azure/architecture/browse/?terms=agriculture
-          - name: Environment monitoring
-            href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+        - name: All agriculture architectures
+          href: /azure/architecture/browse/?terms=agriculture
+        - name: Environment monitoring
+          href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
     - name: Sports
       items:
       - name: Overview
