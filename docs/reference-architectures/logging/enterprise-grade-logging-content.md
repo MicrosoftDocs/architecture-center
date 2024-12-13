@@ -283,4 +283,3 @@ Principal author:
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
 
 
-
