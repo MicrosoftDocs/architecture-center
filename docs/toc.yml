@@ -2695,22 +2695,20 @@ items:
           href: web-apps/serverless/architectures/web-app.yml
         - name: Spaceborne data analysis
           href: industries/aerospace/geospatial-processing-analytics.yml
-    - name: Agriculture
-      items:
-      - name: Architectures
+      - name: Agriculture
         items:
-        - name: All agriculture architectures
-          href: /azure/architecture/browse/?terms=agriculture
-        - name: Environment monitoring
-          href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+        - name: Architectures
+          items:
+          - name: All agriculture architectures
+            href: /azure/architecture/browse/?terms=agriculture
+          - name: Environment monitoring
+            href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
     - name: Sports
       items:
       - name: Overview
         href: industries/sports.md
-      - name: Architectures
-        items:
-        - name: All sports architectures
-          href: /azure/architecture/browse/?terms=sports
+      - name: All sports architectures
+        href: /azure/architecture/browse/?terms=sports
 - name: Microsoft Azure Well-Architected Framework
   href: /azure/well-architected/
 - name: Cloud Adoption Framework for Azure
