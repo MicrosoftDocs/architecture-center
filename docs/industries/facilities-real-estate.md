@@ -37,9 +37,6 @@ Watch this short video to get a sense of some of the things smart buildings can 
 
 > [!VIDEO https://www.youtube.com/embed/CEAyzkuuAQ8]
 
-## Architectures for facilities and real estate
-The following article provides detailed analysis of an architecture created and recommended for the facilities and real-estate industries.
-
 ## Solution ideas for facilities and real estate 
 The following are other ideas that you can use as a starting point for your facilities and real estate solution.
 

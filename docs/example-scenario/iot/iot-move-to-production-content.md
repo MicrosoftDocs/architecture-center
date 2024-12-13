@@ -81,4 +81,3 @@ Principal authors:
 ## Next steps
 
 - [IoT architectures](/azure/architecture/browse/?azure_categories=iot)
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
