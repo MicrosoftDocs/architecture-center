@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Developing a RAG solution - Preparation phase
-  description: Learn what you should consider when gathering test documents and queries. You use these artifacts to test and validate your chunking, information retrieval, and prompt engineering strategies.
+  title: Develop a RAG Solution - Preparation Phase
+  description: Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking and prompt engineering strategies.
   author: robbagby
   ms.author: robbag
-  ms.date: 11/22/2024
+  ms.date: 12/13/2024
   ms.topic: conceptual
   ms.service: azure-architecture-center
   ms.collection: ce-skilling-ai-copilot
@@ -18,7 +18,7 @@ products:
   - azure-openai
   - azure-machine-learning
 name: Preparation
-summary: Learn what you should consider when gathering test documents and queries. You use these artifacts to test and validate your chunking, information retrieval, and prompt engineering strategies.
+summary: Learn about what to consider when you gather test documents and queries. Use this information to test and validate your chunking, retrieve information, and prompt engineering strategies.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |
   [!INCLUDE[](rag-preparation-phase-content.md)]

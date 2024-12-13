@@ -1,39 +1,39 @@
-The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of performing document analysis, gathering documents, and gathering sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The document analysis helps you determine what test documents and test queries you should gather. They're further interrelated in that the questions must be answerable by content in the documents and the documents must answer relevant questions.
+The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you define the business domain for your solution. After you define the domain, you gather documents, perform document analysis, and gather sample questions that are pertinent to the domain. You do these steps in parallel because they're interrelated. For example, document analysis helps you determine which test documents and test queries you should gather. The questions that you ask must be answerable by content in the documents, and the documents must answer relevant questions.
 
-> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
-## Determine solution domain
+## Determine the solution domain
 
-The first step in this process is to clearly define the business requirements for the solution or the use case. These requirements help determine what kind of questions the solution intends to address and what source data or documents help address those questions. In later stages, the solution domain helps inform your embedding model strategy.
+The first step in this process is to clearly define the business requirements for the solution or use case. These requirements help determine what kind of questions the solution intends to answer and what source data or documents help answer those questions. In later phases, the solution domain helps inform your embedding model strategy.
 
 ## Document analysis
 
-The goal of document analysis is to gather enough information about your document corpus to help you understand:
+The goal of document analysis is to gather enough information about your document collection to help you understand:
 
-- The different classifications of documents - For example, do you have product specifications, quarterly reports, car insurance contracts, health insurance contracts, and so on.
-- The different document types - For example, do you have PDFs, Markdown files, HTML files, DOCX files, and so on.
-- The security constraints - For example, whether the documents are publicly accessible or not, or whether they require authentication and authorization to access them
-- The structure of the documents - For example, the length of documents, topic breaks, and whether they have contextually relevant images or tabular data
+- The different classifications of documents. For example, you might have product specifications, quarterly reports, car insurance contracts, or health insurance contracts.
+- The different types of documents. For example, you might have PDFs, Markdown files, HTML files, or DOCX files.
+- The security constraints. For example, you might require authentication and authorization to access the documents depending on whether they're publicly accessible. 
+- The structure of the documents. For example, the length of documents might vary. Or they might have topic breaks, contextually relevant images, or tabular data.
 
 The following sections discuss how this information helps inform your loading and chunking strategies.
 
 ### Classification of documents
 
-You need to understand the different classifications of documents to help you determine the number of test documents you require. This part of the analysis should tell you not only the high-level classifications such as insurance or finance, but also subclassifications, such as health insurance vs. car insurance documents. You also want to understand if the subclassifications have different structures or content.
+You need to understand the different classifications of documents to help you determine the number of test documents that you need. This part of the analysis should tell you about the high-level classifications, such as insurance or finance, and the subclassifications, such as health insurance documents or car insurance documents. You also want to know whether the subclassifications have different structures or content.
 
-The goal is to understand all of the different document variants you have. This understanding helps you determine the number and breakdown of test documents you require. You don't want to over or underrepresent a specific document classification in your experimentation.
+The goal is to understand all of the different document variants that you have. Then you can determine the number and breakdown of test documents that you need. You don't want to over or underrepresent a specific document classification in your experimentation.
 
 ### Document types
 
-Understanding the different file formats in your corpus helps you determine the number and breakdown of test documents. For example, if you have PDF and Office Open XML document types for quarterly reports, you need test documents for each document type. Understanding your document types also helps you understand your technical requirements for loading and chunking your documents, such as specific libraries suited for processing those file formats.
+Understanding the different file formats in your collection helps you determine the number and breakdown of test documents. For example, if you have PDF and Open XML document types for quarterly reports, you need test documents for each document type. Understanding your document types also helps you understand your technical requirements for loading and chunking your documents. These technical requirements include specific libraries that can process those file formats.
 
 ### Security constraints
 
-Understanding security constraints is crucial for determining your loading and chunking strategies. For example, you need to identify whether some or all of your documents require authentication, authorization, or network visibility. If the documents are within a secure perimeter, ensure your code can access them, or implement a process to securely replicate the documents to an accessible location for your processing code.
+Understanding security constraints is crucial for determining your loading and chunking strategies. For example, you need to identify whether some or all of your documents require authentication, authorization, or network visibility. If the documents are within a secure perimeter, ensure that your code can access them or implement a process to securely replicate the documents to an accessible location for your processing code.
 
-Be aware that documents sometimes reference multimedia such as images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself. If that media requires authentication or network line of sight, you again need to either make sure your code can access the media, or you have a prior process that has access that can replicate that content.
+Be aware that documents sometimes reference multimedia like images or audio that are important to the context of the document. That media might also be subject to similar access controls as the document itself. If that media requires authentication or network line of sight, you again need to either make sure that your code can access the media or that you have a process in place that has access and can replicate the content.
 
-If your workload requires that different users only have access to distinct documents or document segments, ensure you understand how you are going to retain those access permissions in your chunking solution.
+If your workload requires that different users only have access to distinct documents or document segments, ensure that you understand how to retain those access permissions in your chunking solution.
 
 ### Document structure
 
