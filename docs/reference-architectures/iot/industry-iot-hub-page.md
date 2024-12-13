@@ -41,6 +41,7 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml). Industries use computer vision and ML for safety and quality assurance applications. This example shows an end-to-end approach to IoT computer vision that improves processes over time.
 
-## Next step
+## Next steps
 
 - [Implement the Azure Industrial IoT reference solution architecture](/azure/iot/tutorial-iot-industrial-solution-architecture)
+- [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot).

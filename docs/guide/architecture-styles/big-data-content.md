@@ -113,8 +113,8 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 ## Next steps
 
-- Learn more about [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot).
 - Learn more about [big data architectures](../../databases/guide/big-data-architectures.yml).
+- Learn more about [IoT architectures](https://learn.microsoft.com/en-us/azure/architecture/browse/?azure_categories=iot).
 
  <!-- links -->
 
