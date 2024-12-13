@@ -10,7 +10,7 @@ This article describes an architecture that you can use to replace the manual an
 
 ### Workflow
 
-1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into the "raw" container.
+1. A collection of video footage, in MP4 format, is uploaded to Azure Blob Storage. Ideally, the videos go into a "raw" container.
 2. A preconfigured pipeline in Azure Machine Learning recognizes that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
 3. FFmpeg, an open-source tool, breaks down the video and extracts frames. You can configure how many frames per second are extracted, the quality of the extraction, and the format of the image file. The format can be JPG or PNG.
 4. The inference cluster sends the images to Azure Data Lake Storage.
